@@ -46,7 +46,10 @@
     "react/react-in-jsx-scope": "off",
     "react/jsx-props-no-spreading": "warn",
     // Not using "noreferrer" is not a security risk, but "noopener" should always be used indeed
-    "react/jsx-no-target-blank": "warn"
-
+    "react/jsx-no-target-blank": "warn",
+    // Should be handled with TS instead
+    "react/prop-types": "off",
+    // ts-ignore are sometimes the only way to bypass a TS issue, we trust we will use them for good and not abuse them
+    "@typescript-eslint/ban-ts-comment": "warn"
   }
 }

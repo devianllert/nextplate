@@ -1,0 +1,9 @@
+node_modules
+.next
+cypress
+src/**/*.test*
+src/gql/**
+src/propTypes/**
+src/svg/**
+src/types/**
+src/components/svg/**

@@ -41,7 +41,12 @@
     "plugin:@typescript-eslint/recommended-requiring-type-checking"
   ],
   "rules": {
+    // Disable line length checks, because the IDE is already configured to warn about it, and it's a waste of time to check for lines that are too long, especially in comments (like this one!)
+    "max-len": "off",
     "react/react-in-jsx-scope": "off",
-    "react/jsx-props-no-spreading": "warn"
+    "react/jsx-props-no-spreading": "warn",
+    // Not using "noreferrer" is not a security risk, but "noopener" should always be used indeed
+    "react/jsx-no-target-blank": "warn"
+
   }
 }

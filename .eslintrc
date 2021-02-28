@@ -43,6 +43,9 @@
   "rules": {
     // Disable line length checks, because the IDE is already configured to warn about it, and it's a waste of time to check for lines that are too long, especially in comments (like this one!)
     "max-len": "off",
+    // Disabled, already handled by @typescript-eslint/no-unused-vars
+    "no-unused-vars": 0,
+    // @see https://ru.reactjs.org/blog/2020/09/22/introducing-the-new-jsx-transform.html
     "react/react-in-jsx-scope": "off",
     "react/jsx-props-no-spreading": "warn",
     // Not using "noreferrer" is not a security risk, but "noopener" should always be used indeed
@@ -50,6 +53,14 @@
     // Should be handled with TS instead
     "react/prop-types": "off",
     // ts-ignore are sometimes the only way to bypass a TS issue, we trust we will use them for good and not abuse them
-    "@typescript-eslint/ban-ts-comment": "warn"
+    "@typescript-eslint/ban-ts-comment": "warn",
+    "@typescript-eslint/no-unsafe-assignment": "off",
+    "import/extensions": "off",
+    // When there is only a single export from a module, don't enforce a default export, but rather let developer choose what's best
+    "import/prefer-default-export": "off",
+    // Don't enforce, let developer choose. Sometimes we like to specifically use "return" for the sake of comprehensibility and avoid ambiguity
+    "no-else-return": 0,
+    // Don't enforce, let developer choose. Sometimes we like to specifically use "return" for ease of debugging and printing
+    "arrow-body-style": 0
   }
 }

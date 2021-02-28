@@ -1,6 +1,16 @@
 import Head from 'next/head';
+import styled from 'styled-components';
 
-export default function Home() {
+const Container = styled.main`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  min-height: 100vh;
+`;
+
+export default function Home(): JSX.Element {
   return (
     <>
       <Head>
@@ -8,7 +18,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <div>123</div>
+      <Container>123</Container>
     </>
   );
 }

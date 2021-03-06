@@ -72,15 +72,13 @@ module.exports = withBundleAnalyzer(withSourceMaps({
     GITHUB_DISPATCH_TOKEN: process.env.GITHUB_DISPATCH_TOKEN,
     GRAPHQL_API_ENDPOINT: process.env.GRAPHQL_API_ENDPOINT,
     GRAPHQL_API_KEY: process.env.GRAPHQL_API_KEY,
-    LOCIZE_API_KEY: process.env.LOCIZE_API_KEY,
-    SENTRY_DSN: process.env.SENTRY_DSN,
 
     // Dynamic env variables
     NEXT_PUBLIC_APP_BUILD_TIME: date.toString(),
     NEXT_PUBLIC_APP_BUILD_TIMESTAMP: +date,
     NEXT_PUBLIC_APP_NAME: packageJson.name,
     NEXT_PUBLIC_APP_NAME_VERSION: `${packageJson.name}-${APP_RELEASE_TAG}`,
-    UNLY_SIMPLE_LOGGER_ENV: process.env.NEXT_PUBLIC_APP_STAGE, // Used by @unly/utils-simple-logger - Fix missing staging logs because otherwise it believes we're in production
+    LOGGER_ENV: process.env.NEXT_PUBLIC_APP_STAGE, // Used by @unly/utils-simple-logger - Fix missing staging logs because otherwise it believes we're in production
     GIT_COMMIT_SHA_SHORT,
     GIT_COMMIT_SHA: process.env.GIT_COMMIT_SHA, // Resolve commit hash from ENV first (set through CI), fallbacks to reading git (when used locally, through "/scripts/populate-git-env.sh")
     GIT_COMMIT_REF: process.env.GIT_COMMIT_REF, // Resolve commit ref (branch/tag) from ENV first (set through CI), fallbacks to reading git (when used locally, through "/scripts/populate-git-env.sh")
@@ -119,30 +117,30 @@ module.exports = withBundleAnalyzer(withSourceMaps({
    * @see https://nextjs.org/docs/api-reference/next.config.js/rewrites
    * @since 9.5 - See https://nextjs.org/blog/next-9-5#rewrites
    */
-  async rewrites() {
-    const rewrites = [
-      // I18n rewrites
-      {
-        // XXX Doesn't work locally (maybe because of rewrites), but works online
-        source: '/',
-        destination: '/api/autoRedirectToLocalisedPage',
-      },
-      {
-        source: `/:locale((?!${noRedirectBasePaths.join('|')})[^/]+)(.*)`,
-        destination: '/api/autoRedirectToLocalisedPage',
-      },
+  // async rewrites() {
+  //   const rewrites = [
+  //     // I18n rewrites
+  //     {
+  //       // XXX Doesn't work locally (maybe because of rewrites), but works online
+  //       source: '/',
+  //       destination: '/api/autoRedirectToLocalisedPage',
+  //     },
+  //     {
+  //       source: `/:locale((?!${noRedirectBasePaths.join('|')})[^/]+)(.*)`,
+  //       destination: '/api/autoRedirectToLocalisedPage',
+  //     },
 
-      // Robots rewrites
-      {
-        source: '/robots.txt',
-        destination: process.env.NEXT_PUBLIC_APP_STAGE === 'production' ? '/robots/production.txt' : '/robots/!production.txt',
-      },
-    ];
+  //     // Robots rewrites
+  //     {
+  //       source: '/robots.txt',
+  //       destination: process.env.NEXT_PUBLIC_APP_STAGE === 'production' ? '/robots/production.txt' : '/robots/!production.txt',
+  //     },
+  //   ];
 
-    console.info('Using rewrites:', rewrites);
+  //   console.info('Using rewrites:', rewrites);
 
-    return rewrites;
-  },
+  //   return rewrites;
+  // },
 
   /**
    * Redirects allow you to redirect an incoming request path to a different destination path.
@@ -156,27 +154,27 @@ module.exports = withBundleAnalyzer(withSourceMaps({
    * @see https://nextjs.org/docs/api-reference/next.config.js/redirects
    * @since 9.5 - See https://nextjs.org/blog/next-9-5#redirects
    */
-  async redirects() {
-    const redirects = [
-      // I18n redirects
-      {
-        // Redirect root link with trailing slash to non-trailing slash, avoids 404 - See https://github.com/vercel/next.js/discussions/10651#discussioncomment-8270
-        source: '/:locale/',
-        destination: '/:locale',
-        permanent: process.env.NEXT_PUBLIC_APP_STAGE !== 'development', // Do not use permanent redirect locally to avoid browser caching when working on it
-      },
-      {
-        // Redirect link with trailing slash to non-trailing slash (any depth), avoids 404 - See https://github.com/vercel/next.js/discussions/10651#discussioncomment-8270
-        source: '/:locale/:path*/',
-        destination: '/:locale/:path*',
-        permanent: process.env.NEXT_PUBLIC_APP_STAGE !== 'development', // Do not use permanent redirect locally to avoid browser caching when working on it
-      },
-    ];
+  // async redirects() {
+  //   const redirects = [
+  //     // I18n redirects
+  //     {
+  //       // Redirect root link with trailing slash to non-trailing slash, avoids 404 - See https://github.com/vercel/next.js/discussions/10651#discussioncomment-8270
+  //       source: '/:locale/',
+  //       destination: '/:locale',
+  //       permanent: process.env.NEXT_PUBLIC_APP_STAGE !== 'development', // Do not use permanent redirect locally to avoid browser caching when working on it
+  //     },
+  //     {
+  //       // Redirect link with trailing slash to non-trailing slash (any depth), avoids 404 - See https://github.com/vercel/next.js/discussions/10651#discussioncomment-8270
+  //       source: '/:locale/:path*/',
+  //       destination: '/:locale/:path*',
+  //       permanent: process.env.NEXT_PUBLIC_APP_STAGE !== 'development', // Do not use permanent redirect locally to avoid browser caching when working on it
+  //     },
+  //   ];
 
-    console.info('Using redirects:', redirects);
+  //   console.info('Using redirects:', redirects);
 
-    return redirects;
-  },
+  //   return redirects;
+  // },
 
   /**
    *

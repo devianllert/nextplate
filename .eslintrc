@@ -10,6 +10,7 @@
     "@typescript-eslint"
   ],
   "env": {
+    "jest": true,
     "browser": true,
     "commonjs": true,
     "es6": true,

@@ -1,5 +1,6 @@
 import { MultiversalPageProps } from '@/layouts/core/types/MultiversalPageProps';
 import { OnlyServerPageProps } from '@/layouts/core/types/OnlyServerPageProps';
+import userSessionContext from '@/modules/core/userSession/userSessionContext';
 import { MultiversalAppBootstrapPageProps } from '../types/MultiversalAppBootstrapPageProps';
 import { MultiversalAppBootstrapProps } from '../types/MultiversalAppBootstrapProps';
 
@@ -21,12 +22,18 @@ const ServerPageBootstrap = (props: ServerPageBootstrapProps): JSX.Element => {
     ...pageProps,
   };
 
+  const {
+    userSession,
+  } = pageProps;
+
   return (
-    <Component
-      {...injectedPageProps}
-      // @ts-ignore
-      error={err}
-    />
+    <userSessionContext.Provider value={{ ...userSession }}>
+      <Component
+        {...injectedPageProps}
+        // @ts-ignore
+        error={err}
+      />
+    </userSessionContext.Provider>
   );
 };
 

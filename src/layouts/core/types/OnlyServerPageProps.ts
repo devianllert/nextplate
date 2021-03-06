@@ -1,3 +1,5 @@
+import { Cookies } from '@/modules/core/cookiesManager/types/Cookies';
+import { UserSemiPersistentSession } from '@/modules/core/userSession/types/UserSemiPersistentSession';
 import { PublicHeaders } from './PublicHeaders';
 
 /**
@@ -5,5 +7,6 @@ import { PublicHeaders } from './PublicHeaders';
  */
 export type OnlyServerPageProps = {
   headers: PublicHeaders; // Headers made public to the client-side
-  readonlyCookies: string; // Cookies retrieved using https://www.npmjs.com/package/next-cookies - Aren't really readonly but don't provide any setter
+  readonlyCookies: Cookies; // Cookies retrieved using https://www.npmjs.com/package/next-cookies - Aren't really readonly but don't provide any setter
+  userSession: UserSemiPersistentSession; // User session (from server cookies)
 };

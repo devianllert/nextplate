@@ -1,3 +1,5 @@
+import { ApolloState } from '@/modules/core/apollo/apolloClient';
+
 /**
  * Page properties available on all pages, whether they're rendered statically, dynamically, from the server or the client
  *
@@ -8,6 +10,7 @@
 // eslint-disable-next-line @typescript-eslint/ban-types
 export type MultiversalPageProps<E extends {} = {}> = {
   isReadyToRender: boolean;
+  serializedDataset: string; // Transferred from server to browser as JSON (using Flatten.stringify), then parsed on the browser/server within the MultiversalAppBootstrap
   error?: Error; // Only defined if there was an error
   statusCode?: number; // Provided by Next.js framework, sometimes
-} & E;
+} & ApolloState & E;

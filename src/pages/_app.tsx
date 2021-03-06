@@ -1,12 +1,14 @@
 import { FunctionComponent } from 'react';
 import MultiversalAppBootstrap from '@/app/components/MultiversalAppBootstrap';
 import { MultiversalAppBootstrapProps } from '@/app/types/MultiversalAppBootstrapProps';
+import { SSGPageProps } from '@/layouts/core/types/SSGPageProps';
+import { SSRPageProps } from '@/layouts/core/types/SSRPageProps';
 
 /**
  * "props.pageProps" will depend on whether the page is served by server or client, SSG or SSR
  * (MultiversalAppBootstrapProps<SSGPageProps> | MultiversalAppBootstrapProps<SSRPageProps>) is basically a superset of AppProps (from 'next/app')
  */
-type Props = MultiversalAppBootstrapProps;
+type Props = MultiversalAppBootstrapProps<SSGPageProps> | MultiversalAppBootstrapProps<SSRPageProps>;
 
 /**
  * This file is the entry point for all pages, it initialize all pages.

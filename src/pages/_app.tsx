@@ -1,7 +1,9 @@
-import { FunctionComponent } from 'react';
+import type { FunctionComponent } from 'react';
 import size from 'lodash.size';
 // XXX Use v1 for uniqueness - See https://www.sohamkamani.com/blog/2016/10/05/uuid1-vs-uuid4/
 import { v1 as uuid } from 'uuid';
+
+import '@/modules/core/wdyr/wdyr';
 
 import MultiversalAppBootstrap from '@/app/components/MultiversalAppBootstrap';
 import { MultiversalAppBootstrapProps } from '@/app/types/MultiversalAppBootstrapProps';

@@ -1191,6 +1191,13 @@
   resolved "https://registry.yarnpkg.com/@ungap/global-this/-/global-this-0.4.4.tgz#8a1b2cfcd3e26e079a847daba879308c924dd695"
   integrity sha512-mHkm6FvepJECMNthFuIgpAEFmPOk71UyXuIxYfjytvFTnSDBIz7jmViO+LfHI/AjrazWije0PnSP3+/NlwzqtA==
 
+"@welldone-software/why-did-you-render@^6.1.0":
+  version "6.1.0"
+  resolved "https://registry.yarnpkg.com/@welldone-software/why-did-you-render/-/why-did-you-render-6.1.0.tgz#48dd1585e115e7163761718b95fb1a7f4e618384"
+  integrity sha512-0s+PuKQ4v9VV1SZSM6iS7d2T7X288T3DF+K8yfkFAhI31HhJGGH1SY1ssVm+LqjSMyrVWT60ZF5r0qUsO0Z9Lw==
+  dependencies:
+    lodash "^4"
+
 "@wry/context@^0.5.2":
   version "0.5.4"
   resolved "https://registry.yarnpkg.com/@wry/context/-/context-0.5.4.tgz#b6c28038872e0a0e1ff14eb40b5bf4cab2ab4e06"
@@ -4650,7 +4657,7 @@ lodash.sortby@^4.7.0:
   resolved "https://registry.yarnpkg.com/lodash.sortby/-/lodash.sortby-4.7.0.tgz#edd14c824e2cc9c1e0b0a1b42bb5210516a42438"
   integrity sha1-7dFMgk4sycHgsKG0K7UhBRakJDg=
 
-lodash@4.x, lodash@^4.17.11, lodash@^4.17.13, lodash@^4.17.15, lodash@^4.17.19, lodash@^4.17.20:
+lodash@4.x, lodash@^4, lodash@^4.17.11, lodash@^4.17.13, lodash@^4.17.15, lodash@^4.17.19, lodash@^4.17.20:
   version "4.17.21"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.21.tgz#679591c564c3bffaae8454cf0b3df370c3d6911c"
   integrity sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==

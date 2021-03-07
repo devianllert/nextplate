@@ -63,6 +63,7 @@
     "@types/uuid": "^8.3.0",
     "@typescript-eslint/eslint-plugin": "^4.15.2",
     "@typescript-eslint/parser": "^4.15.2",
+    "@welldone-software/why-did-you-render": "^6.1.0",
     "@zeit/next-source-maps": "0.0.4-canary.1",
     "cross-env": "^7.0.3",
     "dotenv": "^8.2.0",

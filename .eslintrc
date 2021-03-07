@@ -62,6 +62,10 @@
     // Don't enforce, let developer choose. Sometimes we like to specifically use "return" for the sake of comprehensibility and avoid ambiguity
     "no-else-return": 0,
     // Don't enforce, let developer choose. Sometimes we like to specifically use "return" for ease of debugging and printing
-    "arrow-body-style": 0
+    "arrow-body-style": 0,
+    // Too restrictive rule
+    "@typescript-eslint/no-unsafe-call": 0,
+    // Too restrictive rule
+    "@typescript-eslint/no-unsafe-return": 0
   }
 }

@@ -63,9 +63,20 @@
     "no-else-return": 0,
     // Don't enforce, let developer choose. Sometimes we like to specifically use "return" for ease of debugging and printing
     "arrow-body-style": 0,
+    // Don't enforce, let developer choose
+    "react-hooks/exhaustive-deps": "warn",
+    // Don't enforce, let developer choose
+    "react/jsx-one-expression-per-line": "off",
+    // Don't enforce, let developer choose
+    "@typescript-eslint/no-floating-promises": "warn",
+    "react/require-default-props": "off",
     // Too restrictive rule
-    "@typescript-eslint/no-unsafe-call": 0,
+    "@typescript-eslint/no-unsafe-call": "warn",
     // Too restrictive rule
-    "@typescript-eslint/no-unsafe-return": 0
+    "@typescript-eslint/no-unsafe-return": "warn",
+    // Too restrictive rule
+    "@typescript-eslint/no-unsafe-member-access": "warn",
+    // Too restrictive rule
+    "@typescript-eslint/restrict-template-expressions": "warn"
   }
 }

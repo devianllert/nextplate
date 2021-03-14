@@ -1,7 +1,7 @@
 /// <reference types="@welldone-software/why-did-you-render" />
-/* eslint-disable @typescript-eslint/no-unsafe-call */
 /* eslint-disable import/no-extraneous-dependencies */
 /* eslint-disable global-require */
+
 /**
  * WDYR (why-did-you-render) helps locate unnecessary re-renders.
  * Applied in development environment, on the frontend only.

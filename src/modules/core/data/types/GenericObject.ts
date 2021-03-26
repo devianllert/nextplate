@@ -1,6 +1,8 @@
 /**
  * Helper to avoid writing `Record<string, unknown>` everywhere you would usually use "object".
  *
+ * Also can be used as a Dictionary type
+ *
  * @example (data: GenericObject) => void
  * @example variables: GenericObject<string>
  *

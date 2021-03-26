@@ -1,11 +1,16 @@
-import { FunctionComponent, useState } from 'react';
+import React, { FunctionComponent, useState } from 'react';
 import { ApolloProvider } from '@apollo/client';
 import isEmpty from 'lodash.isempty';
 import size from 'lodash.size';
+
+import ErrorPage from '@/pages/_error';
 import isBrowser from '@/common/utils/isBrowser';
 import { SSGPageProps } from '@/layouts/core/types/SSGPageProps';
 import { SSRPageProps } from '@/layouts/core/types/SSRPageProps';
 import { deserializeSafe } from '@/modules/core/serializeSafe/deserializeSafe';
+import DefaultErrorLayout from '@/modules/core/errorHandling/DefaultErrorLayout';
+import GlobalStyles from '@/common/design/GlobalStyles';
+import ResetStyles from '@/common/design/ResetStyles';
 import { useApollo } from '@/modules/core/apollo/apolloClient';
 import { MultiversalAppBootstrapProps } from '../types/MultiversalAppBootstrapProps';
 import BrowserPageBootstrap, { BrowserPageBootstrapProps } from './BrowserPageBootstrap';
@@ -82,21 +87,17 @@ const MultiversalAppBootstrap: FunctionComponent<Props> = (props): JSX.Element =
         console.error(error);
 
         return (
-          <div>{error.message}</div>
+          <ErrorPage
+            err={props.err}
+            statusCode={500}
+            isReadyToRender
+          >
+            <DefaultErrorLayout
+              error={props.err}
+              context={pageProps}
+            />
+          </ErrorPage>
         );
-
-        // return (
-        //   <ErrorPage
-        //     err={props.err}
-        //     statusCode={500}
-        //     isReadyToRender={true}
-        //   >
-        //     <DefaultErrorLayout
-        //       error={props.err}
-        //       context={pageProps}
-        //     />
-        //   </ErrorPage>
-        // );
       } else {
         const error = new Error(`Fatal error - Unexpected "serializedDataset" passed as page props.\n
           Expecting string, but got "${typeof serializedDataset}".\n
@@ -104,21 +105,17 @@ const MultiversalAppBootstrap: FunctionComponent<Props> = (props): JSX.Element =
           Make sure you return a correct value, using "serializeSafe".`);
 
         return (
-          <div>{error.message}</div>
+          <ErrorPage
+            err={error}
+            statusCode={500}
+            isReadyToRender
+          >
+            <DefaultErrorLayout
+              error={error}
+              context={pageProps}
+            />
+          </ErrorPage>
         );
-
-        // return (
-        //   <ErrorPage
-        //     err={error}
-        //     statusCode={500}
-        //     isReadyToRender={true}
-        //   >
-        //     <DefaultErrorLayout
-        //       error={error}
-        //       context={pageProps}
-        //     />
-        //   </ErrorPage>
-        // );
       }
     }
 
@@ -180,6 +177,9 @@ const MultiversalAppBootstrap: FunctionComponent<Props> = (props): JSX.Element =
 
     return (
       <ApolloProvider client={apolloClient}>
+        <GlobalStyles />
+        <ResetStyles />
+
         {isBrowser() ? (
           <BrowserPageBootstrap {...browserPageBootstrapProps} />
         ) : (

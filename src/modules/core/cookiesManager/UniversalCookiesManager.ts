@@ -199,4 +199,42 @@ export default class UniversalCookiesManager {
       serverCookies.set(COOKIE_LOOKUP_KEY_LANG, lang, serverOptions);
     }
   }
+
+  /**
+   * Retrieves the data stored in the cookies
+   *
+   * If there are no such data, return empty object
+   *
+   * @return {GenericObject}
+   */
+  get(name: string, serverOptions?: GetOption): string | null {
+    let data: string;
+
+    if (isBrowser()) {
+      data = BrowserCookies.get(name);
+    } else {
+      const serverCookies = new ServerCookies(this.req, this.res);
+
+      // If running on the server side but req or res aren't set, then we should have access to readonlyCookies provided through the _app:getInitialProps
+      // Otherwise, it means that's we're trying to read our cookies through SSR but have no way of reading them, which will cause a odd behaviour
+      // XXX To avoid this issue, the easiest way is to provide readonlyCookies through the constructor, so that we can read cookies from server side
+      if (this.req && this.res) {
+        data = serverCookies.get(name, serverOptions);
+      } else if (this.readonlyCookies) {
+        data = this.readonlyCookies?.[USER_LS_KEY];
+      } else {
+        // eslint-disable-next-line no-console
+        console.warn(
+          "Calling \"data\" from the server side, but neither req/res nor readonlyCookies are provided. The server can't read any cookie and will therefore initialise a temporary user session (which won't override actual cookies since we can't access them)",
+        );
+      }
+    }
+
+    // If cookie's undefined, return null
+    if (typeof data === 'undefined') {
+      return null;
+    }
+
+    return data;
+  }
 }

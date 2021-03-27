@@ -1,6 +1,6 @@
 /* eslint-disable prefer-arrow-callback */
 import { OverridableComponent } from '@/modules/core/react/types/OverridableComponent';
-import {
+import React, {
   ReactNode,
   ElementType,
   forwardRef,

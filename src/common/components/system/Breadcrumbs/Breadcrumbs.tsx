@@ -1,8 +1,4 @@
 import React, { ReactNode } from 'react';
-import NextLink from 'next/link';
-
-import IconButton from '@/components/system/IconButton';
-import HomeIcon from '@/common/icons/HomeIcon';
 
 import * as S from './styled';
 
@@ -55,12 +51,6 @@ const Breadcrumbs = (props: BreadcrumbsProps): JSX.Element => {
 
   return (
     <S.BreadcrumbsRoot>
-      <NextLink href="/cabinet" passHref>
-        <IconButton component="a">
-          <HomeIcon />
-        </IconButton>
-      </NextLink>
-
       <S.BreadcrumbsList>
         <S.BreadcrumbsSeparator aria-hidden>
           {separator}

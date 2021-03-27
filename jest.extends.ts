@@ -5,6 +5,8 @@
 import { toMatchOneOf, toMatchShapeOf } from 'jest-to-match-shape-of'; // See https://www.npmjs.com/package/jest-to-match-shape-of
 // Import utilities that extend Jest "expect" function by themselves
 import '@/modules/core/testing/toContainObject';
+// Extends native "expect" abilities to test styled components - See https://github.com/styled-components/jest-styled-components
+import 'jest-styled-components';
 
 // Extend Jest "expect" function
 expect.extend({

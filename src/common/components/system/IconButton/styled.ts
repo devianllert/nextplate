@@ -1,7 +1,8 @@
 import styled from 'styled-components';
 
-import { PRIMARY_COLOR } from '@/common/design/palette';
 import ButtonBase from '@/components/system/ButtonBase';
+
+import { PRIMARY_COLOR } from '@/common/design/palette';
 
 export const IconButtonRoot = styled(ButtonBase)`
   flex: 0 0 auto;

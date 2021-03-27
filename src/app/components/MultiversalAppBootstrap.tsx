@@ -12,10 +12,10 @@ import DefaultErrorLayout from '@/modules/core/errorHandling/DefaultErrorLayout'
 import GlobalStyles from '@/common/design/GlobalStyles';
 import ResetStyles from '@/common/design/ResetStyles';
 import { useApollo } from '@/modules/core/apollo/apolloClient';
+import { ThemeProvider } from 'styled-components';
 import { MultiversalAppBootstrapProps } from '../types/MultiversalAppBootstrapProps';
 import BrowserPageBootstrap, { BrowserPageBootstrapProps } from './BrowserPageBootstrap';
 import ServerPageBootstrap, { ServerPageBootstrapProps } from './ServerPageBootstrap';
-import { getComponentName } from '../getComponentName';
 
 export type Props = MultiversalAppBootstrapProps<SSGPageProps> | MultiversalAppBootstrapProps<SSRPageProps>;
 
@@ -34,25 +34,12 @@ const MultiversalAppBootstrap: FunctionComponent<Props> = (props): JSX.Element =
     router,
   } = props;
 
-  // eslint-disable-next-line @typescript-eslint/no-unsafe-call
   const [isSSGFallbackInitialBuild] = useState<boolean>(isEmpty(pageProps) && router?.isFallback === true);
-  const pageComponentName = getComponentName(Component);
   const apolloClient = useApollo<SSGPageProps | SSRPageProps>(pageProps);
 
   const {
     serializedDataset, // Size might be too big
-    ...restPageProps
   } = pageProps; // XXX Exclude all non-meaningful props that might be too large for Sentry to handle, to avoid "403 Entity too large"
-  const serializedDatasetLength = (serializedDataset ?? '').length;
-
-  const pageBootstrapProps = {
-    ...props,
-    router,
-    pageProps: {
-      ...pageProps,
-      isSSGFallbackInitialBuild,
-    },
-  };
 
   if (isBrowser() && process.env.NEXT_PUBLIC_APP_STAGE !== 'production') { // Avoids log clutter on server
     console.debug('MultiversalAppBootstrap.props', props); // eslint-disable-line no-console
@@ -177,14 +164,16 @@ const MultiversalAppBootstrap: FunctionComponent<Props> = (props): JSX.Element =
 
     return (
       <ApolloProvider client={apolloClient}>
-        <GlobalStyles />
-        <ResetStyles />
+        <ThemeProvider theme={{}}>
+          <GlobalStyles />
+          <ResetStyles />
 
-        {isBrowser() ? (
-          <BrowserPageBootstrap {...browserPageBootstrapProps} />
-        ) : (
-          <ServerPageBootstrap {...serverPageBootstrapProps} />
-        )}
+          {isBrowser() ? (
+            <BrowserPageBootstrap {...browserPageBootstrapProps} />
+          ) : (
+            <ServerPageBootstrap {...serverPageBootstrapProps} />
+          )}
+        </ThemeProvider>
       </ApolloProvider>
     );
   }

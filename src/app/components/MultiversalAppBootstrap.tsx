@@ -1,4 +1,5 @@
 import React, { FunctionComponent, useState } from 'react';
+import Head from 'next/head';
 import { ApolloProvider } from '@apollo/client';
 import isEmpty from 'lodash.isempty';
 import size from 'lodash.size';
@@ -163,18 +164,24 @@ const MultiversalAppBootstrap: FunctionComponent<Props> = (props): JSX.Element =
     }
 
     return (
-      <ApolloProvider client={apolloClient}>
-        <ThemeProvider theme={{}}>
-          <GlobalStyles />
-          <ResetStyles />
+      <>
+        <Head>
+          <meta name="viewport" content="width=device-width, initial-scale=1" />
+        </Head>
 
-          {isBrowser() ? (
-            <BrowserPageBootstrap {...browserPageBootstrapProps} />
-          ) : (
-            <ServerPageBootstrap {...serverPageBootstrapProps} />
-          )}
-        </ThemeProvider>
-      </ApolloProvider>
+        <ApolloProvider client={apolloClient}>
+          <ThemeProvider theme={{}}>
+            <GlobalStyles />
+            <ResetStyles />
+
+            {isBrowser() ? (
+              <BrowserPageBootstrap {...browserPageBootstrapProps} />
+            ) : (
+              <ServerPageBootstrap {...serverPageBootstrapProps} />
+            )}
+          </ThemeProvider>
+        </ApolloProvider>
+      </>
     );
   }
 

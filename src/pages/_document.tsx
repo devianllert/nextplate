@@ -47,8 +47,19 @@ class AppDocument extends Document {
     return (
       <Html>
         <Head>
+          <meta name="author" content="devianllert@gmail.com" />
+          <meta name="description" content="Next boilerplate" />
+
+          <meta property="og:title" content="Next boilerplate title" />
+          <meta property="og:description" content="Next boilerplate description" />
+          <meta property="og:image" content="/images/logo-og.png" />
+          <meta property="og:url" content="/" />
+          <meta property="og:site_name" content="devianllert" />
+
+          <meta name="twitter:card" content="/images/logo-og.png" />
+          <meta name="twitter:image:alt" content="Image description" />
+
           <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
-          <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
         </Head>
         <body>
           <Main />

@@ -14,8 +14,7 @@ import { OnlyServerPageProps } from './OnlyServerPageProps';
  * XXX When using this type, you must make sure you're using the right runtime engine (browser/server)
  *  For instance, it'll allow to use browser-only props like "isInIframe" without complaining, but you should provide a proper default if not set
  */
-// eslint-disable-next-line @typescript-eslint/ban-types
 export type SoftPageProps<E extends {} = {}> =
-  MultiversalPageProps &
+  MultiversalPageProps<E> &
   Partial<OnlyBrowserPageProps> &
   Partial<OnlyServerPageProps>;

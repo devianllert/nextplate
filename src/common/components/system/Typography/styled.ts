@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import * as typo from '@/common/design/typo';
+import * as typo from '@/common/design/tokens/typo';
 
 export type TypoVariant =
   | 'h1'

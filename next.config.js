@@ -12,7 +12,7 @@ const noRedirectBlacklistedPaths = ['_next', 'api']; // Paths that mustn't have 
 const publicBasePaths = ['robots', 'static', 'favicon.ico']; // All items (folders, files) under /public directory should be added there, to avoid redirection when an asset isn't found
 const noRedirectBasePaths = [...publicBasePaths, ...noRedirectBlacklistedPaths]; // Will disable url rewrite for those items (should contain all supported languages and all public base paths)
 const date = new Date();
-const GIT_COMMIT_SHA_SHORT = process.env.GIT_COMMIT_SHA;
+const GIT_COMMIT_SHA_SHORT = typeof process.env.GIT_COMMIT_SHA === 'string' && process.env.GIT_COMMIT_SHA.substring(0, 8);
 
 console.debug(`Building Next with NODE_ENV="${process.env.NODE_ENV}" NEXT_PUBLIC_APP_STAGE="${process.env.NEXT_PUBLIC_APP_STAGE}" using GIT_COMMIT_SHA=${process.env.GIT_COMMIT_SHA} and GIT_COMMIT_REF=${process.env.GIT_COMMIT_REF}`);
 
@@ -70,7 +70,7 @@ module.exports = withBundleAnalyzer(withSourceMaps({
    */
   env: {
     GITHUB_DISPATCH_TOKEN: process.env.GITHUB_DISPATCH_TOKEN,
-    GRAPHQL_API_ENDPOINT: process.env.GRAPHQL_API_ENDPOINT,
+    NEXT_PUBLIC_GRAPHQL_API_ENDPOINT: process.env.GRAPHQL_API_ENDPOINT,
     GRAPHQL_API_KEY: process.env.GRAPHQL_API_KEY,
 
     // Dynamic env variables

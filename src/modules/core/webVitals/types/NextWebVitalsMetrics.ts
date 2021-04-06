@@ -7,9 +7,24 @@
  * @see https://nextjs.org/blog/next-9-4#integrated-web-vitals-reporting
  */
 export type NextWebVitalsMetrics = {
+  /**
+   * Unique identifier for the metric in the context of the current page load
+   */
   id: string;
+  /**
+   * Type of metric (web-vital or custom)
+   */
   label: string;
+  /**
+   * Metric name
+   */
   name: string;
+  /**
+   * First recorded timestamp of the performance entry in milliseconds (if applicable)
+   */
   startTime: number;
+  /**
+   * Value, or duration in milliseconds, of the performance entry
+   */
   value: number;
 };

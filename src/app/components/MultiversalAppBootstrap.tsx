@@ -13,7 +13,7 @@ import DefaultErrorLayout from '@/modules/core/errorHandling/DefaultErrorLayout'
 import GlobalStyles from '@/common/design/GlobalStyles';
 import ResetStyles from '@/common/design/ResetStyles';
 import { useApollo } from '@/modules/core/apollo/apolloClient';
-import { ThemeProvider } from 'styled-components';
+import { ThemeProvider } from '@/modules/core/theming/contexts/ThemeProvider';
 import { MultiversalAppBootstrapProps } from '../types/MultiversalAppBootstrapProps';
 import BrowserPageBootstrap, { BrowserPageBootstrapProps } from './BrowserPageBootstrap';
 import ServerPageBootstrap, { ServerPageBootstrapProps } from './ServerPageBootstrap';
@@ -30,7 +30,6 @@ export type Props = MultiversalAppBootstrapProps<SSGPageProps> | MultiversalAppB
  */
 const MultiversalAppBootstrap: FunctionComponent<Props> = (props): JSX.Element => {
   const {
-    Component,
     pageProps,
     router,
   } = props;
@@ -170,7 +169,7 @@ const MultiversalAppBootstrap: FunctionComponent<Props> = (props): JSX.Element =
         </Head>
 
         <ApolloProvider client={apolloClient}>
-          <ThemeProvider theme={{}}>
+          <ThemeProvider>
             <GlobalStyles />
             <ResetStyles />
 

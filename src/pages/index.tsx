@@ -1,10 +1,13 @@
 import { CommonServerSideParams } from '@/app/types/CommonServerSideParams';
+import DisplayOnBrowserMount from '@/common/components/rehydration/DisplayOnBrowserMount';
+import { getNoneStaticProps } from '@/layouts/core/SSG';
 import { getCoreServerSideProps, GetCoreServerSidePropsResults } from '@/layouts/core/SSR';
 import { OnlyBrowserPageProps } from '@/layouts/core/types/OnlyBrowserPageProps';
 import { SSGPageProps } from '@/layouts/core/types/SSGPageProps';
 import { SSRPageProps } from '@/layouts/core/types/SSRPageProps';
 import { APOLLO_STATE_PROP_NAME, getApolloState } from '@/modules/core/apollo/apolloClient';
 import { serializeSafe } from '@/modules/core/serializeSafe/serializeSafe';
+import useThemeContext from '@/modules/core/theming/hooks/useThemeContext';
 import { ApolloQueryResult, useQuery } from '@apollo/client';
 import gql from 'graphql-tag';
 import {
@@ -56,6 +59,7 @@ type Props = CustomPageProps & (SSRPageProps & SSGPageProps<OnlyBrowserPageProps
 
 const Home: NextPage<Props> = (): JSX.Element => {
   const { data } = useQuery(PostQuery);
+  const { mode, toggle } = useThemeContext();
 
   return (
     <>
@@ -64,7 +68,15 @@ const Home: NextPage<Props> = (): JSX.Element => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Container>{JSON.stringify(data, null, 2)}</Container>
+      <Container>
+        <div>
+          {JSON.stringify(data, null, 2)}
+        </div>
+
+        <DisplayOnBrowserMount>
+          <button type="button" onClick={toggle}>{mode}</button>
+        </DisplayOnBrowserMount>
+      </Container>
     </>
   );
 };

@@ -24,7 +24,7 @@ let apolloClient: ApolloClient<NormalizedCacheObject>;
  */
 function createApolloClient(): ApolloClient<NormalizedCacheObject> {
   const httpLink: ApolloLink = new HttpLink({
-    uri: process.env.GRAPHQL_API_ENDPOINT, // Server URL (must be absolute)
+    uri: process.env.NEXT_PUBLIC_GRAPHQL_API_ENDPOINT, // Server URL (must be absolute)
     // Headers applied here will be applied for all requests
     // See the use of the "options" when running a graphQL query to specify options per-request at https://www.apollographql.com/docs/react/api/react-hooks/#options
     headers: {

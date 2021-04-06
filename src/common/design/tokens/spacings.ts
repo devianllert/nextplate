@@ -1,7 +1,6 @@
 /**
- * Spacings are used in components styles for things like margin, padding, etc.
+ * Spacings are used in components styles for things like margin, padding, dimensions, etc.
  */
-
 export const spacings: Record<number, string> = {
   1: '8px',
   2: '12px',

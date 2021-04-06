@@ -1,26 +1,30 @@
 import { createGlobalStyle } from 'styled-components';
 
+import { fontFamily } from './tokens/typography';
+
 const GlobalStyles = createGlobalStyle`
   html {
     font-size: 62.5%;
   }
 
   body {
-    cursor: default;
-
     overflow-y: scroll;
 
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-
     text-rendering: optimizeLegibility;
 
     font-display: swap;
-    font-family: 'Roboto', sans-serif;
+    font-family: ${fontFamily};
     font-size: 1.6em;
     font-weight: 400;
+
+    color: ${({ theme }) => theme.text.primary};
+
+    background-color: ${({ theme }) => theme.background.primary};
+
+    transition: all 0.15s ease;
 
     letter-spacing: normal;
   }

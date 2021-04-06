@@ -2,8 +2,6 @@ import styled from 'styled-components';
 
 import ButtonBase from '@/components/system/ButtonBase';
 
-import { brand } from '@/common/design/tokens/palette';
-
 export const IconButtonRoot = styled(ButtonBase)`
   flex: 0 0 auto;
 
@@ -16,7 +14,7 @@ export const IconButtonRoot = styled(ButtonBase)`
 
   overflow: visible;
 
-  color: ${brand.primary};
+  color: ${({ theme }) => theme.brand.primary};
 `;
 
 export const IconButtonLabel = styled.span`

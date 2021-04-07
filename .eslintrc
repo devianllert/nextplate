@@ -77,6 +77,18 @@
     // Too restrictive rule
     "@typescript-eslint/no-unsafe-member-access": "warn",
     // Too restrictive rule
-    "@typescript-eslint/restrict-template-expressions": "warn"
+    "@typescript-eslint/restrict-template-expressions": "warn",
+    "import/no-extraneous-dependencies": [
+      "error",
+      {
+        "devDependencies": [
+          "**/*.test.ts",
+          "**/*.test.tsx",
+          "**/*.spec.ts",
+          "**/*.spec.tsx",
+          "**/*.stories.tsx"
+        ]
+      }
+    ]
   }
 }

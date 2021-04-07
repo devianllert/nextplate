@@ -2,7 +2,7 @@ import { DefaultTheme } from 'styled-components';
 
 export const text = {
   primary: 'rgba(0, 0, 0, 0.87)',
-  secondary: 'rgba(0, 0, 0, 0.60)',
+  secondary: 'rgba(0, 0, 0, 0.54)',
   disabled: 'rgba(0, 0, 0, 0.38)',
 };
 
@@ -12,10 +12,10 @@ export const background = {
 };
 
 export const status = {
-  success: '#7cd992',
-  info: '#87a2c7',
-  warning: '#f7e463',
-  error: '#eb6060',
+  success: '#4caf50',
+  info: '#2196f3',
+  warning: '#ff9800',
+  error: '#f44336',
 };
 
 export const greyscale = {

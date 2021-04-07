@@ -1,25 +1,25 @@
 import styled from 'styled-components';
 
-import * as typo from '@/common/design/tokens/typo';
+import { fontWeight, variants } from '@/common/design/tokens/typography';
 
 export type TypoVariant =
   | 'h1'
   | 'h2'
   | 'h3'
   | 'h4'
+  | 'h5'
+  | 'h6'
   | 'subtitle1'
   | 'subtitle2'
-  | 'subtitle3'
-  | 'subtitle4'
-  | 'subtitle5'
   | 'body1'
   | 'body2'
   | 'button'
-  | 'caption1'
-  | 'caption2'
-  | 'overline';
+  | 'overline'
+  | 'caption';
 
-type TypoAlign = 'inherit' | 'left' | 'center' | 'right' | 'justify';
+export type TypoAlign = 'inherit' | 'left' | 'center' | 'right' | 'justify';
+
+export type TypoWeight = 'light' | 'normal' | 'medium' | 'bold' | 'heavy';
 
 interface TypoProps {
   align: TypoAlign;
@@ -29,27 +29,23 @@ interface TypoProps {
   variant?: TypoVariant;
   variantMapping?: Partial<Record<TypoVariant, string>>;
   color?: string;
+  fontWeight?: TypoWeight;
   display: 'initial' | 'block' | 'inline';
 }
 
-export const Typo = styled.span<TypoProps>`
-  margin: 0;
-
-  color: ${({ color }) => color};
-
-  ${({ display }): string | false => display !== 'initial' && `display: ${display};`};
-
-  text-align: ${({ align }): TypoAlign => align};
-
-  ${({ noWrap }): string | undefined | false => noWrap && `
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-  `}
-
-  ${({ gutterBottom }): string | undefined | false => gutterBottom && 'margin-bottom: 0.35em;'}
-
-  ${({ paragraph }): string | undefined | false => paragraph && 'margin-bottom: 16px;'}
-
-  ${({ variant = 'body1' }): string => typo[variant]}
-`;
+export const Typo = styled.span<TypoProps>((props) => ({
+  margin: 0,
+  display: props.display,
+  color: props.theme.text[props.color] ?? props.theme.status[props.color] ?? props.color,
+  textAlign: props.align,
+  ...(props.noWrap && {
+    overflow: 'hidden',
+    textOverflow: 'ellipsis',
+    whiteSpace: 'nowrap',
+  }),
+  marginBottom: (props.gutterBottom && '0.35em') || (props.paragraph && '16px'),
+  ...variants[props.variant],
+  ...(props.fontWeight && {
+    fontWeight: fontWeight[props.fontWeight],
+  }),
+}));

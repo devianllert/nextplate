@@ -1,6 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
 
-import { fontFamily } from './tokens/typography';
+import { defaultFontFamily } from './tokens/typography';
 
 const GlobalStyles = createGlobalStyle`
   html {
@@ -16,7 +16,7 @@ const GlobalStyles = createGlobalStyle`
     text-rendering: optimizeLegibility;
 
     font-display: swap;
-    font-family: ${fontFamily};
+    font-family: ${defaultFontFamily};
     font-size: 1.6em;
     font-weight: 400;
 

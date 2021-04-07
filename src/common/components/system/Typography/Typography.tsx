@@ -4,13 +4,12 @@ import React, {
   ElementType,
   HTMLAttributes,
   forwardRef,
+  CSSProperties
 } from 'react';
 
 import { OverridableComponent } from '@/modules/core/react/types/OverridableComponent';
 
 import * as S from './styled';
-
-type TypoAlign = 'inherit' | 'left' | 'center' | 'right' | 'justify';
 
 export interface TypographyProps extends HTMLAttributes<ElementType> {
   /**
@@ -20,7 +19,11 @@ export interface TypographyProps extends HTMLAttributes<ElementType> {
   /**
    * Set the text-align on the component.
    */
-  align?: TypoAlign;
+  align?: CSSProperties['textAlign'];
+  /**
+   * Set the font-weight on the component.
+   */
+  fontWeight?: S.TypoWeight;
   /**
    * If `true`, the text will have a bottom margin.
    */
@@ -47,29 +50,27 @@ export interface TypographyProps extends HTMLAttributes<ElementType> {
   /**
    * The color of the component. It supports those theme colors that make sense for this component.
    */
-  color?: 'initial' | 'inherit' | 'primary' | 'textPrimary' | 'textSecondary' | 'error';
+  color?: 'initial' | 'inherit' | 'primary' | 'secondary' | 'disabled' | 'success' | 'warning' | 'info' | 'error';
   /**
    * Controls the display type
    */
-  display?: 'initial' | 'block' | 'inline';
+  display?: CSSProperties['display'];
 }
 
-const defaultVariantMapping: Record<S.TypoVariant, ElementType> = {
+export const defaultVariantMapping: Record<S.TypoVariant, ElementType> = {
   h1: 'h1',
   h2: 'h2',
   h3: 'h3',
   h4: 'h4',
+  h5: 'h5',
+  h6: 'h6',
   subtitle1: 'h6',
   subtitle2: 'h6',
-  subtitle3: 'h6',
-  subtitle4: 'h6',
-  subtitle5: 'h6',
   button: 'span',
   overline: 'span',
   body1: 'p',
   body2: 'p',
-  caption1: 'span',
-  caption2: 'span',
+  caption: 'span',
 };
 
 export interface TypographyTypeMap<P = {}, D extends React.ElementType = 'h1'> {
@@ -77,6 +78,9 @@ export interface TypographyTypeMap<P = {}, D extends React.ElementType = 'h1'> {
   defaultComponent: D
 }
 
+/**
+ * Use Typography component to present your design and content as clearly and efficiently as possible.
+ */
 const Typography: OverridableComponent<TypographyTypeMap> = forwardRef(function Typography(props, ref) {
   const {
     children,

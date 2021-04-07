@@ -8,7 +8,8 @@ import '@storybook/addon-console'; // Automatically forwards all logs in the "Ac
 import '@/app/components/MultiversalGlobalExternalStyles'; // Import the same 3rd party libraries global styles as the pages/_app.tsx (for UI consistency)
 import GlobalStyles from '@/common/design/GlobalStyles';
 import ResetStyles from '@/common/design/ResetStyles';
-import { ThemeProvider } from 'styled-components';
+import { ThemeProvider } from '@/modules/core/theming/contexts/ThemeProvider';
+import useThemeContext from '@/modules/core/theming/hooks/useThemeContext';
 
 /**
  * Story Global parameters for Storybook.
@@ -136,15 +137,43 @@ addDecorator(
 export const decorators = [
   (Story, context) => {
     return (
-      <ThemeProvider theme={{}}>
+      <ThemeProvider>
         <ResetStyles />
         <GlobalStyles />
 
-        <Story />
+        <Toggler />
+
+        <div
+          style={{
+            minHeight: '100vh',
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            justifyContent: 'center',
+          }}
+        >
+          <Story />
+        </div>
       </ThemeProvider>
     );
   },
 ];
+
+const Toggler = () => {
+  const { mode, toggle } = useThemeContext();
+
+  return (
+    <div
+      style={{
+        position: 'fixed',
+        bottom: 16,
+        right: 16,
+      }}
+    >
+      <button onClick={toggle}>{mode}</button>
+    </div>
+  )
+}
 
 /**
  * Enables storybook-addon-performance for all stories by default.

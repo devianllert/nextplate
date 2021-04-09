@@ -45,7 +45,10 @@
     "resolveJsonModule": true,
     "skipLibCheck": true,
     "sourceMap": true,
+    "alwaysStrict": true,
     "strict": false,
+    "noImplicitAny": false,
+    "strictBindCallApply": true,
     "target": "ES2019"
   },
   "exclude": [

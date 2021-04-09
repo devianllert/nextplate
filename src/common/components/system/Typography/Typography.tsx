@@ -81,7 +81,7 @@ export interface TypographyTypeMap<P = {}, D extends React.ElementType = 'h1'> {
 /**
  * Use Typography component to present your design and content as clearly and efficiently as possible.
  */
-const Typography: OverridableComponent<TypographyTypeMap> = forwardRef(function Typography(props, ref) {
+export const Typography: OverridableComponent<TypographyTypeMap> = forwardRef(function Typography(props, ref) {
   const {
     children,
     align = 'inherit',

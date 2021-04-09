@@ -5,7 +5,7 @@ import React, { ReactNode, forwardRef } from 'react';
 
 import * as S from './styled';
 
-interface SkeletonProps {
+export interface SkeletonProps {
   /**
    * Optional children to infer width and height from.
    */
@@ -31,7 +31,7 @@ interface SkeletonProps {
   width?: number | string;
 }
 
-export interface SkeletonTypeMap<P = {}, D extends React.ElementType = 'span'> {
+interface SkeletonTypeMap<P = {}, D extends React.ElementType = 'span'> {
   props: P & SkeletonProps;
   defaultComponent: D
 }
@@ -53,7 +53,7 @@ export interface SkeletonTypeMap<P = {}, D extends React.ElementType = 'span'> {
  *  <Skeleton variant="rect" height={140} />
  * </Card>
  */
-const Skeleton: OverridableComponent<SkeletonTypeMap> = forwardRef(function Skeleton(props, ref) {
+export const Skeleton: OverridableComponent<SkeletonTypeMap> = forwardRef(function Skeleton(props, ref) {
   const {
     animation = 'pulse',
     className,
@@ -84,5 +84,3 @@ const Skeleton: OverridableComponent<SkeletonTypeMap> = forwardRef(function Skel
     />
   );
 });
-
-export default Skeleton;

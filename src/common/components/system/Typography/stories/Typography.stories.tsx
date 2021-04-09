@@ -3,33 +3,11 @@ import { Meta, Story } from '@storybook/react';
 
 import { fontWeight } from '@/common/design/tokens/typography';
 
-import Typography, { TypographyProps, defaultVariantMapping } from '../Typography';
+import { Typography, TypographyProps, defaultVariantMapping } from '../Typography';
 
 export default {
   title: 'Components/Typography',
   component: Typography,
-  argTypes: {
-    variant: {
-      control: {
-        type: 'select',
-        mapping: defaultVariantMapping,
-        options: Object.keys(defaultVariantMapping),
-      },
-    },
-    color: {
-      control: {
-        type: 'select',
-        options: ['initial', 'inherit', 'primary', 'secondary', 'disabled', 'success', 'warning', 'info', 'error'],
-      },
-    },
-    fontWeight: {
-      control: {
-        type: 'select',
-        mapping: fontWeight,
-        options: Object.keys(fontWeight),
-      },
-    },
-  },
 } as Meta;
 
 const Template: Story<TypographyProps> = (args) => <Typography {...args} />;
@@ -40,7 +18,7 @@ Basic.args = {
   variant: 'h1',
   children: 'Typography',
   color: 'primary',
-} as TypographyProps;
+};
 
 export const Headings = (): ReactElement => (
   <>

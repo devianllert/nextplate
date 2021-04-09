@@ -1,4 +1,5 @@
 import styled, { css, keyframes } from 'styled-components';
+import tinycolor from 'tinycolor2';
 
 interface SkeletonRootProps {
   animation?: 'pulse' | 'wave' | false;
@@ -38,7 +39,7 @@ export const SkeletonRoot = styled.span<SkeletonRootProps>`
 
   height: 18px;
 
-  background-color: rgba(0, 0, 0, 0.08);
+  background-color: ${({ theme }) => tinycolor(theme.text.primary).setAlpha(0.12).toString()};
 
   ${({ variant = 'text' }) => ({
     text: `

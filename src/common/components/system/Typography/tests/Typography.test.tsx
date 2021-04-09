@@ -10,7 +10,7 @@ import dark from '@/common/design/tokens/palette.dark';
 import light from '@/common/design/tokens/palette.light';
 
 
-import Typography from '../Typography';
+import { Typography } from '../Typography';
 
 const renderWithProvider = (ui: ReactNode, theme: 'light' | 'dark' = 'light') => render(
   <ThemeProvider theme={theme === 'light' ? light : dark}>

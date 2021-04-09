@@ -1,7 +1,7 @@
 import React from 'react';
-import { Meta, Story } from '@storybook/react';
+import { Meta } from '@storybook/react';
 
-import { VisuallyHidden, VisuallyHiddenTypeMap } from '../VisuallyHidden';
+import { VisuallyHidden } from '../VisuallyHidden';
 
 export default {
   title: 'Components/VisuallyHidden',

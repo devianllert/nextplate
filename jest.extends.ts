@@ -7,6 +7,7 @@ import { toMatchOneOf, toMatchShapeOf } from 'jest-to-match-shape-of'; // See ht
 import '@/modules/core/testing/toContainObject';
 // Extends native "expect" abilities to test styled components - See https://github.com/styled-components/jest-styled-components
 import 'jest-styled-components';
+import '@testing-library/jest-dom';
 
 // Extend Jest "expect" function
 expect.extend({

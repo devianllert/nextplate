@@ -1,25 +1,32 @@
 /* eslint-disable prefer-arrow-callback */
+import * as React from 'react';
 import { OverridableComponent } from '@/modules/core/react/types/OverridableComponent';
-import React, {
-  ReactNode,
-  ElementType,
-  forwardRef,
-} from 'react';
 
 import * as S from './styled';
 
 export interface ButtonBaseProps {
   /**
-   * The content
+   * The content of the component.
    */
-  children: ReactNode;
+  children?: React.ReactNode;
   /**
    * Convert button to link
+   * @default undefined
    */
   href?: string;
+  /**
+   * The component used to render a link when the `href` prop is provided.
+   * @default 'a'
+   */
+  LinkComponent?: React.ElementType;
+  /**
+   * If `true`, the component is disabled.
+   * @default false
+   */
+  disabled?: boolean;
 }
 
-export interface ButtonBaseTypeMap<P = {}, D extends ElementType = 'button'> {
+export interface ButtonBaseTypeMap<P = {}, D extends React.ElementType = 'button'> {
   props: P & ButtonBaseProps;
   defaultComponent: D;
 }
@@ -28,11 +35,12 @@ export interface ButtonBaseTypeMap<P = {}, D extends ElementType = 'button'> {
  * `ButtonBase` contains as few styles as possible.
  * It aims to be a simple building block for creating a button.
  */
-const ButtonBase: OverridableComponent<ButtonBaseTypeMap> = forwardRef((props, ref) => {
+export const ButtonBase: OverridableComponent<ButtonBaseTypeMap> = React.forwardRef(function ButtonBase(props, ref) {
   const {
     children,
     className,
     component = 'button',
+    LinkComponent = 'a',
     disabled = false,
     tabIndex = 0,
     type,
@@ -42,7 +50,20 @@ const ButtonBase: OverridableComponent<ButtonBaseTypeMap> = forwardRef((props, r
   let ComponentProp = component;
 
   if (ComponentProp === 'button' && other.href) {
-    ComponentProp = 'a';
+    ComponentProp = LinkComponent;
+  }
+
+  const buttonProps: React.DetailedHTMLProps<React.ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement> = {};
+
+  if (ComponentProp === 'button') {
+    buttonProps.type = type ?? 'button';
+    buttonProps.disabled = disabled;
+  } else {
+    if (ComponentProp !== 'a' || !other.href) {
+      buttonProps.role = 'button';
+    }
+
+    buttonProps['aria-disabled'] = disabled;
   }
 
   return (
@@ -51,9 +72,8 @@ const ButtonBase: OverridableComponent<ButtonBaseTypeMap> = forwardRef((props, r
       className={className}
       ref={ref}
       tabIndex={disabled ? -1 : tabIndex}
-      disabled={disabled}
-      aria-disabled={disabled}
-      type={type ?? 'button'}
+      type={type}
+      {...buttonProps}
       {...other}
     >
       {children}

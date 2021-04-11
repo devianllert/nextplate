@@ -1,10 +1,17 @@
-import React, { ReactElement } from 'react';
+import * as React from 'react';
+import { Story, Meta } from '@storybook/react';
 
-import ButtonBase from '../ButtonBase';
+import { ButtonBase, ButtonBaseProps } from '../ButtonBase';
 
 export default {
   title: 'Components/BaseButton',
   component: ButtonBase,
-};
+} as Meta;
 
-export const Basic = (): ReactElement => <ButtonBase>Basic</ButtonBase>;
+const Template: Story<ButtonBaseProps> = (args) => <ButtonBase {...args} />;
+
+export const Basic = Template.bind({});
+
+Basic.args = {
+  children: 'ButtonBase',
+};

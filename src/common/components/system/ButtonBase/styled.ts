@@ -1,43 +1,31 @@
 import styled from 'styled-components';
 
-export const ButtonBaseRoot = styled.button`
-  box-sizing: border-box;
-
-  position: relative;
-
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-
-  -webkit-tap-highlight-color: transparent;
-
-  // Reset default value
-  background-color: transparent;
-  // So we take precedent over the style of a native <a /> element.
-  color: inherit;
-
+export const ButtonBaseRoot = styled.button({
+  display: 'inline-flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  position: 'relative',
+  boxSizing: 'border-box',
+  WebkitTapHighlightColor: 'transparent',
+  backgroundColor: 'transparent', // Reset default value
   // We disable the focus ring for mouse, touch and keyboard users.
-  outline: 0;
-  border: 0;
-  border-radius: 0;
-
-  // Remove the margin in Safari
-  margin: 0;
-  // Remove the padding in Firefox
-  padding: 0;
-
-  cursor: pointer;
-  user-select: none;
-  vertical-align: middle;
-  appearance: none;
-  text-decoration: none;
-
-  &:-moz-focus-inner {
-    border-style: none; // Remove Firefox dotted outline.
-  }
-
-  &[disabled] {
-    pointer-events: none; // Disable link interactions
-    cursor: default;
-  }
-`;
+  outline: 0,
+  border: 0,
+  margin: 0, // Remove the margin in Safari
+  borderRadius: 0,
+  padding: 0, // Remove the padding in Firefox
+  cursor: 'pointer',
+  userSelect: 'none',
+  verticalAlign: 'middle',
+  MozAppearance: 'none', // Reset
+  WebkitAppearance: 'none', // Reset
+  textDecoration: 'none',
+  // So we take precedent over the style of a native <a /> element.
+  color: 'inherit',
+  '&::-moz-focus-inner': {
+    borderStyle: 'none', // Remove Firefox dotted outline.
+  },
+  '@media print': {
+    colorAdjust: 'exact',
+  },
+});

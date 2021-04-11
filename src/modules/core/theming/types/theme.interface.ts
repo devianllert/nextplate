@@ -9,15 +9,14 @@ declare module 'styled-components' {
       primary: string;
       secondary: string;
     };
-
     /**
-     * The colors used to style the background.
+     * The background colors used to style the surfaces.
+     * Consistency between these values is important.
      */
     background: {
       primary: string;
       secondary: string;
     };
-
     /**
      * The colors used to style the text/background.
      */
@@ -27,7 +26,6 @@ declare module 'styled-components' {
       warning: string;
       error: string;
     };
-
     /**
      * The colors used to style the text.
      */
@@ -37,7 +35,6 @@ declare module 'styled-components' {
       light: string;
       lighter: string;
     };
-
     /**
      * The brand colors used to style the text/background.
      */
@@ -74,13 +71,18 @@ declare module 'styled-components' {
        */
       disabledBackground: string,
       disabledOpacity: number,
+      /*
+       * The background color of a focused action.
+       */
       focus: string,
       focusOpacity: number,
+      /*
+       * The background color of a activated action.
+       */
       activatedOpacity: number,
     };
-
     /**
-     * The divider colors used to style the text.
+     * The color used to divide different elements.
      */
     divider: {
       primary: string;

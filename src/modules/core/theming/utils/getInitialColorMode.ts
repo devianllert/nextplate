@@ -1,5 +1,8 @@
-export const getInitialColorMode = (): string => {
-  const persistedColorPreference = window.localStorage.getItem('theme');
+import { PaletteMode } from '../types/palette.interface';
+import { getPreferredColorScheme } from './getPreferredColorScheme';
+
+export const getInitialColorMode = (): PaletteMode => {
+  const persistedColorPreference = window.localStorage.getItem('theme') as PaletteMode;
   const hasPersistedPreference = typeof persistedColorPreference === 'string';
 
   /**
@@ -11,15 +14,10 @@ export const getInitialColorMode = (): string => {
   }
 
   // If there is no saved preference, use a media query
-  const mql = window.matchMedia('(prefers-color-scheme: dark)');
-  const hasMediaQueryPreference = typeof mql.matches === 'boolean';
-
-  if (hasMediaQueryPreference) {
-    return mql.matches ? 'dark' : 'light';
-  }
+  const mediaQueryPreference = getPreferredColorScheme();
 
   // default to 'light'.
-  return 'light';
+  return mediaQueryPreference ?? 'light';
 };
 
 export default getInitialColorMode;

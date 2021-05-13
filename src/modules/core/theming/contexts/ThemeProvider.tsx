@@ -11,14 +11,17 @@ import light from '@/common/design/tokens/palette.light';
 import isBrowser from '@/common/utils/isBrowser';
 
 import { themeContext } from './themeContext';
-import { getInitialColorMode } from '../getInitialColorMode';
+import { getInitialColorMode } from '../utils/getInitialColorMode';
+import { PaletteMode } from '../types/palette.interface';
+import { toCustomProperties } from '../utils/customProperties';
+import { ThemeUI } from '../types/theme.interface';
 
 interface ThemeProviderProps {
   children: ReactNode;
 }
 
 export const ThemeProvider = ({ children }: ThemeProviderProps): ReactElement => {
-  const [mode, setMode] = useState(isBrowser() ? getInitialColorMode : 'light');
+  const [mode, setMode] = useState<PaletteMode>(isBrowser() ? getInitialColorMode : 'light');
 
   const toggle = (): void => {
     setMode((prevMode) => (prevMode === 'light' ? 'dark' : 'light'));
@@ -28,9 +31,16 @@ export const ThemeProvider = ({ children }: ThemeProviderProps): ReactElement =>
 
   useEffect(() => setMode(getInitialColorMode()), []);
 
+  const theme: ThemeUI = {
+    palette: {
+      mode,
+      ...(mode === 'dark' ? dark : light),
+    },
+  };
+
   return (
     <themeContext.Provider value={{ mode, toggle }}>
-      <StyledThemeProvider theme={mode === 'dark' ? dark : light}>{children}</StyledThemeProvider>
+      <StyledThemeProvider theme={theme}>{children}</StyledThemeProvider>
     </themeContext.Provider>
   );
 };

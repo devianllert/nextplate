@@ -52,9 +52,4 @@ export const divider = {
 export default {
   text,
   background,
-  status,
-  greyscale,
-  action,
-  brand,
-  divider,
-} as DefaultTheme;
+};

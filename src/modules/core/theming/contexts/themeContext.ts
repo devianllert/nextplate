@@ -1,8 +1,8 @@
-import { createContext } from 'react';
+import * as React from 'react';
 
-export type ThemeContext = {
+export type ThemeUIContextValue = {
   mode?: string;
-  toggle?: () => void;
+  toggle?: (colorMode: React.SetStateAction<string | undefined>) => void;
 };
 
 /**
@@ -18,6 +18,6 @@ const initialContext = {};
  * @see https://reactjs.org/docs/context.html
  * @see https://medium.com/better-programming/react-hooks-usecontext-30eb560999f for useContext hook example (open in anonymous browser #paywall)
  */
-export const themeContext = createContext<ThemeContext>(initialContext);
+export const themeContext = React.createContext<ThemeUIContextValue>(initialContext);
 
 export default themeContext;

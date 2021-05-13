@@ -20,9 +20,9 @@ const GlobalStyles = createGlobalStyle`
     font-size: 1.6em;
     font-weight: 400;
 
-    color: ${({ theme }) => theme.text.primary};
+    color: ${({ theme }) => theme.palette.text.primary};
 
-    background-color: ${({ theme }) => theme.background.primary};
+    background-color: ${({ theme }) => theme.palette.background.primary};
 
     transition: all 0.15s ease;
 

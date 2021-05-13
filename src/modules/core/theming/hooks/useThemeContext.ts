@@ -1,5 +1,5 @@
 import React from 'react';
-import { themeContext, ThemeContext } from '../contexts/themeContext';
+import { themeContext, ThemeUIContextValue } from '../contexts/themeContext';
 
 /**
  * Hook to access the user consent data
@@ -11,7 +11,7 @@ import { themeContext, ThemeContext } from '../contexts/themeContext';
  *
  * @see https://slides.com/djanoskova/react-context-api-create-a-reusable-snackbar#/11
  */
-const useThemeContext = (): ThemeContext => {
+const useThemeContext = (): ThemeUIContextValue => {
   return React.useContext(themeContext);
 };
 

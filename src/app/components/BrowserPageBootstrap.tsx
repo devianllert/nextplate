@@ -1,10 +1,13 @@
 import { MultiversalPageProps } from '@/layouts/core/types/MultiversalPageProps';
 import { OnlyBrowserPageProps } from '@/layouts/core/types/OnlyBrowserPageProps';
 import UniversalCookiesManager from '@/modules/core/cookiesManager/UniversalCookiesManager';
+import { createLogger } from '@/modules/core/logging/logger';
 import { UserSemiPersistentSession } from '@/modules/core/userSession/types/UserSemiPersistentSession';
 import userSessionContext from '@/modules/core/userSession/userSessionContext';
 import { MultiversalAppBootstrapPageProps } from '../types/MultiversalAppBootstrapPageProps';
 import { MultiversalAppBootstrapProps } from '../types/MultiversalAppBootstrapProps';
+
+const logger = createLogger('BrowserPageBootstrap');
 
 export type BrowserPageBootstrapProps = MultiversalAppBootstrapProps<MultiversalPageProps & MultiversalAppBootstrapPageProps>;
 
@@ -33,7 +36,7 @@ const BrowserPageBootstrap = (props: BrowserPageBootstrapProps): JSX.Element => 
   if (process.env.NEXT_PUBLIC_APP_STAGE !== 'production') {
     // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
     (window as unknown as any).router = router;
-    console.info(`Utilities have been bound to the DOM for quick testing (only in non-production stages):
+    logger.info(`Utilities have been bound to the DOM for quick testing (only in non-production stages):
         - amplitudeInstance (not yet)
         - i18n (not yet)
         - router

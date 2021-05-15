@@ -1,3 +1,13 @@
+import {
+  GetServerSideProps,
+  GetServerSidePropsContext,
+  GetServerSidePropsResult,
+  NextPage,
+} from 'next';
+import gql from 'graphql-tag';
+import Head from 'next/head';
+import styled from 'styled-components';
+import { ApolloQueryResult, useQuery } from '@apollo/client';
 import { CommonServerSideParams } from '@/app/types/CommonServerSideParams';
 import DisplayOnBrowserMount from '@/common/components/rehydration/DisplayOnBrowserMount';
 import { getNoneStaticProps } from '@/layouts/core/SSG';
@@ -8,16 +18,9 @@ import { SSRPageProps } from '@/layouts/core/types/SSRPageProps';
 import { APOLLO_STATE_PROP_NAME, getApolloState } from '@/modules/core/apollo/apolloClient';
 import { serializeSafe } from '@/modules/core/serializeSafe/serializeSafe';
 import useThemeContext from '@/modules/core/theming/hooks/useThemeContext';
-import { ApolloQueryResult, useQuery } from '@apollo/client';
-import gql from 'graphql-tag';
-import {
-  GetServerSideProps,
-  GetServerSidePropsContext,
-  GetServerSidePropsResult,
-  NextPage,
-} from 'next';
-import Head from 'next/head';
-import styled from 'styled-components';
+import { createLogger } from '@/modules/core/logging/logger';
+
+const logger = createLogger('Index');
 
 const Container = styled.main`
   display: flex;

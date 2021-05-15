@@ -14,11 +14,14 @@ import GlobalStyles from '@/common/design/GlobalStyles';
 import ResetStyles from '@/common/design/ResetStyles';
 import { useApollo } from '@/modules/core/apollo/apolloClient';
 import { ThemeProvider } from '@/modules/core/theming/contexts/ThemeProvider';
+import { createLogger } from '@/modules/core/logging/logger';
 import { MultiversalAppBootstrapProps } from '../types/MultiversalAppBootstrapProps';
 import BrowserPageBootstrap, { BrowserPageBootstrapProps } from './BrowserPageBootstrap';
 import ServerPageBootstrap, { ServerPageBootstrapProps } from './ServerPageBootstrap';
 
 export type Props = MultiversalAppBootstrapProps<SSGPageProps> | MultiversalAppBootstrapProps<SSRPageProps>;
+
+const logger = createLogger('MultiversalAppBootstrap');
 
 /**
  * Bootstraps a page and renders it
@@ -42,7 +45,7 @@ const MultiversalAppBootstrap: FunctionComponent<Props> = (props): JSX.Element =
   } = pageProps; // XXX Exclude all non-meaningful props that might be too large for Sentry to handle, to avoid "403 Entity too large"
 
   if (isBrowser() && process.env.NEXT_PUBLIC_APP_STAGE !== 'production') { // Avoids log clutter on server
-    console.debug('MultiversalAppBootstrap.props', props); // eslint-disable-line no-console
+    logger.debug('MultiversalAppBootstrap.props', props);
   }
 
   // Display a loader (we could use a skeleton too) when this happens, so that the user doesn't face a white page until the page is generated and displayed
@@ -57,7 +60,7 @@ const MultiversalAppBootstrap: FunctionComponent<Props> = (props): JSX.Element =
   if (pageProps.isReadyToRender || pageProps.statusCode === 404) {
     // Avoids noise when building the whole app
     if (!process.env.IS_SERVER_INITIAL_BUILD) {
-      console.info('MultiversalAppBootstrap - App is ready, rendering...');
+      logger.info('App is ready, rendering...');
     }
 
     // Unrecoverable error, we can't even display the layout because we don't have the minimal required information to properly do so.
@@ -65,13 +68,12 @@ const MultiversalAppBootstrap: FunctionComponent<Props> = (props): JSX.Element =
     // Or, it can be because no serializedDataset was provided.
     // Either way, we display the error page, which will take care of reporting the error to Sentry and display an error message depending on the environment.
     if (typeof serializedDataset !== 'string') {
-      // eslint-disable-next-line no-console
-      console.log('props', props);
+      logger.log('props', props);
 
       if (props.err) {
         const error = new Error(`Fatal error - A top-level error was thrown by the application, which caused the Page.props to be lost. \n
         The page cannot be shown to the end-user, an error page will be displayed.`);
-        console.error(error);
+        logger.error(error);
 
         return (
           <ErrorPage
@@ -110,16 +112,14 @@ const MultiversalAppBootstrap: FunctionComponent<Props> = (props): JSX.Element =
       // XXX It's too cumbersome to do proper typings when type changes
       //  The "customer" was forwarded as a JSON-ish string (using Flatten) in order to avoid circular dependencies issues (SSG/SSR)
       //  It now being converted back into an object to be actually usable on all pages
-      // eslint-disable-next-line no-console
-      console.debug('pageProps.serializedDataset length (bytes)', (serializedDataset as unknown as string)?.length);
+      logger.debug('pageProps.serializedDataset length (bytes)', (serializedDataset as unknown as string)?.length);
       // console.debug('serializedDataset', serializedDataset);
     }
 
     const dataset = deserializeSafe(serializedDataset);
 
     if (process.env.NEXT_PUBLIC_APP_STAGE !== 'production' && isBrowser()) {
-      // eslint-disable-next-line no-console
-      console.debug(`pageProps.dataset (${size(Object.keys(dataset))} items)`, dataset);
+      logger.debug(`pageProps.dataset (${size(Object.keys(dataset))} items)`, dataset);
     }
 
     /*
@@ -187,8 +187,7 @@ const MultiversalAppBootstrap: FunctionComponent<Props> = (props): JSX.Element =
   // We wait for out props to contain "isReadyToRender: true", which means they've been set correctly by either getInitialProps/getStaticProps/getServerProps
   // This helps avoid multiple useless renders (especially in development mode) and thus avoid noisy logs
   // XXX I've recently tested without it and didn't notice any more logs than expected/usual. Maybe this was from a time where there were multiple full-renders? It may be removed if so (TODO later with proper testing)
-  // eslint-disable-next-line no-console
-  console.info('MultiversalAppBootstrap - App is not ready yet, waiting for isReadyToRender');
+  logger.info('App is not ready yet, waiting for isReadyToRender');
   return null;
 };
 

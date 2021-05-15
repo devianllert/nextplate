@@ -4,7 +4,7 @@ import React, {
   ElementType,
   HTMLAttributes,
   forwardRef,
-  CSSProperties
+  CSSProperties,
 } from 'react';
 
 import { OverridableComponent } from '@/modules/core/react/types/OverridableComponent';

@@ -13,6 +13,21 @@ export interface Palette {
   background: PaletteBackground;
 
   /**
+   * The brand colors used to style the surfaces.
+   */
+  brand: PaletteBrand;
+
+  /**
+   * The colors used to style the action elements.
+   */
+  action: PaletteAction;
+
+  /**
+   * The colors used to style the statuses
+   */
+  status: PaletteStatus;
+
+  /**
    * Nested palette modes can provide overrides when used in conjunction with
    * `Theme.initialColorModeName` and `useColorMode()`
    */
@@ -32,4 +47,30 @@ export interface PaletteText {
 export interface PaletteBackground {
   primary: string;
   secondary: string;
+}
+
+export interface PaletteBrand {
+  primary: string;
+  secondary: string;
+}
+
+export interface PaletteStatus {
+  success: string;
+  warning: string;
+  info: string;
+  error: string;
+}
+
+export interface PaletteAction {
+  active: string;
+  hover: string;
+  hoverOpacity: number;
+  selected: string;
+  selectedOpacity: number;
+  disabled: string;
+  disabledBackground: string;
+  disabledOpacity: number;
+  focus: string;
+  focusOpacity: number;
+  activatedOpacity: number;
 }

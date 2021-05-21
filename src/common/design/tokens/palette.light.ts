@@ -52,4 +52,7 @@ export const divider = {
 export default {
   text,
   background,
+  brand,
+  action,
+  status,
 };

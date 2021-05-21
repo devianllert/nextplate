@@ -19,11 +19,13 @@ import { APOLLO_STATE_PROP_NAME, getApolloState } from '@/modules/core/apollo/ap
 import { serializeSafe } from '@/modules/core/serializeSafe/serializeSafe';
 import useThemeContext from '@/modules/core/theming/hooks/useThemeContext';
 import { createLogger } from '@/modules/core/logging/logger';
+import { Button } from '@/common/components/system/Button';
 
 const logger = createLogger('Index');
 
 const Container = styled.main`
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
 
@@ -77,7 +79,7 @@ const Home: NextPage<Props> = (): JSX.Element => {
         </div>
 
         <DisplayOnBrowserMount>
-          <button type="button" onClick={toggle}>{mode}</button>
+          <Button color="secondary" type="button" onClick={() => toggle(mode === 'light' ? 'dark' : 'light')}>{mode}</Button>
         </DisplayOnBrowserMount>
       </Container>
     </>

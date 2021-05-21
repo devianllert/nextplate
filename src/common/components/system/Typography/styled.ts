@@ -36,7 +36,7 @@ interface TypoProps {
 export const Typo = styled.span<TypoProps>((props) => ({
   margin: 0,
   display: props.display,
-  color: props.theme.text[props.color] ?? props.theme.status[props.color] ?? props.color,
+  color: props.theme.palette.text[props.color] ?? props.theme.palette.status[props.color] ?? props.color,
   textAlign: props.align,
   ...(props.noWrap && {
     overflow: 'hidden',

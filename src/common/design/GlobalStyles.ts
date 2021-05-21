@@ -1,4 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
+import { createTransition, duration } from './tokens/transitions';
 
 import { defaultFontFamily } from './tokens/typography';
 
@@ -24,7 +25,7 @@ const GlobalStyles = createGlobalStyle`
 
     background-color: ${({ theme }) => theme.palette.background.primary};
 
-    transition: all 0.15s ease;
+    transition: ${createTransition(['color', 'background-color'], { duration: duration.short })};
 
     letter-spacing: normal;
   }

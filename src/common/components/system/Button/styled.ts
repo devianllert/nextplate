@@ -159,10 +159,17 @@ export const ButtonRoot = styled(ButtonBase)<ButtonRootProps>(({ theme, ...props
   ...(props.disabled && {
     color: theme.palette.action.disabled,
 
+    ...(props.variant === 'text' && {
+      '&:hover': {
+        backgroundColor: 'transparent',
+      },
+    }),
+
     ...(props.variant === 'outlined' && {
       borderColor: theme.palette.action.disabledBackground,
 
       '&:hover': {
+        borderColor: theme.palette.action.disabledBackground,
         backgroundColor: 'transparent',
       },
     }),
@@ -173,8 +180,21 @@ export const ButtonRoot = styled(ButtonBase)<ButtonRootProps>(({ theme, ...props
       backgroundColor: theme.palette.action.disabledBackground,
 
       '&:hover': {
+        boxShadow: shadows[0],
         backgroundColor: theme.palette.action.disabledBackground,
       },
     }),
   }),
 }));
+
+export const ButtonStartIcon = styled.span({
+  display: 'inherit',
+  marginRight: 8,
+  marginLeft: -4,
+});
+
+export const ButtonEndIcon = styled.span({
+  display: 'inherit',
+  marginRight: -4,
+  marginLeft: 8,
+});

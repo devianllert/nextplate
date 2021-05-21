@@ -71,13 +71,29 @@ export interface ButtonTypeMap<P = {}, D extends React.ElementType = 'button'> {
 export const Button: OverridableComponent<ButtonTypeMap> = React.forwardRef(function Button(props, ref) {
   const {
     children,
-    component: Component,
+    component: Component = 'button',
     color = 'primary',
     variant = 'text',
+    type,
     disableElevation,
     disabled,
+    startIcon: startIconProp,
+    endIcon: endIconProp,
+    fullWidth = false,
     ...other
   } = props;
+
+  const startIcon = startIconProp && (
+    <S.ButtonStartIcon>
+      {startIconProp}
+    </S.ButtonStartIcon>
+  );
+
+  const endIcon = endIconProp && (
+    <S.ButtonEndIcon>
+      {endIconProp}
+    </S.ButtonEndIcon>
+  );
 
   return (
     <S.ButtonRoot
@@ -87,9 +103,12 @@ export const Button: OverridableComponent<ButtonTypeMap> = React.forwardRef(func
       variant={variant}
       color={color}
       disabled={disabled}
+      fullWidth={fullWidth}
       {...other}
     >
+      {startIcon}
       {children}
+      {endIcon}
     </S.ButtonRoot>
   );
 });

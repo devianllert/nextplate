@@ -60,7 +60,7 @@ export interface ButtonProps {
    *
    * @default 'primary'
    */
-  color?: 'primary' | 'secondary';
+  color?: 'primary' | 'secondary' | 'inherit';
 }
 
 export interface ButtonTypeMap<P = {}, D extends React.ElementType = 'button'> {
@@ -71,7 +71,7 @@ export interface ButtonTypeMap<P = {}, D extends React.ElementType = 'button'> {
 export const Button: OverridableComponent<ButtonTypeMap> = React.forwardRef(function Button(props, ref) {
   const {
     children,
-    component: Component = 'button',
+    component: Component,
     color = 'primary',
     variant = 'text',
     type,
@@ -97,7 +97,7 @@ export const Button: OverridableComponent<ButtonTypeMap> = React.forwardRef(func
 
   return (
     <S.ButtonRoot
-      as={Component}
+      component={Component}
       disableElevation={disableElevation}
       ref={ref}
       variant={variant}

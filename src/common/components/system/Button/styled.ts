@@ -96,7 +96,9 @@ export const ButtonRoot = styled(ButtonBase)<ButtonRootProps>(({ theme, ...props
   },
 
   '&:active': {
-    ...(props.variant === 'contained' && {
+    backgroundColor: tinycolor(theme.palette.text.primary).setAlpha(theme.palette.action.activatedOpacity).toString(),
+
+    ...(props.variant === 'contained' && props.color !== 'inherit' && {
       boxShadow: shadows[8],
       backgroundColor: tinycolor(theme.palette.brand[props.color]).lighten(theme.palette.action.activatedOpacity * 100 / 2).toString(),
 
@@ -105,7 +107,7 @@ export const ButtonRoot = styled(ButtonBase)<ButtonRootProps>(({ theme, ...props
       }),
     }),
 
-    ...((props.variant === 'text' || props.variant === 'outlined') && {
+    ...((props.variant === 'text' || props.variant === 'outlined') && props.color !== 'inherit' && {
       backgroundColor: tinycolor(theme.palette.brand[props.color]).setAlpha(theme.palette.action.activatedOpacity).toString(),
     }),
   },

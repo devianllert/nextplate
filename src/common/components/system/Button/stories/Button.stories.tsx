@@ -33,3 +33,14 @@ Contained.args = {
   color: 'primary',
   variant: 'contained',
 };
+
+export const Link = Template.bind({});
+
+Link.args = {
+  children: 'Button',
+  color: 'primary',
+  variant: 'contained',
+  href: 'https://google.com',
+  // @ts-ignore
+  target: '_blank',
+};

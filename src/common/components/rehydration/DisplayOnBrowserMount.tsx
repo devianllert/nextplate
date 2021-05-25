@@ -1,16 +1,10 @@
-import {
-  DependencyList,
-  useState,
-  useEffect,
-  FunctionComponent,
-  ReactNode,
-} from 'react';
+import * as React from 'react';
 import size from 'lodash.size';
 import some from 'lodash.some';
 
-export type Props = {
-  children: ReactNode;
-  deps?: DependencyList;
+export type DisplayOnBrowserMountProps = {
+  children: React.ReactNode;
+  deps?: React.DependencyList;
 };
 
 /**
@@ -54,7 +48,7 @@ export type Props = {
  * @see https://joshwcomeau.com/react/the-perils-of-rehydration/#two-pass-rendering Two pass rendering and performances implications
  * @see https://twitter.com/Vadorequest/status/1257658553361408002 Discussion with Josh regarding advanced usage
  */
-const DisplayOnBrowserMount: FunctionComponent<Props> = (props) => {
+export const DisplayOnBrowserMount = (props: DisplayOnBrowserMountProps): JSX.Element => {
   const { children, deps = [] } = props;
   // If any dep isn't defined, then it will render "null" first, and then trigger a re-render
   const isAnyDepsNullish = size(deps)
@@ -62,9 +56,10 @@ const DisplayOnBrowserMount: FunctionComponent<Props> = (props) => {
     ? some(deps, (dependency: any): boolean => dependency === null || typeof dependency === 'undefined')
     // If no dep is provided, then it should render "null" first anyway, and then trigger a re-render
     : true;
-  const [hasMounted, setHasMounted] = useState<boolean>(!isAnyDepsNullish);
 
-  useEffect(() => {
+  const [hasMounted, setHasMounted] = React.useState<boolean>(!isAnyDepsNullish);
+
+  React.useEffect(() => {
     if (isAnyDepsNullish) {
       setHasMounted(true);
     }
@@ -76,5 +71,3 @@ const DisplayOnBrowserMount: FunctionComponent<Props> = (props) => {
 
   return <>{children}</>;
 };
-
-export default DisplayOnBrowserMount;

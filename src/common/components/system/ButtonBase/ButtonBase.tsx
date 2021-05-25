@@ -1,5 +1,6 @@
 /* eslint-disable prefer-arrow-callback */
 import * as React from 'react';
+
 import { OverridableComponent } from '@/modules/core/react/types/OverridableComponent';
 
 import * as S from './styled';
@@ -80,5 +81,3 @@ export const ButtonBase: OverridableComponent<ButtonBaseTypeMap> = React.forward
     </S.ButtonBaseRoot>
   );
 });
-
-export default ButtonBase;

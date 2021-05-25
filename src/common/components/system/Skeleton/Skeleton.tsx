@@ -1,7 +1,7 @@
 /* eslint-disable prefer-arrow-callback */
+import * as React from 'react';
 
 import { OverridableComponent } from '@/modules/core/react/types/OverridableComponent';
-import React, { ReactNode, forwardRef } from 'react';
 
 import * as S from './styled';
 
@@ -9,7 +9,7 @@ export interface SkeletonProps {
   /**
    * Optional children to infer width and height from.
    */
-  children?: ReactNode,
+  children?: React.ReactNode,
   /**
    * The animation.
    * If `false` the animation effect is disabled.
@@ -53,7 +53,7 @@ interface SkeletonTypeMap<P = {}, D extends React.ElementType = 'span'> {
  *  <Skeleton variant="rect" height={140} />
  * </Card>
  */
-export const Skeleton: OverridableComponent<SkeletonTypeMap> = forwardRef(function Skeleton(props, ref) {
+export const Skeleton: OverridableComponent<SkeletonTypeMap> = React.forwardRef(function Skeleton(props, ref) {
   const {
     animation = 'pulse',
     className,

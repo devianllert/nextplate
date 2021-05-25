@@ -1,25 +1,19 @@
 /* eslint-disable prefer-arrow-callback */
-import React, {
-  ReactNode,
-  ElementType,
-  HTMLAttributes,
-  forwardRef,
-  CSSProperties,
-} from 'react';
+import * as React from 'react';
 
 import { OverridableComponent } from '@/modules/core/react/types/OverridableComponent';
 
 import * as S from './styled';
 
-export interface TypographyProps extends HTMLAttributes<ElementType> {
+export interface TypographyProps extends React.HTMLAttributes<React.ElementType> {
   /**
    * The content of the button.
    */
-  children?: ReactNode;
+  children?: React.ReactNode;
   /**
    * Set the text-align on the component.
    */
-  align?: CSSProperties['textAlign'];
+  align?: React.CSSProperties['textAlign'];
   /**
    * Set the font-weight on the component.
    */
@@ -54,10 +48,10 @@ export interface TypographyProps extends HTMLAttributes<ElementType> {
   /**
    * Controls the display type
    */
-  display?: CSSProperties['display'];
+  display?: React.CSSProperties['display'];
 }
 
-export const defaultVariantMapping: Record<S.TypoVariant, ElementType> = {
+export const defaultVariantMapping: Record<S.TypoVariant, React.ElementType> = {
   h1: 'h1',
   h2: 'h2',
   h3: 'h3',
@@ -81,7 +75,7 @@ export interface TypographyTypeMap<P = {}, D extends React.ElementType = 'h1'> {
 /**
  * Use Typography component to present your design and content as clearly and efficiently as possible.
  */
-export const Typography: OverridableComponent<TypographyTypeMap> = forwardRef(function Typography(props, ref) {
+export const Typography: OverridableComponent<TypographyTypeMap> = React.forwardRef(function Typography(props, ref) {
   const {
     children,
     align = 'inherit',

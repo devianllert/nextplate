@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import AnimatedTextBubble from './AnimatedTextBubble';
+import { AnimatedTextBubble } from './AnimatedTextBubble';
 
 const LoaderWrapper = styled.div`
   justify-content: center;
@@ -8,10 +8,9 @@ const LoaderWrapper = styled.div`
   margin-right: auto;
 `;
 
-// eslint-disable-next-line @typescript-eslint/ban-types
-export type Props = {};
+export interface LoaderProps {}
 
-const Loader = (props: Props): JSX.Element => {
+const Loader = (props: LoaderProps): JSX.Element => {
   return (
     <LoaderWrapper>
       <AnimatedTextBubble />

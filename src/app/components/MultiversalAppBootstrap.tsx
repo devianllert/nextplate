@@ -1,4 +1,4 @@
-import React, { FunctionComponent, useState } from 'react';
+import * as React from 'react';
 import Head from 'next/head';
 import { ApolloProvider } from '@apollo/client';
 import isEmpty from 'lodash.isempty';
@@ -31,13 +31,13 @@ const logger = createLogger('MultiversalAppBootstrap');
  *
  * @param props
  */
-const MultiversalAppBootstrap: FunctionComponent<Props> = (props): JSX.Element => {
+const MultiversalAppBootstrap = (props: Props): JSX.Element => {
   const {
     pageProps,
     router,
   } = props;
 
-  const [isSSGFallbackInitialBuild] = useState<boolean>(isEmpty(pageProps) && router?.isFallback === true);
+  const [isSSGFallbackInitialBuild] = React.useState<boolean>(isEmpty(pageProps) && router?.isFallback === true);
   const apolloClient = useApollo<SSGPageProps | SSRPageProps>(pageProps);
 
   const {

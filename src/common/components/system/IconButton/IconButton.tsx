@@ -1,5 +1,5 @@
 /* eslint-disable prefer-arrow-callback */
-import React, { forwardRef } from 'react';
+import * as React from 'react';
 
 import { OverridableComponent } from '@/modules/core/react/types/OverridableComponent';
 
@@ -12,7 +12,7 @@ export interface IconButtonTypeMap<P = {}, D extends React.ElementType = 'button
   defaultComponent: D;
 }
 
-const IconButton: OverridableComponent<IconButtonTypeMap> = forwardRef(function IconButton(props, ref) {
+export const IconButton: OverridableComponent<IconButtonTypeMap> = React.forwardRef(function IconButton(props, ref) {
   const {
     children,
     ...other
@@ -24,5 +24,3 @@ const IconButton: OverridableComponent<IconButtonTypeMap> = forwardRef(function 
     </S.IconButtonRoot>
   );
 });
-
-export default IconButton;

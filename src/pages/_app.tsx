@@ -1,9 +1,9 @@
-import type { FunctionComponent } from 'react';
+import '@/modules/core/wdyr/wdyr';
+
+import * as React from 'react';
 import size from 'lodash.size';
 // XXX Use v1 for uniqueness - See https://www.sohamkamani.com/blog/2016/10/05/uuid1-vs-uuid4/
 import { v1 as uuid } from 'uuid';
-
-import '@/modules/core/wdyr/wdyr';
 
 import MultiversalAppBootstrap from '@/app/components/MultiversalAppBootstrap';
 import { MultiversalAppBootstrapProps } from '@/app/types/MultiversalAppBootstrapProps';
@@ -16,7 +16,7 @@ import { NextWebVitalsMetricsReport } from '@/modules/core/webVitals/types/NextW
  * "props.pageProps" will depend on whether the page is served by server or client, SSG or SSR
  * (MultiversalAppBootstrapProps<SSGPageProps> | MultiversalAppBootstrapProps<SSRPageProps>) is basically a superset of AppProps (from 'next/app')
  */
-type Props = MultiversalAppBootstrapProps<SSGPageProps> | MultiversalAppBootstrapProps<SSRPageProps>;
+type MultiversalPageEntryPointProps = MultiversalAppBootstrapProps<SSGPageProps> | MultiversalAppBootstrapProps<SSRPageProps>;
 
 /**
  * This file is the entry point for all pages, it initialize all pages.
@@ -59,7 +59,7 @@ type Props = MultiversalAppBootstrapProps<SSGPageProps> | MultiversalAppBootstra
  *
  * @return {JSX.Element}
  */
-const MultiversalPageEntryPoint: FunctionComponent<Props> = (props): JSX.Element => (
+const MultiversalPageEntryPoint = (props: MultiversalPageEntryPointProps): JSX.Element => (
   <MultiversalAppBootstrap {...props} />
 );
 

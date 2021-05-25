@@ -1,5 +1,4 @@
-import React, { ReactNode, ReactElement } from 'react';
-import { CSSProperties } from 'styled-components';
+import * as React from 'react';
 
 import * as S from './styled';
 
@@ -7,7 +6,7 @@ export interface InlineProps {
   /**
    * The content
    */
-  children: ReactNode;
+  children: React.ReactNode;
   /**
    * The space between children
    */
@@ -15,10 +14,10 @@ export interface InlineProps {
   /**
   * The align of the children
   */
-  alignY?: CSSProperties['alignItems'];
+  alignY?: React.CSSProperties['alignItems'];
 }
 
-export const Inline = (props: InlineProps): ReactElement => {
+export const Inline = (props: InlineProps): JSX.Element => {
   const {
     children,
     space = 8,

@@ -11,7 +11,7 @@
  * @see https://github.com/welldone-software/why-did-you-render
  * @see https://github.com/vercel/next.js/tree/canary/examples/with-why-did-you-render
  */
-import React from 'react';
+import * as React from 'react';
 
 if (typeof window !== 'undefined' && process.env.NODE_ENV === 'development') {
   // eslint-disable-next-line @typescript-eslint/no-var-requires

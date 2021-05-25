@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import styled, { keyframes } from 'styled-components';
 
 const AnimatedWrapper = styled.div`
@@ -29,16 +29,16 @@ const AnimatedCircle = styled.circle<{ delay: number }>`
   animation-delay: ${({ delay }) => delay}ms;
 `;
 
-export type Props = {
+export interface AnimatedTextBubbleProps {
   /**
    * Color of the dots.
    *
    * @default
    */
   fill?: string;
-};
+}
 
-const AnimatedTextBubble = (props: Props): JSX.Element => {
+export const AnimatedTextBubble = (props: AnimatedTextBubbleProps): JSX.Element => {
   return (
     <AnimatedWrapper>
       <svg
@@ -57,5 +57,3 @@ const AnimatedTextBubble = (props: Props): JSX.Element => {
     </AnimatedWrapper>
   );
 };
-
-export default AnimatedTextBubble;

@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import * as React from 'react';
 
 import * as S from './styled';
 
@@ -8,17 +8,17 @@ export interface BreadcrumbsProps {
    *
    * Doesn't accept a Fragment as a child.
    */
-  children?: ReactNode;
+  children?: React.ReactNode;
   /**
    * Custom separator node.
    *
    * @default '/'
    */
-  separator?: ReactNode;
+  separator?: React.ReactNode;
 }
 
-const insertSeparators = (items: ReactNode[], separator: ReactNode) => {
-  return items.reduce((acc: ReactNode[], current, index) => {
+const insertSeparators = (items: React.ReactNode[], separator: React.ReactNode) => {
+  return items.reduce((acc: React.ReactNode[], current, index) => {
     if (index < items.length - 1) {
       // eslint-disable-next-line no-param-reassign
       acc = acc.concat(
@@ -60,5 +60,3 @@ const Breadcrumbs = (props: BreadcrumbsProps): JSX.Element => {
     </S.BreadcrumbsRoot>
   );
 };
-
-export default Breadcrumbs;

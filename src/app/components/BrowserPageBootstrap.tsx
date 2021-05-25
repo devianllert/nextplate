@@ -1,3 +1,5 @@
+import * as React from 'react';
+
 import { MultiversalPageProps } from '@/layouts/core/types/MultiversalPageProps';
 import { OnlyBrowserPageProps } from '@/layouts/core/types/OnlyBrowserPageProps';
 import UniversalCookiesManager from '@/modules/core/cookiesManager/UniversalCookiesManager';
@@ -18,6 +20,8 @@ export type BrowserPageBootstrapProps = MultiversalAppBootstrapProps<Multiversal
  */
 const BrowserPageBootstrap = (props: BrowserPageBootstrapProps): JSX.Element => {
   const { Component, err, router } = props;
+
+  const LayoutComponent = Component.Layout ?? React.Fragment;
 
   const cookiesManager: UniversalCookiesManager = new UniversalCookiesManager(); // On browser, we can access cookies directly (doesn't need req/res or page context)
   const userSession: UserSemiPersistentSession = cookiesManager.getUserData();
@@ -46,11 +50,13 @@ const BrowserPageBootstrap = (props: BrowserPageBootstrapProps): JSX.Element => 
 
   return (
     <userSessionContext.Provider value={{ ...userSession }}>
-      <Component
-        {...injectedPageProps}
-        // @ts-ignore
-        error={err}
-      />
+      <LayoutComponent>
+        <Component
+          {...injectedPageProps}
+          // @ts-ignore
+          error={err}
+        />
+      </LayoutComponent>
     </userSessionContext.Provider>
   );
 };

@@ -2,24 +2,21 @@ import {
   GetServerSideProps,
   GetServerSidePropsContext,
   GetServerSidePropsResult,
-  NextPage,
 } from 'next';
 import gql from 'graphql-tag';
 import Head from 'next/head';
 import styled from 'styled-components';
 import { ApolloQueryResult, useQuery } from '@apollo/client';
 import { CommonServerSideParams } from '@/app/types/CommonServerSideParams';
-import DisplayOnBrowserMount from '@/common/components/rehydration/DisplayOnBrowserMount';
-import { getNoneStaticProps } from '@/layouts/core/SSG';
 import { getCoreServerSideProps, GetCoreServerSidePropsResults } from '@/layouts/core/SSR';
 import { OnlyBrowserPageProps } from '@/layouts/core/types/OnlyBrowserPageProps';
 import { SSGPageProps } from '@/layouts/core/types/SSGPageProps';
 import { SSRPageProps } from '@/layouts/core/types/SSRPageProps';
 import { APOLLO_STATE_PROP_NAME, getApolloState } from '@/modules/core/apollo/apolloClient';
 import { serializeSafe } from '@/modules/core/serializeSafe/serializeSafe';
-import useThemeContext from '@/modules/core/theming/hooks/useThemeContext';
 import { createLogger } from '@/modules/core/logging/logger';
-import { Button } from '@/common/components/system/Button';
+import { EnhancedNextPage } from '@/layouts/core/types/EnhancedNextPage';
+import { MainLayout } from '@/layouts/main/components/MainLayout';
 
 const logger = createLogger('Index');
 
@@ -28,9 +25,7 @@ const Container = styled.main`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-
-  width: 100%;
-  min-height: 100vh;
+  flex: 1;
 `;
 
 const PostQuery = gql`
@@ -62,14 +57,13 @@ type GetServerSidePageProps = CustomPageProps & SSRPageProps;
  */
 type Props = CustomPageProps & (SSRPageProps & SSGPageProps<OnlyBrowserPageProps>);
 
-const Home: NextPage<Props> = (): JSX.Element => {
+const Home: EnhancedNextPage<Props> = (): JSX.Element => {
   const { data } = useQuery(PostQuery);
-  const { mode, toggle } = useThemeContext();
 
   return (
     <>
       <Head>
-        <title>Create Next App</title>
+        <title>Home | dvnllrt</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
@@ -77,10 +71,6 @@ const Home: NextPage<Props> = (): JSX.Element => {
         <div>
           {JSON.stringify(data, null, 2)}
         </div>
-
-        <DisplayOnBrowserMount>
-          <Button color="secondary" type="button" onClick={() => toggle(mode === 'light' ? 'dark' : 'light')}>{mode}</Button>
-        </DisplayOnBrowserMount>
       </Container>
     </>
   );
@@ -105,8 +95,7 @@ export const getServerSideProps: GetServerSideProps<GetServerSidePageProps> = as
     const { data, errors }: ApolloQueryResult<any> = await apolloClient.query(queryOptions);
 
     if (errors) {
-      // eslint-disable-next-line no-console
-      console.error(errors);
+      logger.error(errors);
       throw new Error('Errors were detected in GraphQL query.');
     }
 
@@ -129,5 +118,7 @@ export const getServerSideProps: GetServerSideProps<GetServerSidePageProps> = as
     return commonServerSideProps;
   }
 };
+
+Home.Layout = MainLayout;
 
 export default Home;

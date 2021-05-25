@@ -1,3 +1,5 @@
+import * as React from 'react';
+
 import { MultiversalPageProps } from '@/layouts/core/types/MultiversalPageProps';
 import { OnlyServerPageProps } from '@/layouts/core/types/OnlyServerPageProps';
 import userSessionContext from '@/modules/core/userSession/userSessionContext';
@@ -14,6 +16,8 @@ export type ServerPageBootstrapProps = MultiversalAppBootstrapProps<MultiversalP
 const ServerPageBootstrap = (props: ServerPageBootstrapProps): JSX.Element => {
   const { Component, err } = props;
 
+  const LayoutComponent = Component.Layout ?? React.Fragment;
+
   // When the page is served by the server, some server-only properties are available
   // eslint-disable-next-line react/destructuring-assignment
   const pageProps = (props.pageProps as unknown) as MultiversalPageProps<OnlyServerPageProps>;
@@ -28,11 +32,13 @@ const ServerPageBootstrap = (props: ServerPageBootstrapProps): JSX.Element => {
 
   return (
     <userSessionContext.Provider value={{ ...userSession }}>
-      <Component
-        {...injectedPageProps}
-        // @ts-ignore
-        error={err}
-      />
+      <LayoutComponent>
+        <Component
+          {...injectedPageProps}
+          // @ts-ignore
+          error={err}
+        />
+      </LayoutComponent>
     </userSessionContext.Provider>
   );
 };

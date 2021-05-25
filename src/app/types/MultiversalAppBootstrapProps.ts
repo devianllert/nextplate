@@ -1,5 +1,5 @@
+import { EnhancedNextPage } from '@/layouts/core/types/EnhancedNextPage';
 import { MultiversalPageProps } from '@/layouts/core/types/MultiversalPageProps';
-import type { NextComponentType, NextPageContext } from 'next';
 import { Router } from 'next/router';
 
 /**
@@ -9,7 +9,10 @@ import { Router } from 'next/router';
  * @see MultiversalAppBootstrap for usage
  */
 export type MultiversalAppBootstrapProps<PP extends MultiversalPageProps = MultiversalPageProps> = {
-  Component?: NextComponentType<NextPageContext>; // Page component, not provided if pageProps.statusCode is 3xx or 4xx
+  /**
+   * Page component, not provided if pageProps.statusCode is 3xx or 4xx
+   */
+  Component?: EnhancedNextPage;
   err?: Error; // Only defined if there was an error
   pageProps?: PP; // Props forwarded to the Page component
   router?: Router;

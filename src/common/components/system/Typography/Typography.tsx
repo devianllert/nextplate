@@ -119,5 +119,3 @@ export const Typography: OverridableComponent<TypographyTypeMap> = forwardRef(fu
     </S.Typo>
   );
 });
-
-export default Typography;

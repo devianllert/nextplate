@@ -62,6 +62,10 @@
   ],
   "include": [
     "next-env.d.ts",
+    "next.config.js",
+    "jest.config.js",
+    "./sentry.client.config.js",
+    "./sentry.server.config.js",
     "**/*.ts",
     "**/*.tsx"
   ]

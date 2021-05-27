@@ -21,6 +21,13 @@ declare global {
       NEXT_PUBLIC_APP_BUILD_TIME: string;
       NEXT_PUBLIC_APP_BUILD_TIMESTAMP: string;
 
+      // Sentry variables
+      SENTRY_DSN: string;
+      SENTRY_URL: string;
+      SENTRY_ORG: string;
+      SENTRY_PROJECT: string;
+      SENTRY_AUTH_TOKEN: string;
+
       // Git env variables
       GIT_COMMIT_SHA_SHORT: string;
       GIT_COMMIT_SHA: string;

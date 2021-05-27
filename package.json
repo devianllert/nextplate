@@ -38,6 +38,7 @@
   "dependencies": {
     "@apollo/client": "^3.3.14",
     "@sentry/browser": "^6.2.5",
+    "@sentry/nextjs": "^6.4.1",
     "@sentry/node": "^6.2.5",
     "@unly/simple-logger": "^1.0.0",
     "chalk": "^4.1.1",

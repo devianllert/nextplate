@@ -1,5 +1,5 @@
 /* eslint-disable no-lonely-if */
-import * as Sentry from '@sentry/node';
+import * as Sentry from '@sentry/nextjs';
 import { NextPageContext } from 'next';
 import NextError, { ErrorProps as NextErrorProps } from 'next/error';
 import React from 'react';

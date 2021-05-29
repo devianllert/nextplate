@@ -107,6 +107,9 @@ module.exports = withSentryConfig(
         NEXT_PUBLIC_GRAPHQL_API_ENDPOINT: process.env.GRAPHQL_API_ENDPOINT,
         GRAPHQL_API_KEY: process.env.GRAPHQL_API_KEY,
 
+        SENTRY_DSN: process.env.SENTRY_DSN,
+        SENTRY_RELEASE: process.env.NEXT_PUBLIC_APP_VERSION_RELEASE,
+
         // Dynamic env variables
         NEXT_PUBLIC_APP_BUILD_TIME: date.toString(),
         NEXT_PUBLIC_APP_BUILD_TIMESTAMP: +date,
@@ -131,6 +134,21 @@ module.exports = withSentryConfig(
        */
       async headers() {
         const headers = [];
+
+        // const headers = [
+        //   {
+        //     // Make all fonts immutable and cached for one year
+        //     'source': '/static/fonts/(.*?)',
+        //     'headers': [
+        //       {
+        //         'key': 'Cache-Control',
+        //         // See https://www.keycdn.com/blog/cache-control-immutable#what-is-cache-control-immutable
+        //         // See https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control#browser_compatibility
+        //         'value': 'public, max-age=31536000, immutable',
+        //       },
+        //     ],
+        //   },
+        // ];
 
         console.info('Using headers:', JSON.stringify(headers, null, 2));
 
@@ -249,25 +267,6 @@ module.exports = withSentryConfig(
           );
         }
 
-        // XXX See https://github.com/vercel/next.js/blob/canary/examples/with-sentry-simple/next.config.js
-        // In `pages/_app.js`, Sentry is imported from @sentry/node. While
-        // @sentry/browser will run in a Node.js environment, @sentry/node will use
-        // Node.js-only APIs to catch even more unhandled exceptions.
-        //
-        // This works well when Next.js is SSRing your page on a server with
-        // Node.js, but it is not what we want when your client-side bundle is being
-        // executed by a browser.
-        //
-        // Luckily, Next.js will call this webpack function twice, once for the
-        // server and once for the client. Read more:
-        // https://nextjs.org/docs#customizing-webpack-config
-        //
-        // So ask Webpack to replace @sentry/node imports with @sentry/browser when
-        // building the browser's bundle
-        if (!isServer) {
-          config.resolve.alias['@sentry/node'] = '@sentry/browser';
-        }
-
         return config;
       },
 
@@ -300,7 +299,8 @@ module.exports = withSentryConfig(
       //   pagesBufferLength: 2,
       // },
 
-      poweredByHeader: false, // See https://nextjs.org/docs/api-reference/next.config.js/disabling-x-powered-by
+      // See https://nextjs.org/docs/api-reference/next.config.js/disabling-x-powered-by
+      poweredByHeader: false,
     }),
   ),
   SentryWebpackPluginOptions,

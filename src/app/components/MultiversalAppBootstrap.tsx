@@ -1,4 +1,5 @@
 import * as React from 'react';
+import * as Sentry from '@sentry/nextjs';
 import Head from 'next/head';
 import { ApolloProvider } from '@apollo/client';
 import isEmpty from 'lodash.isempty';
@@ -18,10 +19,12 @@ import { createLogger } from '@/modules/core/logging/logger';
 import { MultiversalAppBootstrapProps } from '../types/MultiversalAppBootstrapProps';
 import BrowserPageBootstrap, { BrowserPageBootstrapProps } from './BrowserPageBootstrap';
 import ServerPageBootstrap, { ServerPageBootstrapProps } from './ServerPageBootstrap';
+import { configureSentryI18n } from '@/modules/core/sentry/sentry';
 
 export type Props = MultiversalAppBootstrapProps<SSGPageProps> | MultiversalAppBootstrapProps<SSRPageProps>;
 
-const logger = createLogger('MultiversalAppBootstrap');
+const fileLabel = 'app/components/MultiversalAppBootstrap';
+const logger = createLogger(fileLabel);
 
 /**
  * Bootstraps a page and renders it
@@ -39,6 +42,12 @@ const MultiversalAppBootstrap = (props: Props): JSX.Element => {
 
   const [isSSGFallbackInitialBuild] = React.useState<boolean>(isEmpty(pageProps) && router?.isFallback === true);
   const apolloClient = useApollo<SSGPageProps | SSRPageProps>(pageProps);
+
+  Sentry.addBreadcrumb({
+    category: fileLabel,
+    message: `Rendering ${fileLabel}`,
+    level: Sentry.Severity.Debug,
+  });
 
   const {
     serializedDataset, // Size might be too big
@@ -62,6 +71,8 @@ const MultiversalAppBootstrap = (props: Props): JSX.Element => {
     if (!process.env.IS_SERVER_INITIAL_BUILD) {
       logger.info('App is ready, rendering...');
     }
+
+    configureSentryI18n('ru', 'ru_RU');
 
     // Unrecoverable error, we can't even display the layout because we don't have the minimal required information to properly do so.
     // The reason can be a UI crash (something broke due to the user's interaction) and a top-level error was thrown in props.err.

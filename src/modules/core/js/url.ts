@@ -1,4 +1,4 @@
-import * as Sentry from '@sentry/node';
+import * as Sentry from '@sentry/nextjs';
 import StringifySafe from 'json-stringify-safe';
 import startsWith from 'lodash.startswith';
 
@@ -45,7 +45,7 @@ export const decodeQueryParameterToJSON = (query: string): GenericObject => {
 
   // Parsing the query parameter could fail for various reason, the most expected use case being a bad/truncated/malformed URL
   try {
-    return JSON.parse(decodedQueryParameter);
+    return JSON.parse(decodedQueryParameter) as GenericObject;
   } catch (error) {
     Sentry.withScope((scope) => {
       scope.setExtra('decodedQueryParameter', decodedQueryParameter); // Useful for debug

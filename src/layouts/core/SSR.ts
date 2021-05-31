@@ -1,6 +1,7 @@
 import { GetServerSideProps, GetServerSidePropsContext, GetServerSidePropsResult } from 'next';
 import { ApolloClient, NormalizedCacheObject } from '@apollo/client';
 import NextCookies from 'next-cookies';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { IncomingMessage } from 'http';
 import { CommonServerSideParams } from '@/app/types/CommonServerSideParams';
 import UniversalCookiesManager from '@/modules/core/cookiesManager/UniversalCookiesManager';
@@ -36,6 +37,7 @@ export const getCoreServerSideProps: GetServerSideProps<GetCoreServerSidePropsRe
   const {
     req,
     res,
+    locale,
   } = context;
 
   // Parses Next.js cookies in a universal way (server + client)
@@ -61,6 +63,7 @@ export const getCoreServerSideProps: GetServerSideProps<GetCoreServerSidePropsRe
       isServerRendering: true,
       readonlyCookies,
       headers: publicHeaders,
+      ...await serverSideTranslations(locale, ['common']),
     },
   };
 };

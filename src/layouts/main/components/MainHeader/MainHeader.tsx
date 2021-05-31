@@ -19,17 +19,17 @@ export const MainHeader = (): JSX.Element => {
     <S.MainHeaderRoot>
       <Typography variant="h6" component="span">dvnllrt-app</Typography>
 
-      <Inline alignY="center" space={16}>
-        <Typography variant="subtitle2" component="span">
-          Last updated:
-          {' '}
-          <Timeago
-            datetime={process.env.NEXT_PUBLIC_APP_BUILD_TIME}
-            locale="en"
-          />
-        </Typography>
+      <DisplayOnBrowserMount>
+        <Inline alignY="center" space={16}>
+          <Typography variant="subtitle2" component="span">
+            Last updated:
+            {' '}
+            <Timeago
+              datetime={process.env.NEXT_PUBLIC_APP_BUILD_TIME}
+              locale="en"
+            />
+          </Typography>
 
-        <DisplayOnBrowserMount>
           <Button
             color="primary"
             type="button"
@@ -37,8 +37,8 @@ export const MainHeader = (): JSX.Element => {
           >
             {mode === 'light' ? '🌞' : '🌙'}
           </Button>
-        </DisplayOnBrowserMount>
-      </Inline>
+        </Inline>
+      </DisplayOnBrowserMount>
     </S.MainHeaderRoot>
   );
 };

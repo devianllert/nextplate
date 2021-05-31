@@ -3,8 +3,10 @@ import {
   GetServerSidePropsContext,
   GetServerSidePropsResult,
 } from 'next';
+import { useTranslation } from 'next-i18next';
 import gql from 'graphql-tag';
 import Head from 'next/head';
+import Link from 'next/link';
 import styled from 'styled-components';
 import { ApolloQueryResult, useQuery } from '@apollo/client';
 import { CommonServerSideParams } from '@/app/types/CommonServerSideParams';
@@ -17,6 +19,8 @@ import { serializeSafe } from '@/modules/core/serializeSafe/serializeSafe';
 import { createLogger } from '@/modules/core/logging/logger';
 import { EnhancedNextPage } from '@/layouts/core/types/EnhancedNextPage';
 import { MainLayout } from '@/layouts/main/components/MainLayout';
+import { Button } from '@/common/components/system/Button';
+import { ButtonBase } from '@/common/components/system/ButtonBase';
 
 const logger = createLogger('Index');
 
@@ -58,6 +62,7 @@ type GetServerSidePageProps = CustomPageProps & SSRPageProps;
 type Props = CustomPageProps & (SSRPageProps & SSGPageProps<OnlyBrowserPageProps>);
 
 const Home: EnhancedNextPage<Props> = (): JSX.Element => {
+  const { t, i18n } = useTranslation();
   const { data } = useQuery(PostQuery);
 
   return (
@@ -68,6 +73,12 @@ const Home: EnhancedNextPage<Props> = (): JSX.Element => {
       </Head>
 
       <Container>
+        <Link href="/" passHref locale={i18n.language === 'en' ? 'ru' : 'en'}>
+          <Button>
+            {`${t('button')} ${i18n.language}`}
+          </Button>
+        </Link>
+
         <div>
           {JSON.stringify(data, null, 2)}
         </div>

@@ -1,8 +1,10 @@
 /* eslint-disable */
+const path = require('path');
 const bundleAnalyzer = require('@next/bundle-analyzer');
 const { withSentryConfig } = require('@sentry/nextjs');
 const nextSourceMaps = require('@zeit/next-source-maps');
 const packageJson = require('./package.json');
+const i18nConfig = require('./next-i18next.config');
 
 const withSourceMaps = nextSourceMaps();
 const withBundleAnalyzer = bundleAnalyzer({
@@ -89,6 +91,8 @@ module.exports = withSentryConfig(
           fs: false,
         },
       },
+
+      ...i18nConfig,
 
       /**
        * Environment variables added to JS bundle

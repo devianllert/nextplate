@@ -45,7 +45,7 @@ class AppDocument extends Document {
 
   render(): JSX.Element {
     return (
-      <Html>
+      <Html lang={this.props.locale}>
         <Head>
           <meta name="author" content="devianllert@gmail.com" />
           <meta name="description" content="Next boilerplate" />

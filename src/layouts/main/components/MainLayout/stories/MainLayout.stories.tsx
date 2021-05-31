@@ -1,7 +1,6 @@
-
 import React, { ReactElement } from 'react';
 
-import MainLayout from '../MainLayout';
+import { MainLayout } from '../MainLayout';
 
 export default {
   title: 'Components/MainLayout',

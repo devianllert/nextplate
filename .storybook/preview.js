@@ -3,6 +3,8 @@ import { addDecorator } from '@storybook/react';
 import { withTests } from '@storybook/addon-jest';
 import { withNextRouter } from 'storybook-addon-next-router';
 import { withPerformance } from 'storybook-addon-performance';
+import { I18nextProvider } from 'react-i18next';
+import i18n from './i18n';
 
 import '@storybook/addon-console'; // Automatically forwards all logs in the "Actions" panel - See https://github.com/storybookjs/storybook-addon-console
 import '@/app/components/MultiversalGlobalExternalStyles'; // Import the same 3rd party libraries global styles as the pages/_app.tsx (for UI consistency)
@@ -137,24 +139,26 @@ addDecorator(
 export const decorators = [
   (Story, context) => {
     return (
-      <ThemeProvider>
-        <ResetStyles />
-        <GlobalStyles />
+      <I18nextProvider i18n={i18n}>
+        <ThemeProvider>
+          <ResetStyles />
+          <GlobalStyles />
 
-        <Toggler />
+          <Toggler />
 
-        <div
-          style={{
-            minHeight: '100vh',
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            justifyContent: 'center',
-          }}
-        >
-          <Story />
-        </div>
-      </ThemeProvider>
+          <div
+            style={{
+              minHeight: '100vh',
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              justifyContent: 'center',
+            }}
+          >
+            <Story />
+          </div>
+        </ThemeProvider>
+      </I18nextProvider>
     );
   },
 ];

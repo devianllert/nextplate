@@ -1,11 +1,13 @@
 import * as React from 'react';
 import * as Sentry from '@sentry/nextjs';
+
 import Head from 'next/head';
 import { ApolloProvider } from '@apollo/client';
 import isEmpty from 'lodash.isempty';
 import size from 'lodash.size';
 
 import ErrorPage from '@/pages/_error';
+import { configureSentryI18n } from '@/modules/core/sentry/sentry';
 import isBrowser from '@/common/utils/isBrowser';
 import { SSGPageProps } from '@/layouts/core/types/SSGPageProps';
 import { SSRPageProps } from '@/layouts/core/types/SSRPageProps';
@@ -19,7 +21,6 @@ import { createLogger } from '@/modules/core/logging/logger';
 import { MultiversalAppBootstrapProps } from '../types/MultiversalAppBootstrapProps';
 import BrowserPageBootstrap, { BrowserPageBootstrapProps } from './BrowserPageBootstrap';
 import ServerPageBootstrap, { ServerPageBootstrapProps } from './ServerPageBootstrap';
-import { configureSentryI18n } from '@/modules/core/sentry/sentry';
 
 export type Props = MultiversalAppBootstrapProps<SSGPageProps> | MultiversalAppBootstrapProps<SSRPageProps>;
 

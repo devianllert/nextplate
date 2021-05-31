@@ -1,4 +1,6 @@
+import { UserConfig } from 'next-i18next';
 import { ApolloState } from '@/modules/core/apollo/apolloClient';
+import { GenericObject } from '@/modules/core/data/types/GenericObject';
 
 /**
  * Page properties available on all pages, whether they're rendered statically, dynamically, from the server or the client
@@ -13,4 +15,9 @@ export type MultiversalPageProps<E extends {} = {}> = {
   serializedDataset: string; // Transferred from server to browser as JSON (using Flatten.stringify), then parsed on the browser/server within the MultiversalAppBootstrap
   error?: Error; // Only defined if there was an error
   statusCode?: number; // Provided by Next.js framework, sometimes
+  _nextI18Next: {
+    initialI18nStore: GenericObject;
+    initialLocale: string;
+    userConfig: UserConfig | null;
+  };
 } & ApolloState & E;

@@ -39,7 +39,7 @@ export const SkeletonRoot = styled.span<SkeletonRootProps>`
 
   height: 18px;
 
-  background-color: ${({ theme }) => tinycolor(theme.text.primary).setAlpha(0.12).toString()};
+  background-color: ${({ theme }) => tinycolor(theme.palette.text.primary).setAlpha(0.12).toString()};
 
   ${({ variant = 'text' }) => ({
     text: `

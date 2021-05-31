@@ -1,6 +1,7 @@
 import '@/modules/core/wdyr/wdyr';
 
 import * as React from 'react';
+import { appWithTranslation } from 'next-i18next';
 import size from 'lodash.size';
 // XXX Use v1 for uniqueness - See https://www.sohamkamani.com/blog/2016/10/05/uuid1-vs-uuid4/
 import { v1 as uuid } from 'uuid';
@@ -123,4 +124,4 @@ export function reportWebVitals(metrics: NextWebVitalsMetrics): void {
  */
 // MultiversalPageEntryPoint.getInitialProps = async (props: AppInitialProps): Promise<MultiversalAppBootstrapProps> {}
 
-export default MultiversalPageEntryPoint;
+export default appWithTranslation(MultiversalPageEntryPoint);

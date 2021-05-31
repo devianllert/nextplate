@@ -1,10 +1,10 @@
-/* eslint-disable @typescript-eslint/require-await */
 import {
   GetStaticPaths,
   GetStaticPathsContext,
   GetStaticProps,
   GetStaticPropsResult,
 } from 'next';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 
 import { CommonServerSideParams } from '@/app/types/CommonServerSideParams';
 import { StaticPath } from '@/app/types/StaticPath';
@@ -68,7 +68,7 @@ import { SSGPageProps } from './types/SSGPageProps';
  * @see https://github.com/vercel/next.js/discussions/10949#discussioncomment-6884
  * @see https://nextjs.org/docs/basic-features/data-fetching#getstaticprops-static-generation
  */
-export const getCoreStaticProps: GetStaticProps<SSGPageProps, CommonServerSideParams> = async (props: StaticPropsInput): Promise<GetStaticPropsResult<SSGPageProps>> => {
+export const getCoreStaticProps: GetStaticProps<SSGPageProps, CommonServerSideParams> = async (props): Promise<GetStaticPropsResult<SSGPageProps>> => {
   const apolloClient: ApolloClient<NormalizedCacheObject> = initializeApollo();
 
   // const {
@@ -97,6 +97,7 @@ export const getCoreStaticProps: GetStaticProps<SSGPageProps, CommonServerSidePa
       serializedDataset: serializeSafe({}),
       isReadyToRender: true,
       isStaticRendering: true,
+      ...(await serverSideTranslations(props.locale)),
     },
     // revalidate: false,
   };
@@ -119,7 +120,7 @@ export const getCoreStaticProps: GetStaticProps<SSGPageProps, CommonServerSidePa
  * @see https://github.com/vercel/next.js/discussions/10949#discussioncomment-6884
  * @see https://nextjs.org/docs/basic-features/data-fetching#getstaticprops-static-generation
  */
-export const getNoneStaticProps: GetStaticProps<SSGPageProps, CommonServerSideParams> = async (props: StaticPropsInput): Promise<GetStaticPropsResult<SSGPageProps>> => {
+export const getNoneStaticProps: GetStaticProps = async (props): Promise<GetStaticPropsResult<SSGPageProps>> => {
   const apolloClient: ApolloClient<NormalizedCacheObject> = initializeApollo();
 
   return {
@@ -129,6 +130,7 @@ export const getNoneStaticProps: GetStaticProps<SSGPageProps, CommonServerSidePa
       serializedDataset: serializeSafe({}),
       isReadyToRender: true,
       isStaticRendering: true,
+      ...await serverSideTranslations(props.locale, ['common']),
     },
     // revalidate: false,
   };

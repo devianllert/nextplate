@@ -12,7 +12,7 @@ import { SSGPageProps } from '@/layouts/core/types/SSGPageProps';
  * @see https://github.com/vercel/next.js/discussions/10949#discussioncomment-6884
  * @see https://nextjs.org/docs/basic-features/data-fetching#getstaticprops-static-generation
  */
-export const getStaticProps: GetStaticProps<SSGPageProps, CommonServerSideParams> = getNoneStaticProps;
+export const getStaticProps: GetStaticProps = getNoneStaticProps;
 
 /**
  * SSG pages are first rendered by the server (during static bundling)

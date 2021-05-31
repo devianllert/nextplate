@@ -1,6 +1,6 @@
 import React, { ReactElement } from 'react';
 
-import IconButton from '../IconButton';
+import { IconButton } from '../IconButton';
 
 export default {
   title: 'Components/IconButton',

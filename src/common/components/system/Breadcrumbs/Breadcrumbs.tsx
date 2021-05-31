@@ -39,7 +39,7 @@ const insertSeparators = (items: React.ReactNode[], separator: React.ReactNode) 
   }, []);
 };
 
-const Breadcrumbs = (props: BreadcrumbsProps): JSX.Element => {
+export const Breadcrumbs = (props: BreadcrumbsProps): JSX.Element => {
   const { children, separator = '/' } = props;
 
   const allItems = React.Children.toArray(children).map((child, index) => (

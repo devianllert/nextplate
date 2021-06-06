@@ -113,12 +113,12 @@ export const createLogger = (options?: LoggerOptions): Logger => {
 
   return {
     ...console, // Provides the same API as the native "console" object, while overwriting a few specific methods below
-    debug: shouldPrint('debug') ? (...data: any[]) => console.debug(...colorize('debug', prefixes), ...data) : noop,
-    error: shouldPrint('error') ? (...data: any[]) => console.error(...colorize('error', prefixes), ...data) : noop,
-    group: shouldPrint('group') ? (...data: any[]) => console.group(...colorize('group', prefixes), ...data) : noop,
-    groupEnd: shouldPrint('groupEnd') ? () => console.groupEnd() : noop,
-    info: shouldPrint('info') ? (...data: any[]) => console.info(...colorize('info', prefixes), ...data) : noop,
-    log: shouldPrint('log') ? (...data: any[]) => console.log(...colorize('log', prefixes), ...data) : noop,
-    warn: shouldPrint('warn') ? (...data: any[]) => console.warn(...colorize('warn', prefixes), ...data) : noop,
+    debug: shouldPrint('debug') ? console.debug.bind(null, ...colorize('debug', prefixes)) : noop,
+    error: shouldPrint('error') ? console.error.bind(null, ...colorize('error', prefixes)) : noop,
+    group: shouldPrint('group') ? console.group.bind(null, ...colorize('group', prefixes)) : noop,
+    groupEnd: shouldPrint('groupEnd') ? console.groupEnd.bind(null) : noop,
+    info: shouldPrint('info') ? console.info.bind(null, ...colorize('info', prefixes)) : noop,
+    log: shouldPrint('log') ? console.log.bind(null, ...colorize('log', prefixes)) : noop,
+    warn: shouldPrint('warn') ? console.warn.bind(null, ...colorize('warn', prefixes)) : noop,
   };
 };

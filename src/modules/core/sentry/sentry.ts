@@ -43,17 +43,15 @@ export const configureSentryUser = (userSession: UserSession): void => {
 };
 
 /**
- * Configure Sentry tags for the currently used lang/locale.
+ * Configure Sentry tags for the currently used lang.
  *
  * @param lang
- * @param locale
  * @see https://www.npmjs.com/package/@sentry/node
  */
-export const configureSentryI18n = (lang: string, locale: string): void => {
+export const configureSentryI18n = (lang: string): void => {
   if (process.env.SENTRY_DSN) {
     Sentry.configureScope((scope) => {
       scope.setTag('lang', lang);
-      scope.setTag('locale', locale);
     });
   }
 };

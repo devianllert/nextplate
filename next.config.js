@@ -75,9 +75,17 @@ module.exports = withSentryConfig(
        *
        * If you or your team are not ready to use Strict Mode in your entire application, that's OK! You can incrementally migrate on a page-by-page basis using <React.StrictMode>.
        *
+       * Strict mode can't automatically detect side effects for you,
+       * but it can help you spot them by making them a little more deterministic.
+       * This is done by intentionally double-invoking the following functions:
+       * - Class component constructor , render , shouldComponentUpdate
+       * - Function component bodies
+       * - Functions passed to useState, useMemo, or useReducer.
+       *
        * @see https://nextjs.org/docs/api-reference/next.config.js/react-strict-mode
+       *
        */
-      reactStrictMode: true,
+      // reactStrictMode: true,
 
       // See https://nextjs.org/docs/messages/webpack5
       // Necessary to manually specify to use webpack 5, because we use a custom "webpack" config (see below)

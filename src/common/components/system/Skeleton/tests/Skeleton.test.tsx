@@ -3,29 +3,20 @@
  */
 
 import * as React from 'react';
-import { render } from '@testing-library/react';
 
+import { renderWithProviders } from '@/modules/tests/renderWithProviders';
+``
 import { Skeleton } from '../Skeleton';
-import { ThemeProvider } from 'styled-components';
-
-import dark from '@/common/design/tokens/palette.dark';
-import light from '@/common/design/tokens/palette.light';
-
-const renderWithProvider = (ui: React.ReactNode, theme: 'light' | 'dark' = 'light') => render(
-  <ThemeProvider theme={theme === 'light' ? light : dark}>
-    {ui}
-  </ThemeProvider>
-)
 
 describe('<Skeleton />', () => {
   it('should change the component tag', () => {
-    const { container } = renderWithProvider(<Skeleton component="span" />);
+    const { container } = renderWithProviders(<Skeleton component="span" />);
 
     expect(container.firstChild?.nodeName).toBe('SPAN');
   });
 
   it('should get fitContent class when passed children and no width', () => {
-    const { container: containerWithoutWidth } = renderWithProvider(
+    const { container: containerWithoutWidth } = renderWithProviders(
       <Skeleton>
         <span />
       </Skeleton>,
@@ -33,7 +24,7 @@ describe('<Skeleton />', () => {
 
     expect(containerWithoutWidth.firstChild).toHaveStyleRule('max-width', 'fit-content');
 
-    const { container: containerWithWidth } = renderWithProvider(
+    const { container: containerWithWidth } = renderWithProviders(
       <Skeleton width="100">
         <span />
       </Skeleton>,
@@ -43,7 +34,7 @@ describe('<Skeleton />', () => {
   });
 
   it('should get heightAuto class when passed children and no height', () => {
-    const { container: containerWithoutHeight } = renderWithProvider(
+    const { container: containerWithoutHeight } = renderWithProviders(
       <Skeleton>
         <span />
       </Skeleton>,
@@ -51,7 +42,7 @@ describe('<Skeleton />', () => {
 
     expect(containerWithoutHeight.firstChild).toHaveStyleRule('height', 'auto');
 
-    const { container: containerWithHeight } = renderWithProvider(
+    const { container: containerWithHeight } = renderWithProviders(
       <Skeleton height="100">
         <span />
       </Skeleton>,

@@ -3,16 +3,17 @@
  */
 
 import React, { ReactChild } from 'react';
-import { render, screen } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
+import { screen } from '@testing-library/react';
 
-import IconButton from '../IconButton';
+import { renderWithProviders } from '@/modules/tests/renderWithProviders';
+
+import { IconButton } from '../IconButton';
 
 describe('<IconButton />', () => {
   const children: ReactChild = 'IconButton';
 
   it('should render a children', () => {
-    render(<IconButton>{children}</IconButton>);
+    renderWithProviders(<IconButton>{children}</IconButton>);
 
     expect(screen.getByText(children)).toBeDefined();
   });

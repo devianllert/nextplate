@@ -5,7 +5,7 @@
 import React, { ReactChild } from 'react';
 import { render, screen } from '@testing-library/react';
 
-import ButtonBase from '../ButtonBase';
+import { ButtonBase } from '../ButtonBase';
 
 describe('<BaseButton />', () => {
   const children: ReactChild = 'BaseButton';

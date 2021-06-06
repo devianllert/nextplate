@@ -5,6 +5,7 @@ import Head from 'next/head';
 import { ApolloProvider } from '@apollo/client';
 import isEmpty from 'lodash.isempty';
 import size from 'lodash.size';
+import { useTranslation } from 'react-i18next';
 
 import ErrorPage from '@/pages/_error';
 import { configureSentryI18n } from '@/modules/core/sentry/sentry';
@@ -43,6 +44,7 @@ const MultiversalAppBootstrap = (props: Props): JSX.Element => {
 
   const [isSSGFallbackInitialBuild] = React.useState<boolean>(isEmpty(pageProps) && router?.isFallback === true);
   const apolloClient = useApollo<SSGPageProps | SSRPageProps>(pageProps);
+  const { i18n } = useTranslation();
 
   Sentry.addBreadcrumb({
     category: fileLabel,
@@ -73,7 +75,7 @@ const MultiversalAppBootstrap = (props: Props): JSX.Element => {
       logger.info('App is ready, rendering...');
     }
 
-    configureSentryI18n('ru', 'ru_RU');
+    configureSentryI18n(i18n.language);
 
     // Unrecoverable error, we can't even display the layout because we don't have the minimal required information to properly do so.
     // The reason can be a UI crash (something broke due to the user's interaction) and a top-level error was thrown in props.err.

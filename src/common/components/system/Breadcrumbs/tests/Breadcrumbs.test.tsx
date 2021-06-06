@@ -6,7 +6,7 @@ import React, { ReactChild } from 'react';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
-import Breadcrumbs from '../Breadcrumbs';
+import { Breadcrumbs } from '../Breadcrumbs';
 
 describe('<Breadcrumbs />', () => {
   const children: ReactChild = 'Breadcrumbs';

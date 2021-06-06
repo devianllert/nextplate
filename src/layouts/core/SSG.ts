@@ -1,18 +1,9 @@
-import {
-  GetStaticPaths,
-  GetStaticPathsContext,
-  GetStaticProps,
-  GetStaticPropsResult,
-} from 'next';
+import { GetStaticProps, GetStaticPropsResult } from 'next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 
-import { CommonServerSideParams } from '@/app/types/CommonServerSideParams';
-import { StaticPath } from '@/app/types/StaticPath';
-import { StaticPathsOutput } from '@/app/types/StaticPathsOutput';
-import { StaticPropsInput } from '@/app/types/StaticPropsInput';
 import { initializeApollo, APOLLO_STATE_PROP_NAME, getApolloState } from '@/modules/core/apollo/apolloClient';
 import serializeSafe from '@/modules/core/serializeSafe/serializeSafe';
-import { ApolloClient, NormalizedCacheObject, ApolloQueryResult } from '@apollo/client';
+import { ApolloClient, NormalizedCacheObject } from '@apollo/client';
 import { SSGPageProps } from './types/SSGPageProps';
 
 /**
@@ -68,7 +59,7 @@ import { SSGPageProps } from './types/SSGPageProps';
  * @see https://github.com/vercel/next.js/discussions/10949#discussioncomment-6884
  * @see https://nextjs.org/docs/basic-features/data-fetching#getstaticprops-static-generation
  */
-export const getCoreStaticProps: GetStaticProps<SSGPageProps, CommonServerSideParams> = async (props): Promise<GetStaticPropsResult<SSGPageProps>> => {
+export const getCoreStaticProps: GetStaticProps<SSGPageProps> = async (props): Promise<GetStaticPropsResult<SSGPageProps>> => {
   const apolloClient: ApolloClient<NormalizedCacheObject> = initializeApollo();
 
   // const {
@@ -120,7 +111,7 @@ export const getCoreStaticProps: GetStaticProps<SSGPageProps, CommonServerSidePa
  * @see https://github.com/vercel/next.js/discussions/10949#discussioncomment-6884
  * @see https://nextjs.org/docs/basic-features/data-fetching#getstaticprops-static-generation
  */
-export const getNoneStaticProps: GetStaticProps = async (props): Promise<GetStaticPropsResult<SSGPageProps>> => {
+export const getNoneStaticProps: GetStaticProps<SSGPageProps> = async (props): Promise<GetStaticPropsResult<SSGPageProps>> => {
   const apolloClient: ApolloClient<NormalizedCacheObject> = initializeApollo();
 
   return {

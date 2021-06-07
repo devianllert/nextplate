@@ -13,11 +13,17 @@ export const InlineRoot = styled.div<InlineRootProps>((props) => ({
   alignItems: props.alignY,
 
   marginLeft: -props.marginLeft,
+}));
 
-  '& > *': {
-    marginTop: props.marginTop,
-    marginLeft: props.marginLeft,
-  },
+export interface InlineBoxProps {
+  space: number;
+}
+
+export const InlineBox = styled.div<InlineBoxProps>((props) => ({
+  display: 'flex',
+  minWidth: 0,
+  marginLeft: props.space,
+  marginTop: props.space,
 }));
 
 export interface InlineRootAlignerProps {

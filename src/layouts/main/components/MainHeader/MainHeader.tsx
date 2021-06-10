@@ -1,19 +1,24 @@
 import * as React from 'react';
+import { useColorMode } from 'theme-ui';
 import Timeago from 'timeago-react';
+import { useTranslation } from 'next-i18next';
+import * as timeago from 'timeago.js';
+import ru from 'timeago.js/lib/lang/ru';
 
 import { Typography } from '@/common/components/system/Typography';
 import { Inline } from '@/common/components/system/Inline';
 import { Button } from '@/common/components/system/Button';
 import { DisplayOnBrowserMount } from '@/common/components/rehydration/DisplayOnBrowserMount';
 
-import useThemeContext from '@/modules/core/theming/hooks/useThemeContext';
-
 import * as S from './styled';
+
+timeago.register('ru', ru);
 
 export type MainHeaderProps = unknown;
 
 export const MainHeader = (): JSX.Element => {
-  const { mode, toggle } = useThemeContext();
+  const { t, i18n } = useTranslation();
+  const [colorMode, setColorMode] = useColorMode();
 
   return (
     <S.MainHeaderRoot>
@@ -22,20 +27,20 @@ export const MainHeader = (): JSX.Element => {
       <DisplayOnBrowserMount>
         <Inline alignY="center" space={16}>
           <Typography variant="subtitle2" component="span">
-            Last updated:
+            {t('lastUpdate')}:
             {' '}
             <Timeago
               datetime={process.env.NEXT_PUBLIC_APP_BUILD_TIME}
-              locale="en"
+              locale={i18n.language}
             />
           </Typography>
 
           <Button
             color="primary"
             type="button"
-            onClick={() => toggle(mode === 'light' ? 'dark' : 'light')}
+            onClick={() => setColorMode(colorMode === 'dark' ? 'default' : 'dark')}
           >
-            {mode === 'light' ? '🌞' : '🌙'}
+            {colorMode === 'default' ? '🌞' : '🌙'}
           </Button>
         </Inline>
       </DisplayOnBrowserMount>

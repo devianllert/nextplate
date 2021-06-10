@@ -7,7 +7,7 @@ import { useTranslation } from 'next-i18next';
 import gql from 'graphql-tag';
 import Head from 'next/head';
 import Link from 'next/link';
-import styled from 'styled-components';
+import styled from '@emotion/styled';
 import { ApolloQueryResult, useQuery } from '@apollo/client';
 import { CommonServerSideParams } from '@/app/types/CommonServerSideParams';
 import { getCoreServerSideProps, GetCoreServerSidePropsResults } from '@/layouts/core/SSR';
@@ -20,7 +20,6 @@ import { createLogger } from '@/modules/core/logging/logger';
 import { EnhancedNextPage } from '@/layouts/core/types/EnhancedNextPage';
 import { MainLayout } from '@/layouts/main/components/MainLayout';
 import { Button } from '@/common/components/system/Button';
-import { ButtonBase } from '@/common/components/system/ButtonBase';
 
 const logger = createLogger('Index');
 

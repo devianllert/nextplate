@@ -27,6 +27,7 @@ export interface ButtonBaseProps {
   disabled?: boolean;
 }
 
+// eslint-disable-next-line @typescript-eslint/ban-types
 export interface ButtonBaseTypeMap<P = {}, D extends React.ElementType = 'button'> {
   props: P & ButtonBaseProps;
   defaultComponent: D;

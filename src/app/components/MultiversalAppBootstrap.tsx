@@ -6,6 +6,7 @@ import { ApolloProvider } from '@apollo/client';
 import isEmpty from 'lodash.isempty';
 import size from 'lodash.size';
 import { useTranslation } from 'react-i18next';
+import { ThemeProvider } from 'theme-ui';
 
 import ErrorPage from '@/pages/_error';
 import { configureSentryI18n } from '@/modules/core/sentry/sentry';
@@ -14,10 +15,10 @@ import { SSGPageProps } from '@/layouts/core/types/SSGPageProps';
 import { SSRPageProps } from '@/layouts/core/types/SSRPageProps';
 import { deserializeSafe } from '@/modules/core/serializeSafe/deserializeSafe';
 import DefaultErrorLayout from '@/modules/core/errorHandling/DefaultErrorLayout';
-import GlobalStyles from '@/common/design/GlobalStyles';
-import ResetStyles from '@/common/design/ResetStyles';
+import { GlobalStyles } from '@/common/design/GlobalStyles';
+import { ResetStyles } from '@/common/design/ResetStyles';
+import themes from '@/common/design/themes';
 import { useApollo } from '@/modules/core/apollo/apolloClient';
-import { ThemeProvider } from '@/modules/core/theming/contexts/ThemeProvider';
 import { createLogger } from '@/modules/core/logging/logger';
 import { MultiversalAppBootstrapProps } from '../types/MultiversalAppBootstrapProps';
 import BrowserPageBootstrap, { BrowserPageBootstrapProps } from './BrowserPageBootstrap';
@@ -183,7 +184,7 @@ const MultiversalAppBootstrap = (props: Props): JSX.Element => {
         </Head>
 
         <ApolloProvider client={apolloClient}>
-          <ThemeProvider>
+          <ThemeProvider theme={themes}>
             <GlobalStyles />
             <ResetStyles />
 

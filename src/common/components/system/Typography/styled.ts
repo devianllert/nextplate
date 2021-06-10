@@ -1,4 +1,5 @@
-import styled from 'styled-components';
+import * as React from 'react';
+import styled from '@emotion/styled';
 
 import { fontWeight, variants } from '@/common/design/tokens/typography';
 
@@ -22,7 +23,7 @@ export type TypoAlign = 'inherit' | 'left' | 'center' | 'right' | 'justify';
 export type TypoWeight = 'light' | 'normal' | 'medium' | 'bold' | 'heavy';
 
 interface TypoProps {
-  align: TypoAlign;
+  align: React.CSSProperties['textAlign'];
   gutterBottom?: boolean;
   noWrap?: boolean;
   paragraph?: boolean;
@@ -30,13 +31,13 @@ interface TypoProps {
   variantMapping?: Partial<Record<TypoVariant, string>>;
   color?: string;
   fontWeight?: TypoWeight;
-  display: 'initial' | 'block' | 'inline';
+  display: React.CSSProperties['display'];
 }
 
 export const Typo = styled.span<TypoProps>((props) => ({
   margin: 0,
   display: props.display,
-  color: props.theme.palette.text[props.color] ?? props.theme.palette.status[props.color] ?? props.color,
+  color: props.theme.colors.text[props.color] ?? props.theme.colors.status[props.color] ?? props.color,
   textAlign: props.align,
   ...(props.noWrap && {
     overflow: 'hidden',

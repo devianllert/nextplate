@@ -63,6 +63,7 @@ export interface ButtonProps {
   color?: 'primary' | 'secondary' | 'inherit';
 }
 
+// eslint-disable-next-line @typescript-eslint/ban-types
 export interface ButtonTypeMap<P = {}, D extends React.ElementType = 'button'> {
   props: P & ButtonProps;
   defaultComponent: D

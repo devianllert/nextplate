@@ -4,14 +4,14 @@ import { withTests } from '@storybook/addon-jest';
 import { withNextRouter } from 'storybook-addon-next-router';
 import { withPerformance } from 'storybook-addon-performance';
 import { I18nextProvider } from 'react-i18next';
+import { ThemeProvider, useColorMode } from 'theme-ui';
 import i18n from './i18n';
 
 import '@storybook/addon-console'; // Automatically forwards all logs in the "Actions" panel - See https://github.com/storybookjs/storybook-addon-console
 import '@/app/components/MultiversalGlobalExternalStyles'; // Import the same 3rd party libraries global styles as the pages/_app.tsx (for UI consistency)
-import GlobalStyles from '@/common/design/GlobalStyles';
-import ResetStyles from '@/common/design/ResetStyles';
-import { ThemeProvider } from '@/modules/core/theming/contexts/ThemeProvider';
-import useThemeContext from '@/modules/core/theming/hooks/useThemeContext';
+import { GlobalStyles } from '@/common/design/GlobalStyles';
+import { ResetStyles } from '@/common/design/ResetStyles';
+import theme from '@/common/design/themes';
 
 /**
  * Story Global parameters for Storybook.
@@ -140,7 +140,7 @@ export const decorators = [
   (Story, context) => {
     return (
       <I18nextProvider i18n={i18n}>
-        <ThemeProvider>
+        <ThemeProvider theme={theme}>
           <ResetStyles />
           <GlobalStyles />
 
@@ -164,7 +164,7 @@ export const decorators = [
 ];
 
 const Toggler = () => {
-  const { mode, toggle } = useThemeContext();
+  const [colorMode, setColorMode] = useColorMode();
 
   return (
     <div
@@ -174,7 +174,7 @@ const Toggler = () => {
         right: 16,
       }}
     >
-      <button onClick={toggle}>{mode}</button>
+      <button onClick={() => setColorMode(colorMode === 'dark' ? 'default' : 'dark')}>{colorMode}</button>
     </div>
   )
 }

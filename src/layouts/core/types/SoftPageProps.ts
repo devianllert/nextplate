@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/ban-types */
 import { MultiversalPageProps } from './MultiversalPageProps';
 import { OnlyBrowserPageProps } from './OnlyBrowserPageProps';
 import { OnlyServerPageProps } from './OnlyServerPageProps';

@@ -1,10 +1,16 @@
 const path = require('path');
 
+const toPath = (_path) => path.join(process.cwd(), _path);
+
 try {
   require('../.jest-test-results.json');
-  console.warn(`[Storybook Jest config] Found "/.jest-test-results.json". \nStories will display the latest Jest test results. \nRunning "yarn:test" in parallel of storybook will keep Storybook up-to-date with the latest test result.`);
+  console.warn(
+    `[Storybook Jest config] Found "/.jest-test-results.json". \nStories will display the latest Jest test results. \nRunning "yarn:test" in parallel of storybook will keep Storybook up-to-date with the latest test result.`,
+  );
 } catch (e) {
-  console.warn(`[Storybook Jest config] The test results file couldn't be found in "/.jest-test-results.json". \nStories will not display Jest test results. \nRunning "yarn test:generate-output" prior to running storybook will fix this.`);
+  console.warn(
+    `[Storybook Jest config] The test results file couldn't be found in "/.jest-test-results.json". \nStories will not display Jest test results. \nRunning "yarn test:generate-output" prior to running storybook will fix this.`,
+  );
 }
 
 module.exports = {
@@ -127,6 +133,20 @@ module.exports = {
         ...config.resolve,
         alias: {
           ...config.resolve.alias,
+
+          /**
+           * Map Emotion 10 libraries to Emotion 11 libraries.
+           *
+           * Otherwise Storybook fails to compile with "Module not found: Error: Can't resolve '@emotion/styled/base'", etc.
+           * It wasn't necessary to do this until we imported React component using "@emotion/styled".
+           * This issue is probably caused because Storybook uses Emotion 10 while we have Emotion 11 used by the Next.js app.
+           *
+           * @see https://github.com/storybookjs/storybook/issues/13277#issuecomment-751747964
+           */
+          '@emotion/core': toPath('node_modules/@emotion/react'),
+          '@emotion/styled': toPath('node_modules/@emotion/styled'),
+          'emotion-theming': toPath('node_modules/@emotion/react'),
+
           /**
            * Map our module path aliases, so that Storybook can understand modules loaded using "@/common" and load the proper file.
            * Required, or Storybook will fail to import dependencies from Stories.

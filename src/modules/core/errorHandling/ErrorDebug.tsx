@@ -33,7 +33,7 @@ const ErrorDebug = (props: ErrorDebugProps): JSX.Element => {
       <hr />
 
       <i>
-        The below "debug info" are only displayed on non-production stages.
+        The below &quot;debug info&quot; are only displayed on non-production stages.
         <br />
         Note that debug information about the error are also available on the server/browser console.
       </i>

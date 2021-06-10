@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from '@emotion/styled';
 import tinycolor from 'tinycolor2';
 
 import { ButtonBase } from '@/components/system/ButtonBase';
@@ -46,14 +46,14 @@ export const ButtonRoot = styled(ButtonBase)<ButtonRootProps>(({ theme, ...props
   transition: createTransition(['background-color', 'box-shadow', 'border-color', 'color'], { duration: duration.short }),
   '&:hover, &:focus-visible': {
     textDecoration: 'none',
-    backgroundColor: tinycolor(theme.palette.text.primary).setAlpha(theme.palette.action.hoverOpacity).toString(),
+    backgroundColor: tinycolor(theme.rawColors.text as string).setAlpha(theme.rawColors.action.hoverOpacity).toString(),
 
     '@media (hover: none)': {
       backgroundColor: 'transparent',
     },
 
     ...(props.variant === 'text' && props.color !== 'inherit' && {
-      backgroundColor: tinycolor(theme.palette.brand[props.color]).setAlpha(theme.palette.action.hoverOpacity).toString(),
+      backgroundColor: tinycolor(theme.rawColors.brand[props.color]).setAlpha(theme.rawColors.action.hoverOpacity).toString(),
 
       // Reset on touch devices, it doesn't add specificity
       '@media (hover: none)': {
@@ -62,8 +62,8 @@ export const ButtonRoot = styled(ButtonBase)<ButtonRootProps>(({ theme, ...props
     }),
 
     ...(props.variant === 'outlined' && props.color !== 'inherit' && {
-      border: `1px solid ${theme.palette.brand[props.color]}`,
-      backgroundColor: tinycolor(theme.palette.brand[props.color]).setAlpha(theme.palette.action.hoverOpacity).toString(),
+      border: `1px solid ${theme.colors.brand[props.color]}`,
+      backgroundColor: tinycolor(theme.rawColors.brand[props.color]).setAlpha(theme.rawColors.action.hoverOpacity).toString(),
 
       // Reset on touch devices, it doesn't add specificity
       '@media (hover: none)': {
@@ -85,22 +85,22 @@ export const ButtonRoot = styled(ButtonBase)<ButtonRootProps>(({ theme, ...props
       }),
 
       ...(props.color !== 'inherit' && {
-        backgroundColor: tinycolor(theme.palette.brand[props.color]).darken(10).toString(),
+        backgroundColor: tinycolor(theme.rawColors.brand[props.color]).darken(10).toString(),
 
         // Reset on touch devices, it doesn't add specificity
         '@media (hover: none)': {
-          backgroundColor: theme.palette.brand[props.color],
+          backgroundColor: theme.colors.brand[props.color],
         },
       }),
     }),
   },
 
   '&:active': {
-    backgroundColor: tinycolor(theme.palette.text.primary).setAlpha(theme.palette.action.activatedOpacity).toString(),
+    backgroundColor: tinycolor(theme.rawColors.text as string).setAlpha(theme.rawColors.action.activatedOpacity).toString(),
 
     ...(props.variant === 'contained' && props.color !== 'inherit' && {
       boxShadow: shadows[8],
-      backgroundColor: tinycolor(theme.palette.brand[props.color]).lighten(theme.palette.action.activatedOpacity * 100 / 2).toString(),
+      backgroundColor: tinycolor(theme.rawColors.brand[props.color]).lighten((theme.rawColors.action.activatedOpacity * 100) / 2).toString(),
 
       ...(props.disableElevation && {
         boxShadow: 'none',
@@ -108,7 +108,7 @@ export const ButtonRoot = styled(ButtonBase)<ButtonRootProps>(({ theme, ...props
     }),
 
     ...((props.variant === 'text' || props.variant === 'outlined') && props.color !== 'inherit' && {
-      backgroundColor: tinycolor(theme.palette.brand[props.color]).setAlpha(theme.palette.action.activatedOpacity).toString(),
+      backgroundColor: tinycolor(theme.rawColors.brand[props.color]).setAlpha(theme.rawColors.action.activatedOpacity).toString(),
     }),
   },
 
@@ -116,20 +116,20 @@ export const ButtonRoot = styled(ButtonBase)<ButtonRootProps>(({ theme, ...props
     padding: '6px 8px',
 
     ...(props.color !== 'inherit' && {
-      color: theme.palette.brand[props.color],
+      color: theme.colors.brand[props.color],
     }),
   }),
 
   ...(props.variant === 'outlined' && {
     padding: '5px 15px',
     border: `1px solid ${
-      theme.palette.mode === 'light' ? 'rgba(0, 0, 0, 0.23)' : 'rgba(255, 255, 255, 0.23)'
+      theme.rawColors.mode === 'light' ? 'rgba(0, 0, 0, 0.23)' : 'rgba(255, 255, 255, 0.23)'
     }`,
 
     ...(props.color !== 'inherit' && {
-      color: theme.palette.brand[props.color],
+      color: theme.colors.brand[props.color],
       border: '1px solid',
-      borderColor: tinycolor(theme.palette.brand[props.color]).setAlpha(0.5).toString(),
+      borderColor: tinycolor(theme.rawColors.brand[props.color]).setAlpha(0.5).toString(),
     }),
   }),
 
@@ -141,8 +141,8 @@ export const ButtonRoot = styled(ButtonBase)<ButtonRootProps>(({ theme, ...props
 
   ...(props.variant === 'contained'
     && props.color !== 'inherit' && {
-    color: getContrastText(theme.palette.brand[props.color]),
-    backgroundColor: theme.palette.brand[props.color],
+    color: getContrastText(theme.rawColors.brand[props.color]),
+    backgroundColor: theme.colors.brand[props.color],
   }),
 
   ...(props.color === 'inherit' && {
@@ -159,7 +159,7 @@ export const ButtonRoot = styled(ButtonBase)<ButtonRootProps>(({ theme, ...props
   }),
 
   ...(props.disabled && {
-    color: theme.palette.action.disabled,
+    color: theme.colors.action.disabled,
 
     ...(props.variant === 'text' && {
       '&:hover': {
@@ -168,22 +168,22 @@ export const ButtonRoot = styled(ButtonBase)<ButtonRootProps>(({ theme, ...props
     }),
 
     ...(props.variant === 'outlined' && {
-      borderColor: theme.palette.action.disabledBackground,
+      borderColor: theme.colors.action.disabledBackground,
 
       '&:hover': {
-        borderColor: theme.palette.action.disabledBackground,
+        borderColor: theme.colors.action.disabledBackground,
         backgroundColor: 'transparent',
       },
     }),
 
     ...(props.variant === 'contained' && {
-      color: theme.palette.action.disabled,
+      color: theme.colors.action.disabled,
       boxShadow: shadows[0],
-      backgroundColor: theme.palette.action.disabledBackground,
+      backgroundColor: theme.colors.action.disabledBackground,
 
       '&:hover': {
         boxShadow: shadows[0],
-        backgroundColor: theme.palette.action.disabledBackground,
+        backgroundColor: theme.colors.action.disabledBackground,
       },
     }),
   }),

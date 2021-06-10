@@ -20,6 +20,7 @@ export interface InlineProps {
   alignY?: React.CSSProperties['alignItems'];
 }
 
+// eslint-disable-next-line @typescript-eslint/ban-types
 export interface InlineTypeMap<P = {}, D extends React.ElementType = 'div'> {
   props: P & InlineProps;
   defaultComponent: D;

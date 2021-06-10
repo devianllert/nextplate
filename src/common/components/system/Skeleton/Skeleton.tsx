@@ -31,6 +31,7 @@ export interface SkeletonProps {
   width?: number | string;
 }
 
+// eslint-disable-next-line @typescript-eslint/ban-types
 interface SkeletonTypeMap<P = {}, D extends React.ElementType = 'span'> {
   props: P & SkeletonProps;
   defaultComponent: D

@@ -30,7 +30,7 @@ describe('<Skeleton />', () => {
       </Skeleton>,
     );
 
-    expect(containerWithWidth.firstChild).not.toHaveStyleRule('max-width');
+    expect(containerWithWidth.firstChild).not.toHaveStyleRule('max-width', '');
   });
 
   it('should get heightAuto class when passed children and no height', () => {
@@ -48,6 +48,6 @@ describe('<Skeleton />', () => {
       </Skeleton>,
     );
 
-    expect(containerWithHeight.firstChild).not.toHaveStyleRule('height');
+    expect(containerWithHeight.firstChild).not.toHaveStyleRule('height', '');
   });
 });

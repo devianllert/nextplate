@@ -1,9 +1,10 @@
-import styled, { CSSProperties } from 'styled-components';
+import * as React from 'react';
+import styled from '@emotion/styled';
 
 export interface InlineRootProps {
   marginLeft: number;
   marginTop: number;
-  alignY: CSSProperties['alignItems'];
+  alignY: React.CSSProperties['alignItems'];
 }
 
 export const InlineRoot = styled.div<InlineRootProps>((props) => ({
@@ -37,7 +38,7 @@ export const InlineRootAligner = styled.div<InlineRootAlignerProps>((props) => (
   border: 0,
   boxSizing: 'border-box',
   verticalAlign: 'baseline',
-  '-webkit-tap-highlight-color': 'transparent',
+  WebkitTapHighlightColor: 'transparent',
 
   '&:before': {
     content: '""',

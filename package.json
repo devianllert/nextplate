@@ -37,6 +37,8 @@
   },
   "dependencies": {
     "@apollo/client": "^3.3.14",
+    "@emotion/react": "^11.4.0",
+    "@emotion/styled": "^11.3.0",
     "@sentry/browser": "^6.2.5",
     "@sentry/nextjs": "^6.4.1",
     "@sentry/node": "^6.2.5",
@@ -70,12 +72,17 @@
     "react-keyed-flatten-children": "^1.3.0",
     "react-query": "^3.13.4",
     "styled-components": "^5.2.3",
+    "theme-ui": "^0.9.1",
     "timeago-react": "^3.0.2",
+    "timeago.js": "^4.0.2",
     "tinycolor2": "^1.4.2",
     "uuid": "^8.3.2"
   },
   "devDependencies": {
     "@babel/core": "^7.13.14",
+    "@emotion/babel-plugin": "^11.3.0",
+    "@emotion/babel-preset-css-prop": "^11.2.0",
+    "@emotion/jest": "^11.3.0",
     "@next/bundle-analyzer": "10.2.3",
     "@storybook/addon-a11y": "^6.2.7",
     "@storybook/addon-actions": "^6.2.7",

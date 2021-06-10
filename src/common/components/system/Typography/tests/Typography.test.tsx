@@ -70,7 +70,7 @@ describe('<Typography />', () => {
   it('should set display initial', () => {
     renderWithProviders(<Typography display="initial">{children}</Typography>);
 
-    expect(screen.getByText(children)).not.toHaveStyleRule('display');
+    expect(screen.getByText(children)).not.toHaveStyleRule('display', '');
   });
 
   it('should set display inline', () => {

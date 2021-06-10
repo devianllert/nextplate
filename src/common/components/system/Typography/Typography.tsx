@@ -5,7 +5,7 @@ import { OverridableComponent } from '@/modules/core/react/types/OverridableComp
 
 import * as S from './styled';
 
-export interface TypographyProps extends React.HTMLAttributes<React.ElementType> {
+export interface TypographyProps {
   /**
    * The content of the button.
    */
@@ -67,6 +67,7 @@ export const defaultVariantMapping: Record<S.TypoVariant, React.ElementType> = {
   caption: 'span',
 };
 
+// eslint-disable-next-line @typescript-eslint/ban-types
 export interface TypographyTypeMap<P = {}, D extends React.ElementType = 'h1'> {
   props: P & TypographyProps;
   defaultComponent: D
@@ -97,7 +98,7 @@ export const Typography: OverridableComponent<TypographyTypeMap> = React.forward
 
   return (
     <S.Typo
-      as={Component}
+      as={Component as React.ElementType}
       className={className}
       align={align}
       color={color}

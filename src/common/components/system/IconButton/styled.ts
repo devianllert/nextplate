@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from '@emotion/styled';
 
 import { ButtonBase } from '@/components/system/ButtonBase';
 
@@ -14,7 +14,7 @@ export const IconButtonRoot = styled(ButtonBase)`
 
   overflow: visible;
 
-  color: ${({ theme }) => theme.palette.brand.primary};
+  color: ${({ theme }) => theme.colors.brand.primary};
 `;
 
 export const IconButtonLabel = styled.span`

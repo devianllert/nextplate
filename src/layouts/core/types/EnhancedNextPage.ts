@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { NextPage } from 'next';
 
+// eslint-disable-next-line @typescript-eslint/ban-types
 export type EnhancedNextPage<P = {}, IP = P> = NextPage<P, IP> & {
   /**
    * The injected layout component

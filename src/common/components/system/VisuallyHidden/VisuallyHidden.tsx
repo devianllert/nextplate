@@ -3,6 +3,7 @@ import * as React from 'react';
 
 import { OverridableComponent } from '@/modules/core/react/types/OverridableComponent';
 
+// eslint-disable-next-line @typescript-eslint/ban-types
 export interface VisuallyHiddenTypeMap<P = {}, D extends React.ElementType = 'span'> {
   props: P;
   defaultComponent: D

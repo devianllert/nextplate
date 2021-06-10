@@ -7,6 +7,7 @@ import { ButtonBaseProps } from '../ButtonBase';
 
 import * as S from './styled';
 
+// eslint-disable-next-line @typescript-eslint/ban-types
 export interface IconButtonTypeMap<P = {}, D extends React.ElementType = 'button'> {
   props: P & ButtonBaseProps;
   defaultComponent: D;

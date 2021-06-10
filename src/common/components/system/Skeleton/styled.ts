@@ -1,4 +1,5 @@
-import styled, { css, keyframes } from 'styled-components';
+import styled from '@emotion/styled';
+import { css, keyframes } from '@emotion/react';
 import tinycolor from 'tinycolor2';
 
 interface SkeletonRootProps {
@@ -39,7 +40,7 @@ export const SkeletonRoot = styled.span<SkeletonRootProps>`
 
   height: 18px;
 
-  background-color: ${({ theme }) => tinycolor(theme.palette.text.primary).setAlpha(0.12).toString()};
+  background-color: ${({ theme }) => tinycolor(theme.rawColors.text).setAlpha(0.12).toString()};
 
   ${({ variant = 'text' }) => ({
     text: `

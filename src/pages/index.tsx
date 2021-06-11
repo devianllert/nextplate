@@ -4,11 +4,10 @@ import {
   GetServerSidePropsResult,
 } from 'next';
 import { useTranslation } from 'next-i18next';
-import gql from 'graphql-tag';
 import Head from 'next/head';
 import Link from 'next/link';
 import styled from '@emotion/styled';
-import { ApolloQueryResult, useQuery } from '@apollo/client';
+import { ApolloQueryResult, useQuery, gql } from '@apollo/client';
 import { CommonServerSideParams } from '@/app/types/CommonServerSideParams';
 import { getCoreServerSideProps, GetCoreServerSidePropsResults } from '@/layouts/core/SSR';
 import { OnlyBrowserPageProps } from '@/layouts/core/types/OnlyBrowserPageProps';
@@ -60,7 +59,7 @@ type GetServerSidePageProps = CustomPageProps & SSRPageProps;
  */
 type Props = CustomPageProps & (SSRPageProps & SSGPageProps<OnlyBrowserPageProps>);
 
-const Home: EnhancedNextPage<Props> = (): JSX.Element => {
+const IndexPage: EnhancedNextPage<Props> = (): JSX.Element => {
   const { t, i18n } = useTranslation();
   const { data } = useQuery(PostQuery);
 
@@ -68,7 +67,6 @@ const Home: EnhancedNextPage<Props> = (): JSX.Element => {
     <>
       <Head>
         <title>Home | dvnllrt</title>
-        <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <Container>
@@ -129,6 +127,6 @@ export const getServerSideProps: GetServerSideProps<GetServerSidePageProps> = as
   }
 };
 
-Home.Layout = MainLayout;
+IndexPage.Layout = MainLayout;
 
-export default Home;
+export default IndexPage;

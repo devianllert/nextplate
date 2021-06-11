@@ -8,7 +8,7 @@ export interface MainLayoutProps {
   /**
    * The content
    */
-  children: React.ReactNode;
+  children?: React.ReactNode;
 }
 
 export const MainLayout = (props: MainLayoutProps): JSX.Element => {

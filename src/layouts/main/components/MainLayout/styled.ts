@@ -9,3 +9,13 @@ export const Container = styled.div({
   width: '100%',
   minHeight: '100vh',
 });
+
+export const OfflineStatusBar = styled.div((props) => ({
+  position: 'fixed',
+  bottom: 0,
+  left: 0,
+  width: '100%',
+  minHeight: 32,
+  background: props.theme.colors.status.warning,
+  padding: 8,
+}));

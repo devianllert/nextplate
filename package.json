@@ -90,6 +90,7 @@
     "@storybook/theming": "^6.2.7",
     "@testing-library/jest-dom": "^5.11.10",
     "@testing-library/react": "^11.2.6",
+    "@testing-library/react-hooks": "^7.0.0",
     "@testing-library/user-event": "^13.1.1",
     "@types/cookies": "^0.7.6",
     "@types/jest": "^26.0.22",

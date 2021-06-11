@@ -5,7 +5,7 @@
 import React, { ReactChild } from 'react';
 import { screen } from '@testing-library/react';
 
-import { renderWithProviders } from '@/modules/tests/renderWithProviders';
+import { renderWithProviders } from '@/modules/core/testing/renderWithProviders';
 
 import { IconButton } from '../IconButton';
 

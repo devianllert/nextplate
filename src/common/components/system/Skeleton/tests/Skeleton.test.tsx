@@ -4,7 +4,7 @@
 
 import * as React from 'react';
 
-import { renderWithProviders } from '@/modules/tests/renderWithProviders';
+import { renderWithProviders } from '@/modules/core/testing/renderWithProviders';
 ``
 import { Skeleton } from '../Skeleton';
 

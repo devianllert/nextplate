@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useTranslation } from 'next-i18next';
 
 import { MultiversalPageProps } from '@/layouts/core/types/MultiversalPageProps';
 import { OnlyBrowserPageProps } from '@/layouts/core/types/OnlyBrowserPageProps';
@@ -21,6 +22,11 @@ export type BrowserPageBootstrapProps = MultiversalAppBootstrapProps<Multiversal
 const BrowserPageBootstrap = (props: BrowserPageBootstrapProps): JSX.Element => {
   const { Component, err, router } = props;
 
+  const {
+    t,
+    i18n,
+  } = useTranslation();
+
   const LayoutComponent = Component.Layout ?? React.Fragment;
 
   const cookiesManager: UniversalCookiesManager = new UniversalCookiesManager(); // On browser, we can access cookies directly (doesn't need req/res or page context)
@@ -38,13 +44,13 @@ const BrowserPageBootstrap = (props: BrowserPageBootstrapProps): JSX.Element => 
 
   // In non-production stages, bind some utilities to the browser's DOM, for ease of quick testing
   if (process.env.NEXT_PUBLIC_APP_STAGE !== 'production') {
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
     (window as unknown as any).router = router;
+    (window as unknown as any).i18n = i18n;
+    (window as unknown as any).t = t;
     logger.info(`Utilities have been bound to the DOM for quick testing (only in non-production stages):
-        - amplitudeInstance (not yet)
-        - i18n (not yet)
+        - i18n
         - router
-        - t (not yet)
+        - t
     `);
   }
 

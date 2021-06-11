@@ -145,22 +145,83 @@ module.exports = withSentryConfig(
        * @since 9.5 - See https://nextjs.org/blog/next-9-5#headers
        */
       async headers() {
-        const headers = [];
+        // XXX We need to embed our website into external websites for the NRN demo, but you might want to disable this
+        const DISABLE_IFRAME_EMBED_FROM_3RD_PARTIES = false;
 
-        // const headers = [
-        //   {
-        //     // Make all fonts immutable and cached for one year
-        //     'source': '/static/fonts/(.*?)',
-        //     'headers': [
-        //       {
-        //         'key': 'Cache-Control',
-        //         // See https://www.keycdn.com/blog/cache-control-immutable#what-is-cache-control-immutable
-        //         // See https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control#browser_compatibility
-        //         'value': 'public, max-age=31536000, immutable',
-        //       },
-        //     ],
-        //   },
-        // ];
+        const headers = [
+          {
+            // Make all fonts immutable and cached for one year
+            source: '/static/fonts/(.*?)',
+            headers: [
+              {
+                key: 'Cache-Control',
+                // See https://www.keycdn.com/blog/cache-control-immutable#what-is-cache-control-immutable
+                // See https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control#browser_compatibility
+                value: 'public, max-age=31536000, immutable',
+              },
+            ],
+          },
+          {
+            // Make all other static assets immutable and cached for one hour
+            'source': '/static/(.*?)',
+            'headers': [
+              {
+                'key': 'Cache-Control',
+                // See https://www.keycdn.com/blog/cache-control-immutable#what-is-cache-control-immutable
+                // See https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control#browser_compatibility
+                'value': `public, max-age=3600, immutable`,
+              },
+            ],
+          },
+          {
+            source: '/(.*?)', // Match all paths, including "/" - See https://github.com/vercel/next.js/discussions/17991#discussioncomment-112028
+            headers: [
+              // This directive helps protect against some XSS attacks
+              // See https://infosec.mozilla.org/guidelines/web_security#x-content-type-options
+              {
+                key: 'X-Content-Type-Options',
+                value: `nosniff`,
+              },
+            ],
+          },
+          {
+            source: '/(.*?)', // Match all paths, including "/" - See https://github.com/vercel/next.js/discussions/17991#discussioncomment-112028
+            headers: [
+              // This directive helps protect user's privacy and might avoid leaking sensitive data in urls to 3rd parties (e.g: when loading a 3rd party asset)
+              // See https://infosec.mozilla.org/guidelines/web_security#referrer-policy
+              // See https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referrer-Policy
+              // See https://scotthelme.co.uk/a-new-security-header-referrer-policy/
+              {
+                key: 'Referrer-Policy',
+                // "no-referrer-when-downgrade" is the default behaviour
+                // XXX You might want to restrict even more the referrer policy
+                value: `no-referrer-when-downgrade`,
+              },
+            ],
+          },
+        ];
+
+        // When 3rd party embeds are forbidden, only allow same origin to embed iframe by default
+        // This is a stronger default, if you don't to embed your site in any external website
+        if (DISABLE_IFRAME_EMBED_FROM_3RD_PARTIES) {
+          headers.push({
+            // This directive's "ALLOW-FROM" option is deprecated in favor of "Content-Security-Policy" "frame-ancestors"
+            // So, we use a combination of both the CSP directive and the "X-Frame-Options" for browser that don't support CSP
+            // See https://infosec.mozilla.org/guidelines/web_security#x-frame-options
+            key: 'X-Frame-Options',
+            value: `SAMEORIGIN`,
+          });
+          headers.push({
+            source: '/(.*?)', // Match all paths, including "/" - See https://github.com/vercel/next.js/discussions/17991#discussioncomment-112028
+            // See https://infosec.mozilla.org/guidelines/web_security#x-frame-options
+            headers: [
+              {
+                key: 'Content-Security-Policy',
+                value: `frame-ancestors 'self`,
+              },
+            ],
+          });
+        }
 
         console.info('Using headers:', JSON.stringify(headers, null, 2));
 
@@ -181,30 +242,19 @@ module.exports = withSentryConfig(
        * @see https://nextjs.org/docs/api-reference/next.config.js/rewrites
        * @since 9.5 - See https://nextjs.org/blog/next-9-5#rewrites
        */
-      // async rewrites() {
-      //   const rewrites = [
-      //     // I18n rewrites
-      //     {
-      //       // XXX Doesn't work locally (maybe because of rewrites), but works online
-      //       source: '/',
-      //       destination: '/api/autoRedirectToLocalisedPage',
-      //     },
-      //     {
-      //       source: `/:locale((?!${noRedirectBasePaths.join('|')})[^/]+)(.*)`,
-      //       destination: '/api/autoRedirectToLocalisedPage',
-      //     },
+      async rewrites() {
+        const rewrites = [
+          // Robots rewrites
+          {
+            source: '/robots.txt',
+            destination: process.env.NEXT_PUBLIC_APP_STAGE === 'production' ? '/robots/production.txt' : '/robots/!production.txt',
+          },
+        ];
 
-      //     // Robots rewrites
-      //     {
-      //       source: '/robots.txt',
-      //       destination: process.env.NEXT_PUBLIC_APP_STAGE === 'production' ? '/robots/production.txt' : '/robots/!production.txt',
-      //     },
-      //   ];
+        console.info('Using rewrites:', rewrites);
 
-      //   console.info('Using rewrites:', rewrites);
-
-      //   return rewrites;
-      // },
+        return rewrites;
+      },
 
       /**
        * Redirects allow you to redirect an incoming request path to a different destination path.

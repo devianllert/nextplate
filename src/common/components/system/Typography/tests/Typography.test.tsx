@@ -5,7 +5,7 @@
 import React, { ReactChild, ReactNode } from 'react';
 import { screen } from '@testing-library/react';
 
-import { renderWithProviders } from '@/modules/tests/renderWithProviders';
+import { renderWithProviders } from '@/modules/core/testing/renderWithProviders';
 
 import { Typography } from '../Typography';
 

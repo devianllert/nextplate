@@ -121,7 +121,7 @@ export const getNoneStaticProps: GetStaticProps<SSGPageProps> = async (props): P
       serializedDataset: serializeSafe({}),
       isReadyToRender: true,
       isStaticRendering: true,
-      ...await serverSideTranslations(props.locale, ['common']),
+      ...await serverSideTranslations(props.locale, ['common', 'auth']),
     },
     // revalidate: false,
   };

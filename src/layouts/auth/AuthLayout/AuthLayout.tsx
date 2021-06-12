@@ -1,6 +1,7 @@
 import * as React from 'react';
 
 import { AuthHeader } from '../AuthHeader';
+import { AuthContent } from '../AuthContent';
 
 import * as S from './styled';
 
@@ -18,7 +19,10 @@ export const AuthLayout = (props: AuthLayoutProps): JSX.Element => {
     <S.Container>
       <AuthHeader />
 
-      {children}
+      <AuthContent>
+        {children}
+
+      </AuthContent>
     </S.Container>
   );
 };

@@ -25,7 +25,7 @@ const BrowserPageBootstrap = (props: BrowserPageBootstrapProps): JSX.Element => 
   const {
     t,
     i18n,
-  } = useTranslation();
+  } = useTranslation(undefined);
 
   const LayoutComponent = Component.Layout ?? React.Fragment;
 
@@ -44,6 +44,7 @@ const BrowserPageBootstrap = (props: BrowserPageBootstrapProps): JSX.Element => 
 
   // In non-production stages, bind some utilities to the browser's DOM, for ease of quick testing
   if (process.env.NEXT_PUBLIC_APP_STAGE !== 'production') {
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
     (window as unknown as any).router = router;
     (window as unknown as any).i18n = i18n;
     (window as unknown as any).t = t;

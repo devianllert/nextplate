@@ -1,12 +1,11 @@
 import * as React from 'react';
 import * as Sentry from '@sentry/nextjs';
-
 import Head from 'next/head';
 import { ApolloProvider } from '@apollo/client';
 import isEmpty from 'lodash.isempty';
 import size from 'lodash.size';
-import { useTranslation } from 'react-i18next';
 import { ThemeProvider } from 'theme-ui';
+import { appWithTranslation, useTranslation } from 'next-i18next';
 
 import ErrorPage from '@/pages/_error';
 import { configureSentryI18n } from '@/modules/core/sentry/sentry';
@@ -206,4 +205,5 @@ const MultiversalAppBootstrap = (props: Props): JSX.Element => {
   return null;
 };
 
-export default MultiversalAppBootstrap;
+// We should use React memo here because `appWithTranslation` HOC cause too many re-renders
+export default React.memo(appWithTranslation(MultiversalAppBootstrap));

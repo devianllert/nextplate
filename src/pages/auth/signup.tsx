@@ -1,4 +1,4 @@
-import { useTranslation, Trans } from 'next-i18next';
+import { useTranslation } from 'next-i18next';
 import Head from 'next/head';
 import Link from 'next/link';
 import styled from '@emotion/styled';
@@ -16,7 +16,7 @@ import shape from '@/common/design/tokens/shape';
 import { Typography } from '@/common/components/system/Typography';
 import shadows from '@/common/design/tokens/shadows';
 
-const logger = createLogger('Login');
+const logger = createLogger('SignUp');
 
 /**
  * SSR pages are first rendered by the server
@@ -38,25 +38,27 @@ const Form = styled.form({
   boxShadow: shadows[2],
 });
 
-const LoginPage: EnhancedNextPage<Props> = (): JSX.Element => {
+const SignUpPage: EnhancedNextPage<Props> = (): JSX.Element => {
   const { t } = useTranslation('auth');
 
   return (
     <>
       <Head>
-        <title>{t('login')} | dvnllrt</title>
+        <title>{t('signup')} | dvnllrt</title>
       </Head>
 
       <Form>
-        <Typography variant="h4" component="h1">{t('login')}</Typography>
+        <Typography variant="h4" component="h1">{t('signup')}</Typography>
 
         <Input placeholder={t('form.email')} mb={2} mt={4} />
+        <Input placeholder={t('form.name')} mb={2} />
         <Input placeholder={t('form.password')} mb={2} />
+        <Input placeholder={t('form.confirmPassword')} mb={2} />
 
         <Button variant="contained" fullWidth disableElevation>{t('login')}</Button>
 
         <Typography variant="body2">
-          {t('needAccount')} <Link href="/auth/signup">{t('signup')}</Link>
+          <Link href="/auth/login">{t('haveAccount')}</Link>
         </Typography>
       </Form>
     </>
@@ -65,6 +67,6 @@ const LoginPage: EnhancedNextPage<Props> = (): JSX.Element => {
 
 export const getStaticProps = getNoneStaticProps;
 
-LoginPage.Layout = AuthLayout;
+SignUpPage.Layout = AuthLayout;
 
-export default LoginPage;
+export default SignUpPage;

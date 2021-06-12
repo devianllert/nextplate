@@ -43,7 +43,7 @@ type ThemeOverrides = ThemeUI & ColorOverrides;
 
 declare module 'theme-ui' {
   // eslint-disable-next-line @typescript-eslint/no-empty-interface
-  export interface Theme extends ThemeOverrides {}
+  export interface Theme extends ColorOverrides {}
 }
 
 declare module '@emotion/react' {

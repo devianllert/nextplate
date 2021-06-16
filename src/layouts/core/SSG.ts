@@ -1,9 +1,10 @@
 import { GetStaticProps, GetStaticPropsResult } from 'next';
+import { QueryClient } from 'react-query';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+import { dehydrate } from 'react-query/hydration';
 
-import { initializeApollo, APOLLO_STATE_PROP_NAME, getApolloState } from '@/modules/core/apollo/apolloClient';
+import { REACT_QUERY_STATE_PROP_NAME } from '@/modules/core/rquery/react-query';
 import serializeSafe from '@/modules/core/serializeSafe/serializeSafe';
-import { ApolloClient, NormalizedCacheObject } from '@apollo/client';
 import { SSGPageProps } from './types/SSGPageProps';
 
 /**
@@ -60,16 +61,14 @@ import { SSGPageProps } from './types/SSGPageProps';
  * @see https://nextjs.org/docs/basic-features/data-fetching#getstaticprops-static-generation
  */
 export const getCoreStaticProps: GetStaticProps<SSGPageProps> = async (props): Promise<GetStaticPropsResult<SSGPageProps>> => {
-  const apolloClient: ApolloClient<NormalizedCacheObject> = initializeApollo();
+  const queryClient = new QueryClient();
 
   // const {
   //   data,
   //   errors,
   //   loading,
   //   networkStatus,
-  // }: ApolloQueryResult<{
-  //   customer: Customer;
-  // }> = await apolloClient.query(queryOptions);
+  // } = await queryClient.fetch(queryOptions);
 
   // if (errors) {
   //   console.error(errors);
@@ -84,7 +83,7 @@ export const getCoreStaticProps: GetStaticProps<SSGPageProps> = async (props): P
   return {
     // Props returned here will be available as page properties (pageProps)
     props: {
-      [APOLLO_STATE_PROP_NAME]: getApolloState(apolloClient),
+      [REACT_QUERY_STATE_PROP_NAME]: dehydrate(queryClient),
       serializedDataset: serializeSafe({}),
       isReadyToRender: true,
       isStaticRendering: true,
@@ -112,12 +111,12 @@ export const getCoreStaticProps: GetStaticProps<SSGPageProps> = async (props): P
  * @see https://nextjs.org/docs/basic-features/data-fetching#getstaticprops-static-generation
  */
 export const getNoneStaticProps: GetStaticProps<SSGPageProps> = async (props): Promise<GetStaticPropsResult<SSGPageProps>> => {
-  const apolloClient: ApolloClient<NormalizedCacheObject> = initializeApollo();
+  const queryClient = new QueryClient();
 
   return {
     // Props returned here will be available as page properties (pageProps)
     props: {
-      [APOLLO_STATE_PROP_NAME]: getApolloState(apolloClient),
+      [REACT_QUERY_STATE_PROP_NAME]: dehydrate(queryClient),
       serializedDataset: serializeSafe({}),
       isReadyToRender: true,
       isStaticRendering: true,

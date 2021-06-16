@@ -1,11 +1,12 @@
 import * as React from 'react';
 import * as Sentry from '@sentry/nextjs';
 import Head from 'next/head';
-import { ApolloProvider } from '@apollo/client';
 import isEmpty from 'lodash.isempty';
 import size from 'lodash.size';
 import { ThemeProvider } from 'theme-ui';
 import { appWithTranslation, useTranslation } from 'next-i18next';
+import { QueryClient, QueryClientProvider } from 'react-query';
+import { Hydrate } from 'react-query/hydration';
 
 import ErrorPage from '@/pages/_error';
 import { configureSentryI18n } from '@/modules/core/sentry/sentry';
@@ -17,8 +18,9 @@ import DefaultErrorLayout from '@/modules/core/errorHandling/DefaultErrorLayout'
 import { GlobalStyles } from '@/common/design/GlobalStyles';
 import { ResetStyles } from '@/common/design/ResetStyles';
 import themes from '@/common/design/themes';
-import { useApollo } from '@/modules/core/apollo/apolloClient';
 import { createLogger } from '@/modules/core/logging/logger';
+import { REACT_QUERY_STATE_PROP_NAME } from '@/modules/core/rquery/react-query';
+
 import { MultiversalAppBootstrapProps } from '../types/MultiversalAppBootstrapProps';
 import BrowserPageBootstrap, { BrowserPageBootstrapProps } from './BrowserPageBootstrap';
 import ServerPageBootstrap, { ServerPageBootstrapProps } from './ServerPageBootstrap';
@@ -43,7 +45,7 @@ const MultiversalAppBootstrap = (props: Props): JSX.Element => {
   } = props;
 
   const [isSSGFallbackInitialBuild] = React.useState<boolean>(isEmpty(pageProps) && router?.isFallback === true);
-  const apolloClient = useApollo<SSGPageProps | SSRPageProps>(pageProps);
+  const [queryClient] = React.useState(() => new QueryClient());
   const { i18n } = useTranslation();
 
   Sentry.addBreadcrumb({
@@ -182,18 +184,20 @@ const MultiversalAppBootstrap = (props: Props): JSX.Element => {
           <meta name="viewport" content="width=device-width, initial-scale=1" />
         </Head>
 
-        <ApolloProvider client={apolloClient}>
-          <ThemeProvider theme={themes}>
-            <GlobalStyles />
-            <ResetStyles />
+        <QueryClientProvider client={queryClient}>
+          <Hydrate state={pageProps[REACT_QUERY_STATE_PROP_NAME]}>
+            <ThemeProvider theme={themes}>
+              <GlobalStyles />
+              <ResetStyles />
 
-            {isBrowser() ? (
-              <BrowserPageBootstrap {...browserPageBootstrapProps} />
-            ) : (
-              <ServerPageBootstrap {...serverPageBootstrapProps} />
-            )}
-          </ThemeProvider>
-        </ApolloProvider>
+              {isBrowser() ? (
+                <BrowserPageBootstrap {...browserPageBootstrapProps} />
+              ) : (
+                <ServerPageBootstrap {...serverPageBootstrapProps} />
+              )}
+            </ThemeProvider>
+          </Hydrate>
+        </QueryClientProvider>
       </>
     );
   }

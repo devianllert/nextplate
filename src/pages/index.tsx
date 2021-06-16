@@ -7,18 +7,20 @@ import { useTranslation } from 'next-i18next';
 import Head from 'next/head';
 import Link from 'next/link';
 import styled from '@emotion/styled';
-import { ApolloQueryResult, useQuery, gql } from '@apollo/client';
+import { useQuery, QueryClient } from 'react-query';
 import { CommonServerSideParams } from '@/app/types/CommonServerSideParams';
 import { getCoreServerSideProps, GetCoreServerSidePropsResults } from '@/layouts/core/SSR';
 import { OnlyBrowserPageProps } from '@/layouts/core/types/OnlyBrowserPageProps';
 import { SSGPageProps } from '@/layouts/core/types/SSGPageProps';
 import { SSRPageProps } from '@/layouts/core/types/SSRPageProps';
-import { APOLLO_STATE_PROP_NAME, getApolloState } from '@/modules/core/apollo/apolloClient';
 import { serializeSafe } from '@/modules/core/serializeSafe/serializeSafe';
 import { createLogger } from '@/modules/core/logging/logger';
 import { EnhancedNextPage } from '@/layouts/core/types/EnhancedNextPage';
 import { MainLayout } from '@/layouts/main/components/MainLayout';
 import { Button } from '@/common/components/system/Button';
+import { graphqlRequest } from '@/modules/core/api/graphqlRequest';
+import { REACT_QUERY_STATE_PROP_NAME } from '@/modules/core/rquery/react-query';
+import { dehydrate } from 'react-query/hydration';
 
 const logger = createLogger('Index');
 
@@ -30,7 +32,7 @@ const Container = styled.main`
   flex: 1;
 `;
 
-const PostQuery = gql`
+const PostQuery = `
   query {
     post(id: 1) {
       id
@@ -59,9 +61,11 @@ type GetServerSidePageProps = CustomPageProps & SSRPageProps;
  */
 type Props = CustomPageProps & (SSRPageProps & SSGPageProps<OnlyBrowserPageProps>);
 
+const getPosts = () => graphqlRequest(process.env.NEXT_PUBLIC_GRAPHQL_API_ENDPOINT, PostQuery);
+
 const IndexPage: EnhancedNextPage<Props> = (): JSX.Element => {
   const { t, i18n } = useTranslation();
-  const { data } = useQuery(PostQuery);
+  const { data } = useQuery('posts', getPosts);
 
   return (
     <>
@@ -93,14 +97,12 @@ export const getServerSideProps: GetServerSideProps<GetServerSidePageProps> = as
 
   if ('props' in commonServerSideProps) {
     const {
-      props: { apolloClient, ...pageData },
+      props: { ...pageData },
     } = commonServerSideProps;
-    const queryOptions = {
-      // Override query (keep existing variables and headers)
-      query: PostQuery,
-    };
 
-    const { data, errors }: ApolloQueryResult<any> = await apolloClient.query(queryOptions);
+    const queryClient = new QueryClient();
+
+    const { data, errors } = await queryClient.fetchQuery('posts', getPosts);
 
     if (errors) {
       logger.error(errors);
@@ -118,7 +120,7 @@ export const getServerSideProps: GetServerSideProps<GetServerSidePageProps> = as
       // Props returned here will be available as page properties (pageProps)
       props: {
         ...pageData,
-        [APOLLO_STATE_PROP_NAME]: getApolloState(apolloClient),
+        [REACT_QUERY_STATE_PROP_NAME]: dehydrate(queryClient),
         serializedDataset: serializeSafe(dataset),
       },
     };

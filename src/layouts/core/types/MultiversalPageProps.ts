@@ -1,6 +1,6 @@
 import { UserConfig } from 'next-i18next';
-import { ApolloState } from '@/modules/core/apollo/apolloClient';
 import { GenericObject } from '@/modules/core/data/types/GenericObject';
+import { ReactQueryState } from '@/modules/core/rquery/react-query';
 
 /**
  * Page properties available on all pages, whether they're rendered statically, dynamically, from the server or the client
@@ -20,4 +20,4 @@ export type MultiversalPageProps<E extends {} = {}> = {
     initialLocale: string;
     userConfig: UserConfig | null;
   };
-} & ApolloState & E;
+} & ReactQueryState & E;

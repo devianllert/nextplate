@@ -19,8 +19,6 @@ let apolloClient: ApolloClient<NormalizedCacheObject>;
 
 /**
  * Create a new apollo client instance.
- *
- * @returns {ApolloClient<NormalizedCacheObject>}
  */
 function createApolloClient(): ApolloClient<NormalizedCacheObject> {
   const httpLink: ApolloLink = new HttpLink({
@@ -85,9 +83,6 @@ export function initializeApollo(initialState = null): ApolloClient<NormalizedCa
 
 /**
  * Returns the apollo state.
- *
- * @param {ApolloClient<NormalizedCacheObject>} client
- * @returns {NormalizedCacheObject}
  */
 export function getApolloState(client: ApolloClient<NormalizedCacheObject>): NormalizedCacheObject {
   return client.cache.extract();
@@ -95,9 +90,6 @@ export function getApolloState(client: ApolloClient<NormalizedCacheObject>): Nor
 
 /**
  * Returns an instance of apollo client.
- *
- * @param {PageProps} pageProps
- * @returns {ApolloClient<NormalizedCacheObject>}
  */
 export function useApollo<T>(pageProps: T): ApolloClient<NormalizedCacheObject> {
   const state = pageProps[APOLLO_STATE_PROP_NAME];

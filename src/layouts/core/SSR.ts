@@ -1,12 +1,12 @@
+import { IncomingMessage } from 'http';
 import { GetServerSideProps, GetServerSidePropsContext, GetServerSidePropsResult } from 'next';
-import { ApolloClient, NormalizedCacheObject } from '@apollo/client';
 import NextCookies from 'next-cookies';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
-import { IncomingMessage } from 'http';
+import { QueryClient } from 'react-query';
+
 import { CommonServerSideParams } from '@/app/types/CommonServerSideParams';
 import UniversalCookiesManager from '@/modules/core/cookiesManager/UniversalCookiesManager';
 import { UserSemiPersistentSession } from '@/modules/core/userSession/types/UserSemiPersistentSession';
-import { initializeApollo } from '@/modules/core/apollo/apolloClient';
 import { Cookies } from '@/modules/core/cookiesManager/types/Cookies';
 import { PublicHeaders } from './types/PublicHeaders';
 import { SSRPageProps } from './types/SSRPageProps';
@@ -15,8 +15,8 @@ import { SSRPageProps } from './types/SSRPageProps';
  * getDemoServerSideProps returns only part of the props expected in SSRPageProps
  * To avoid TS issue, we omit those that we don't return, and add those necessary to the getServerSideProps function
  */
-export type GetCoreServerSidePropsResults = Omit<SSRPageProps, '__APOLLO_STATE__'> & {
-  apolloClient: ApolloClient<NormalizedCacheObject>;
+export type GetCoreServerSidePropsResults = Omit<SSRPageProps, '__REACT_QUERY_STATE__'> & {
+  queryClient: QueryClient;
   headers: PublicHeaders;
 };
 
@@ -51,11 +51,12 @@ export const getCoreServerSideProps: GetServerSideProps<GetCoreServerSidePropsRe
     'user-agent': headers?.['user-agent'],
     host: headers?.host,
   };
-  const apolloClient: ApolloClient<NormalizedCacheObject> = initializeApollo();
+
+  const queryClient = new QueryClient();
 
   return {
     props: {
-      apolloClient,
+      queryClient,
       // We don't send the dataset yet (we don't have any because we haven't fetched the database yet), but it must be done by SSR pages in"getServerSideProps"
       serializedDataset: null,
       userSession,

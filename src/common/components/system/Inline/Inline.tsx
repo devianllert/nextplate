@@ -1,3 +1,4 @@
+/* eslint-disable prefer-arrow-callback */
 import * as React from 'react';
 import flattenChildren from 'react-keyed-flatten-children';
 
@@ -30,7 +31,7 @@ export interface InlineTypeMap<P = {}, D extends React.ElementType = 'div'> {
  * The Inline component render a set of components in a row with equal spacing around them,
  * wrapping onto multiple lines when necessary.
  */
-export const Inline: OverridableComponent<InlineTypeMap> = React.forwardRef((props, ref) => {
+export const Inline: OverridableComponent<InlineTypeMap> = React.forwardRef(function Inline(props, ref) {
   const {
     component = 'div',
     children,

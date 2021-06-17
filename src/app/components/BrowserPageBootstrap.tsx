@@ -46,8 +46,11 @@ const BrowserPageBootstrap = (props: BrowserPageBootstrapProps): JSX.Element => 
   if (process.env.NEXT_PUBLIC_APP_STAGE !== 'production') {
     // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
     (window as unknown as any).router = router;
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
     (window as unknown as any).i18n = i18n;
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
     (window as unknown as any).t = t;
+
     logger.info(`Utilities have been bound to the DOM for quick testing (only in non-production stages):
         - i18n
         - router

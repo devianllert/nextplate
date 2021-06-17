@@ -1,9 +1,7 @@
 import React, { ReactElement } from 'react';
 import { Meta, Story } from '@storybook/react';
 
-import { fontWeight } from '@/common/design/tokens/typography';
-
-import { Typography, TypographyProps, defaultVariantMapping } from '../Typography';
+import { Typography, TypographyProps } from '../Typography';
 
 export default {
   title: 'Components/Typography',

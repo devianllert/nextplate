@@ -97,10 +97,8 @@ export const getServerSideProps: GetServerSideProps<GetServerSidePageProps> = as
 
   if ('props' in commonServerSideProps) {
     const {
-      props: { ...pageData },
+      props: { queryClient, ...pageData },
     } = commonServerSideProps;
-
-    const queryClient = new QueryClient();
 
     const { data, errors } = await queryClient.fetchQuery('posts', getPosts);
 

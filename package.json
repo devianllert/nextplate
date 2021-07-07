@@ -40,7 +40,7 @@
     "@emotion/react": "^11.4.0",
     "@emotion/styled": "^11.3.0",
     "@sentry/nextjs": "^6.4.1",
-    "axios": "^0.21.1",
+    "axios": "^0.21.1",   
     "chalk": "^4.1.1",
     "cookies": "^0.8.0",
     "date-fns": "^2.19.0",

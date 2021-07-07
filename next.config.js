@@ -33,7 +33,7 @@ const APP_RELEASE_TAG = GIT_COMMIT_TAGS
   ? GIT_COMMIT_TAGS.split(' ').find((tag) => tag.startsWith('v'))
   : `unknown-${GIT_COMMIT_SHA_SHORT}`;
 console.debug(`Release version resolved from tags: "${APP_RELEASE_TAG}" (matching first tag starting with "v")`);
-
+                                          
 const SentryWebpackPluginOptions = {
   // Additional config options for the Sentry Webpack plugin. Keep in mind that
   // the following options are set automatically, and overriding them is not
@@ -42,6 +42,8 @@ const SentryWebpackPluginOptions = {
   //   urlPrefix, include, ignore
   // For all available options, see:
   // https://github.com/getsentry/sentry-webpack-plugin#options.
+
+  debug: process.env.NODE_ENV === 'development',
 
   silent: true,
 };
@@ -120,8 +122,9 @@ module.exports = withSentryConfig(
         GRAPHQL_API_KEY: process.env.GRAPHQL_API_KEY,
 
         SENTRY_DSN: process.env.SENTRY_DSN,
-        SENTRY_RELEASE: process.env.NEXT_PUBLIC_APP_VERSION_RELEASE,
+        // Sentry DSN must be provided to the browser for error reporting to work there
 
+        NEXT_PUBLIC_SENTRY_DSN: process.env.SENTRY_DSN,
         // Dynamic env variables
         NEXT_PUBLIC_APP_BUILD_TIME: date.toString(),
         NEXT_PUBLIC_APP_BUILD_TIMESTAMP: +date,
@@ -317,6 +320,8 @@ module.exports = withSentryConfig(
             // Those variables are considered public because they are available at build time and at run time (they'll be replaced during initial build, by their value)
             plugin.definitions['process.env.NEXT_PUBLIC_APP_BUILD_ID'] = JSON.stringify(buildId);
             plugin.definitions['process.env.NEXT_PUBLIC_APP_VERSION_RELEASE'] = JSON.stringify(APP_VERSION_RELEASE);
+            // Necessary to forward it automatically to source maps
+            plugin.definitions['process.env.SENTRY_RELEASE'] = JSON.stringify(APP_VERSION_RELEASE);
           }
         });
 

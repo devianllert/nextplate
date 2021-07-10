@@ -33,7 +33,7 @@ const APP_RELEASE_TAG = GIT_COMMIT_TAGS
   ? GIT_COMMIT_TAGS.split(' ').find((tag) => tag.startsWith('v'))
   : `unknown-${GIT_COMMIT_SHA_SHORT}`;
 console.debug(`Release version resolved from tags: "${APP_RELEASE_TAG}" (matching first tag starting with "v")`);
-                                          
+
 const SentryWebpackPluginOptions = {
   // Additional config options for the Sentry Webpack plugin. Keep in mind that
   // the following options are set automatically, and overriding them is not
@@ -91,9 +91,7 @@ module.exports = withSentryConfig(
 
       // See https://nextjs.org/docs/messages/webpack5
       // Necessary to manually specify to use webpack 5, because we use a custom "webpack" config (see below)
-      future: {
-        webpack5: true,
-      },
+      webpack5: true,
 
       resolve: {
         fallback: {

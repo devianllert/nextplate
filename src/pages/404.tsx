@@ -1,7 +1,8 @@
-import { getNoneStaticProps } from '@/layouts/core/SSG';
 import { GetStaticProps, NextPage } from 'next';
+import { getNoneStaticProps } from '@/layouts/core/SSG';
 import { SoftPageProps } from '@/layouts/core/types/SoftPageProps';
 import { SSGPageProps } from '@/layouts/core/types/SSGPageProps';
+import { Typography } from '@/common/components/system/Typography';
 
 /**
  * Only executed on the server side at build time.
@@ -36,7 +37,11 @@ type Props = {} & SoftPageProps;
  * @see https://nextjs.org/docs/advanced-features/custom-error-page#404-page
  */
 const NotFound404Page: NextPage<Props> = (props): JSX.Element => {
-  return <div>404 not found...</div>;
+  return (
+    <div>
+      <Typography variant="h4">404 not found...</Typography>
+    </div>
+  );
 };
 
 export default NotFound404Page;

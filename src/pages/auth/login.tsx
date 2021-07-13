@@ -56,7 +56,9 @@ const LoginPage: EnhancedNextPage<Props> = (): JSX.Element => {
         <Button variant="contained" fullWidth disableElevation>{t('login')}</Button>
 
         <Typography variant="body2">
-          {t('needAccount')} <Link href="/auth/signup">{t('signup')}</Link>
+          {t('needAccount')}
+          {' '}
+          <Link href="/auth/signup">{t('signup')}</Link>
         </Typography>
       </Form>
     </>

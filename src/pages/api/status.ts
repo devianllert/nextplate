@@ -1,4 +1,5 @@
 import { NextApiRequest, NextApiResponse } from 'next';
+import * as Sentry from '@sentry/nextjs';
 
 const fileLabel = 'api/status';
 
@@ -24,14 +25,10 @@ export const status = (req: NextApiRequest, res: NextApiResponse): void => {
       appBuildTimestamp: process.env.NEXT_PUBLIC_APP_BUILD_TIMESTAMP,
       appBuildId: process.env.NEXT_PUBLIC_APP_BUILD_ID,
       nodejs: process.version,
-      nodejsAWS: process.env.AWS_EXECUTION_ENV,
       regionVERCEL: process.env.VERCEL_REGION,
-      regionAWS: process.env.AWS_REGION,
       timezone: process.env.TZ,
       memory: process.env.AWS_LAMBDA_FUNCTION_MEMORY_SIZE,
       environment: process.env.NODE_ENV,
-      preset: process.env.NEXT_PUBLIC_NRN_PRESET,
-      customerRef: process.env.NEXT_PUBLIC_CUSTOMER_REF,
       GIT_COMMIT_SHA: process.env.GIT_COMMIT_SHA,
       GIT_COMMIT_REF: process.env.GIT_COMMIT_REF,
       GIT_COMMIT_TAGS: process.env.GIT_COMMIT_TAGS,
@@ -49,4 +46,4 @@ export const status = (req: NextApiRequest, res: NextApiResponse): void => {
   }
 };
 
-export default status;
+export default Sentry.withSentry(status);

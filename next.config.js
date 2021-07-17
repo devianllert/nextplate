@@ -43,8 +43,12 @@ const SentryWebpackPluginOptions = {
   // For all available options, see:
   // https://github.com/getsentry/sentry-webpack-plugin#options.
 
-  debug: process.env.NODE_ENV === 'development',
+  // XXX The error "Error: Cannot find module '/.next/server/sentry/initServerSDK.js'" in the console is a false-positive error
+  //  See https://github.com/getsentry/sentry-docs/issues/3721
 
+  debug: process.env.NODE_ENV === 'development',
+  // Don't upload source maps during dev (doesn't work anyway)
+  dryRun: process.env.NODE_ENV === 'development',
   silent: true,
 };
 

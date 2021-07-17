@@ -1,8 +1,13 @@
-import { GetStaticProps, NextPage } from 'next';
+import { GetStaticProps } from 'next';
+import Head from 'next/head';
+import Link from 'next/link';
 import { getNoneStaticProps } from '@/layouts/core/SSG';
 import { SoftPageProps } from '@/layouts/core/types/SoftPageProps';
 import { SSGPageProps } from '@/layouts/core/types/SSGPageProps';
 import { Typography } from '@/common/components/system/Typography';
+import { EnhancedNextPage } from '@/layouts/core/types/EnhancedNextPage';
+import { NotFound404Layout } from '@/layouts/404/components/NotFound404Layout';
+import { Button } from '@/common/components/system/Button';
 
 /**
  * Only executed on the server side at build time.
@@ -26,8 +31,6 @@ export const getStaticProps: GetStaticProps<SSGPageProps> = getNoneStaticProps;
 type Props = {} & SoftPageProps;
 
 /**
- * "404 not found" page, doesn't support i18n
- *
  * Doesn't use "getStaticPaths" because it's not supported by Next.js "getStaticPaths can only be used with dynamic pages, not '/404'."
  *
  * XXX The "locale" cannot be resolved properly using SSG on 404 pages, because this file doesn't belong to the "/[locale]" folder and thus doesn't benefit from url rewriting
@@ -36,12 +39,22 @@ type Props = {} & SoftPageProps;
  * @param props
  * @see https://nextjs.org/docs/advanced-features/custom-error-page#404-page
  */
-const NotFound404Page: NextPage<Props> = (props): JSX.Element => {
+const NotFound404Page: EnhancedNextPage<Props> = (): JSX.Element => {
   return (
-    <div>
-      <Typography variant="h4">404 not found...</Typography>
-    </div>
+    <>
+      <Head>
+        <title>404 | dvnllrt</title>
+      </Head>
+
+      <Typography variant="h4">404</Typography>
+      <Typography variant="body1">Page not found</Typography>
+      <Link href="/" passHref>
+        <Button>Home</Button>
+      </Link>
+    </>
   );
 };
+
+NotFound404Page.Layout = NotFound404Layout;
 
 export default NotFound404Page;

@@ -39,6 +39,7 @@ export const Typo = styled.span<TypoProps>((props) => ({
   display: props.display,
   color: props.theme.colors.textColors[props.color] ?? props.theme.colors.status[props.color] ?? props.color,
   textAlign: props.align,
+  textDecoration: 'none',
   ...(props.noWrap && {
     overflow: 'hidden',
     textOverflow: 'ellipsis',

@@ -1,12 +1,14 @@
 import { GetStaticProps } from 'next';
 import Head from 'next/head';
 import Link from 'next/link';
+import { useTranslation } from 'next-i18next';
+import { getAppTitle } from '@/modules/core/meta/meta';
 import { getNoneStaticProps } from '@/layouts/core/SSG';
+import { EnhancedNextPage } from '@/layouts/core/types/EnhancedNextPage';
 import { SoftPageProps } from '@/layouts/core/types/SoftPageProps';
 import { SSGPageProps } from '@/layouts/core/types/SSGPageProps';
-import { Typography } from '@/common/components/system/Typography';
-import { EnhancedNextPage } from '@/layouts/core/types/EnhancedNextPage';
 import { NotFound404Layout } from '@/layouts/404/components/NotFound404Layout';
+import { Typography } from '@/common/components/system/Typography';
 import { Button } from '@/common/components/system/Button';
 
 /**
@@ -40,16 +42,18 @@ type Props = {} & SoftPageProps;
  * @see https://nextjs.org/docs/advanced-features/custom-error-page#404-page
  */
 const NotFound404Page: EnhancedNextPage<Props> = (): JSX.Element => {
+  const { t } = useTranslation('404');
+
   return (
     <>
       <Head>
-        <title>404 | dvnllrt</title>
+        <title>{getAppTitle('404')}</title>
       </Head>
 
-      <Typography variant="h4">404</Typography>
-      <Typography variant="body1">Page not found</Typography>
+      <Typography variant="h1">{t('title')}</Typography>
+      <Typography variant="body1" gutterBottom>{t('description')}</Typography>
       <Link href="/" passHref>
-        <Button>Home</Button>
+        <Button>{t('button')}</Button>
       </Link>
     </>
   );

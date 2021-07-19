@@ -1,10 +1,12 @@
 import * as React from 'react';
+import Link from 'next/link';
 import { useColorMode } from 'theme-ui';
 import Timeago from 'timeago-react';
 import { useTranslation } from 'next-i18next';
 import * as timeago from 'timeago.js';
 import ru from 'timeago.js/lib/lang/ru';
 
+import { APP_TITLE } from '@/modules/core/meta/meta';
 import { Typography } from '@/common/components/system/Typography';
 import { Inline } from '@/common/components/system/Inline';
 import { Button } from '@/common/components/system/Button';
@@ -22,7 +24,9 @@ export const MainHeader = (): JSX.Element => {
 
   return (
     <S.MainHeaderRoot>
-      <Typography variant="h6" component="span">dvnllrt-app</Typography>
+      <Link href="/" passHref>
+        <Typography variant="h6" component="a">{APP_TITLE}-app</Typography>
+      </Link>
 
       <DisplayOnBrowserMount>
         <Inline alignY="center" space={16}>

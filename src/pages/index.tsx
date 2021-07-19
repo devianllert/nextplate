@@ -7,7 +7,7 @@ import { useTranslation } from 'next-i18next';
 import Head from 'next/head';
 import Link from 'next/link';
 import styled from '@emotion/styled';
-import { useQuery, QueryClient } from 'react-query';
+import { useQuery } from 'react-query';
 import { CommonServerSideParams } from '@/app/types/CommonServerSideParams';
 import { getCoreServerSideProps, GetCoreServerSidePropsResults } from '@/layouts/core/SSR';
 import { OnlyBrowserPageProps } from '@/layouts/core/types/OnlyBrowserPageProps';
@@ -21,6 +21,7 @@ import { Button } from '@/common/components/system/Button';
 import { graphqlRequest } from '@/modules/core/api/graphqlRequest';
 import { REACT_QUERY_STATE_PROP_NAME } from '@/modules/core/rquery/react-query';
 import { dehydrate } from 'react-query/hydration';
+import { getAppTitle } from '@/modules/core/meta/meta';
 
 const logger = createLogger('Index');
 
@@ -70,7 +71,7 @@ const IndexPage: EnhancedNextPage<Props> = (): JSX.Element => {
   return (
     <>
       <Head>
-        <title>Home | dvnllrt</title>
+        <title>{getAppTitle('Home')}</title>
       </Head>
 
       <Container>

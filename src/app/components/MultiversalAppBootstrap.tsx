@@ -20,6 +20,7 @@ import { ResetStyles } from '@/common/design/ResetStyles';
 import themes from '@/common/design/themes';
 import { createLogger } from '@/modules/core/logging/logger';
 import { REACT_QUERY_STATE_PROP_NAME } from '@/modules/core/rquery/react-query';
+import { NProgressRoot } from '@/modules/core/router/NProgress';
 
 import { MultiversalAppBootstrapProps } from '../types/MultiversalAppBootstrapProps';
 import BrowserPageBootstrap, { BrowserPageBootstrapProps } from './BrowserPageBootstrap';
@@ -189,6 +190,8 @@ const MultiversalAppBootstrap = (props: Props): JSX.Element => {
             <ThemeProvider theme={themes}>
               <GlobalStyles />
               <ResetStyles />
+
+              <NProgressRoot />
 
               {isBrowser() ? (
                 <BrowserPageBootstrap {...browserPageBootstrapProps} />

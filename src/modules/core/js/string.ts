@@ -58,3 +58,15 @@ export const removeTrailingSlash = (string: string): string => {
 
   return string;
 };
+
+export const snakeToCamel = (str: string): string => str.replace(/(_\w)/g, (group) => group[1].toUpperCase());
+
+export const kebabToCamel = (str: string): string => str.replace(/(-\w)/g, (group) => group[1].toUpperCase());
+
+export const camelToSnake = (str: string): string => str.replace(/[\w]([A-Z])/g, (group) => `${group[0]}_${group[1]}`).toLowerCase();
+
+export const camelToKebab = (str: string): string => str.replace(/[\w]([A-Z])/g, (group) => `${group[0]}-${group[1]}`).toLowerCase();
+
+export const uncapitalize = (str: string): string => str.charAt(0).toLowerCase() + str.slice(1);
+
+export const capitalize = (str: string): string => str.charAt(0).toUpperCase() + str.slice(1);

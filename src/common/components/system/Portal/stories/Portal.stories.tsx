@@ -1,13 +1,14 @@
-import React, { ReactElement } from 'react';
+import * as React from 'react';
+import { Meta } from '@storybook/react';
 
 import { Portal } from '../Portal';
 
 export default {
   title: 'Components/Portal',
   component: Portal,
-};
+} as Meta;
 
-export const Basic = (): ReactElement => {
+export const Basic = (): JSX.Element => {
   const [show, setShow] = React.useState(false);
   const container = React.useRef(null);
 

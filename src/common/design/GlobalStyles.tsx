@@ -1,11 +1,11 @@
 import { Global, css } from '@emotion/react';
-import { useThemeUI } from 'theme-ui';
 
+import { useTheme } from './hooks/useTheme';
 import { createTransition, duration } from './tokens/transitions';
 import { defaultFontFamily } from './tokens/typography';
 
 export const GlobalStyles = (): JSX.Element => {
-  const { theme } = useThemeUI();
+  const { theme } = useTheme();
 
   return (
     <Global

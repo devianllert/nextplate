@@ -2,7 +2,7 @@ import * as React from 'react';
 import Router from 'next/router';
 import NProgress from 'nprogress';
 import { css, Global } from '@emotion/react';
-import { useThemeUI } from 'theme-ui';
+import { useTheme } from '@/common/design/hooks/useTheme';
 
 export interface NProgressRootProps {
   /**
@@ -22,7 +22,7 @@ export const NProgressRoot = (props: NProgressRootProps): JSX.Element => {
     options,
   } = props;
 
-  const { theme } = useThemeUI();
+  const { theme } = useTheme();
 
   const timer = React.useRef<number>();
 

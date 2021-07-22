@@ -4,7 +4,7 @@ import {
   PaletteAction, PaletteBackground, PaletteBrand, PaletteStatus, PaletteText,
 } from './palette.interface';
 
-interface ColorOverrides {
+export interface ColorOverrides {
   colors?: ColorModesScale & {
     text: string;
     background: string;

@@ -194,8 +194,10 @@ const MultiversalAppBootstrap = (props: Props): JSX.Element => {
               <NProgressRoot />
 
               {isBrowser() ? (
+                // eslint-disable-next-line react/jsx-props-no-spreading
                 <BrowserPageBootstrap {...browserPageBootstrapProps} />
               ) : (
+                // eslint-disable-next-line react/jsx-props-no-spreading
                 <ServerPageBootstrap {...serverPageBootstrapProps} />
               )}
             </ThemeProvider>

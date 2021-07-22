@@ -4,7 +4,7 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { dehydrate } from 'react-query/hydration';
 
 import { REACT_QUERY_STATE_PROP_NAME } from '@/modules/core/rquery/react-query';
-import serializeSafe from '@/modules/core/serializeSafe/serializeSafe';
+import { serializeSafe } from '@/modules/core/serializeSafe/serializeSafe';
 import { SSGPageProps } from './types/SSGPageProps';
 
 /**

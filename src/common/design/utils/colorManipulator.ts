@@ -1,7 +1,7 @@
 import tinycolor from 'tinycolor2';
 
-import dark from '@/common/design/tokens/palette.dark';
-import light from '@/common/design/tokens/palette.light';
+import * as dark from '@/common/design/tokens/palette.dark';
+import * as light from '@/common/design/tokens/palette.light';
 
 /**
  * The relative brightness of any point in a color space,

@@ -46,7 +46,7 @@ export const ButtonRoot = styled(ButtonBase)<ButtonRootProps>(({ theme, ...props
   transition: createTransition(['background-color', 'box-shadow', 'border-color', 'color'], { duration: duration.short }),
   '&:hover, &:focus-visible': {
     textDecoration: 'none',
-    backgroundColor: tinycolor(theme.rawColors.text as string).setAlpha(theme.rawColors.action.hoverOpacity).toString(),
+    backgroundColor: tinycolor(theme.rawColors.text).setAlpha(theme.rawColors.action.hoverOpacity).toString(),
 
     '@media (hover: none)': {
       backgroundColor: 'transparent',
@@ -96,7 +96,7 @@ export const ButtonRoot = styled(ButtonBase)<ButtonRootProps>(({ theme, ...props
   },
 
   '&:active': {
-    backgroundColor: tinycolor(theme.rawColors.text as string).setAlpha(theme.rawColors.action.activatedOpacity).toString(),
+    backgroundColor: tinycolor(theme.rawColors.text).setAlpha(theme.rawColors.action.activatedOpacity).toString(),
 
     ...(props.variant === 'contained' && props.color !== 'inherit' && {
       boxShadow: shadows[8],

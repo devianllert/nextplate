@@ -34,7 +34,9 @@ const ServerPageBootstrap = (props: ServerPageBootstrapProps): JSX.Element => {
     <userSessionContext.Provider value={{ ...userSession }}>
       <LayoutComponent>
         <Component
+          // eslint-disable-next-line react/jsx-props-no-spreading
           {...injectedPageProps}
+          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
           // @ts-ignore
           error={err}
         />

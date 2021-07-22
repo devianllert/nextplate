@@ -8,10 +8,7 @@ const LoaderWrapper = styled.div`
   margin-right: auto;
 `;
 
-// eslint-disable-next-line @typescript-eslint/no-empty-interface
-export interface LoaderProps {}
-
-const Loader = (props: LoaderProps): JSX.Element => {
+const Loader = (): JSX.Element => {
   return (
     <LoaderWrapper>
       <AnimatedTextBubble />

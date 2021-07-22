@@ -75,7 +75,9 @@ export const ButtonBase: OverridableComponent<ButtonBaseTypeMap> = React.forward
       ref={ref}
       tabIndex={disabled ? -1 : tabIndex}
       type={type}
+      // eslint-disable-next-line react/jsx-props-no-spreading
       {...buttonProps}
+      // eslint-disable-next-line react/jsx-props-no-spreading
       {...other}
     >
       {children}

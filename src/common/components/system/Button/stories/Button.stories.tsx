@@ -8,6 +8,7 @@ export default {
   component: Button,
 } as Meta;
 
+// eslint-disable-next-line react/jsx-props-no-spreading
 const Template: Story<ButtonProps> = (args) => <Button {...args} />;
 
 export const Basic = Template.bind({});
@@ -41,6 +42,7 @@ Link.args = {
   color: 'primary',
   variant: 'contained',
   href: 'https://google.com',
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-ignore
   target: '_blank',
 };

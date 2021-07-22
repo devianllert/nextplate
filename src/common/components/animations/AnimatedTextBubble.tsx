@@ -45,6 +45,7 @@ export const AnimatedTextBubble = (props: AnimatedTextBubbleProps): JSX.Element 
       <svg
         viewBox="0 0 33 21"
         width="50px"
+        // eslint-disable-next-line react/jsx-props-no-spreading
         {...props}
       >
         <path

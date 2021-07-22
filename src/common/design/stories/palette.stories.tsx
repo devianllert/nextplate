@@ -1,7 +1,8 @@
 import { Meta } from '@storybook/react';
-import { useThemeUI, Grid } from 'theme-ui';
+import { Grid } from 'theme-ui';
 import styled from '@emotion/styled';
 import { Typography } from '@/common/components/system/Typography';
+import { useTheme } from '../hooks/useTheme';
 
 export default {
   title: 'Design/Palette',
@@ -40,8 +41,8 @@ const PaletteColor = (props) => {
   );
 };
 
-export const Palette = () => {
-  const { theme } = useThemeUI();
+export const Palette = (): JSX.Element => {
+  const { theme } = useTheme();
 
   return (
     <Grid columns={1}>

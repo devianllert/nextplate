@@ -1,5 +1,5 @@
 import { ColorOverrides } from '@/modules/core/theming/types/theme.interface';
-import { useThemeUI, Theme } from 'theme-ui';
+import { useThemeUI } from 'theme-ui';
 
 import theme from '../themes';
 

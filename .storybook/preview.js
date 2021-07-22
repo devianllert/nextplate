@@ -1,9 +1,9 @@
 import { themes } from '@storybook/theming';
 import { addDecorator } from '@storybook/react';
 import { withTests } from '@storybook/addon-jest';
-import { withNextRouter } from 'storybook-addon-next-router';
 import { withPerformance } from 'storybook-addon-performance';
 import { I18nextProvider } from 'react-i18next';
+import { RouterContext } from 'next/dist/next-server/lib/router-context';
 import { ThemeProvider, useColorMode } from 'theme-ui';
 import i18n from './i18n';
 
@@ -37,6 +37,24 @@ import theme from '@/common/design/themes';
  * @see https://storybook.js.org/docs/react/configure/theming#create-a-theme-quickstart Creating your own theme
  */
 export const parameters = {
+  /**
+   * Allow to use Next.js Router in Storybook stories.
+   *
+   * If you need to customise a component/story, then you should see https://github.com/lifeiscontent/storybook-addon-next-router#as-a-decorator-in-a-story
+   * You'll need to specify the Router behavior per-story if the below default config doesn't suit you.
+   *
+   * @see https://github.com/lifeiscontent/storybook-addon-next-router#usage-in-previewjs
+   */
+  nextRouter: {
+    Provider: RouterContext.Provider,
+    path: '/', // defaults to `/`
+    asPath: '/', // defaults to `/`
+    query: {}, // defaults to `{}`
+    // @formatter:off Disables odd WebStorm formatting for next line
+    push() {}, // defaults to using addon actions integration, can override any method in the router
+    // @formatter:on
+  },
+
   actions: {
     argTypesRegex: '^on[A-Z].*',
 
@@ -106,25 +124,6 @@ export const parameters = {
 // };
 
 /**
- * Allow to use Next.js Router in Storybook stories.
- *
- * If you need to customise a component/story, then you should see https://github.com/lifeiscontent/storybook-addon-next-router#as-a-decorator-in-a-story
- * You'll need to specify the Router behavior per-story if the below default config doesn't suit you.
- *
- * @see https://github.com/lifeiscontent/storybook-addon-next-router#usage-in-previewjs
- */
-addDecorator(
-  withNextRouter({
-    path: '/', // defaults to `/`
-    asPath: '/', // defaults to `/`
-    query: {}, // defaults to `{}`
-    // @formatter:off Disables odd WebStorm formatting for next line
-    push() {}, // defaults to using addon actions integration, can override any method in the router
-    // @formatter:on
-  }),
-);
-
-/**
  * Decorators in .storybook/preview.js are useful to mock Stories.
  *
  * Like parameters, decorators can be defined globally, at the component level and for a single story (as we’ve seen).
@@ -176,8 +175,8 @@ const Toggler = () => {
     >
       <button onClick={() => setColorMode(colorMode === 'dark' ? 'default' : 'dark')}>{colorMode}</button>
     </div>
-  )
-}
+  );
+};
 
 /**
  * Enables storybook-addon-performance for all stories by default.

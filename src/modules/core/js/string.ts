@@ -38,6 +38,7 @@ export const replaceAllOccurrences = (
 
       replacedString = replacedString.replace(re, replacement);
     });
+
     return replacedString;
   }
 

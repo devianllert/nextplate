@@ -22,6 +22,7 @@ import { graphqlRequest } from '@/modules/core/api/graphqlRequest';
 import { REACT_QUERY_STATE_PROP_NAME } from '@/modules/core/rquery/react-query';
 import { dehydrate } from 'react-query/hydration';
 import { getAppTitle } from '@/modules/core/meta/meta';
+import { Divider } from '@/common/components/system/Divider';
 
 const logger = createLogger('Index');
 
@@ -80,6 +81,8 @@ const IndexPage: EnhancedNextPage<Props> = (): JSX.Element => {
             {`${t('button')} ${i18n.language}`}
           </Button>
         </Link>
+
+        <Divider />
 
         <div>
           {JSON.stringify(data, null, 2)}

@@ -11,7 +11,7 @@ import UniversalCookiesManager from './UniversalCookiesManager';
 describe(`utils/cookies/UniversalCookiesManager.ts`, () => {
   describe(`server`, () => {
     describe(`constructor`, () => {
-      test(`should init correctly (req, res)`, async () => {
+      it(`should init correctly (req, res)`, async () => {
         const req = httpMocks.createRequest();
         const res = httpMocks.createResponse();
         const universalCookiesManager = new UniversalCookiesManager(req, res);

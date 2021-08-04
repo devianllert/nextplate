@@ -17,7 +17,7 @@ describe(`utils/cookies/UniversalCookiesManager.ts`, () => {
     });
 
     describe(`constructor`, () => {
-      test(`should init correctly (no arg)`, async () => {
+      it(`should init correctly (no arg)`, async () => {
         const universalCookiesManager = new UniversalCookiesManager();
 
         // @ts-expect-error
@@ -28,7 +28,7 @@ describe(`utils/cookies/UniversalCookiesManager.ts`, () => {
     });
 
     describe(`replaceUserData`, () => {
-      test(`should write the user data to a "user" cookie`, async () => {
+      it(`should write the user data to a "user" cookie`, async () => {
         const universalCookiesManager = new UniversalCookiesManager();
         universalCookiesManager.replaceUserData({
           id: 'user-1',
@@ -40,7 +40,7 @@ describe(`utils/cookies/UniversalCookiesManager.ts`, () => {
     });
 
     describe(`initUserData`, () => {
-      test(`should init the user and return it`, async () => {
+      it(`should init the user and return it`, async () => {
         const universalCookiesManager = new UniversalCookiesManager();
         const userSession: UserSemiPersistentSession = universalCookiesManager.initUserData();
 
@@ -51,7 +51,7 @@ describe(`utils/cookies/UniversalCookiesManager.ts`, () => {
     });
 
     describe(`getUserData`, () => {
-      test(`should automatically init the user data when the cookie doesn't exist`, async () => {
+      it(`should automatically init the user data when the cookie doesn't exist`, async () => {
         const universalCookiesManager = new UniversalCookiesManager();
         const userSession: UserSemiPersistentSession = universalCookiesManager.getUserData();
 
@@ -60,7 +60,7 @@ describe(`utils/cookies/UniversalCookiesManager.ts`, () => {
         expect(document.cookie).toEqual(`user={"id":"${userSession.id}","deviceId":"${userSession.deviceId}"}`);
       });
 
-      test(`should return the existing user data when they already exist`, async () => {
+      it(`should return the existing user data when they already exist`, async () => {
         document.cookie = 'user={"id":"user-2","deviceId":"device-2"}';
 
         const universalCookiesManager = new UniversalCookiesManager();
@@ -73,7 +73,7 @@ describe(`utils/cookies/UniversalCookiesManager.ts`, () => {
     });
 
     describe(`patchUserData`, () => {
-      test(`should patch only given properties and left other unchanged`, async () => {
+      it(`should patch only given properties and left other unchanged`, async () => {
         const universalCookiesManager = new UniversalCookiesManager();
         const userSession: UserSemiPersistentSession = universalCookiesManager.getUserData();
         universalCookiesManager.patchUserData({
@@ -90,7 +90,7 @@ describe(`utils/cookies/UniversalCookiesManager.ts`, () => {
     });
 
     describe(`setLanguage`, () => {
-      test(`should change the language cookie`, async () => {
+      it(`should change the language cookie`, async () => {
         const universalCookiesManager = new UniversalCookiesManager();
         universalCookiesManager.setLanguage('fr');
         expect(document.cookie).toEqual(`i18next=fr`);

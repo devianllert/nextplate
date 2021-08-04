@@ -31,19 +31,19 @@ export const encodedData =
 
 describe(`utils/js/url.ts`, () => {
   describe(`encodeJSONToQueryParameter`, () => {
-    test(`should encode a JS object into a url-compatible string`, async () => {
+    it(`should encode a JS object into a url-compatible string`, async () => {
       expect(encodeJSONToQueryParameter(data)).toEqual(encodedData);
     });
   });
 
   describe(`decodeQueryParameterToJSON`, () => {
-    test(`should decode a url-compatible string into a JS object`, async () => {
+    it(`should decode a url-compatible string into a JS object`, async () => {
       expect(decodeQueryParameterToJSON(encodedData)).toEqual(data);
     });
   });
 
   describe(`encodeQueryParameter <> decodeQueryParameter <> encodeQueryParameter`, () => {
-    test(`should encode and decode multiple times without altering data`, async () => {
+    it(`should encode and decode multiple times without altering data`, async () => {
       const _decodedData: GenericObject = decodeQueryParameterToJSON(encodedData);
       expect(_decodedData).toEqual(data);
 
@@ -56,18 +56,18 @@ describe(`utils/js/url.ts`, () => {
   });
 
   describe(`filterExternalAbsoluteUrl`, () => {
-    test(`should not allow external absolute urls (use default fallback)`, async () => {
+    it(`should not allow external absolute urls (use default fallback)`, async () => {
       expect(filterExternalAbsoluteUrl('')).toEqual('/');
       expect(filterExternalAbsoluteUrl('https://google.com')).toEqual('/');
       expect(filterExternalAbsoluteUrl('http://google.com')).toEqual('/');
       expect(filterExternalAbsoluteUrl('//google.com')).toEqual('/');
     });
 
-    test(`should fallback to given fallback value when provided`, async () => {
+    it(`should fallback to given fallback value when provided`, async () => {
       expect(filterExternalAbsoluteUrl('', '/test')).toEqual('/test');
     });
 
-    test(`should allow internal relative urls`, async () => {
+    it(`should allow internal relative urls`, async () => {
       expect(filterExternalAbsoluteUrl('/google.com')).toEqual('/google.com');
       expect(filterExternalAbsoluteUrl('/google.com?test')).toEqual('/google.com?test');
     });

@@ -5,9 +5,9 @@ interface MediaQueryType {
   down: string;
 }
 
-const customMediaQuery = (maxWidth: number): MediaQueryType => ({
-  up: `(min-width: ${maxWidth}px)`,
-  down: `(max-width: ${maxWidth - 1}px)`,
+export const createMediaQuery = (maxWidth: number): MediaQueryType => ({
+  up: `@media screen and (min-width: ${maxWidth}px)`,
+  down: `@media screen and (max-width: ${maxWidth - 1}px)`,
 });
 
 export const breakpoints: Record<Breakpoint, number> = {
@@ -16,11 +16,11 @@ export const breakpoints: Record<Breakpoint, number> = {
   desktop: 1440,
 };
 
-const media = {
-  custom: customMediaQuery,
-  mobile: customMediaQuery(breakpoints.mobile),
-  tablet: customMediaQuery(breakpoints.tablet),
-  desktop: customMediaQuery(breakpoints.desktop),
+export const media = {
+  custom: createMediaQuery,
+  mobile: createMediaQuery(breakpoints.mobile),
+  tablet: createMediaQuery(breakpoints.tablet),
+  desktop: createMediaQuery(breakpoints.desktop),
 };
 
 /**
@@ -48,5 +48,3 @@ export const isWidthDown = (breakpoint: Breakpoint, width: Breakpoint, inclusive
 
   return keys.indexOf(width) < keys.indexOf(breakpoint);
 };
-
-export default media;

@@ -23,6 +23,7 @@ import { REACT_QUERY_STATE_PROP_NAME } from '@/modules/core/rquery/react-query';
 import { dehydrate } from 'react-query/hydration';
 import { getAppTitle } from '@/modules/core/meta/meta';
 import { Divider } from '@/common/components/system/Divider';
+import { Box } from '@/common/components/system/Box';
 
 const logger = createLogger('Index');
 
@@ -82,7 +83,9 @@ const IndexPage: EnhancedNextPage<Props> = (): JSX.Element => {
           </Button>
         </Link>
 
-        <Divider />
+        <Box margin={1}>
+          <Divider />
+        </Box>
 
         <div>
           {JSON.stringify(data, null, 2)}

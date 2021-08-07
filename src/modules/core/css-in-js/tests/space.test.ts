@@ -160,10 +160,10 @@ describe('space', () => {
 
   it('handles margin with no theme', () => {
     const styles = margin({
-      mt: 12,
+      mt: 16,
     });
     expect(styles).toEqual({
-      marginTop: 12,
+      marginTop: 16,
     });
   });
 
@@ -181,13 +181,13 @@ describe('space', () => {
     });
 
     expect(marginStyles).toEqual({
-      margin: 32,
+      margin: 24,
       marginLeft: 16,
       marginRight: 8,
     });
 
     expect(paddingStyles).toEqual({
-      padding: 32,
+      padding: 24,
       paddingBottom: 16,
       paddingTop: 8,
     });

@@ -9,7 +9,7 @@ export interface CSSSystemStyleFunctionOptions {
   properties: string[];
   scale: string;
   transform?: typeof get;
-  defaultScale: any[];
+  defaultScale?: any[];
 }
 
 interface CSSSystemStyleFunction {
@@ -19,8 +19,10 @@ interface CSSSystemStyleFunction {
 }
 
 export interface CSSSystem {
-  [key: string]: CSSSystemStyleFunctionOptions;
+  [key: string]: CSSSystemStyleFunctionOptions | boolean;
 }
+
+const getValue = (scale, n) => get(scale, n) ?? n;
 
 const sort = (obj: Record<string, unknown>) => {
   const next: Record<string, unknown> = {};
@@ -40,7 +42,7 @@ const sort = (obj: Record<string, unknown>) => {
 export const createStyleFunction = ({
   properties,
   scale: scaleName,
-  transform = get,
+  transform = getValue,
   defaultScale,
 }: CSSSystemStyleFunctionOptions): CSSSystemStyleFunction => {
   const styleFunction: CSSSystemStyleFunction = (scale: any[], value: string | number, _props?) => {
@@ -115,7 +117,7 @@ const parseResponsiveObject = (
 
 const createParser = (config: Record<string, CSSSystemStyleFunction>) => {
   const parse = (props: Record<string, any>) => {
-    let styles: Record<string, unknown> = {};
+    let styles: Record<string, any> = {};
     let shouldSort = false;
 
     const media = [
@@ -165,6 +167,9 @@ const createParser = (config: Record<string, CSSSystemStyleFunction>) => {
     return styles;
   };
 
+  parse.config = config;
+  parse.propNames = Object.keys(config);
+
   return parse;
 };
 
@@ -172,6 +177,17 @@ export const createSystem = (system: CSSSystem) => {
   const config: Record<string, CSSSystemStyleFunction> = {};
 
   Object.keys(system).forEach((key) => {
+    // shortcut definition
+    if (system[key] === true) {
+      config[key] = createStyleFunction({
+        properties: [key],
+        scale: key,
+      });
+
+      return;
+    }
+
+    // @ts-ignore
     config[key] = createStyleFunction(system[key]);
   });
 

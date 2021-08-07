@@ -1,12 +1,14 @@
-import { get } from '@/common/utils/get';
 import { CSSProperties } from 'react';
+
+import { spacings } from '@/common/design/tokens/spacings';
+import { get } from '@/common/utils/get';
+
 import { GenericObject } from '../data/types/GenericObject';
 
 import {
   CSSSystem,
   ResponsiveValue,
   createSystem,
-  // compose,
 } from './system';
 
 /**
@@ -70,10 +72,6 @@ export interface SpaceProps {
 
 }
 
-const defaults = {
-  space: [0, 4, 8, 16, 32, 64, 128, 256, 512],
-};
-
 const isNumber = (n: unknown) => typeof n === 'number' && !Number.isNaN(n);
 
 const getMargin = (scale: number[], n: number): number | string => {
@@ -98,43 +96,43 @@ configs.margin = {
     properties: ['margin'],
     scale: 'space',
     transform: getMargin,
-    defaultScale: defaults.space,
+    defaultScale: spacings,
   },
   marginTop: {
     properties: ['marginTop'],
     scale: 'space',
     transform: getMargin,
-    defaultScale: defaults.space,
+    defaultScale: spacings,
   },
   marginRight: {
     properties: ['marginRight'],
     scale: 'space',
     transform: getMargin,
-    defaultScale: defaults.space,
+    defaultScale: spacings,
   },
   marginBottom: {
     properties: ['marginBottom'],
     scale: 'space',
     transform: getMargin,
-    defaultScale: defaults.space,
+    defaultScale: spacings,
   },
   marginLeft: {
     properties: ['marginLeft'],
     scale: 'space',
     transform: getMargin,
-    defaultScale: defaults.space,
+    defaultScale: spacings,
   },
   marginX: {
     properties: ['marginLeft', 'marginRight'],
     scale: 'space',
     transform: getMargin,
-    defaultScale: defaults.space,
+    defaultScale: spacings,
   },
   marginY: {
     properties: ['marginTop', 'marginBottom'],
     scale: 'space',
     transform: getMargin,
-    defaultScale: defaults.space,
+    defaultScale: spacings,
   },
 };
 configs.margin.m = configs.margin.margin;
@@ -149,37 +147,37 @@ configs.padding = {
   padding: {
     properties: ['padding'],
     scale: 'space',
-    defaultScale: defaults.space,
+    defaultScale: spacings,
   },
   paddingTop: {
     properties: ['paddingTop'],
     scale: 'space',
-    defaultScale: defaults.space,
+    defaultScale: spacings,
   },
   paddingRight: {
     properties: ['paddingRight'],
     scale: 'space',
-    defaultScale: defaults.space,
+    defaultScale: spacings,
   },
   paddingBottom: {
     properties: ['paddingBottom'],
     scale: 'space',
-    defaultScale: defaults.space,
+    defaultScale: spacings,
   },
   paddingLeft: {
     properties: ['paddingLeft'],
     scale: 'space',
-    defaultScale: defaults.space,
+    defaultScale: spacings,
   },
   paddingX: {
     properties: ['paddingLeft', 'paddingRight'],
     scale: 'space',
-    defaultScale: defaults.space,
+    defaultScale: spacings,
   },
   paddingY: {
     properties: ['paddingTop', 'paddingBottom'],
     scale: 'space',
-    defaultScale: defaults.space,
+    defaultScale: spacings,
   },
 };
 configs.padding.p = configs.padding.padding;
@@ -192,4 +190,4 @@ configs.padding.py = configs.padding.paddingY;
 
 export const margin = createSystem(configs.margin);
 export const padding = createSystem(configs.padding);
-// export const space = compose(margin, padding);
+export const space = createSystem({ ...configs.margin, ...configs.padding });

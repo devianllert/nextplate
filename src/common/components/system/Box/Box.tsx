@@ -1,10 +1,8 @@
 import * as React from 'react';
 
-import { SpaceProps } from '@/modules/core/css-in-js/space';
-
 import * as S from './styled';
 
-export interface BoxProps extends SpaceProps {
+export interface BoxProps extends S.BoxType {
   /**
    * The content
    */

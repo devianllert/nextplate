@@ -83,13 +83,13 @@ const IndexPage: EnhancedNextPage<Props> = (): JSX.Element => {
           </Button>
         </Link>
 
-        <Box margin={1}>
+        <Box width="100%">
           <Divider />
         </Box>
 
-        <div>
+        <Box>
           {JSON.stringify(data, null, 2)}
-        </div>
+        </Box>
       </Container>
     </>
   );

@@ -156,7 +156,7 @@ const MultiversalAppBootstrap = (props: Props): JSX.Element => {
      *
      * XXX There may be more rendering modes - See https://github.com/vercel/next.js/discussions/12558#discussioncomment-12303
      */
-    const multiversalPageBootstrapProps = {
+    const multiversalPageBootstrapProps: ServerPageBootstrapProps & BrowserPageBootstrapProps = {
       ...props,
       router,
       pageProps: {

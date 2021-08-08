@@ -15,7 +15,8 @@ const noRedirectBlacklistedPaths = ['_next', 'api']; // Paths that mustn't have 
 const publicBasePaths = ['robots', 'static', 'favicon.ico']; // All items (folders, files) under /public directory should be added there, to avoid redirection when an asset isn't found
 const noRedirectBasePaths = [...publicBasePaths, ...noRedirectBlacklistedPaths]; // Will disable url rewrite for those items (should contain all supported languages and all public base paths)
 const date = new Date();
-const GIT_COMMIT_SHA_SHORT = typeof process.env.GIT_COMMIT_SHA === 'string' && process.env.GIT_COMMIT_SHA.substring(0, 8);
+const GIT_COMMIT_SHA_SHORT =
+  typeof process.env.GIT_COMMIT_SHA === 'string' && process.env.GIT_COMMIT_SHA.substring(0, 8);
 
 console.debug(
   `Building Next with NODE_ENV="${process.env.NODE_ENV}" NEXT_PUBLIC_APP_STAGE="${process.env.NEXT_PUBLIC_APP_STAGE}" using GIT_COMMIT_SHA=${process.env.GIT_COMMIT_SHA} and GIT_COMMIT_REF=${process.env.GIT_COMMIT_REF}`,
@@ -309,7 +310,18 @@ module.exports = withSentryConfig(
        */
       webpack: (config, { buildId, isServer }) => {
         if (isServer) {
-          // IS_SERVER_INITIAL_BUILD is meant to be defined only at build time and not at run time, and therefore must not be "made public"
+          /**
+           * This special server-only environment variable isn't string-replaced by webpack during bundling (it isn't added to the DefinePlugin definitions).
+           *
+           * Therefore, it's:
+           * - Always '1' on the server, during development
+           * - Always '1' on the server, during the Next.js build step
+           * - Always undefined on the browser
+           * - Always undefined in API endpoints
+           * - Always undefined during static pages re-generations (ISG) and server-side pages
+           *
+           * It can be useful when performing processing that should only happen during the initial build, or not during the initial build.
+           */
           process.env.IS_SERVER_INITIAL_BUILD = '1';
         }
 

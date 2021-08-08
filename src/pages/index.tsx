@@ -81,6 +81,12 @@ const IndexPage: EnhancedNextPage<Props> = (): JSX.Element => {
           </Button>
         </Link>
 
+        <Link href="/123123" passHref>
+          <Button>
+            404
+          </Button>
+        </Link>
+
         <Box width="100%">
           <Divider />
         </Box>

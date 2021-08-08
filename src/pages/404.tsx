@@ -1,7 +1,10 @@
 import { GetStaticProps } from 'next';
 import Head from 'next/head';
 import Link from 'next/link';
+import * as Sentry from '@sentry/nextjs';
 import { useTranslation } from 'next-i18next';
+
+import { createLogger } from '@/modules/core/logging/logger';
 import { getAppTitle } from '@/modules/core/meta/meta';
 import { getNoneStaticProps } from '@/layouts/core/SSG';
 import { EnhancedNextPage } from '@/layouts/core/types/EnhancedNextPage';
@@ -10,6 +13,10 @@ import { SSGPageProps } from '@/layouts/core/types/SSGPageProps';
 import { NotFound404Layout } from '@/layouts/404/components/NotFound404Layout';
 import { Typography } from '@/common/components/system/Typography';
 import { Button } from '@/common/components/system/Button';
+import { useRouter } from 'next/router';
+
+const fileLabel = 'pages/404';
+const logger = createLogger(fileLabel);
 
 /**
  * Only executed on the server side at build time.
@@ -42,7 +49,18 @@ type Props = {} & SoftPageProps;
  * @see https://nextjs.org/docs/advanced-features/custom-error-page#404-page
  */
 const NotFound404Page: EnhancedNextPage<Props> = (): JSX.Element => {
+  const router = useRouter();
+
   const { t } = useTranslation('404');
+
+  // Avoids capturing false-positive 404 pages when building the 404 page
+  if (!process.env.IS_SERVER_INITIAL_BUILD) {
+    // Record an exception in Sentry for 404
+    const err = new Error(`Page not found (404) for "${router?.asPath}"`);
+
+    logger.warn(err);
+    Sentry.captureException(err);
+  }
 
   return (
     <>
@@ -60,5 +78,7 @@ const NotFound404Page: EnhancedNextPage<Props> = (): JSX.Element => {
 };
 
 NotFound404Page.Layout = NotFound404Layout;
+
+export const NotFound404PageName = NotFound404Page.name;
 
 export default NotFound404Page;

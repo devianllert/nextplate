@@ -1,3 +1,5 @@
+import isBrowser from '@/common/utils/isBrowser';
+
 import { createLogger as createConsoleLogger, Logger } from './createLogger';
 
 /**
@@ -18,7 +20,7 @@ export const createLogger = (fileLabel: string): Logger => {
     prefix: fileLabel,
     shouldShowTime: () => false,
     shouldPrint: () => {
-      return process.env.NEXT_PUBLIC_APP_STAGE !== 'production';
+      return !(process.env.NEXT_PUBLIC_APP_STAGE === 'production' && isBrowser());
     },
   });
 };

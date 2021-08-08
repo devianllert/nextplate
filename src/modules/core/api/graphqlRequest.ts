@@ -14,7 +14,7 @@ export interface GraphQLError {
   path: string[];
 }
 
-export type Variables = { [key: string]: any };
+export type Variables = Record<string, unknown>;
 
 export const graphqlRequest = async <T = any, V = Variables>(url: string, query: string, variables?: V): Promise<T> => {
   const response = await api.post<T>(url, {

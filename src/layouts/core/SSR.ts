@@ -5,6 +5,7 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { QueryClient } from 'react-query';
 
 import { CommonServerSideParams } from '@/app/types/CommonServerSideParams';
+import { DEFAULT_LOCALE } from '@/modules/core/i18n/i18n';
 import UniversalCookiesManager from '@/modules/core/cookiesManager/UniversalCookiesManager';
 import { UserSemiPersistentSession } from '@/modules/core/userSession/types/UserSemiPersistentSession';
 import { Cookies } from '@/modules/core/cookiesManager/types/Cookies';
@@ -37,7 +38,7 @@ export const getCoreServerSideProps: GetServerSideProps<GetCoreServerSidePropsRe
   const {
     req,
     res,
-    locale,
+    locale = DEFAULT_LOCALE,
   } = context;
 
   // Parses Next.js cookies in a universal way (server + client)
@@ -58,7 +59,7 @@ export const getCoreServerSideProps: GetServerSideProps<GetCoreServerSidePropsRe
     props: {
       queryClient,
       // We don't send the dataset yet (we don't have any because we haven't fetched the database yet), but it must be done by SSR pages in"getServerSideProps"
-      serializedDataset: null,
+      serializedDataset: '',
       userSession,
       isReadyToRender: true,
       isServerRendering: true,

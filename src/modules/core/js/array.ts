@@ -9,7 +9,7 @@ import size from 'lodash.size';
  * @param {T[]} items
  * @return {T}
  */
-export const findPreviousItem = <T>(currentItem: T, items: T[]): T => {
+export const findPreviousItem = <T>(currentItem: T, items: T[]): T | null => {
   if (!isArray(items) || !currentItem) {
     return null;
   }
@@ -32,7 +32,7 @@ export const findPreviousItem = <T>(currentItem: T, items: T[]): T => {
  * @param {T[]} items
  * @return {T}
  */
-export const findNextItem = <T>(currentItem: T, items: T[]): T => {
+export const findNextItem = <T>(currentItem: T, items: T[]): T | null => {
   if (!isArray(items) || !currentItem) {
     return null;
   }

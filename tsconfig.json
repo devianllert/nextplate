@@ -46,7 +46,7 @@
     "skipLibCheck": true,
     "sourceMap": true,
     "alwaysStrict": true,
-    "strict": false,
+    "strict": true,
     "noImplicitAny": false,
     "strictBindCallApply": true,
     "target": "ES2019"

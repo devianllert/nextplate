@@ -87,9 +87,10 @@ export const filterExternalAbsoluteUrl = (url: string, fallbackValue = '/'): str
  * @param parameter
  * @param url
  */
-export const getParamFromUrl = (parameter: string, url: string): string => {
+export const getParamFromUrl = (parameter: string, url: string): string | null => {
   const urlAsString = (!url && isBrowser()) ? window.location.href : url;
 
   const parsedUrl = new URL(urlAsString);
+
   return parsedUrl.searchParams.get(parameter);
 };

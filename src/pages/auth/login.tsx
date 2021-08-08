@@ -1,4 +1,4 @@
-import { useTranslation, Trans } from 'next-i18next';
+import { useTranslation } from 'next-i18next';
 import Head from 'next/head';
 import Link from 'next/link';
 import styled from '@emotion/styled';

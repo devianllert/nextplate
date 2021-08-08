@@ -46,7 +46,7 @@ export const getNetworkAvailability = (): boolean => {
  * @see https://developer.mozilla.org/en-US/docs/Web/API/NetworkInformation/effectiveType
  */
 export const getNetworkInformationSpeed = (): NetworkInformationSpeed => {
-  let networkInformation: NetworkInformation;
+  let networkInformation: NetworkInformation | undefined;
 
   if (isBrowser()) {
     networkInformation = getNavigatorConnection();
@@ -67,7 +67,7 @@ export const getNetworkInformationSpeed = (): NetworkInformationSpeed => {
  * @see https://developer.mozilla.org/en-US/docs/Web/API/NetworkInformation/type
  */
 export const getNetworkConnectionType = (): NetworkConnectionType => {
-  let networkInformation: NetworkInformation;
+  let networkInformation: NetworkInformation | undefined;
 
   if (isBrowser()) {
     networkInformation = getNavigatorConnection();
@@ -75,5 +75,5 @@ export const getNetworkConnectionType = (): NetworkConnectionType => {
     return 'not-applicable';
   }
 
-  return networkInformation?.type;
+  return networkInformation?.type ?? 'unknown';
 };

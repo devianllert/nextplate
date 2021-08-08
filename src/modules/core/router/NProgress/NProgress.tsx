@@ -51,6 +51,7 @@ export const NProgressRoot = (props: NProgressRootProps): JSX.Element => {
       Router.events.off('routeChangeComplete', routeChangeEnd);
       Router.events.off('routeChangeError', routeChangeEnd);
     };
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [options]);
 
   return (

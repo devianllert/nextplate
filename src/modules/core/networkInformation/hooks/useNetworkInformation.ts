@@ -13,9 +13,11 @@ export const useNetworkInformation = (): NetworkInformation | undefined => {
   const [networkInformation, setNetworkInformation] = React.useState(getNetworkInformation());
 
   React.useEffect(() => {
-    if (getNavigatorConnection()) {
+    const connection = getNavigatorConnection();
+
+    if (connection) {
       return managedEventListener(
-        getNavigatorConnection(),
+        connection,
         'change',
         () => setNetworkInformation(getNavigatorConnection()),
       );

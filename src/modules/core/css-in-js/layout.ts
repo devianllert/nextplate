@@ -19,8 +19,9 @@ export interface LayoutProps {
   verticalAlign?: ResponsiveValue<CSSProperties['verticalAlign']>;
 }
 
-const isNumber = (n: unknown) => typeof n === 'number' && !Number.isNaN(n);
-const getWidth = (scale, n) => (get(scale, n) ?? (!isNumber(n) || n > 1 ? n : `${n * 100}%`));
+const isNumber = (n: unknown): n is number => typeof n === 'number' && !Number.isNaN(n);
+
+const getWidth = (scale: (string | number)[], n: string | number) => (get(scale, n) ?? (!isNumber(n) || n > 1 ? n : `${(n) * 100}%`));
 
 const config = {
   width: {

@@ -5,7 +5,7 @@ import {
 } from './palette.interface';
 
 export interface ColorOverrides {
-  colors?: ColorModesScale & {
+  colors: ColorModesScale & {
     text: string;
     background: string;
     primary: string;
@@ -21,7 +21,7 @@ export interface ColorOverrides {
     action: PaletteAction;
   };
 
-  rawColors?: ColorModesScale & {
+  rawColors: ColorModesScale & {
     text: string;
     background: string;
     primary: string;

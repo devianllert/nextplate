@@ -1,10 +1,11 @@
-import React, { ReactElement } from 'react';
+import * as React from 'react';
+import { Story, Meta } from '@storybook/react';
 
 import { IconButton } from '../IconButton';
 
 export default {
   title: 'Components/IconButton',
   component: IconButton,
-};
+} as Meta;
 
-export const Basic = (): ReactElement => <IconButton>Basic</IconButton>;
+const Template: Story = (args) => <IconButton {...args} />;

@@ -1,3 +1,4 @@
+import { CSSObject } from '@emotion/react';
 import deepmerge from 'deepmerge';
 
 import { breakpoints, createMediaQuery } from '@/common/design/media';
@@ -5,27 +6,28 @@ import { get } from '@/common/utils/get';
 
 export type ResponsiveValue<T> = T | Array<T | null> | { [key: string]: T };
 
+export type ScaleValue = number[] | string[];
 export interface CSSSystemStyleFunctionOptions {
   properties: string[];
   scale: string;
-  transform?: typeof get;
-  defaultScale?: any[];
+  transform?: (scale: ScaleValue, n: number | string) => unknown;
+  defaultScale?: ScaleValue;
 }
 
 interface CSSSystemStyleFunction {
-  (space: any[], value: string | number): Record<string, unknown>;
+  (space: ScaleValue, value: string | number): Record<string, unknown> | undefined;
   scale: string;
-  defaults: any[],
+  defaults?: ScaleValue,
 }
 
 export interface CSSSystem {
   [key: string]: CSSSystemStyleFunctionOptions | boolean;
 }
 
-const getValue = (scale, n) => get(scale, n) ?? n;
+const getValue = (scale: ScaleValue, n: number | string) => get(scale, n) ?? n;
 
-const sort = (obj: Record<string, unknown>) => {
-  const next: Record<string, unknown> = {};
+const sort = (obj: Record<string, CSSObject>) => {
+  const next: Record<string, CSSObject> = {};
 
   Object.keys(obj)
     .sort((a, b) => a.localeCompare(b, undefined, {
@@ -45,7 +47,7 @@ export const createStyleFunction = ({
   transform = getValue,
   defaultScale,
 }: CSSSystemStyleFunctionOptions): CSSSystemStyleFunction => {
-  const styleFunction: CSSSystemStyleFunction = (scale: any[], value: string | number, _props?) => {
+  const styleFunction: CSSSystemStyleFunction = (scale: ScaleValue, value: string | number) => {
     const result: Record<string, unknown> = {};
 
     const n = transform(scale, value);
@@ -68,10 +70,10 @@ export const createStyleFunction = ({
 const parseResponsiveArray = (
   mediaQueries: (string | null)[],
   styleFunction: CSSSystemStyleFunction,
-  scale: any[],
-  input: any[],
+  scale: ScaleValue,
+  input: ScaleValue,
 ) => {
-  const styles: Record<string, Record<string, unknown>> = {};
+  const styles: Record<string, Record<string, CSSObject>> = {};
 
   input.slice(0, mediaQueries.length).forEach((value, i) => {
     const media = mediaQueries[i];
@@ -90,12 +92,12 @@ const parseResponsiveArray = (
 };
 
 const parseResponsiveObject = (
-  mediaBreakpoints: Record<string, unknown>,
+  mediaBreakpoints: Record<string, number>,
   styleFunction: CSSSystemStyleFunction,
-  scale: any,
-  input: any,
+  scale: ScaleValue,
+  input: Record<string, string>,
 ) => {
-  const styles: Record<string, Record<string, unknown>> = {};
+  const styles: Record<string, Record<string, CSSObject>> = {};
 
   Object.keys(input).forEach((key) => {
     const breakpoint = mediaBreakpoints[key];
@@ -115,15 +117,21 @@ const parseResponsiveObject = (
   return styles;
 };
 
-const createParser = (config: Record<string, CSSSystemStyleFunction>) => {
-  const parse = (props: Record<string, any>) => {
-    let styles: Record<string, any> = {};
+export interface CSSSystemParser {
+  (props: Record<string, any>): Record<string, CSSObject>;
+  config: Record<string, CSSSystemStyleFunction>;
+  propNames: string[];
+}
+
+const createParser = (config: Record<string, CSSSystemStyleFunction>): CSSSystemParser => {
+  const parse: CSSSystemParser = (props) => {
+    let styles: Record<string, CSSObject> = {};
     let shouldSort = false;
 
     const media = [
       null,
       ...Object.keys(breakpoints).map(
-        (key) => `@media screen and (min-width: ${breakpoints[key]}px)`,
+        (key) => createMediaQuery(breakpoints[key]).up,
       ),
     ];
 
@@ -132,7 +140,7 @@ const createParser = (config: Record<string, CSSSystemStyleFunction>) => {
 
       const styleFunction = config[key];
       const input = props[key];
-      const scale = (get(props.theme, styleFunction.scale) as any[]) ?? styleFunction.defaults;
+      const scale = (get(props.theme, styleFunction.scale) as ScaleValue) ?? styleFunction.defaults;
 
       if (typeof input === 'object') {
         if (Array.isArray(input)) {
@@ -173,12 +181,15 @@ const createParser = (config: Record<string, CSSSystemStyleFunction>) => {
   return parse;
 };
 
-export const createSystem = (system: CSSSystem) => {
+export const createSystem = (system: CSSSystem): CSSSystemParser => {
   const config: Record<string, CSSSystemStyleFunction> = {};
 
   Object.keys(system).forEach((key) => {
+    const systemConfig = system[key];
     // shortcut definition
-    if (system[key] === true) {
+    if (typeof systemConfig === 'boolean') {
+      if (systemConfig === false) return;
+
       config[key] = createStyleFunction({
         properties: [key],
         scale: key,
@@ -187,8 +198,7 @@ export const createSystem = (system: CSSSystem) => {
       return;
     }
 
-    // @ts-ignore
-    config[key] = createStyleFunction(system[key]);
+    config[key] = createStyleFunction(systemConfig);
   });
 
   const parser = createParser(config);

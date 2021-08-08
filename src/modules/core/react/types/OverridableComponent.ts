@@ -22,8 +22,8 @@ export interface OverridableComponent<M extends OverridableTypeMap> {
        */
       component: C;
     } & OverrideProps<M, C>,
-  ): JSX.Element;
-  <C extends React.ElementType>(props: DefaultComponentProps<M, C>): JSX.Element;
+  ): JSX.Element | null;
+  <C extends React.ElementType>(props: DefaultComponentProps<M, C>): JSX.Element | null;
 }
 
 /**

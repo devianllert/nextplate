@@ -133,7 +133,7 @@ const MultiversalAppBootstrap = (props: Props): JSX.Element => {
       // console.debug('serializedDataset', serializedDataset);
     }
 
-    const dataset = deserializeSafe(serializedDataset);
+    const dataset = deserializeSafe<Record<string, unknown>>(serializedDataset);
 
     if (process.env.NEXT_PUBLIC_APP_STAGE !== 'production' && isBrowser()) {
       logger.debug(`pageProps.dataset (${size(Object.keys(dataset))} items)`, dataset);
@@ -156,28 +156,14 @@ const MultiversalAppBootstrap = (props: Props): JSX.Element => {
      *
      * XXX There may be more rendering modes - See https://github.com/vercel/next.js/discussions/12558#discussioncomment-12303
      */
-    let browserPageBootstrapProps: BrowserPageBootstrapProps;
-    let serverPageBootstrapProps: ServerPageBootstrapProps;
-
-    if (isBrowser()) {
-      browserPageBootstrapProps = {
-        ...props,
-        router,
-        pageProps: {
-          ...pageProps,
-          isSSGFallbackInitialBuild,
-        },
-      };
-    } else {
-      serverPageBootstrapProps = {
-        ...props,
-        router,
-        pageProps: {
-          ...pageProps,
-          isSSGFallbackInitialBuild,
-        },
-      };
-    }
+    const multiversalPageBootstrapProps = {
+      ...props,
+      router,
+      pageProps: {
+        ...pageProps,
+        isSSGFallbackInitialBuild,
+      },
+    };
 
     return (
       <>
@@ -195,10 +181,10 @@ const MultiversalAppBootstrap = (props: Props): JSX.Element => {
 
               {isBrowser() ? (
                 // eslint-disable-next-line react/jsx-props-no-spreading
-                <BrowserPageBootstrap {...browserPageBootstrapProps} />
+                <BrowserPageBootstrap {...multiversalPageBootstrapProps} />
               ) : (
                 // eslint-disable-next-line react/jsx-props-no-spreading
-                <ServerPageBootstrap {...serverPageBootstrapProps} />
+                <ServerPageBootstrap {...multiversalPageBootstrapProps} />
               )}
             </ThemeProvider>
           </Hydrate>
@@ -211,7 +197,7 @@ const MultiversalAppBootstrap = (props: Props): JSX.Element => {
   // This helps avoid multiple useless renders (especially in development mode) and thus avoid noisy logs
   // XXX I've recently tested without it and didn't notice any more logs than expected/usual. Maybe this was from a time where there were multiple full-renders? It may be removed if so (TODO later with proper testing)
   logger.info('App is not ready yet, waiting for isReadyToRender');
-  return null;
+  return <></>;
 };
 
 // We should use React memo here because `appWithTranslation` HOC cause too many re-renders

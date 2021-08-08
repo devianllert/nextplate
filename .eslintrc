@@ -50,7 +50,8 @@
     "no-unused-vars": 0,
     // @see https://ru.reactjs.org/blog/2020/09/22/introducing-the-new-jsx-transform.html
     "react/react-in-jsx-scope": "off",
-    "react/jsx-props-no-spreading": "warn",
+    // Don't enforce, let developer choose
+    "react/jsx-props-no-spreading": "off",
     // Not using "noreferrer" is not a security risk, but "noopener" should always be used indeed
     "react/jsx-no-target-blank": "warn",
     // Should be handled with TS instead

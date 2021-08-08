@@ -21,13 +21,8 @@
  */
 export const range = (start: number, end?: number, step = 1): number[] => {
   const output: number[] = [];
-  let startEdge = start;
-  let endEdge = end;
-
-  if (typeof end === 'undefined') {
-    endEdge = start;
-    startEdge = 0;
-  }
+  const startEdge = end ? start : 0;
+  const endEdge = end ?? start;
 
   for (let i = startEdge; i < endEdge; i += step) {
     output.push(i);

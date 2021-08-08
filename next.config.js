@@ -1,5 +1,4 @@
 /* eslint-disable */
-const path = require('path');
 const bundleAnalyzer = require('@next/bundle-analyzer');
 const { withSentryConfig } = require('@sentry/nextjs');
 const nextSourceMaps = require('@zeit/next-source-maps');
@@ -16,8 +15,7 @@ const noRedirectBlacklistedPaths = ['_next', 'api']; // Paths that mustn't have 
 const publicBasePaths = ['robots', 'static', 'favicon.ico']; // All items (folders, files) under /public directory should be added there, to avoid redirection when an asset isn't found
 const noRedirectBasePaths = [...publicBasePaths, ...noRedirectBlacklistedPaths]; // Will disable url rewrite for those items (should contain all supported languages and all public base paths)
 const date = new Date();
-const GIT_COMMIT_SHA_SHORT =
-  typeof process.env.GIT_COMMIT_SHA === 'string' && process.env.GIT_COMMIT_SHA.substring(0, 8);
+const GIT_COMMIT_SHA_SHORT = typeof process.env.GIT_COMMIT_SHA === 'string' && process.env.GIT_COMMIT_SHA.substring(0, 8);
 
 console.debug(
   `Building Next with NODE_ENV="${process.env.NODE_ENV}" NEXT_PUBLIC_APP_STAGE="${process.env.NEXT_PUBLIC_APP_STAGE}" using GIT_COMMIT_SHA=${process.env.GIT_COMMIT_SHA} and GIT_COMMIT_REF=${process.env.GIT_COMMIT_REF}`,
@@ -168,13 +166,13 @@ module.exports = withSentryConfig(
           },
           {
             // Make all other static assets immutable and cached for one hour
-            'source': '/static/(.*?)',
-            'headers': [
+            source: '/static/(.*?)',
+            headers: [
               {
-                'key': 'Cache-Control',
+                key: 'Cache-Control',
                 // See https://www.keycdn.com/blog/cache-control-immutable#what-is-cache-control-immutable
                 // See https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control#browser_compatibility
-                'value': `public, max-age=3600, immutable`,
+                value: 'public, max-age=3600, immutable',
               },
             ],
           },
@@ -185,7 +183,7 @@ module.exports = withSentryConfig(
               // See https://infosec.mozilla.org/guidelines/web_security#x-content-type-options
               {
                 key: 'X-Content-Type-Options',
-                value: `nosniff`,
+                value: 'nosniff',
               },
             ],
           },
@@ -200,7 +198,7 @@ module.exports = withSentryConfig(
                 key: 'Referrer-Policy',
                 // "no-referrer-when-downgrade" is the default behaviour
                 // XXX You might want to restrict even more the referrer policy
-                value: `no-referrer-when-downgrade`,
+                value: 'no-referrer-when-downgrade',
               },
             ],
           },
@@ -214,7 +212,7 @@ module.exports = withSentryConfig(
             // So, we use a combination of both the CSP directive and the "X-Frame-Options" for browser that don't support CSP
             // See https://infosec.mozilla.org/guidelines/web_security#x-frame-options
             key: 'X-Frame-Options',
-            value: `SAMEORIGIN`,
+            value: 'SAMEORIGIN',
           });
           headers.push({
             source: '/(.*?)', // Match all paths, including "/" - See https://github.com/vercel/next.js/discussions/17991#discussioncomment-112028
@@ -222,7 +220,7 @@ module.exports = withSentryConfig(
             headers: [
               {
                 key: 'Content-Security-Policy',
-                value: `frame-ancestors 'self`,
+                value: 'frame-ancestors \'self',
               },
             ],
           });
@@ -252,7 +250,8 @@ module.exports = withSentryConfig(
           // Robots rewrites
           {
             source: '/robots.txt',
-            destination: process.env.NEXT_PUBLIC_APP_STAGE === 'production' ? '/robots/production.txt' : '/robots/!production.txt',
+            destination:
+              process.env.NEXT_PUBLIC_APP_STAGE === 'production' ? '/robots/production.txt' : '/robots/!production.txt',
           },
         ];
 

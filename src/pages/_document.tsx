@@ -3,6 +3,8 @@ import Document, {
   Html,
   Main,
   NextScript,
+  DocumentInitialProps,
+  DocumentContext,
 } from 'next/document';
 import { InitializeColorMode } from 'theme-ui';
 
@@ -14,7 +16,7 @@ import { InitializeColorMode } from 'theme-ui';
  * See https://github.com/vercel/next.js/#custom-document
  */
 class AppDocument extends Document {
-  static async getInitialProps(ctx) {
+  static async getInitialProps(ctx: DocumentContext): Promise<DocumentInitialProps> {
     const initialProps = await Document.getInitialProps(ctx);
     return { ...initialProps };
   }

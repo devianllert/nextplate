@@ -17,7 +17,7 @@ interface PortalProps {
   container?: Element | (() => Element | null) | null;
 }
 
-function getContainer(container: Element | (() => Element | null) | null) {
+function getContainer(container?: Element | (() => Element | null) | null) {
   return typeof container === 'function' ? container() : container;
 }
 

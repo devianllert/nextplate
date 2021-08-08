@@ -46,10 +46,12 @@ export const divider = {
   primary: 'rgba(255, 255, 255, 0.12)',
 };
 
-export default {
+const palette = {
   text,
   background,
   brand,
   action,
   status,
 };
+
+export default palette;

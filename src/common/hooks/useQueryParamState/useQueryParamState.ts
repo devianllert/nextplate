@@ -14,8 +14,8 @@ export interface UseQueryParamStateOptions<T> extends Partial<Serializers<T>> {
 }
 
 export type UseQueryParamStateReturn<T> = [
-  T,
-  React.Dispatch<React.SetStateAction<T>>,
+  T | null,
+  React.Dispatch<React.SetStateAction<T | null>>,
 ];
 
 export type UseQueryParamStateOptionsWithDefault<T> = Pick<
@@ -99,24 +99,27 @@ export function useQueryParamState<T extends string>(key: T, options: UseQueryPa
   // It reduces the amount of reactivity needed to update the state.
   const updateURL = React.useMemo(
     () => (history === 'push' ? router.push : router.replace),
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     [history],
   );
 
   const getValue = React.useCallback((): T | null => {
     const value = router.query[key] as string;
     return value !== null ? parse(value) : null;
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [key]);
 
   // Update the state value only when the relevant key changes.
   // Because we're not calling getValue in the function argument
   // of React.useMemo, but instead using it as the function to call,
   // there is no need to pass it in the dependency array.
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const value = React.useMemo(getValue, [router.query[key]]);
 
   const update = React.useCallback(
     (stateUpdater: React.SetStateAction<T | null>) => {
       const isUpdaterFunction = (
-        input: any,
+        input: unknown,
       ): input is (prevState: T | null
       ) => T | null => {
         return typeof input === 'function';
@@ -162,6 +165,7 @@ export function useQueryParamState<T extends string>(key: T, options: UseQueryPa
         },
       );
     },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     [key, updateURL, router.asPath],
   );
 

@@ -22,7 +22,7 @@ interface ButtonRootProps {
    *
    * @default 'primary'
    */
-  color?: 'primary' | 'secondary' | 'inherit';
+  color: 'primary' | 'secondary' | 'inherit';
 
   /**
   * If `true`, the button will take up the full width of its container.

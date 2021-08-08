@@ -10,13 +10,14 @@ import { createLogger as createConsoleLogger, Logger } from './createLogger';
 export const createLogger = (fileLabel: string): Logger => {
   // Mute logger during tests, to avoid cluttering the console
   if (process.env.NODE_ENV === 'test') {
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-return, @typescript-eslint/no-unsafe-call
     return global.muteConsole();
   }
 
   return createConsoleLogger({
     prefix: fileLabel,
     shouldShowTime: () => false,
-    shouldPrint: (mode) => {
+    shouldPrint: () => {
       return process.env.NEXT_PUBLIC_APP_STAGE !== 'production';
     },
   });

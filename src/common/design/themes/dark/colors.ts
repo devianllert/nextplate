@@ -1,6 +1,6 @@
 import * as theme from '../../tokens/palette.dark';
 
-export default {
+const darkColors = {
   text: theme.text.primary,
   background: theme.background.primary,
   primary: theme.brand.primary,
@@ -13,3 +13,5 @@ export default {
   status: theme.status,
   greyscale: theme.greyscale,
 };
+
+export default darkColors;

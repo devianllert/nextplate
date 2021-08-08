@@ -1,6 +1,6 @@
 import * as theme from '../../tokens/palette.light';
 
-export default {
+const lightColors = {
   text: theme.text.primary,
   background: theme.background.primary,
   primary: theme.brand.primary,
@@ -13,3 +13,5 @@ export default {
   status: theme.status,
   greyscale: theme.greyscale,
 };
+
+export default lightColors;

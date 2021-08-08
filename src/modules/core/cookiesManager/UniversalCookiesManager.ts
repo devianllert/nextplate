@@ -50,9 +50,9 @@ export default class UniversalCookiesManager {
    * @param {Cookies} readonlyCookies - Useful if req/res aren't accessible (CSR, or SSR outside of _app), will allow to read cookie (but won't allow writes)
    */
   constructor(req?: IncomingMessage, res?: ServerResponse, readonlyCookies?: Cookies) {
-    this.req = req || null;
-    this.res = res || null;
-    this.readonlyCookies = readonlyCookies || null;
+    this.req = req;
+    this.res = res;
+    this.readonlyCookies = readonlyCookies;
   }
 
   /**
@@ -73,10 +73,13 @@ export default class UniversalCookiesManager {
         //  We therefore override this behaviour because we need to write proper JSON
         //  See https://github.com/js-cookie/js-cookie#encoding
         const browserCookies = BrowserCookies.withConverter({
-          write: (value: string) => value,
+          write: (value: string | Record<string, unknown>): string => value as string,
         });
         browserCookies.set(USER_LS_KEY, JSON.stringify(newUserData), browserOptions);
       } else {
+        // `this.req` is not undefined cause we check if it's browser or server
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
         const serverCookies = new ServerCookies(this.req, this.res);
 
         // If running on the server side but req or res aren't set, then we don't do anything
@@ -115,11 +118,14 @@ export default class UniversalCookiesManager {
    * @return {UserSemiPersistentSession}
    */
   getUserData(serverOptions?: GetOption): UserSemiPersistentSession {
-    let rawUserData: string;
+    let rawUserData: string | undefined;
 
     if (isBrowser()) {
       rawUserData = BrowserCookies.get(USER_LS_KEY);
     } else {
+      // `this.req` is not undefined cause we check if it's browser or server
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
       const serverCookies = new ServerCookies(this.req, this.res);
 
       // If running on the server side but req or res aren't set, then we should have access to readonlyCookies provided through the _app:getInitialProps
@@ -195,6 +201,9 @@ export default class UniversalCookiesManager {
     if (isBrowser()) {
       BrowserCookies.set(COOKIE_LOOKUP_KEY_LANG, lang);
     } else {
+      // `this.req` is not undefined cause we check if it's browser or server
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
       const serverCookies = new ServerCookies(this.req, this.res);
       serverCookies.set(COOKIE_LOOKUP_KEY_LANG, lang, serverOptions);
     }
@@ -208,11 +217,14 @@ export default class UniversalCookiesManager {
    * @return {GenericObject}
    */
   get(name: string, serverOptions?: GetOption): string | null {
-    let data: string;
+    let data: string | undefined;
 
     if (isBrowser()) {
       data = BrowserCookies.get(name);
     } else {
+      // `this.req` is not undefined cause we check if it's browser or server
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
       const serverCookies = new ServerCookies(this.req, this.res);
 
       // If running on the server side but req or res aren't set, then we should have access to readonlyCookies provided through the _app:getInitialProps

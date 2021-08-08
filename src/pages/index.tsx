@@ -48,9 +48,7 @@ const PostQuery = `
 /**
  * Props that are only available for this page
  */
-type CustomPageProps = {
-  [key: string]: any;
-};
+type CustomPageProps = Record<string, any>;
 
 type GetServerSidePageProps = CustomPageProps & SSRPageProps;
 

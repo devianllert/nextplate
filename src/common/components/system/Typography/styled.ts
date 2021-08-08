@@ -27,9 +27,9 @@ interface TypoProps {
   gutterBottom?: boolean;
   noWrap?: boolean;
   paragraph?: boolean;
-  variant?: TypoVariant;
+  variant: TypoVariant;
   variantMapping?: Partial<Record<TypoVariant, string>>;
-  color?: string;
+  color: string;
   fontWeight?: TypoWeight;
   display: React.CSSProperties['display'];
 }
@@ -45,7 +45,7 @@ export const Typo = styled.span<TypoProps>((props) => ({
     textOverflow: 'ellipsis',
     whiteSpace: 'nowrap',
   }),
-  marginBottom: (props.gutterBottom && '0.35em') || (props.paragraph && '16px'),
+  marginBottom: (props.gutterBottom && '0.35em') || (props.paragraph && '16px') || undefined,
   ...variants[props.variant],
   ...(props.fontWeight && {
     fontWeight: fontWeight[props.fontWeight],

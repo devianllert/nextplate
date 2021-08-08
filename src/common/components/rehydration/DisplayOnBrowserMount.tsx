@@ -48,7 +48,7 @@ export type DisplayOnBrowserMountProps = {
  * @see https://joshwcomeau.com/react/the-perils-of-rehydration/#two-pass-rendering Two pass rendering and performances implications
  * @see https://twitter.com/Vadorequest/status/1257658553361408002 Discussion with Josh regarding advanced usage
  */
-export const DisplayOnBrowserMount = (props: DisplayOnBrowserMountProps): JSX.Element => {
+export const DisplayOnBrowserMount = (props: DisplayOnBrowserMountProps): JSX.Element | null => {
   const { children, deps = [] } = props;
   // If any dep isn't defined, then it will render "null" first, and then trigger a re-render
   const isAnyDepsNullish = size(deps)

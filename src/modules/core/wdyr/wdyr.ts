@@ -23,6 +23,7 @@ if (typeof window !== 'undefined' && process.env.NODE_ENV === 'development') {
   );
 
   // See https://github.com/welldone-software/why-did-you-render#options
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-call
   whyDidYouRender(React, {
     trackAllPureComponents: true,
     trackHooks: true,

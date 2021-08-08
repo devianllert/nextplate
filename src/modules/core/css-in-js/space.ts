@@ -9,6 +9,7 @@ import {
   CSSSystem,
   ResponsiveValue,
   createSystem,
+  ScaleValue,
 } from './system';
 
 /**
@@ -72,9 +73,9 @@ export interface SpaceProps {
 
 }
 
-const isNumber = (n: unknown) => typeof n === 'number' && !Number.isNaN(n);
+const isNumber = (n: unknown): n is number => typeof n === 'number' && !Number.isNaN(n);
 
-const getMargin = (scale: number[], n: number): number | string => {
+const getMargin = (scale: ScaleValue, n: number | string): number | string => {
   if (!isNumber(n)) {
     return (get(scale, n) as number) ?? n;
   }

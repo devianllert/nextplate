@@ -3,6 +3,7 @@ import { QueryClient } from 'react-query';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { dehydrate } from 'react-query/hydration';
 
+import { DEFAULT_LOCALE } from '@/modules/core/i18n/i18n';
 import { REACT_QUERY_STATE_PROP_NAME } from '@/modules/core/rquery/react-query';
 import { serializeSafe } from '@/modules/core/serializeSafe/serializeSafe';
 import { SSGPageProps } from './types/SSGPageProps';
@@ -87,7 +88,7 @@ export const getCoreStaticProps: GetStaticProps<SSGPageProps> = async (props): P
       serializedDataset: serializeSafe({}),
       isReadyToRender: true,
       isStaticRendering: true,
-      ...(await serverSideTranslations(props.locale)),
+      ...(await serverSideTranslations(props.locale ?? DEFAULT_LOCALE)),
     },
     // revalidate: false,
   };
@@ -120,7 +121,7 @@ export const getNoneStaticProps: GetStaticProps<SSGPageProps> = async (props): P
       serializedDataset: serializeSafe({}),
       isReadyToRender: true,
       isStaticRendering: true,
-      ...await serverSideTranslations(props.locale, ['common', 'auth', '404']),
+      ...await serverSideTranslations(props.locale ?? DEFAULT_LOCALE, ['common', 'auth', '404']),
     },
     // revalidate: false,
   };

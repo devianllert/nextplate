@@ -76,7 +76,7 @@ const ErrorPage = (props: ErrorPageProps): JSX.Element => {
             statusCode={statusCode}
             // Only display title in non-production stages, to avoid leaking debug information to end-users
             // When "null" is provided, it'll fallback to Next.js default message (based on the statusCode)
-            title={process.env.NEXT_PUBLIC_APP_STAGE !== 'production' ? err?.message : null}
+            title={process.env.NEXT_PUBLIC_APP_STAGE !== 'production' ? err?.message : undefined}
           />
         )
       }

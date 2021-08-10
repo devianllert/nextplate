@@ -1,9 +1,9 @@
 import { useTranslation } from 'next-i18next';
 import Head from 'next/head';
 import Link from 'next/link';
-import styled from '@emotion/styled';
 import { Input } from 'theme-ui';
 
+import { getAppTitle } from '@/modules/core/meta/meta';
 import { OnlyBrowserPageProps } from '@/layouts/core/types/OnlyBrowserPageProps';
 import { SSGPageProps } from '@/layouts/core/types/SSGPageProps';
 import { SSRPageProps } from '@/layouts/core/types/SSRPageProps';
@@ -12,9 +12,8 @@ import { EnhancedNextPage } from '@/layouts/core/types/EnhancedNextPage';
 import { Button } from '@/common/components/system/Button';
 import { getNoneStaticProps } from '@/layouts/core/SSG';
 import { AuthLayout } from '@/layouts/auth/AuthLayout';
-import shape from '@/common/design/tokens/shape';
 import { Typography } from '@/common/components/system/Typography';
-import shadows from '@/common/design/tokens/shadows';
+import { Box } from '@/common/components/system/Box';
 
 const logger = createLogger('Login');
 
@@ -28,26 +27,24 @@ const logger = createLogger('Login');
  */
 type Props = (SSRPageProps & SSGPageProps<OnlyBrowserPageProps>);
 
-const Form = styled.form({
-  zIndex: 1,
-  maxWidth: 440,
-  width: '100%',
-  padding: 32,
-  background: 'white',
-  borderRadius: shape.round,
-  boxShadow: shadows[2],
-});
-
 const LoginPage: EnhancedNextPage<Props> = (): JSX.Element => {
   const { t } = useTranslation('auth');
 
   return (
     <>
       <Head>
-        <title>{t('login')} | dvnllrt</title>
+        <title>{getAppTitle(t('login'))}</title>
       </Head>
 
-      <Form>
+      <Box
+        maxWidth="440px"
+        width="100%"
+        padding="32px"
+        background="white"
+        borderRadius="4px"
+        boxShadow={2}
+        zIndex={1}
+      >
         <Typography variant="h4" component="h1">{t('login')}</Typography>
 
         <Input placeholder={t('form.email')} mb={2} mt={4} />
@@ -60,7 +57,7 @@ const LoginPage: EnhancedNextPage<Props> = (): JSX.Element => {
           {' '}
           <Link href="/auth/signup">{t('signup')}</Link>
         </Typography>
-      </Form>
+      </Box>
     </>
   );
 };

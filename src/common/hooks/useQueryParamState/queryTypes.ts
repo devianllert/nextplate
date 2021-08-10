@@ -1,17 +1,17 @@
 export type HistoryOptions = 'replace' | 'push';
 
 export type Serializers<T> = {
-  parse: (value: string) => T | null
-  serialize: (value: T) => string
+  parse: (value: string) => T | null;
+  serialize: (value: T) => string;
 };
 
 export type QueryTypeMap = {
-  string: Serializers<string>
-  integer: Serializers<number>
-  float: Serializers<number>
-  boolean: Serializers<boolean>
-  timestamp: Serializers<Date>
-  isoDateTime: Serializers<Date>
+  string: Serializers<string>;
+  integer: Serializers<number>;
+  float: Serializers<number>;
+  boolean: Serializers<boolean>;
+  timestamp: Serializers<Date>;
+  isoDateTime: Serializers<Date>;
 };
 
 export const queryTypes: QueryTypeMap = {

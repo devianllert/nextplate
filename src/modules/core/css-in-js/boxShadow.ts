@@ -5,7 +5,7 @@ import shadows from '@/common/design/tokens/shadows';
 import { createSystem, ResponsiveValue } from './system';
 
 export interface BoxShadowProps {
-  boxShadow?: ResponsiveValue<CSSProperties['boxShadow']>;
+  boxShadow?: ResponsiveValue<CSSProperties['boxShadow'] | number>;
   textShadow?: ResponsiveValue<CSSProperties['textShadow']>;
 }
 

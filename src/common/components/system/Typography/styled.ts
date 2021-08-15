@@ -2,6 +2,7 @@ import * as React from 'react';
 import styled from '@emotion/styled';
 
 import { fontWeight, variants } from '@/common/design/tokens/typography';
+import { margin, padding, SpaceProps } from '@/modules/core/css-in-js/space';
 
 export type TypoVariant =
   | 'h1'
@@ -22,11 +23,9 @@ export type TypoAlign = 'inherit' | 'left' | 'center' | 'right' | 'justify';
 
 export type TypoWeight = 'light' | 'normal' | 'medium' | 'bold' | 'heavy';
 
-interface TypoProps {
+interface TypoProps extends SpaceProps {
   align: React.CSSProperties['textAlign'];
-  gutterBottom?: boolean;
   noWrap?: boolean;
-  paragraph?: boolean;
   variant: TypoVariant;
   variantMapping?: Partial<Record<TypoVariant, string>>;
   color: string;
@@ -45,9 +44,10 @@ export const Typo = styled.span<TypoProps>((props) => ({
     textOverflow: 'ellipsis',
     whiteSpace: 'nowrap',
   }),
-  marginBottom: (props.gutterBottom && '0.35em') || (props.paragraph && '16px') || undefined,
   ...variants[props.variant],
   ...(props.fontWeight && {
     fontWeight: fontWeight[props.fontWeight],
   }),
+  ...(margin(props)),
+  ...(padding(props)),
 }));

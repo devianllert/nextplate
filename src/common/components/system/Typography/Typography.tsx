@@ -2,10 +2,11 @@
 import * as React from 'react';
 
 import { OverridableComponent } from '@/modules/core/react/types/OverridableComponent';
+import { SpaceProps } from '@/modules/core/css-in-js/space';
 
 import * as S from './styled';
 
-export interface TypographyProps {
+export interface TypographyProps extends SpaceProps {
   /**
    * The content of the button.
    */
@@ -19,20 +20,12 @@ export interface TypographyProps {
    */
   fontWeight?: S.TypoWeight;
   /**
-   * If `true`, the text will have a bottom margin.
-   */
-  gutterBottom?: boolean;
-  /**
    * If `true`, the text will not wrap, but instead will truncate with a text overflow ellipsis.
    *
    * Note that text overflow can only happen with block or inline-block level elements
    * (the element needs to have a width in order to overflow).
    */
   noWrap?: boolean;
-  /**
-   * If `true`, the text will have a bottom margin.
-   */
-  paragraph?: boolean;
   /**
    * The variant to use.
    */
@@ -44,7 +37,7 @@ export interface TypographyProps {
   /**
    * The color of the component. It supports those theme colors that make sense for this component.
    */
-  color?: 'initial' | 'inherit' | 'primary' | 'secondary' | 'disabled' | 'success' | 'warning' | 'info' | 'error';
+  color?: string | 'initial' | 'inherit' | 'primary' | 'secondary' | 'disabled' | 'success' | 'warning' | 'info' | 'error';
   /**
    * Controls the display type
    */
@@ -84,16 +77,14 @@ export const Typography: OverridableComponent<TypographyTypeMap> = React.forward
     display = 'initial',
     className,
     component,
-    gutterBottom = false,
     noWrap = false,
-    paragraph = false,
     variant = 'body1',
     variantMapping = defaultVariantMapping,
     ...other
   } = props;
 
   const Component = component
-  || (paragraph ? 'p' : variantMapping[variant])
+  || variantMapping[variant]
   || 'span';
 
   return (
@@ -103,9 +94,7 @@ export const Typography: OverridableComponent<TypographyTypeMap> = React.forward
       align={align}
       color={color}
       display={display}
-      gutterBottom={gutterBottom}
       noWrap={noWrap}
-      paragraph={paragraph}
       variant={variant}
       ref={ref}
       {...other}

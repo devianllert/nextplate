@@ -85,12 +85,6 @@ describe('<Typography />', () => {
     expect(screen.getByText(children)).toHaveStyleRule('display', 'block');
   });
 
-  it('should render a p with a paragraph', () => {
-    renderWithProviders(<Typography paragraph>{children}</Typography>);
-
-    expect(screen.getByText(children).tagName).toBe('P');
-  });
-
   it('should work with a single value', () => {
     renderWithProviders(<Typography variant="h4" variantMapping={{ h4: 'aside' }}>{children}</Typography>);
 

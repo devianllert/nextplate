@@ -81,9 +81,9 @@ describe('<Portal />', (): void => {
     };
 
     const { rerender } = render(<ContainerTest />);
-    expect(screen.getByText('portal').parentNode.nodeName).toEqual('BODY');
+    expect(screen.getByText('portal').parentNode?.nodeName).toEqual('BODY');
 
     rerender(<ContainerTest containerElement />);
-    expect(screen.getByText('portal').parentNode.nodeName).toEqual('STRONG');
+    expect(screen.getByText('portal').parentNode?.nodeName).toEqual('STRONG');
   });
 });

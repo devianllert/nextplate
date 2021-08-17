@@ -20,9 +20,11 @@ describe(`utils/js/string.ts`, () => {
       it(`when the "variables" are undefined`, async () => {
         expect(replaceAllOccurrences('example', undefined)).toBe('example');
       });
+
       it(`when the "variables" are null`, async () => {
         expect(replaceAllOccurrences('example', null)).toBe('example');
       });
+
       it(`when the "variables" are of unexpected types`, async () => {
         // @ts-expect-error
         expect(replaceAllOccurrences('example', 1)).toBe('example');

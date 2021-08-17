@@ -69,7 +69,7 @@ const NotFound404Page: EnhancedNextPage<Props> = (): JSX.Element => {
       </Head>
 
       <Typography variant="h1">{t('title')}</Typography>
-      <Typography variant="body1" gutterBottom>{t('description')}</Typography>
+      <Typography variant="body1">{t('description')}</Typography>
       <Link href="/" passHref>
         <Button>{t('button')}</Button>
       </Link>

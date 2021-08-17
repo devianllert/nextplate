@@ -1,32 +1,50 @@
-export type Order = 'asc' | 'desc';
+export type Comparator<T> = (a: T, b: T) => number;
 
-export const descendingComparator = <T>(a: T, b: T, orderBy: keyof T): number => {
-  if (b[orderBy] < a[orderBy]) return -1;
-
-  if (b[orderBy] > a[orderBy]) return 1;
+export const compareString: Comparator<string> = (left, right) => {
+  if (left < right) return -1;
+  if (left > right) return 1;
 
   return 0;
 };
 
-export const getComparator = <Key>(
-  order: Order,
-  orderBy: keyof Key,
-): ((a: Key, b: Key) => number) => {
-  if (order === 'desc') return (a, b) => descendingComparator(a, b, orderBy);
+export const compareLength: Comparator<string | Array<unknown>> = (left, right) => left.length - right.length;
 
-  return (a, b) => -descendingComparator(a, b, orderBy);
+export const compareBool: Comparator<boolean> = (left, right) => {
+  if (left < right) return -1;
+  if (left > right) return 1;
+
+  return 0;
 };
 
-export const stableSort = <T>(array: T[], comparator: (a: T, b: T) => number): T[] => {
-  const stabilizedThis = array.map((el, index) => [el, index] as [T, number]);
+export const compareNumber: Comparator<number> = (left: number, right: number): number => left - right;
 
-  stabilizedThis.sort((a, b) => {
-    const order = comparator(a[0], b[0]);
+export const compareReverse = <T>(compare: Comparator<T>) => (left: T, right: T): number => compare(right, left);
 
-    if (order !== 0) return order;
+/**
+ * Compare object field by key.
+ */
+export const compareField = <T, K extends keyof T>(field: K, compare: Comparator<T[K]>) => (left: T, right: T): number => compare(left[field], right[field]);
 
-    return a[1] - b[1];
-  });
+/**
+ * Combine multiple comparators.
+ *
+ * @example
+ * // first by id, then by salary
+ * const compareUser = compareCombine<User>(
+ *  compareField('id', compareString),
+ *  compareField('salary', compareReverse(compareNumber)),
+ * );
+ *
+ * items.sort(compareUser);
+ */
+export const compareCombine = <T>(...comparators: Comparator<T>[]) => (left: T, right: T): number => {
+  for (let x = 0; x < comparators.length; x += 1) {
+    const compare = comparators[x];
 
-  return stabilizedThis.map((el) => el[0]);
+    const res = compare(left, right);
+
+    if (res) return res;
+  }
+
+  return 0;
 };

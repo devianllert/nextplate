@@ -1,7 +1,7 @@
 import { ColorOverrides } from '@/modules/core/theming/types/theme.interface';
 import { useThemeUI } from 'theme-ui';
 
-import theme from '../themes';
+import { theme } from '../themes';
 
 export type ExactTheme = typeof theme & ColorOverrides;
 

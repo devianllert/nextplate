@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/ban-types */
 /* eslint-disable prefer-arrow-callback */
 import * as React from 'react';
 

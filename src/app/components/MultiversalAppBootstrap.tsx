@@ -17,7 +17,7 @@ import { deserializeSafe } from '@/modules/core/serializeSafe/deserializeSafe';
 import DefaultErrorLayout from '@/modules/core/errorHandling/DefaultErrorLayout';
 import { GlobalStyles } from '@/common/design/GlobalStyles';
 import { ResetStyles } from '@/common/design/ResetStyles';
-import themes from '@/common/design/themes';
+import { theme } from '@/common/design/themes';
 import { createLogger } from '@/modules/core/logging/logger';
 import { REACT_QUERY_STATE_PROP_NAME } from '@/modules/core/rquery/react-query';
 import { NProgressRoot } from '@/modules/core/router/NProgress';
@@ -173,7 +173,7 @@ const MultiversalAppBootstrap = (props: Props): JSX.Element => {
 
         <QueryClientProvider client={queryClient}>
           <Hydrate state={pageProps[REACT_QUERY_STATE_PROP_NAME]}>
-            <ThemeProvider theme={themes}>
+            <ThemeProvider theme={theme}>
               <GlobalStyles />
               <ResetStyles />
 

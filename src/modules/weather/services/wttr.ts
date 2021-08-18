@@ -83,7 +83,7 @@ export interface Weather {
 const WEATHER_API_ENDPOINT = 'http://wttr.in';
 
 export const fetchWeather = async (place = ''): Promise<Weather> => {
-  const { data } = await api.get<WTTRWeather>(`${WEATHER_API_ENDPOINT}/${place}?format=j1`);
+  const { data } = await api.get<WTTRWeather>(`${WEATHER_API_ENDPOINT}/${encodeURIComponent(place)}?format=j1`);
 
   const weather: Weather = {
     place: `${data.nearest_area[0].region[0].value}, ${data.nearest_area[0].country[0].value}`,

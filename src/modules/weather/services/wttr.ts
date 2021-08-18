@@ -80,7 +80,7 @@ export interface Weather {
   };
 }
 
-const WEATHER_API_ENDPOINT = 'http://wttr.in';
+const WEATHER_API_ENDPOINT = 'https://wttr.in';
 
 export const fetchWeather = async (place = ''): Promise<Weather> => {
   const { data } = await api.get<WTTRWeather>(`${WEATHER_API_ENDPOINT}/${encodeURIComponent(place)}?format=j1`);

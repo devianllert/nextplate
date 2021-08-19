@@ -62,66 +62,17 @@ import { SSGPageProps } from './types/SSGPageProps';
  * @see https://nextjs.org/docs/basic-features/data-fetching#getstaticprops-static-generation
  */
 export const getCoreStaticProps: GetStaticProps<SSGPageProps> = async (props): Promise<GetStaticPropsResult<SSGPageProps>> => {
-  const queryClient = new QueryClient();
-
-  // const {
-  //   data,
-  //   errors,
-  //   loading,
-  //   networkStatus,
-  // } = await queryClient.fetch(queryOptions);
-
-  // if (errors) {
-  //   console.error(errors);
-  //   throw new Error('Errors were detected in GraphQL query.');
-  // }
-
-  // const { customer } = data || {}; // XXX Use empty object as fallback, to avoid app crash when destructuring, if no data is returned
-  // const dataset = {
-  //   customer,
-  // };
+  const {
+    locale = DEFAULT_LOCALE,
+  } = props;
 
   return {
     // Props returned here will be available as page properties (pageProps)
     props: {
-      [REACT_QUERY_STATE_PROP_NAME]: dehydrate(queryClient),
       serializedDataset: serializeSafe({}),
       isReadyToRender: true,
       isStaticRendering: true,
-      ...(await serverSideTranslations(props.locale ?? DEFAULT_LOCALE)),
-    },
-    // revalidate: false,
-  };
-};
-
-/**
- * Only executed on the server side at build time.
- * Computes all static props that should be available for all SSG pages.
- *
- * Note that when a page uses "getStaticProps", then "_app:getInitialProps" is executed (if defined) but not actually used by the page,
- * only the results from getStaticProps are actually injected into the page (as "SSGPageProps").
- *
- * Meant to avoid code duplication.
- * Can be overridden for per-page customisation (e.g: deepmerge).
- *
- * XXX Core component, meant to be used by other layouts, shouldn't be used by other components directly.
- *
- * @return Props (as "SSGPageProps") that will be passed to the Page component, as props (known as "pageProps" in _app).
- *
- * @see https://github.com/vercel/next.js/discussions/10949#discussioncomment-6884
- * @see https://nextjs.org/docs/basic-features/data-fetching#getstaticprops-static-generation
- */
-export const getNoneStaticProps: GetStaticProps<SSGPageProps> = async (props): Promise<GetStaticPropsResult<SSGPageProps>> => {
-  const queryClient = new QueryClient();
-
-  return {
-    // Props returned here will be available as page properties (pageProps)
-    props: {
-      [REACT_QUERY_STATE_PROP_NAME]: dehydrate(queryClient),
-      serializedDataset: serializeSafe({}),
-      isReadyToRender: true,
-      isStaticRendering: true,
-      ...await serverSideTranslations(props.locale ?? DEFAULT_LOCALE, ['common', 'auth', '404']),
+      ...await serverSideTranslations(locale, ['common', 'auth', '404']),
     },
     // revalidate: false,
   };

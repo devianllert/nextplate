@@ -9,13 +9,23 @@ import { SSRPageProps } from '@/layouts/core/types/SSRPageProps';
 import { createLogger } from '@/modules/core/logging/logger';
 import { EnhancedNextPage } from '@/layouts/core/types/EnhancedNextPage';
 import { Button } from '@/common/components/system/Button';
-import { getNoneStaticProps } from '@/layouts/core/SSG';
-import { AuthLayout } from '@/layouts/auth/AuthLayout';
+import { getCoreStaticProps } from '@/layouts/core/SSG';
+import { AuthLayout } from '@/layouts/auth/components/AuthLayout';
 import { Typography } from '@/common/components/system/Typography';
 import { Box } from '@/common/components/system/Box';
 import { getAppTitle } from '@/modules/core/meta/meta';
 
 const logger = createLogger('SignUp');
+
+/**
+ * Only executed on the server side at build time.
+ *
+ * @return Props (as "SSGPageProps") that will be passed to the Page component, as props
+ *
+ * @see https://github.com/vercel/next.js/discussions/10949#discussioncomment-6884
+ * @see https://nextjs.org/docs/basic-features/data-fetching#getstaticprops-static-generation
+ */
+export const getStaticProps = getCoreStaticProps;
 
 /**
  * SSR pages are first rendered by the server
@@ -61,8 +71,6 @@ const SignUpPage: EnhancedNextPage<Props> = (): JSX.Element => {
     </>
   );
 };
-
-export const getStaticProps = getNoneStaticProps;
 
 SignUpPage.Layout = AuthLayout;
 

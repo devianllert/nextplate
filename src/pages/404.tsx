@@ -6,7 +6,7 @@ import { useTranslation } from 'next-i18next';
 
 import { createLogger } from '@/modules/core/logging/logger';
 import { getAppTitle } from '@/modules/core/meta/meta';
-import { getNoneStaticProps } from '@/layouts/core/SSG';
+import { getCoreStaticProps } from '@/layouts/core/SSG';
 import { EnhancedNextPage } from '@/layouts/core/types/EnhancedNextPage';
 import { SoftPageProps } from '@/layouts/core/types/SoftPageProps';
 import { SSGPageProps } from '@/layouts/core/types/SSGPageProps';
@@ -26,7 +26,7 @@ const logger = createLogger(fileLabel);
  * @see https://github.com/vercel/next.js/discussions/10949#discussioncomment-6884
  * @see https://nextjs.org/docs/basic-features/data-fetching#getstaticprops-static-generation
  */
-export const getStaticProps: GetStaticProps<SSGPageProps> = getNoneStaticProps;
+export const getStaticProps: GetStaticProps<SSGPageProps> = getCoreStaticProps;
 
 /**
  * SSG pages are first rendered by the server (during static bundling)

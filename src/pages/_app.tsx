@@ -1,16 +1,11 @@
 import '@/modules/core/wdyr/wdyr';
 
 import * as React from 'react';
-import size from 'lodash.size';
-// XXX Use v1 for uniqueness - See https://www.sohamkamani.com/blog/2016/10/05/uuid1-vs-uuid4/
-import { v1 as uuid } from 'uuid';
 
 import MultiversalAppBootstrap from '@/app/components/MultiversalAppBootstrap';
 import { MultiversalAppBootstrapProps } from '@/app/types/MultiversalAppBootstrapProps';
 import { SSGPageProps } from '@/layouts/core/types/SSGPageProps';
 import { SSRPageProps } from '@/layouts/core/types/SSRPageProps';
-import { NextWebVitalsMetrics } from '@/modules/core/webVitals/types/NextWebVitalsMetrics';
-import { NextWebVitalsMetricsReport } from '@/modules/core/webVitals/types/NextWebVitalsMetricsReport';
 
 /**
  * "props.pageProps" will depend on whether the page is served by server or client, SSG or SSR
@@ -64,15 +59,6 @@ const MultiversalPageEntryPoint = (props: MultiversalPageEntryPointProps): JSX.E
 );
 
 /**
- * Global variable meant to keep all metrics together, until there are enough to send them in batch as a single report
- */
-const globalWebVitalsMetric: NextWebVitalsMetricsReport = {
-  reportId: uuid(),
-  metrics: {},
-  reportedCount: 0,
-};
-
-/**
  * Will be called once for every metric that has to be reported.
  *
  * There are, at minimum, 3 metrics being received (Next.js-hydration, FCP and TTFB)
@@ -82,32 +68,11 @@ const globalWebVitalsMetric: NextWebVitalsMetricsReport = {
  * @see https://web.dev/vitals/ Essential metrics for a healthy site
  * @see https://nextjs.org/blog/next-9-4#integrated-web-vitals-reporting Initial release notes
  */
-export function reportWebVitals(metrics: NextWebVitalsMetrics): void {
-  if (process.env.NEXT_PUBLIC_APP_STAGE !== 'production') {
-    console.debug(metrics);
-  }
-
-  const { name } = metrics;
-  const count = globalWebVitalsMetric.reportedCount;
-  globalWebVitalsMetric.metrics[name] = metrics;
-  const keysLength = size(Object.keys(globalWebVitalsMetric.metrics));
-
-  // Temporise analytics API calls by waiting for at least 5 metrics to be received before sending the first report
-  // (because 3 metrics will be received upon initial page load, and then 2 more upon first click)
-  // Then, send report every 2 metrics (because each client-side redirection will generate 2 metrics)
-  if ((count === 0 && keysLength === 5) || (count > 0 && keysLength === 2)) {
-    // send report to analytics service
-    // sendWebVitals(globalWebVitalsMetric);
-
-    // Reset and prepare next metrics to be reported
-    globalWebVitalsMetric.metrics = {};
-    globalWebVitalsMetric.reportedCount += 1;
-  }
-}
+export { reportWebVitals } from '@/modules/core/webVitals/reportWebVitals';
 
 /**
- * XXX We have disabled the use of getInitialProps by default with NRN, because it's what's recommended since v9.3,
- *  feel free to use it if needed, but beware you'll opt-out of automated static optimization for all pages by doing so.
+ * XXX We have disabled the use of getInitialProps by default, because it's what's recommended since v9.3,
+ * feel free to use it if needed, but beware you'll opt-out of automated static optimization for all pages by doing so.
  *
  * By default, all pages will be served statically (using automated static optimization)
  * If the page uses "getStaticProps", then it will use SSG. (a static build will be generated in production, in development it'll simulate a static build)

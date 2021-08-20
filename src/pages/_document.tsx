@@ -30,14 +30,16 @@ class AppDocument extends Document {
 
           <meta property="og:title" content="Next boilerplate title" />
           <meta property="og:description" content="Next boilerplate description" />
-          <meta property="og:image" content="/images/logo-og.png" />
+          <meta property="og:image" content="/images/static/logo-og.png" />
           <meta property="og:url" content="/" />
           <meta property="og:site_name" content="devianllert" />
 
-          <meta name="twitter:card" content="/images/logo-og.png" />
+          <meta name="twitter:card" content="/images/static/logo-og.png" />
           <meta name="twitter:image:alt" content="Image description" />
 
-          <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
+          <link rel="preconnect" href="https://fonts.googleapis.com" />
+          <link rel="preconnect" href="https://fonts.gstatic.com" />
+          <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" />
 
           <link rel="icon" href="/favicon.ico" />
         </Head>

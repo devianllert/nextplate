@@ -9,7 +9,7 @@ import { SSRPageProps } from '@/layouts/core/types/SSRPageProps';
 import { createLogger } from '@/modules/core/logging/logger';
 import { EnhancedNextPage } from '@/layouts/core/types/EnhancedNextPage';
 import { Button } from '@/common/components/system/Button';
-import { getCoreStaticProps } from '@/layouts/core/SSG';
+import { getTranslationsStaticProps } from '@/layouts/core/SSG';
 import { AuthLayout } from '@/layouts/auth/components/AuthLayout';
 import { Typography } from '@/common/components/system/Typography';
 import { Box } from '@/common/components/system/Box';
@@ -25,7 +25,7 @@ const logger = createLogger('SignUp');
  * @see https://github.com/vercel/next.js/discussions/10949#discussioncomment-6884
  * @see https://nextjs.org/docs/basic-features/data-fetching#getstaticprops-static-generation
  */
-export const getStaticProps = getCoreStaticProps;
+export const getStaticProps = getTranslationsStaticProps(['auth']);
 
 /**
  * SSR pages are first rendered by the server

@@ -41,10 +41,10 @@ const WeatherSearchPage: EnhancedNextPage<Props> = (): JSX.Element => {
 
   const [text, setText] = React.useState('');
 
-  const onSearch = (event: React.FormEvent<HTMLFormElement>) => {
+  const onSearch = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    router.push(`/weather/${text}`) as unknown as void;
+    await router.push(`/weather/${text}`);
   };
 
   return (

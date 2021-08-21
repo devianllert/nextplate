@@ -34,14 +34,15 @@
     }
   },
   "extends": [
+    "airbnb",
     "airbnb-typescript",
     "airbnb/hooks",
     "plugin:@typescript-eslint/recommended",
     "plugin:@typescript-eslint/recommended-requiring-type-checking",
-    // Recommended to be added last after all other "recommended" tools - See https://nextjs.org/docs/basic-features/eslint#disabling-rules
-    "next",
-    // Enforce stronger rules for Core Web Vitals - See https://nextjs.org/docs/basic-features/eslint#core-web-vitals
-    "next/core-web-vitals"
+    // // Recommended to be added last after all other "recommended" tools - See https://nextjs.org/docs/basic-features/eslint#disabling-rules
+    "plugin:@next/next/recommended"
+    // // Enforce stronger rules for Core Web Vitals - See https://nextjs.org/docs/basic-features/eslint#core-web-vitals
+    // "next/core-web-vitals"
   ],
   "rules": {
     // Disable line length checks, because the IDE is already configured to warn about it, and it's a waste of time to check for lines that are too long, especially in comments (like this one!)

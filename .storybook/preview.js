@@ -3,7 +3,7 @@ import { addDecorator } from '@storybook/react';
 import { withTests } from '@storybook/addon-jest';
 import { withPerformance } from 'storybook-addon-performance';
 import { I18nextProvider } from 'react-i18next';
-import { RouterContext } from 'next/dist/next-server/lib/router-context';
+import { RouterContext } from 'next/dist/shared/lib/router-context';
 import { ThemeProvider, useColorMode } from 'theme-ui';
 import i18n from './i18n';
 
@@ -11,7 +11,7 @@ import '@storybook/addon-console'; // Automatically forwards all logs in the "Ac
 import '@/app/components/MultiversalGlobalExternalStyles'; // Import the same 3rd party libraries global styles as the pages/_app.tsx (for UI consistency)
 import { GlobalStyles } from '@/common/design/GlobalStyles';
 import { ResetStyles } from '@/common/design/ResetStyles';
-import theme from '@/common/design/themes';
+import { theme } from '@/common/design/themes';
 
 /**
  * Story Global parameters for Storybook.

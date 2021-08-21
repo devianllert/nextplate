@@ -1,9 +1,6 @@
-import {
-  GetServerSideProps,
-  GetServerSidePropsContext,
-  GetServerSidePropsResult,
-} from 'next';
+import { GetServerSideProps, GetServerSidePropsResult } from 'next';
 import Head from 'next/head';
+import Image from 'next/image';
 import { useRouter } from 'next/router';
 import { useQuery } from 'react-query';
 import { dehydrate } from 'react-query/hydration';
@@ -18,13 +15,14 @@ import { EnhancedNextPage } from '@/layouts/core/types/EnhancedNextPage';
 import { Button } from '@/common/components/system/Button';
 import { Typography } from '@/common/components/system/Typography';
 import { Box } from '@/common/components/system/Box';
-import { CommonServerSideParams } from '@/app/types/CommonServerSideParams';
-import { GetCoreServerSidePropsResults, getCoreServerSideProps } from '@/layouts/core/SSR';
+import { getCoreServerSideProps } from '@/layouts/core/SSR';
 import { REACT_QUERY_STATE_PROP_NAME } from '@/modules/core/rquery/react-query';
-import { range } from '@/common/utils/range';
-import { fetchWeather, Weather } from '@/modules/weather/services/wttr';
+import { fetchWeather } from '@/modules/weather/services/wttr';
+import type { Weather } from '@/modules/weather/types/weather.interface';
 import { WeatherLayout } from '@/layouts/weather/components/WeatherLayout';
 import { WeatherDate } from '@/modules/weather/components/WeatherDate';
+import { ICONS_MAP } from '@/modules/weather/constants/iconsMap';
+import { filterHourlyWeatherBasedOnCurrentTime, formatHourlyTime } from '@/modules/weather/formatHourlyWeather';
 
 const logger = createLogger('[place]');
 
@@ -50,6 +48,8 @@ const WeatherPlacePage: EnhancedNextPage<Props> = (): JSX.Element => {
   const place = query.place as (string | undefined);
 
   const { data: weather, error, isFetching } = useQuery<Weather>(['weather', place], () => fetchWeather(place));
+
+  const hourlyWeather = filterHourlyWeatherBasedOnCurrentTime(weather?.daily ?? []).slice(0, 8);
 
   return (
     <>
@@ -100,6 +100,7 @@ const WeatherPlacePage: EnhancedNextPage<Props> = (): JSX.Element => {
             flexDirection="column"
             alignItems="flex-end"
           >
+            <Image width="112" height="112" src={`/static/images/weather/wi-${ICONS_MAP[weather?.condition.code ?? '113']}.svg`} alt={weather?.condition.title} />
             <Typography variant="h3" component="span" fontWeight="medium">{weather?.condition.title}</Typography>
             <Typography variant="h6" component="span" mt={2} fontWeight="normal" color="secondary">{weather?.place}</Typography>
             <Typography variant="h3" component="span" mt={4} fontWeight="bold">{weather?.temp.c} °</Typography>
@@ -113,9 +114,9 @@ const WeatherPlacePage: EnhancedNextPage<Props> = (): JSX.Element => {
           flexWrap="wrap"
           mt="auto"
         >
-          {range(7).map((key) => (
+          {hourlyWeather.map((item, index) => (
             <Box
-              key={key}
+              key={item.time.toString()}
               display="flex"
               flexDirection="column"
               alignItems="center"
@@ -123,8 +124,10 @@ const WeatherPlacePage: EnhancedNextPage<Props> = (): JSX.Element => {
               px={4}
               py={2}
             >
-              <Typography variant="h6" component="span">Today</Typography>
-              <Typography variant="h6" component="span">21</Typography>
+              <Typography variant="h6" component="span">{index === 0 ? 'Now' : formatHourlyTime(item.time)}</Typography>
+              <Image width="64" height="64" src={`/static/images/weather/wi-${ICONS_MAP[item.weatherCode]}.svg`} alt={weather?.condition.title} />
+
+              <Typography variant="h6" component="span">{item.tempC} °</Typography>
             </Box>
           ))}
         </Box>
@@ -134,11 +137,9 @@ const WeatherPlacePage: EnhancedNextPage<Props> = (): JSX.Element => {
 };
 
 export const getServerSideProps: GetServerSideProps<GetServerSidePageProps> = async (
-  context: GetServerSidePropsContext<CommonServerSideParams>,
+  context,
 ): Promise<GetServerSidePropsResult<GetServerSidePageProps>> => {
-  const commonServerSideProps: GetServerSidePropsResult<GetCoreServerSidePropsResults> = await getCoreServerSideProps(
-    context,
-  );
+  const commonServerSideProps = await getCoreServerSideProps()(context);
 
   const place = context.query.place as (string | undefined);
 

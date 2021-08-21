@@ -9,12 +9,22 @@ import { SSGPageProps } from '@/layouts/core/types/SSGPageProps';
 import { SSRPageProps } from '@/layouts/core/types/SSRPageProps';
 import { createLogger } from '@/modules/core/logging/logger';
 import { EnhancedNextPage } from '@/layouts/core/types/EnhancedNextPage';
-import { getNoneStaticProps } from '@/layouts/core/SSG';
+import { getTranslationsStaticProps } from '@/layouts/core/SSG';
 import { Typography } from '@/common/components/system/Typography';
 import { Box } from '@/common/components/system/Box';
 import { WeatherLayout } from '@/layouts/weather/components/WeatherLayout';
 
 const logger = createLogger('Weather');
+
+/**
+ * Only executed on the server side at build time.
+ *
+ * @return Props (as "SSGPageProps") that will be passed to the Page component, as props
+ *
+ * @see https://github.com/vercel/next.js/discussions/10949#discussioncomment-6884
+ * @see https://nextjs.org/docs/basic-features/data-fetching#getstaticprops-static-generation
+ */
+export const getStaticProps = getTranslationsStaticProps();
 
 /**
  * SSR pages are first rendered by the server
@@ -26,7 +36,7 @@ const logger = createLogger('Weather');
  */
 type Props = (SSRPageProps & SSGPageProps<OnlyBrowserPageProps>);
 
-const WeatherPage: EnhancedNextPage<Props> = (): JSX.Element => {
+const WeatherSearchPage: EnhancedNextPage<Props> = (): JSX.Element => {
   const router = useRouter();
 
   const [text, setText] = React.useState('');
@@ -74,8 +84,6 @@ const WeatherPage: EnhancedNextPage<Props> = (): JSX.Element => {
   );
 };
 
-export const getStaticProps = getNoneStaticProps;
+WeatherSearchPage.Layout = WeatherLayout;
 
-WeatherPage.Layout = WeatherLayout;
-
-export default WeatherPage;
+export default WeatherSearchPage;

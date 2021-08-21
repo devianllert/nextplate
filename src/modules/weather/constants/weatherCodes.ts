@@ -5,7 +5,7 @@ export const WEATHER_CODES = {
   122: 'Very Cloudy',
   143: 'Fog',
   176: 'Light Showers',
-  179: 'Light SleetShowers',
+  179: 'Light Sleet Showers',
   182: 'Light Sleet',
   185: 'Light Sleet',
   200: 'Thundery Showers',
@@ -45,6 +45,6 @@ export const WEATHER_CODES = {
   377: 'Light Sleet',
   386: 'Thundery Showers',
   389: 'Thundery Heavy Rain',
-  392: 'Thundery SnowShowers',
+  392: 'Thundery Snow Showers',
   395: 'Heavy Snow Showers',
 };

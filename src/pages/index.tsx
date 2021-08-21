@@ -102,7 +102,7 @@ const IndexPage: EnhancedNextPage<Props> = (): JSX.Element => {
 export const getServerSideProps: GetServerSideProps<GetServerSidePageProps> = async (
   context: GetServerSidePropsContext<CommonServerSideParams>,
 ): Promise<GetServerSidePropsResult<GetServerSidePageProps>> => {
-  const commonServerSideProps: GetServerSidePropsResult<GetCoreServerSidePropsResults> = await getCoreServerSideProps(
+  const commonServerSideProps: GetServerSidePropsResult<GetCoreServerSidePropsResults> = await getCoreServerSideProps(['common'])(
     context,
   );
 

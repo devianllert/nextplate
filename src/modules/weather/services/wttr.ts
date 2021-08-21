@@ -1,84 +1,6 @@
 import { api } from '@/modules/core/api/api';
 
-interface WTTRWeatherCurrentCondition {
-  FeelsLikeC: string;
-  FeelsLikeF: string;
-  cloudcover: string;
-  humidity: string;
-  localObsDateTime: string;
-  observation_time: string;
-  precipInches: string;
-  precipMM: string;
-  pressure: string;
-  pressureInches: string;
-  temp_C: string;
-  temp_F: string;
-  uvIndex: string;
-  visibility: string;
-  visibilityMiles: string;
-  weatherCode: string;
-  weatherDesc: [
-    {
-      value: string;
-    },
-  ];
-  weatherIconUrl: [
-    {
-      value: string;
-    },
-  ];
-  winddir16Point: string;
-  winddirDegree: string;
-  windspeedKmph: string;
-  windspeedMiles: string;
-}
-
-interface WTTRWeatherNearestArea {
-  areaName: [
-    {
-      value: string;
-    },
-  ];
-  country: [
-    {
-      value: string;
-    },
-  ];
-  latitude: string;
-  longitude: string;
-  population: string;
-  region: [
-    {
-      value: string;
-    },
-  ];
-  weatherUrl: [
-    {
-      value: string;
-    },
-  ];
-}
-
-interface WTTRWeather {
-  current_condition: [WTTRWeatherCurrentCondition];
-  nearest_area: [WTTRWeatherNearestArea];
-}
-
-export interface Weather {
-  place: string;
-  condition: {
-    title: string;
-    code: string;
-  };
-  temp: {
-    c: string;
-    f: string;
-  };
-  date: {
-    time: string;
-    date: string;
-  };
-}
+import { Weather, WTTRWeather } from '../types/weather.interface';
 
 const WEATHER_API_ENDPOINT = 'https://wttr.in';
 
@@ -99,6 +21,7 @@ export const fetchWeather = async (place = ''): Promise<Weather> => {
       time: data.current_condition[0].observation_time,
       date: data.current_condition[0].localObsDateTime,
     },
+    daily: data.weather,
   };
 
   return weather;

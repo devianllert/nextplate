@@ -22,7 +22,8 @@ import type { Weather } from '@/modules/weather/types/weather.interface';
 import { WeatherLayout } from '@/layouts/weather/components/WeatherLayout';
 import { WeatherDate } from '@/modules/weather/components/WeatherDate';
 import { ICONS_MAP } from '@/modules/weather/constants/iconsMap';
-import { filterHourlyWeatherBasedOnCurrentTime, formatHourlyTime } from '@/modules/weather/formatHourlyWeather';
+import { filterHourlyWeatherBasedOnCurrentTime } from '@/modules/weather/formatHourlyWeather';
+import { WeatherHourlyList } from '@/modules/weather/components/WeatherHourlyList';
 
 const logger = createLogger('[place]');
 
@@ -47,7 +48,7 @@ const WeatherPlacePage: EnhancedNextPage<Props> = (): JSX.Element => {
   const { query } = useRouter();
   const place = query.place as (string | undefined);
 
-  const { data: weather, error, isFetching } = useQuery<Weather>(['weather', place], () => fetchWeather(place));
+  const { data: weather, isFetching } = useQuery<Weather>(['weather', place], () => fetchWeather(place));
 
   const hourlyWeather = filterHourlyWeatherBasedOnCurrentTime(weather?.daily ?? []).slice(0, 8);
 
@@ -63,7 +64,8 @@ const WeatherPlacePage: EnhancedNextPage<Props> = (): JSX.Element => {
         color="text"
         flexDirection="column"
         background="linear-gradient(180deg, rgba(13,28,139,1) 0%, rgba(83,36,224,1) 65%)"
-        p={8}
+        py={[5, null, 8]}
+        px={[4, null, 8]}
       >
         <Box
           display="flex"
@@ -108,29 +110,7 @@ const WeatherPlacePage: EnhancedNextPage<Props> = (): JSX.Element => {
           </Box>
         </Box>
 
-        <Box
-          display="flex"
-          justifyContent="center"
-          flexWrap="wrap"
-          mt="auto"
-        >
-          {hourlyWeather.map((item, index) => (
-            <Box
-              key={item.time.toString()}
-              display="flex"
-              flexDirection="column"
-              alignItems="center"
-              minWidth="160px"
-              px={4}
-              py={2}
-            >
-              <Typography variant="h6" component="span">{index === 0 ? 'Now' : formatHourlyTime(item.time)}</Typography>
-              <Image width="64" height="64" src={`/static/images/weather/wi-${ICONS_MAP[item.weatherCode]}.svg`} alt={weather?.condition.title} />
-
-              <Typography variant="h6" component="span">{item.tempC} °</Typography>
-            </Box>
-          ))}
-        </Box>
+        <WeatherHourlyList hourlyWeather={hourlyWeather} />
       </Box>
     </>
   );
@@ -139,6 +119,8 @@ const WeatherPlacePage: EnhancedNextPage<Props> = (): JSX.Element => {
 export const getServerSideProps: GetServerSideProps<GetServerSidePageProps> = async (
   context,
 ): Promise<GetServerSidePropsResult<GetServerSidePageProps>> => {
+  context.res.setHeader('Cache-Control', 'public, s-maxage=60, stale-while-revalidate=600');
+
   const commonServerSideProps = await getCoreServerSideProps()(context);
 
   const place = context.query.place as (string | undefined);

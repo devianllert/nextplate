@@ -6,5 +6,4 @@ export const MainHeaderRoot = styled.header({
   justifyContent: 'space-between',
   width: '100%',
   height: 64,
-  padding: 8,
 });

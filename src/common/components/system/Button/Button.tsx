@@ -2,10 +2,11 @@
 import * as React from 'react';
 
 import { OverridableComponent } from '@/modules/core/react/types/OverridableComponent';
+import { SpaceProps } from '@/modules/core/css-in-js/space';
 
 import * as S from './styled';
 
-export interface ButtonProps {
+export interface ButtonProps extends SpaceProps {
   /**
    * The content of the component.
    */

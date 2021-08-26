@@ -9,6 +9,7 @@ import { createTransition, duration } from '@/common/design/tokens/transitions';
 import shadows from '@/common/design/tokens/shadows';
 import { grey } from '@/common/design/tokens/colors';
 import { getContrastText } from '@/common/design/utils/colorManipulator';
+import { margin, padding, SpaceProps } from '@/modules/core/css-in-js/space';
 
 interface ButtonRootProps {
   /**
@@ -38,7 +39,7 @@ interface ButtonRootProps {
   disableElevation?: boolean;
 }
 
-export const ButtonRoot = styled(ButtonBase)<ButtonRootProps>(({ theme, ...props }) => ({
+export const ButtonRoot = styled(ButtonBase)<ButtonRootProps & SpaceProps>(({ theme, ...props }) => ({
   ...variants.button,
   minWidth: 64,
   padding: '6px 16px',
@@ -187,6 +188,9 @@ export const ButtonRoot = styled(ButtonBase)<ButtonRootProps>(({ theme, ...props
       },
     }),
   }),
+
+  ...(margin(props)),
+  ...(padding(props)),
 }));
 
 export const ButtonStartIcon = styled.span({

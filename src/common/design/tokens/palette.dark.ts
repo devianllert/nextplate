@@ -5,7 +5,7 @@ export const text = {
 };
 
 export const background = {
-  primary: '#333333',
+  primary: '#151718',
   secondary: '#f2ecff',
 };
 
@@ -17,10 +17,10 @@ export const status = {
 };
 
 export const greyscale = {
-  dark: '#1c1c20',
-  medium: '#c0c8da',
-  light: '#d8deec',
-  lighter: '#f2f2f2',
+  dark: '#161616',
+  medium: '#232323',
+  light: '#343434',
+  lighter: '#505050',
 };
 
 export const brand = {

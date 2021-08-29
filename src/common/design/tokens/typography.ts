@@ -14,16 +14,29 @@ export const fontWeight = {
   headings: 'bold',
 };
 
-export const pxToRem = (size: number, htmlFontSize = 16, coef = 0.625): string => `${(size / htmlFontSize) / coef}rem`;
+export const pxToRem = (size: number, htmlFontSize = 16, coef = 0.625): number => (size / htmlFontSize) / coef;
+
+function oneDecimal(x) {
+  return Math.round(10 * x) / 10;
+}
 
 const caseAllCaps: CSSProperties = {
   textTransform: 'uppercase',
 };
 
+export const calculateFluidTypography = (minSize, maxSize) => {
+  const vwCoefficient = oneDecimal(((1000) * (maxSize - minSize)) / (1440 - 960));
+  const remCoefficient = oneDecimal(minSize - (960 * (maxSize - minSize)) / (1440 - 960));
+
+  const computedClamp = `clamp(${minSize}rem, ${vwCoefficient}vw ${remCoefficient >= 0 ? '+' : '-'} ${Math.abs(remCoefficient)}rem, ${maxSize}rem)`;
+
+  return computedClamp;
+};
+
 const buildVariant = (weight: number, size: number, lineHeight: number, letterSpacing: number, casing?: CSSProperties): CSSProperties => ({
   fontFamily: defaultFontFamily,
   fontWeight: weight,
-  fontSize: pxToRem(size),
+  fontSize: `${pxToRem(size)}rem`,
   // Unitless following https://meyerweb.com/eric/thoughts/2006/02/08/unitless-line-heights/
   lineHeight,
   // The letter spacing was designed for the Roboto font-family. Using the same letter-spacing

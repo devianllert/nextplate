@@ -10,6 +10,7 @@ import { layout } from './layout';
 import { position } from './position';
 import { space } from './space';
 import { compose } from './system';
+import { grid } from './grid';
 
 const all = compose(
   space,
@@ -20,6 +21,7 @@ const all = compose(
   background,
   position,
   boxShadow,
+  grid,
 );
 
 export const propsNames = all.propNames;

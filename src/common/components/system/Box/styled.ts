@@ -8,6 +8,7 @@ import { background, BackgroundProps } from '@/modules/core/css-in-js/background
 import { boxShadow, BoxShadowProps } from '@/modules/core/css-in-js/boxShadow';
 import { border, BorderProps } from '@/modules/core/css-in-js/border';
 import { color, ColorProps } from '@/modules/core/css-in-js/colors';
+import { grid, GridProps } from '@/modules/core/css-in-js/grid';
 import { shouldForwardProp } from '@/modules/core/css-in-js/shouldForwardProp';
 
 export type BoxType =
@@ -18,7 +19,8 @@ export type BoxType =
   & BackgroundProps
   & BoxShadowProps
   & BorderProps
-  & ColorProps;
+  & ColorProps
+  & GridProps;
 
 export const BoxRoot = styled('div', { shouldForwardProp })<BoxType>((props) => ({
   ...(space(props)),
@@ -29,4 +31,5 @@ export const BoxRoot = styled('div', { shouldForwardProp })<BoxType>((props) => 
   ...(boxShadow(props)),
   ...(border(props)),
   ...(color(props)),
+  ...(grid(props)),
 }));

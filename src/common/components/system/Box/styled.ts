@@ -7,7 +7,8 @@ import { position, PositionProps } from '@/modules/core/css-in-js/position';
 import { background, BackgroundProps } from '@/modules/core/css-in-js/background';
 import { boxShadow, BoxShadowProps } from '@/modules/core/css-in-js/boxShadow';
 import { border, BorderProps } from '@/modules/core/css-in-js/border';
-import { colors, ColorProps } from '@/modules/core/css-in-js/colors';
+import { color, ColorProps } from '@/modules/core/css-in-js/colors';
+import { shouldForwardProp } from '@/modules/core/css-in-js/shouldForwardProp';
 
 export type BoxType =
   & SpaceProps
@@ -19,7 +20,7 @@ export type BoxType =
   & BorderProps
   & ColorProps;
 
-export const BoxRoot = styled.div<BoxType>((props) => ({
+export const BoxRoot = styled('div', { shouldForwardProp })<BoxType>((props) => ({
   ...(space(props)),
   ...(flexbox(props)),
   ...(layout(props)),
@@ -27,5 +28,5 @@ export const BoxRoot = styled.div<BoxType>((props) => ({
   ...(background(props)),
   ...(boxShadow(props)),
   ...(border(props)),
-  ...(colors(props)),
+  ...(color(props)),
 }));

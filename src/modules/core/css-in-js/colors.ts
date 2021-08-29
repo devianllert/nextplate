@@ -20,4 +20,4 @@ const config = {
   opacity: true,
 };
 
-export const colors = createSystem(config);
+export const color = createSystem(config);

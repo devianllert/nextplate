@@ -10,6 +10,7 @@ import shadows from '@/common/design/tokens/shadows';
 import { grey } from '@/common/design/tokens/colors';
 import { getContrastText } from '@/common/design/utils/colorManipulator';
 import { margin, padding, SpaceProps } from '@/modules/core/css-in-js/space';
+import { shouldForwardProp } from '@/modules/core/css-in-js/shouldForwardProp';
 
 interface ButtonRootProps {
   /**
@@ -39,7 +40,7 @@ interface ButtonRootProps {
   disableElevation?: boolean;
 }
 
-export const ButtonRoot = styled(ButtonBase)<ButtonRootProps & SpaceProps>(({ theme, ...props }) => ({
+export const ButtonRoot = styled(ButtonBase, { shouldForwardProp })<ButtonRootProps & SpaceProps>(({ theme, ...props }) => ({
   ...variants.button,
   minWidth: 64,
   padding: '6px 16px',

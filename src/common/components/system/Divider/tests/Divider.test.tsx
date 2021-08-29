@@ -1,14 +1,17 @@
+/**
+ * @jest-environment jsdom
+ */
+
 import * as React from 'react';
-import { render, screen } from '@testing-library/react';
+import { screen } from '@testing-library/react';
+import { renderWithProviders } from '@/modules/core/testing/renderWithProviders';
 
 import { Divider } from '../Divider';
 
 describe('<Divider />', () => {
-  const children = 'Divider';
-
   it('should render a children', () => {
-    render(<Divider />);
+    renderWithProviders(<Divider />);
 
-    expect(screen.getByText(children)).toBeDefined();
+    expect(screen.getByRole('separator')).toBeDefined();
   });
 });

@@ -37,6 +37,8 @@
   },
   "dependencies": {
     "@apollo/client": "^3.4.8",
+    "@emotion/is-prop-valid": "^1.1.0",
+    "@emotion/memoize": "^0.7.5",
     "@emotion/react": "^11.4.0",
     "@emotion/styled": "^11.3.0",
     "@sentry/nextjs": "^6.11.0",

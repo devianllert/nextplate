@@ -1,8 +1,8 @@
-import { colors } from '../colors';
+import { color } from '../colors';
 
 describe('colors', () => {
   it('returns colors styles', () => {
-    const style = colors({
+    const style = color({
       color: 'gold',
       backgroundColor: 'tomato',
     });

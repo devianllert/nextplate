@@ -205,3 +205,17 @@ export const createSystem = (system: CSSSystem): CSSSystemParser => {
 
   return parser;
 };
+
+export const compose = (...parsers: CSSSystemParser[]): CSSSystemParser => {
+  const config = {};
+
+  parsers.forEach((parser) => {
+    if (!parser || !parser.config) return;
+
+    Object.assign(config, parser.config);
+  });
+
+  const parser = createParser(config);
+
+  return parser;
+};

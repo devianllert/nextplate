@@ -21,9 +21,9 @@ describe(`utils/cookies/UniversalCookiesManager.ts`, () => {
         const universalCookiesManager = new UniversalCookiesManager();
 
         // @ts-expect-error
-        expect(universalCookiesManager.req).toEqual(null);
+        expect(universalCookiesManager.req).toEqual(undefined);
         // @ts-expect-error
-        expect(universalCookiesManager.res).toEqual(null);
+        expect(universalCookiesManager.res).toEqual(undefined);
       });
     });
 

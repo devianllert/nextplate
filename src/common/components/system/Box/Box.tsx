@@ -10,7 +10,7 @@ export interface BoxProps extends S.BoxType {
   /**
    * The content
    */
-  children: React.ReactNode;
+  children?: React.ReactNode;
 }
 
 export interface BoxTypeMap<P = {}, D extends React.ElementType = 'div'> {
@@ -21,10 +21,11 @@ export interface BoxTypeMap<P = {}, D extends React.ElementType = 'div'> {
 export const Box: OverridableComponent<BoxTypeMap> = React.forwardRef(function Box(props, ref) {
   const {
     children,
+    component = 'div',
     ...other
   } = props;
 
   return (
-    <S.BoxRoot {...other} ref={ref}>{children}</S.BoxRoot>
+    <S.BoxRoot as={component} {...other} ref={ref}>{children}</S.BoxRoot>
   );
 });

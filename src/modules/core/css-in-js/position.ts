@@ -5,6 +5,7 @@ import { createSystem, ResponsiveValue } from './system';
 
 export interface PositionProps {
   position?: ResponsiveValue<CSSProperties['position']>,
+  transform?: ResponsiveValue<CSSProperties['transform']>,
   zIndex?: ResponsiveValue<CSSProperties['zIndex']>;
   top?: ResponsiveValue<CSSProperties['top']>;
   right?: ResponsiveValue<CSSProperties['right']>;
@@ -14,6 +15,7 @@ export interface PositionProps {
 
 const config = {
   position: true,
+  transform: true,
   zIndex: {
     properties: ['zIndex'],
     scale: 'zIndices',

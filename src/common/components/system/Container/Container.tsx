@@ -50,6 +50,7 @@ export const Container: OverridableComponent<ContainerTypeMap> = React.forwardRe
     fixed = false,
     disableGutters = false,
     component = 'div',
+    ...other
   } = props;
 
   return (
@@ -59,6 +60,7 @@ export const Container: OverridableComponent<ContainerTypeMap> = React.forwardRe
       maxWidth={maxWidth}
       fixed={fixed}
       disableGutters={disableGutters}
+      {...other}
     >
       {children}
     </S.ContainerRoot>

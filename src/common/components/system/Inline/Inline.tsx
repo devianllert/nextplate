@@ -3,6 +3,7 @@ import * as React from 'react';
 import flattenChildren from 'react-keyed-flatten-children';
 
 import { OverridableComponent } from '@/modules/core/react/types/OverridableComponent';
+import { ResponsiveValue } from '@/modules/core/css-in-js/system';
 
 import * as S from './styled';
 
@@ -14,11 +15,11 @@ export interface InlineProps {
   /**
    * The spacing between children can be adjusted using the `space` prop.
    */
-  space?: number;
+  space?: ResponsiveValue<number>;
   /**
   * Items of varying height can be vertically aligned using the `alignY` prop.
   */
-  alignY?: React.CSSProperties['alignItems'];
+  alignY?: ResponsiveValue<React.CSSProperties['alignItems']>;
 }
 
 // eslint-disable-next-line @typescript-eslint/ban-types

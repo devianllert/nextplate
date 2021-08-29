@@ -1,35 +1,68 @@
 import * as React from 'react';
 import styled from '@emotion/styled';
 
+import { createSystem, ResponsiveValue } from '@/modules/core/css-in-js/system';
+import { getSpace } from '@/modules/core/css-in-js/getters';
+import { spacings } from '@/common/design/tokens/spacings';
+
 export interface InlineRootProps {
-  marginLeft: number;
-  marginTop: number;
-  alignY: React.CSSProperties['alignItems'];
+  marginLeft: ResponsiveValue<number>;
+  marginTop: ResponsiveValue<number>;
+  alignY: ResponsiveValue<React.CSSProperties['alignItems']>;
 }
+
+const inlineRootCustomProps = createSystem({
+  alignY: {
+    properties: ['alignItems'],
+    scale: 'alignY',
+  },
+  marginLeft: {
+    properties: ['marginLeft'],
+    scale: 'space',
+    defaultScale: spacings,
+    transform: getSpace,
+  },
+});
 
 export const InlineRoot = styled.div<InlineRootProps>((props) => ({
   display: 'flex',
   flexDirection: 'row',
   flexWrap: 'wrap',
-  alignItems: props.alignY,
 
-  marginLeft: -props.marginLeft,
+  ...(inlineRootCustomProps(props)),
 }));
 
 export interface InlineBoxProps {
-  space: number;
+  space: ResponsiveValue<number>;
 }
+
+const inlineBoxCustomProps = createSystem({
+  space: {
+    properties: ['marginLeft', 'marginTop'],
+    scale: 'space',
+    defaultScale: spacings,
+  },
+});
 
 export const InlineBox = styled.div<InlineBoxProps>((props) => ({
   display: 'flex',
   minWidth: 0,
-  marginLeft: props.space,
-  marginTop: props.space,
+
+  ...(inlineBoxCustomProps(props)),
 }));
 
 export interface InlineRootAlignerProps {
-  space: number;
+  space: ResponsiveValue<number>;
 }
+
+const inlineRootAlignerCustomProps = createSystem({
+  space: {
+    properties: ['marginTop'],
+    scale: 'space',
+    defaultScale: spacings,
+    transform: (scale, n) => -getSpace(scale, n) - 1,
+  },
+});
 
 export const InlineRootAligner = styled.div<InlineRootAlignerProps>((props) => ({
   padding: 0,
@@ -43,6 +76,6 @@ export const InlineRootAligner = styled.div<InlineRootAlignerProps>((props) => (
   '&:before': {
     content: '""',
     display: 'block',
-    marginTop: -props.space - 1,
+    ...(inlineRootAlignerCustomProps(props)),
   },
 }));

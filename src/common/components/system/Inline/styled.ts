@@ -9,6 +9,7 @@ export interface InlineRootProps {
   marginLeft: ResponsiveValue<number>;
   marginTop: ResponsiveValue<number>;
   alignY: ResponsiveValue<React.CSSProperties['alignItems']>;
+  flexDirection: ResponsiveValue<React.CSSProperties['flexDirection']>;
 }
 
 const inlineRootCustomProps = createSystem({
@@ -20,13 +21,13 @@ const inlineRootCustomProps = createSystem({
     properties: ['marginLeft'],
     scale: 'space',
     defaultScale: spacings,
-    transform: getSpace,
+    transform: (scale, n) => -getSpace(scale, n) - 1,
   },
+  flexDirection: true,
 });
 
 export const InlineRoot = styled.div<InlineRootProps>((props) => ({
   display: 'flex',
-  flexDirection: 'row',
   flexWrap: 'wrap',
 
   ...(inlineRootCustomProps(props)),

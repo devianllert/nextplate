@@ -20,6 +20,7 @@ export interface InlineProps {
   * Items of varying height can be vertically aligned using the `alignY` prop.
   */
   alignY?: ResponsiveValue<React.CSSProperties['alignItems']>;
+  flexDirection?: ResponsiveValue<React.CSSProperties['flexDirection']>;
 }
 
 // eslint-disable-next-line @typescript-eslint/ban-types
@@ -38,6 +39,7 @@ export const Inline: OverridableComponent<InlineTypeMap> = React.forwardRef(func
     children,
     space = 8,
     alignY = 'inherit',
+    flexDirection = 'row',
   } = props;
 
   const isList = component === 'ol' || component === 'ul';
@@ -45,7 +47,7 @@ export const Inline: OverridableComponent<InlineTypeMap> = React.forwardRef(func
 
   return (
     <S.InlineRootAligner space={space} ref={ref}>
-      <S.InlineRoot as={component} marginTop={space} marginLeft={space} alignY={alignY}>
+      <S.InlineRoot as={component} marginTop={space} marginLeft={space} alignY={alignY} flexDirection={flexDirection}>
         {React.Children.map(flattenChildren(children), (child) => (child ? (
           <S.InlineBox space={space} as={inlineItemComponent}>{child}</S.InlineBox>
         ) : null))}

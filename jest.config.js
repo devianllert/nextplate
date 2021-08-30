@@ -23,6 +23,7 @@ module.exports = {
    */
   moduleNameMapper: {
     '^@/app/(.*)$': '<rootDir>/src/app/$1',
+    '^@/public/(.*)$': '<rootDir>/public/$1',
     '^@/common/(.*)$': '<rootDir>/src/common/$1',
     '^@/components/(.*)$': '<rootDir>/src/common/components/$1',
     '^@/utils/(.*)$': '<rootDir>/src/common/utils/$1',

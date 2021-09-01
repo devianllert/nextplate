@@ -59,7 +59,7 @@ const WeatherSearchPage: EnhancedNextPage<Props> = (): JSX.Element => {
         flexDirection="column"
         alignItems="center"
         justifyContent="center"
-        color="white"
+        color="text.primary"
         background="linear-gradient(180deg, rgba(13,28,139,1) 0%, rgba(83,36,224,1) 65%)"
         px={2}
       >
@@ -74,7 +74,6 @@ const WeatherSearchPage: EnhancedNextPage<Props> = (): JSX.Element => {
           boxShadow={2}
           zIndex={1}
         >
-
           <form onSubmit={onSearch}>
             <Input color="black" value={text} onChange={(event) => setText(event.currentTarget.value)} placeholder="City, Country" />
           </form>

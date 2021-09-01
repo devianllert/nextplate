@@ -36,6 +36,7 @@ export interface ContainerProps {
   disableGutters?: boolean;
 }
 
+// eslint-disable-next-line @typescript-eslint/ban-types
 interface ContainerTypeMap<P = {}, D extends React.ElementType = 'div'> {
   props: P & ContainerProps;
   defaultComponent: D

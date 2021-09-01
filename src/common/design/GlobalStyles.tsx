@@ -27,13 +27,18 @@ export const GlobalStyles = (): JSX.Element => {
           font-size: 1.6em;
           font-weight: 400;
 
-          color: ${theme.colors.text};
+          color: ${theme.colors.text.primary};
 
-          background-color: ${theme.colors.background};
+          background-color: ${theme.colors.background.primary};
 
           transition: ${createTransition(['color', 'background-color'], { duration: duration.short })};
 
           letter-spacing: normal;
+        }
+
+        ::selection {
+          background-color: ${theme.colors.radix.primary5};
+          color: ${theme.colors.radix.primary12};
         }
 
         /* Make sure images have an alt attribute */

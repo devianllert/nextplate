@@ -1,40 +1,96 @@
 import '@emotion/react';
 import { Theme as ThemeUI, ColorModesScale } from 'theme-ui';
 import {
-  PaletteAction, PaletteBackground, PaletteBrand, PaletteStatus, PaletteText,
+  yellow,
+  yellowA,
+  green,
+  greenA,
+  blue,
+  blueA,
+  red,
+  redA,
+  violet,
+  violetA,
+  teal,
+  tealA,
+  gray,
+  grayA,
+} from '@radix-ui/colors';
+import {
+  PaletteBackground,
+  PaletteStatus,
+  PaletteText,
 } from './palette.interface';
+
+type ScaleNumber = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
+
+type RadixColorScale<T extends string = ''> = Record<`${T}${ScaleNumber}`, string>;
 
 export interface ColorOverrides {
   colors: ColorModesScale & {
-    text: string;
-    background: string;
+    text: PaletteText;
+    background: PaletteBackground;
     primary: string;
     secondary: string;
     accent: string;
     highlight: string;
     muted: string;
 
-    textColors: PaletteText;
-    brand: PaletteBrand;
+    radix: typeof yellow
+    & typeof yellowA
+    & typeof green
+    & typeof greenA
+    & typeof blue
+    & typeof blueA
+    & typeof red
+    & typeof redA
+    & typeof violet
+    & typeof violetA
+    & typeof teal
+    & typeof tealA
+    & typeof gray
+    & typeof grayA
+    & RadixColorScale<'primary'>
+    & RadixColorScale<'primaryA'>
+    & RadixColorScale<'secondary'>
+    & RadixColorScale<'secondaryA'>
+    & RadixColorScale<'contrast'>
+    & RadixColorScale<'contrastA'>;
+
     status: PaletteStatus;
-    backgroundColors: PaletteBackground;
-    action: PaletteAction;
   };
 
   rawColors: ColorModesScale & {
-    text: string;
-    background: string;
+    text: PaletteText;
+    background: PaletteBackground;
     primary: string;
     secondary: string;
     accent: string;
     highlight: string;
     muted: string;
 
-    textColors: PaletteText;
-    brand: PaletteBrand;
+    radix: typeof yellow
+    & typeof yellowA
+    & typeof green
+    & typeof greenA
+    & typeof blue
+    & typeof blueA
+    & typeof red
+    & typeof redA
+    & typeof violet
+    & typeof violetA
+    & typeof teal
+    & typeof tealA
+    & typeof gray
+    & typeof grayA
+    & RadixColorScale<'primary'>
+    & RadixColorScale<'primaryA'>
+    & RadixColorScale<'secondary'>
+    & RadixColorScale<'secondaryA'>
+    & RadixColorScale<'contrast'>
+    & RadixColorScale<'contrastA'>;
+
     status: PaletteStatus;
-    backgroundColors: PaletteBackground;
-    action: PaletteAction;
   };
 }
 

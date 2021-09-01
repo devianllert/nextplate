@@ -40,7 +40,7 @@ export const SkeletonRoot = styled.span<SkeletonRootProps>`
 
   height: 18px;
 
-  background-color: ${({ theme }) => tinycolor(theme.rawColors.text).setAlpha(0.12).toString()};
+  background-color: ${({ theme }) => theme.colors.radix.contrast7};
 
   ${({ variant = 'text' }) => ({
     text: `
@@ -93,7 +93,7 @@ export const SkeletonRoot = styled.span<SkeletonRootProps>`
           /* Avoid flash during server-side hydration */
           transform: translateX(-100%);
           animation: ${waveKeyframe} 1.6s linear 0.5s infinite;
-          background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.6), transparent);
+          background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.12), transparent);
           position: absolute;
           bottom: 0;
           left: 0;

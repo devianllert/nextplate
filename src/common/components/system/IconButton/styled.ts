@@ -14,7 +14,7 @@ export const IconButtonRoot = styled(ButtonBase)`
 
   overflow: visible;
 
-  color: ${({ theme }) => theme.colors.brand.primary};
+  color: ${({ theme }) => theme.colors.radix.primary11};
 `;
 
 export const IconButtonLabel = styled.span`

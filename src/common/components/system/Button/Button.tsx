@@ -61,7 +61,7 @@ export interface ButtonProps extends SpaceProps {
    *
    * @default 'primary'
    */
-  color?: 'primary' | 'secondary' | 'inherit';
+  color?: string;
 }
 
 // eslint-disable-next-line @typescript-eslint/ban-types

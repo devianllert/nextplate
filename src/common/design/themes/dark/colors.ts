@@ -1,17 +1,56 @@
-import * as theme from '../../tokens/palette.dark';
+import {
+  grayDark,
+  grayDarkA,
+  blueDark,
+  blueDarkA,
+  redDark,
+  redDarkA,
+  greenDark,
+  greenDarkA,
+  tealDark,
+  tealDarkA,
+  violetDark,
+  violetDarkA,
+  yellowDark,
+  yellowDarkA,
+  whiteA,
+} from '@radix-ui/colors';
+import { transformColorScale } from '../../utils/transformColorScale';
 
 const darkColors = {
-  text: theme.text.primary,
-  background: theme.background.primary,
-  primary: theme.brand.primary,
-  secondary: theme.brand.secondary,
-
-  textColors: theme.text,
-  backgroundColors: theme.background,
-  brand: theme.brand,
-  action: theme.action,
-  status: theme.status,
-  greyscale: theme.greyscale,
+  text: {
+    primary: whiteA.whiteA12,
+    secondary: whiteA.whiteA10,
+    disabled: whiteA.whiteA8,
+  },
+  background: {
+    primary: grayDark.gray1,
+    secondary: grayDark.gray3,
+  },
+  status: {
+    success: transformColorScale(greenDark),
+    info: transformColorScale(blueDark),
+    warning: transformColorScale(yellowDark),
+    error: transformColorScale(redDark),
+  },
+  radix: {
+    ...grayDark,
+    ...grayDarkA,
+    ...blueDark,
+    ...blueDarkA,
+    ...redDark,
+    ...redDarkA,
+    ...greenDark,
+    ...greenDarkA,
+    ...yellowDark,
+    ...yellowDarkA,
+    ...transformColorScale(violetDarkA, 'primaryA'),
+    ...transformColorScale(violetDark, 'primary'),
+    ...transformColorScale(tealDarkA, 'secondaryA'),
+    ...transformColorScale(tealDark, 'secondary'),
+    ...transformColorScale(whiteA, 'contrast'),
+    ...transformColorScale(whiteA, 'contrastA'),
+  },
 };
 
 export default darkColors;

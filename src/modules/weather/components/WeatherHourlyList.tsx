@@ -3,6 +3,7 @@ import Image from 'next/image';
 
 import { Box } from '@/common/components/system/Box';
 import { Typography } from '@/common/components/system/Typography';
+import { Container } from '@/common/components/system/Container';
 
 import { ICONS_MAP } from '../constants/iconsMap';
 import { formatHourlyTime } from '../formatHourlyWeather';
@@ -17,9 +18,10 @@ export const WeatherHourlyList = (props: WeatherHourlyListProps): JSX.Element =>
 
   return (
     <Box
+      component={Container}
       display="flex"
       justifyContent={[null, null, null, 'center']}
-      overflowX="scroll"
+      overflowX="auto"
       mt="auto"
     >
       {hourlyWeather.map((item, index) => (

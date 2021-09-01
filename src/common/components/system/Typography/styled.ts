@@ -4,6 +4,7 @@ import styled from '@emotion/styled';
 import { fontWeight, variants } from '@/common/design/tokens/typography';
 import { margin, padding, SpaceProps } from '@/modules/core/css-in-js/space';
 import { shouldForwardProp } from '@/modules/core/css-in-js/shouldForwardProp';
+import { get } from '@/common/utils/get';
 
 export type TypoVariant =
   | 'h1'
@@ -37,7 +38,7 @@ interface TypoProps extends SpaceProps {
 export const Typo = styled('span', { shouldForwardProp })<TypoProps>((props) => ({
   margin: 0,
   display: props.display,
-  color: props.theme.colors.textColors[props.color] ?? props.theme.colors.status[props.color] ?? props.color,
+  color: (get(props.theme.colors, props.color) as string) ?? props.color,
   textAlign: props.align,
   textDecoration: 'none',
   ...(props.noWrap && {

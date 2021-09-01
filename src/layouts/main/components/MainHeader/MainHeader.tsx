@@ -42,7 +42,7 @@ export const MainHeader = (): JSX.Element => {
             </Typography>
 
             <Button
-              color="primary"
+              color="gray"
               type="button"
               onClick={() => setColorMode(colorMode === 'dark' ? 'default' : 'dark')}
             >

@@ -47,26 +47,26 @@ export const Palette = (): JSX.Element => {
   return (
     <Grid columns={1}>
       <Grid columns={4}>
-        <PaletteColor title="text.primary" color={theme.rawColors.textColors.primary} />
-        <PaletteColor title="text.secondary" color={theme.rawColors.textColors.secondary} />
-        <PaletteColor title="text.disabled" color={theme.rawColors.textColors.disabled} />
+        <PaletteColor title="text.primary" color={theme.rawColors.text.primary} />
+        <PaletteColor title="text.secondary" color={theme.rawColors.text.secondary} />
+        <PaletteColor title="text.disabled" color={theme.rawColors.text.disabled} />
       </Grid>
 
       <Grid columns={4}>
-        <PaletteColor title="background.primary" color={theme.rawColors.backgroundColors.primary} />
-        <PaletteColor title="background.secondary" color={theme.rawColors.backgroundColors.secondary} />
+        <PaletteColor title="background.primary" color={theme.rawColors.background.primary} />
+        <PaletteColor title="background.secondary" color={theme.rawColors.background.secondary} />
       </Grid>
 
       <Grid columns={4}>
-        <PaletteColor title="brand.primary" color={theme.rawColors.brand.primary} />
-        <PaletteColor title="brand.primary" color={theme.rawColors.brand.secondary} />
+        <PaletteColor title="brand.primary" color={theme.rawColors.radix.primary11} />
+        <PaletteColor title="brand.primary" color={theme.rawColors.radix.secondary11} />
       </Grid>
 
       <Grid columns={4}>
-        <PaletteColor title="status.primary" color={theme.rawColors.status.success} />
-        <PaletteColor title="status.info" color={theme.rawColors.status.info} />
-        <PaletteColor title="status.warning" color={theme.rawColors.status.warning} />
-        <PaletteColor title="status.error" color={theme.rawColors.status.error} />
+        <PaletteColor title="status.primary" color={theme.rawColors.status.success[11]} />
+        <PaletteColor title="status.info" color={theme.rawColors.status.info[11]} />
+        <PaletteColor title="status.warning" color={theme.rawColors.status.warning[11]} />
+        <PaletteColor title="status.error" color={theme.rawColors.status.error[11]} />
       </Grid>
     </Grid>
   );

@@ -24,6 +24,7 @@ import { WeatherDate } from '@/modules/weather/components/WeatherDate';
 import { ICONS_MAP } from '@/modules/weather/constants/iconsMap';
 import { filterHourlyWeatherBasedOnCurrentTime } from '@/modules/weather/formatHourlyWeather';
 import { WeatherHourlyList } from '@/modules/weather/components/WeatherHourlyList';
+import { Container } from '@/common/components/system/Container';
 
 const logger = createLogger('[place]');
 
@@ -61,54 +62,57 @@ const WeatherPlacePage: EnhancedNextPage<Props> = (): JSX.Element => {
       <Box
         minHeight="100vh"
         display="flex"
-        color="text"
+        color="text.primary"
         flexDirection="column"
         background="linear-gradient(180deg, rgba(13,28,139,1) 0%, rgba(83,36,224,1) 65%)"
         py={[5, null, 8]}
         px={[4, null, 8]}
       >
-        <Box
-          display="flex"
-          justifyContent="space-between"
-        >
+        <Container>
+
           <Box
             display="flex"
-            flexDirection="column"
-            alignItems="flex-start"
+            justifyContent="space-between"
           >
-            <WeatherDate />
+            <Box
+              display="flex"
+              flexDirection="column"
+              alignItems="flex-start"
+            >
+              <WeatherDate />
 
-            <Box mt={5}>
-              <Button color="inherit">Next</Button>
+              <Box mt={5}>
+                <Button color="gray">Next</Button>
 
-              <Box mt={3}>
-                <Box mb={3}>
-                  <Typography variant="subtitle1" component="span" mr={2}>16:30h</Typography>
+                <Box mt={3}>
+                  <Box mb={3}>
+                    <Typography variant="subtitle1" component="span" mr={2}>16:30h</Typography>
 
-                  <Typography variant="body1" component="span" fontWeight="bold">Stay at Bohem Art Hotel</Typography>
-                </Box>
+                    <Typography variant="body1" component="span" fontWeight="bold">Stay at Bohem Art Hotel</Typography>
+                  </Box>
 
-                <Box>
-                  <Typography variant="subtitle1" component="span" mr={2}>16:30h</Typography>
+                  <Box>
+                    <Typography variant="subtitle1" component="span" mr={2}>16:30h</Typography>
 
-                  <Typography variant="body1" component="span" fontWeight="bold">Stay at Bohem Art Hotel</Typography>
+                    <Typography variant="body1" component="span" fontWeight="bold">Stay at Bohem Art Hotel</Typography>
+                  </Box>
                 </Box>
               </Box>
             </Box>
-          </Box>
 
-          <Box
-            display="flex"
-            flexDirection="column"
-            alignItems="flex-end"
-          >
-            <Image width="112" height="112" src={`/static/images/weather/wi-${ICONS_MAP[weather?.condition.code ?? '113']}.svg`} alt={weather?.condition.title} />
-            <Typography variant="h3" component="span" fontWeight="medium">{weather?.condition.title}</Typography>
-            <Typography variant="h6" component="span" mt={2} fontWeight="normal" color="secondary">{weather?.place}</Typography>
-            <Typography variant="h3" component="span" mt={4} fontWeight="bold">{weather?.temp.c} °</Typography>
-            {isFetching && 'Updating'}
+            <Box
+              display="flex"
+              flexDirection="column"
+              alignItems="flex-end"
+            >
+              <Image width="112" height="112" src={`/static/images/weather/wi-${ICONS_MAP[weather?.condition.code ?? '113']}.svg`} alt={weather?.condition.title} />
+              <Typography variant="h3" component="span" fontWeight="medium">{weather?.condition.title}</Typography>
+              <Typography variant="h6" component="span" mt={2} fontWeight="normal" color="textColors.secondary">{weather?.place}</Typography>
+              <Typography variant="h3" component="span" mt={4} fontWeight="bold">{weather?.temp.c} °</Typography>
+              {isFetching && 'Updating'}
+            </Box>
           </Box>
-        </Box>
+        </Container>
 
         <WeatherHourlyList hourlyWeather={hourlyWeather} />
       </Box>

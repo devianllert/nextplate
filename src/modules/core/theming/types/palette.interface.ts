@@ -18,11 +18,6 @@ export interface Palette {
   brand: PaletteBrand;
 
   /**
-   * The colors used to style the action elements.
-   */
-  action: PaletteAction;
-
-  /**
    * The colors used to style the statuses
    */
   status: PaletteStatus;
@@ -59,18 +54,4 @@ export interface PaletteStatus {
   warning: string;
   info: string;
   error: string;
-}
-
-export interface PaletteAction {
-  active: string;
-  hover: string;
-  hoverOpacity: number;
-  selected: string;
-  selectedOpacity: number;
-  disabled: string;
-  disabledBackground: string;
-  disabledOpacity: number;
-  focus: string;
-  focusOpacity: number;
-  activatedOpacity: number;
 }

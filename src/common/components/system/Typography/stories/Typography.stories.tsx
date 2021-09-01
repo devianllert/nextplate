@@ -51,11 +51,11 @@ export const Caption = (): ReactElement => (
 
 export const Colors = (): ReactElement => (
   <>
-    <Typography variant="body1" display="block" color="primary">Primary. 1</Typography>
-    <Typography variant="body1" display="block" color="secondary">Secondary. 1</Typography>
-    <Typography variant="body1" display="block" color="success">Success. 1</Typography>
-    <Typography variant="body1" display="block" color="warning">Warning. 1</Typography>
-    <Typography variant="body1" display="block" color="info">Info. 1</Typography>
-    <Typography variant="body1" display="block" color="error">Error. 1</Typography>
+    <Typography variant="body1" display="block" color="text.primary">Primary. 1</Typography>
+    <Typography variant="body1" display="block" color="text.secondary">Secondary. 1</Typography>
+    <Typography variant="body1" display="block" color="status.success.11">Success. 1</Typography>
+    <Typography variant="body1" display="block" color="status.warning.11">Warning. 1</Typography>
+    <Typography variant="body1" display="block" color="status.info.11">Info. 1</Typography>
+    <Typography variant="body1" display="block" color="status.error.11">Error. 1</Typography>
   </>
 );

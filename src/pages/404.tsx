@@ -3,6 +3,7 @@ import Head from 'next/head';
 import Link from 'next/link';
 import * as Sentry from '@sentry/nextjs';
 import { useTranslation } from 'next-i18next';
+import { useRouter } from 'next/router';
 
 import { createLogger } from '@/modules/core/logging/logger';
 import { getAppTitle } from '@/modules/core/meta/meta';
@@ -13,7 +14,6 @@ import { SSGPageProps } from '@/layouts/core/types/SSGPageProps';
 import { NotFound404Layout } from '@/layouts/404/components/NotFound404Layout';
 import { Typography } from '@/common/components/system/Typography';
 import { Button } from '@/common/components/system/Button';
-import { useRouter } from 'next/router';
 
 const fileLabel = 'pages/404';
 const logger = createLogger(fileLabel);

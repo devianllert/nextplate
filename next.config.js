@@ -1,7 +1,12 @@
-/* eslint-disable */
+/* eslint-disable @typescript-eslint/require-await */
+/* eslint-disable import/no-extraneous-dependencies */
+/* eslint-disable @typescript-eslint/no-var-requires */
+/* eslint-disable no-param-reassign */
+
 const bundleAnalyzer = require('@next/bundle-analyzer');
 const { withSentryConfig } = require('@sentry/nextjs');
 const nextSourceMaps = require('@zeit/next-source-maps');
+
 const packageJson = require('./package.json');
 const i18nConfig = require('./next-i18next.config');
 
@@ -11,12 +16,14 @@ const withBundleAnalyzer = bundleAnalyzer({
   enabled: process.env.ANALYZE_BUNDLE === 'true',
 });
 
-const noRedirectBlacklistedPaths = ['_next', 'api']; // Paths that mustn't have rewrite applied to them, to avoid the whole app to behave inconsistently
-const publicBasePaths = ['robots', 'static', 'favicon.ico']; // All items (folders, files) under /public directory should be added there, to avoid redirection when an asset isn't found
-const noRedirectBasePaths = [...publicBasePaths, ...noRedirectBlacklistedPaths]; // Will disable url rewrite for those items (should contain all supported languages and all public base paths)
-const date = new Date();
-const GIT_COMMIT_SHA_SHORT =
-  typeof process.env.GIT_COMMIT_SHA === 'string' && process.env.GIT_COMMIT_SHA.substring(0, 8);
+// Paths that mustn't have rewrite applied to them, to avoid the whole app to behave inconsistently
+const noRedirectBlacklistedPaths = ['_next', 'api'];
+// All items (folders, files) under /public directory should be added there, to avoid redirection when an asset isn't found
+const publicBasePaths = ['robots', 'static', 'favicon.ico'];
+// Will disable url rewrite for those items (should contain all supported languages and all public base paths)
+const noRedirectBasePaths = [...publicBasePaths, ...noRedirectBlacklistedPaths];
+
+const GIT_COMMIT_SHA_SHORT = typeof process.env.GIT_COMMIT_SHA === 'string' && process.env.GIT_COMMIT_SHA.substring(0, 8);
 
 console.debug(
   `Building Next with NODE_ENV="${process.env.NODE_ENV}" NEXT_PUBLIC_APP_STAGE="${process.env.NEXT_PUBLIC_APP_STAGE}" using GIT_COMMIT_SHA=${process.env.GIT_COMMIT_SHA} and GIT_COMMIT_REF=${process.env.GIT_COMMIT_REF}`,
@@ -30,7 +37,7 @@ console.debug(`Deployment will be tagged automatically, using GIT_COMMIT_TAGS: "
 // Iterate over all tags and extract the first the match "v*"
 const APP_RELEASE_TAG = GIT_COMMIT_TAGS
   ? GIT_COMMIT_TAGS.split(' ').find((tag) => tag.startsWith('v'))
-  : `unknown-${GIT_COMMIT_SHA_SHORT}`;
+  : `unknown-${GIT_COMMIT_SHA_SHORT || 'unknown'}`;
 console.debug(`Release version resolved from tags: "${APP_RELEASE_TAG}" (matching first tag starting with "v")`);
 
 const SentryWebpackPluginOptions = {
@@ -64,6 +71,7 @@ const SentryWebpackPluginOptions = {
  *
  * @see https://nextjs.org/docs/api-reference/next.config.js/introduction
  */
+/** @type {import('next').NextConfig} */
 module.exports = withSentryConfig(
   withBundleAnalyzer(
     withSourceMaps({
@@ -123,15 +131,16 @@ module.exports = withSentryConfig(
         GRAPHQL_API_KEY: process.env.GRAPHQL_API_KEY,
 
         SENTRY_DSN: process.env.SENTRY_DSN,
-        // Sentry DSN must be provided to the browser for error reporting to work there
 
+        // Sentry DSN must be provided to the browser for error reporting to work there
         NEXT_PUBLIC_SENTRY_DSN: process.env.SENTRY_DSN,
+
         // Dynamic env variables
-        NEXT_PUBLIC_APP_BUILD_TIME: date.toString(),
-        NEXT_PUBLIC_APP_BUILD_TIMESTAMP: +date,
+        NEXT_PUBLIC_APP_BUILD_TIME: new Date().toString(),
+        NEXT_PUBLIC_APP_BUILD_TIMESTAMP: Date.now(),
         NEXT_PUBLIC_APP_NAME: packageJson.name,
         NEXT_PUBLIC_APP_NAME_VERSION: `${packageJson.name}-${APP_RELEASE_TAG}`,
-        LOGGER_ENV: process.env.NEXT_PUBLIC_APP_STAGE, // Used by @unly/utils-simple-logger - Fix missing staging logs because otherwise it believes we're in production
+        LOGGER_ENV: process.env.NEXT_PUBLIC_APP_STAGE,
         GIT_COMMIT_SHA_SHORT,
         GIT_COMMIT_SHA: process.env.GIT_COMMIT_SHA, // Resolve commit hash from ENV first (set through CI), fallbacks to reading git (when used locally, through "/scripts/populate-git-env.sh")
         GIT_COMMIT_REF: process.env.GIT_COMMIT_REF, // Resolve commit ref (branch/tag) from ENV first (set through CI), fallbacks to reading git (when used locally, through "/scripts/populate-git-env.sh")
@@ -221,7 +230,7 @@ module.exports = withSentryConfig(
             headers: [
               {
                 key: 'Content-Security-Policy',
-                value: 'frame-ancestors \'self',
+                value: "frame-ancestors 'self",
               },
             ],
           });
@@ -328,7 +337,7 @@ module.exports = withSentryConfig(
         const APP_VERSION_RELEASE = APP_RELEASE_TAG || buildId;
         config.plugins.forEach((plugin) => {
           // Inject custom environment variables in "DefinePlugin" - See https://webpack.js.org/plugins/define-plugin/
-          if (plugin.__proto__.constructor.name === 'DefinePlugin') {
+          if (Object.getPrototypeOf(plugin).constructor.name === 'DefinePlugin') {
             // Dynamically add some "public env" variables that will be replaced during the build through "DefinePlugin"
             // Those variables are considered public because they are available at build time and at run time (they'll be replaced during initial build, by their value)
             plugin.definitions['process.env.NEXT_PUBLIC_APP_BUILD_ID'] = JSON.stringify(buildId);
@@ -379,7 +388,12 @@ module.exports = withSentryConfig(
       //   pagesBufferLength: 2,
       // },
 
-      // See https://nextjs.org/docs/api-reference/next.config.js/disabling-x-powered-by
+      /**
+       * By default Next.js will add the x-powered-by header.
+       * To opt-out of it, open next.config.js and disable the poweredByHeader config:
+       *
+       * @see https://nextjs.org/docs/api-reference/next.config.js/disabling-x-powered-by
+       */
       poweredByHeader: false,
     }),
   ),

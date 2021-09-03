@@ -9,9 +9,9 @@ import { NetworkConnectionType, NetworkInformation, NetworkInformationSpeed } fr
  * XXX You should check JS environment by yourself or use `getNetworkInformation` function.
  */
 export const getNavigatorConnection = (): NetworkInformation | undefined => {
-  return (navigator as ExtendedNavigator)?.connection
-    ?? (navigator as ExtendedNavigator)?.mozConnection
-    ?? (navigator as ExtendedNavigator)?.webkitConnection;
+  return (navigator as unknown as ExtendedNavigator)?.connection
+    ?? (navigator as unknown as ExtendedNavigator)?.mozConnection
+    ?? (navigator as unknown as ExtendedNavigator)?.webkitConnection;
 };
 
 /**

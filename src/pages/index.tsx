@@ -1,6 +1,5 @@
 import { useTranslation } from 'next-i18next';
 import Head from 'next/head';
-import Link from 'next/link';
 
 import { OnlyBrowserPageProps } from '@/layouts/core/types/OnlyBrowserPageProps';
 import { SSGPageProps } from '@/layouts/core/types/SSGPageProps';

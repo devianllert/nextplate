@@ -36,7 +36,7 @@
     "lib": [
       "dom",
       "dom.iterable",
-      "es2019"
+      "esnext"
     ],
     "module": "esnext",
     "moduleResolution": "node",
@@ -52,7 +52,7 @@
     "strict": true,
     "noImplicitAny": false,
     "strictBindCallApply": true,
-    "target": "ES2019"
+    "target": "ES6"
   },
   "exclude": [
     ".github",

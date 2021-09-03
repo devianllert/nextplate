@@ -1,5 +1,6 @@
-import { createLogger } from '@/modules/core/logging/logger';
 import * as Sentry from '@sentry/nextjs';
+
+import { createLogger } from '@/modules/core/logging/logger';
 
 import isBrowser from './isBrowser';
 
@@ -13,8 +14,8 @@ export const isMobileDevice = (): boolean => {
   if (isBrowser()) {
     try {
       return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-    } catch (e) {
-      logger.error(e.message);
+    } catch (e: unknown) {
+      logger.error((e as Error).message);
       Sentry.captureException(e);
 
       return false;

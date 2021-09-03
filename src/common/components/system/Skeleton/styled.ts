@@ -1,6 +1,5 @@
 import styled from '@emotion/styled';
 import { css, keyframes } from '@emotion/react';
-import tinycolor from 'tinycolor2';
 
 interface SkeletonRootProps {
   animation?: 'pulse' | 'wave' | false;

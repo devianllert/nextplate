@@ -24,7 +24,7 @@ const caseAllCaps: CSSProperties = {
   textTransform: 'uppercase',
 };
 
-export const calculateFluidTypography = (minSize, maxSize) => {
+export const calculateFluidTypography = (minSize: number, maxSize: number): string => {
   const vwCoefficient = oneDecimal(((1000) * (maxSize - minSize)) / (1440 - 960));
   const remCoefficient = oneDecimal(minSize - (960 * (maxSize - minSize)) / (1440 - 960));
 

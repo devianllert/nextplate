@@ -9,3 +9,5 @@ export default {
 } as Meta;
 
 const Template: Story<NProgressRootProps> = (args) => <NProgressRoot {...args} />;
+
+export const Basic = Template.bind({});

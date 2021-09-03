@@ -40,7 +40,7 @@ export const status = (req: NextApiRequest, res: NextApiResponse): void => {
       // Shouldn't be displayed, because should always be undefined in APIs
       IS_SERVER_INITIAL_BUILD: process.env.IS_SERVER_INITIAL_BUILD,
     });
-  } catch (e) {
+  } catch (e: unknown) {
     res.json({
       error: true,
       // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
@@ -48,7 +48,7 @@ export const status = (req: NextApiRequest, res: NextApiResponse): void => {
         process.env.NEXT_PUBLIC_APP_STAGE === 'production'
           ? undefined
           // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
-          : e.message,
+          : (e as Error).message,
     });
   }
 };

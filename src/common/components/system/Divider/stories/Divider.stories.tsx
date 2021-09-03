@@ -9,3 +9,5 @@ export default {
 } as Meta;
 
 const Template: Story<DividerProps> = (args) => <Divider {...args} />;
+
+export const Basic = Template.bind({});

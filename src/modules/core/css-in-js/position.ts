@@ -1,5 +1,5 @@
-import { spacings } from '@/common/design/tokens/spacings';
 import { CSSProperties } from 'react';
+import { spacings } from '@/common/design/tokens/spacings';
 
 import { createSystem, ResponsiveValue } from './system';
 

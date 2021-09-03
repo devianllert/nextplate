@@ -9,3 +9,5 @@ export default {
 } as Meta;
 
 const Template: Story = (args) => <NotFound404Layout {...args} />;
+
+export const Basic = Template.bind({});

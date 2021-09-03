@@ -1,5 +1,4 @@
 import styled from '@emotion/styled';
-import tinycolor from 'tinycolor2';
 
 import { ButtonBase } from '@/components/system/ButtonBase';
 
@@ -92,6 +91,7 @@ export const ButtonRoot = styled(ButtonBase, { shouldForwardProp })<ButtonRootPr
 
   ...(props.variant === 'contained' && {
     color: getContrastText(theme.rawColors.radix[`${props.color}9`]),
+    // color: getContrastText(theme.rawColors.radix[`${props.color}9`]),
     backgroundColor: theme.colors.radix[`${props.color}9`],
     boxShadow: shadows[2],
 
@@ -106,7 +106,7 @@ export const ButtonRoot = styled(ButtonBase, { shouldForwardProp })<ButtonRootPr
 
     '&[disabled]': {
       cursor: 'default',
-      color: theme.rawColors.radix.gray11,
+      color: theme.colors.radix.gray11,
       backgroundColor: theme.colors.radix.gray6,
     },
   }),

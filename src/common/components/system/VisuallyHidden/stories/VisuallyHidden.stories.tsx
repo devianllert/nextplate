@@ -4,7 +4,7 @@ import { Meta } from '@storybook/react';
 import { VisuallyHidden } from '../VisuallyHidden';
 
 export default {
-  title: 'Components/VisuallyHidden',
+  title: 'Design System/Atoms/VisuallyHidden',
   component: VisuallyHidden,
 } as Meta;
 

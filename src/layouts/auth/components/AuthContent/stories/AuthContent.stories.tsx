@@ -3,7 +3,7 @@ import React, { ReactElement } from 'react';
 import { AuthContent } from '../AuthContent';
 
 export default {
-  title: 'Components/AuthContent',
+  title: 'Layouts/Auth/AuthContent',
   component: AuthContent,
 };
 

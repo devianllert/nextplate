@@ -18,6 +18,7 @@ export interface NProgressRootProps {
 
 export const NProgressRoot = (props: NProgressRootProps): JSX.Element => {
   const {
+    color = 'primary',
     showAfterMs = 0,
     options,
   } = props;
@@ -61,7 +62,7 @@ export const NProgressRoot = (props: NProgressRootProps): JSX.Element => {
         }
 
         #nprogress .bar {
-          background: ${theme.colors.radix.primary9};
+          background: ${theme.colors.radix[`${color}9`]};
           position: fixed;
           z-index: 1031;
           top: 0;
@@ -76,7 +77,7 @@ export const NProgressRoot = (props: NProgressRootProps): JSX.Element => {
             right: 0px;
             width: 100px;
             height: 100%;
-            box-shadow: 0 0 10px ${theme.colors.radix.primary9}, 0 0 5px ${theme.colors.radix.primary9};
+            box-shadow: 0 0 10px ${theme.colors.radix[`${color}9`]}, 0 0 5px ${theme.colors.radix[`${color}9`]};
             opacity: 1;
             transform: rotate(3deg) translate(0px, -4px);
           }
@@ -95,8 +96,8 @@ export const NProgressRoot = (props: NProgressRootProps): JSX.Element => {
             box-sizing: border-box;
 
             border: solid 2px transparent;
-            border-top-color: ${theme.colors.radix.primary9};
-            border-left-color: ${theme.colors.radix.primary9};
+            border-top-color: ${theme.colors.radix[`${color}9`]};
+            border-left-color: ${theme.colors.radix[`${color}9`]};
             border-radius: 50%;
 
             animation: nprogress-spinner 400ms linear infinite;

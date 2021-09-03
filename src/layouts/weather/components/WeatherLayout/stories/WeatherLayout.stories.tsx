@@ -4,7 +4,7 @@ import { Story, Meta } from '@storybook/react';
 import { WeatherLayout, WeatherLayoutProps } from '../WeatherLayout';
 
 export default {
-  title: 'Components/WeatherLayout',
+  title: 'Layouts/Weather/WeatherLayout',
   component: WeatherLayout,
 } as Meta;
 

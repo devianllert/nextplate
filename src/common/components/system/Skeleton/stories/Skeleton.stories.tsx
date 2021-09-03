@@ -4,7 +4,7 @@ import { Meta, Story } from '@storybook/react';
 import { Skeleton, SkeletonProps } from '../Skeleton';
 
 export default {
-  title: 'Components/Skeleton',
+  title: 'Design System/Atoms/Skeleton',
   component: Skeleton,
 } as Meta;
 

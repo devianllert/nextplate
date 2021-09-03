@@ -3,7 +3,7 @@ import React, { ReactElement } from 'react';
 import { MainLayout } from '../MainLayout';
 
 export default {
-  title: 'Components/MainLayout',
+  title: 'Layouts/Main/MainLayout',
   component: MainLayout,
 };
 

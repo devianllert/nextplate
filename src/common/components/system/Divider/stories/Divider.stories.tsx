@@ -4,7 +4,7 @@ import { Story, Meta } from '@storybook/react';
 import { Divider, DividerProps } from '../Divider';
 
 export default {
-  title: 'Components/Divider',
+  title: 'Design System/Atoms/Divider',
   component: Divider,
 } as Meta;
 

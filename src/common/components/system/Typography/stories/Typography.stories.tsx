@@ -4,7 +4,7 @@ import { Meta, Story } from '@storybook/react';
 import { Typography, TypographyProps } from '../Typography';
 
 export default {
-  title: 'Components/Typography',
+  title: 'Design System/Atoms/Typography',
   component: Typography,
 } as Meta;
 

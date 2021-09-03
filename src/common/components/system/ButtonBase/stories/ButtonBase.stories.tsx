@@ -4,7 +4,7 @@ import { Story, Meta } from '@storybook/react';
 import { ButtonBase, ButtonBaseProps } from '../ButtonBase';
 
 export default {
-  title: 'Components/BaseButton',
+  title: 'Design System/Atoms/BaseButton',
   component: ButtonBase,
 } as Meta;
 

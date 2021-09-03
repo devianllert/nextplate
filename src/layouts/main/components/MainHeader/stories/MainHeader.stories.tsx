@@ -3,7 +3,7 @@ import React, { ReactElement } from 'react';
 import { MainHeader } from '../MainHeader';
 
 export default {
-  title: 'Components/MainHeader',
+  title: 'Layouts/Main/MainHeader',
   component: MainHeader,
 };
 

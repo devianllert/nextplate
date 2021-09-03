@@ -5,7 +5,7 @@ import { Inline, InlineProps } from '../Inline';
 import { Button } from '../../Button';
 
 export default {
-  title: 'Components/Inline',
+  title: 'Design System/Atoms/Inline',
   component: Inline,
 } as Meta;
 

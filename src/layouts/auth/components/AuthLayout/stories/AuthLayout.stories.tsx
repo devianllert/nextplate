@@ -3,7 +3,7 @@ import * as React from 'react';
 import { AuthLayout } from '../AuthLayout';
 
 export default {
-  title: 'Components/AuthLayout',
+  title: 'Layouts/Auth/AuthLayout',
   component: AuthLayout,
 };
 

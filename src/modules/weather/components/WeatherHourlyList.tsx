@@ -20,9 +20,10 @@ export const WeatherHourlyList = (props: WeatherHourlyListProps): JSX.Element =>
     <Box
       component={Container}
       display="flex"
+      marginTop="auto"
       justifyContent={[null, null, null, 'center']}
       overflowX="auto"
-      mt="auto"
+      px={[0, null]}
     >
       {hourlyWeather.map((item, index) => (
         <Box
@@ -30,8 +31,8 @@ export const WeatherHourlyList = (props: WeatherHourlyListProps): JSX.Element =>
           display="flex"
           flexDirection="column"
           alignItems="center"
-          minWidth="160px"
-          px={4}
+          minWidth={[140, null, 160]}
+          px={[2, null, 4]}
           py={2}
         >
           <Typography variant="h6" component="span">{index === 0 ? 'Now' : formatHourlyTime(item.time)}</Typography>

@@ -22,14 +22,14 @@ export type BoxType =
   & ColorProps
   & GridProps;
 
-export const BoxRoot = styled('div', { shouldForwardProp })<BoxType>((props) => ({
-  ...(space(props)),
-  ...(flexbox(props)),
-  ...(layout(props)),
-  ...(position(props)),
-  ...(background(props)),
-  ...(boxShadow(props)),
-  ...(border(props)),
-  ...(color(props)),
-  ...(grid(props)),
-}));
+export const BoxRoot = styled('div', { shouldForwardProp })<BoxType>(
+  space,
+  flexbox,
+  layout,
+  position,
+  background,
+  boxShadow,
+  border,
+  color,
+  grid,
+);

@@ -35,21 +35,23 @@ interface TypoProps extends SpaceProps {
   display: React.CSSProperties['display'];
 }
 
-export const Typo = styled('span', { shouldForwardProp })<TypoProps>((props) => ({
-  margin: 0,
-  display: props.display,
-  color: (get(props.theme.colors, props.color) as string) ?? props.color,
-  textAlign: props.align,
-  textDecoration: 'none',
-  ...(props.noWrap && {
-    overflow: 'hidden',
-    textOverflow: 'ellipsis',
-    whiteSpace: 'nowrap',
+export const Typo = styled('span', { shouldForwardProp })<TypoProps>(
+  (props) => ({
+    margin: 0,
+    display: props.display,
+    color: (get(props.theme.colors, props.color) as string) ?? props.color,
+    textAlign: props.align,
+    textDecoration: 'none',
+    ...(props.noWrap && {
+      overflow: 'hidden',
+      textOverflow: 'ellipsis',
+      whiteSpace: 'nowrap',
+    }),
+    ...variants[props.variant],
+    ...(props.fontWeight && {
+      fontWeight: fontWeight[props.fontWeight],
+    }),
   }),
-  ...variants[props.variant],
-  ...(props.fontWeight && {
-    fontWeight: fontWeight[props.fontWeight],
-  }),
-  ...(margin(props)),
-  ...(padding(props)),
-}));
+  margin,
+  padding,
+);

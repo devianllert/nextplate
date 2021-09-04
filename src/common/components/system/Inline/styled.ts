@@ -26,12 +26,13 @@ const inlineRootCustomProps = createSystem({
   flexDirection: true,
 });
 
-export const InlineRoot = styled.div<InlineRootProps>((props) => ({
-  display: 'flex',
-  flexWrap: 'wrap',
-
-  ...(inlineRootCustomProps(props)),
-}));
+export const InlineRoot = styled.div<InlineRootProps>(
+  {
+    display: 'flex',
+    flexWrap: 'wrap',
+  },
+  inlineRootCustomProps,
+);
 
 export interface InlineBoxProps {
   space: ResponsiveValue<number>;
@@ -45,12 +46,13 @@ const inlineBoxCustomProps = createSystem({
   },
 });
 
-export const InlineBox = styled.div<InlineBoxProps>((props) => ({
-  display: 'flex',
-  minWidth: 0,
-
-  ...(inlineBoxCustomProps(props)),
-}));
+export const InlineBox = styled.div<InlineBoxProps>(
+  {
+    display: 'flex',
+    minWidth: 0,
+  },
+  inlineBoxCustomProps,
+);
 
 export interface InlineRootAlignerProps {
   space: ResponsiveValue<number>;

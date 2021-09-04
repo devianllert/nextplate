@@ -66,13 +66,14 @@ const WeatherPlacePage: EnhancedNextPage<Props> = (): JSX.Element => {
         flexDirection="column"
         background="linear-gradient(180deg, rgba(13,28,139,1) 0%, rgba(83,36,224,1) 65%)"
         py={[5, null, 8]}
-        px={[4, null, 8]}
+        px={[0, null, 8]}
       >
         <Container>
-
           <Box
             display="flex"
-            justifyContent="space-between"
+            flexDirection={['column-reverse', null, 'row']}
+            justifyContent={[null, null, 'space-between']}
+            mb={[4, null, 0]}
           >
             <Box
               display="flex"
@@ -103,10 +104,11 @@ const WeatherPlacePage: EnhancedNextPage<Props> = (): JSX.Element => {
             <Box
               display="flex"
               flexDirection="column"
-              alignItems="flex-end"
+              alignItems={['center', null, 'flex-end']}
+              mb={[4, null, 0]}
             >
               <Image width="112" height="112" src={`/static/images/weather/wi-${ICONS_MAP[weather?.condition.code ?? '113']}.svg`} alt={weather?.condition.title} />
-              <Typography variant="h3" component="span" fontWeight="medium">{weather?.condition.title}</Typography>
+              <Typography variant="h3" component="span" fontWeight="medium" align="center">{weather?.condition.title}</Typography>
               <Typography variant="h6" component="span" mt={2} fontWeight="normal" color="textColors.secondary">{weather?.place}</Typography>
               <Typography variant="h3" component="span" mt={4} fontWeight="bold">{weather?.temp.c} °</Typography>
               {isFetching && 'Updating'}

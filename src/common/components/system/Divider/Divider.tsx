@@ -31,11 +31,9 @@ export interface DividerProps {
   flexItem?: boolean;
 }
 
-const DEFAULT_ORIENTATION = 'horizontal';
-
 export const Divider = (props: DividerProps): JSX.Element => {
   const {
-    orientation = DEFAULT_ORIENTATION,
+    orientation = 'horizontal',
     space = 2,
     decorative,
     flexItem = false,

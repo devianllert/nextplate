@@ -1,26 +1,59 @@
 import styled from '@emotion/styled';
 
-import { ButtonBase } from '@/components/system/ButtonBase';
+import { ButtonBase, ButtonBaseProps } from '@/components/system/ButtonBase';
+import { createTransition, duration } from '@/common/design/tokens/transitions';
 
-export const IconButtonRoot = styled(ButtonBase)`
-  flex: 0 0 auto;
+interface IconButtonRootProps extends ButtonBaseProps {
+  edge?: 'end' | 'start' | false;
+  size?: 'small' | 'medium' | 'large';
+  color?: string;
+}
 
-  padding: 12px;
+export const IconButtonRoot = styled(ButtonBase)<IconButtonRootProps>((props) => ({
+  flex: '0 0 auto',
+  padding: 8,
+  fontSize: '2.4rem',
+  textAlign: 'center',
+  borderRadius: '50%',
+  overflow: 'visible',
+  color: props.theme.colors.radix[`${props.color}11`],
+  transition: createTransition('background-color', {
+    duration: duration.short,
+  }),
 
-  font-size: 24px;
-  text-align: center;
+  '&:hover, &:focus-visible': {
+    backgroundColor: props.theme.colors.radix[`${props.color}A5`],
+    textDecoration: 'none',
 
-  border-radius: 50%;
+    '@media (hover: none)': {
+      backgroundColor: 'transparent',
+    },
+  },
 
-  overflow: visible;
+  '&:active': {
+    backgroundColor: props.theme.colors.radix[`${props.color}A6`],
+  },
 
-  color: ${({ theme }) => theme.colors.radix.primary11};
-`;
+  ...(props.edge === 'start' && {
+    marginLeft: props.size === 'small' ? -3 : -12,
+  }),
 
-export const IconButtonLabel = styled.span`
-  display: flex;
-  align-items: inherit;
-  justify-content: inherit;
+  ...(props.edge === 'end' && {
+    marginRight: props.size === 'small' ? -3 : -12,
+  }),
 
-  width: 100%;
-`;
+  ...(props.size === 'small' && {
+    padding: 5,
+    fontSize: '1.8rem',
+  }),
+
+  ...(props.size === 'large' && {
+    padding: 12,
+    fontSize: '2.8rem',
+  }),
+
+  '&:disabled': {
+    backgroundColor: 'transparent',
+    color: props.theme.colors.radix.gray11,
+  },
+}));

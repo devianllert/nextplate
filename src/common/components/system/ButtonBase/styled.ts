@@ -33,6 +33,9 @@ export const ButtonBaseRoot = styled('button', { shouldForwardProp })<SpaceProps
       colorAdjust: 'exact',
     },
   },
+  (props) => props.disabled && ({
+    cursor: 'default',
+  }),
   margin,
   padding,
 );

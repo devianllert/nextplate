@@ -58,7 +58,6 @@ export const ButtonRoot = styled(ButtonBase)<ButtonRootProps>(
       },
 
       '&[disabled]': {
-        cursor: 'default',
         color: theme.colors.radix.gray11,
         backgroundColor: 'transparent',
       },
@@ -81,7 +80,6 @@ export const ButtonRoot = styled(ButtonBase)<ButtonRootProps>(
       },
 
       '&[disabled]': {
-        cursor: 'default',
         color: theme.colors.radix.gray11,
         borderColor: theme.colors.radix.gray6,
         backgroundColor: 'transparent',
@@ -104,7 +102,6 @@ export const ButtonRoot = styled(ButtonBase)<ButtonRootProps>(
       },
 
       '&[disabled]': {
-        cursor: 'default',
         color: theme.colors.radix.gray11,
         backgroundColor: theme.colors.radix.gray6,
       },

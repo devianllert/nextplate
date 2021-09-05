@@ -4,6 +4,7 @@ import Image from 'next/image';
 import { useRouter } from 'next/router';
 import { useQuery } from 'react-query';
 import { dehydrate } from 'react-query/hydration';
+import { RiMenu3Line } from 'react-icons/ri';
 
 import { serializeSafe } from '@/modules/core/serializeSafe/serializeSafe';
 import { getAppTitle } from '@/modules/core/meta/meta';
@@ -13,12 +14,14 @@ import { SSRPageProps } from '@/layouts/core/types/SSRPageProps';
 import { createLogger } from '@/modules/core/logging/logger';
 import { EnhancedNextPage } from '@/layouts/core/types/EnhancedNextPage';
 import { Button } from '@/common/components/system/Button';
+import { Divider } from '@/common/components/system/Divider';
 import { Typography } from '@/common/components/system/Typography';
 import { Box } from '@/common/components/system/Box';
+import { IconButton } from '@/common/components/system/IconButton';
 import { getCoreServerSideProps } from '@/layouts/core/SSR';
 import { REACT_QUERY_STATE_PROP_NAME } from '@/modules/core/rquery/react-query';
 import { fetchWeather } from '@/modules/weather/services/wttr';
-import type { Weather } from '@/modules/weather/types/weather.interface';
+import { Weather } from '@/modules/weather/types/weather.interface';
 import { WeatherLayout } from '@/layouts/weather/components/WeatherLayout';
 import { WeatherDate } from '@/modules/weather/components/WeatherDate';
 import { ICONS_MAP } from '@/modules/weather/constants/iconsMap';
@@ -82,10 +85,18 @@ const WeatherPlacePage: EnhancedNextPage<Props> = (): JSX.Element => {
             >
               <WeatherDate />
 
-              <Box mt={5}>
-                <Button color="gray">Next</Button>
+              <Box mt={5} width={['100%', null, 'auto']}>
+                <Box display="flex" alignItems="center">
+                  <Button color="primary" ml="-12px">Next</Button>
 
-                <Box mt={3}>
+                  <IconButton ml="auto" edge="end" label="Open Popup">
+                    <RiMenu3Line />
+                  </IconButton>
+                </Box>
+
+                <Divider decorative />
+
+                <Box>
                   <Box mb={3}>
                     <Typography variant="subtitle1" component="span" mr={2}>16:30h</Typography>
 
@@ -109,7 +120,7 @@ const WeatherPlacePage: EnhancedNextPage<Props> = (): JSX.Element => {
             >
               <Image width="112" height="112" src={`/static/images/weather/wi-${ICONS_MAP[weather?.condition.code ?? '113']}.svg`} alt={weather?.condition.title} />
               <Typography variant="h3" component="span" fontWeight="medium" align="center">{weather?.condition.title}</Typography>
-              <Typography variant="h6" component="span" mt={2} fontWeight="normal" color="textColors.secondary">{weather?.place}</Typography>
+              <Typography variant="h6" component="span" mt={2} fontWeight="normal" color="text.secondary">{weather?.place}</Typography>
               <Typography variant="h3" component="span" mt={4} fontWeight="bold">{weather?.temp.c} °</Typography>
               {isFetching && 'Updating'}
             </Box>

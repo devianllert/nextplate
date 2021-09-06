@@ -35,6 +35,7 @@ export const ButtonBaseRoot = styled('button', { shouldForwardProp })<SpaceProps
   },
   (props) => props.disabled && ({
     cursor: 'default',
+    pointerEvents: 'none',
   }),
   margin,
   padding,

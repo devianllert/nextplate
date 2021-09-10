@@ -1,10 +1,10 @@
+import * as React from 'react';
 import { GetServerSideProps, GetServerSidePropsResult } from 'next';
 import Head from 'next/head';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 import { useQuery } from 'react-query';
 import { dehydrate } from 'react-query/hydration';
-import { RiMenu3Line } from 'react-icons/ri';
 
 import { serializeSafe } from '@/modules/core/serializeSafe/serializeSafe';
 import { getAppTitle } from '@/modules/core/meta/meta';
@@ -13,11 +13,8 @@ import { SSGPageProps } from '@/layouts/core/types/SSGPageProps';
 import { SSRPageProps } from '@/layouts/core/types/SSRPageProps';
 import { createLogger } from '@/modules/core/logging/logger';
 import { EnhancedNextPage } from '@/layouts/core/types/EnhancedNextPage';
-import { Button } from '@/common/components/system/Button';
-import { Divider } from '@/common/components/system/Divider';
 import { Typography } from '@/common/components/system/Typography';
 import { Box } from '@/common/components/system/Box';
-import { IconButton } from '@/common/components/system/IconButton';
 import { getCoreServerSideProps } from '@/layouts/core/SSR';
 import { REACT_QUERY_STATE_PROP_NAME } from '@/modules/core/rquery/react-query';
 import { fetchWeather } from '@/modules/weather/services/wttr';
@@ -28,6 +25,7 @@ import { ICONS_MAP } from '@/modules/weather/constants/iconsMap';
 import { filterHourlyWeatherBasedOnCurrentTime } from '@/modules/weather/formatHourlyWeather';
 import { WeatherHourlyList } from '@/modules/weather/components/WeatherHourlyList';
 import { Container } from '@/common/components/system/Container';
+import { Todos } from '@/modules/weather/components/Todos';
 
 const logger = createLogger('[place]');
 
@@ -50,8 +48,8 @@ type Props = (SSRPageProps & SSGPageProps<OnlyBrowserPageProps>);
 
 const WeatherPlacePage: EnhancedNextPage<Props> = (): JSX.Element => {
   const { query } = useRouter();
-  const place = query.place as (string | undefined);
 
+  const place = query.place as (string | undefined);
   const { data: weather, isFetching } = useQuery<Weather>(['weather', place], () => fetchWeather(place));
 
   const hourlyWeather = filterHourlyWeatherBasedOnCurrentTime(weather?.daily ?? []).slice(0, 8);
@@ -67,7 +65,9 @@ const WeatherPlacePage: EnhancedNextPage<Props> = (): JSX.Element => {
         display="flex"
         color="text.primary"
         flexDirection="column"
-        background="linear-gradient(180deg, rgba(13,28,139,1) 0%, rgba(83,36,224,1) 65%)"
+        backgroundImage="url('/static/images/stars.svg'), linear-gradient(180deg, rgba(13,28,139,1) 0%, rgba(83,36,224,1) 65%)"
+        backgroundRepeat="repeat no-repeat"
+        backgroundPosition="center top"
         py={[5, null, 8]}
         px={[0, null, 8]}
       >
@@ -81,34 +81,11 @@ const WeatherPlacePage: EnhancedNextPage<Props> = (): JSX.Element => {
             <Box
               display="flex"
               flexDirection="column"
-              alignItems="flex-start"
             >
               <WeatherDate />
 
-              <Box mt={5} width={['100%', null, 'auto']}>
-                <Box display="flex" alignItems="center">
-                  <Button color="primary" ml="-12px">Next</Button>
-
-                  <IconButton ml="auto" edge="end" label="Open Popup">
-                    <RiMenu3Line />
-                  </IconButton>
-                </Box>
-
-                <Divider decorative />
-
-                <Box>
-                  <Box mb={3}>
-                    <Typography variant="subtitle1" component="span" mr={2}>16:30h</Typography>
-
-                    <Typography variant="body1" component="span" fontWeight="bold">Stay at Bohem Art Hotel</Typography>
-                  </Box>
-
-                  <Box>
-                    <Typography variant="subtitle1" component="span" mr={2}>16:30h</Typography>
-
-                    <Typography variant="body1" component="span" fontWeight="bold">Stay at Bohem Art Hotel</Typography>
-                  </Box>
-                </Box>
+              <Box mt={5}>
+                <Todos />
               </Box>
             </Box>
 

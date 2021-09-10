@@ -13,7 +13,7 @@ describe('<IconButton />', () => {
   const children: ReactChild = 'IconButton';
 
   it('should render a children', () => {
-    renderWithProviders(<IconButton>{children}</IconButton>);
+    renderWithProviders(<IconButton label={children}><svg /></IconButton>);
 
     expect(screen.getByText(children)).toBeDefined();
   });

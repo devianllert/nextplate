@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { createContext } from '@/common/utils/createContext';
+import { createContext } from '@/modules/core/react/createContext';
 
 const MODAL_NAME = 'Modal';
 

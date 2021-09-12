@@ -3,6 +3,7 @@ import format from 'date-fns/format';
 
 import { Box } from '@/common/components/system/Box';
 import { Typography } from '@/common/components/system/Typography';
+import { useInterval } from '@/common/hooks/useInterval';
 
 const DATE_UPDATE_TIMEOUT = 30 * 1000;
 
@@ -17,13 +18,7 @@ const formatTime = (date: Date) => {
 export const WeatherDate = (): JSX.Element => {
   const [date, setDate] = React.useState(new Date());
 
-  React.useEffect(() => {
-    const timer = setInterval(() => setDate(new Date()), DATE_UPDATE_TIMEOUT);
-
-    return () => {
-      clearTimeout(timer);
-    };
-  }, []);
+  useInterval(() => setDate(new Date()), DATE_UPDATE_TIMEOUT);
 
   const formattedTime = formatTime(date);
 

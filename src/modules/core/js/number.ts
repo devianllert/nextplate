@@ -19,4 +19,24 @@ export const clamp = (value: number, min = 0, max = 1): number => {
  */
 export const random = (min: number, max: number): number => Math.floor(Math.random() * (max - min)) + min;
 
-export default random;
+/**
+ * Convert a value to percentage based on lower and upper bound values
+ *
+ * @param value the value in number
+ * @param min the minimum value
+ * @param max the maximum value
+ */
+export const valueToPercent = (value: number, min: number, max: number): number => {
+  return ((value - min) * 100) / (max - min);
+};
+
+/**
+ * Calculate the value based on percentage, lower and upper bound values
+ *
+ * @param percent the percent value in decimals (e.g 0.6, 0.3)
+ * @param min the minimum value
+ * @param max the maximum value
+ */
+export const percentToValue = (percent: number, min: number, max: number): number => {
+  return (max - min) * percent + min;
+};

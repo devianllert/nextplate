@@ -1,20 +1,13 @@
-import isPlainObject from 'lodash.isplainobject';
-import map from 'lodash.map';
-import size from 'lodash.size';
+import { isObject } from './assertion';
 import { GenericObject } from '../data/types/GenericObject';
 
 /**
  * Replace all occurrences in a string.
  *
- * Meant to be used with string that contain "dynamic" data, such as "Hello {name}", where "name" is meant to be a variable
+ * Meant to be used with string that contain "dynamic" data, such as "Hello {name}",
+ * where "name" is meant to be a variable
  *
  * @example replaceAllOccurrences('Hello {name}', { name: 'Unly' }) => "Hello Unly"
- *
- * @param initialString
- * @param variables
- * @param {string} prefix
- * @param {string} suffix
- * @return {string}
  */
 export const replaceAllOccurrences = (
   initialString: string,
@@ -24,16 +17,15 @@ export const replaceAllOccurrences = (
 ): string => {
   if (
     typeof initialString === 'string'
-    && size(initialString)
-    && isPlainObject(variables)
-    && size(Object.keys(variables))
+    && initialString.length
+    && isObject(variables)
+    && Object.keys(variables).length
   ) {
     let replacedString = initialString;
 
     // For each key to replace, replace it by its matching value, in the initial string
-    map(variables, (value: string, key: string) => {
+    Object.entries(variables).forEach(([key, replacement]) => {
       const needle = `${prefix}${key}${suffix}`;
-      const replacement = variables[key];
       const re = new RegExp(needle, 'gi');
 
       replacedString = replacedString.replace(re, replacement);
@@ -53,7 +45,7 @@ export const replaceAllOccurrences = (
  * @param string
  */
 export const removeTrailingSlash = (string: string): string => {
-  if (string[size(string) - 1] === '/') {
+  if (string[string.length - 1] === '/') {
     return string.slice(0, -1);
   }
 

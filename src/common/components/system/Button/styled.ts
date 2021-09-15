@@ -88,7 +88,6 @@ export const ButtonRoot = styled(ButtonBase)<ButtonRootProps>(
 
     ...(props.variant === 'contained' && {
       color: getContrastText(theme.rawColors.radix[`${props.color}9`]),
-      // color: getContrastText(theme.rawColors.radix[`${props.color}9`]),
       backgroundColor: theme.colors.radix[`${props.color}9`],
       boxShadow: shadows[2],
 

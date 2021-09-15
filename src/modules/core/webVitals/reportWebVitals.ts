@@ -1,4 +1,3 @@
-import size from 'lodash.size';
 // XXX Use v1 for uniqueness - See https://www.sohamkamani.com/blog/2016/10/05/uuid1-vs-uuid4/
 import { v1 as uuid } from 'uuid';
 import { NextWebVitalsMetrics } from './types/NextWebVitalsMetrics';
@@ -31,7 +30,7 @@ export function reportWebVitals(metrics: NextWebVitalsMetrics): void {
   const { name } = metrics;
   const count = globalWebVitalsMetric.reportedCount;
   globalWebVitalsMetric.metrics[name] = metrics;
-  const keysLength = size(Object.keys(globalWebVitalsMetric.metrics));
+  const keysLength = Object.keys(globalWebVitalsMetric.metrics).length;
 
   // Temporise analytics API calls by waiting for at least 5 metrics to be received before sending the first report
   // (because 3 metrics will be received upon initial page load, and then 2 more upon first click)

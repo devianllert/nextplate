@@ -1,6 +1,4 @@
 import * as React from 'react';
-import size from 'lodash.size';
-import some from 'lodash.some';
 
 export type DisplayOnBrowserMountProps = {
   children: React.ReactNode;
@@ -51,9 +49,9 @@ export type DisplayOnBrowserMountProps = {
 export const DisplayOnBrowserMount = (props: DisplayOnBrowserMountProps): JSX.Element | null => {
   const { children, deps = [] } = props;
   // If any dep isn't defined, then it will render "null" first, and then trigger a re-render
-  const isAnyDepsNullish = size(deps)
+  const isAnyDepsNullish = deps.length
     // If any deps was provided, check if any is null-ish
-    ? some(deps, (dependency: unknown): boolean => dependency === null || typeof dependency === 'undefined')
+    ? deps.some(((dependency: unknown): boolean => dependency === null || typeof dependency === 'undefined'))
     // If no dep is provided, then it should render "null" first anyway, and then trigger a re-render
     : true;
 

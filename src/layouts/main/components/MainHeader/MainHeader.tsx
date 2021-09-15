@@ -1,5 +1,6 @@
 import * as React from 'react';
 import Link from 'next/link';
+import { RiSunLine, RiMoonLine } from 'react-icons/ri';
 import { useColorMode } from 'theme-ui';
 import Timeago from 'timeago-react';
 import { useTranslation } from 'next-i18next';
@@ -9,8 +10,8 @@ import ru from 'timeago.js/lib/lang/ru';
 import { APP_TITLE } from '@/modules/core/meta/meta';
 import { Typography } from '@/common/components/system/Typography';
 import { Inline } from '@/common/components/system/Inline';
-import { Button } from '@/common/components/system/Button';
 import { Container } from '@/common/components/system/Container';
+import { IconButton } from '@/common/components/system/IconButton';
 import { DisplayOnBrowserMount } from '@/common/components/rehydration/DisplayOnBrowserMount';
 
 import * as S from './styled';
@@ -41,13 +42,13 @@ export const MainHeader = (): JSX.Element => {
               />
             </Typography>
 
-            <Button
+            <IconButton
               color="gray"
               type="button"
               onClick={() => setColorMode(colorMode === 'dark' ? 'default' : 'dark')}
             >
-              {colorMode === 'default' ? '🌞' : '🌙'}
-            </Button>
+              {colorMode === 'default' ? <RiSunLine /> : <RiMoonLine />}
+            </IconButton>
           </Inline>
         </DisplayOnBrowserMount>
       </S.MainHeaderRoot>

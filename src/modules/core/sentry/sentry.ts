@@ -1,6 +1,5 @@
 import { NextApiRequest } from 'next';
 import * as Sentry from '@sentry/nextjs';
-import map from 'lodash.map';
 
 import isBrowser from '@/common/utils/isBrowser';
 
@@ -110,11 +109,11 @@ export const configureReq = (req: NextApiRequest, tags?: Record<string, string>,
     scope.setContext('headers', req?.headers);
     scope.setContext('parsedBody', parsedBody);
 
-    map(tags, (value: string, tag: string) => {
+    Object.entries(tags ?? {}).forEach(([tag, value]) => {
       scope.setTag(tag, value);
     });
 
-    map(contexts, (value: Record<string, unknown>, context: string) => {
+    Object.entries(contexts ?? {}).forEach(([context, value]) => {
       scope.setContext(context, value);
     });
   });

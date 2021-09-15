@@ -1,8 +1,6 @@
 import * as React from 'react';
 import * as Sentry from '@sentry/nextjs';
 import Head from 'next/head';
-import isEmpty from 'lodash.isempty';
-import size from 'lodash.size';
 import { ThemeProvider } from 'theme-ui';
 import { appWithTranslation, useTranslation } from 'next-i18next';
 import { QueryClient, QueryClientProvider } from 'react-query';
@@ -21,6 +19,7 @@ import { theme } from '@/common/design/themes';
 import { createLogger } from '@/modules/core/logging/logger';
 import { REACT_QUERY_STATE_PROP_NAME } from '@/modules/core/rquery/react-query';
 import { NProgressRoot } from '@/modules/core/router/NProgress';
+import { isEmpty } from '@/modules/core/js/assertion';
 
 import { MultiversalAppBootstrapProps } from '../types/MultiversalAppBootstrapProps';
 import BrowserPageBootstrap, { BrowserPageBootstrapProps } from './BrowserPageBootstrap';
@@ -136,7 +135,7 @@ const MultiversalAppBootstrap = (props: Props): JSX.Element => {
     const dataset = deserializeSafe<Record<string, unknown>>(serializedDataset);
 
     if (process.env.NEXT_PUBLIC_APP_STAGE !== 'production' && isBrowser()) {
-      logger.debug(`pageProps.dataset (${size(Object.keys(dataset))} items)`, dataset);
+      logger.debug(`pageProps.dataset (${Object.keys(dataset).length} items)`, dataset);
     }
 
     /*

@@ -1,6 +1,5 @@
 import * as Sentry from '@sentry/nextjs';
 import StringifySafe from 'json-stringify-safe';
-import startsWith from 'lodash.startswith';
 
 import isBrowser from '@/common/utils/isBrowser';
 
@@ -73,7 +72,7 @@ export const decodeQueryParameterToJSON = (query: string): GenericObject => {
  * @param fallbackValue
  */
 export const filterExternalAbsoluteUrl = (url: string, fallbackValue = '/'): string => {
-  if (typeof url !== 'string' || startsWith(url, '//') || !startsWith(url, '/')) {
+  if (typeof url !== 'string' || url.startsWith('//') || !url.startsWith('/')) {
     return fallbackValue;
   } else {
     return url;

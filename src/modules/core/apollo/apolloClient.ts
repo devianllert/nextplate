@@ -1,3 +1,4 @@
+import * as React from 'react';
 import {
   ApolloClient,
   ApolloLink,
@@ -7,7 +8,6 @@ import {
 } from '@apollo/client';
 import merge from 'deepmerge';
 import isEqual from 'lodash.isequal';
-import { useMemo } from 'react';
 
 export const APOLLO_STATE_PROP_NAME = '__APOLLO_STATE__';
 
@@ -93,6 +93,8 @@ export function getApolloState(client: ApolloClient<NormalizedCacheObject>): Nor
  */
 export function useApollo<T>(pageProps: T): ApolloClient<NormalizedCacheObject> {
   const state = pageProps[APOLLO_STATE_PROP_NAME];
-  const store = useMemo(() => initializeApollo(state), [state]);
+
+  const store = React.useMemo(() => initializeApollo(state), [state]);
+
   return store;
 }

@@ -37,8 +37,12 @@ export const GlobalStyles = (): JSX.Element => {
         }
 
         ::selection {
-          background-color: ${theme.colors.radix.primary5};
+          background-color: ${theme.colors.radix.primaryA5};
           color: ${theme.colors.radix.primary12};
+        }
+
+        a {
+          color: ${theme.colors.radix.primary11};
         }
 
         /* Make sure images have an alt attribute */

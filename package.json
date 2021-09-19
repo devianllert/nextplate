@@ -28,7 +28,7 @@
     "test:config": "cross-env NODE_ENV=test jest --showConfig",
     "sb": "yarn storybook",
     "prestorybook": "yarn test:generate-output",
-    "storybook": "cross-env STORYBOOK=true start-storybook -h localhost -p 6006 -s ./public",
+    "storybook": "cross-env STORYBOOK=true start-storybook -h localhost -p 6006 -s ./public --no-manager-cache",
     "storybook:build": "build-storybook",
     "storybook:export": "cross-env STORYBOOK=true yarn test:generate-output && build-storybook",
     "sb:upgrade": "npx sb upgrade",

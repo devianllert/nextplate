@@ -11,18 +11,24 @@ export interface ButtonBaseProps extends SpaceProps {
    * The content of the component.
    */
   children?: React.ReactNode;
+
   /**
-   * Convert button to link
+   * Convert button to link.
+   *
    * @default undefined
    */
   href?: string;
+
   /**
    * The component used to render a link when the `href` prop is provided.
+   *
    * @default 'a'
    */
   LinkComponent?: React.ElementType;
+
   /**
    * If `true`, the component is disabled.
+   *
    * @default false
    */
   disabled?: boolean;

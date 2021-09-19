@@ -50,7 +50,7 @@ export const IconButton: OverridableComponent<IconButtonTypeMap> = React.forward
     children,
     edge = false,
     size = 'medium',
-    color = 'primary',
+    color = 'gray',
     label,
     ...other
   } = props;

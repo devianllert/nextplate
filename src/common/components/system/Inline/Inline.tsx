@@ -37,7 +37,7 @@ export const Inline: OverridableComponent<InlineTypeMap> = React.forwardRef(func
   const {
     component = 'div',
     children,
-    space = 8,
+    space = 2,
     alignY = 'inherit',
     flexDirection = 'row',
   } = props;

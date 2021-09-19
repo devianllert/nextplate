@@ -9,7 +9,6 @@ import { VisuallyHidden } from '@/components/system/VisuallyHidden';
 import * as S from './styled';
 
 export interface IconButtonProps extends ButtonBaseProps {
-  children: React.ReactNode;
   /**
    * If given, uses a negative margin to counteract the padding on one
    * side (this is often helpful for aligning the left or right
@@ -19,6 +18,7 @@ export interface IconButtonProps extends ButtonBaseProps {
    * @default false
    */
   edge?: 'end' | 'start' | false;
+
   /**
    * The size of the component.
    * `small` is equivalent to the dense button styling.
@@ -26,17 +26,26 @@ export interface IconButtonProps extends ButtonBaseProps {
    * @default 'medium'
    */
   size?: 'small' | 'medium' | 'large';
+
   /**
    * The color of the component. It supports those theme colors that make sense for this component.
    *
    * @default 'primary'
    */
   color?: string;
+
   /**
    * The accessible label for the icon. This label will be visually hidden but announced to screen
    * reader users, similar to `alt` text for `img` tags.
    */
   label?: string;
+
+  /**
+   * The variant to use.
+   *
+   * @default 'circle'
+   */
+  variant?: 'round' | 'circle';
 }
 
 // eslint-disable-next-line @typescript-eslint/ban-types
@@ -51,12 +60,13 @@ export const IconButton: OverridableComponent<IconButtonTypeMap> = React.forward
     edge = false,
     size = 'medium',
     color = 'gray',
+    variant = 'circle',
     label,
     ...other
   } = props;
 
   return (
-    <S.IconButtonRoot edge={edge} size={size} color={color} {...other} ref={ref}>
+    <S.IconButtonRoot edge={edge} size={size} color={color} variant={variant} {...other} ref={ref}>
       {React.cloneElement(children as React.ReactElement, {
         'aria-hidden': true,
         focusable: false,

@@ -33,7 +33,7 @@ export const IconButtonRoot = styled(ButtonBase)<IconButtonRootProps>((props) =>
   },
 
   '&:focus-visible': {
-    boxShadow: `0 0 0 1px ${props.theme.colors.radix[`${props.color}7`]}, inset 0 0 0 1px ${props.theme.colors.radix[`${props.color}7`]}`,
+    boxShadow: `0 0 0 1px ${props.theme.colors.radix[`${props.color}A7`]}, inset 0 0 0 1px ${props.theme.colors.radix[`${props.color}A7`]}`,
   },
 
   '&:active': {

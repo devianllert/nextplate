@@ -25,7 +25,7 @@ const lightColors = {
   },
   background: {
     primary: 'white',
-    secondary: gray.gray3,
+    secondary: gray.gray2,
   },
   status: {
     success: transformColorScale(green),

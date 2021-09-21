@@ -25,7 +25,7 @@ const darkColors = {
   },
   background: {
     primary: grayDark.gray1,
-    secondary: grayDark.gray3,
+    secondary: grayDark.gray2,
   },
   status: {
     success: transformColorScale(greenDark),

@@ -57,7 +57,7 @@ export interface ButtonProps extends SpaceProps {
   variant?: 'text' | 'outlined' | 'contained';
 
   /**
-   * The variant to use.
+   * The color of the button.
    *
    * @default 'primary'
    */

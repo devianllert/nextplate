@@ -45,6 +45,10 @@ export const GlobalStyles = (): JSX.Element => {
           color: ${theme.colors.radix.primary11};
         }
 
+        *:focus {
+          outline: 2px solid ${theme.colors.radix.gray8};
+        }
+
         /* Make sure images have an alt attribute */
         img:not([alt]) {
           border: 5px dashed red;

@@ -49,6 +49,7 @@
     "skipLibCheck": true,
     "sourceMap": true,
     "alwaysStrict": true,
+    "strictNullChecks": true,
     "strict": true,
     "noImplicitAny": false,
     "strictBindCallApply": true,

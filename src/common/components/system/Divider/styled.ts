@@ -13,13 +13,13 @@ export interface DividerRootProps {
 export const DividerRoot = styled.hr<DividerRootProps>((props) => ({
   boxSizing: 'border-box',
   flexShrink: 0,
-  color: props.theme.colors.radix.gray6,
+  color: props.theme.colors.radix.grayA6,
   marginTop: getSpace(spacings, props.space),
   marginBottom: getSpace(spacings, props.space),
   border: 0,
   borderStyle: 'solid',
   borderBottomWidth: 'thin',
-  borderColor: props.theme.colors.radix.gray6,
+  borderColor: props.theme.colors.radix.grayA6,
 
   ...(props.orientation === 'vertical' && {
     marginTop: 0,

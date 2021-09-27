@@ -60,6 +60,6 @@ export const IconButtonRoot = styled(ButtonBase)<IconButtonRootProps>((props) =>
 
   '&:disabled': {
     backgroundColor: 'transparent',
-    color: props.theme.colors.radix.gray11,
+    color: props.theme.colors.text.disabled,
   },
 }));

@@ -1,7 +1,6 @@
 import { useTranslation } from 'next-i18next';
 import Head from 'next/head';
 import Link from 'next/link';
-import { Input } from 'theme-ui';
 
 import { getAppTitle } from '@/modules/core/meta/meta';
 import { OnlyBrowserPageProps } from '@/layouts/core/types/OnlyBrowserPageProps';
@@ -14,6 +13,8 @@ import { getTranslationsStaticProps } from '@/layouts/core/SSG';
 import { AuthLayout } from '@/layouts/auth/components/AuthLayout';
 import { Typography } from '@/common/components/system/Typography';
 import { Box } from '@/common/components/system/Box';
+import { Input } from '@/common/components/system/Input';
+import { Inline } from '@/common/components/system/Inline';
 
 const logger = createLogger('Login');
 
@@ -50,17 +51,20 @@ const LoginPage: EnhancedNextPage<Props> = (): JSX.Element => {
         maxWidth="440px"
         width="100%"
         padding="32px"
-        background="white"
+        backgroundColor="background.secondary"
         borderRadius="4px"
         boxShadow={2}
         zIndex={1}
       >
-        <Typography variant="h4" component="h1">{t('login')}</Typography>
+        <Typography variant="h4" component="h1" mb={4} display="block">{t('login')}</Typography>
 
-        <Input placeholder={t('form.email')} mb={2} mt={4} />
-        <Input placeholder={t('form.password')} mb={2} />
+        <Inline flexDirection="column">
+          <Input id="email" name="email" type="email" label={t('form.email')} fullWidth />
 
-        <Button variant="contained" fullWidth disableElevation>{t('login')}</Button>
+          <Input id="password" name="password" type="password" label={t('form.password')} fullWidth />
+
+          <Button variant="contained" fullWidth disableElevation>{t('login')}</Button>
+        </Inline>
 
         <Typography variant="body2">
           {t('needAccount')}

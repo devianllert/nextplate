@@ -1,7 +1,7 @@
 import React from 'react';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
-import { Input } from 'theme-ui';
+import { RiMapPinLine, RiSearchLine } from 'react-icons/ri';
 
 import { getAppTitle } from '@/modules/core/meta/meta';
 import { OnlyBrowserPageProps } from '@/layouts/core/types/OnlyBrowserPageProps';
@@ -12,7 +12,10 @@ import { EnhancedNextPage } from '@/layouts/core/types/EnhancedNextPage';
 import { getTranslationsStaticProps } from '@/layouts/core/SSG';
 import { Typography } from '@/common/components/system/Typography';
 import { Box } from '@/common/components/system/Box';
+import { Input } from '@/common/components/system/Input';
 import { WeatherLayout } from '@/layouts/weather/components/WeatherLayout';
+import { InputAdornment } from '@/common/components/system/Input/InputAdornment';
+import { IconButton } from '@/common/components/system/IconButton';
 
 const logger = createLogger('Weather');
 
@@ -41,8 +44,10 @@ const WeatherSearchPage: EnhancedNextPage<Props> = (): JSX.Element => {
 
   const [text, setText] = React.useState('');
 
-  const onSearch = async (event: React.FormEvent<HTMLFormElement>) => {
+  const onSearch = async (event: React.FormEvent<HTMLFormElement> | React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
+
+    if (!text.trim()) return;
 
     await router.push(`/weather/${text}`);
   };
@@ -66,17 +71,31 @@ const WeatherSearchPage: EnhancedNextPage<Props> = (): JSX.Element => {
         <Typography variant="h1" component="h1">Weather</Typography>
 
         <Box
+          component="form"
           maxWidth="440px"
           width="100%"
-          background="white"
-          borderRadius="4px"
           mt={8}
-          boxShadow={2}
-          zIndex={1}
+          onSubmit={onSearch}
         >
-          <form onSubmit={onSearch}>
-            <Input color="black" value={text} onChange={(event) => setText(event.currentTarget.value)} placeholder="City, Country" />
-          </form>
+          <Input
+            prefix={(
+              <InputAdornment position="start" disablePointerEvents>
+                <RiMapPinLine />
+              </InputAdornment>
+            )}
+            suffix={(
+              <InputAdornment position="end">
+                <IconButton onClick={onSearch} size="small" edge="end">
+                  <RiSearchLine />
+                </IconButton>
+              </InputAdornment>
+            )}
+            color="black"
+            fullWidth
+            value={text}
+            onChange={(event) => setText(event.currentTarget.value)}
+            placeholder="City, Country"
+          />
         </Box>
       </Box>
     </>

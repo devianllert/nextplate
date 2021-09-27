@@ -1,5 +1,12 @@
 import { useTranslation } from 'next-i18next';
 import Head from 'next/head';
+import {
+  RiAppsLine,
+  RiFlashlightFill,
+  RiGithubFill,
+  RiGroupLine,
+  RiSettings4Line,
+} from 'react-icons/ri';
 
 import { OnlyBrowserPageProps } from '@/layouts/core/types/OnlyBrowserPageProps';
 import { SSGPageProps } from '@/layouts/core/types/SSGPageProps';
@@ -37,7 +44,7 @@ const IndexPage: EnhancedNextPage<Props> = (): JSX.Element => {
 
       <Box
         position="relative"
-        backgroundColor="radix.gray3"
+        backgroundColor="background.secondary"
         backgroundImage="url(/static/images/circle-scatter.svg)"
         backgroundRepeat="no-repeat"
         backgroundSize="100% 100%"
@@ -71,6 +78,7 @@ const IndexPage: EnhancedNextPage<Props> = (): JSX.Element => {
                 component="a"
                 target="_blank"
                 href="https://github.com/devianllert/next-boilerplate"
+                endIcon={<RiGithubFill size={16} />}
               >
                 Github
               </Button>
@@ -115,7 +123,20 @@ const IndexPage: EnhancedNextPage<Props> = (): JSX.Element => {
 
           <Box display="grid" gridTemplateColumns={['repeat(1, minmax(0, 1fr))', 'repeat(2, minmax(0, 1fr))', 'repeat(4, minmax(0, 1fr))']} gridGap={4}>
             <Box>
-              <Typography variant="h6" component="span" display="block" mb={2}>Performant</Typography>
+              <Box
+                width={32}
+                height={32}
+                borderRadius="50%"
+                display="flex"
+                alignItems="center"
+                justifyContent="center"
+                backgroundColor="radix.primaryA5"
+                color="radix.primaryA11"
+              >
+                <RiFlashlightFill />
+              </Box>
+
+              <Typography variant="h6" component="span" display="block" my={2}>Performant</Typography>
 
               <Typography variant="body1" component="span" display="block" color="text.secondary">
                 Next.js gives you the best developer experience with all the features you need for production: hybrid static & server rendering, TypeScript support, smart bundling, route pre-fetching, and more
@@ -123,7 +144,20 @@ const IndexPage: EnhancedNextPage<Props> = (): JSX.Element => {
             </Box>
 
             <Box>
-              <Typography variant="h6" component="span" display="block" mb={2}>Feature-rich</Typography>
+              <Box
+                width={32}
+                height={32}
+                borderRadius="50%"
+                display="flex"
+                alignItems="center"
+                justifyContent="center"
+                backgroundColor="radix.primaryA5"
+                color="radix.primaryA11"
+              >
+                <RiSettings4Line />
+              </Box>
+
+              <Typography variant="h6" component="span" display="block" my={2}>Feature-rich</Typography>
 
               <Typography variant="body1" component="span" display="block" color="text.secondary">
                 Packed full of useful features like Theming (Theme-ui), CSS-in-JS (Emotion), i18n (next-i18next), Testing (Jest), Logging, Monitoring (Sentry), Storybook and a fully-typed API and much more!
@@ -131,7 +165,20 @@ const IndexPage: EnhancedNextPage<Props> = (): JSX.Element => {
             </Box>
 
             <Box>
-              <Typography variant="h6" component="span" display="block" mb={2}>Best-in-class DX</Typography>
+              <Box
+                width={32}
+                height={32}
+                borderRadius="50%"
+                display="flex"
+                alignItems="center"
+                justifyContent="center"
+                backgroundColor="radix.primaryA5"
+                color="radix.primaryA11"
+              >
+                <RiGroupLine />
+              </Box>
+
+              <Typography variant="h6" component="span" display="block" my={2}>Best-in-class DX</Typography>
 
               <Typography variant="body1" component="span" display="block" color="text.secondary">
                 This boilerplate is meant for developers with basic skills in React,
@@ -140,7 +187,19 @@ const IndexPage: EnhancedNextPage<Props> = (): JSX.Element => {
             </Box>
 
             <Box>
-              <Typography variant="h6" component="span" display="block" mb={2}>Built-in demo apps</Typography>
+              <Box
+                width={32}
+                height={32}
+                borderRadius="50%"
+                display="flex"
+                alignItems="center"
+                justifyContent="center"
+                backgroundColor="radix.primaryA5"
+                color="radix.primaryA11"
+              >
+                <RiAppsLine />
+              </Box>
+              <Typography variant="h6" component="span" display="block" my={2}>Built-in demo apps</Typography>
 
               <Typography variant="body1" component="span" display="block" color="text.secondary">
                 This boilerplate has several built-in demo apps that show an example of using the features of this template.

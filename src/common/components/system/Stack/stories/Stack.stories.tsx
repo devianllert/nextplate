@@ -1,15 +1,15 @@
 import * as React from 'react';
 import { Story, Meta } from '@storybook/react';
 
-import { Inline, InlineProps } from '../Inline';
+import { Stack, StackProps } from '../Stack';
 import { Button } from '../../Button';
 
 export default {
   title: 'Design System/Atoms/Inline',
-  component: Inline,
+  component: Stack,
 } as Meta;
 
-const Template: Story<InlineProps> = (args) => <Inline {...args} />;
+const Template: Story<StackProps> = (args) => <Stack {...args} />;
 
 export const Basic = Template.bind({});
 
@@ -22,7 +22,7 @@ Basic.args = {
     </>
   ),
   space: 8,
-  alignY: 'inherit',
+  alignItems: 'inherit',
 };
 
 export const MoreItems = Template.bind({});
@@ -41,5 +41,5 @@ MoreItems.args = {
     </>
   ),
   space: 8,
-  alignY: 'inherit',
+  alignItems: 'inherit',
 };

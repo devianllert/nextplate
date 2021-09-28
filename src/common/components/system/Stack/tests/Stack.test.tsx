@@ -8,16 +8,16 @@ import { renderWithProviders } from '@/modules/core/testing/renderWithProviders'
 
 import { Typography } from '../../Typography';
 
-import { Inline } from '..';
+import { Stack } from '..';
 
-describe('<Inline />', () => {
+describe('<Stack />', () => {
   it('should not render a list by default', () => {
     const { queryAllByRole } = renderWithProviders(
-        <Inline space={8}>
+        <Stack space={8}>
           <Typography>1</Typography>
           <Typography>2</Typography>
           <Typography>3</Typography>
-        </Inline>
+        </Stack>
     );
 
     expect(queryAllByRole('list').length).toBe(0);
@@ -26,11 +26,11 @@ describe('<Inline />', () => {
 
   it('should render a valid unordered list when "component" is "ul"', () => {
     const { getByRole } = renderWithProviders(
-      <Inline component="ul" space={8}>
+      <Stack component="ul" space={8}>
         <Typography>1</Typography>
         <Typography>2</Typography>
         <Typography>3</Typography>
-      </Inline>
+      </Stack>
     );
 
     const list = getByRole('list');
@@ -43,11 +43,11 @@ describe('<Inline />', () => {
 
   it('should render a valid ordered list when "component" is "ol"', () => {
     const { getByRole } = renderWithProviders(
-      <Inline component="ol" space={8}>
+      <Stack component="ol" space={8}>
         <Typography>1</Typography>
         <Typography>2</Typography>
         <Typography>3</Typography>
-      </Inline>
+      </Stack>
     );
 
     const list = getByRole('list');

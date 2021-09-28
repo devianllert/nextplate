@@ -14,7 +14,7 @@ import { AuthLayout } from '@/layouts/auth/components/AuthLayout';
 import { Typography } from '@/common/components/system/Typography';
 import { Box } from '@/common/components/system/Box';
 import { Input } from '@/common/components/system/Input';
-import { Inline } from '@/common/components/system/Inline';
+import { Stack } from '@/common/components/system/Stack';
 
 const logger = createLogger('Login');
 
@@ -59,7 +59,7 @@ const LoginPage: EnhancedNextPage<Props> = (): JSX.Element => {
       >
         <Typography variant="h4" component="h1" mb={4} display="block">{t('login')}</Typography>
 
-        <Inline flexDirection="column">
+        <Stack direction="column">
           <Input
             id="email"
             name="email"
@@ -78,7 +78,7 @@ const LoginPage: EnhancedNextPage<Props> = (): JSX.Element => {
           />
 
           <Button variant="contained" fullWidth disableElevation>{t('login')}</Button>
-        </Inline>
+        </Stack>
 
         <Typography variant="body2">
           {t('needAccount')}

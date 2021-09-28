@@ -14,7 +14,7 @@ import { Typography } from '@/common/components/system/Typography';
 import { Box } from '@/common/components/system/Box';
 import { Input } from '@/common/components/system/Input';
 import { getAppTitle } from '@/modules/core/meta/meta';
-import { Inline } from '@/common/components/system/Inline';
+import { Stack } from '@/common/components/system/Stack';
 
 const logger = createLogger('SignUp');
 
@@ -59,7 +59,7 @@ const SignUpPage: EnhancedNextPage<Props> = (): JSX.Element => {
       >
         <Typography variant="h4" component="h1" mb={4} display="block">{t('signup')}</Typography>
 
-        <Inline flexDirection="column">
+        <Stack direction="column">
           <Input
             id="email"
             name="email"
@@ -92,7 +92,7 @@ const SignUpPage: EnhancedNextPage<Props> = (): JSX.Element => {
           />
 
           <Button variant="contained" fullWidth disableElevation>{t('login')}</Button>
-        </Inline>
+        </Stack>
 
         <Typography variant="body2">
           <Link href="/auth/login">{t('haveAccount')}</Link>

@@ -9,7 +9,7 @@ import ru from 'timeago.js/lib/lang/ru';
 
 import { APP_TITLE } from '@/modules/core/meta/meta';
 import { Typography } from '@/common/components/system/Typography';
-import { Inline } from '@/common/components/system/Inline';
+import { Stack } from '@/common/components/system/Stack';
 import { Container } from '@/common/components/system/Container';
 import { IconButton } from '@/common/components/system/IconButton';
 import { DisplayOnBrowserMount } from '@/common/components/rehydration/DisplayOnBrowserMount';
@@ -32,7 +32,7 @@ export const MainHeader = (): JSX.Element => {
         </Link>
 
         <DisplayOnBrowserMount>
-          <Inline alignY="center" space={3}>
+          <Stack alignItems="center" space={3}>
             <Typography variant="subtitle2" component="span">
               {t('lastUpdate')}:
               {' '}
@@ -49,7 +49,7 @@ export const MainHeader = (): JSX.Element => {
             >
               {colorMode === 'default' ? <RiSunLine /> : <RiMoonLine />}
             </IconButton>
-          </Inline>
+          </Stack>
         </DisplayOnBrowserMount>
       </S.MainHeaderRoot>
     </Container>

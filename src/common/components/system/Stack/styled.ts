@@ -5,14 +5,14 @@ import { createSystem, ResponsiveValue } from '@/modules/core/css-in-js/system';
 import { getSpace } from '@/modules/core/css-in-js/getters';
 import { spacings } from '@/common/design/tokens/spacings';
 
-export interface InlineRootProps {
+export interface StackRootProps {
   marginLeft: ResponsiveValue<number>;
   marginTop: ResponsiveValue<number>;
   alignY: ResponsiveValue<React.CSSProperties['alignItems']>;
   flexDirection: ResponsiveValue<React.CSSProperties['flexDirection']>;
 }
 
-const inlineRootCustomProps = createSystem({
+const stackRootCustomProps = createSystem({
   alignY: {
     properties: ['alignItems'],
     scale: 'alignY',
@@ -26,19 +26,19 @@ const inlineRootCustomProps = createSystem({
   flexDirection: true,
 });
 
-export const InlineRoot = styled.div<InlineRootProps>(
+export const StackRoot = styled.div<StackRootProps>(
   {
     display: 'flex',
     flexWrap: 'wrap',
   },
-  inlineRootCustomProps,
+  stackRootCustomProps,
 );
 
 export interface InlineBoxProps {
   space: ResponsiveValue<number>;
 }
 
-const inlineBoxCustomProps = createSystem({
+const stackBoxCustomProps = createSystem({
   space: {
     properties: ['marginLeft', 'marginTop'],
     scale: 'space',
@@ -46,12 +46,12 @@ const inlineBoxCustomProps = createSystem({
   },
 });
 
-export const InlineBox = styled.div<InlineBoxProps>(
+export const StackBox = styled.div<InlineBoxProps>(
   {
     display: 'flex',
     minWidth: 0,
   },
-  inlineBoxCustomProps,
+  stackBoxCustomProps,
 );
 
 export interface InlineRootAlignerProps {
@@ -67,7 +67,7 @@ const inlineRootAlignerCustomProps = createSystem({
   },
 });
 
-export const InlineRootAligner = styled.div<InlineRootAlignerProps>((props) => ({
+export const StackRootAligner = styled.div<InlineRootAlignerProps>((props) => ({
   padding: 0,
   paddingTop: 1,
   margin: 0,

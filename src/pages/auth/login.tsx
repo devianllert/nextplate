@@ -48,6 +48,7 @@ const LoginPage: EnhancedNextPage<Props> = (): JSX.Element => {
       </Head>
 
       <Box
+        component="form"
         maxWidth="440px"
         width="100%"
         padding="32px"
@@ -59,9 +60,22 @@ const LoginPage: EnhancedNextPage<Props> = (): JSX.Element => {
         <Typography variant="h4" component="h1" mb={4} display="block">{t('login')}</Typography>
 
         <Inline flexDirection="column">
-          <Input id="email" name="email" type="email" label={t('form.email')} fullWidth />
+          <Input
+            id="email"
+            name="email"
+            type="email"
+            label={t('form.email')}
+            fullWidth
+          />
 
-          <Input id="password" name="password" type="password" label={t('form.password')} fullWidth />
+          <Input
+            id="password"
+            name="password"
+            type="password"
+            autoComplete="current-password"
+            label={t('form.password')}
+            fullWidth
+          />
 
           <Button variant="contained" fullWidth disableElevation>{t('login')}</Button>
         </Inline>

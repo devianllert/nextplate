@@ -20,6 +20,7 @@ import { Box } from '@/common/components/system/Box';
 import { Container } from '@/common/components/system/Container';
 import { getTranslationsStaticProps } from '@/layouts/core/SSG';
 import { Typography } from '@/common/components/system/Typography';
+import { Stack } from '@/common/components/system/Stack';
 
 const logger = createLogger('Index');
 
@@ -65,23 +66,23 @@ const IndexPage: EnhancedNextPage<Props> = (): JSX.Element => {
             <Typography variant="h2" align="center" px={[0, 64]}>Start your app with confidence</Typography>
             <Typography variant="h6" component="span" align="center" px={[0, 128]}>Meant to help you build production-grade projects using the Next.js framework</Typography>
 
-            <Box>
-              <Button variant="contained" mt={4} mx={2} component="a" href="#features">
-                Documentation
-              </Button>
+            <Box mt={4}>
+              <Stack direction="row" space={3}>
+                <Button variant="contained" component="a" href="#features">
+                  Documentation
+                </Button>
 
-              <Button
-                variant="text"
-                color="gray"
-                mt={4}
-                mx={2}
-                component="a"
-                target="_blank"
-                href="https://github.com/devianllert/next-boilerplate"
-                endIcon={<RiGithubFill size={16} />}
-              >
-                Github
-              </Button>
+                <Button
+                  variant="text"
+                  color="gray"
+                  component="a"
+                  target="_blank"
+                  href="https://github.com/devianllert/next-boilerplate"
+                  endIcon={<RiGithubFill size={16} />}
+                >
+                  Github
+                </Button>
+              </Stack>
             </Box>
           </Box>
         </Container>

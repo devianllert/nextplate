@@ -147,7 +147,7 @@ export const Modal = React.forwardRef(
         allowPinchZoom={allowPinchZoom}
         preserveScrollBarGap={preserveScrollBarGap}
       >
-        <AnimatePresence>{open && <Portal>{children}</Portal>}</AnimatePresence>
+        <AnimatePresence initial={false}>{open && <Portal>{children}</Portal>}</AnimatePresence>
       </ModalProvider>
     );
   },

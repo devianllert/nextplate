@@ -31,10 +31,10 @@ export const ModalOverlay = React.forwardRef(function ModalOverlay(props: HTMLMo
   const { shouldReduceMotion } = useModalContext('ModalOverlay');
 
   const animationConfig = {
-    initial,
-    exit,
-    animate,
-    transition,
+    initial: shouldReduceMotion ? 'enter' : initial,
+    exit: shouldReduceMotion ? 'enter' : exit,
+    animate: shouldReduceMotion ? 'enter' : animate,
+    transition: shouldReduceMotion ? { duration: 0 } : transition,
     variants,
   };
 
@@ -50,7 +50,7 @@ export const ModalOverlay = React.forwardRef(function ModalOverlay(props: HTMLMo
       background={blackA.blackA9}
       ref={ref}
       zIndex={zIndex.modal}
-      {...(shouldReduceMotion ? {} : animationConfig)}
+      {...animationConfig}
       {...other}
     />
   );

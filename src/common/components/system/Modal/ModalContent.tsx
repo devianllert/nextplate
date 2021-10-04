@@ -66,10 +66,10 @@ export const ModalContent = React.forwardRef(function ModalContent(props: ModalC
   }, []);
 
   const animationConfig = {
-    initial,
-    exit,
-    animate,
-    transition,
+    initial: shouldReduceMotion ? 'enter' : initial,
+    exit: shouldReduceMotion ? 'enter' : exit,
+    animate: shouldReduceMotion ? 'enter' : animate,
+    transition: shouldReduceMotion ? { duration: 0 } : transition,
     variants,
   };
 
@@ -102,7 +102,7 @@ export const ModalContent = React.forwardRef(function ModalContent(props: ModalC
             component={motion.div}
             ref={composedRefs}
             className={className}
-            {...(shouldReduceMotion ? {} : animationConfig)}
+            {...animationConfig}
             {...contentProps}
           >
             {children}

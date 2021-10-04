@@ -1,5 +1,7 @@
 import { useTranslation } from 'next-i18next';
+import Image from 'next/image';
 import Head from 'next/head';
+import Link from 'next/link';
 import {
   RiAppsLine,
   RiFlashlightFill,
@@ -21,6 +23,7 @@ import { Container } from '@/common/components/system/Container';
 import { getTranslationsStaticProps } from '@/layouts/core/SSG';
 import { Typography } from '@/common/components/system/Typography';
 import { Stack } from '@/common/components/system/Stack';
+import { AspectRatio } from '@/common/components/system/AspectRatio';
 
 const logger = createLogger('Index');
 
@@ -35,7 +38,7 @@ const logger = createLogger('Index');
 type Props = SSRPageProps & SSGPageProps<OnlyBrowserPageProps>;
 
 const IndexPage: EnhancedNextPage<Props> = (): JSX.Element => {
-  const { t, i18n } = useTranslation();
+  const { t, i18n } = useTranslation('index');
 
   return (
     <>
@@ -63,13 +66,13 @@ const IndexPage: EnhancedNextPage<Props> = (): JSX.Element => {
             maxWidth="840px"
             mx="auto"
           >
-            <Typography variant="h2" align="center" px={[0, 64]}>Start your app with confidence</Typography>
-            <Typography variant="h6" component="span" align="center" px={[0, 128]}>Meant to help you build production-grade projects using the Next.js framework</Typography>
+            <Typography variant="h2" align="center" px={[0, 64]}>{t('hero.title')}</Typography>
+            <Typography variant="h6" component="span" align="center" px={[0, 128]}>{t('hero.subtitle')}</Typography>
 
             <Box mt={4}>
               <Stack direction="row" space={3}>
                 <Button variant="contained" component="a" href="#features">
-                  Documentation
+                  {t('hero.documentation')}
                 </Button>
 
                 <Button
@@ -119,7 +122,7 @@ const IndexPage: EnhancedNextPage<Props> = (): JSX.Element => {
       <Box py={8} id="features">
         <Container>
           <Typography variant="h4" align="center" mb={8} display="block">
-            Built-in features
+            {t('features.title')}
           </Typography>
 
           <Box display="grid" gridTemplateColumns={['repeat(1, minmax(0, 1fr))', 'repeat(2, minmax(0, 1fr))', 'repeat(4, minmax(0, 1fr))']} gridGap={4}>
@@ -137,10 +140,10 @@ const IndexPage: EnhancedNextPage<Props> = (): JSX.Element => {
                 <RiFlashlightFill />
               </Box>
 
-              <Typography variant="h6" component="span" display="block" my={2}>Performant</Typography>
+              <Typography variant="h6" component="span" display="block" my={2}>{t('features.performant.title')}</Typography>
 
               <Typography variant="body1" component="span" display="block" color="text.secondary">
-                Next.js gives you the best developer experience with all the features you need for production: hybrid static & server rendering, TypeScript support, smart bundling, route pre-fetching, and more
+                {t('features.performant.description')}
               </Typography>
             </Box>
 
@@ -158,10 +161,10 @@ const IndexPage: EnhancedNextPage<Props> = (): JSX.Element => {
                 <RiSettings4Line />
               </Box>
 
-              <Typography variant="h6" component="span" display="block" my={2}>Feature-rich</Typography>
+              <Typography variant="h6" component="span" display="block" my={2}>{t('features.rich.title')}</Typography>
 
               <Typography variant="body1" component="span" display="block" color="text.secondary">
-                Packed full of useful features like Theming (Theme-ui), CSS-in-JS (Emotion), i18n (next-i18next), Testing (Jest), Logging, Monitoring (Sentry), Storybook and a fully-typed API and much more!
+                {t('features.rich.description')}
               </Typography>
             </Box>
 
@@ -179,11 +182,10 @@ const IndexPage: EnhancedNextPage<Props> = (): JSX.Element => {
                 <RiGroupLine />
               </Box>
 
-              <Typography variant="h6" component="span" display="block" my={2}>Best-in-class DX</Typography>
+              <Typography variant="h6" component="span" display="block" my={2}>{t('features.dx.title')}</Typography>
 
               <Typography variant="body1" component="span" display="block" color="text.secondary">
-                This boilerplate is meant for developers with basic skills in React,
-                who are looking for a way of building production-grade web applications.
+                {t('features.dx.description')}
               </Typography>
             </Box>
 
@@ -200,20 +202,91 @@ const IndexPage: EnhancedNextPage<Props> = (): JSX.Element => {
               >
                 <RiAppsLine />
               </Box>
-              <Typography variant="h6" component="span" display="block" my={2}>Built-in demo apps</Typography>
+              <Typography variant="h6" component="span" display="block" my={2}>{t('features.apps.title')}</Typography>
 
               <Typography variant="body1" component="span" display="block" color="text.secondary">
-                This boilerplate has several built-in demo apps that show an example of using the features of this template.
+                {t('features.apps.description')}
               </Typography>
             </Box>
           </Box>
+        </Container>
+      </Box>
+
+      <Box py={8}>
+        <Container>
+          <Typography variant="h4" align="center" mb={8} display="block">
+            {t('features.apps.title')}
+          </Typography>
+
+          <Box display="grid" gridTemplateColumns={['repeat(1, minmax(0, 1fr))', 'repeat(2, minmax(0, 1fr))', 'repeat(2, minmax(0, 1fr))']} gridGap={4}>
+            <Link href="/weather" passHref>
+              <Box display="block" component="a" boxShadow={4}>
+                <Box borderRadius="4px" overflow="hidden" position="relative">
+                  <AspectRatio ratio={16 / 9}>
+                    <Image
+                      objectFit="cover"
+                      objectPosition="top"
+                      layout="fill"
+                      src="/static/images/apps/weather.png"
+                    />
+                  </AspectRatio>
+
+                  <Box
+                    position="absolute"
+                    bottom="0"
+                    left="0"
+                    right="0"
+                    background="linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%)"
+                    px={2}
+                    pb={2}
+                    pt={4}
+                  >
+                    <Typography variant="h6" display="block" color="white">
+                      Weather app
+                    </Typography>
+                  </Box>
+                </Box>
+              </Box>
+            </Link>
+
+            <Link href="/auth/login" passHref>
+              <Box display="block" component="a" boxShadow={4}>
+                <Box borderRadius="4px" overflow="hidden" position="relative">
+                  <AspectRatio ratio={16 / 9}>
+                    <Image
+                      objectFit="cover"
+                      objectPosition="center"
+                      layout="fill"
+                      src={`/static/images/apps/${i18n.language}/auth.png`}
+                    />
+                  </AspectRatio>
+
+                  <Box
+                    position="absolute"
+                    bottom="0"
+                    left="0"
+                    right="0"
+                    background="linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%)"
+                    px={2}
+                    pb={2}
+                    pt={4}
+                  >
+                    <Typography variant="h6" display="block" color="white">
+                      Auth app
+                    </Typography>
+                  </Box>
+                </Box>
+              </Box>
+            </Link>
+          </Box>
+
         </Container>
       </Box>
     </>
   );
 };
 
-export const getStaticProps = getTranslationsStaticProps(['common']);
+export const getStaticProps = getTranslationsStaticProps(['common', 'index']);
 
 IndexPage.Layout = MainLayout;
 

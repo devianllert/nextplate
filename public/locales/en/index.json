@@ -1,0 +1,26 @@
+{
+  "hero": {
+    "title": "Start your app with confidence",
+    "subtitle": "Meant to help you build production-grade projects using the Next.js framework",
+    "documentation": "Documentation"
+  },
+  "features": {
+    "title": "Built-in features",
+    "performant": {
+      "title": "Performant",
+      "description": "Next.js gives you the best developer experience with all the features you need for production: hybrid static & server rendering, TypeScript support, smart bundling, route pre-fetching, and more"
+    },
+    "rich": {
+      "title": "Feature-rich",
+      "description": "Packed full of useful features like Theming (Theme-ui), CSS-in-JS (Emotion), i18n (next-i18next), Testing (Jest), Logging, Monitoring (Sentry), Storybook and a fully-typed API and much more!"
+    },
+    "dx": {
+      "title": "Best-in-class DX",
+      "description": "This boilerplate is meant for developers with basic skills in React, who are looking for a way of building production-grade web applications."
+    },
+    "apps": {
+      "title": "Built-in demo apps",
+      "description": "This boilerplate has several built-in demo apps that show an example of using the features of this template."
+    }
+  }
+}

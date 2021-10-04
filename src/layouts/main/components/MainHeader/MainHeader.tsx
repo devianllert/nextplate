@@ -8,6 +8,7 @@ import * as timeago from 'timeago.js';
 import ru from 'timeago.js/lib/lang/ru';
 
 import { APP_TITLE } from '@/modules/core/meta/meta';
+
 import { Typography } from '@/common/components/system/Typography';
 import { Stack } from '@/common/components/system/Stack';
 import { Container } from '@/common/components/system/Container';
@@ -28,7 +29,7 @@ export const MainHeader = (): JSX.Element => {
     <Container>
       <S.MainHeaderRoot>
         <Link href="/" passHref>
-          <Typography variant="h6" component="a">{APP_TITLE}-app</Typography>
+          <Typography variant="h6" component="a">{APP_TITLE}</Typography>
         </Link>
 
         <DisplayOnBrowserMount>

@@ -113,6 +113,12 @@ module.exports = withSentryConfig(
 
       ...i18nConfig,
 
+      images: {
+        domains: [
+          'images.unsplash.com',
+        ],
+      },
+
       /**
        * Environment variables added to JS bundle
        *

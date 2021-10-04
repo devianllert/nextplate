@@ -1,6 +1,11 @@
 import * as React from 'react';
-import styled from '@emotion/styled';
-import { keyframes } from '@emotion/react';
+import { useRouter } from 'next/router';
+import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
+
+import { Box } from '@/common/components/system/Box';
+import { Container } from '@/common/components/system/Container';
+
+import { duration } from '@/common/design/tokens/transitions';
 
 import * as S from './styled';
 
@@ -11,72 +16,43 @@ interface AuthContentProps {
   children: React.ReactNode;
 }
 
-const AnimContainer = styled.div({
-  zIndex: 0,
-  position: 'absolute',
-  top: '50%',
-  left: '50%',
-  transform: 'translate(-50%, -50%)',
-  maxWidth: 420,
-  width: '100%',
-  height: 320,
-});
-
-const blob = keyframes({
-  '0%': {
-    transform: 'translate(0, 0) scale(1)',
-  },
-  '33%': {
-    transform: 'translate(30px, -50px) scale(1.1)',
-  },
-  '66%': {
-    transform: 'translate(-30px, 50px) scale(0.9)',
-  },
-  '100%': {
-    transform: 'translate(0, 0) scale(1)',
-  },
-});
-
-interface ShapeProps {
-  top?: number | string;
-  left?: number | string;
-  right?: number | string;
-  bottom?: number | string;
-  color?: string;
-  delay?: string;
-}
-
-const Shape = styled.div<ShapeProps>((props) => ({
-  position: 'absolute',
-  top: props.top,
-  left: props.left,
-  right: props.right,
-  bottom: props.bottom,
-  width: 240,
-  height: 240,
-  background: props.color,
-  opacity: 0.5,
-  borderRadius: '50%',
-  mixBlendMode: 'multiply',
-  filter: 'blur(24px)',
-  animation: `${blob} 7s infinite`,
-  animationDelay: props.delay,
-}));
+const variants = {
+  hidden: { opacity: 0, scale: 0.5 },
+  enter: { opacity: 1, scale: 1 },
+  exit: { opacity: 0, scale: 0.5 },
+  transition: { type: 'spring', bounce: 0, duration: duration.short / 1000 },
+};
 
 export const AuthContent = (props: AuthContentProps): JSX.Element => {
   const {
     children,
   } = props;
 
+  const router = useRouter();
+
+  const shouldReduceMotion = useReducedMotion() ?? false;
+
   return (
     <S.Content>
-      <AnimContainer>
-        <Shape top={0} left={0} color="purple" />
-        <Shape top={0} right={-24} color="yellow" delay="2s" />
-        <Shape bottom={24} left={128} color="red" delay="4s" />
-      </AnimContainer>
-
-      {children}
+      <Container>
+        <AnimatePresence exitBeforeEnter initial={false}>
+          <Box
+            display="flex"
+            flexDirection="column"
+            alignItems="center"
+            width="100%"
+            component={motion.div}
+            key={router.route}
+            variants={variants}
+            initial={shouldReduceMotion ? 'enter' : 'hidden'}
+            animate={shouldReduceMotion ? 'enter' : 'enter'}
+            exit={shouldReduceMotion ? 'enter' : 'exit'}
+            transition={shouldReduceMotion ? { duration: 0 } : variants.transition}
+          >
+            {children}
+          </Box>
+        </AnimatePresence>
+      </Container>
     </S.Content>
   );
 };

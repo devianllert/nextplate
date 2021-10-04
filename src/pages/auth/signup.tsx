@@ -1,6 +1,7 @@
 import { useTranslation } from 'next-i18next';
 import Head from 'next/head';
 import Link from 'next/link';
+import { RiEyeLine, RiEyeOffLine } from 'react-icons/ri';
 
 import { OnlyBrowserPageProps } from '@/layouts/core/types/OnlyBrowserPageProps';
 import { SSGPageProps } from '@/layouts/core/types/SSGPageProps';
@@ -12,9 +13,11 @@ import { getTranslationsStaticProps } from '@/layouts/core/SSG';
 import { AuthLayout } from '@/layouts/auth/components/AuthLayout';
 import { Typography } from '@/common/components/system/Typography';
 import { Box } from '@/common/components/system/Box';
-import { Input } from '@/common/components/system/Input';
+import { Input, InputAdornment } from '@/common/components/system/Input';
 import { getAppTitle } from '@/modules/core/meta/meta';
 import { Stack } from '@/common/components/system/Stack';
+import { useBoolean } from '@/common/hooks/useBoolean';
+import { IconButton } from '@/common/components/system/IconButton';
 
 const logger = createLogger('SignUp');
 
@@ -41,6 +44,8 @@ type Props = (SSRPageProps & SSGPageProps<OnlyBrowserPageProps>);
 const SignUpPage: EnhancedNextPage<Props> = (): JSX.Element => {
   const { t } = useTranslation('auth');
 
+  const [show, toggleShow] = useBoolean(false);
+
   return (
     <>
       <Head>
@@ -51,47 +56,60 @@ const SignUpPage: EnhancedNextPage<Props> = (): JSX.Element => {
         component="form"
         maxWidth="440px"
         width="100%"
-        padding="32px"
-        backgroundColor="background.secondary"
-        borderRadius="4px"
-        boxShadow={2}
-        zIndex={1}
       >
-        <Typography variant="h4" component="h1" mb={4} display="block">{t('signup')}</Typography>
+        <Typography variant="h3" component="h1" mb={4} display="block">{t('signup')}</Typography>
 
         <Stack direction="column">
           <Input
             id="email"
             name="email"
             type="email"
-            label={t('form.email')}
+            placeholder={t('form.email.placeholder')}
+            label={t('form.email.label')}
             fullWidth
           />
           <Input
             id="name"
             name="name"
+            placeholder={t('form.name.placeholder')}
             autoComplete="username"
-            label={t('form.name')}
+            label={t('form.name.label')}
             fullWidth
           />
           <Input
             id="password"
             name="password"
-            type="password"
+            type={show ? 'text' : 'password'}
+            suffix={(
+              <InputAdornment>
+                <IconButton onClick={() => toggleShow()} size="small">
+                  {show ? <RiEyeLine /> : <RiEyeOffLine />}
+                </IconButton>
+              </InputAdornment>
+            )}
+            placeholder={t('form.password.placeholder')}
             autoComplete="new-password"
-            label={t('form.password')}
+            label={t('form.password.label')}
             fullWidth
           />
           <Input
             id="confirmPassword"
-            type="password"
+            type={show ? 'text' : 'password'}
             autoComplete="new-password"
+            placeholder={t('form.confirmPassword.placeholder')}
+            suffix={(
+              <InputAdornment>
+                <IconButton onClick={() => toggleShow()} size="small">
+                  {show ? <RiEyeLine /> : <RiEyeOffLine />}
+                </IconButton>
+              </InputAdornment>
+            )}
             name="confirmPassword"
-            label={t('form.confirmPassword')}
+            label={t('form.confirmPassword.label')}
             fullWidth
           />
 
-          <Button variant="contained" fullWidth disableElevation>{t('login')}</Button>
+          <Button variant="contained" fullWidth disableElevation>{t('signup')}</Button>
         </Stack>
 
         <Typography variant="body2">

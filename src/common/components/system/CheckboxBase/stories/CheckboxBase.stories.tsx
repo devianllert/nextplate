@@ -4,7 +4,7 @@ import { Story, Meta } from '@storybook/react';
 import { CheckboxBase, CheckboxBaseProps } from '../CheckboxBase';
 
 export default {
-  title: 'Components/CheckboxBase',
+  title: 'Design System/Atoms/CheckboxBase',
   component: CheckboxBase,
 } as Meta;
 

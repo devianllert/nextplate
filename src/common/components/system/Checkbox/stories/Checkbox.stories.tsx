@@ -3,10 +3,9 @@ import { Story, Meta } from '@storybook/react';
 
 import { Checkbox, CheckboxProps } from '../Checkbox';
 import { Box } from '../../Box';
-import { Typography } from '../../Typography';
 
 export default {
-  title: 'Components/Checkbox',
+  title: 'Design System/Atoms/Checkbox',
   component: Checkbox,
 } as Meta;
 

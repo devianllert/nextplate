@@ -6,10 +6,10 @@ import { RemoveScroll } from 'react-remove-scroll';
 
 import { duration } from '@/common/design/tokens/transitions';
 import { zIndex } from '@/common/design/tokens/zIndex';
-
-import { Box } from '../Box';
-import { useModalContext } from './ModalContext';
+import { Box } from '@/common/components/system/Box';
 import { useComposedRefs } from '@/modules/core/react/composeRefs';
+
+import { useModalContext } from './ModalContext';
 
 const content = {
   enter: { opacity: 1, scale: 1 },

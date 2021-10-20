@@ -4,10 +4,10 @@ import { HTMLMotionProps, motion } from 'framer-motion';
 import { blackA } from '@radix-ui/colors';
 
 import { duration } from '@/common/design/tokens/transitions';
+import { zIndex } from '@/common/design/tokens/zIndex';
+import { Box } from '@/common/components/system/Box';
 
 import { useModalContext } from './ModalContext';
-import { Box } from '../Box';
-import { zIndex } from '@/common/design/tokens/zIndex';
 
 const overlay = {
   enter: { opacity: 1 },

@@ -20,3 +20,7 @@ const Template: Story<DividerProps> = (args) => (
 );
 
 export const Basic = Template.bind({});
+
+Basic.args = {
+  orientation: 'horizontal',
+};

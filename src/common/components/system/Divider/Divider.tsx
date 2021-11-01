@@ -22,6 +22,7 @@ export interface DividerProps {
    * @default 2
    */
   space?: number;
+
   /**
    * If `true`, a vertical divider will have the correct height when used in flex container.
    * (By default, a vertical divider will have a calculated height of `0px` if it is the child of a flex container.)
@@ -36,7 +37,7 @@ export const Divider = (props: DividerProps): JSX.Element => {
     orientation = 'horizontal',
     space = 2,
     decorative,
-    flexItem = false,
+    flexItem,
   } = props;
 
   // `aria-orientation` defaults to `horizontal` so we only need it if `orientation` is vertical

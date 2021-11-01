@@ -1,29 +1,61 @@
+import * as DialogPrimitive from '@radix-ui/react-dialog';
 import styled from '@emotion/styled';
+import { keyframes } from '@emotion/react';
 import { blackA } from '@radix-ui/colors';
 
-import { zIndex } from '@/common/design/tokens/zIndex';
+const overlayShow = keyframes({
+  '0%': { opacity: 0 },
+  '100%': { opacity: 1 },
+});
 
-export const ModalRoot = styled.div({
+const overlayHide = keyframes({
+  '0%': { opacity: 1 },
+  '100%': { opacity: 0 },
+});
+
+const contentShow = keyframes({
+  '0%': { opacity: 0, transform: 'translate(-50%, -50%) scale(.75)' },
+  '100%': { opacity: 1, transform: 'translate(-50%, -50%) scale(1)' },
+});
+
+const contentHide = keyframes({
+  '0%': { opacity: 1, transform: 'translate(-50%, -50%) scale(1)' },
+  '100%': { opacity: 0, transform: 'translate(-50%, -50%) scale(.75)' },
+});
+
+export const Overlay = styled(DialogPrimitive.Overlay)({
+  backgroundColor: blackA.blackA9,
   position: 'fixed',
-  top: 0,
-  left: 0,
-  display: 'flex',
-  width: '100%',
-  height: '100%',
-  zIndex: zIndex.modal,
+  inset: 0,
+  '@media (prefers-reduced-motion: no-preference)': {
+    '&[data-state=open]': {
+      animation: `${overlayShow} 250ms cubic-bezier(0.16, 1, 0.3, 1)`,
+    },
+    '&[data-state=closed]': {
+      animation: `${overlayHide} 250ms cubic-bezier(0.16, 1, 0.3, 1)`,
+    },
+  },
 });
 
-export const ModalContent = styled.div({
-  margin: 'auto',
-  zIndex: 1,
-});
+export const Content = styled(DialogPrimitive.Content)({
+  position: 'fixed',
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
+  width: '90vw',
+  maxWidth: '450px',
+  maxHeight: '85vh',
 
-export const ModalOverlay = styled.div({
-  position: 'absolute',
-  top: 0,
-  left: 0,
-  display: 'flex',
-  width: '100%',
-  height: '100%',
-  background: blackA.blackA9,
+  '&:focus': {
+    outline: 'none',
+  },
+
+  '@media (prefers-reduced-motion: no-preference)': {
+    '&[data-state=open]': {
+      animation: `${contentShow} 250ms cubic-bezier(0.16, 1, 0.3, 1)`,
+    },
+    '&[data-state=closed]': {
+      animation: `${contentHide} 250ms cubic-bezier(0.16, 1, 0.3, 1)`,
+    },
+  },
 });

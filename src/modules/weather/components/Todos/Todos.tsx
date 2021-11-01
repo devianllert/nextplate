@@ -5,8 +5,8 @@ import { Box } from '@/common/components/system/Box';
 import { Button } from '@/common/components/system/Button';
 import { Divider } from '@/common/components/system/Divider';
 import { IconButton } from '@/common/components/system/IconButton';
-import { Modal, ModalContent, ModalOverlay } from '@/common/components/system/Modal';
 import { Typography } from '@/common/components/system/Typography';
+import * as Modal from '@/common/components/system/Modal';
 
 const initialTodos = [
   {
@@ -28,79 +28,75 @@ const initialTodos = [
 ];
 
 export const Todos = (): JSX.Element => {
-  const [todos, setTodos] = React.useState(initialTodos);
-  const [isOpen, setIsOpen] = React.useState(false);
+  const [todos] = React.useState(initialTodos);
 
   return (
-    <Box width={['100%', null, 'auto']}>
-      <Box display="flex" alignItems="center">
-        <Button color="primary" ml="-12px">Next</Button>
+    <Modal.Root>
+      <Modal.Overlay />
 
-        <IconButton
-          ml="auto"
-          edge="end"
-          aria-haspopup="dialog"
-          aria-expanded={isOpen}
-          label="Open Popup"
-          onClick={() => setIsOpen(true)}
-        >
-          <RiMenu3Line />
-        </IconButton>
+      <Box width={['100%', null, 'auto']}>
+        <Box display="flex" alignItems="center">
+          <Button color="primary" ml="-12px">Next</Button>
 
-        <Modal
-          open={isOpen}
-          onClose={() => setIsOpen(false)}
-          onEsc={() => console.log('esc pressed')}
-        >
-          <ModalOverlay />
-
-          <Box
-            component={ModalContent}
-            margin="auto"
-            width="100%"
-            maxWidth="640px"
-            borderRadius="4px"
-            backgroundColor="background.primary"
-          >
-            <Box
-              display="flex"
-              justifyContent="space-between"
-              alignItems="center"
-              padding={4}
+          <Modal.Trigger asChild>
+            <IconButton
+              ml="auto"
+              edge="end"
+              label="Open Popup"
             >
-              <Typography variant="h4" component="span">Edit todos</Typography>
+              <RiMenu3Line />
+            </IconButton>
+          </Modal.Trigger>
 
-              <IconButton color="gray" onClick={() => setIsOpen(false)} label="Close">
-                <RiCloseFill />
-              </IconButton>
+          <Modal.Content asChild>
+            <Box
+              borderRadius="4px"
+              backgroundColor="background.primary"
+            >
+              <Box
+                display="flex"
+                justifyContent="space-between"
+                alignItems="center"
+                padding={4}
+              >
+                <Modal.Title asChild>
+                  <Typography variant="h4" component="span">Edit todos</Typography>
+                </Modal.Title>
+
+                <Modal.Close asChild>
+                  <IconButton color="gray" label="Close">
+                    <RiCloseFill />
+                  </IconButton>
+                </Modal.Close>
+              </Box>
+
+              <Divider space={0} />
+
+              <Box padding={4}>
+                {todos.map((item) => (
+                  <Box mb={3} key={item.date}>
+                    <Typography variant="subtitle1" component="span" mr={2}>16:30h</Typography>
+
+                    <Typography variant="body1" component="span" fontWeight="bold">Stay at Bohem Art Hotel</Typography>
+                  </Box>
+                ))}
+              </Box>
             </Box>
+          </Modal.Content>
+        </Box>
 
-            <Divider space={0} />
+        <Divider decorative />
 
-            <Box padding={4}>
-              {todos.map((item) => (
-                <Box mb={3} key={item.date}>
-                  <Typography variant="subtitle1" component="span" mr={2}>16:30h</Typography>
+        <Box>
+          {todos.slice(0, 2).map((item) => (
+            <Box mb={3} key={item.date}>
+              <Typography variant="subtitle1" component="span" mr={2}>16:30h</Typography>
 
-                  <Typography variant="body1" component="span" fontWeight="bold">Stay at Bohem Art Hotel</Typography>
-                </Box>
-              ))}
+              <Typography variant="body1" component="span" fontWeight="bold">Stay at Bohem Art Hotel</Typography>
             </Box>
-          </Box>
-        </Modal>
+          ))}
+        </Box>
       </Box>
-
-      <Divider decorative />
-
-      <Box>
-        {todos.slice(0, 2).map((item) => (
-          <Box mb={3} key={item.date}>
-            <Typography variant="subtitle1" component="span" mr={2}>16:30h</Typography>
-
-            <Typography variant="body1" component="span" fontWeight="bold">Stay at Bohem Art Hotel</Typography>
-          </Box>
-        ))}
-      </Box>
-    </Box>
+    </Modal.Root>
   );
 };

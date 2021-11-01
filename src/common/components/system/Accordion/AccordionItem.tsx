@@ -1,10 +1,10 @@
 import * as React from 'react';
+import { useId } from '@radix-ui/react-id';
 
 import { OverridableComponent } from '@/modules/core/react/types/OverridableComponent';
 
 import { useAccordionContext } from './AccordionContext';
 import { AccordionItemProvider } from './AccordionItemContext';
-import { useId } from '@/common/hooks/useId';
 
 export interface AccordionItemProps {
   /**

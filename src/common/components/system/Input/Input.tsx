@@ -1,7 +1,6 @@
 /* eslint-disable prefer-arrow-callback */
 import * as React from 'react';
-
-import { useId } from '@/common/hooks/useId';
+import { useId } from '@radix-ui/react-id';
 
 import { InputBaseProps } from '../InputBase';
 import { InputLabel } from './InputLabel';

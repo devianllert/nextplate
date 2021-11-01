@@ -5,6 +5,7 @@ import { ThemeProvider } from 'theme-ui';
 import { appWithTranslation, useTranslation } from 'next-i18next';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import { Hydrate } from 'react-query/hydration';
+import { IdProvider } from '@radix-ui/react-id';
 
 import ErrorPage from '@/pages/_error';
 import { configureSentryI18n } from '@/modules/core/sentry/sentry';
@@ -172,20 +173,22 @@ const MultiversalAppBootstrap = (props: Props): JSX.Element => {
 
         <QueryClientProvider client={queryClient}>
           <Hydrate state={pageProps[REACT_QUERY_STATE_PROP_NAME]}>
-            <ThemeProvider theme={theme}>
-              <GlobalStyles />
-              <ResetStyles />
+            <IdProvider>
+              <ThemeProvider theme={theme}>
+                <GlobalStyles />
+                <ResetStyles />
 
-              <NProgressRoot />
+                <NProgressRoot />
 
-              {isBrowser() ? (
-                // eslint-disable-next-line react/jsx-props-no-spreading
-                <BrowserPageBootstrap {...multiversalPageBootstrapProps} />
-              ) : (
-                // eslint-disable-next-line react/jsx-props-no-spreading
-                <ServerPageBootstrap {...multiversalPageBootstrapProps} />
-              )}
-            </ThemeProvider>
+                {isBrowser() ? (
+                  // eslint-disable-next-line react/jsx-props-no-spreading
+                  <BrowserPageBootstrap {...multiversalPageBootstrapProps} />
+                ) : (
+                  // eslint-disable-next-line react/jsx-props-no-spreading
+                  <ServerPageBootstrap {...multiversalPageBootstrapProps} />
+                )}
+              </ThemeProvider>
+            </IdProvider>
           </Hydrate>
         </QueryClientProvider>
       </>

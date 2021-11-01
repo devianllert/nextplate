@@ -1,119 +1,85 @@
 import * as React from 'react';
-import styled from '@emotion/styled';
-import { Story, Meta } from '@storybook/react';
+import { Meta } from '@storybook/react';
 
-import {
-  Modal,
-  ModalOverlay,
-  ModalContent,
-  ModalProps,
-} from '..';
+import * as Modal from '../Modal';
 import { Button } from '../../Button';
-import { Typography } from '../../Typography';
 import { Box } from '../../Box';
 
 export default {
-  title: 'Design System/Atoms/Modal',
-  component: Modal,
+  title: 'Components/Modal',
+  component: Modal.Root,
 } as Meta;
 
-const StyledModalContent = styled(ModalContent)(
-  {
-    margin: 'auto',
-    background: 'white',
-    borderRadius: 4,
-    width: '80%',
-    height: '80%',
-    padding: 24,
-  },
-  (props) => ({
-    background: props.theme.colors.background.secondary,
-  }),
+export const Styled = () => (
+  <Modal.Root>
+    <Modal.Overlay />
+
+    <Modal.Trigger asChild>
+      <Button variant="contained">Open</Button>
+    </Modal.Trigger>
+    <Modal.Content asChild>
+      <Box backgroundColor="background.secondary" p={4}>
+        <Modal.Title>Booking info</Modal.Title>
+        <Modal.Description>Please enter the info for your booking below.</Modal.Description>
+
+        <Modal.Close asChild>
+          <Button variant="contained">Close</Button>
+        </Modal.Close>
+      </Box>
+    </Modal.Content>
+  </Modal.Root>
 );
 
-const StyledModalContent1 = styled(ModalContent)(
-  {
-    display: 'flex',
-    flexDirection: 'column',
-    margin: 'auto',
-    background: 'white',
-    borderRadius: 4,
-    maxWidth: 480,
-    width: '100%',
-    padding: 24,
-  },
-  (props) => ({
-    background: props.theme.colors.background.secondary,
-  }),
+export const NonModal = () => (
+  <>
+    <Modal.Root modal={false}>
+      <Modal.Overlay />
+
+      <Modal.Trigger asChild>
+        <Button variant="contained">Open</Button>
+      </Modal.Trigger>
+      <Modal.Content asChild>
+        <Box backgroundColor="background.secondary" p={4}>
+          <Modal.Title>Booking info</Modal.Title>
+          <Modal.Description>Please enter the info for your booking below.</Modal.Description>
+
+          <Modal.Close asChild>
+            <Button variant="contained">Close</Button>
+          </Modal.Close>
+        </Box>
+      </Modal.Content>
+    </Modal.Root>
+
+    {Array.from({ length: 5 }, (_, i) => (
+      <div key={i} style={{ marginTop: 20 }}>
+        <textarea
+          style={{ width: 800, height: 300 }}
+          defaultValue="Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat nobis at ipsa, nihil tempora debitis maxime dignissimos non amet, minima expedita alias et fugit voluptate laborum placeat odio dolore ab!"
+        />
+      </div>
+    ))}
+  </>
 );
 
-const Template: Story<ModalProps> = ({ children, ...args }) => {
-  const [isOpen, setIsOpen] = React.useState(false);
-
+export const Controlled = () => {
+  const [open, setOpen] = React.useState(false);
   return (
-    <>
-      <Button onClick={() => setIsOpen(true)}>Open Modal</Button>
+    <Modal.Root open={open} onOpenChange={setOpen}>
+      <Modal.Overlay />
 
-      <Modal {...args} open={isOpen} onClose={() => setIsOpen(false)}>
-        <ModalOverlay />
+      <Modal.Trigger asChild>
+        <Button variant="contained">{open ? 'Close' : 'Open'}</Button>
+      </Modal.Trigger>
+      <Modal.Content asChild>
+        <Box backgroundColor="background.secondary" p={4}>
+          <Modal.Title>Booking info</Modal.Title>
+          <Modal.Description>Please enter the info for your booking below.</Modal.Description>
 
-        <StyledModalContent1>
-          <Typography variant="h4" mb={2}>Edit profile</Typography>
-          <Typography>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            Dolore vitae quis neque porro laudantium, quisquam omnis nisi excepturi odio magnam
-            totam aspernatur adipisci non quas suscipit quae blanditiis veniam minus?
-          </Typography>
-          {children}
-
-          <Box mt={4} display="flex" justifyContent="flex-end">
-            <Button onClick={() => setIsOpen(false)} mr={2}>Cancel</Button>
-            <Button variant="contained">Save</Button>
-          </Box>
-        </StyledModalContent1>
-      </Modal>
-    </>
+          <Modal.Close asChild>
+            <Button variant="contained">Close</Button>
+          </Modal.Close>
+        </Box>
+      </Modal.Content>
+    </Modal.Root>
   );
 };
-
-const TemplateWithNestedModals: Story<Omit<ModalProps, 'children'>> = (args) => {
-  const [isOpen, setIsOpen] = React.useState(false);
-  const [isOpen1, setIsOpen1] = React.useState(false);
-  const [isOpen2, setIsOpen2] = React.useState(false);
-
-  return (
-    <>
-      <Button onClick={() => setIsOpen(true)}>Open modal 1</Button>
-
-      <Modal {...args} open={isOpen} onClose={() => setIsOpen(false)} onOutsideClick={() => console.log('click outside of modal1')}>
-        <ModalOverlay />
-
-        <StyledModalContent>
-          <Button onClick={() => setIsOpen(false)}>Close modal 1</Button>
-          <Button onClick={() => setIsOpen1(true)}>Open modal 2</Button>
-        </StyledModalContent>
-
-        <Modal {...args} open={isOpen1} onClose={() => setIsOpen1(false)} onOutsideClick={() => console.log('click outside of modal2')}>
-          <ModalOverlay />
-
-          <StyledModalContent1>
-            <Button onClick={() => setIsOpen1(false)}>Close modal 2</Button>
-            <Button onClick={() => setIsOpen2(true)}>Open modal 3</Button>
-          </StyledModalContent1>
-
-          <Modal {...args} open={isOpen2} onClose={() => setIsOpen2(false)} onOutsideClick={() => console.log('click outside of modal3')}>
-            <ModalOverlay />
-
-            <StyledModalContent1>
-              <Button onClick={() => setIsOpen2(false)}>Close modal 3</Button>
-            </StyledModalContent1>
-          </Modal>
-        </Modal>
-      </Modal>
-    </>
-  );
-};
-
-export const Basic = Template.bind({});
-
-export const NestedModals = TemplateWithNestedModals.bind({});

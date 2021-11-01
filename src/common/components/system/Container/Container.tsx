@@ -11,6 +11,7 @@ export interface ContainerProps {
    * The content
    */
   children: React.ReactNode;
+
   /**
    * Determine the max-width of the container.
    * The container width grows with the size of the screen.
@@ -19,6 +20,7 @@ export interface ContainerProps {
    * @default 'desktop'
    */
   maxWidth?: Breakpoint | false;
+
   /**
    * Set the max-width to match the min-width of the current breakpoint.
    * This is useful if you'd prefer to design for a fixed set of sizes
@@ -28,6 +30,7 @@ export interface ContainerProps {
    * @default false
    */
   fixed?: boolean;
+
   /**
    * If `true`, the left and right padding is removed.
    *

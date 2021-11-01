@@ -6,7 +6,7 @@ import { Button } from '../../Button';
 import { Box } from '../../Box';
 
 export default {
-  title: 'Components/Modal',
+  title: 'Design System/Atoms/Modal',
   component: Modal.Root,
 } as Meta;
 

@@ -53,7 +53,8 @@
     "strict": true,
     "noImplicitAny": false,
     "strictBindCallApply": true,
-    "target": "ES6"
+    "target": "ES6",
+    "incremental": true
   },
   "exclude": [
     ".github",

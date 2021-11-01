@@ -100,10 +100,6 @@ module.exports = withSentryConfig(
        */
       // reactStrictMode: true,
 
-      // See https://nextjs.org/docs/messages/webpack5
-      // Necessary to manually specify to use webpack 5, because we use a custom "webpack" config (see below)
-      webpack5: true,
-
       resolve: {
         fallback: {
           // Fixes npm packages that depend on `fs` module

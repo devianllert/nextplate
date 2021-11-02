@@ -1,7 +1,6 @@
 import { IncomingMessage } from 'http';
 import { GetServerSideProps, GetServerSidePropsResult } from 'next';
 import NextCookies from 'next-cookies';
-import { QueryClient } from 'react-query';
 
 import { CommonServerSideParams } from '@/app/types/CommonServerSideParams';
 import UniversalCookiesManager from '@/modules/core/cookiesManager/UniversalCookiesManager';
@@ -16,7 +15,6 @@ import { getTranslationsConfig } from './translations';
  * To avoid TS issue, we omit those that we don't return, and add those necessary to the getServerSideProps function
  */
 export type GetCoreServerSidePropsResults = Omit<SSRPageProps, '__REACT_QUERY_STATE__'> & {
-  queryClient: QueryClient;
   headers: PublicHeaders;
 };
 
@@ -57,11 +55,8 @@ export const getCoreServerSideProps = (namespaces: string[] = []): GetServerSide
       host: headers?.host,
     };
 
-    const queryClient = new QueryClient();
-
     return {
       props: {
-        queryClient,
         // We don't send the dataset yet (we don't have any because we haven't fetched the database yet), but it must be done by SSR pages in"getServerSideProps"
         serializedDataset: '',
         userSession,

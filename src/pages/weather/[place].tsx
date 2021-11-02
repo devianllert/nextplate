@@ -3,7 +3,7 @@ import { GetServerSideProps, GetServerSidePropsResult } from 'next';
 import Head from 'next/head';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
-import { useQuery } from 'react-query';
+import { QueryClient, useQuery } from 'react-query';
 import { dehydrate } from 'react-query/hydration';
 
 import { serializeSafe } from '@/modules/core/serializeSafe/serializeSafe';
@@ -119,9 +119,11 @@ export const getServerSideProps: GetServerSideProps<GetServerSidePageProps> = as
 
   const place = context.query.place as (string | undefined);
 
+  const queryClient = new QueryClient();
+
   if ('props' in commonServerSideProps) {
     const {
-      props: { queryClient, ...pageData },
+      props: { ...pageData },
     } = commonServerSideProps;
 
     try {

@@ -1,7 +1,7 @@
-import * as DialogPrimitive from '@radix-ui/react-dialog';
-import styled from '@emotion/styled';
-import { keyframes } from '@emotion/react';
+import * as AlertDialogPrimitive from '@radix-ui/react-alert-dialog';
 import { blackA } from '@radix-ui/colors';
+import { keyframes } from '@emotion/react';
+import styled from '@emotion/styled';
 
 const overlayShow = keyframes({
   '0%': { opacity: 0 },
@@ -23,7 +23,7 @@ const contentHide = keyframes({
   '100%': { opacity: 0, transform: 'translate(-50%, -50%) scale(.75)' },
 });
 
-export const StyledOverlay = styled(DialogPrimitive.Overlay)({
+export const StyledOverlay = styled(AlertDialogPrimitive.Overlay)({
   backgroundColor: blackA.blackA9,
   position: 'fixed',
   inset: 0,
@@ -37,7 +37,7 @@ export const StyledOverlay = styled(DialogPrimitive.Overlay)({
   },
 });
 
-export const StyledContent = styled(DialogPrimitive.Content)({
+export const StyledContent = styled(AlertDialogPrimitive.Content)({
   position: 'fixed',
   top: '50%',
   left: '50%',

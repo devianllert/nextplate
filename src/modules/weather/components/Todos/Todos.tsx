@@ -32,7 +32,7 @@ export const Todos = (): JSX.Element => {
 
   return (
     <Modal.Root>
-      <Modal.Overlay />
+      <Modal.StyledOverlay />
 
       <Box width={['100%', null, 'auto']}>
         <Box display="flex" alignItems="center">
@@ -48,7 +48,7 @@ export const Todos = (): JSX.Element => {
             </IconButton>
           </Modal.Trigger>
 
-          <Modal.Content asChild>
+          <Modal.StyledContent asChild>
             <Box
               borderRadius="4px"
               backgroundColor="background.primary"
@@ -82,7 +82,7 @@ export const Todos = (): JSX.Element => {
                 ))}
               </Box>
             </Box>
-          </Modal.Content>
+          </Modal.StyledContent>
         </Box>
 
         <Divider decorative />

@@ -1,8 +1,8 @@
 import styled from '@emotion/styled';
+import { SpaceProps, space } from 'styled-system';
 
 import { variants } from '@/common/design/tokens/typography';
 import { createTransition, duration } from '@/common/design/tokens/transitions';
-import { margin, padding, SpaceProps } from '@/modules/core/css-in-js/space';
 
 export const InputBaseRoot = styled.div<{ disabled?: boolean; fullWidth?: boolean } & SpaceProps>(
   (props) => ({
@@ -25,8 +25,7 @@ export const InputBaseRoot = styled.div<{ disabled?: boolean; fullWidth?: boolea
       width: '100%',
     }),
   }),
-  margin,
-  padding,
+  space,
 );
 
 export const InputBaseComponent = styled.input((props) => ({

@@ -17,11 +17,12 @@ export const breakpoints: Record<Breakpoint, number> = {
 };
 
 export const media = {
-  custom: createMediaQuery,
   mobile: createMediaQuery(breakpoints.mobile),
   tablet: createMediaQuery(breakpoints.tablet),
   desktop: createMediaQuery(breakpoints.desktop),
 };
+
+export const customMedia = createMediaQuery;
 
 /**
  * By default, returns true if screen width is the same or greater than the given breakpoint.

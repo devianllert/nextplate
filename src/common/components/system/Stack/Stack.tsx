@@ -1,9 +1,9 @@
 /* eslint-disable prefer-arrow-callback */
 import * as React from 'react';
 import flattenChildren from 'react-keyed-flatten-children';
+import { ResponsiveValue } from 'styled-system';
 
 import { OverridableComponent } from '@/modules/core/react/types/OverridableComponent';
-import { ResponsiveValue } from '@/modules/core/css-in-js/system';
 
 import * as S from './styled';
 

@@ -1,7 +1,7 @@
 import * as React from 'react';
 import styled from '@emotion/styled';
+import { system, ResponsiveValue } from 'styled-system';
 
-import { createSystem, ResponsiveValue } from '@/modules/core/css-in-js/system';
 import { getSpace } from '@/modules/core/css-in-js/getters';
 import { spacings } from '@/common/design/tokens/spacings';
 
@@ -12,16 +12,16 @@ export interface StackRootProps {
   flexDirection: ResponsiveValue<React.CSSProperties['flexDirection']>;
 }
 
-const stackRootCustomProps = createSystem({
+const stackRootCustomProps = system({
   alignY: {
-    properties: ['alignItems'],
+    property: 'alignItems',
     scale: 'alignY',
   },
   marginLeft: {
-    properties: ['marginLeft'],
+    property: 'marginLeft',
     scale: 'space',
     defaultScale: spacings,
-    transform: (scale, n) => -getSpace(scale, n) - 1,
+    transform: (n: number | string, scale = spacings) => -getSpace(scale, n) - 1,
   },
   flexDirection: true,
 });
@@ -38,7 +38,7 @@ export interface InlineBoxProps {
   space: ResponsiveValue<number>;
 }
 
-const stackBoxCustomProps = createSystem({
+const stackBoxCustomProps = system({
   space: {
     properties: ['marginLeft', 'marginTop'],
     scale: 'space',
@@ -58,12 +58,12 @@ export interface InlineRootAlignerProps {
   space: ResponsiveValue<number>;
 }
 
-const inlineRootAlignerCustomProps = createSystem({
+const inlineRootAlignerCustomProps = system({
   space: {
-    properties: ['marginTop'],
+    property: 'marginTop',
     scale: 'space',
     defaultScale: spacings,
-    transform: (scale, n) => -getSpace(scale, n) - 1,
+    transform: (n: number | string, scale = spacings) => -getSpace(scale, n) - 1,
   },
 });
 

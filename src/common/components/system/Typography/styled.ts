@@ -1,8 +1,8 @@
 import * as React from 'react';
 import styled from '@emotion/styled';
+import { margin, padding, SpaceProps } from 'styled-system';
 
 import { fontWeight, variants } from '@/common/design/tokens/typography';
-import { margin, padding, SpaceProps } from '@/modules/core/css-in-js/space';
 import { shouldForwardProp } from '@/modules/core/css-in-js/shouldForwardProp';
 import { get } from '@/common/utils/get';
 

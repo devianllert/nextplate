@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
+import { space, SpaceProps } from 'styled-system';
 
-import { margin, padding, SpaceProps } from '@/modules/core/css-in-js/space';
 import { shouldForwardProp } from '@/modules/core/css-in-js/shouldForwardProp';
 
 export const ButtonBaseRoot = styled('button', { shouldForwardProp })<SpaceProps>(
@@ -37,6 +37,5 @@ export const ButtonBaseRoot = styled('button', { shouldForwardProp })<SpaceProps
     cursor: 'default',
     pointerEvents: 'none',
   }),
-  margin,
-  padding,
+  space,
 );

@@ -1,10 +1,10 @@
-import { get } from '@/common/utils/get';
+import { Scale } from 'styled-system';
 
-import { ScaleValue } from './system';
+import { get } from '@/common/utils/get';
 
 const isNumber = (n: unknown): n is number => typeof n === 'number' && !Number.isNaN(n);
 
-export const getSpace = (scale: ScaleValue, n: number | string): number | string => {
+export const getSpace = (scale: Scale, n: number | string): number | string => {
   if (!isNumber(n)) {
     return (get(scale, n) as number) ?? n;
   }

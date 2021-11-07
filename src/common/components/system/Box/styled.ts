@@ -1,14 +1,26 @@
 import styled from '@emotion/styled';
+import {
+  background,
+  BackgroundProps,
+  border,
+  BorderProps,
+  boxShadow,
+  BoxShadowProps,
+  color,
+  ColorProps,
+  flexbox,
+  FlexboxProps,
+  grid,
+  GridProps,
+  layout,
+  LayoutProps,
+  position,
+  PositionProps,
+  space,
+  SpaceProps,
+} from 'styled-system';
 
-import { space, SpaceProps } from '@/modules/core/css-in-js/space';
-import { flexbox, FlexboxProps } from '@/modules/core/css-in-js/flexbox';
-import { layout, LayoutProps } from '@/modules/core/css-in-js/layout';
-import { position, PositionProps } from '@/modules/core/css-in-js/position';
-import { background, BackgroundProps } from '@/modules/core/css-in-js/background';
-import { boxShadow, BoxShadowProps } from '@/modules/core/css-in-js/boxShadow';
-import { border, BorderProps } from '@/modules/core/css-in-js/border';
-import { color, ColorProps } from '@/modules/core/css-in-js/colors';
-import { grid, GridProps } from '@/modules/core/css-in-js/grid';
+import { transform, TransformProps } from '@/modules/core/css-in-js/transform';
 import { shouldForwardProp } from '@/modules/core/css-in-js/shouldForwardProp';
 
 export type BoxType =
@@ -20,6 +32,7 @@ export type BoxType =
   & BoxShadowProps
   & BorderProps
   & ColorProps
+  & TransformProps
   & GridProps;
 
 export const BoxRoot = styled('div', { shouldForwardProp })<BoxType>(
@@ -32,4 +45,5 @@ export const BoxRoot = styled('div', { shouldForwardProp })<BoxType>(
   border,
   color,
   grid,
+  transform,
 );

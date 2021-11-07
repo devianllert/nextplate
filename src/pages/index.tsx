@@ -104,8 +104,6 @@ const IndexPage: EnhancedNextPage<Props> = (): JSX.Element => {
             display="block"
             width="100%"
             height={['48px', null, '150px']}
-            data-name="Layer 1"
-            xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 1200 120"
             preserveAspectRatio="none"
           >

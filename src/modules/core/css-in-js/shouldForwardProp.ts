@@ -1,17 +1,18 @@
 import memoize, { Fn } from '@emotion/memoize';
 import isPropValid from '@emotion/is-prop-valid';
 import { isValidMotionProp } from 'framer-motion';
-
-import { background } from './background';
-import { border } from './border';
-import { boxShadow } from './boxShadow';
-import { color } from './colors';
-import { flexbox } from './flexbox';
-import { layout } from './layout';
-import { position } from './position';
-import { space } from './space';
-import { compose } from './system';
-import { grid } from './grid';
+import {
+  compose,
+  space,
+  color,
+  layout,
+  flexbox,
+  border,
+  background,
+  position,
+  boxShadow,
+  grid,
+} from 'styled-system';
 
 const all = compose(
   space,
@@ -27,7 +28,7 @@ const all = compose(
 
 export const propsNames = all.propNames;
 
-export const createShouldForwardProp = (props: string[]): Fn<boolean> => {
+export const createShouldForwardProp = (props: string[] = []): Fn<boolean> => {
   const regex = new RegExp(`^(${props.join('|')})$`);
 
   return memoize((prop) => (isPropValid(prop) || isValidMotionProp(prop)) && !regex.test(prop));

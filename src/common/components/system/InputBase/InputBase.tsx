@@ -1,8 +1,8 @@
 /* eslint-disable prefer-arrow-callback */
 import * as React from 'react';
+import { SpaceProps } from 'styled-system';
 
 import { useComposedRefs } from '@/modules/core/react/composeRefs';
-import { SpaceProps } from '@/modules/core/css-in-js/space';
 
 import * as S from './styled';
 

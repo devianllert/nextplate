@@ -28,7 +28,7 @@ export const WeatherDate = (): JSX.Element => {
         display="flex"
         alignItems="flex-end"
       >
-        <Typography variant="h4" component="span" mr={2} fontWeight="bold">{formattedTime.time}</Typography>
+        <Typography variant="h4" component="span" fontWeight="bold" sx={{ mr: 2 }}>{formattedTime.time}</Typography>
         <Typography variant="h6" component="span">{formattedTime.ampm}</Typography>
       </Box>
 

@@ -1,9 +1,9 @@
 import * as React from 'react';
 import styled from '@emotion/styled';
-import { margin, padding, SpaceProps } from 'styled-system';
 
 import { fontWeight, variants } from '@/common/design/tokens/typography';
 import { shouldForwardProp } from '@/modules/core/css-in-js/shouldForwardProp';
+import { SxProp, sx } from '@/modules/core/css-in-js/sx';
 import { get } from '@/common/utils/get';
 
 export type TypoVariant =
@@ -25,7 +25,7 @@ export type TypoAlign = 'inherit' | 'left' | 'center' | 'right' | 'justify';
 
 export type TypoWeight = 'light' | 'normal' | 'medium' | 'bold' | 'heavy';
 
-interface TypoProps extends SpaceProps {
+interface TypoProps extends SxProp {
   align: React.CSSProperties['textAlign'];
   noWrap?: boolean;
   variant: TypoVariant;
@@ -52,6 +52,5 @@ export const Typo = styled('span', { shouldForwardProp })<TypoProps>(
       fontWeight: fontWeight[props.fontWeight],
     }),
   }),
-  margin,
-  padding,
+  sx,
 );

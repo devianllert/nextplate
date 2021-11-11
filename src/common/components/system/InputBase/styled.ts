@@ -1,10 +1,10 @@
 import styled from '@emotion/styled';
-import { SpaceProps, space } from 'styled-system';
 
+import { SxProp, sx } from '@/modules/core/css-in-js/sx';
 import { variants } from '@/common/design/tokens/typography';
 import { createTransition, duration } from '@/common/design/tokens/transitions';
 
-export const InputBaseRoot = styled.div<{ disabled?: boolean; fullWidth?: boolean } & SpaceProps>(
+export const InputBaseRoot = styled.div<{ disabled?: boolean; fullWidth?: boolean } & SxProp>(
   (props) => ({
     ...variants.body1,
     position: 'relative',
@@ -25,7 +25,7 @@ export const InputBaseRoot = styled.div<{ disabled?: boolean; fullWidth?: boolea
       width: '100%',
     }),
   }),
-  space,
+  sx,
 );
 
 export const InputBaseComponent = styled.input((props) => ({

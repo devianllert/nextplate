@@ -57,7 +57,7 @@ const LoginPage: EnhancedNextPage<Props> = (): JSX.Element => {
         maxWidth="440px"
         width="100%"
       >
-        <Typography variant="h4" component="h1" mb={4} display="block">{t('login')}</Typography>
+        <Typography variant="h4" component="h1" sx={{ mb: 4 }} display="block">{t('login')}</Typography>
 
         <Stack direction="column">
           <Input

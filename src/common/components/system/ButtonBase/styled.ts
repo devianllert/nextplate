@@ -1,9 +1,9 @@
 import styled from '@emotion/styled';
-import { space, SpaceProps } from 'styled-system';
 
 import { shouldForwardProp } from '@/modules/core/css-in-js/shouldForwardProp';
+import { SxProp, sx } from '@/modules/core/css-in-js/sx';
 
-export const ButtonBaseRoot = styled('button', { shouldForwardProp })<SpaceProps>(
+export const ButtonBaseRoot = styled('button', { shouldForwardProp })<SxProp>(
   {
     display: 'inline-flex',
     alignItems: 'center',
@@ -32,10 +32,11 @@ export const ButtonBaseRoot = styled('button', { shouldForwardProp })<SpaceProps
     '@media print': {
       colorAdjust: 'exact',
     },
+
+    '&:disabled': {
+      cursor: 'default',
+      pointerEvents: 'none',
+    },
   },
-  (props) => props.disabled && ({
-    cursor: 'default',
-    pointerEvents: 'none',
-  }),
-  space,
+  sx,
 );

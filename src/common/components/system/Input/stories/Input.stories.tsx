@@ -7,7 +7,6 @@ import { Divider } from '../../Divider';
 import { Typography } from '../../Typography';
 import { InputAdornment } from '../InputAdornment';
 import { IconButton } from '../../IconButton';
-import { InputBase } from '../../InputBase';
 
 export default {
   title: 'Design System/Atoms/Input',

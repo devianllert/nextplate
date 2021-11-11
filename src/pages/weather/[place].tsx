@@ -97,8 +97,8 @@ const WeatherPlacePage: EnhancedNextPage<Props> = (): JSX.Element => {
             >
               <Image width="112" height="112" src={`/static/images/weather/wi-${ICONS_MAP[weather?.condition.code ?? '113']}.svg`} alt={weather?.condition.title} />
               <Typography variant="h3" component="span" fontWeight="medium" align="center">{weather?.condition.title}</Typography>
-              <Typography variant="h6" component="span" mt={2} fontWeight="normal" color="text.secondary">{weather?.place}</Typography>
-              <Typography variant="h3" component="span" mt={4} fontWeight="bold">{weather?.temp.c} °</Typography>
+              <Typography variant="h6" component="span" sx={{ mt: 2 }} fontWeight="normal" color="text.secondary">{weather?.place}</Typography>
+              <Typography variant="h3" component="span" sx={{ mt: 4 }} fontWeight="bold">{weather?.temp.c} °</Typography>
               {isFetching && 'Updating'}
             </Box>
           </Box>

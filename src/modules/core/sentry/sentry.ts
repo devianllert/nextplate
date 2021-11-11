@@ -90,7 +90,7 @@ export const configureSentryI18n = (lang: string): void => {
  * @param contexts
  * @see https://www.npmjs.com/package/@sentry/nextjs
  */
-export const configureReq = (req: NextApiRequest, tags?: Record<string, string>, contexts?: Record<string, any>): void => {
+export const configureReq = (req: NextApiRequest, tags?: Record<string, string>, contexts?: Record<string, Record<string, unknown>>): void => {
   let parsedBody: GenericObject = {};
   try {
     parsedBody = convertRequestBodyToJSObject(req);

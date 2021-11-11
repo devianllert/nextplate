@@ -1,12 +1,12 @@
 /* eslint-disable prefer-arrow-callback */
 import * as React from 'react';
-import { SpaceProps } from 'styled-system';
+import { SxProp } from '@/modules/core/css-in-js/sx';
 
 import { OverridableComponent } from '@/modules/core/react/types/OverridableComponent';
 
 import * as S from './styled';
 
-export interface TypographyProps extends SpaceProps {
+export interface TypographyProps extends SxProp {
   /**
    * The content of the button.
    */

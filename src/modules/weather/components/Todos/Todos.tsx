@@ -36,11 +36,15 @@ export const Todos = (): JSX.Element => {
 
       <Box width={['100%', null, 'auto']}>
         <Box display="flex" alignItems="center">
-          <Button color="primary" ml="-12px">Next</Button>
+          <Button
+            color="primary"
+            sx={{ ml: '-12px' }}
+          >
+            Next
+          </Button>
 
           <Modal.Trigger asChild>
             <IconButton
-              ml="auto"
               edge="end"
               label="Open Popup"
             >
@@ -75,7 +79,7 @@ export const Todos = (): JSX.Element => {
               <Box padding={4}>
                 {todos.map((item) => (
                   <Box mb={3} key={item.date}>
-                    <Typography variant="subtitle1" component="span" mr={2}>16:30h</Typography>
+                    <Typography variant="subtitle1" component="span" sx={{ mr: 2 }}>16:30h</Typography>
 
                     <Typography variant="body1" component="span" fontWeight="bold">Stay at Bohem Art Hotel</Typography>
                   </Box>
@@ -90,7 +94,7 @@ export const Todos = (): JSX.Element => {
         <Box>
           {todos.slice(0, 2).map((item) => (
             <Box mb={3} key={item.date}>
-              <Typography variant="subtitle1" component="span" mr={2}>16:30h</Typography>
+              <Typography variant="subtitle1" component="span" sx={{ mr: 2 }}>16:30h</Typography>
 
               <Typography variant="body1" component="span" fontWeight="bold">Stay at Bohem Art Hotel</Typography>
             </Box>

@@ -1,8 +1,10 @@
 import * as React from 'react';
 
-// eslint-disable-next-line @typescript-eslint/ban-types
-export const createContext = <ContextValueType extends object>(rootComponentName: string): [typeof Provider, typeof useContext] => {
-  const Context = React.createContext<ContextValueType>(null as any);
+export const createContext = <ContextValueType extends object | null>(
+  rootComponentName: string,
+  defaultContext?: ContextValueType,
+) => {
+  const Context = React.createContext<ContextValueType | undefined>(defaultContext);
 
   const Provider = (props: ContextValueType & { children: React.ReactNode }): JSX.Element => {
     const { children, ...providerProps } = props;
@@ -20,14 +22,13 @@ export const createContext = <ContextValueType extends object>(rootComponentName
   const useContext = (consumerName: string): ContextValueType => {
     const context = React.useContext(Context);
 
-    if (context === null) {
-      throw new Error(`\`${consumerName}\` must be used within \`${rootComponentName}\``);
-    }
+    if (context) return context;
+    if (defaultContext !== undefined) return defaultContext;
 
-    return context;
+    throw new Error(`\`${consumerName}\` must be used within \`${rootComponentName}\``);
   };
 
   Provider.displayName = `${rootComponentName}Provider`;
 
-  return [Provider, useContext];
+  return [Provider, useContext] as const;
 };

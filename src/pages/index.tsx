@@ -66,8 +66,8 @@ const IndexPage: EnhancedNextPage<Props> = (): JSX.Element => {
             maxWidth="840px"
             mx="auto"
           >
-            <Typography variant="h2" align="center" px={[0, 64]}>{t('hero.title')}</Typography>
-            <Typography variant="h6" component="span" align="center" px={[0, 128]}>{t('hero.subtitle')}</Typography>
+            <Typography variant="h2" align="center" sx={{ px: [0, 64] }}>{t('hero.title')}</Typography>
+            <Typography variant="h6" component="span" align="center" sx={{ px: [0, 128] }}>{t('hero.subtitle')}</Typography>
 
             <Box mt={4}>
               <Stack direction="row" space={3}>
@@ -119,7 +119,7 @@ const IndexPage: EnhancedNextPage<Props> = (): JSX.Element => {
 
       <Box py={8} id="features">
         <Container>
-          <Typography variant="h4" align="center" mb={8} display="block">
+          <Typography variant="h4" align="center" sx={{ mb: 8 }} display="block">
             {t('features.title')}
           </Typography>
 
@@ -138,7 +138,7 @@ const IndexPage: EnhancedNextPage<Props> = (): JSX.Element => {
                 <RiFlashlightFill />
               </Box>
 
-              <Typography variant="h6" component="span" display="block" my={2}>{t('features.performant.title')}</Typography>
+              <Typography variant="h6" component="span" display="block" sx={{ my: 2 }}>{t('features.performant.title')}</Typography>
 
               <Typography variant="body1" component="span" display="block" color="text.secondary">
                 {t('features.performant.description')}
@@ -159,7 +159,7 @@ const IndexPage: EnhancedNextPage<Props> = (): JSX.Element => {
                 <RiSettings4Line />
               </Box>
 
-              <Typography variant="h6" component="span" display="block" my={2}>{t('features.rich.title')}</Typography>
+              <Typography variant="h6" component="span" display="block" sx={{ my: 2 }}>{t('features.rich.title')}</Typography>
 
               <Typography variant="body1" component="span" display="block" color="text.secondary">
                 {t('features.rich.description')}
@@ -180,7 +180,7 @@ const IndexPage: EnhancedNextPage<Props> = (): JSX.Element => {
                 <RiGroupLine />
               </Box>
 
-              <Typography variant="h6" component="span" display="block" my={2}>{t('features.dx.title')}</Typography>
+              <Typography variant="h6" component="span" display="block" sx={{ my: 2 }}>{t('features.dx.title')}</Typography>
 
               <Typography variant="body1" component="span" display="block" color="text.secondary">
                 {t('features.dx.description')}
@@ -200,7 +200,7 @@ const IndexPage: EnhancedNextPage<Props> = (): JSX.Element => {
               >
                 <RiAppsLine />
               </Box>
-              <Typography variant="h6" component="span" display="block" my={2}>{t('features.apps.title')}</Typography>
+              <Typography variant="h6" component="span" display="block" sx={{ my: 2 }}>{t('features.apps.title')}</Typography>
 
               <Typography variant="body1" component="span" display="block" color="text.secondary">
                 {t('features.apps.description')}
@@ -212,7 +212,7 @@ const IndexPage: EnhancedNextPage<Props> = (): JSX.Element => {
 
       <Box py={8}>
         <Container>
-          <Typography variant="h4" align="center" mb={8} display="block">
+          <Typography variant="h4" align="center" sx={{ mb: 8 }} display="block">
             {t('features.apps.title')}
           </Typography>
 

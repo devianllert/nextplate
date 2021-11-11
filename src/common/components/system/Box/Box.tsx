@@ -15,7 +15,7 @@ export interface BoxProps extends S.BoxType {
 
 export interface BoxTypeMap<P = {}, D extends React.ElementType = 'div'> {
   props: P & BoxProps;
-  defaultComponent: D
+  defaultComponent: D;
 }
 
 export const Box: OverridableComponent<BoxTypeMap> = React.forwardRef(function Box(props, ref) {
@@ -26,6 +26,7 @@ export const Box: OverridableComponent<BoxTypeMap> = React.forwardRef(function B
   } = props;
 
   return (
+    // @ts-expect-error color attr type error
     <S.BoxRoot as={component} {...other} ref={ref}>{children}</S.BoxRoot>
   );
 });

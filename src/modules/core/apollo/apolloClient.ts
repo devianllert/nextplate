@@ -92,7 +92,7 @@ export function getApolloState(client: ApolloClient<NormalizedCacheObject>): Nor
  * Returns an instance of apollo client.
  */
 export function useApollo<T>(pageProps: T): ApolloClient<NormalizedCacheObject> {
-  const state = pageProps[APOLLO_STATE_PROP_NAME];
+  const state: Record<string, any> = pageProps[APOLLO_STATE_PROP_NAME];
 
   const store = React.useMemo(() => initializeApollo(state), [state]);
 

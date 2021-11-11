@@ -28,7 +28,7 @@ export const duration = {
   leavingScreen: 195,
 } as const;
 
-function formatMs(milliseconds) {
+function formatMs(milliseconds: number): string {
   return `${Math.round(milliseconds)}ms`;
 }
 

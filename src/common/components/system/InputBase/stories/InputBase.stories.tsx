@@ -7,7 +7,6 @@ import { InputBase, InputBaseProps } from '../InputBase';
 import { Box } from '../../Box';
 import { IconButton } from '../../IconButton';
 import { Divider } from '../../Divider';
-import { Typography } from '../../Typography';
 
 export default {
   title: 'Design System/Atoms/InputBase',

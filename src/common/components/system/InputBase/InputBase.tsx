@@ -1,12 +1,12 @@
 /* eslint-disable prefer-arrow-callback */
 import * as React from 'react';
-import { SpaceProps } from 'styled-system';
 
 import { useComposedRefs } from '@/modules/core/react/composeRefs';
+import { SxProp } from '@/modules/core/css-in-js/sx';
 
 import * as S from './styled';
 
-export interface InputBaseProps extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'prefix'>, SpaceProps {
+export interface InputBaseProps extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'prefix'>, SxProp {
   /**
    * If `true`, the `input` will indicate an error.
    * The prop defaults to the value (`false`) inherited from the parent FormControl component.

@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-unsafe-argument */
+
 /**
  * Wait for X ms till resolving promise (with optional callback)
  */

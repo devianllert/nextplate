@@ -12,5 +12,5 @@ export const useCallbackRef = <T extends (...args: any[]) => any>(callback?: T):
   });
 
   // https://github.com/facebook/react/issues/19240
-  return React.useMemo(() => ((...args) => callbackRef.current?.(...args)) as T, []);
+  return React.useMemo(() => ((...args: Parameters<T>) => callbackRef.current?.(...args)) as T, []);
 };

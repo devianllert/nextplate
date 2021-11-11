@@ -13,6 +13,7 @@ import {
   violetDarkA,
   yellowDark,
   yellowDarkA,
+  slateDark,
   whiteA,
 } from '@radix-ui/colors';
 import { transformColorScale } from '../../utils/transformColorScale';
@@ -50,6 +51,9 @@ const darkColors = {
     ...transformColorScale(tealDark, 'secondary'),
     ...transformColorScale(whiteA, 'contrast'),
     ...transformColorScale(whiteA, 'contrastA'),
+
+    highContrast: slateDark.slate12,
+    lowContrast: slateDark.slate1,
   },
 };
 

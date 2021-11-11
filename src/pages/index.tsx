@@ -1,4 +1,4 @@
-import { useTranslation } from 'next-i18next';
+import { useTranslation, Trans } from 'next-i18next';
 import Image from 'next/image';
 import Head from 'next/head';
 import Link from 'next/link';
@@ -23,6 +23,7 @@ import { Container } from '@/common/components/system/Container';
 import { getTranslationsStaticProps } from '@/layouts/core/SSG';
 import { Typography } from '@/common/components/system/Typography';
 import { Stack } from '@/common/components/system/Stack';
+import { Code } from '@/common/components/system/Code';
 import { AspectRatio } from '@/common/components/system/AspectRatio';
 
 const logger = createLogger('Index');
@@ -162,7 +163,7 @@ const IndexPage: EnhancedNextPage<Props> = (): JSX.Element => {
               <Typography variant="h6" component="span" display="block" sx={{ my: 2 }}>{t('features.rich.title')}</Typography>
 
               <Typography variant="body1" component="span" display="block" color="text.secondary">
-                {t('features.rich.description')}
+                <Trans t={t} i18nKey="features.rich.description" components={[<Code />]} />
               </Typography>
             </Box>
 

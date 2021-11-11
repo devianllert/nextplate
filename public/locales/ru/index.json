@@ -12,7 +12,7 @@
     },
     "rich": {
       "title": "Многофункциональный",
-      "description": "Наполнен такими полезными функциями, как Theming (Theme-ui), CSS-in-JS (Emotion), i18n (next-i18next), Testing (Jest), Logging, Monitoring (Sentry), Storybook, полностью типизированный API и многое другое!"
+      "description": "Наполнен такими полезными функциями, как Theming (<0>Theme-ui</0>), CSS-in-JS (<0>Emotion</0>), i18n (<0>next-i18next</0>), Testing (<0>Jest</0>), Logging, Monitoring (<0>Sentry</0>), <0>Storybook</0>, полностью типизированный API и многое другое!"
     },
     "dx": {
       "title": "Лучший DX",

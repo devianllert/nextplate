@@ -55,7 +55,11 @@ export interface ColorOverrides {
     & RadixColorScale<'secondary'>
     & RadixColorScale<'secondaryA'>
     & RadixColorScale<'contrast'>
-    & RadixColorScale<'contrastA'>;
+    & RadixColorScale<'contrastA'>
+    & {
+      lowContrast: string;
+      highContrast: string;
+    };
 
     status: PaletteStatus;
   };
@@ -88,7 +92,11 @@ export interface ColorOverrides {
     & RadixColorScale<'secondary'>
     & RadixColorScale<'secondaryA'>
     & RadixColorScale<'contrast'>
-    & RadixColorScale<'contrastA'>;
+    & RadixColorScale<'contrastA'>
+    & {
+      lowContrast: string;
+      highContrast: string;
+    };
 
     status: PaletteStatus;
   };

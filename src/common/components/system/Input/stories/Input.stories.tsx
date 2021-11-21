@@ -4,7 +4,7 @@ import { RiEyeCloseLine, RiEyeLine, RiUserLine } from 'react-icons/ri';
 
 import { Input, InputProps } from '../Input';
 import { Divider } from '../../Divider';
-import { Typography } from '../../Text';
+import * as Text from '../../Text';
 import { InputAdornment } from '../InputAdornment';
 import { IconButton } from '../../IconButton';
 
@@ -52,7 +52,7 @@ WithPrefixNumber.args = {
   label: 'Number',
   prefix: (
     <InputAdornment disablePointerEvents>
-      <Typography color="text.secondary">+61</Typography>
+      <Text.Paragraph variant="body2" color="text.secondary">+61</Text.Paragraph>
 
       <Divider orientation="vertical" flexItem />
     </InputAdornment>

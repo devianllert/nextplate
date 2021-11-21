@@ -1,7 +1,7 @@
 import { Meta } from '@storybook/react';
 import { Grid } from 'theme-ui';
 import styled from '@emotion/styled';
-import { Typography } from '@/common/components/system/Text';
+import * as Text from '@/common/components/system/Text';
 import { useTheme } from '../hooks/useTheme';
 
 export default {
@@ -33,9 +33,9 @@ const PaletteColor = (props) => {
       <PaletteColorBox color={color} />
 
       <PaletteColorContainer>
-        <Typography>{title}</Typography>
+        <Text.Paragraph>{title}</Text.Paragraph>
 
-        <Typography color="secondary" variant="body2">{color}</Typography>
+        <Text.Paragraph color="secondary" variant="body2">{color}</Text.Paragraph>
       </PaletteColorContainer>
     </PaletteColorRoot>
   );

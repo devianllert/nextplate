@@ -10,7 +10,7 @@ import { SSRPageProps } from '@/layouts/core/types/SSRPageProps';
 import { createLogger } from '@/modules/core/logging/logger';
 import { EnhancedNextPage } from '@/layouts/core/types/EnhancedNextPage';
 import { getTranslationsStaticProps } from '@/layouts/core/SSG';
-import { Typography } from '@/common/components/system/Typography';
+import * as Text from '@/common/components/system/Text';
 import { Box } from '@/common/components/system/Box';
 import { Input } from '@/common/components/system/Input';
 import { WeatherLayout } from '@/layouts/weather/components/WeatherLayout';
@@ -68,7 +68,7 @@ const WeatherSearchPage: EnhancedNextPage<Props> = (): JSX.Element => {
         background="linear-gradient(180deg, rgba(13,28,139,1) 0%, rgba(83,36,224,1) 65%)"
         px={2}
       >
-        <Typography variant="h1" component="h1">Weather</Typography>
+        <Text.Heading variant="h1">Weather</Text.Heading>
 
         <Box
           component="form"

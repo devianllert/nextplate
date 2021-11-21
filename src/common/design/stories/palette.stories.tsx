@@ -1,7 +1,7 @@
 import { Meta } from '@storybook/react';
 import { Grid } from 'theme-ui';
 import styled from '@emotion/styled';
-import { Typography } from '@/common/components/system/Typography';
+import { Typography } from '@/common/components/system/Text';
 import { useTheme } from '../hooks/useTheme';
 
 export default {

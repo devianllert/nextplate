@@ -13,7 +13,7 @@ import { SSGPageProps } from '@/layouts/core/types/SSGPageProps';
 import { SSRPageProps } from '@/layouts/core/types/SSRPageProps';
 import { createLogger } from '@/modules/core/logging/logger';
 import { EnhancedNextPage } from '@/layouts/core/types/EnhancedNextPage';
-import { Typography } from '@/common/components/system/Typography';
+import * as Text from '@/common/components/system/Text';
 import { Box } from '@/common/components/system/Box';
 import { getCoreServerSideProps } from '@/layouts/core/SSR';
 import { REACT_QUERY_STATE_PROP_NAME } from '@/modules/core/rquery/react-query';
@@ -96,9 +96,9 @@ const WeatherPlacePage: EnhancedNextPage<Props> = (): JSX.Element => {
               mb={[4, null, 0]}
             >
               <Image width="112" height="112" src={`/static/images/weather/wi-${ICONS_MAP[weather?.condition.code ?? '113']}.svg`} alt={weather?.condition.title} />
-              <Typography variant="h3" component="span" fontWeight="medium" align="center">{weather?.condition.title}</Typography>
-              <Typography variant="h6" component="span" sx={{ mt: 2 }} fontWeight="normal" color="text.secondary">{weather?.place}</Typography>
-              <Typography variant="h3" component="span" sx={{ mt: 4 }} fontWeight="bold">{weather?.temp.c} °</Typography>
+              <Text.Heading variant="h3" component="span" fontWeight="medium" textAlign="center">{weather?.condition.title}</Text.Heading>
+              <Text.Heading variant="h6" component="span" sx={{ mt: 2 }} fontWeight="normal" color="text.secondary">{weather?.place}</Text.Heading>
+              <Text.Heading variant="h3" component="span" sx={{ mt: 4 }} fontWeight="bold">{weather?.temp.c} °</Text.Heading>
               {isFetching && 'Updating'}
             </Box>
           </Box>

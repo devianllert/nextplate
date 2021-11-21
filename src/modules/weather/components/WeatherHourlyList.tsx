@@ -2,7 +2,7 @@ import * as React from 'react';
 import Image from 'next/image';
 
 import { Box } from '@/common/components/system/Box';
-import { Typography } from '@/common/components/system/Typography';
+import * as Text from '@/common/components/system/Text';
 import { Container } from '@/common/components/system/Container';
 
 import { ICONS_MAP } from '../constants/iconsMap';
@@ -35,10 +35,10 @@ export const WeatherHourlyList = (props: WeatherHourlyListProps): JSX.Element =>
           px={[2, null, 4]}
           py={2}
         >
-          <Typography variant="h6" component="span">{index === 0 ? 'Now' : formatHourlyTime(item.time)}</Typography>
+          <Text.Heading variant="h6" component="span">{index === 0 ? 'Now' : formatHourlyTime(item.time)}</Text.Heading>
           <Image width="64" height="64" src={`/static/images/weather/wi-${ICONS_MAP[item.weatherCode]}.svg`} alt={item.weatherCode} />
 
-          <Typography variant="h6" component="span">{item.tempC} °</Typography>
+          <Text.Heading variant="h6" component="span">{item.tempC} °</Text.Heading>
         </Box>
       ))}
     </Box>

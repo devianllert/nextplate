@@ -21,7 +21,7 @@ import { getAppTitle } from '@/modules/core/meta/meta';
 import { Box } from '@/common/components/system/Box';
 import { Container } from '@/common/components/system/Container';
 import { getTranslationsStaticProps } from '@/layouts/core/SSG';
-import { Typography } from '@/common/components/system/Typography';
+import * as Text from '@/common/components/system/Text';
 import { Stack } from '@/common/components/system/Stack';
 import { Code } from '@/common/components/system/Code';
 import { AspectRatio } from '@/common/components/system/AspectRatio';
@@ -67,8 +67,8 @@ const IndexPage: EnhancedNextPage<Props> = (): JSX.Element => {
             maxWidth="840px"
             mx="auto"
           >
-            <Typography variant="h2" align="center" sx={{ px: [0, 64] }}>{t('hero.title')}</Typography>
-            <Typography variant="h6" component="span" align="center" sx={{ px: [0, 128] }}>{t('hero.subtitle')}</Typography>
+            <Text.Heading variant="h2" textAlign="center" sx={{ px: [0, 64] }}>{t('hero.title')}</Text.Heading>
+            <Text.Heading variant="h6" component="span" textAlign="center" sx={{ px: [0, 128] }}>{t('hero.subtitle')}</Text.Heading>
 
             <Box mt={4}>
               <Stack direction="row" space={3}>
@@ -120,9 +120,9 @@ const IndexPage: EnhancedNextPage<Props> = (): JSX.Element => {
 
       <Box py={8} id="features">
         <Container>
-          <Typography variant="h4" align="center" sx={{ mb: 8 }} display="block">
+          <Text.Heading variant="h4" textAlign="center" sx={{ mb: 8 }}>
             {t('features.title')}
-          </Typography>
+          </Text.Heading>
 
           <Box display="grid" gridTemplateColumns={['repeat(1, minmax(0, 1fr))', 'repeat(2, minmax(0, 1fr))', 'repeat(4, minmax(0, 1fr))']} gridGap={4}>
             <Box>
@@ -139,11 +139,11 @@ const IndexPage: EnhancedNextPage<Props> = (): JSX.Element => {
                 <RiFlashlightFill />
               </Box>
 
-              <Typography variant="h6" component="span" display="block" sx={{ my: 2 }}>{t('features.performant.title')}</Typography>
+              <Text.Heading variant="h6" component="h3" sx={{ my: 2 }}>{t('features.performant.title')}</Text.Heading>
 
-              <Typography variant="body1" component="span" display="block" color="text.secondary">
+              <Text.Paragraph variant="body2" component="span" color="text.secondary">
                 {t('features.performant.description')}
-              </Typography>
+              </Text.Paragraph>
             </Box>
 
             <Box>
@@ -160,11 +160,11 @@ const IndexPage: EnhancedNextPage<Props> = (): JSX.Element => {
                 <RiSettings4Line />
               </Box>
 
-              <Typography variant="h6" component="span" display="block" sx={{ my: 2 }}>{t('features.rich.title')}</Typography>
+              <Text.Heading variant="h6" component="h3" sx={{ my: 2 }}>{t('features.rich.title')}</Text.Heading>
 
-              <Typography variant="body1" component="span" display="block" color="text.secondary">
+              <Text.Paragraph variant="body2" component="span" color="text.secondary">
                 <Trans t={t} i18nKey="features.rich.description" components={[<Code />]} />
-              </Typography>
+              </Text.Paragraph>
             </Box>
 
             <Box>
@@ -181,11 +181,11 @@ const IndexPage: EnhancedNextPage<Props> = (): JSX.Element => {
                 <RiGroupLine />
               </Box>
 
-              <Typography variant="h6" component="span" display="block" sx={{ my: 2 }}>{t('features.dx.title')}</Typography>
+              <Text.Heading variant="h6" component="h3" sx={{ my: 2 }}>{t('features.dx.title')}</Text.Heading>
 
-              <Typography variant="body1" component="span" display="block" color="text.secondary">
+              <Text.Paragraph variant="body2" component="span" color="text.secondary">
                 {t('features.dx.description')}
-              </Typography>
+              </Text.Paragraph>
             </Box>
 
             <Box>
@@ -201,11 +201,11 @@ const IndexPage: EnhancedNextPage<Props> = (): JSX.Element => {
               >
                 <RiAppsLine />
               </Box>
-              <Typography variant="h6" component="span" display="block" sx={{ my: 2 }}>{t('features.apps.title')}</Typography>
+              <Text.Heading variant="h6" component="h3" sx={{ my: 2 }}>{t('features.apps.title')}</Text.Heading>
 
-              <Typography variant="body1" component="span" display="block" color="text.secondary">
+              <Text.Paragraph variant="body2" component="span" color="text.secondary">
                 {t('features.apps.description')}
-              </Typography>
+              </Text.Paragraph>
             </Box>
           </Box>
         </Container>
@@ -213,9 +213,9 @@ const IndexPage: EnhancedNextPage<Props> = (): JSX.Element => {
 
       <Box py={8}>
         <Container>
-          <Typography variant="h4" align="center" sx={{ mb: 8 }} display="block">
+          <Text.Heading variant="h4" textAlign="center" sx={{ mb: 8 }}>
             {t('features.apps.title')}
-          </Typography>
+          </Text.Heading>
 
           <Box display="grid" gridTemplateColumns={['repeat(1, minmax(0, 1fr))', 'repeat(2, minmax(0, 1fr))', 'repeat(2, minmax(0, 1fr))']} gridGap={4}>
             <Link href="/weather" passHref>
@@ -240,9 +240,9 @@ const IndexPage: EnhancedNextPage<Props> = (): JSX.Element => {
                     pb={2}
                     pt={4}
                   >
-                    <Typography variant="h6" display="block" color="white">
+                    <Text.Heading variant="h6" color="white">
                       Weather app
-                    </Typography>
+                    </Text.Heading>
                   </Box>
                 </Box>
               </Box>
@@ -270,9 +270,9 @@ const IndexPage: EnhancedNextPage<Props> = (): JSX.Element => {
                     pb={2}
                     pt={4}
                   >
-                    <Typography variant="h6" display="block" color="white">
+                    <Text.Heading variant="h6" color="white">
                       Auth app
-                    </Typography>
+                    </Text.Heading>
                   </Box>
                 </Box>
               </Box>

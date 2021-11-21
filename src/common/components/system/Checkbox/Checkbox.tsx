@@ -2,7 +2,7 @@
 import * as React from 'react';
 
 import { CheckboxBase, CheckboxBaseProps } from '../CheckboxBase';
-import { Typography } from '../Typography';
+import * as Text from '../Text';
 
 import * as S from './styled';
 
@@ -27,14 +27,14 @@ export const Checkbox = React.forwardRef(function Checkbox(props: CheckboxProps,
       <CheckboxBase checked={checked} disabled={disabled} color={color} inputRef={inputRef} />
 
       {label && (
-        <Typography
+        <Text.Paragraph
           color={disabled ? 'text.disabled' : 'text.primary'}
           sx={{
             ml: 2,
           }}
         >
           {label}
-        </Typography>
+        </Text.Paragraph>
       )}
     </S.CheckboxRoot>
   );

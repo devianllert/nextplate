@@ -4,7 +4,7 @@ import { RiEyeCloseLine, RiEyeLine, RiUserLine } from 'react-icons/ri';
 
 import { Input, InputProps } from '../Input';
 import { Divider } from '../../Divider';
-import { Typography } from '../../Typography';
+import { Typography } from '../../Text';
 import { InputAdornment } from '../InputAdornment';
 import { IconButton } from '../../IconButton';
 

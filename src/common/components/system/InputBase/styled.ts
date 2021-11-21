@@ -6,7 +6,7 @@ import { createTransition, duration } from '@/common/design/tokens/transitions';
 
 export const InputBaseRoot = styled.div<{ disabled?: boolean; fullWidth?: boolean } & SxProp>(
   (props) => ({
-    ...variants.body1,
+    ...variants.body2,
     position: 'relative',
     display: 'inline-flex',
     alignItems: 'center',

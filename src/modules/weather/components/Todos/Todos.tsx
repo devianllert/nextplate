@@ -5,7 +5,7 @@ import { Box } from '@/common/components/system/Box';
 import { Button } from '@/common/components/system/Button';
 import { Divider } from '@/common/components/system/Divider';
 import { IconButton } from '@/common/components/system/IconButton';
-import { Typography } from '@/common/components/system/Typography';
+import * as Text from '@/common/components/system/Text';
 import * as Modal from '@/common/components/system/Modal';
 
 const initialTodos = [
@@ -64,7 +64,7 @@ export const Todos = (): JSX.Element => {
                 padding={4}
               >
                 <Modal.Title asChild>
-                  <Typography variant="h4" component="span">Edit todos</Typography>
+                  <Text.Heading variant="h4" component="span">Edit todos</Text.Heading>
                 </Modal.Title>
 
                 <Modal.Close asChild>
@@ -79,9 +79,9 @@ export const Todos = (): JSX.Element => {
               <Box padding={4}>
                 {todos.map((item) => (
                   <Box mb={3} key={item.date}>
-                    <Typography variant="subtitle1" component="span" sx={{ mr: 2 }}>16:30h</Typography>
+                    <Text.Heading variant="subtitle1" component="span" sx={{ mr: 2 }}>16:30h</Text.Heading>
 
-                    <Typography variant="body1" component="span" fontWeight="bold">Stay at Bohem Art Hotel</Typography>
+                    <Text.Paragraph variant="body1" component="span" fontWeight="bold">Stay at Bohem Art Hotel</Text.Paragraph>
                   </Box>
                 ))}
               </Box>
@@ -94,9 +94,9 @@ export const Todos = (): JSX.Element => {
         <Box>
           {todos.slice(0, 2).map((item) => (
             <Box mb={3} key={item.date}>
-              <Typography variant="subtitle1" component="span" sx={{ mr: 2 }}>16:30h</Typography>
+              <Text.Heading variant="subtitle1" component="span" sx={{ mr: 2 }}>16:30h</Text.Heading>
 
-              <Typography variant="body1" component="span" fontWeight="bold">Stay at Bohem Art Hotel</Typography>
+              <Text.Paragraph variant="body1" component="span" fontWeight="bold">Stay at Bohem Art Hotel</Text.Paragraph>
             </Box>
           ))}
         </Box>

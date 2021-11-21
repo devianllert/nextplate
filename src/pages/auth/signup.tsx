@@ -11,7 +11,7 @@ import { EnhancedNextPage } from '@/layouts/core/types/EnhancedNextPage';
 import { Button } from '@/common/components/system/Button';
 import { getTranslationsStaticProps } from '@/layouts/core/SSG';
 import { AuthLayout } from '@/layouts/auth/components/AuthLayout';
-import { Typography } from '@/common/components/system/Typography';
+import * as Text from '@/common/components/system/Text';
 import { Box } from '@/common/components/system/Box';
 import { Input, InputAdornment } from '@/common/components/system/Input';
 import { getAppTitle } from '@/modules/core/meta/meta';
@@ -57,7 +57,7 @@ const SignUpPage: EnhancedNextPage<Props> = (): JSX.Element => {
         maxWidth="440px"
         width="100%"
       >
-        <Typography variant="h3" component="h1" sx={{ mb: 4 }} display="block">{t('signup')}</Typography>
+        <Text.Heading variant="h3" component="h1" sx={{ mb: 4 }}>{t('signup')}</Text.Heading>
 
         <Stack direction="column">
           <Input
@@ -112,9 +112,9 @@ const SignUpPage: EnhancedNextPage<Props> = (): JSX.Element => {
           <Button variant="contained" fullWidth disableElevation>{t('signup')}</Button>
         </Stack>
 
-        <Typography variant="body2">
+        <Text.Paragraph variant="body2">
           <Link href="/auth/login">{t('haveAccount')}</Link>
-        </Typography>
+        </Text.Paragraph>
       </Box>
     </>
   );

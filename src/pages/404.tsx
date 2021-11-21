@@ -12,7 +12,7 @@ import { EnhancedNextPage } from '@/layouts/core/types/EnhancedNextPage';
 import { SoftPageProps } from '@/layouts/core/types/SoftPageProps';
 import { SSGPageProps } from '@/layouts/core/types/SSGPageProps';
 import { NotFound404Layout } from '@/layouts/404/components/NotFound404Layout';
-import { Typography } from '@/common/components/system/Typography';
+import * as Text from '@/common/components/system/Text';
 import { Button } from '@/common/components/system/Button';
 
 const fileLabel = 'pages/404';
@@ -68,8 +68,8 @@ const NotFound404Page: EnhancedNextPage<Props> = (): JSX.Element => {
         <title>{getAppTitle('404')}</title>
       </Head>
 
-      <Typography variant="h1">{t('title')}</Typography>
-      <Typography variant="body1">{t('description')}</Typography>
+      <Text.Heading variant="h1">{t('title')}</Text.Heading>
+      <Text.Paragraph variant="body1">{t('description')}</Text.Paragraph>
       <Link href="/" passHref>
         <Button>{t('button')}</Button>
       </Link>

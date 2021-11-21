@@ -12,7 +12,7 @@ import { EnhancedNextPage } from '@/layouts/core/types/EnhancedNextPage';
 import { Button } from '@/common/components/system/Button';
 import { getTranslationsStaticProps } from '@/layouts/core/SSG';
 import { AuthLayout } from '@/layouts/auth/components/AuthLayout';
-import { Typography } from '@/common/components/system/Typography';
+import * as Text from '@/common/components/system/Text';
 import { Box } from '@/common/components/system/Box';
 import { Input, InputAdornment } from '@/common/components/system/Input';
 import { Stack } from '@/common/components/system/Stack';
@@ -57,7 +57,7 @@ const LoginPage: EnhancedNextPage<Props> = (): JSX.Element => {
         maxWidth="440px"
         width="100%"
       >
-        <Typography variant="h4" component="h1" sx={{ mb: 4 }} display="block">{t('login')}</Typography>
+        <Text.Heading variant="h4" component="h1" sx={{ mb: 4 }}>{t('login')}</Text.Heading>
 
         <Stack direction="column">
           <Input
@@ -89,11 +89,11 @@ const LoginPage: EnhancedNextPage<Props> = (): JSX.Element => {
           <Button variant="contained" fullWidth disableElevation>{t('login')}</Button>
         </Stack>
 
-        <Typography variant="body2">
+        <Text.Paragraph variant="body2">
           {t('needAccount')}
           {' '}
           <Link href="/auth/signup">{t('signup')}</Link>
-        </Typography>
+        </Text.Paragraph>
       </Box>
     </>
   );

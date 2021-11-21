@@ -152,6 +152,7 @@ export const decorators = [
               flexDirection: 'column',
               alignItems: 'center',
               justifyContent: 'center',
+              padding: 24,
             }}
           >
             <Story />

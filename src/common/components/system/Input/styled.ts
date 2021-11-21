@@ -11,7 +11,7 @@ export interface InputRootProps {
 }
 
 export const InputRoot = styled.div<InputRootProps>((props) => ({
-  ...variants.body1,
+  ...variants.body2,
   boxSizing: 'border-box',
   position: 'relative',
   display: 'flex',

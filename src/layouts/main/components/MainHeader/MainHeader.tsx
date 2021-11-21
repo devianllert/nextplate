@@ -9,7 +9,7 @@ import ru from 'timeago.js/lib/lang/ru';
 
 import { APP_TITLE } from '@/modules/core/meta/meta';
 
-import { Typography } from '@/common/components/system/Typography';
+import * as Text from '@/common/components/system/Text';
 import { Stack } from '@/common/components/system/Stack';
 import { Container } from '@/common/components/system/Container';
 import { IconButton } from '@/common/components/system/IconButton';
@@ -29,19 +29,19 @@ export const MainHeader = (): JSX.Element => {
     <Container>
       <S.MainHeaderRoot>
         <Link href="/" passHref>
-          <Typography variant="h6" component="a">{APP_TITLE}</Typography>
+          <Text.Heading variant="h6" component="a">{APP_TITLE}</Text.Heading>
         </Link>
 
         <DisplayOnBrowserMount>
           <Stack alignItems="center" space={3}>
-            <Typography variant="subtitle2" component="span">
+            <Text.Heading variant="subtitle2" component="span">
               {t('lastUpdate')}:
               {' '}
               <Timeago
                 datetime={process.env.NEXT_PUBLIC_APP_BUILD_TIME}
                 locale={i18n.language}
               />
-            </Typography>
+            </Text.Heading>
 
             <IconButton
               color="gray"

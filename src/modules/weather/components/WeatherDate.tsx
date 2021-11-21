@@ -2,7 +2,7 @@ import * as React from 'react';
 import format from 'date-fns/format';
 
 import { Box } from '@/common/components/system/Box';
-import { Typography } from '@/common/components/system/Typography';
+import * as Text from '@/common/components/system/Text';
 import { useInterval } from '@/common/hooks/useInterval';
 
 const DATE_UPDATE_TIMEOUT = 30 * 1000;
@@ -28,11 +28,11 @@ export const WeatherDate = (): JSX.Element => {
         display="flex"
         alignItems="flex-end"
       >
-        <Typography variant="h4" component="span" fontWeight="bold" sx={{ mr: 2 }}>{formattedTime.time}</Typography>
-        <Typography variant="h6" component="span">{formattedTime.ampm}</Typography>
+        <Text.Heading variant="h4" component="span" fontWeight="bold" sx={{ mr: 2 }}>{formattedTime.time}</Text.Heading>
+        <Text.Heading variant="h6" component="span">{formattedTime.ampm}</Text.Heading>
       </Box>
 
-      <Typography variant="h6" component="span" fontWeight="normal">{formattedTime.date}</Typography>
+      <Text.Heading variant="h6" component="span" fontWeight="normal">{formattedTime.date}</Text.Heading>
     </Box>
   );
 };

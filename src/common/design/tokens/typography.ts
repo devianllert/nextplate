@@ -45,7 +45,7 @@ const buildVariant = (weight: number, size: number, lineHeight: number, letterSp
   ...casing,
 });
 
-export const variants = {
+export const headings = {
   h1: buildVariant(fontWeight.light, 96, 1.167, -1.5),
   h2: buildVariant(fontWeight.light, 60, 1.2, -0.5),
   h3: buildVariant(fontWeight.normal, 48, 1.167, 0),
@@ -54,9 +54,30 @@ export const variants = {
   h6: buildVariant(fontWeight.medium, 20, 1.6, 0.15),
   subtitle1: buildVariant(fontWeight.normal, 16, 1.75, 0.15),
   subtitle2: buildVariant(fontWeight.medium, 14, 1.57, 0.1),
-  body1: buildVariant(fontWeight.normal, 16, 1.5, 0.15),
-  body2: buildVariant(fontWeight.normal, 14, 1.43, 0.15),
+};
+
+export const paragraphs = {
+  body1: buildVariant(fontWeight.normal, 20, 1.5, 0.15),
+  body2: buildVariant(fontWeight.normal, 16, 1.43, 0.15),
+  body3: buildVariant(fontWeight.normal, 14, 1.25, 0.15),
+};
+
+export const overlines = {
+  overline1: buildVariant(fontWeight.medium, 12, 2.66, 1, caseAllCaps),
+  overline2: buildVariant(fontWeight.medium, 10, 2.66, 1, caseAllCaps),
+};
+
+export const captions = {
+  caption1: buildVariant(fontWeight.normal, 12, 1.2, 0.4),
+  caption2: buildVariant(fontWeight.normal, 10, 1.2, 0.4),
+};
+
+export const variants = {
+  ...headings,
+  subtitle1: buildVariant(fontWeight.normal, 16, 1.75, 0.15),
+  subtitle2: buildVariant(fontWeight.medium, 14, 1.57, 0.1),
+  ...paragraphs,
   button: buildVariant(fontWeight.medium, 14, 1.75, 0.4, caseAllCaps),
-  caption: buildVariant(fontWeight.normal, 12, 1.66, 0.4),
-  overline: buildVariant(fontWeight.normal, 12, 2.66, 1, caseAllCaps),
+  ...captions,
+  ...overlines,
 };

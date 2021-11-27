@@ -14,6 +14,7 @@ import { Stack } from '@/common/components/system/Stack';
 import { Container } from '@/common/components/system/Container';
 import { IconButton } from '@/common/components/system/IconButton';
 import { DisplayOnBrowserMount } from '@/common/components/rehydration/DisplayOnBrowserMount';
+import { LocaleToggler } from '@/common/components/LocaleToggler';
 
 import * as S from './styled';
 
@@ -31,7 +32,6 @@ export const MainHeader = (): JSX.Element => {
         <Link href="/" passHref>
           <Text.Heading variant="h6" component="a">{APP_TITLE}</Text.Heading>
         </Link>
-
         <DisplayOnBrowserMount>
           <Stack alignItems="center" space={3}>
             <Text.Heading variant="subtitle2" component="span">
@@ -43,9 +43,12 @@ export const MainHeader = (): JSX.Element => {
               />
             </Text.Heading>
 
+            <LocaleToggler />
+
             <IconButton
               color="gray"
               type="button"
+              label={`Change theme mode to ${colorMode === 'dark' ? 'light' : 'dark'}`}
               onClick={() => setColorMode(colorMode === 'dark' ? 'default' : 'dark')}
             >
               {colorMode === 'default' ? <RiSunLine /> : <RiMoonLine />}

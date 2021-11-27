@@ -13,6 +13,9 @@
 const supportedLocales = {
   ENGLISH: 'en',
   RUSSIAN: 'ru',
+  ...(process.env.NEXT_PUBLIC_APP_STAGE === 'development' && {
+    CIMODE: 'cimode',
+  }),
 };
 
 /**

@@ -31,7 +31,7 @@ export const GlobalStyles = (): JSX.Element => {
 
           background-color: ${theme.colors.background.primary};
 
-          transition: ${createTransition(['color', 'background-color'], { duration: duration.short })};
+          /* transition: ${createTransition(['color', 'background-color'], { duration: duration.short })}; */
 
           letter-spacing: normal;
         }

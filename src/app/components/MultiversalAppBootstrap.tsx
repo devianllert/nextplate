@@ -169,6 +169,15 @@ const MultiversalAppBootstrap = (props: Props): JSX.Element => {
       <>
         <Head>
           <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+          {process.env.NEXT_PUBLIC_APP_URL && router.locales?.concat('x-default').map((locale: string) => {
+            const localePath = locale === 'x-default' ? '' : `${locale}`;
+            const href = `${process.env.NEXT_PUBLIC_APP_URL}/${localePath}${router.asPath}`;
+
+            return locale === 'cimode' ? null : (
+              <link key={locale} rel="alternate" hrefLang={locale} href={href} />
+            );
+          })}
         </Head>
 
         <QueryClientProvider client={queryClient}>

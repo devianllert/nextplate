@@ -5,8 +5,8 @@ export const ResetStyles = (): JSX.Element => {
     <Global
       styles={css`
         *,
-        ::before,
-        ::after {
+        *::before,
+        *::after {
           box-sizing: border-box;
         }
         /**
@@ -39,36 +39,7 @@ export const ResetStyles = (): JSX.Element => {
         /**
         * Remove the margin in all browsers (opinionated).
         */
-        body {
-          margin: 0;
-        }
-        /**
-        * Correct the font size and margin on 'h1' elements within 'section' and
-        * 'article' contexts in Chrome, Edge, Firefox, and Safari.
-        */
-        h1 {
-          font-size: 2em;
-          margin: 0.67em 0;
-        }
-        /* Grouping content
-        * ========================================================================== */
-        /**
-        * Remove the margin on nested lists in Chrome, Edge, IE, and Safari.
-        */
-        dl dl,
-        dl ol,
-        dl ul,
-        ol dl,
-        ul dl {
-          margin: 0;
-        }
-        /**
-        * Remove the margin on nested lists in Edge 18- and IE.
-        */
-        ol ol,
-        ol ul,
-        ul ol,
-        ul ul {
+        * {
           margin: 0;
         }
         /**
@@ -152,6 +123,19 @@ export const ResetStyles = (): JSX.Element => {
         video {
           vertical-align: middle;
         }
+
+        html, body, #__next {
+          height: 100%;
+        }
+
+        img,
+        picture,
+        video,
+        canvas,
+        svg {
+          display: block;
+          max-width: 100%;
+        }
         /**
         * Add the correct display in IE 9-.
         */
@@ -200,14 +184,6 @@ export const ResetStyles = (): JSX.Element => {
         }
         /* Forms
         * ========================================================================== */
-        /**
-        * Remove the margin on controls in Safari.
-        */
-        button,
-        input,
-        select {
-          margin: 0;
-        }
         /**
         * 1. Show the overflow in IE.
         * 2. Remove the inheritance of text transform in Edge 18-, Firefox, and IE.
@@ -269,7 +245,6 @@ export const ResetStyles = (): JSX.Element => {
         * 3. Change the resize direction in all browsers (opinionated).
         */
         textarea {
-          margin: 0; /* 1 */
           overflow: auto; /* 2 */
           resize: vertical; /* 3 */
         }

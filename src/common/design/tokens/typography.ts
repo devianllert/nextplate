@@ -1,6 +1,6 @@
 import { CSSProperties } from 'react';
 
-export const defaultFontFamily = '"Roboto", "Helvetica", "Arial", sans-serif';
+export const defaultFontFamily = 'Roboto, -apple-system, BlinkMacSystemFont, "Segoe UI", Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", Helvetica, Arial, sans-serif';
 
 export const fontWeight = {
   light: 300,

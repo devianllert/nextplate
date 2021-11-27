@@ -1,14 +1,13 @@
 import * as React from 'react';
-import { Story, Meta } from '@storybook/react';
+import { Meta } from '@storybook/react';
 
 import * as AlertDialog from '../AlertDialog';
 import { Button } from '../../Button';
 import { Box } from '../../Box';
 import { Stack } from '../../Stack';
-import { Flex } from '../../Flex';
 
 export default {
-  title: 'Components/AlertDialog',
+  title: 'Design System/Atoms/AlertDialog',
   component: AlertDialog.Root,
 } as Meta;
 

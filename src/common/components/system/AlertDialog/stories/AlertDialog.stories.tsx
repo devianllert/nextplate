@@ -1,17 +1,44 @@
 import * as React from 'react';
 import { Story, Meta } from '@storybook/react';
 
-import { AlertDialog, AlertDialogProps } from '../AlertDialog';
+import * as AlertDialog from '../AlertDialog';
+import { Button } from '../../Button';
+import { Box } from '../../Box';
+import { Stack } from '../../Stack';
+import { Flex } from '../../Flex';
 
 export default {
   title: 'Components/AlertDialog',
-  component: AlertDialog,
+  component: AlertDialog.Root,
 } as Meta;
 
-const Template: Story<AlertDialogProps> = (args) => <AlertDialog {...args} />;
+export const Basic = () => (
+  <AlertDialog.Root>
+    <AlertDialog.StyledOverlay />
 
-export const Basic = Template.bind({});
+    <AlertDialog.Trigger asChild>
+      <Button variant="contained">Open</Button>
+    </AlertDialog.Trigger>
+    <AlertDialog.StyledContent asChild>
+      <Box backgroundColor="background.secondary" p={3}>
+        <AlertDialog.Title>Are you absolutely sure?</AlertDialog.Title>
+        <AlertDialog.Description>This action cannot be undone. This will permanently delete your account and remove your data from our servers.</AlertDialog.Description>
 
-Basic.args = {
-  children: 'AlertDialog',
-};
+        <Box
+          display="flex"
+          justifyContent="flex-end"
+          mt={3}
+        >
+          <Stack>
+            <AlertDialog.Cancel asChild>
+              <Button>Cancel</Button>
+            </AlertDialog.Cancel>
+            <AlertDialog.Action asChild>
+              <Button variant="contained" color="red">Yes, delete the account</Button>
+            </AlertDialog.Action>
+          </Stack>
+        </Box>
+      </Box>
+    </AlertDialog.StyledContent>
+  </AlertDialog.Root>
+);

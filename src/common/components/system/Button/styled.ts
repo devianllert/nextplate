@@ -48,9 +48,15 @@ export const ButtonRoot = styled(ButtonBase)<ButtonRootProps>(
       color: theme.colors.radix[`${props.color}11`],
       padding: '6px 8px',
 
-      '&:hover, &:focus-visible': {
+      '&:hover': {
         backgroundColor: theme.colors.radix[`${props.color}A4`],
         textDecoration: 'none',
+      },
+
+      '&:focus-visible': {
+        backgroundColor: theme.colors.radix[`${props.color}A4`],
+        textDecoration: 'none',
+        boxShadow: `inset 0 0 0 1px ${theme.colors.radix[`${props.color}8`]}, 0 0 0 1px ${theme.colors.radix[`${props.color}8`]}`,
       },
 
       '&:active': {
@@ -66,12 +72,19 @@ export const ButtonRoot = styled(ButtonBase)<ButtonRootProps>(
     ...(props.variant === 'outlined' && {
       color: theme.colors.radix[`${props.color}11`],
       border: '1px solid',
-      borderColor: theme.colors.radix[`${props.color}6`],
+      borderColor: theme.colors.radix[`${props.color}7`],
       padding: '5px 15px',
 
-      '&:hover, &:focus-visible': {
+      '&:hover': {
         backgroundColor: theme.colors.radix[`${props.color}A4`],
-        borderColor: theme.colors.radix[`${props.color}7`],
+        borderColor: theme.colors.radix[`${props.color}8`],
+        textDecoration: 'none',
+      },
+
+      '&:focus-visible': {
+        backgroundColor: theme.colors.radix[`${props.color}A4`],
+        borderColor: theme.colors.radix[`${props.color}8`],
+        boxShadow: `inset 0 0 0 1px ${theme.colors.radix[`${props.color}8`]}`,
         textDecoration: 'none',
       },
 

@@ -39,30 +39,30 @@ export const InputComponent = styled(InputBase)((props) => ({
   padding: '6px 8px',
   color: props.theme.colors.text.primary,
   background: props.theme.colors.radix.gray3,
-  border: `2px solid ${props.theme.colors.radix.gray6}`,
-
-  '&:focus-within': {
-    borderColor: props.theme.colors.radix.gray7,
-  },
+  boxShadow: `inset 0px 0px 0px 2px ${props.theme.colors.radix.gray7}`,
 
   '&:hover': {
-    borderColor: props.theme.colors.radix.gray8,
+    boxShadow: `inset 0px 0px 0px 2px ${props.theme.colors.radix.gray8}`,
+  },
+
+  '&:focus-within': {
+    boxShadow: `inset 0px 0px 0px 1px ${props.theme.colors.radix.primary8}, 0px 0px 0px 1px ${props.theme.colors.radix.primary8}`,
   },
 
   ...(props.error && {
-    borderColor: props.theme.colors.radix.red6,
+    boxShadow: `inset 0px 0px 0px 2px ${props.theme.colors.radix.red7}`,
 
     '&:hover': {
-      borderColor: props.theme.colors.radix.red6,
+      boxShadow: `inset 0px 0px 0px 2px ${props.theme.colors.radix.red8}`,
     },
   }),
 
   ...(props.disabled && {
     color: props.theme.colors.text.disabled,
-    borderColor: props.theme.colors.radix.gray6,
+    boxShadow: `inset 0px 0px 0px 2px ${props.theme.colors.radix.gray6}`,
 
     '&:hover': {
-      borderColor: props.theme.colors.radix.gray6,
+      boxShadow: `inset 0px 0px 0px 2px ${props.theme.colors.radix.gray6}`,
     },
   }),
 }));

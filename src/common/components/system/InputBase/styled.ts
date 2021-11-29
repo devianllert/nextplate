@@ -12,7 +12,7 @@ export const InputBaseRoot = styled.div<{ disabled?: boolean; fullWidth?: boolea
     alignItems: 'center',
     color: props.theme.colors.text.primary,
     cursor: 'text',
-    transition: createTransition(['border-color', 'color', 'background'], { duration: duration.short }),
+    transition: createTransition(['box-shadow', 'color', 'background'], { duration: duration.short }),
 
     ...(props.disabled && {
       opacity: 1, // Reset iOS opacity

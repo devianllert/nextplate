@@ -12,44 +12,52 @@ export interface ButtonProps extends ButtonBaseProps {
    * The content of the component.
    */
   children?: React.ReactNode;
+
   /**
    * If `true`, the component is disabled.
    *
    * @default false
    */
   disabled?: boolean;
+
   /**
-  * If `true`, no elevation is used.
-  *
-  * @default false
-  */
+   * If `true`, no elevation is used.
+   *
+   * @default false
+   */
   disableElevation?: boolean;
+
   /**
- * Element placed after the children.
- */
+   * Element placed after the children.
+   */
   endIcon?: React.ReactNode;
+
   /**
-  * If `true`, the button will take up the full width of its container.
-  *
-  * @default false
-  */
+   * If `true`, the button will take up the full width of its container.
+   *
+   * @default false
+   */
   fullWidth?: boolean;
+
   /**
-  * The URL to link to when the button is clicked.
-  * If defined, an `a` element will be used as the root node.
-  */
+   * The URL to link to when the button is clicked.
+   * If defined, an `a` element will be used as the root node.
+   */
   href?: string;
+
   /**
-  * The size of the component.
-  * `small` is equivalent to the dense button styling.
-  *
-  * @default 'medium'
-  */
+   * The size of the component.
+   * `small` is equivalent to the dense button styling.
+   *
+   * @default 'medium'
+   */
   size?: 'small' | 'medium' | 'large';
+
   /**
-  * Element placed before the children.
-  */
+   * Element placed before the children.
+   */
   startIcon?: React.ReactNode;
+
   /**
    * The variant to use.
    *
@@ -71,6 +79,9 @@ export interface ButtonTypeMap<P = {}, D extends React.ElementType = 'button'> {
   defaultComponent: D
 }
 
+/**
+ * The `Button` component is used to trigger an action or event.
+ */
 export const Button: OverridableComponent<ButtonTypeMap> = React.forwardRef(function Button(props, ref) {
   const {
     children,

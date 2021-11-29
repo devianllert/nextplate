@@ -1,9 +1,9 @@
 import * as React from 'react';
 
-export type DisplayOnBrowserMountProps = {
+export interface DisplayOnBrowserMountProps {
   children: React.ReactNode;
   deps?: React.DependencyList;
-};
+}
 
 /**
  * Utility component to properly handle expected differences between server and browser rendering.

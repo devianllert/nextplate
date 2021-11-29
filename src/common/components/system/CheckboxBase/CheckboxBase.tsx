@@ -45,6 +45,9 @@ const isIndeterminate = (checked?: boolean | 'indeterminate'): checked is 'indet
   return checked === 'indeterminate';
 };
 
+/**
+ * The `CheckboxBase` component is used in forms when a user needs to select multiple values from several options.
+ */
 export const CheckboxBase = React.forwardRef(function CheckboxBase(props: CheckboxBaseProps, ref: React.ForwardedRef<HTMLDivElement>): JSX.Element {
   const {
     color = 'primary',

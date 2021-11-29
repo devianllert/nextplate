@@ -25,15 +25,10 @@ export interface InputProps extends InputBaseProps {
    * @default false
    */
   disabled?: boolean;
-
-  /**
-   *
-   */
-  inputRef?: React.Ref<HTMLInputElement>;
 }
 
 /**
- * The `Input` component is a component that is used to get user input in a text field.
+ * The `Input` component is used to get user input in a text field.
  */
 export const Input = React.forwardRef(function Input(props: InputProps, ref: React.ForwardedRef<HTMLInputElement>): JSX.Element {
   const {

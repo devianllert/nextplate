@@ -19,8 +19,8 @@ export interface StackProps {
   space?: ResponsiveValue<number>;
 
   /**
-  * Items of varying height can be vertically aligned using the `alignY` prop.
-  */
+   * Items of varying height can be vertically aligned using the `alignY` prop.
+   */
   alignItems?: ResponsiveValue<React.CSSProperties['alignItems']>;
 
   /**
@@ -39,7 +39,7 @@ export interface StackTypeMap<P = {}, D extends React.ElementType = 'div'> {
 }
 
 /**
- * The Stack component manages layout of immediate children along the vertical or horizontal
+ * The `Stack` component is used to manage layout of immediate children along the vertical or horizontal
  * axis with optional spacing and/or dividers between each child.
  */
 export const Stack: OverridableComponent<StackTypeMap> = React.forwardRef(function Stack(props, ref) {

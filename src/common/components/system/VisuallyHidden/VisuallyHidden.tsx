@@ -6,11 +6,11 @@ import { OverridableComponent } from '@/modules/core/react/types/OverridableComp
 // eslint-disable-next-line @typescript-eslint/ban-types
 export interface VisuallyHiddenTypeMap<P = {}, D extends React.ElementType = 'span'> {
   props: P;
-  defaultComponent: D
+  defaultComponent: D;
 }
 
 /**
- * Provides text for screen readers that is visually hidden.
+ * The `VisuallyHidden` component is used to provide text for screen readers that is visually hidden.
  * It is the logical opposite of the `aria-hidden` attribute.
  *
  * @see https://snook.ca/archives/html_and_css/hiding-content-for-accessibility

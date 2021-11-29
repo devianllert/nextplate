@@ -7,6 +7,7 @@ interface PortalProps {
    * The children to render into the `container`.
    */
   children?: React.ReactNode;
+
   /**
    * An HTML element or function that returns one.
    * The `container` will have the portal children appended to it.

@@ -15,7 +15,7 @@ export interface KbdProps extends React.HTMLAttributes<HTMLElement> {
 }
 
 /**
- * The keyboard key component exists to show which key or combination of keys performs a given action.
+ * The `Kbd` component is used to show which key or combination of keys performs a given action.
  */
 export const Kbd = React.forwardRef((props: KbdProps, ref: React.ForwardedRef<HTMLElement>): JSX.Element => {
   const {

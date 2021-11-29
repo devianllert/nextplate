@@ -16,7 +16,7 @@ export interface AspectRatioProps extends React.HTMLAttributes<HTMLDivElement> {
 }
 
 /**
- * Displays content within a desired ratio.
+ * The `AspectRatio` component is used to display content within a desired ratio.
  */
 export const AspectRatio = React.forwardRef(function AspectRatio(props: AspectRatioProps, ref: React.ForwardedRef<HTMLDivElement>): JSX.Element {
   const {

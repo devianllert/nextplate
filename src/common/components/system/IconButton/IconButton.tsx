@@ -54,6 +54,9 @@ export interface IconButtonTypeMap<P = {}, D extends React.ElementType = 'button
   defaultComponent: D;
 }
 
+/**
+ * The `IconButton` component is like a Button except that it renders only an icon.
+ */
 export const IconButton: OverridableComponent<IconButtonTypeMap> = React.forwardRef(function IconButton(props, ref) {
   const {
     children,

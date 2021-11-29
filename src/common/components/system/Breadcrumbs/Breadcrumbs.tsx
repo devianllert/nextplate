@@ -9,6 +9,7 @@ export interface BreadcrumbsProps {
    * Doesn't accept a Fragment as a child.
    */
   children?: React.ReactNode;
+
   /**
    * Custom separator node.
    *
@@ -39,6 +40,10 @@ const insertSeparators = (items: React.ReactNode[], separator: React.ReactNode) 
   }, []);
 };
 
+/**
+ * Breadcrumbs, or a breadcrumb navigation, can help enhance how users navigate to previous page levels of a website,
+ * especially if that website has many pages or products.
+ */
 export const Breadcrumbs = (props: BreadcrumbsProps): JSX.Element => {
   const { children, separator = '/' } = props;
 

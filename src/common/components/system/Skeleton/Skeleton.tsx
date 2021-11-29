@@ -9,21 +9,25 @@ export interface SkeletonProps {
   /**
    * Optional children to infer width and height from.
    */
-  children?: React.ReactNode,
+  children?: React.ReactNode;
+
   /**
    * The animation.
    * If `false` the animation effect is disabled.
    */
   animation?: 'pulse' | 'wave' | false;
+
   /**
    * The type of content that will be rendered.
    */
   variant?: 'text' | 'rectangular' | 'circular';
+
   /**
    * Height of the skeleton.
    * Useful when you don't want to adapt the skeleton to a text element but for instance a card.
    */
   height?: number | string;
+
   /**
    * Width of the skeleton.
    * Useful when the skeleton is inside an inline element with no width of its own.
@@ -34,11 +38,11 @@ export interface SkeletonProps {
 // eslint-disable-next-line @typescript-eslint/ban-types
 interface SkeletonTypeMap<P = {}, D extends React.ElementType = 'span'> {
   props: P & SkeletonProps;
-  defaultComponent: D
+  defaultComponent: D;
 }
 
 /**
- * Display a placeholder preview of your content before the data gets loaded to reduce load-time frustration.
+ * The `Skeleton`component is used to display a placeholder preview of your content before the data gets loaded to reduce load-time frustration.
  *
  * The data for your components might not be immediately available.
  * You can increase the perceived performance for users by using skeletons.

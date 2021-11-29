@@ -18,6 +18,9 @@ export interface BoxTypeMap<P = {}, D extends React.ElementType = 'div'> {
   defaultComponent: D;
 }
 
+/**
+ * The Box component serves as a wrapper component for most of the CSS utility needs.
+ */
 export const Box: OverridableComponent<BoxTypeMap> = React.forwardRef(function Box(props, ref) {
   const {
     children,

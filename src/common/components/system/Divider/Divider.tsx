@@ -9,6 +9,7 @@ export interface DividerProps {
    * @default 'horizontal'
    */
   orientation?: 'vertical' | 'horizontal';
+
   /**
    * Whether or not the component is purely decorative. When true, accessibility-related attributes
    * are updated so that that the rendered element is removed from the accessibility tree.
@@ -16,6 +17,7 @@ export interface DividerProps {
    * @default false
    */
   decorative?: boolean;
+
   /**
    * The divider space.
    *
@@ -32,6 +34,9 @@ export interface DividerProps {
   flexItem?: boolean;
 }
 
+/**
+ * The `Divider` component is used to visually separate content in a list or group.
+ */
 export const Divider = (props: DividerProps): JSX.Element => {
   const {
     orientation = 'horizontal',

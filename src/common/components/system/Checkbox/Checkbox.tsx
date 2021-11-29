@@ -13,6 +13,9 @@ export interface CheckboxProps extends CheckboxBaseProps {
   label?: React.ReactNode;
 }
 
+/**
+ * The `Checkbox` component is used in forms when a user needs to select multiple values from several options.
+ */
 export const Checkbox = React.forwardRef(function Checkbox(props: CheckboxProps, ref: React.ForwardedRef<HTMLLabelElement>): JSX.Element {
   const {
     label,

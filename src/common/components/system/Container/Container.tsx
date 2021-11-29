@@ -44,6 +44,7 @@ interface ContainerTypeMap<P = {}, D extends React.ElementType = 'div'> {
   props: P & ContainerProps;
   defaultComponent: D
 }
+
 /**
  * The container centers your content horizontally. It's the most basic layout element.
  */

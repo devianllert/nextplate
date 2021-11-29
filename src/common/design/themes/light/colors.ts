@@ -29,10 +29,10 @@ const lightColors = {
     secondary: gray.gray2,
   },
   status: {
-    success: transformColorScale(green),
-    info: transformColorScale(blue),
-    warning: transformColorScale(yellow),
-    error: transformColorScale(red),
+    success: transformColorScale(green, 'success'),
+    info: transformColorScale(blue, 'info'),
+    warning: transformColorScale(yellow, 'warning'),
+    error: transformColorScale(red, 'error'),
   },
   radix: {
     ...gray,

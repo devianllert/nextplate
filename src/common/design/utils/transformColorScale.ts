@@ -11,7 +11,7 @@ type ScaleKeys = '1'
 | '11'
 | '12';
 
-export const transformColorScale = (scale: Record<string, string>, name?: string): Record<ScaleKeys | `${typeof name}${ScaleKeys}`, string> => {
+export const transformColorScale = <T extends string>(scale: Record<string, string>, name?: T): Record<T extends string ? `${T}${ScaleKeys}` : ScaleKeys, string> => {
   const mappedObject = {};
 
   Object.keys(scale).forEach((value, index) => {
@@ -20,5 +20,5 @@ export const transformColorScale = (scale: Record<string, string>, name?: string
     mappedObject[name ? `${name}${number}` : number] = scale[value];
   });
 
-  return mappedObject;
+  return mappedObject as Record<T extends string ? `${T}${ScaleKeys}` : ScaleKeys, string>;
 };

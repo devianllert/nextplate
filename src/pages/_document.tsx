@@ -1,4 +1,3 @@
-// eslint-disable-next-line @next/next/no-document-import-in-page
 import Document, {
   Head,
   Html,
@@ -8,6 +7,9 @@ import Document, {
   DocumentContext,
 } from 'next/document';
 import { InitializeColorMode } from 'theme-ui';
+
+import darkColors from '@/common/design/themes/dark/colors';
+import lightColors from '@/common/design/themes/light/colors';
 
 /**
  * XXX Is only rendered on the server side and not on the client side
@@ -37,6 +39,9 @@ class AppDocument extends Document {
 
           <meta name="twitter:card" content="/images/static/logo-og.png" />
           <meta name="twitter:image:alt" content="Image description" />
+
+          <meta name="theme-color" content={lightColors.radix.primary9} media="(prefers-color-scheme: light)" />
+          <meta name="theme-color" content={darkColors.radix.primary9} media="(prefers-color-scheme: dark)" />
 
           <link rel="preconnect" href="https://fonts.googleapis.com" />
           <link rel="preconnect" href="https://fonts.gstatic.com" />

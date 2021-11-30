@@ -17,6 +17,13 @@ module.exports = {
   stories: ['../src/**/*.stories.mdx', '../src/**/*.stories.@(js|jsx|ts|tsx)'],
   addons: [
     /**
+     * Use Next.js Router in your Storybook stories.
+     *
+     * @see https://github.com/lifeiscontent/storybook-addon-next-router
+     */
+    'storybook-addon-next-router',
+
+    /**
      * The Storybook Links addon can be used to create links that navigate between stories in Storybook.
      *
      * @see https://www.npmjs.com/package/@storybook/addon-links

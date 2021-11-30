@@ -73,7 +73,13 @@ export const AuthLayout = (props: AuthLayoutProps): JSX.Element => {
             scale: shouldReduceMotion ? 1 : 1.05,
           }}
         >
-          <Image src="https://images.unsplash.com/photo-1604604994333-f1b0e9471186" layout="fill" objectFit="cover" objectPosition="top" />
+          <Image
+            src="https://images.unsplash.com/photo-1604604994333-f1b0e9471186"
+            priority
+            layout="fill"
+            objectFit="cover"
+            objectPosition="top"
+          />
         </Box>
       </Box>
     </Box>

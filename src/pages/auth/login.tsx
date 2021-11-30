@@ -64,6 +64,7 @@ const LoginPage: EnhancedNextPage<Props> = (): JSX.Element => {
             id="email"
             name="email"
             type="email"
+            autoComplete="email"
             placeholder={t('form.email.placeholder')}
             label={t('form.email.label')}
             fullWidth

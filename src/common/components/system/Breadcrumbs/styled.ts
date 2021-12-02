@@ -8,8 +8,6 @@ export const BreadcrumbsRoot = styled.nav`
   line-height: 20px;
 
   letter-spacing: 0.25px;
-
-  color: #000103;
 `;
 
 export const BreadcrumbsList = styled.ol`
@@ -30,4 +28,11 @@ export const BreadcrumbsSeparator = styled.li`
   margin-right: 4px;
 `;
 
-export const BreadcrumbsItem = styled.li``;
+export const BreadcrumbsItem = styled.li({
+  display: 'inline-flex',
+  alignItems: 'center',
+});
+
+export const BreadcrumbsLink = styled.a({
+  textDecoration: 'none',
+});

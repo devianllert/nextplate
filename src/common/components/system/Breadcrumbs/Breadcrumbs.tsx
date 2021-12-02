@@ -2,66 +2,75 @@ import * as React from 'react';
 
 import * as S from './styled';
 
-export interface BreadcrumbsProps {
-  /**
-   * The content of the component.
-   *
-   * Doesn't accept a Fragment as a child.
-   */
-  children?: React.ReactNode;
+export type BreadcrumbItemProps = React.HTMLAttributes<HTMLElement>;
 
+/**
+ * The `BreadcrumbItem` component is used to group a breadcrumb link.
+ * It renders a `li` element to denote it belongs to an order list of links.
+ */
+export const BreadcrumbsItem = React.forwardRef<HTMLLIElement, BreadcrumbItemProps>((props, ref) => {
+  const { children, ...other } = props;
+
+  return (
+    <S.BreadcrumbsItem ref={ref} {...other}>
+      {children}
+    </S.BreadcrumbsItem>
+  );
+});
+
+export interface BreadcrumbLinkProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
   /**
-   * Custom separator node.
-   *
-   * @default '/'
+   * The content.
    */
-  separator?: React.ReactNode;
+  children: React.ReactNode;
 }
 
-const insertSeparators = (items: React.ReactNode[], separator: React.ReactNode) => {
-  return items.reduce((acc: React.ReactNode[], current, index) => {
-    if (index < items.length - 1) {
-      // eslint-disable-next-line no-param-reassign
-      acc = acc.concat(
-        current,
-        <S.BreadcrumbsSeparator
-          aria-hidden
-          // eslint-disable-next-line react/no-array-index-key
-          key={`separator-${index}`}
-        >
-          {separator}
-        </S.BreadcrumbsSeparator>,
-      );
-    } else {
-      acc.push(current);
-    }
+export const BreadcrumbsLink = React.forwardRef<HTMLAnchorElement, BreadcrumbLinkProps>((props, ref) => {
+  const { children, ...other } = props;
 
-    return acc;
-  }, []);
-};
+  return (
+    <S.BreadcrumbsLink ref={ref} {...other}>
+      {children}
+    </S.BreadcrumbsLink>
+  );
+});
+
+export type BreadcrumbSeparatorProps = React.HTMLAttributes<HTMLLIElement>;
+
+/**
+ * The `BreadcrumbSeparator` component used to separate each breadcrumb item.
+ */
+export const BreadcrumbsSeparator = React.forwardRef<HTMLLIElement, BreadcrumbSeparatorProps>((props, ref) => {
+  const { children, ...other } = props;
+
+  return (
+    <S.BreadcrumbsSeparator aria-hidden ref={ref} {...other}>
+      {children}
+    </S.BreadcrumbsSeparator>
+  );
+});
+
+export type BreadcrumbsProps = React.HTMLAttributes<HTMLElement>;
 
 /**
  * Breadcrumbs, or a breadcrumb navigation, can help enhance how users navigate to previous page levels of a website,
  * especially if that website has many pages or products.
  */
-export const Breadcrumbs = (props: BreadcrumbsProps): JSX.Element => {
-  const { children, separator = '/' } = props;
-
-  const allItems = React.Children.toArray(children).map((child, index) => (
-    // eslint-disable-next-line react/no-array-index-key
-    <S.BreadcrumbsItem key={`child-${index}`}>
-      {child}
-    </S.BreadcrumbsItem>
-  ));
+export const Breadcrumbs = React.forwardRef<HTMLElement, BreadcrumbsProps>((props, ref) => {
+  const { children, ...other } = props;
 
   return (
-    <S.BreadcrumbsRoot>
+    <S.BreadcrumbsRoot aria-label="breadcrumb" ref={ref} {...other}>
       <S.BreadcrumbsList>
-        <S.BreadcrumbsSeparator aria-hidden>
-          {separator}
-        </S.BreadcrumbsSeparator>
-        {insertSeparators(allItems, separator)}
+        {children}
       </S.BreadcrumbsList>
     </S.BreadcrumbsRoot>
   );
+});
+
+export {
+  Breadcrumbs as Root,
+  BreadcrumbsItem as Item,
+  BreadcrumbsLink as Link,
+  BreadcrumbsSeparator as Separator,
 };

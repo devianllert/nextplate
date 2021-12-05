@@ -1,13 +1,7 @@
 /* eslint-disable prefer-arrow-callback */
 import * as React from 'react';
 
-import { OverridableComponent } from '@/modules/core/react/types/OverridableComponent';
-
-// eslint-disable-next-line @typescript-eslint/ban-types
-export interface VisuallyHiddenTypeMap<P = {}, D extends React.ElementType = 'span'> {
-  props: P;
-  defaultComponent: D;
-}
+import { PolymorphicComponent } from '@/modules/core/react/types/Polymorphic';
 
 /**
  * The `VisuallyHidden` component is used to provide text for screen readers that is visually hidden.
@@ -15,7 +9,7 @@ export interface VisuallyHiddenTypeMap<P = {}, D extends React.ElementType = 'sp
  *
  * @see https://snook.ca/archives/html_and_css/hiding-content-for-accessibility
  */
-export const VisuallyHidden: OverridableComponent<VisuallyHiddenTypeMap> = React.forwardRef(function VisuallyHidden(props, ref): JSX.Element {
+export const VisuallyHidden: PolymorphicComponent<unknown, 'span'> = React.forwardRef(function VisuallyHidden(props, ref): JSX.Element {
   const {
     children,
     component: Component = 'span',

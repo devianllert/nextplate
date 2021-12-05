@@ -1,7 +1,7 @@
 /* eslint-disable prefer-arrow-callback */
 import * as React from 'react';
 
-import { OverridableComponent } from '@/modules/core/react/types/OverridableComponent';
+import { PolymorphicComponent } from '@/modules/core/react/types/Polymorphic';
 
 import { ButtonBaseProps } from '../ButtonBase';
 
@@ -82,7 +82,7 @@ export interface ButtonTypeMap<P = {}, D extends React.ElementType = 'button'> {
 /**
  * The `Button` component is used to trigger an action or event.
  */
-export const Button: OverridableComponent<ButtonTypeMap> = React.forwardRef(function Button(props, ref) {
+export const Button: PolymorphicComponent<ButtonProps, 'button'> = React.forwardRef(function Button(props, ref) {
   const {
     children,
     component: Component,

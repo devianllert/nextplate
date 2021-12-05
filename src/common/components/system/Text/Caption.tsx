@@ -2,7 +2,7 @@ import * as React from 'react';
 import { ColorProps, TypographyProps } from 'styled-system';
 
 import { SxProp } from '@/modules/core/css-in-js/sx';
-import { OverridableComponent } from '@/modules/core/react/types/OverridableComponent';
+import { PolymorphicComponent } from '@/modules/core/react/types/Polymorphic';
 import { captions } from '@/common/design/tokens/typography';
 
 import * as S from './styled';
@@ -16,13 +16,7 @@ export interface CaptionProps extends Omit<React.HTMLAttributes<HTMLSpanElement>
   variant?: keyof typeof captions;
 }
 
-// eslint-disable-next-line @typescript-eslint/ban-types
-export interface CaptionTypeMap<P = {}, D extends React.ElementType = 'span'> {
-  props: P & CaptionProps;
-  defaultComponent: D;
-}
-
-export const Caption: OverridableComponent<CaptionTypeMap> = React.forwardRef((props, ref): JSX.Element => {
+export const Caption: PolymorphicComponent<CaptionProps, 'span'> = React.forwardRef((props, ref): JSX.Element => {
   const {
     children,
     variant = 'caption1',

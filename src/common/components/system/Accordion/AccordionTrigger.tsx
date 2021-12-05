@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import { useComposedRefs } from '@/modules/core/react/composeRefs';
-import { OverridableComponent } from '@/modules/core/react/types/OverridableComponent';
+import { PolymorphicComponent } from '@/modules/core/react/types/Polymorphic';
 
 import { useAccordionContext } from './AccordionContext';
 import { useAccordionItemContext } from './AccordionItemContext';
@@ -13,17 +13,11 @@ export interface AccordionTriggerProps extends React.HTMLAttributes<HTMLButtonEl
   children?: React.ReactNode;
 }
 
-// eslint-disable-next-line @typescript-eslint/ban-types
-export interface AccordionTriggerTypeMap<P = {}, D extends React.ElementType = 'button'> {
-  props: P & AccordionTriggerProps;
-  defaultComponent: D;
-}
-
 /**
  * `AccordionTrigger` is the trigger that toggles the collapsed state of an `AccordionItem`. It
  * should always be nested inside of an `AccordionHeader`.
  */
-export const AccordionTrigger: OverridableComponent<AccordionTriggerTypeMap> = React.forwardRef((props, ref): JSX.Element => {
+export const AccordionTrigger: PolymorphicComponent<AccordionTriggerProps, 'button'> = React.forwardRef((props, ref): JSX.Element => {
   const {
     children,
     component: Component = 'button',

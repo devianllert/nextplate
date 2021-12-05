@@ -4,7 +4,7 @@ import { Story, Meta } from '@storybook/react';
 import { ActiveLink, ActiveLinkProps } from '../ActiveLink';
 
 export default {
-  title: 'Components/ActiveLink',
+  title: 'Design System/Atoms/ActiveLink',
   component: ActiveLink,
 } as Meta;
 

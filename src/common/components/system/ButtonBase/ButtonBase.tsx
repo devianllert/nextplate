@@ -1,7 +1,7 @@
 /* eslint-disable prefer-arrow-callback */
 import * as React from 'react';
 
-import { OverridableComponent } from '@/modules/core/react/types/OverridableComponent';
+import { PolymorphicComponent } from '@/modules/core/react/types/Polymorphic';
 import { SxProp } from '@/modules/core/css-in-js/sx';
 
 import * as S from './styled';
@@ -34,17 +34,11 @@ export interface ButtonBaseProps extends SxProp {
   disabled?: boolean;
 }
 
-// eslint-disable-next-line @typescript-eslint/ban-types
-export interface ButtonBaseTypeMap<P = {}, D extends React.ElementType = 'button'> {
-  props: P & ButtonBaseProps;
-  defaultComponent: D;
-}
-
 /**
  * `ButtonBase` contains as few styles as possible.
  * It aims to be a simple building block for creating a button.
  */
-export const ButtonBase: OverridableComponent<ButtonBaseTypeMap> = React.forwardRef(function ButtonBase(props, ref) {
+export const ButtonBase: PolymorphicComponent<ButtonBaseProps, 'button'> = React.forwardRef(function ButtonBase(props, ref) {
   const {
     children,
     className,

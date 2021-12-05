@@ -1,6 +1,7 @@
 import * as React from 'react';
 
-import { OverridableComponent } from '@/modules/core/react/types/OverridableComponent';
+import { PolymorphicComponent } from '@/modules/core/react/types/Polymorphic';
+
 import { useAccordionItemContext } from './AccordionItemContext';
 
 export interface AccordionContentProps extends React.HTMLAttributes<HTMLHeadingElement> {
@@ -10,16 +11,10 @@ export interface AccordionContentProps extends React.HTMLAttributes<HTMLHeadingE
   children?: React.ReactNode;
 }
 
-// eslint-disable-next-line @typescript-eslint/ban-types
-export interface AccordionContentTypeMap<P = {}, D extends React.ElementType = 'div'> {
-  props: P & AccordionContentProps;
-  defaultComponent: D;
-}
-
 /**
  * `AccordionContent` contains the collapsible content for an `AccordionItem`.
  */
-export const AccordionContent: OverridableComponent<AccordionContentTypeMap> = React.forwardRef((props, ref): JSX.Element => {
+export const AccordionContent: PolymorphicComponent<AccordionContentProps, 'div'> = React.forwardRef((props, ref) => {
   const {
     children,
     component: Component = 'div',

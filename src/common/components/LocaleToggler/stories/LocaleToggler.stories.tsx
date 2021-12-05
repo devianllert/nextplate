@@ -1,17 +1,13 @@
 import * as React from 'react';
 import { Story, Meta } from '@storybook/react';
 
-import { LocaleToggler, LocaleTogglerProps } from '../LocaleToggler';
+import { LocaleToggler } from '../LocaleToggler';
 
 export default {
-  title: 'Components/LocaleToggler',
+  title: 'Design System/Atoms/LocaleToggler',
   component: LocaleToggler,
 } as Meta;
 
-const Template: Story<LocaleTogglerProps> = (args) => <LocaleToggler {...args} />;
+const Template: Story = (args) => <LocaleToggler {...args} />;
 
 export const Basic = Template.bind({});
-
-Basic.args = {
-  children: 'LocaleToggler',
-};

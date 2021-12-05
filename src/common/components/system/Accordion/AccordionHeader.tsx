@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { OverridableComponent } from '@/modules/core/react/types/OverridableComponent';
+import { PolymorphicComponent } from '@/modules/core/react/types/Polymorphic';
 
 import { useAccordionItemContext } from './AccordionItemContext';
 
@@ -11,17 +11,11 @@ export interface AccordionHeaderProps extends React.HTMLAttributes<HTMLHeadingEl
   children?: React.ReactNode;
 }
 
-// eslint-disable-next-line @typescript-eslint/ban-types
-export interface AccordionHeaderTypeMap<P = {}, D extends React.ElementType = 'h3'> {
-  props: P & AccordionHeaderProps;
-  defaultComponent: D;
-}
-
 /**
  * `AccordionHeader` contains the content for the parts of an `AccordionItem` that will be visible
  * whether or not its content is collapsed.
  */
-export const AccordionHeader: OverridableComponent<AccordionHeaderTypeMap> = React.forwardRef((props, ref): JSX.Element => {
+export const AccordionHeader: PolymorphicComponent<AccordionHeaderProps, 'h3'> = React.forwardRef((props, ref) => {
   const {
     children,
     component: Component = 'h3',

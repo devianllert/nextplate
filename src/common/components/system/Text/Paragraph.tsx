@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { OverridableComponent } from '@/modules/core/react/types/OverridableComponent';
+import { PolymorphicComponent } from '@/modules/core/react/types/Polymorphic';
 import { paragraphs } from '@/common/design/tokens/typography';
 
 import * as S from './styled';
@@ -12,13 +12,7 @@ export interface ParagraphProps extends Omit<React.HTMLAttributes<HTMLParagraphE
   variant?: keyof typeof paragraphs;
 }
 
-// eslint-disable-next-line @typescript-eslint/ban-types
-export interface ParagraphTypeMap<P = {}, D extends React.ElementType = 'p'> {
-  props: P & ParagraphProps;
-  defaultComponent: D;
-}
-
-export const Paragraph: OverridableComponent<ParagraphTypeMap> = React.forwardRef((props, ref): JSX.Element => {
+export const Paragraph: PolymorphicComponent<ParagraphProps, 'p'> = React.forwardRef((props, ref): JSX.Element => {
   const {
     children,
     variant = 'body1',

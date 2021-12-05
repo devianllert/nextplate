@@ -1,8 +1,6 @@
-/* eslint-disable @typescript-eslint/ban-types */
-/* eslint-disable prefer-arrow-callback */
 import * as React from 'react';
 
-import { OverridableComponent } from '@/modules/core/react/types/OverridableComponent';
+import { PolymorphicComponent } from '@/modules/core/react/types/Polymorphic';
 
 import * as S from './styled';
 
@@ -13,15 +11,10 @@ export interface BoxProps extends S.BoxType {
   children?: React.ReactNode;
 }
 
-export interface BoxTypeMap<P = {}, D extends React.ElementType = 'div'> {
-  props: P & BoxProps;
-  defaultComponent: D;
-}
-
 /**
  * The Box component serves as a wrapper component for most of the CSS utility needs.
  */
-export const Box: OverridableComponent<BoxTypeMap> = React.forwardRef(function Box(props, ref) {
+export const Box: PolymorphicComponent<BoxProps, 'div'> = React.forwardRef((props, ref) => {
   const {
     children,
     component = 'div',

@@ -43,6 +43,7 @@ const MultiversalAppBootstrap = (props: Props): JSX.Element => {
   const {
     pageProps,
     router,
+    err,
   } = props;
 
   const [isSSGFallbackInitialBuild] = React.useState<boolean>(isEmpty(pageProps) && router?.isFallback === true);
@@ -87,19 +88,19 @@ const MultiversalAppBootstrap = (props: Props): JSX.Element => {
     if (typeof serializedDataset !== 'string') {
       logger.log('props', props);
 
-      if (props.err) {
+      if (err) {
         const error = new Error(`Fatal error - A top-level error was thrown by the application, which caused the Page.props to be lost. \n
         The page cannot be shown to the end-user, an error page will be displayed.`);
         logger.error(error);
 
         return (
           <ErrorPage
-            err={props.err}
+            err={err}
             statusCode={500}
             isReadyToRender
           >
             <DefaultErrorLayout
-              error={props.err}
+              error={err}
               context={pageProps}
             />
           </ErrorPage>

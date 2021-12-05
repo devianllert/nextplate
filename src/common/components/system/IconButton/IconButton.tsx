@@ -1,8 +1,6 @@
-/* eslint-disable prefer-arrow-callback */
 import * as React from 'react';
 
-import { OverridableComponent } from '@/modules/core/react/types/OverridableComponent';
-
+import { PolymorphicComponent } from '@/modules/core/react/types/Polymorphic';
 import { ButtonBaseProps } from '@/components/system/ButtonBase';
 import { VisuallyHidden } from '@/components/system/VisuallyHidden';
 
@@ -48,16 +46,10 @@ export interface IconButtonProps extends ButtonBaseProps {
   variant?: 'round' | 'circle';
 }
 
-// eslint-disable-next-line @typescript-eslint/ban-types
-export interface IconButtonTypeMap<P = {}, D extends React.ElementType = 'button'> {
-  props: P & IconButtonProps;
-  defaultComponent: D;
-}
-
 /**
  * The `IconButton` component is like a Button except that it renders only an icon.
  */
-export const IconButton: OverridableComponent<IconButtonTypeMap> = React.forwardRef(function IconButton(props, ref) {
+export const IconButton: PolymorphicComponent<IconButtonProps, 'button'> = React.forwardRef((props, ref) => {
   const {
     children,
     edge = false,

@@ -1,7 +1,6 @@
-/* eslint-disable prefer-arrow-callback */
 import * as React from 'react';
 
-import { OverridableComponent } from '@/modules/core/react/types/OverridableComponent';
+import { PolymorphicComponent } from '@/modules/core/react/types/Polymorphic';
 
 import * as S from './styled';
 
@@ -35,12 +34,6 @@ export interface SkeletonProps {
   width?: number | string;
 }
 
-// eslint-disable-next-line @typescript-eslint/ban-types
-interface SkeletonTypeMap<P = {}, D extends React.ElementType = 'span'> {
-  props: P & SkeletonProps;
-  defaultComponent: D;
-}
-
 /**
  * The `Skeleton`component is used to display a placeholder preview of your content before the data gets loaded to reduce load-time frustration.
  *
@@ -58,7 +51,7 @@ interface SkeletonTypeMap<P = {}, D extends React.ElementType = 'span'> {
  *  <Skeleton variant="rect" height={140} />
  * </Card>
  */
-export const Skeleton: OverridableComponent<SkeletonTypeMap> = React.forwardRef(function Skeleton(props, ref) {
+export const Skeleton: PolymorphicComponent<SkeletonProps, 'span'> = React.forwardRef((props, ref) => {
   const {
     animation = 'pulse',
     className,

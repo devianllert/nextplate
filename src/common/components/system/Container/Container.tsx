@@ -2,7 +2,7 @@
 import * as React from 'react';
 
 import { Breakpoint } from '@/common/design/media';
-import { OverridableComponent } from '@/modules/core/react/types/OverridableComponent';
+import { PolymorphicComponent } from '@/modules/core/react/types/Polymorphic';
 
 import * as S from './styled';
 
@@ -39,16 +39,10 @@ export interface ContainerProps {
   disableGutters?: boolean;
 }
 
-// eslint-disable-next-line @typescript-eslint/ban-types
-interface ContainerTypeMap<P = {}, D extends React.ElementType = 'div'> {
-  props: P & ContainerProps;
-  defaultComponent: D
-}
-
 /**
  * The container centers your content horizontally. It's the most basic layout element.
  */
-export const Container: OverridableComponent<ContainerTypeMap> = React.forwardRef(function Container(props, ref) {
+export const Container: PolymorphicComponent<ContainerProps, 'div'> = React.forwardRef(function Container(props, ref) {
   const {
     children,
     maxWidth = 'desktop',

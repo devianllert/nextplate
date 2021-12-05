@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import { useControllableState } from '@/common/hooks/useControllableState';
-import { OverridableComponent } from '@/modules/core/react/types/OverridableComponent';
+import { PolymorphicComponent } from '@/modules/core/react/types/Polymorphic';
 
 import { AccordionProvider, useAccordionContext } from './AccordionContext';
 
@@ -15,13 +15,7 @@ interface AccordionRootProps extends React.HTMLAttributes<HTMLDivElement> {
   disabled?: boolean;
 }
 
-// eslint-disable-next-line @typescript-eslint/ban-types
-export interface AccordionRootTypeMap<P = {}, D extends React.ElementType = 'div'> {
-  props: P & AccordionRootProps;
-  defaultComponent: D
-}
-
-const AccordionRoot: OverridableComponent<AccordionRootTypeMap> = React.forwardRef((props, ref): JSX.Element => {
+const AccordionRoot: PolymorphicComponent<AccordionRootProps, 'div'> = React.forwardRef((props, ref) => {
   const {
     disabled,
     children,
@@ -151,13 +145,7 @@ interface AccordionMultipleProps extends React.HTMLAttributes<HTMLDivElement> {
   disabled?: boolean;
 }
 
-// eslint-disable-next-line @typescript-eslint/ban-types
-export interface AccordionSingleTypeMap<P = {}, D extends React.ElementType = 'div'> {
-  props: P & Omit<AccordionSingleProps, 'type'>;
-  defaultComponent: D
-}
-
-export const AccordionSingle: OverridableComponent<AccordionSingleTypeMap> = React.forwardRef((props, ref): JSX.Element => {
+export const AccordionSingle: PolymorphicComponent<Omit<AccordionSingleProps, 'type'>, 'div'> = React.forwardRef((props, ref): JSX.Element => {
   const {
     value: valueProp,
     defaultValue,
@@ -189,13 +177,7 @@ export const AccordionSingle: OverridableComponent<AccordionSingleTypeMap> = Rea
   );
 });
 
-// eslint-disable-next-line @typescript-eslint/ban-types
-export interface AccordionMultipleTypeMap<P = {}, D extends React.ElementType = 'div'> {
-  props: P & Omit<AccordionMultipleProps, 'type'>;
-  defaultComponent: D
-}
-
-export const AccordionMultiple: OverridableComponent<AccordionMultipleTypeMap> = React.forwardRef((props, ref): JSX.Element => {
+export const AccordionMultiple: PolymorphicComponent<Omit<AccordionMultipleProps, 'type'>, 'div'> = React.forwardRef((props, ref): JSX.Element => {
   const {
     value: valueProp,
     defaultValue,
@@ -238,16 +220,10 @@ export const AccordionMultiple: OverridableComponent<AccordionMultipleTypeMap> =
 
 export type AccordionProps = AccordionSingleProps | AccordionMultipleProps;
 
-// eslint-disable-next-line @typescript-eslint/ban-types
-export interface AccordionTypeMap<P = {}, D extends React.ElementType = 'div'> {
-  props: P & AccordionProps;
-  defaultComponent: D
-}
-
 /**
  * A vertically stacked set of interactive headings that each reveal an associated section of content.
  */
-export const Accordion: OverridableComponent<AccordionTypeMap> = React.forwardRef((props, ref): JSX.Element => {
+export const Accordion: PolymorphicComponent<AccordionProps, 'div'> = React.forwardRef((props, ref): JSX.Element => {
   const { type, ...accordionProps } = props;
 
   if (type === 'single') {

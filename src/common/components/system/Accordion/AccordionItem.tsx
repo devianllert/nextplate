@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { useId } from '@radix-ui/react-id';
 
-import { OverridableComponent } from '@/modules/core/react/types/OverridableComponent';
+import { PolymorphicComponent } from '@/modules/core/react/types/Polymorphic';
 
 import { useAccordionContext } from './AccordionContext';
 import { AccordionItemProvider } from './AccordionItemContext';
@@ -23,16 +23,10 @@ export interface AccordionItemProps {
   children?: React.ReactNode | ((props: { open: boolean; disabled: boolean }) => React.ReactNode);
 }
 
-// eslint-disable-next-line @typescript-eslint/ban-types
-export interface AccordionItemTypeMap<P = {}, D extends React.ElementType = 'div'> {
-  props: P & AccordionItemProps;
-  defaultComponent: D;
-}
-
 /**
  * `AccordionItem` contains all of the parts of a collapsible section inside of an `Accordion`.
  */
-export const AccordionItem: OverridableComponent<AccordionItemTypeMap> = React.forwardRef((props, ref): JSX.Element => {
+export const AccordionItem: PolymorphicComponent<AccordionItemProps, 'div'> = React.forwardRef((props, ref): JSX.Element => {
   const {
     value,
     children,

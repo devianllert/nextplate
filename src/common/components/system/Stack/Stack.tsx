@@ -1,9 +1,8 @@
-/* eslint-disable prefer-arrow-callback */
 import * as React from 'react';
 import flattenChildren from 'react-keyed-flatten-children';
 import { ResponsiveValue } from 'styled-system';
 
-import { OverridableComponent } from '@/modules/core/react/types/OverridableComponent';
+import { PolymorphicComponent } from '@/modules/core/react/types/Polymorphic';
 
 import * as S from './styled';
 
@@ -42,7 +41,7 @@ export interface StackTypeMap<P = {}, D extends React.ElementType = 'div'> {
  * The `Stack` component is used to manage layout of immediate children along the vertical or horizontal
  * axis with optional spacing and/or dividers between each child.
  */
-export const Stack: OverridableComponent<StackTypeMap> = React.forwardRef(function Stack(props, ref) {
+export const Stack: PolymorphicComponent<StackProps, 'div'> = React.forwardRef((props, ref) => {
   const {
     component = 'div',
     children,

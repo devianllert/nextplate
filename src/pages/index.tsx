@@ -25,6 +25,7 @@ import * as Text from '@/common/components/system/Text';
 import { Stack } from '@/common/components/system/Stack';
 import { Code } from '@/common/components/system/Code';
 import { AspectRatio } from '@/common/components/system/AspectRatio';
+import { useTheme } from '@/common/design/hooks/useTheme';
 
 const logger = createLogger('Index');
 
@@ -40,6 +41,7 @@ type Props = SSRPageProps & SSGPageProps<OnlyBrowserPageProps>;
 
 const IndexPage: EnhancedNextPage<Props> = (): JSX.Element => {
   const { t, i18n } = useTranslation('index');
+  const { theme } = useTheme();
 
   return (
     <>
@@ -50,43 +52,57 @@ const IndexPage: EnhancedNextPage<Props> = (): JSX.Element => {
       <Box
         position="relative"
         backgroundColor="background.secondary"
-        backgroundImage="url(/static/images/circle-scatter.svg)"
+        backgroundImage={`
+          radial-gradient(circle at 15% 50%, ${theme.colors.radix.primary6}, rgba(255, 255, 255, 0) 25%),
+          radial-gradient(circle at 85% 30%, ${theme.colors.radix.secondary6}, rgba(255, 255, 255, 0) 25%),
+          radial-gradient(circle at 65% 55%, ${theme.colors.radix.secondary6}, rgba(255, 255, 255, 0) 25%)
+        `}
         backgroundRepeat="no-repeat"
         backgroundSize="100% 100%"
       >
         <Container>
           <Box
             display="flex"
-            flexDirection="column"
-            justifyContent="center"
+            flexDirection={['column-reverse', null, 'row']}
+            justifyContent={['center', null, 'space-between']}
             alignItems="center"
             flex="1"
             minHeight="calc(640px - 64px)"
             maxHeight="calc(1024px - 64px)"
-            height="calc(100vh - 64px)"
-            maxWidth="840px"
+            height="100vh"
             mx="auto"
           >
-            <Text.Heading variant="h2" textAlign="center" sx={{ px: [0, 64] }}>{t('hero.title')}</Text.Heading>
-            <Text.Heading variant="h6" component="span" textAlign="center" sx={{ px: [0, 128] }}>{t('hero.subtitle')}</Text.Heading>
+            <Box
+              display="flex"
+              flexDirection="column"
+              alignItems={['center', null, 'flex-start']}
+              maxWidth="480px"
+            >
+              <Text.Heading variant="h2" textAlign={['center', null, 'left']}>{t('hero.title')}</Text.Heading>
+              <Text.Heading variant="h6" textAlign={['center', null, 'left']}>{t('hero.subtitle')}</Text.Heading>
 
-            <Box mt={4}>
-              <Stack direction="row" space={3}>
-                <Button variant="contained" component="a" href="#features">
-                  {t('hero.documentation')}
-                </Button>
+              <Box mt={4}>
+                <Stack direction="row" space={3}>
+                  <Button variant="contained" component="a" href="#features">
+                    {t('hero.documentation')}
+                  </Button>
 
-                <Button
-                  variant="text"
-                  color="gray"
-                  component="a"
-                  target="_blank"
-                  href="https://github.com/devianllert/next-boilerplate"
-                  endIcon={<RiGithubFill size={16} />}
-                >
-                  Github
-                </Button>
-              </Stack>
+                  <Button
+                    variant="text"
+                    color="gray"
+                    component="a"
+                    target="_blank"
+                    href="https://github.com/devianllert/next-boilerplate"
+                    endIcon={<RiGithubFill size={16} />}
+                  >
+                    Github
+                  </Button>
+                </Stack>
+              </Box>
+            </Box>
+
+            <Box maxWidth={[240, null, 480]}>
+              <img src="/static/images/hero-banner.png" alt="" />
             </Box>
           </Box>
         </Container>

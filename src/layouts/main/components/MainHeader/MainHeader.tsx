@@ -27,35 +27,37 @@ export const MainHeader = (): JSX.Element => {
   const [colorMode, setColorMode] = useColorMode();
 
   return (
-    <Container>
-      <S.MainHeaderRoot>
-        <Link href="/" passHref>
-          <Text.Heading variant="h6" component="a">{APP_TITLE}</Text.Heading>
-        </Link>
-        <DisplayOnBrowserMount>
-          <Stack alignItems="center" space={3}>
-            <Text.Heading variant="subtitle2" component="span">
-              {t('lastUpdate')}:
-              {' '}
-              <Timeago
-                datetime={process.env.NEXT_PUBLIC_APP_BUILD_TIME}
-                locale={i18n.language}
-              />
-            </Text.Heading>
+    <S.MainHeaderContainer>
+      <Container>
+        <S.MainHeaderRoot>
+          <Link href="/" passHref>
+            <Text.Heading variant="h6" component="a">{APP_TITLE}</Text.Heading>
+          </Link>
+          <DisplayOnBrowserMount>
+            <Stack alignItems="center" space={3}>
+              {/* <Text.Heading variant="subtitle2" component="span">
+                {t('lastUpdate')}:
+                {' '}
+                <Timeago
+                  datetime={process.env.NEXT_PUBLIC_APP_BUILD_TIME}
+                  locale={i18n.language}
+                />
+              </Text.Heading> */}
 
-            <LocaleToggler />
+              <LocaleToggler />
 
-            <IconButton
-              color="gray"
-              type="button"
-              label={`Change theme mode to ${colorMode === 'dark' ? 'light' : 'dark'}`}
-              onClick={() => setColorMode(colorMode === 'dark' ? 'default' : 'dark')}
-            >
-              {colorMode === 'default' ? <RiSunLine /> : <RiMoonLine />}
-            </IconButton>
-          </Stack>
-        </DisplayOnBrowserMount>
-      </S.MainHeaderRoot>
-    </Container>
+              <IconButton
+                color="gray"
+                type="button"
+                label={`Change theme mode to ${colorMode === 'dark' ? 'light' : 'dark'}`}
+                onClick={() => setColorMode(colorMode === 'dark' ? 'default' : 'dark')}
+              >
+                {colorMode === 'default' ? <RiSunLine /> : <RiMoonLine />}
+              </IconButton>
+            </Stack>
+          </DisplayOnBrowserMount>
+        </S.MainHeaderRoot>
+      </Container>
+    </S.MainHeaderContainer>
   );
 };

@@ -12,8 +12,8 @@ export type SwitchProps = SwitchPrimitive.SwitchProps;
  * The option that the switch controls, as well as the state it's in,
  * should be made clear from the corresponding inline label.
  */
-export const Switch = (props: SwitchProps): JSX.Element => (
-  <S.SwitchRoot {...props}>
+export const Switch = React.forwardRef<HTMLButtonElement, SwitchProps>((props, ref): JSX.Element => (
+  <S.SwitchRoot {...props} ref={ref}>
     <S.SwitchThumb />
   </S.SwitchRoot>
-);
+));

@@ -4,7 +4,7 @@ import { Story, Meta } from '@storybook/react';
 import { Switch, SwitchProps } from '../Switch';
 
 export default {
-  title: 'Components/Switch',
+  title: 'Design System/Atoms/Switch',
   component: Switch,
 } as Meta;
 

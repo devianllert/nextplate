@@ -2264,6 +2264,17 @@
     "@radix-ui/react-primitive" "0.1.1"
     "@radix-ui/react-slot" "0.1.1"
 
+"@radix-ui/react-collection@0.1.2":
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/@radix-ui/react-collection/-/react-collection-0.1.2.tgz#2b757dc7c5aa1aebe0eaf7dda2c46776987f3187"
+  integrity sha512-sEIlbAaOBm6k9Z/tsf0FrHlsscd8u8waHKzlualgN/CIuouy4rKXoVuysevgQvY7h9HPV5x2AekWq6BABTBOkw==
+  dependencies:
+    "@babel/runtime" "^7.13.10"
+    "@radix-ui/react-compose-refs" "0.1.0"
+    "@radix-ui/react-context" "0.1.1"
+    "@radix-ui/react-primitive" "0.1.2"
+    "@radix-ui/react-slot" "0.1.2"
+
 "@radix-ui/react-compose-refs@0.1.0":
   version "0.1.0"
   resolved "https://registry.yarnpkg.com/@radix-ui/react-compose-refs/-/react-compose-refs-0.1.0.tgz#cff6e780a0f73778b976acff2c2a5b6551caab95"
@@ -2442,6 +2453,23 @@
     "@babel/runtime" "^7.13.10"
     "@radix-ui/react-slot" "0.1.2"
 
+"@radix-ui/react-radio-group@^0.1.2":
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/@radix-ui/react-radio-group/-/react-radio-group-0.1.2.tgz#2fc5d29bced6a43ea5ad9ba30ea079e346f37625"
+  integrity sha512-npNgKD7nsN8XB9oDgUAOAvCrs1ziW+Gzv2OI29DYkdh24og2vOIqL9O3W2FMEv0CsTHCE9LGiaqj7WQ7jR2Mug==
+  dependencies:
+    "@babel/runtime" "^7.13.10"
+    "@radix-ui/primitive" "0.1.0"
+    "@radix-ui/react-compose-refs" "0.1.0"
+    "@radix-ui/react-context" "0.1.1"
+    "@radix-ui/react-label" "0.1.2"
+    "@radix-ui/react-presence" "0.1.1"
+    "@radix-ui/react-primitive" "0.1.2"
+    "@radix-ui/react-roving-focus" "0.1.2"
+    "@radix-ui/react-use-controllable-state" "0.1.0"
+    "@radix-ui/react-use-previous" "0.1.0"
+    "@radix-ui/react-use-size" "0.1.0"
+
 "@radix-ui/react-roving-focus@0.1.1":
   version "0.1.1"
   resolved "https://registry.yarnpkg.com/@radix-ui/react-roving-focus/-/react-roving-focus-0.1.1.tgz#6a7965f6315fae91061b14d6380949a4697e87b9"
@@ -2454,6 +2482,21 @@
     "@radix-ui/react-context" "0.1.1"
     "@radix-ui/react-id" "0.1.1"
     "@radix-ui/react-primitive" "0.1.1"
+    "@radix-ui/react-use-callback-ref" "0.1.0"
+    "@radix-ui/react-use-controllable-state" "0.1.0"
+
+"@radix-ui/react-roving-focus@0.1.2":
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/@radix-ui/react-roving-focus/-/react-roving-focus-0.1.2.tgz#1991184d9b20dda70a7253ece2a3a1baa94e8ce6"
+  integrity sha512-HQhK+8hHI7AvSvbPR1YTyw9xuynyOuY77R3LSz2lQxK/wtOL7f6Z8ZCco6OghKjYvpQwtnDaN4IES8MHc1TUiw==
+  dependencies:
+    "@babel/runtime" "^7.13.10"
+    "@radix-ui/primitive" "0.1.0"
+    "@radix-ui/react-collection" "0.1.2"
+    "@radix-ui/react-compose-refs" "0.1.0"
+    "@radix-ui/react-context" "0.1.1"
+    "@radix-ui/react-id" "0.1.2"
+    "@radix-ui/react-primitive" "0.1.2"
     "@radix-ui/react-use-callback-ref" "0.1.0"
     "@radix-ui/react-use-controllable-state" "0.1.0"
 

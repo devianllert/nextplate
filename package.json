@@ -48,6 +48,7 @@
     "@radix-ui/react-dialog": "^0.1.1",
     "@radix-ui/react-dropdown-menu": "^0.1.1",
     "@radix-ui/react-id": "^0.1.1",
+    "@radix-ui/react-radio-group": "^0.1.2",
     "@radix-ui/react-switch": "^0.1.2",
     "@sentry/nextjs": "^6.15.0",
     "@styled-system/css": "^5.1.5",

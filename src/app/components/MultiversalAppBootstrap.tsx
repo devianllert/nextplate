@@ -6,6 +6,7 @@ import { appWithTranslation, useTranslation } from 'next-i18next';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import { Hydrate } from 'react-query/hydration';
 import { IdProvider } from '@radix-ui/react-id';
+import { ReactQueryDevtools } from 'react-query/devtools';
 
 import ErrorPage from '@/pages/_error';
 import { configureSentryI18n } from '@/modules/core/sentry/sentry';
@@ -200,6 +201,8 @@ const MultiversalAppBootstrap = (props: Props): JSX.Element => {
               </ThemeProvider>
             </IdProvider>
           </Hydrate>
+
+          <ReactQueryDevtools initialIsOpen={false} />
         </QueryClientProvider>
       </>
     );

@@ -7,7 +7,7 @@ import { Box } from '../../Box';
 import { Stack } from '../../Stack';
 
 export default {
-  title: 'Components/Bleed',
+  title: 'Design System/Atoms/Bleed',
   component: Bleed,
 } as Meta;
 

@@ -1,7 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable no-console */
-import { Chalk } from 'chalk';
-import { Console } from 'console';
 
 export type Logger = Console;
 export type PrintMode = 'debug' | 'error' | 'group' | 'groupEnd' | 'info' | 'log' | 'warn';
@@ -47,42 +45,6 @@ export const timeFormatFallback: TimeFormat = () => `${new Date().toISOString()}
 const shouldShowTimeFallback = (): boolean => process.env.LOGGER_SHOULD_SHOW_TIME !== 'false';
 
 /**
- * Colorize output.
- *
- * Only colorize on the server, not on the browser
- * (keep native behavior, to avoid messing with colors and complicated browser API which is different for each browser).
- *
- * @param mode
- * @param prefixes
- */
-const colorizeFallback: Colorize = (mode: Omit<PrintMode, 'groupEnd'>, prefixes: string[]): any[] => {
-  if (typeof window === 'undefined') {
-    // eslint-disable-next-line @typescript-eslint/no-var-requires, global-require
-    const chalk = require('chalk') as Chalk; // Require chalk on the server only, should not be included in the browser bundle
-    const orange = chalk.hex('#FFA500');
-
-    switch (mode) {
-      case 'debug':
-        return prefixes.map((prefix: string) => chalk.yellow(prefix));
-      case 'error':
-        return prefixes.map((prefix: string) => chalk.red(prefix));
-      case 'group':
-        return prefixes.map((prefix: string) => chalk.bgGray(prefix));
-      case 'info':
-        return prefixes.map((prefix: string) => chalk.blue(prefix));
-      case 'log':
-        return prefixes.map((prefix: string) => chalk.grey(prefix));
-      case 'warn':
-        return prefixes.map((prefix: string) => orange(prefix));
-      default:
-        return prefixes.map((prefix: string) => chalk.grey(prefix));
-    }
-  }
-
-  return prefixes;
-};
-
-/**
  * Creates a logger object containing the same "print" API as the console object.
  *
  * Compatible with server and browser. (universal)
@@ -96,7 +58,6 @@ export const createLogger = (options?: LoggerOptions): Logger => {
     disableAutoWrapPrefix = false,
     shouldShowTime = shouldShowTimeFallback,
     timeFormat = timeFormatFallback,
-    colorize = colorizeFallback,
   } = options ?? {};
   // eslint-disable-next-line @typescript-eslint/naming-convention, no-underscore-dangle
   const _prefix: string | undefined = disableAutoWrapPrefix || !prefix?.length ? prefix : `[${prefix}]`;
@@ -113,12 +74,12 @@ export const createLogger = (options?: LoggerOptions): Logger => {
 
   return {
     ...console, // Provides the same API as the native "console" object, while overwriting a few specific methods below
-    debug: shouldPrint('debug') ? console.debug.bind(null, ...colorize('debug', prefixes)) : noop,
-    error: shouldPrint('error') ? console.error.bind(null, ...colorize('error', prefixes)) : noop,
-    group: shouldPrint('group') ? console.group.bind(null, ...colorize('group', prefixes)) : noop,
-    groupEnd: shouldPrint('groupEnd') ? console.groupEnd.bind(null) : noop,
-    info: shouldPrint('info') ? console.info.bind(null, ...colorize('info', prefixes)) : noop,
-    log: shouldPrint('log') ? console.log.bind(null, ...colorize('log', prefixes)) : noop,
-    warn: shouldPrint('warn') ? console.warn.bind(null, ...colorize('warn', prefixes)) : noop,
+    debug: shouldPrint('debug') ? console.debug : noop,
+    error: shouldPrint('error') ? console.error : noop,
+    group: shouldPrint('group') ? console.group : noop,
+    groupEnd: shouldPrint('groupEnd') ? console.groupEnd : noop,
+    info: shouldPrint('info') ? console.info : noop,
+    log: shouldPrint('log') ? console.log : noop,
+    warn: shouldPrint('warn') ? console.warn : noop,
   };
 };

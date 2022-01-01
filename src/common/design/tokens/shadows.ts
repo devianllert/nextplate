@@ -11,7 +11,7 @@ const createShadow = (...px: number[]): string => {
 };
 
 // Values from https://github.com/material-components/material-components-web/blob/be8747f94574669cb5e7add1a7c54fa41a89cec7/packages/mdc-elevation/_variables.scss
-const shadows: string[] = [
+export const shadows: string[] = [
   'none',
   createShadow(0, 2, 1, -1, 0, 1, 1, 0, 0, 1, 3, 0),
   createShadow(0, 3, 1, -2, 0, 2, 2, 0, 0, 1, 5, 0),

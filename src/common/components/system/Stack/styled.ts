@@ -21,7 +21,7 @@ const stackRootCustomProps = system({
     property: 'marginLeft',
     scale: 'space',
     defaultScale: spacings,
-    transform: (n: number | string, scale = spacings) => -getSpace(scale, n) - 1,
+    transform: (n: number | string, scale = spacings) => -getSpace(scale, n),
   },
   flexDirection: true,
 });
@@ -48,7 +48,6 @@ const stackBoxCustomProps = system({
 
 export const StackBox = styled.div<InlineBoxProps>(
   {
-    display: 'flex',
     minWidth: 0,
   },
   stackBoxCustomProps,
@@ -63,13 +62,12 @@ const inlineRootAlignerCustomProps = system({
     property: 'marginTop',
     scale: 'space',
     defaultScale: spacings,
-    transform: (n: number | string, scale = spacings) => -getSpace(scale, n) - 1,
+    transform: (n: number | string, scale = spacings) => -getSpace(scale, n),
   },
 });
 
 export const StackRootAligner = styled.div<InlineRootAlignerProps>((props) => ({
   padding: 0,
-  paddingTop: 1,
   margin: 0,
   border: 0,
   boxSizing: 'border-box',

@@ -53,9 +53,9 @@ const IndexPage: EnhancedNextPage<Props> = (): JSX.Element => {
         position="relative"
         backgroundColor="background.secondary"
         backgroundImage={`
-          radial-gradient(circle at 15% 50%, ${theme.colors.radix.primary6}, rgba(255, 255, 255, 0) 25%),
-          radial-gradient(circle at 85% 30%, ${theme.colors.radix.secondary6}, rgba(255, 255, 255, 0) 25%),
-          radial-gradient(circle at 65% 55%, ${theme.colors.radix.secondary6}, rgba(255, 255, 255, 0) 25%)
+          radial-gradient(circle at 15% 50%, ${theme.colors.radix.primaryA4}, rgba(255, 255, 255, 0) 25%),
+          radial-gradient(circle at 85% 30%, ${theme.colors.radix.secondaryA6}, rgba(255, 255, 255, 0) 25%),
+          radial-gradient(circle at 65% 55%, ${theme.colors.radix.secondaryA4}, rgba(255, 255, 255, 0) 25%)
         `}
         backgroundRepeat="no-repeat"
         backgroundSize="100% 100%"

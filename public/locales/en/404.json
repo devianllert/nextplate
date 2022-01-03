@@ -1,5 +1,6 @@
 {
-  "title": "404",
-  "description": "This page could not be found",
-  "button": "Home"
+  "title": "Page not found",
+  "subtitle": "404 Error",
+  "description": "The page you are looking for could not be found.",
+  "button": "Go Home"
 }

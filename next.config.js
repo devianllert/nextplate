@@ -159,7 +159,6 @@ module.exports = withSentryConfig(
        * @since 9.5 - See https://nextjs.org/blog/next-9-5#headers
        */
       async headers() {
-        // XXX We need to embed our website into external websites for the NRN demo, but you might want to disable this
         const DISABLE_IFRAME_EMBED_FROM_3RD_PARTIES = false;
 
         const headers = [

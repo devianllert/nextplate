@@ -22,7 +22,7 @@ type MultiversalPageEntryPointProps = MultiversalAppBootstrapProps<SSGPageProps>
  * We use "_app" to handle root errors and configure common behaviours and configurations across all pages. (it inits sentry, by importing our helper)
  * Some of those behaviours/config are applied based on the runtime engine (browser vs server) and on the rendering mode (dynamic vs static)
  *
- * NRN Definitions:
+ * Definitions:
  * - Universal: A universal code (AKA isomorphic) runs anywhere (on both browsers and servers), it is compatible with both, but may behave slightly differently
  * - Multiversal: A multiversal code is universal (runs anywhere) and also handles all rendering modes (dynamic and static)
  *    The concept of "Multiversal" has been invented by myself, because we lack proper definition for this kind of things (it's fairly new, feel free to propose better)

@@ -13,10 +13,10 @@ Overview of what each folder under src is about:
 - `common`: Contains everything that cannot be categorized as a module. See documentation below.
 - `layouts`: Contains the layouts used by pages. See documentation below.
     - `core`: Contains reusable/extendable code (components, business logic, data fetching) used by other layouts.
-    - `default`: Default layout that comes built-in with the strict minimum components (Nav, Footer). If you use NRN as a boilerplate, - that’s the layout you should get started with!
+    - `default`: Default layout that comes built-in with the strict minimum components (Nav, Footer).
     - `demo`: Layout used by demo pages. All those pages under /demo use the demo layout, which contains a custom Nav showing links to each example, and a left menu for easier navigation through the demo.
 - `modules`: Contains related pieces of code (components, types, utils) grouped together. See documentation below.
-    - `core`: Contains built-in modules included with the NRN preset you selected. They are being separated from other modules by default, so you can locate your own code faster.
+    - `core`: Contains built-in modules. They are being separated from other modules by default, so you can locate your own code faster.
 - `pages`: Contains Next.js pages and api folder.
 - `stories`: Contains Storybook stories.
 
@@ -141,9 +141,6 @@ Eventually, do what feels right for you, and that’s what really matters.
 The `pages` folder is handled by Next.js as explained in their documentation.
 
 > We doesn’t change how pages work in any way.
-
-### NRN DEMO
-Also, the `/pages/demo` folder contains all pages related to the our demo. You may wish to delete it, or keep it around for documentation purpose.
 
 # `stories` folder
 Contains Storybook stories.

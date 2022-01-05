@@ -21,6 +21,7 @@ import { createLogger } from '@/modules/core/logging/logger';
 import { REACT_QUERY_STATE_PROP_NAME } from '@/modules/core/rquery/react-query';
 import { NProgressRoot } from '@/modules/core/router/NProgress';
 import { isEmpty } from '@/modules/core/js/assertion';
+import { MediaContextProvider } from '@/modules/core/css-in-js/responsive';
 
 import { MultiversalAppBootstrapProps } from '../types/MultiversalAppBootstrapProps';
 import BrowserPageBootstrap, { BrowserPageBootstrapProps } from './BrowserPageBootstrap';
@@ -183,18 +184,20 @@ const MultiversalAppBootstrap = (props: Props): JSX.Element => {
       <QueryClientProvider client={queryClient}>
         <Hydrate state={pageProps[REACT_QUERY_STATE_PROP_NAME]}>
           <ThemeProvider theme={theme}>
-            <GlobalStyles />
-            <ResetStyles />
+            <MediaContextProvider>
+              <GlobalStyles />
+              <ResetStyles />
 
-            <NProgressRoot />
+              <NProgressRoot />
 
-            {isBrowser() ? (
-              // eslint-disable-next-line react/jsx-props-no-spreading
-              <BrowserPageBootstrap {...multiversalPageBootstrapProps} />
-            ) : (
-              // eslint-disable-next-line react/jsx-props-no-spreading
-              <ServerPageBootstrap {...multiversalPageBootstrapProps} />
-            )}
+              {isBrowser() ? (
+                // eslint-disable-next-line react/jsx-props-no-spreading
+                <BrowserPageBootstrap {...multiversalPageBootstrapProps} />
+              ) : (
+                // eslint-disable-next-line react/jsx-props-no-spreading
+                <ServerPageBootstrap {...multiversalPageBootstrapProps} />
+              )}
+            </MediaContextProvider>
           </ThemeProvider>
         </Hydrate>
 

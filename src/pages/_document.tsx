@@ -10,6 +10,7 @@ import { InitializeColorMode } from 'theme-ui';
 
 import darkColors from '@/common/design/themes/dark/colors';
 import lightColors from '@/common/design/themes/light/colors';
+import { mediaStyles } from '@/modules/core/css-in-js/responsive';
 
 /**
  * XXX Is only rendered on the server side and not on the client side
@@ -46,6 +47,11 @@ class AppDocument extends Document {
           <link rel="preconnect" href="https://fonts.googleapis.com" />
           <link rel="preconnect" href="https://fonts.gstatic.com" />
           <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" />
+
+          <style
+            type="text/css"
+            dangerouslySetInnerHTML={{ __html: mediaStyles }}
+          />
 
           <link rel="icon" href="/favicon.ico" />
         </Head>

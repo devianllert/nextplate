@@ -12,7 +12,6 @@ import { configureSentryI18n } from '@/modules/core/sentry/sentry';
 import isBrowser from '@/common/utils/isBrowser';
 import { SSGPageProps } from '@/layouts/core/types/SSGPageProps';
 import { SSRPageProps } from '@/layouts/core/types/SSRPageProps';
-import { deserializeSafe } from '@/modules/core/serializeSafe/deserializeSafe';
 import DefaultErrorLayout from '@/modules/core/errorHandling/DefaultErrorLayout';
 import { GlobalStyles } from '@/common/design/GlobalStyles';
 import { ResetStyles } from '@/common/design/ResetStyles';
@@ -57,10 +56,6 @@ const MultiversalAppBootstrap = (props: Props): JSX.Element => {
     level: Sentry.Severity.Debug,
   });
 
-  const {
-    serializedDataset, // Size might be too big
-  } = pageProps; // XXX Exclude all non-meaningful props that might be too large for Sentry to handle, to avoid "403 Entity too large"
-
   if (isBrowser() && process.env.NEXT_PUBLIC_APP_STAGE !== 'production') { // Avoids log clutter on server
     logger.debug('MultiversalAppBootstrap.props', props);
   }
@@ -81,63 +76,23 @@ const MultiversalAppBootstrap = (props: Props): JSX.Element => {
 
   configureSentryI18n(i18n.language);
 
-  // Unrecoverable error, we can't even display the layout because we don't have the minimal required information to properly do so.
-  // The reason can be a UI crash (something broke due to the user's interaction) and a top-level error was thrown in props.err.
-  // Or, it can be because no serializedDataset was provided.
-  // Either way, we display the error page, which will take care of reporting the error to Sentry and display an error message depending on the environment.
-  if (typeof serializedDataset !== 'string') {
-    logger.log('props', props);
+  if (err) {
+    const error = new Error(`Fatal error - A top-level error was thrown by the application, which caused the Page.props to be lost. \n
+    The page cannot be shown to the end-user, an error page will be displayed.`);
+    logger.error(error);
 
-    if (err) {
-      const error = new Error(`Fatal error - A top-level error was thrown by the application, which caused the Page.props to be lost. \n
-      The page cannot be shown to the end-user, an error page will be displayed.`);
-      logger.error(error);
-
-      return (
-        <ErrorPage
-          err={err}
-          statusCode={500}
-          isReadyToRender
-        >
-          <DefaultErrorLayout
-            error={err}
-            context={pageProps}
-          />
-        </ErrorPage>
-      );
-    } else {
-      const error = new Error(`Fatal error - Unexpected "serializedDataset" passed as page props.\n
-        Expecting string, but got "${typeof serializedDataset}".\n
-        This error is often caused by returning an invalid "serializedDataset" from a getStaticProps/getServerSideProps.\n
-        Make sure you return a correct value, using "serializeSafe".`);
-
-      return (
-        <ErrorPage
-          err={error}
-          statusCode={500}
-          isReadyToRender
-        >
-          <DefaultErrorLayout
-            error={error}
-            context={pageProps}
-          />
-        </ErrorPage>
-      );
-    }
-  }
-
-  if (process.env.NEXT_PUBLIC_APP_STAGE !== 'production') {
-    // XXX It's too cumbersome to do proper typings when type changes
-    //  The "customer" was forwarded as a JSON-ish string (using Flatten) in order to avoid circular dependencies issues (SSG/SSR)
-    //  It now being converted back into an object to be actually usable on all pages
-    logger.debug('pageProps.serializedDataset length (bytes)', (serializedDataset as unknown as string)?.length);
-    // console.debug('serializedDataset', serializedDataset);
-  }
-
-  const dataset = deserializeSafe<Record<string, unknown>>(serializedDataset);
-
-  if (process.env.NEXT_PUBLIC_APP_STAGE !== 'production' && isBrowser()) {
-    logger.debug(`pageProps.dataset (${Object.keys(dataset).length} items)`, dataset);
+    return (
+      <ErrorPage
+        err={err}
+        statusCode={500}
+        isReadyToRender
+      >
+        <DefaultErrorLayout
+          error={err}
+          context={pageProps}
+        />
+      </ErrorPage>
+    );
   }
 
   /*

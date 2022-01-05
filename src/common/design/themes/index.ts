@@ -1,6 +1,7 @@
 import { Theme } from 'theme-ui';
+
 import { breakpoints } from '../media';
-import shadows from '../tokens/shadows';
+import { shadows } from '../tokens/shadows';
 import { spacings } from '../tokens/spacings';
 
 import darkColors from './dark/colors';

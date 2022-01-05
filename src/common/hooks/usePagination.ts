@@ -32,26 +32,32 @@ export interface UsePaginationValue {
    * The group of page numbers in the pagination.
    */
   pages: number[];
+
   /**
    * The current page.
    */
   currentPage: number;
+
   /**
    * Changes the current page to the page number.
    */
   gotoPage: React.Dispatch<React.SetStateAction<number>>;
+
   /**
    * This function increases `current` by one.
    */
   goToNextPage: () => void;
+
   /**
    * This function decreases `current` by one.
    */
   goToPreviousPage: () => void;
+
   /**
    * If there are pages and the `current` is less than total number of pages, this will be true.
    */
   canNextPage: boolean;
+
   /**
    * If there are pages and the `current` page is greater than 0, this will be true.
    */

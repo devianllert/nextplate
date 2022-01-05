@@ -12,33 +12,14 @@ export default {
 
 export const Styled = () => (
   <Modal.Root>
-    <Modal.Overlay />
-
     <Modal.Trigger asChild>
       <Button variant="contained">Open</Button>
     </Modal.Trigger>
-    <Modal.Content asChild>
-      <Box backgroundColor="background.secondary" p={4}>
-        <Modal.Title>Booking info</Modal.Title>
-        <Modal.Description>Please enter the info for your booking below.</Modal.Description>
 
-        <Modal.Close asChild>
-          <Button variant="contained">Close</Button>
-        </Modal.Close>
-      </Box>
-    </Modal.Content>
-  </Modal.Root>
-);
+    <Modal.Portal>
+      <Modal.StyledOverlay />
 
-export const NonModal = () => (
-  <>
-    <Modal.Root modal={false}>
-      <Modal.Overlay />
-
-      <Modal.Trigger asChild>
-        <Button variant="contained">Open</Button>
-      </Modal.Trigger>
-      <Modal.Content asChild>
+      <Modal.StyledContent asChild>
         <Box backgroundColor="background.secondary" p={4}>
           <Modal.Title>Booking info</Modal.Title>
           <Modal.Description>Please enter the info for your booking below.</Modal.Description>
@@ -47,7 +28,33 @@ export const NonModal = () => (
             <Button variant="contained">Close</Button>
           </Modal.Close>
         </Box>
-      </Modal.Content>
+      </Modal.StyledContent>
+    </Modal.Portal>
+  </Modal.Root>
+);
+
+export const NonModal = () => (
+  <>
+    <Modal.Root modal={false}>
+
+      <Modal.Trigger asChild>
+        <Button variant="contained">Open</Button>
+      </Modal.Trigger>
+
+      <Modal.Portal>
+        <Modal.StyledOverlay />
+
+        <Modal.StyledContent asChild>
+          <Box backgroundColor="background.secondary" p={4}>
+            <Modal.Title>Booking info</Modal.Title>
+            <Modal.Description>Please enter the info for your booking below.</Modal.Description>
+
+            <Modal.Close asChild>
+              <Button variant="contained">Close</Button>
+            </Modal.Close>
+          </Box>
+        </Modal.StyledContent>
+      </Modal.Portal>
     </Modal.Root>
 
     {Array.from({ length: 5 }, (_, i) => (
@@ -65,21 +72,25 @@ export const Controlled = () => {
   const [open, setOpen] = React.useState(false);
   return (
     <Modal.Root open={open} onOpenChange={setOpen}>
-      <Modal.Overlay />
 
       <Modal.Trigger asChild>
         <Button variant="contained">{open ? 'Close' : 'Open'}</Button>
       </Modal.Trigger>
-      <Modal.Content asChild>
-        <Box backgroundColor="background.secondary" p={4}>
-          <Modal.Title>Booking info</Modal.Title>
-          <Modal.Description>Please enter the info for your booking below.</Modal.Description>
 
-          <Modal.Close asChild>
-            <Button variant="contained">Close</Button>
-          </Modal.Close>
-        </Box>
-      </Modal.Content>
+      <Modal.Portal>
+        <Modal.StyledOverlay />
+
+        <Modal.StyledContent asChild>
+          <Box backgroundColor="background.secondary" p={4}>
+            <Modal.Title>Booking info</Modal.Title>
+            <Modal.Description>Please enter the info for your booking below.</Modal.Description>
+
+            <Modal.Close asChild>
+              <Button variant="contained">Close</Button>
+            </Modal.Close>
+          </Box>
+        </Modal.StyledContent>
+      </Modal.Portal>
     </Modal.Root>
   );
 };

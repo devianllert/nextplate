@@ -5,7 +5,7 @@ import styled from '@emotion/styled';
 import shadows from '@/common/design/tokens/shadows';
 
 import { Sheet } from '../Sheet';
-import { SheetContent, SheetTrigger } from '..';
+import { SheetContent, SheetPortal, SheetTrigger } from '..';
 import { Button } from '../../Button';
 
 export default {
@@ -33,9 +33,11 @@ export const Top = () => {
         <Button>open</Button>
       </SheetTrigger>
 
-      <StyledContent direction="top">
-        123
-      </StyledContent>
+      <SheetPortal>
+        <StyledContent direction="top">
+          123
+        </StyledContent>
+      </SheetPortal>
     </Sheet>
   );
 };
@@ -47,9 +49,11 @@ export const Left = () => {
         <Button>open</Button>
       </SheetTrigger>
 
-      <StyledContent direction="left">
-        123
-      </StyledContent>
+      <SheetPortal>
+        <StyledContent direction="left">
+          123
+        </StyledContent>
+      </SheetPortal>
     </Sheet>
   );
 };
@@ -61,9 +65,11 @@ export const Right = () => {
         <Button>open</Button>
       </SheetTrigger>
 
-      <StyledContent direction="right">
-        123
-      </StyledContent>
+      <SheetPortal>
+        <StyledContent direction="right">
+          123
+        </StyledContent>
+      </SheetPortal>
     </Sheet>
   );
 };
@@ -75,9 +81,11 @@ export const Bottom = () => {
         <Button>open</Button>
       </SheetTrigger>
 
-      <StyledContent direction="bottom">
-        123
-      </StyledContent>
+      <SheetPortal>
+        <StyledContent direction="bottom">
+          123
+        </StyledContent>
+      </SheetPortal>
     </Sheet>
   );
 };

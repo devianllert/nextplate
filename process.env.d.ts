@@ -10,6 +10,7 @@
 declare global {
   namespace NodeJS {
     interface ProcessEnv {
+      NEXT_PUBLIC_APP_URL: string;
       NEXT_PUBLIC_GRAPHQL_API_ENDPOINT: string;
       GRAPHQL_API_ENDPOINT: string;
       IS_SERVER_INITIAL_BUILD: '1' | undefined;

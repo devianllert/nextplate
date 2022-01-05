@@ -63,7 +63,7 @@ const ErrorPage = (props: ErrorPageProps): JSX.Element => {
   // TODO rename to "forceLogTopLevelError" = true and provide false in "DefaultErrorLayout"
   if (!isReadyToRender && err) {
     // XXX getInitialProps is not called for top-level errors - See https://github.com/vercel/next.js/issues/8592
-    // As a workaround, we pass err via _app and src/components/appBootstrap/MultiversalAppBootstrap.tsx so it can be captured
+    // As a workaround, we pass err via _app and src/app/MultiversalAppBootstrap.tsx so it can be captured
     Sentry.captureException(err);
   }
 

@@ -6,6 +6,9 @@ import isBrowser from '@/common/utils/isBrowser';
 import { UserSession } from '../userSession/useUserSession';
 import { GenericObject } from '../data/types/GenericObject';
 import { convertRequestBodyToJSObject } from '../api/convertRequestBodyToJSObject';
+import { createLogger } from '../logging/logger';
+
+const logger = createLogger('modules/sentry/sentry.ts');
 
 /**
  * Configure Sentry default scope.
@@ -22,13 +25,11 @@ import { convertRequestBodyToJSObject } from '../api/convertRequestBodyToJSObjec
  */
 export const configureSentry = (): void => {
   if (!process.env.NEXT_PUBLIC_SENTRY_DSN && process.env.NODE_ENV !== 'test') {
-    // eslint-disable-next-line no-console
-    console.warn('Sentry DSN not defined, Sentry won\'t be configured and there won\'t be any error reporting.');
+    logger.warn('Sentry DSN not defined, Sentry won\'t be configured and there won\'t be any error reporting.');
   }
 
   if (process.env.NEXT_PUBLIC_SENTRY_DSN) {
-    // eslint-disable-next-line no-console
-    console.log('Sentry initialized');
+    logger.log('Sentry initialized');
 
     // Scope configured by default, subsequent calls to "configureScope" will add additional data
     Sentry.configureScope((scope) => {

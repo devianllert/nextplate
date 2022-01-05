@@ -69,7 +69,6 @@ export const getTranslationsStaticProps = (namespaces: string[] = []): GetStatic
   const getStaticProps: GetStaticProps<SSGPageProps> = async (props): Promise<GetStaticPropsResult<SSGPageProps>> => {
     return {
       props: {
-        isReadyToRender: true,
         isStaticRendering: true,
         serializedDataset: serializeSafe({}),
         ...await getTranslationsConfig(props, namespaces),

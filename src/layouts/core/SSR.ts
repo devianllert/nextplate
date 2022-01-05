@@ -9,6 +9,7 @@ import { Cookies } from '@/modules/core/cookiesManager/types/Cookies';
 import { PublicHeaders } from './types/PublicHeaders';
 import { SSRPageProps } from './types/SSRPageProps';
 import { getTranslationsConfig } from './translations';
+import serializeSafe from '@/modules/core/serializeSafe/serializeSafe';
 
 /**
  * getServerSideProps returns only part of the props expected in SSRPageProps
@@ -58,9 +59,8 @@ export const getCoreServerSideProps = (namespaces: string[] = []): GetServerSide
     return {
       props: {
         // We don't send the dataset yet (we don't have any because we haven't fetched the database yet), but it must be done by SSR pages in"getServerSideProps"
-        serializedDataset: '',
+        serializedDataset: serializeSafe({}),
         userSession,
-        isReadyToRender: true,
         isServerRendering: true,
         readonlyCookies,
         headers: publicHeaders,

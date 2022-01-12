@@ -5,7 +5,7 @@ import { Stack, StackProps } from '../Stack';
 import { Button } from '../../Button';
 
 export default {
-  title: 'Design System/Atoms/Inline',
+  title: 'Design System/Atoms/Stack',
   component: Stack,
 } as Meta;
 

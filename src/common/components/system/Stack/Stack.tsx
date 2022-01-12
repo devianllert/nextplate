@@ -47,7 +47,7 @@ export const Stack: PolymorphicComponent<StackProps, 'div'> = React.forwardRef((
     children,
     space = 2,
     alignItems = 'inherit',
-    direction = 'row',
+    direction = 'column',
   } = props;
 
   const isList = component === 'ol' || component === 'ul';

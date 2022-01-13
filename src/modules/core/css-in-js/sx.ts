@@ -3,10 +3,10 @@ import css, { SystemCssProperties, SystemStyleObject } from '@styled-system/css'
 import { Theme } from 'theme-ui';
 import { ColorProps } from 'styled-system';
 
-import { KeyPaths } from '@/common/utils/types/KeyPaths';
 import lightColors from '@/common/design/themes/light/colors';
+import { Flatten } from '@/common/utils/flattenObject';
 
-type ThemeColorPaths = KeyPaths<typeof lightColors>;
+type ThemeColorPaths = keyof Flatten<typeof lightColors>;
 
 export type BetterCssProperties = {
   [K in keyof SystemCssProperties]: K extends keyof ColorProps

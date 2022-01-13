@@ -1,4 +1,4 @@
-type Flatten<T extends object> = object extends T ? object : {
+export type Flatten<T extends object> = object extends T ? object : {
   [K in keyof T]-?: (x: NonNullable<T[K]> extends infer V ? V extends object ?
     V extends readonly any[] ? Pick<T, K> : Flatten<V> extends infer FV ? ({
       [P in keyof FV as `${Extract<K, string | number>}.${Extract<P, string | number>}`]:

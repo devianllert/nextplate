@@ -18,10 +18,13 @@ import {
   PositionProps,
   space,
   SpaceProps,
+  Theme,
 } from 'styled-system';
 
 import { transform, TransformProps } from '@/modules/core/css-in-js/transform';
 import { shouldForwardProp } from '@/modules/core/css-in-js/shouldForwardProp';
+import { FlattenedColorKeys } from '@/modules/core/theming/types/theme.interface';
+import { LiteralUnion } from '@/modules/core/js/types/LiteralUnion';
 
 export type BoxType =
   & SpaceProps
@@ -31,7 +34,7 @@ export type BoxType =
   & BackgroundProps
   & BoxShadowProps
   & BorderProps
-  & ColorProps
+  & ColorProps<Theme, LiteralUnion<FlattenedColorKeys, string>>
   & TransformProps
   & GridProps;
 

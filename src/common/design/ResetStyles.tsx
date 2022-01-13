@@ -57,10 +57,10 @@ export const ResetStyles = (): JSX.Element => {
           display: block;
         }
         /**
-        * Remove the list style on navigation lists in all browsers (opinionated).
+        * Remove the list style on lists in all browsers (opinionated).
         */
-        nav ol,
-        nav ul {
+        ol,
+        ul {
           list-style: none;
           padding: 0;
         }

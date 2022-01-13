@@ -1,6 +1,7 @@
 import * as React from 'react';
 import styled from '@emotion/styled';
 
+import { PolymorphicComponent } from '@/modules/core/react/types/Polymorphic';
 import { spacings } from '@/common/design/tokens/spacings';
 
 export const InputAdornmentRoot = styled.div<InputAdornmentProps>((props) => ({
@@ -22,7 +23,7 @@ export const InputAdornmentRoot = styled.div<InputAdornmentProps>((props) => ({
   }),
 }));
 
-interface InputAdornmentProps extends React.HTMLAttributes<HTMLDivElement> {
+interface InputAdornmentProps {
   /**
    * The content of the component, normally an `IconButton` or string.
    */
@@ -40,10 +41,11 @@ interface InputAdornmentProps extends React.HTMLAttributes<HTMLDivElement> {
   position?: 'start' | 'end';
 }
 
-export const InputAdornment = (props: InputAdornmentProps): JSX.Element => {
+export const InputAdornment: PolymorphicComponent<InputAdornmentProps, 'div'> = React.forwardRef((props, ref) => {
   const {
     children,
     className,
+    component,
     disablePointerEvents = false,
     position,
     ...other
@@ -54,9 +56,11 @@ export const InputAdornment = (props: InputAdornmentProps): JSX.Element => {
       position={position}
       disablePointerEvents={disablePointerEvents}
       className={className}
+      as={component}
+      ref={ref}
       {...other}
     >
       {children}
     </InputAdornmentRoot>
   );
-};
+});

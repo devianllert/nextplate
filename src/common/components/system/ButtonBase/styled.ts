@@ -12,8 +12,6 @@ export const ButtonBaseRoot = styled('button', { shouldForwardProp })<SxProp>(
     boxSizing: 'border-box',
     WebkitTapHighlightColor: 'transparent',
     backgroundColor: 'transparent', // Reset default value
-    // We disable the focus ring for mouse, touch and keyboard users.
-    outline: 0,
     border: 0,
     margin: 0, // Remove the margin in Safari
     borderRadius: 0,

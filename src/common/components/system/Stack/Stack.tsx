@@ -48,13 +48,14 @@ export const Stack: PolymorphicComponent<StackProps, 'div'> = React.forwardRef((
     space = 2,
     alignItems = 'inherit',
     direction = 'column',
+    ...other
   } = props;
 
   const isList = component === 'ol' || component === 'ul';
   const stackItemComponent = isList ? 'li' : 'div';
 
   return (
-    <S.StackRootAligner space={space} ref={ref}>
+    <S.StackRootAligner space={space} ref={ref} {...other}>
       <S.StackRoot as={component} marginTop={space} marginLeft={space} alignY={alignItems} flexDirection={direction}>
         {React.Children.map(flattenChildren(children), (child) => (child ? (
           <S.StackBox space={space} as={stackItemComponent}>{child}</S.StackBox>

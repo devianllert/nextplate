@@ -42,6 +42,7 @@ export const ButtonRoot = styled(ButtonBase)<ButtonRootProps>(
     minWidth: 64,
     padding: '6px 16px',
     borderRadius: shape.round,
+    outline: 0,
     transition: createTransition(['background-color', 'box-shadow', 'border-color', 'color'], { duration: duration.short }),
 
     ...(props.variant === 'text' && {

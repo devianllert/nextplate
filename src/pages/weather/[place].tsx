@@ -36,6 +36,46 @@ type CustomPageProps = Record<string, any>;
 
 type GetServerSidePageProps = CustomPageProps & SSRPageProps;
 
+export const getServerSideProps: GetServerSideProps<GetServerSidePageProps> = async (
+  context,
+): Promise<GetServerSidePropsResult<GetServerSidePageProps>> => {
+  context.res.setHeader('Cache-Control', 'public, s-maxage=60, stale-while-revalidate=600');
+
+  const commonServerSideProps = await getCoreServerSideProps()(context);
+
+  const place = context.query.place as (string | undefined);
+
+  const queryClient = new QueryClient();
+
+  if ('props' in commonServerSideProps) {
+    const {
+      props: { ...pageData },
+    } = commonServerSideProps;
+
+    try {
+      const data = await queryClient.fetchQuery(['weather', place], () => fetchWeather(place));
+
+      const dataset = {
+        data: data ?? {},
+      };
+
+      return {
+        // Props returned here will be available as page properties (pageProps)
+        props: {
+          ...pageData,
+          [REACT_QUERY_STATE_PROP_NAME]: dehydrate(queryClient),
+          serializedDataset: serializeSafe(dataset),
+        },
+      };
+    } catch (error) {
+      logger.error(error);
+      throw new Error('Errors were detected in query.');
+    }
+  } else {
+    return commonServerSideProps;
+  }
+};
+
 /**
  * SSR pages are first rendered by the server
  * Then, they're rendered by the client, and gain additional props (defined in OnlyBrowserPageProps)
@@ -108,46 +148,6 @@ const WeatherPlacePage: EnhancedNextPage<Props> = (): JSX.Element => {
       </Box>
     </>
   );
-};
-
-export const getServerSideProps: GetServerSideProps<GetServerSidePageProps> = async (
-  context,
-): Promise<GetServerSidePropsResult<GetServerSidePageProps>> => {
-  context.res.setHeader('Cache-Control', 'public, s-maxage=60, stale-while-revalidate=600');
-
-  const commonServerSideProps = await getCoreServerSideProps()(context);
-
-  const place = context.query.place as (string | undefined);
-
-  const queryClient = new QueryClient();
-
-  if ('props' in commonServerSideProps) {
-    const {
-      props: { ...pageData },
-    } = commonServerSideProps;
-
-    try {
-      const data = await queryClient.fetchQuery(['weather', place], () => fetchWeather(place));
-
-      const dataset = {
-        data: data ?? {},
-      };
-
-      return {
-        // Props returned here will be available as page properties (pageProps)
-        props: {
-          ...pageData,
-          [REACT_QUERY_STATE_PROP_NAME]: dehydrate(queryClient),
-          serializedDataset: serializeSafe(dataset),
-        },
-      };
-    } catch (error) {
-      logger.error(error);
-      throw new Error('Errors were detected in query.');
-    }
-  } else {
-    return commonServerSideProps;
-  }
 };
 
 WeatherPlacePage.Layout = WeatherLayout;

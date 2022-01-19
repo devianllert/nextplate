@@ -18,6 +18,7 @@ export const IconButtonRoot = styled(ButtonBase)<IconButtonRootProps>((props) =>
   textAlign: 'center',
   borderRadius: props.variant === 'circle' ? '50%' : shape.round,
   overflow: 'visible',
+  outline: 0,
   color: props.theme.colors.radix[`${props.color}11`],
   transition: createTransition(['background-color', 'box-shadow'], {
     duration: duration.short,

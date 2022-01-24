@@ -61,8 +61,8 @@ const NotFound404Page: EnhancedNextPage<Props> = (): JSX.Element => {
         <title>{getAppTitle('404')}</title>
       </Head>
       <PageSEO
-        title={t('title')}
-        description={t('description')}
+        title={t('seo.title')}
+        description={t('seo.description')}
         image="/static/images/404.png"
       />
 

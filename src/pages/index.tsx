@@ -57,8 +57,8 @@ const IndexPage: EnhancedNextPage<Props> = (): JSX.Element => {
   return (
     <>
       <PageSEO
-        title="Home"
-        description="Start your app with confidence. Meant to help you build production-grade projects using the Next.js framework"
+        title={t('seo.title')}
+        description={t('seo.description')}
       />
 
       <Box

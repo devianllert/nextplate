@@ -1,4 +1,8 @@
 {
+  "seo": {
+    "title": "$t(title)",
+    "description": "$t(description)"
+  },
   "title": "Page not found",
   "subtitle": "404 Error",
   "description": "The page you are looking for could not be found.",

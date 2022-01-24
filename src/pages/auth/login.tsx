@@ -48,9 +48,9 @@ const LoginPage: EnhancedNextPage<Props> = (): JSX.Element => {
   return (
     <>
       <PageSEO
-        title={t('login')}
-        description="Login to your account. This is a demo app intended to demonstrate the capabilities of this boilerplate"
-        image={`/static/images/apps/${i18n.language}/auth.png`}
+        title={t('seo.login.title')}
+        description={t('seo.login.description')}
+        image={t('seo.image')}
       />
 
       <Box

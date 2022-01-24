@@ -1,4 +1,8 @@
 {
+  "seo": {
+    "title": "$t(title)",
+    "description": "$t(description)"
+  },
   "title": "Страница не найдена",
   "subtitle": "Ошибка 404",
   "description": "Такой страницы не существует.",

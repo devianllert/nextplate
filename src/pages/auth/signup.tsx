@@ -48,9 +48,9 @@ const SignUpPage: EnhancedNextPage<Props> = (): JSX.Element => {
   return (
     <>
       <PageSEO
-        title={t('signup')}
-        description="Sign up. This is a demo app intended to demonstrate the capabilities of this boilerplate"
-        image={`/static/images/apps/${i18n.language}/auth.png`}
+        title={t('seo.signup.title')}
+        description={t('seo.signup.description')}
+        image={t('seo.image')}
       />
 
       <Box

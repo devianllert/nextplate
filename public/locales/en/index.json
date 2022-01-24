@@ -1,4 +1,8 @@
 {
+  "seo": {
+    "title": "Home",
+    "description": "$t(hero.subtitle)"
+  },
   "hero": {
     "title": "Start your app with confidence",
     "subtitle": "Meant to help you build production-grade projects using the Next.js framework",

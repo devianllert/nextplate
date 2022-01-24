@@ -26,6 +26,7 @@ import { filterHourlyWeatherBasedOnCurrentTime } from '@/modules/weather/formatH
 import { WeatherHourlyList } from '@/modules/weather/components/WeatherHourlyList';
 import { Container } from '@/common/components/system/Container';
 import { Todos } from '@/modules/weather/components/Todos';
+import { PageSEO } from '@/modules/core/meta/page-seo';
 
 const logger = createLogger('[place]');
 
@@ -96,9 +97,11 @@ const WeatherPlacePage: EnhancedNextPage<Props> = (): JSX.Element => {
 
   return (
     <>
-      <Head>
-        <title>{getAppTitle(`Weather for ${place ?? weather?.place ?? 'your current location'}`)}</title>
-      </Head>
+      <PageSEO
+        title={`Weather for ${place ?? weather?.place ?? 'your current location'}`}
+        description="The right way to check the weather! This is a demo app intended to demonstrate the capabilities of this boilerplate"
+        image="/static/images/apps/weather.png"
+      />
 
       <Box
         minHeight="100vh"

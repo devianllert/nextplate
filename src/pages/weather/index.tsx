@@ -1,9 +1,7 @@
 import React from 'react';
-import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { RiMapPinLine, RiSearchLine } from 'react-icons/ri';
 
-import { getAppTitle } from '@/modules/core/meta/meta';
 import { OnlyBrowserPageProps } from '@/layouts/core/types/OnlyBrowserPageProps';
 import { SSGPageProps } from '@/layouts/core/types/SSGPageProps';
 import { SSRPageProps } from '@/layouts/core/types/SSRPageProps';
@@ -16,6 +14,7 @@ import { Input } from '@/common/components/system/Input';
 import { WeatherLayout } from '@/layouts/weather/components/WeatherLayout';
 import { InputAdornment } from '@/common/components/system/Input/InputAdornment';
 import { IconButton } from '@/common/components/system/IconButton';
+import { PageSEO } from '@/modules/core/meta/page-seo';
 
 const logger = createLogger('Weather');
 
@@ -54,9 +53,11 @@ const WeatherSearchPage: EnhancedNextPage<Props> = (): JSX.Element => {
 
   return (
     <>
-      <Head>
-        <title>{getAppTitle('Weather')}</title>
-      </Head>
+      <PageSEO
+        title="Weather"
+        description="The right way to check the weather! This is a demo app intended to demonstrate the capabilities of this boilerplate"
+        image="/static/images/apps/weather.png"
+      />
 
       <Box
         minHeight="100vh"

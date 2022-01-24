@@ -16,6 +16,7 @@ import { NotFound404Layout } from '@/layouts/404/components/NotFound404Layout';
 import * as Text from '@/common/components/system/Text';
 import { Button } from '@/common/components/system/Button';
 import { Stack } from '@/common/components/system/Stack';
+import { PageSEO } from '@/modules/core/meta/page-seo';
 
 const fileLabel = 'pages/404';
 const logger = createLogger(fileLabel);
@@ -59,6 +60,11 @@ const NotFound404Page: EnhancedNextPage<Props> = (): JSX.Element => {
       <Head>
         <title>{getAppTitle('404')}</title>
       </Head>
+      <PageSEO
+        title={t('title')}
+        description={t('description')}
+        image="/static/images/404.png"
+      />
 
       <Stack direction="column" space={3}>
         <Text.Paragraph variant="body1" color="text.secondary">{t('subtitle')}</Text.Paragraph>

@@ -25,6 +25,7 @@ import { MediaContextProvider } from '@/modules/core/css-in-js/responsive';
 import { MultiversalAppBootstrapProps } from '../types/MultiversalAppBootstrapProps';
 import BrowserPageBootstrap, { BrowserPageBootstrapProps } from './BrowserPageBootstrap';
 import ServerPageBootstrap, { ServerPageBootstrapProps } from './ServerPageBootstrap';
+import { getLinksAlternateHref } from '@/modules/core/meta/meta';
 
 export type Props = MultiversalAppBootstrapProps<SSGPageProps> | MultiversalAppBootstrapProps<SSRPageProps>;
 
@@ -126,14 +127,7 @@ const MultiversalAppBootstrap = (props: Props): JSX.Element => {
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-        {process.env.NEXT_PUBLIC_APP_URL && router.locales?.concat('x-default').map((locale: string) => {
-          const localePath = locale === 'x-default' ? '' : `${locale}`;
-          const href = `${process.env.NEXT_PUBLIC_APP_URL}/${localePath}${router.asPath}`;
-
-          return locale === 'cimode' ? null : (
-            <link key={locale} rel="alternate" hrefLang={locale} href={href} />
-          );
-        })}
+        {getLinksAlternateHref(router.asPath, router.locales)}
       </Head>
 
       <QueryClientProvider client={queryClient}>

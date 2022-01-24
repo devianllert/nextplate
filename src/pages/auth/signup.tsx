@@ -1,5 +1,4 @@
 import { useTranslation } from 'next-i18next';
-import Head from 'next/head';
 import Link from 'next/link';
 import { RiEyeLine, RiEyeOffLine } from 'react-icons/ri';
 
@@ -14,10 +13,10 @@ import { AuthLayout } from '@/layouts/auth/components/AuthLayout';
 import * as Text from '@/common/components/system/Text';
 import { Box } from '@/common/components/system/Box';
 import { Input, InputAdornment } from '@/common/components/system/Input';
-import { getAppTitle } from '@/modules/core/meta/meta';
 import { Stack } from '@/common/components/system/Stack';
 import { useBoolean } from '@/common/hooks/useBoolean';
 import { IconButton } from '@/common/components/system/IconButton';
+import { PageSEO } from '@/modules/core/meta/page-seo';
 
 const logger = createLogger('SignUp');
 
@@ -42,15 +41,17 @@ export const getStaticProps = getTranslationsStaticProps(['auth']);
 type Props = (SSRPageProps & SSGPageProps<OnlyBrowserPageProps>);
 
 const SignUpPage: EnhancedNextPage<Props> = (): JSX.Element => {
-  const { t } = useTranslation('auth');
+  const { t, i18n } = useTranslation('auth');
 
   const [show, toggleShow] = useBoolean(false);
 
   return (
     <>
-      <Head>
-        <title>{getAppTitle(t('signup'))}</title>
-      </Head>
+      <PageSEO
+        title={t('signup')}
+        description="Sign up. This is a demo app intended to demonstrate the capabilities of this boilerplate"
+        image={`/static/images/apps/${i18n.language}/auth.png`}
+      />
 
       <Box
         component="form"

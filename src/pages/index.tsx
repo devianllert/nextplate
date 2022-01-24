@@ -26,6 +26,7 @@ import { Stack } from '@/common/components/system/Stack';
 import { Code } from '@/common/components/system/Code';
 import { AspectRatio } from '@/common/components/system/AspectRatio';
 import { useTheme } from '@/common/design/hooks/useTheme';
+import { PageSEO } from '@/modules/core/meta/page-seo';
 
 const logger = createLogger('Index');
 
@@ -55,9 +56,10 @@ const IndexPage: EnhancedNextPage<Props> = (): JSX.Element => {
 
   return (
     <>
-      <Head>
-        <title>{getAppTitle('Home')}</title>
-      </Head>
+      <PageSEO
+        title="Home"
+        description="Start your app with confidence. Meant to help you build production-grade projects using the Next.js framework"
+      />
 
       <Box
         position="relative"

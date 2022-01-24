@@ -18,7 +18,7 @@ export const PageSEO = (props: PageSEOProps) => {
   const {
     title,
     url = `${process.env.NEXT_PUBLIC_APP_URL}${router.asPath}`,
-    image = '/images/static/logo-og.png',
+    image = '/static/images/logo-og.png',
     description = APP_TITLE,
   } = props;
 

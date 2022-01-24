@@ -32,12 +32,10 @@ export const PageSEO = (props: PageSEOProps) => {
       <meta property="og:description" content={description} />
       <meta property="og:url" content={url} />
       <meta name="twitter:site" content="@devianllert" />
+      <meta name="twitter:creator" content="@devianllert" />
       <meta name="twitter:card" content={image ? 'summary_large_image' : 'summary'} />
       {image && (
-        <>
-          <meta property="og:image" content={imageURL} />
-          <meta name="twitter:card" content={imageURL} />
-        </>
+        <meta property="og:image" content={imageURL} />
       )}
     </Head>
   );

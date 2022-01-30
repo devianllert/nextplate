@@ -12,7 +12,6 @@ declare global {
     interface ProcessEnv {
       NEXT_PUBLIC_APP_URL: string;
       NEXT_PUBLIC_GRAPHQL_API_ENDPOINT: string;
-      GRAPHQL_API_ENDPOINT: string;
       IS_SERVER_INITIAL_BUILD: '1' | undefined;
       NODE_ENV: 'development' | 'production';
       NEXT_PUBLIC_APP_BUILD_ID: string;
@@ -24,10 +23,8 @@ declare global {
       NEXT_PUBLIC_APP_BUILD_TIMESTAMP: string;
 
       // Sentry variables
-      SENTRY_DSN: string;
-      SENTRY_AUTH_TOKEN: string;
-      // Public version of SENTRY_DSN made available to the browser (value is identical to SENTRY_DSN)
       NEXT_PUBLIC_SENTRY_DSN: string;
+      SENTRY_AUTH_TOKEN: string;
 
       // Git env variables
       GIT_COMMIT_SHA_SHORT: string;

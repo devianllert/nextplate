@@ -1,5 +1,4 @@
 import { GetStaticProps } from 'next';
-import Head from 'next/head';
 import Link from 'next/link';
 import * as Sentry from '@sentry/nextjs';
 import { useTranslation } from 'next-i18next';
@@ -7,7 +6,6 @@ import { useRouter } from 'next/router';
 import { RiArrowRightLine } from 'react-icons/ri';
 
 import { createLogger } from '@/modules/core/logging/logger';
-import { getAppTitle } from '@/modules/core/meta/meta';
 import { getTranslationsStaticProps } from '@/layouts/core/SSG';
 import { EnhancedNextPage } from '@/layouts/core/types/EnhancedNextPage';
 import { SoftPageProps } from '@/layouts/core/types/SoftPageProps';
@@ -57,9 +55,6 @@ const NotFound404Page: EnhancedNextPage<Props> = (): JSX.Element => {
 
   return (
     <>
-      <Head>
-        <title>{getAppTitle('404')}</title>
-      </Head>
       <PageSEO
         title={t('seo.title')}
         description={t('seo.description')}

@@ -33,10 +33,9 @@ export const configureSentry = (): void => {
 
     // Scope configured by default, subsequent calls to "configureScope" will add additional data
     Sentry.configureScope((scope) => {
-      scope.setTag('customerRef', process.env.NEXT_PUBLIC_CUSTOMER_REF);
       scope.setTag('appStage', process.env.NEXT_PUBLIC_APP_STAGE);
       scope.setTag('appName', process.env.NEXT_PUBLIC_APP_NAME);
-      scope.setTag('appBaseUrl', process.env.NEXT_PUBLIC_APP_BASE_URL);
+      scope.setTag('appBaseUrl', process.env.NEXT_PUBLIC_APP_URL);
       scope.setTag('appVersion', process.env.NEXT_PUBLIC_APP_VERSION);
       scope.setTag('appNameVersion', process.env.NEXT_PUBLIC_APP_NAME_VERSION);
       scope.setTag('appBuildTime', process.env.NEXT_PUBLIC_APP_BUILD_TIME);
@@ -60,7 +59,7 @@ export const configureSentry = (): void => {
  * @see https://www.npmjs.com/package/@sentry/node
  */
 export const configureSentryUser = (userSession: UserSession): void => {
-  if (process.env.SENTRY_DSN) {
+  if (process.env.NEXT_PUBLIC_SENTRY_DSN) {
     Sentry.configureScope((scope) => {
       scope.setTag('userId', userSession?.id);
       scope.setTag('userDeviceId', userSession?.deviceId);
@@ -76,7 +75,7 @@ export const configureSentryUser = (userSession: UserSession): void => {
  * @see https://www.npmjs.com/package/@sentry/node
  */
 export const configureSentryI18n = (lang: string): void => {
-  if (process.env.SENTRY_DSN) {
+  if (process.env.NEXT_PUBLIC_SENTRY_DSN) {
     Sentry.configureScope((scope) => {
       scope.setTag('lang', lang);
     });

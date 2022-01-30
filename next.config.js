@@ -117,31 +117,19 @@ module.exports = withSentryConfig(
       /**
        * Environment variables added to JS bundle
        *
-       * XXX All env variables defined in ".env*" files that aren't public (those that don't start with "NEXT_PUBLIC_") MUST manually be made available at build time below.
-       *  They're necessary on Vercel for runtime execution (SSR, SSG with revalidate, everything that happens server-side will need those).
-       *
-       * XXX This is a duplication of the environment variables.
-       *  The variables defined below are only used locally, while those in "vercel.*.json:build:env" will be used on the Vercel platform.
-       *  See https://vercel.com/docs/v2/build-step/#providing-environment-variables
+       * Used to inject dynamic environment variables.
        *
        * @see https://nextjs.org/docs/api-reference/next.config.js/environment-variables
        */
       env: {
-        GITHUB_DISPATCH_TOKEN: process.env.GITHUB_DISPATCH_TOKEN,
-        NEXT_PUBLIC_GRAPHQL_API_ENDPOINT: process.env.GRAPHQL_API_ENDPOINT,
-        GRAPHQL_API_KEY: process.env.GRAPHQL_API_KEY,
-
-        SENTRY_DSN: process.env.SENTRY_DSN,
-
-        // Sentry DSN must be provided to the browser for error reporting to work there
-        NEXT_PUBLIC_SENTRY_DSN: process.env.SENTRY_DSN,
-
-        // Dynamic env variables
         NEXT_PUBLIC_APP_BUILD_TIME: new Date().toString(),
         NEXT_PUBLIC_APP_BUILD_TIMESTAMP: Date.now(),
         NEXT_PUBLIC_APP_NAME: packageJson.name,
         NEXT_PUBLIC_APP_NAME_VERSION: `${packageJson.name}-${APP_RELEASE_TAG}`,
+
         LOGGER_ENV: process.env.NEXT_PUBLIC_APP_STAGE,
+
+        GITHUB_DISPATCH_TOKEN: process.env.GITHUB_DISPATCH_TOKEN,
         GIT_COMMIT_SHA_SHORT,
         GIT_COMMIT_SHA: process.env.GIT_COMMIT_SHA, // Resolve commit hash from ENV first (set through CI), fallbacks to reading git (when used locally, through "/scripts/populate-git-env.sh")
         GIT_COMMIT_REF: process.env.GIT_COMMIT_REF, // Resolve commit ref (branch/tag) from ENV first (set through CI), fallbacks to reading git (when used locally, through "/scripts/populate-git-env.sh")

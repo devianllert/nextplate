@@ -5,7 +5,7 @@ import { Box } from '../../Box';
 import { Inset, InsetProps } from '../Inset';
 
 export default {
-  title: 'Design System/Atoms/Inset',
+  title: 'Design System/Layout/Inset',
   component: Inset,
 } as Meta;
 

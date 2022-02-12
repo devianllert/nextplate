@@ -4,7 +4,7 @@ import { Story, Meta } from '@storybook/react';
 import { Container, ContainerProps } from '../Container';
 
 export default {
-  title: 'Design System/Atoms/Container',
+  title: 'Design System/Layout/Container',
   component: Container,
 } as Meta;
 

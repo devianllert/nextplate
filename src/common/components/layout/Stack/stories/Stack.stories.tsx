@@ -3,9 +3,11 @@ import { Story, Meta } from '@storybook/react';
 
 import { Stack, StackProps } from '../Stack';
 import { Button } from '../../../system/Button';
+import { Box } from '../../Box';
+import { shadows } from '@/common/design/tokens/shadows';
 
 export default {
-  title: 'Design System/Atoms/Stack',
+  title: 'Design System/Layout/Stack',
   component: Stack,
 } as Meta;
 
@@ -16,30 +18,11 @@ export const Basic = Template.bind({});
 Basic.args = {
   children: (
     <>
-      <Button variant="contained">1</Button>
-      <Button variant="contained">2</Button>
-      <Button variant="contained">3</Button>
+      <Box width={120} height={64} backgroundColor="radix.gray4" boxShadow={shadows[1]} />
+      <Box width={120} height={64} backgroundColor="radix.gray4" boxShadow={shadows[1]} />
+      <Box width={120} height={64} backgroundColor="radix.gray4" boxShadow={shadows[1]} />
     </>
   ),
-  space: 8,
-  alignItems: 'inherit',
-};
-
-export const MoreItems = Template.bind({});
-
-MoreItems.args = {
-  children: (
-    <>
-      <Button variant="contained">One</Button>
-      <Button variant="contained">Two</Button>
-      <Button variant="contained">Three</Button>
-      <Button variant="contained">Four</Button>
-      <Button variant="contained">Five</Button>
-      <Button variant="contained">Six</Button>
-      <Button variant="contained">Seven</Button>
-      <Button variant="contained">Eight</Button>
-    </>
-  ),
-  space: 8,
+  space: 3,
   alignItems: 'inherit',
 };

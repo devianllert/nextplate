@@ -5,7 +5,7 @@ import { Flex, FlexProps } from '../Flex';
 import { Button } from '../../../system/Button';
 
 export default {
-  title: 'Design System/Atoms/Flex',
+  title: 'Design System/Layout/Flex',
   component: Flex,
 } as Meta;
 

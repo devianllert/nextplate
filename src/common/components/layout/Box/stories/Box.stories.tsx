@@ -4,7 +4,7 @@ import { Story, Meta } from '@storybook/react';
 import { Box, BoxProps } from '../Box';
 
 export default {
-  title: 'Design System/Atoms/Box',
+  title: 'Design System/Layout/Box',
   component: Box,
 } as Meta;
 

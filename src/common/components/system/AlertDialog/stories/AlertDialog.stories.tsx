@@ -3,8 +3,8 @@ import { Meta } from '@storybook/react';
 
 import * as AlertDialog from '../AlertDialog';
 import { Button } from '../../Button';
-import { Box } from '../../Box';
-import { Stack } from '../../Stack';
+import { Box } from '../../../layout/Box';
+import { Stack } from '../../../layout/Stack';
 
 export default {
   title: 'Design System/Atoms/AlertDialog',

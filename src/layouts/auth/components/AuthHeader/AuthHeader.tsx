@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { APP_TITLE } from '@/modules/core/meta/meta';
 
 import * as Text from '@/common/components/system/Text';
-import { Container } from '@/common/components/system/Container';
+import { Container } from '@/common/components/layout/Container';
 
 import * as S from './styled';
 

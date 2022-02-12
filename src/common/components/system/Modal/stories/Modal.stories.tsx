@@ -3,7 +3,7 @@ import { Meta } from '@storybook/react';
 
 import * as Modal from '../Modal';
 import { Button } from '../../Button';
-import { Box } from '../../Box';
+import { Box } from '../../../layout/Box';
 
 export default {
   title: 'Design System/Atoms/Modal',

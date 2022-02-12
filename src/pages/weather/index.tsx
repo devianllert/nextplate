@@ -9,7 +9,7 @@ import { createLogger } from '@/modules/core/logging/logger';
 import { EnhancedNextPage } from '@/layouts/core/types/EnhancedNextPage';
 import { getTranslationsStaticProps } from '@/layouts/core/SSG';
 import * as Text from '@/common/components/system/Text';
-import { Box } from '@/common/components/system/Box';
+import { Box } from '@/common/components/layout/Box';
 import { Input } from '@/common/components/system/Input';
 import { WeatherLayout } from '@/layouts/weather/components/WeatherLayout';
 import { InputAdornment } from '@/common/components/system/Input/InputAdornment';

@@ -6,8 +6,8 @@ import styled from '@emotion/styled';
 import * as DropdownMenu from '..';
 
 import { Button } from '../../Button';
-import { Box } from '../../Box';
-import { Flex } from '../../Flex';
+import { Box } from '../../../layout/Box';
+import { Flex } from '../../../layout/Flex';
 
 export default {
   title: 'Design System/Atoms/DropdownMenu',

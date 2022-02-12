@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { RiCloseFill, RiMenu3Line } from 'react-icons/ri';
 
-import { Box } from '@/common/components/system/Box';
+import { Box } from '@/common/components/layout/Box';
 import { Button } from '@/common/components/system/Button';
 import { Divider } from '@/common/components/system/Divider';
 import { IconButton } from '@/common/components/system/IconButton';

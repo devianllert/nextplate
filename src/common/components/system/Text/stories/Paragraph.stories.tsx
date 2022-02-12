@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Story, Meta } from '@storybook/react';
 
 import { Paragraph, ParagraphProps } from '../Paragraph';
-import { Stack } from '../../Stack';
+import { Stack } from '../../../layout/Stack';
 
 export default {
   title: 'Design System/Atoms/Text/Paragraph',

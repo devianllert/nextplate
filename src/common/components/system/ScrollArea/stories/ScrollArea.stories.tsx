@@ -1,12 +1,12 @@
 import * as React from 'react';
 import { Story, Meta } from '@storybook/react';
 
-import { Box } from '../../Box';
+import { Box } from '../../../layout/Box';
 import * as Text from '@/components/system/Text';
 
 import * as ScrollArea from '../ScrollArea';
 import shadows from '@/common/design/tokens/shadows';
-import { Stack } from '../../Stack';
+import { Stack } from '../../../layout/Stack';
 
 export default {
   title: 'Design System/Atoms/ScrollArea',

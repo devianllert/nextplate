@@ -4,8 +4,8 @@ import styled from '@emotion/styled';
 import { CSSObject, Theme } from '@emotion/react';
 import { RiCheckLine, RiCheckboxBlankCircleFill, RiArrowRightSLine } from 'react-icons/ri';
 
-import { Box } from '@/common/components/system/Box';
-import { Flex } from '@/common/components/system/Flex';
+import { Box } from '@/common/components/layout/Box';
+import { Flex } from '@/common/components/layout/Flex';
 import { captions } from '@/common/design/tokens/typography';
 
 const menuItemCss = (props: { theme: Theme }): CSSObject => ({

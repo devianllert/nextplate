@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Story, Meta } from '@storybook/react';
 
 import { Checkbox, CheckboxProps } from '../Checkbox';
-import { Box } from '../../Box';
+import { Box } from '../../../layout/Box';
 
 export default {
   title: 'Design System/Atoms/Checkbox',

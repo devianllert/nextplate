@@ -1,9 +1,9 @@
 import * as React from 'react';
 import Image from 'next/image';
 
-import { Box } from '@/common/components/system/Box';
+import { Box } from '@/common/components/layout/Box';
 import * as Text from '@/common/components/system/Text';
-import { Container } from '@/common/components/system/Container';
+import { Container } from '@/common/components/layout/Container';
 
 import { ICONS_MAP } from '../constants/iconsMap';
 import { formatHourlyTime } from '../formatHourlyWeather';

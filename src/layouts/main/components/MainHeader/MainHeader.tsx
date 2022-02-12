@@ -10,8 +10,8 @@ import ru from 'timeago.js/lib/lang/ru';
 import { APP_TITLE } from '@/modules/core/meta/meta';
 
 import * as Text from '@/common/components/system/Text';
-import { Stack } from '@/common/components/system/Stack';
-import { Container } from '@/common/components/system/Container';
+import { Stack } from '@/common/components/layout/Stack';
+import { Container } from '@/common/components/layout/Container';
 import { IconButton } from '@/common/components/system/IconButton';
 import { DisplayOnBrowserMount } from '@/common/components/rehydration/DisplayOnBrowserMount';
 import { LocaleToggler } from '@/common/components/LocaleToggler';

@@ -23,11 +23,12 @@ export const Checkbox = React.forwardRef(function Checkbox(props: CheckboxProps,
     disabled = false,
     color = 'primary',
     inputRef,
+    ...other
   } = props;
 
   return (
     <S.CheckboxRoot disabled={disabled} ref={ref}>
-      <CheckboxBase checked={checked} disabled={disabled} color={color} inputRef={inputRef} />
+      <CheckboxBase checked={checked} disabled={disabled} color={color} inputRef={inputRef} {...other} />
 
       {label && (
         <Text.Paragraph

@@ -13,7 +13,7 @@ import { SSGPageProps } from '@/layouts/core/types/SSGPageProps';
 import { NotFound404Layout } from '@/layouts/404/components/NotFound404Layout';
 import * as Text from '@/common/components/system/Text';
 import { Button } from '@/common/components/system/Button';
-import { Stack } from '@/common/components/system/Stack';
+import { Stack } from '@/common/components/layout/Stack';
 import { PageSEO } from '@/modules/core/meta/page-seo';
 
 const fileLabel = 'pages/404';

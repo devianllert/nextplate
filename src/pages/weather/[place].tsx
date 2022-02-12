@@ -14,7 +14,7 @@ import { SSRPageProps } from '@/layouts/core/types/SSRPageProps';
 import { createLogger } from '@/modules/core/logging/logger';
 import { EnhancedNextPage } from '@/layouts/core/types/EnhancedNextPage';
 import * as Text from '@/common/components/system/Text';
-import { Box } from '@/common/components/system/Box';
+import { Box } from '@/common/components/layout/Box';
 import { getCoreServerSideProps } from '@/layouts/core/SSR';
 import { REACT_QUERY_STATE_PROP_NAME } from '@/modules/core/rquery/react-query';
 import { fetchWeather } from '@/modules/weather/services/wttr';
@@ -24,7 +24,7 @@ import { WeatherDate } from '@/modules/weather/components/WeatherDate';
 import { ICONS_MAP } from '@/modules/weather/constants/iconsMap';
 import { filterHourlyWeatherBasedOnCurrentTime } from '@/modules/weather/formatHourlyWeather';
 import { WeatherHourlyList } from '@/modules/weather/components/WeatherHourlyList';
-import { Container } from '@/common/components/system/Container';
+import { Container } from '@/common/components/layout/Container';
 import { Todos } from '@/modules/weather/components/Todos';
 import { PageSEO } from '@/modules/core/meta/page-seo';
 

@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { Container } from '@/common/components/system/Container';
+import { Container } from '@/common/components/layout/Container';
 
 import * as S from './styled';
 

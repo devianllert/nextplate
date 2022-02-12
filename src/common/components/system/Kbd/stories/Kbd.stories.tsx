@@ -2,8 +2,8 @@ import * as React from 'react';
 import { Story, Meta } from '@storybook/react';
 
 import { Kbd, KbdProps } from '../Kbd';
-import { Box } from '../../Box';
-import { Stack } from '../../Stack';
+import { Box } from '../../../layout/Box';
+import { Stack } from '../../../layout/Stack';
 
 export default {
   title: 'Design System/Atoms/Kbd',

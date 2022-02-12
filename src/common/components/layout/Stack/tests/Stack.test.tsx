@@ -6,7 +6,7 @@ import React from 'react';
 
 import { renderWithProviders } from '@/modules/core/testing/renderWithProviders';
 
-import * as Text from '../../Text';
+import * as Text from '../../../system/Text';
 
 import { Stack } from '..';
 

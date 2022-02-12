@@ -7,7 +7,7 @@ import {
   useReducedMotion,
 } from 'framer-motion';
 
-import { Box } from '@/common/components/system/Box';
+import { Box } from '@/common/components/layout/Box';
 
 import { AuthHeader } from '../AuthHeader';
 import { AuthContent } from '../AuthContent';

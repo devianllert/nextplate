@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Story, Meta } from '@storybook/react';
 
 import { Flex, FlexProps } from '../Flex';
-import { Button } from '../../Button';
+import { Button } from '../../../system/Button';
 
 export default {
   title: 'Design System/Atoms/Flex',

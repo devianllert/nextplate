@@ -26,6 +26,7 @@ export const GlobalStyles = (): JSX.Element => {
           font-family: ${defaultFontFamily};
           font-size: 1.6em;
           font-weight: 400;
+          font-variant-numeric: tabular-nums;
 
           color: ${theme.colors.text.primary};
 

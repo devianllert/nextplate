@@ -6,17 +6,18 @@ import { RiCheckLine, RiCheckboxBlankCircleFill, RiArrowRightSLine } from 'react
 
 import { Box } from '@/common/components/layout/Box';
 import { Flex } from '@/common/components/layout/Flex';
-import { captions } from '@/common/design/tokens/typography';
+import { paragraphs } from '@/common/design/tokens/typography';
 
 const menuItemCss = (props: { theme: Theme }): CSSObject => ({
-  ...captions.caption1,
+  ...paragraphs.body3,
+  fontWeight: 500,
   display: 'flex',
   alignItems: 'center',
   fontVariantNumeric: 'tabular-nums',
   lineHeight: '1',
   userSelect: 'none',
   whiteSpace: 'nowrap',
-  height: 28,
+  height: 32,
   borderRadius: 4,
   paddingLeft: 4,
   paddingRight: 4,
@@ -26,8 +27,7 @@ const menuItemCss = (props: { theme: Theme }): CSSObject => ({
 
   '&:focus': {
     outline: 'none',
-    backgroundColor: props.theme.colors.radix.primary9,
-    color: 'white',
+    backgroundColor: props.theme.colors.radix.gray4,
   },
 
   '&[data-disabled]': {

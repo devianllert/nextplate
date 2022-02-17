@@ -31,7 +31,7 @@ export const DropdownMenuContent = styled(DropdownMenuPrimitive.Content)((props)
   maxWidth: 'calc(100vw- 24px)',
   maxHeight: '70vh',
   overflowY: 'auto',
-  padding: 4,
+  padding: 8,
   backgroundColor: props.theme.colors.background.secondary,
   borderRadius: 4,
   boxShadow: shadows[3],

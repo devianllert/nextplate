@@ -125,6 +125,8 @@ module.exports = {
     'storybook-addon-designs',
   ],
 
+  features: { emotionAlias: false },
+
   /**
    * Customize webpack configuration for Storybook.
    *
@@ -134,6 +136,15 @@ module.exports = {
    * @see https://storybook.js.org/docs/react/configure/overview#configure-your-storybook-project
    */
   webpackFinal: async (config) => {
+    // https://github.com/polkadot-js/extension/issues/621#issuecomment-759341776
+    // framer-motion uses the .mjs notation and we need to include it so that webpack will
+    // transpile it for us correctly (enables using a CJS module inside an ESM).
+    config.module.rules.push({
+      test: /\.mjs$/,
+      include: /node_modules/,
+      type: 'javascript/auto',
+    });
+
     return {
       ...config,
       resolve: {

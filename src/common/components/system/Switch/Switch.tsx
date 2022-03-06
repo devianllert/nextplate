@@ -3,7 +3,12 @@ import * as SwitchPrimitive from '@radix-ui/react-switch';
 
 import * as S from './styled';
 
-export type SwitchProps = SwitchPrimitive.SwitchProps;
+export type SwitchProps = SwitchPrimitive.SwitchProps & {
+  /**
+   * The size of the component
+   */
+  size?: 'small' | 'large';
+};
 
 /**
  * The `Switch` component is used to toggle the state of a single setting on or off.
@@ -14,6 +19,6 @@ export type SwitchProps = SwitchPrimitive.SwitchProps;
  */
 export const Switch = React.forwardRef<HTMLButtonElement, SwitchProps>((props, ref): JSX.Element => (
   <S.SwitchRoot {...props} ref={ref}>
-    <S.SwitchThumb />
+    <S.SwitchThumb size={props.size} />
   </S.SwitchRoot>
 ));

@@ -12,8 +12,8 @@ export const LocaleToggler = (): JSX.Element => {
   const { i18n } = useTranslation();
   const router = useRouter();
 
-  const changeLocale = async (locale: string) => {
-    await router.replace(router.pathname, undefined, { locale });
+  const changeLocale = (locale: string) => {
+    router.replace(router.pathname, undefined, { locale }) as unknown as void;
   };
 
   return (

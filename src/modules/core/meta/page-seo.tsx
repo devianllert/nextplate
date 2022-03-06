@@ -9,7 +9,6 @@ export interface PageSEOProps {
   description?: string;
   image?: string;
   url?: string;
-  children?: React.ReactNode;
 }
 
 export const PageSEO = (props: PageSEOProps) => {

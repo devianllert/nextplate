@@ -1,13 +1,11 @@
 import * as React from 'react';
 import { GetServerSideProps, GetServerSidePropsResult } from 'next';
-import Head from 'next/head';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 import { QueryClient, useQuery } from 'react-query';
 import { dehydrate } from 'react-query/hydration';
 
 import { serializeSafe } from '@/modules/core/serializeSafe/serializeSafe';
-import { getAppTitle } from '@/modules/core/meta/meta';
 import { OnlyBrowserPageProps } from '@/layouts/core/types/OnlyBrowserPageProps';
 import { SSGPageProps } from '@/layouts/core/types/SSGPageProps';
 import { SSRPageProps } from '@/layouts/core/types/SSRPageProps';

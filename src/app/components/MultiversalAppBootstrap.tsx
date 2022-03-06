@@ -41,11 +41,7 @@ const logger = createLogger(fileLabel);
  * @param props
  */
 const MultiversalAppBootstrap = (props: Props): JSX.Element => {
-  const {
-    pageProps,
-    router,
-    err,
-  } = props;
+  const { pageProps, router, err } = props;
 
   const [isSSGFallbackInitialBuild] = React.useState<boolean>(isEmpty(pageProps) && router?.isFallback === true);
   const [queryClient] = React.useState(() => new QueryClient());
@@ -57,7 +53,8 @@ const MultiversalAppBootstrap = (props: Props): JSX.Element => {
     level: Sentry.Severity.Debug,
   });
 
-  if (isBrowser() && process.env.NEXT_PUBLIC_APP_STAGE !== 'production') { // Avoids log clutter on server
+  if (isBrowser() && process.env.NEXT_PUBLIC_APP_STAGE !== 'production') {
+    // Avoids log clutter on server
     logger.debug('MultiversalAppBootstrap.props', props);
   }
 
@@ -83,36 +80,29 @@ const MultiversalAppBootstrap = (props: Props): JSX.Element => {
     logger.error(error);
 
     return (
-      <ErrorPage
-        err={err}
-        statusCode={500}
-        isReadyToRender
-      >
-        <DefaultErrorLayout
-          error={err}
-          context={pageProps}
-        />
+      <ErrorPage err={err} statusCode={500} isReadyToRender>
+        <DefaultErrorLayout error={err} context={pageProps} />
       </ErrorPage>
     );
   }
 
   /*
-    * We split the rendering between server and browser
-    * There are actually 3 rendering modes, each of them has its own set of limitations
-    *  1. SSR (doesn't have access to browser-related features (LocalStorage), but it does have access to request-related data (cookies, HTTP headers))
-    *  2. Server during SSG (doesn't have access to browser-related features (LocalStorage), nor to request-related data (cookies, localStorage, HTTP headers))
-    *  3. Static rendering (doesn't have access to server-related features (HTTP headers), but does have access to request-related data (cookie) and browser-related features (LocalStorage))
-    *
-    * What we do here, is to avoid rendering browser-related stuff if we're not running in a browser, because it cannot work properly.
-    * (e.g: Generating cookies will work, but they won't be stored on the end-user device, and it would create "Text content did not match" warnings, if generated from the server during SSG)
-    *
-    * So, the BrowserPageBootstrap does browser-related stuff and then call the PageBootstrap which takes care of stuff that is universal (identical between browser and server)
-    *
-    * XXX If you're concerned regarding React rehydration, read our talk with Josh, author of https://joshwcomeau.com/react/the-perils-of-rehydration/
-    *  https://twitter.com/Vadorequest/status/1257658553361408002
-    *
-    * XXX There may be more rendering modes - See https://github.com/vercel/next.js/discussions/12558#discussioncomment-12303
-    */
+   * We split the rendering between server and browser
+   * There are actually 3 rendering modes, each of them has its own set of limitations
+   *  1. SSR (doesn't have access to browser-related features (LocalStorage), but it does have access to request-related data (cookies, HTTP headers))
+   *  2. Server during SSG (doesn't have access to browser-related features (LocalStorage), nor to request-related data (cookies, localStorage, HTTP headers))
+   *  3. Static rendering (doesn't have access to server-related features (HTTP headers), but does have access to request-related data (cookie) and browser-related features (LocalStorage))
+   *
+   * What we do here, is to avoid rendering browser-related stuff if we're not running in a browser, because it cannot work properly.
+   * (e.g: Generating cookies will work, but they won't be stored on the end-user device, and it would create "Text content did not match" warnings, if generated from the server during SSG)
+   *
+   * So, the BrowserPageBootstrap does browser-related stuff and then call the PageBootstrap which takes care of stuff that is universal (identical between browser and server)
+   *
+   * XXX If you're concerned regarding React rehydration, read our talk with Josh, author of https://joshwcomeau.com/react/the-perils-of-rehydration/
+   *  https://twitter.com/Vadorequest/status/1257658553361408002
+   *
+   * XXX There may be more rendering modes - See https://github.com/vercel/next.js/discussions/12558#discussioncomment-12303
+   */
   const multiversalPageBootstrapProps: ServerPageBootstrapProps & BrowserPageBootstrapProps = {
     ...props,
     router,

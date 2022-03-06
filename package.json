@@ -35,7 +35,8 @@
     "sb:upgrade": "npx sb upgrade",
     "security:audit": "yarn audit",
     "packages:upgrade": "yarn upgrade-interactive --latest",
-    "chromatic": "npx chromatic storybook:export --project-token 7afb3cac6a9e"
+    "chromatic": "npx chromatic storybook:export --project-token 7afb3cac6a9e",
+    "prepare": "husky install"
   },
   "dependencies": {
     "@apollo/client": "^3.5.9",
@@ -94,6 +95,8 @@
   },
   "devDependencies": {
     "@babel/core": "^7.17.4",
+    "@commitlint/cli": "^16.2.1",
+    "@commitlint/config-conventional": "^16.2.1",
     "@emotion/babel-plugin": "^11.7.2",
     "@emotion/babel-preset-css-prop": "^11.2.0",
     "@emotion/jest": "^11.7.1",
@@ -146,6 +149,7 @@
     "eslint-plugin-jsx-a11y": "6.5.1",
     "eslint-plugin-react": "7.28.0",
     "eslint-plugin-react-hooks": "4.3.0",
+    "husky": "^7.0.0",
     "jest": "^27.5.1",
     "jest-axe": "^5.0.1",
     "jest-extended": "^2.0.0",

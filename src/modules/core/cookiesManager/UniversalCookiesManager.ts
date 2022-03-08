@@ -3,7 +3,7 @@ import { IncomingMessage, ServerResponse } from 'http';
 import BrowserCookies, { CookieAttributes } from 'js-cookie';
 import { v1 as uuid } from 'uuid'; // XXX Use v1 for uniqueness - See https://www.sohamkamani.com/blog/2016/10/05/uuid1-vs-uuid4/
 import addYears from 'date-fns/addYears';
-import isBrowser from '@/common/utils/isBrowser';
+import isBrowser from '@/lib/isBrowser';
 
 import { Cookies } from './types/Cookies';
 import {

@@ -10,7 +10,7 @@ import { paragraphs } from '@/common/design/tokens/typography';
 
 const menuItemCss = (props: { theme: Theme }): CSSObject => ({
   ...paragraphs.body3,
-  fontWeight: 500,
+  fontWeight: 400,
   display: 'flex',
   alignItems: 'center',
   fontVariantNumeric: 'tabular-nums',
@@ -19,11 +19,11 @@ const menuItemCss = (props: { theme: Theme }): CSSObject => ({
   whiteSpace: 'nowrap',
   height: 32,
   borderRadius: 4,
-  paddingLeft: 4,
-  paddingRight: 4,
+  paddingLeft: 8,
+  paddingRight: 8,
   position: 'relative',
   cursor: 'pointer',
-  color: props.theme.colors.radix.highContrast,
+  color: props.theme.colors.text.primary,
 
   '&:focus': {
     outline: 'none',
@@ -32,7 +32,7 @@ const menuItemCss = (props: { theme: Theme }): CSSObject => ({
 
   '&[data-disabled]': {
     cursor: 'default',
-    color: props.theme.colors.radix.gray9,
+    color: props.theme.colors.text.disabled,
   },
 });
 
@@ -50,14 +50,14 @@ export const DropdownMenuItemRightAdornment = styled.div((props) => ({
   marginLeft: 'auto',
   paddingLeft: 16,
   color: props.theme.colors.radix.gray11,
-  '*:focus > &': { color: 'white' },
+  // '*:focus > &': { color: 'white' },
   '[data-disabled] &': { color: props.theme.colors.radix.gray8 },
 }));
 
 export const DropdownMenuItemLeftAdornment = styled.div((props) => ({
   paddingRight: 8,
   color: props.theme.colors.radix.gray11,
-  '*:focus > &': { color: 'white' },
+  // '*:focus > &': { color: 'white' },
   '[data-disabled] &': { color: props.theme.colors.radix.gray8 },
 }));
 

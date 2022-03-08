@@ -1,6 +1,6 @@
 import { Scale } from 'styled-system';
 
-import { get } from '@/common/utils/get';
+import { get } from '@/lib/get';
 
 const isNumber = (n: unknown): n is number => typeof n === 'number' && !Number.isNaN(n);
 

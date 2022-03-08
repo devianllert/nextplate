@@ -28,10 +28,10 @@ const slideLeftAndFade = keyframes({
 export const DropdownMenuContent = styled(DropdownMenuPrimitive.Content)((props) => ({
   boxSizing: 'border-box',
   minWidth: 160,
-  maxWidth: 'calc(100vw- 24px)',
+  maxWidth: 'calc(100vw - 24px)',
   maxHeight: '70vh',
   overflowY: 'auto',
-  padding: 8,
+  padding: '8px 4px',
   backgroundColor: props.theme.colors.background.secondary,
   borderRadius: 4,
   boxShadow: shadows[3],

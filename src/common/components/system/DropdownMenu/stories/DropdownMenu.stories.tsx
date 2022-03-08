@@ -75,7 +75,20 @@ export const Basic = () => {
 const DeleteItem = styled(DropdownMenu.Item)((props) => ({
   color: props.theme.colors.radix.red11,
 
+  [DropdownMenu.LeftAdornment]: {
+    color: props.theme.colors.radix.red11,
+  },
+
   '&:focus': {
+    [DropdownMenu.LeftAdornment]: {
+      color: props.theme.colors.radix.red1,
+    },
+
+    [DropdownMenu.RightAdornment]: {
+      color: props.theme.colors.radix.red1,
+    },
+
+    color: props.theme.colors.radix.red1,
     backgroundColor: props.theme.colors.radix.red9,
   },
 }));

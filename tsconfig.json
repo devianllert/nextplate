@@ -14,8 +14,8 @@
       "@/components/*": [
         "src/common/components/*"
       ],
-      "@/utils/*": [
-        "src/common/utils/*"
+      "@/lib/*": [
+        "src/common/lib/*"
       ],
       "@/layouts/*": [
         "src/layouts/*"

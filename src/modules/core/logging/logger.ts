@@ -1,4 +1,4 @@
-import isBrowser from '@/common/utils/isBrowser';
+import isBrowser from '@/lib/isBrowser';
 
 import { createLogger as createConsoleLogger, Logger } from './createLogger';
 

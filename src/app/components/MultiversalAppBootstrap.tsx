@@ -9,7 +9,7 @@ import { ReactQueryDevtools } from 'react-query/devtools';
 
 import ErrorPage from '@/pages/_error';
 import { configureSentryI18n } from '@/modules/core/sentry/sentry';
-import isBrowser from '@/common/utils/isBrowser';
+import isBrowser from '@/lib/isBrowser';
 import { SSGPageProps } from '@/layouts/core/types/SSGPageProps';
 import { SSRPageProps } from '@/layouts/core/types/SSRPageProps';
 import DefaultErrorLayout from '@/modules/core/errorHandling/DefaultErrorLayout';

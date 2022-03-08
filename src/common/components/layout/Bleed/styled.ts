@@ -8,7 +8,7 @@ import {
 } from 'styled-system';
 
 import { isNumber } from '@/modules/core/js/assertion';
-import { get } from '@/common/utils/get';
+import { get } from '@/lib/get';
 import { getSpace } from '@/modules/core/css-in-js/getters';
 
 export interface BleedRootProps extends WidthProps {

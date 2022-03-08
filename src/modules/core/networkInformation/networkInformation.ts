@@ -1,4 +1,4 @@
-import isBrowser from '@/common/utils/isBrowser';
+import isBrowser from '@/lib/isBrowser';
 import { ExtendedNavigator } from './types/navigator.interface';
 
 import { NetworkConnectionType, NetworkInformation, NetworkInformationSpeed } from './types/NetworkInformation.interface';

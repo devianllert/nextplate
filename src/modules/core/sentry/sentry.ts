@@ -1,7 +1,7 @@
 import { NextApiRequest } from 'next';
 import * as Sentry from '@sentry/nextjs';
 
-import isBrowser from '@/common/utils/isBrowser';
+import isBrowser from '@/lib/isBrowser';
 
 import { UserSession } from '../userSession/useUserSession';
 import { GenericObject } from '../data/types/GenericObject';

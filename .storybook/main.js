@@ -178,7 +178,7 @@ module.exports = {
           '@/app': path.resolve(__dirname, '../src/app'),
           '@/common': path.resolve(__dirname, '../src/common'),
           '@/components': path.resolve(__dirname, '../src/common/components'),
-          '@/utils': path.resolve(__dirname, '../src/common/utils'),
+          '@/lib': path.resolve(__dirname, '../src/common/lib'),
           '@/layouts': path.resolve(__dirname, '../src/layouts'),
           '@/modules': path.resolve(__dirname, '../src/modules'),
           '@/pages': path.resolve(__dirname, '../src/pages'),

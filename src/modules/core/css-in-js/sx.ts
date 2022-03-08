@@ -4,7 +4,7 @@ import { Theme } from 'theme-ui';
 import { ColorProps } from 'styled-system';
 
 import lightColors from '@/common/design/themes/light/colors';
-import { Flatten } from '@/common/utils/flattenObject';
+import { Flatten } from '@/lib/flattenObject';
 
 type ThemeColorPaths = keyof Flatten<typeof lightColors>;
 

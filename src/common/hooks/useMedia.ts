@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-import isBrowser from '@/common/utils/isBrowser';
+import isBrowser from '@/lib/isBrowser';
 
 /**
  * Hook that tracks state of a CSS media query.

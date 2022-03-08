@@ -4,7 +4,7 @@ import { createLogger } from '@/modules/core/logging/logger';
 
 import isBrowser from './isBrowser';
 
-const fileLabel = 'common/utils/mobile';
+const fileLabel = 'common/lib/mobile';
 const logger = createLogger(fileLabel);
 
 /**

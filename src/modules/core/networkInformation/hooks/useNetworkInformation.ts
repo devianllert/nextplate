@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { managedEventListener } from '@/common/utils/managedEventListener';
+import { managedEventListener } from '@/lib/managedEventListener';
 
 import { getNavigatorConnection, getNetworkInformation } from '../networkInformation';
 

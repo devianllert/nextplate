@@ -22,7 +22,7 @@ const lightColors = {
   text: {
     primary: blackA.blackA12,
     secondary: blackA.blackA11,
-    disabled: blackA.blackA10,
+    disabled: blackA.blackA8,
   },
   background: {
     primary: 'white',

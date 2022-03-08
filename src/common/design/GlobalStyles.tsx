@@ -44,6 +44,7 @@ export const GlobalStyles = (): JSX.Element => {
 
         a {
           color: ${theme.colors.radix.primary11};
+          text-decoration: none;
         }
 
         *:focus {

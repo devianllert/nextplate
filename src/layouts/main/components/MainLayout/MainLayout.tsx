@@ -1,5 +1,7 @@
 import * as React from 'react';
 
+import { HelpButton } from '@/modules/support';
+
 import { MainHeader } from '../MainHeader';
 
 import * as S from './styled';
@@ -19,6 +21,8 @@ export const MainLayout = (props: MainLayoutProps): JSX.Element => {
   return (
     <S.MainLayoutContainer>
       <MainHeader />
+
+      <HelpButton />
 
       {children}
     </S.MainLayoutContainer>

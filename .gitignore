@@ -88,6 +88,9 @@ vcs.xml
 # IDE plugins
 .idea/markdown-navigator*/**
 
+# TypeScript incremental compilation cache
+*.tsbuildinfo
+
 # package directories
 node_modules
 jspm_packages

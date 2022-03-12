@@ -3,7 +3,7 @@ import { useTranslation } from 'next-i18next';
 import { useRouter } from 'next/router';
 import { RiTranslate2 } from 'react-icons/ri';
 
-import { SUPPORTED_LOCALES } from '@/modules/core/i18n/i18n';
+import { SUPPORTED_LOCALES } from '@/lib/i18n/i18n';
 
 import * as DropdownMenu from '@/common/components/system/DropdownMenu';
 import { IconButton } from '@/common/components/system/IconButton';

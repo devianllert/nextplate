@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 
-import { shouldForwardProp } from '@/modules/core/css-in-js/shouldForwardProp';
-import { SxProp, sx } from '@/modules/core/css-in-js/sx';
+import { shouldForwardProp } from '@/lib/css-in-js/shouldForwardProp';
+import { SxProp, sx } from '@/lib/css-in-js/sx';
 
 export const ButtonBaseRoot = styled('button', { shouldForwardProp })<SxProp>(
   {

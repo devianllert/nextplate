@@ -5,16 +5,16 @@ import { useRouter } from 'next/router';
 import { QueryClient, useQuery } from 'react-query';
 import { dehydrate } from 'react-query/hydration';
 
-import { serializeSafe } from '@/modules/core/serializeSafe/serializeSafe';
+import { serializeSafe } from '@/lib/serializeSafe/serializeSafe';
 import { OnlyBrowserPageProps } from '@/layouts/core/types/OnlyBrowserPageProps';
 import { SSGPageProps } from '@/layouts/core/types/SSGPageProps';
 import { SSRPageProps } from '@/layouts/core/types/SSRPageProps';
-import { createLogger } from '@/modules/core/logging/logger';
+import { createLogger } from '@/lib/logging/logger';
 import { EnhancedNextPage } from '@/layouts/core/types/EnhancedNextPage';
 import * as Text from '@/common/components/system/Text';
 import { Box } from '@/common/components/layout/Box';
 import { getCoreServerSideProps } from '@/layouts/core/SSR';
-import { REACT_QUERY_STATE_PROP_NAME } from '@/modules/core/rquery/react-query';
+import { REACT_QUERY_STATE_PROP_NAME } from '@/lib/rquery/react-query';
 import { fetchWeather } from '@/modules/weather/services/wttr';
 import { Weather } from '@/modules/weather/types/weather.interface';
 import { WeatherLayout } from '@/layouts/weather/components/WeatherLayout';
@@ -24,7 +24,7 @@ import { filterHourlyWeatherBasedOnCurrentTime } from '@/modules/weather/formatH
 import { WeatherHourlyList } from '@/modules/weather/components/WeatherHourlyList';
 import { Container } from '@/common/components/layout/Container';
 import { Todos } from '@/modules/weather/components/Todos';
-import { PageSEO } from '@/modules/core/meta/page-seo';
+import { PageSEO } from '@/lib/meta/page-seo';
 
 const logger = createLogger('[place]');
 

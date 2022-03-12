@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { PolymorphicComponent } from '@/modules/core/react/types/Polymorphic';
+import { PolymorphicComponent } from '@/lib/react/types/Polymorphic';
 import { overlines } from '@/common/design/tokens/typography';
 
 import * as S from './styled';

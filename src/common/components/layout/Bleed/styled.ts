@@ -7,9 +7,9 @@ import {
   WidthProps,
 } from 'styled-system';
 
-import { isNumber } from '@/modules/core/js/assertion';
+import { isNumber } from '@/lib/js/assertion';
 import { get } from '@/lib/get';
-import { getSpace } from '@/modules/core/css-in-js/getters';
+import { getSpace } from '@/lib/css-in-js/getters';
 
 export interface BleedRootProps extends WidthProps {
   space?: ResponsiveValue<number | string>;

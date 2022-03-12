@@ -1,7 +1,7 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import * as Sentry from '@sentry/nextjs';
 
-import { configureReq } from '@/modules/core/sentry/sentry';
+import { configureReq } from '@/lib/sentry/sentry';
 
 const fileLabel = 'api/status';
 

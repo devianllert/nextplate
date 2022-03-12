@@ -74,16 +74,17 @@ export const Basic = () => {
 
 const DeleteItem = styled(DropdownMenu.Item)((props) => ({
   color: props.theme.colors.radix.red11,
-
+  // @ts-expect-error component selectors types
   [DropdownMenu.LeftAdornment]: {
     color: props.theme.colors.radix.red11,
   },
 
   '&:focus': {
+    // @ts-expect-error component selectors types
     [DropdownMenu.LeftAdornment]: {
       color: props.theme.colors.radix.red1,
     },
-
+    // @ts-expect-error component selectors types
     [DropdownMenu.RightAdornment]: {
       color: props.theme.colors.radix.red1,
     },

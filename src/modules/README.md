@@ -5,7 +5,7 @@ Modules
 
 Summary:
 - This folder contains modules.
-- `src/modules/core` contain built-in modules, so you can easily differentiate your own code.
+- `src/lib` contain built-in modules, so you can easily differentiate your own code.
 - Modules are a way to organize your code, by putting all related files together, instead of splitting them by "kind".
 - You don't need to use modules.
 - You should use modules if you feel like it's the right thing to do.

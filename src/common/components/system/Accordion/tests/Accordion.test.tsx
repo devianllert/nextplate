@@ -6,7 +6,7 @@ import * as React from "react";
 import { axe } from 'jest-axe';
 import { render, RenderResult, fireEvent } from "@testing-library/react";
 
-import { testA11y } from '@/modules/core/testing/test-utils';
+import { testA11y } from '@/lib/testing/test-utils';
 
 import { Accordion, AccordionContent, AccordionHeader, AccordionItem, AccordionTrigger } from "..";
 

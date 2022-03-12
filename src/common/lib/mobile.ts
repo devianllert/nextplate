@@ -1,6 +1,6 @@
 import * as Sentry from '@sentry/nextjs';
 
-import { createLogger } from '@/modules/core/logging/logger';
+import { createLogger } from '@/lib/logging/logger';
 
 import isBrowser from './isBrowser';
 

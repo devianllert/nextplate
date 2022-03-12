@@ -5,7 +5,7 @@ import { RiEyeLine, RiEyeOffLine } from 'react-icons/ri';
 import { OnlyBrowserPageProps } from '@/layouts/core/types/OnlyBrowserPageProps';
 import { SSGPageProps } from '@/layouts/core/types/SSGPageProps';
 import { SSRPageProps } from '@/layouts/core/types/SSRPageProps';
-import { createLogger } from '@/modules/core/logging/logger';
+import { createLogger } from '@/lib/logging/logger';
 import { EnhancedNextPage } from '@/layouts/core/types/EnhancedNextPage';
 import { Button } from '@/common/components/system/Button';
 import { getTranslationsStaticProps } from '@/layouts/core/SSG';
@@ -16,7 +16,7 @@ import { Input, InputAdornment } from '@/common/components/system/Input';
 import { Stack } from '@/common/components/layout/Stack';
 import { useBoolean } from '@/common/hooks/useBoolean';
 import { IconButton } from '@/common/components/system/IconButton';
-import { PageSEO } from '@/modules/core/meta/page-seo';
+import { PageSEO } from '@/lib/meta/page-seo';
 
 const logger = createLogger('SignUp');
 

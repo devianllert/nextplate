@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { useId } from '@radix-ui/react-id';
 
-import { PolymorphicComponent } from '@/modules/core/react/types/Polymorphic';
+import { PolymorphicComponent } from '@/lib/react/types/Polymorphic';
 
 import { useAccordionContext } from './AccordionContext';
 import { AccordionItemProvider } from './AccordionItemContext';

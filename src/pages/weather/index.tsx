@@ -5,7 +5,7 @@ import { RiMapPinLine, RiSearchLine } from 'react-icons/ri';
 import { OnlyBrowserPageProps } from '@/layouts/core/types/OnlyBrowserPageProps';
 import { SSGPageProps } from '@/layouts/core/types/SSGPageProps';
 import { SSRPageProps } from '@/layouts/core/types/SSRPageProps';
-import { createLogger } from '@/modules/core/logging/logger';
+import { createLogger } from '@/lib/logging/logger';
 import { EnhancedNextPage } from '@/layouts/core/types/EnhancedNextPage';
 import { getTranslationsStaticProps } from '@/layouts/core/SSG';
 import * as Text from '@/common/components/system/Text';
@@ -14,7 +14,7 @@ import { Input } from '@/common/components/system/Input';
 import { WeatherLayout } from '@/layouts/weather/components/WeatherLayout';
 import { InputAdornment } from '@/common/components/system/Input/InputAdornment';
 import { IconButton } from '@/common/components/system/IconButton';
-import { PageSEO } from '@/modules/core/meta/page-seo';
+import { PageSEO } from '@/lib/meta/page-seo';
 
 const logger = createLogger('Weather');
 

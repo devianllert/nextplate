@@ -3,10 +3,10 @@ import { useTranslation } from 'next-i18next';
 
 import { MultiversalPageProps } from '@/layouts/core/types/MultiversalPageProps';
 import { OnlyBrowserPageProps } from '@/layouts/core/types/OnlyBrowserPageProps';
-import UniversalCookiesManager from '@/modules/core/cookiesManager/UniversalCookiesManager';
-import { createLogger } from '@/modules/core/logging/logger';
-import { UserSemiPersistentSession } from '@/modules/core/userSession/types/UserSemiPersistentSession';
-import userSessionContext from '@/modules/core/userSession/userSessionContext';
+import UniversalCookiesManager from '@/lib/cookiesManager/UniversalCookiesManager';
+import { createLogger } from '@/lib/logging/logger';
+import { UserSemiPersistentSession } from '@/lib/userSession/types/UserSemiPersistentSession';
+import userSessionContext from '@/lib/userSession/userSessionContext';
 import { MultiversalAppBootstrapPageProps } from '../types/MultiversalAppBootstrapPageProps';
 import { MultiversalAppBootstrapProps } from '../types/MultiversalAppBootstrapProps';
 

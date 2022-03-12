@@ -1,7 +1,7 @@
 import * as React from 'react';
 
-import { useComposedRefs } from '@/modules/core/react/composeRefs';
-import { PolymorphicComponent } from '@/modules/core/react/types/Polymorphic';
+import { useComposedRefs } from '@/lib/react/composeRefs';
+import { PolymorphicComponent } from '@/lib/react/types/Polymorphic';
 
 import { useAccordionContext } from './AccordionContext';
 import { useAccordionItemContext } from './AccordionItemContext';

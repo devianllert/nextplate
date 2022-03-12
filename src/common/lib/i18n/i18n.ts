@@ -5,7 +5,7 @@ import {
   supportedLocales,
 } from './i18n.config';
 
-const fileLabel = 'modules/core/i18n/i18n';
+const fileLabel = 'lib/i18n/i18n';
 const logger = createLogger(fileLabel);
 
 export const SUPPORTED_LOCALES: Record<string, string> = supportedLocales;

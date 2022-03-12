@@ -1,8 +1,8 @@
 /* eslint-disable prefer-arrow-callback */
 import * as React from 'react';
 
-import { useComposedRefs } from '@/modules/core/react/composeRefs';
-import { SxProp } from '@/modules/core/css-in-js/sx';
+import { useComposedRefs } from '@/lib/react/composeRefs';
+import { SxProp } from '@/lib/css-in-js/sx';
 
 import * as S from './styled';
 

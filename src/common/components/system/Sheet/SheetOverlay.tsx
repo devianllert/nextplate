@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 import * as DialogPrimitive from '@radix-ui/react-dialog';
 
-import { fadeIn, fadeOut } from '@/modules/core/css-in-js/animations';
+import { fadeIn, fadeOut } from '@/lib/css-in-js/animations';
 
 export const StyledOverlay = styled(DialogPrimitive.Overlay)({
   position: 'fixed',

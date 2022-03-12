@@ -6,7 +6,7 @@ import * as React from 'react';
 import { screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
-import { renderWithProviders } from '@/modules/core/testing/renderWithProviders';
+import { renderWithProviders } from '@/lib/testing/renderWithProviders';
 
 import { Kbd } from '../Kbd';
 

@@ -1,4 +1,4 @@
-import { GenericObject } from '@/modules/core/data/types/GenericObject';
+import { GenericObject } from '@/lib/data/types/GenericObject';
 
 /**
  * Gets the value at path of object.

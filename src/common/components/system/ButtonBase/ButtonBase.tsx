@@ -1,8 +1,8 @@
 /* eslint-disable prefer-arrow-callback */
 import * as React from 'react';
 
-import { PolymorphicComponent } from '@/modules/core/react/types/Polymorphic';
-import { SxProp } from '@/modules/core/css-in-js/sx';
+import { PolymorphicComponent } from '@/lib/react/types/Polymorphic';
+import { SxProp } from '@/lib/css-in-js/sx';
 
 import * as S from './styled';
 

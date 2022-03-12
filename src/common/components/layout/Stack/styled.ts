@@ -2,7 +2,7 @@ import * as React from 'react';
 import styled from '@emotion/styled';
 import { system, ResponsiveValue } from 'styled-system';
 
-import { getSpace } from '@/modules/core/css-in-js/getters';
+import { getSpace } from '@/lib/css-in-js/getters';
 import { spacings } from '@/common/design/tokens/spacings';
 
 export interface StackRootProps {

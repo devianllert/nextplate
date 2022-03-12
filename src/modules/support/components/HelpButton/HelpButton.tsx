@@ -6,7 +6,7 @@ import { RiBook2Line, RiMessage2Line } from 'react-icons/ri';
 import * as DropdownMenu from '@/common/components/system/DropdownMenu';
 import * as Text from '@/common/components/system/Text';
 import { Box } from '@/common/components/layout/Box';
-import { APP_TITLE } from '@/modules/core/meta/meta';
+import { APP_TITLE } from '@/lib/meta/meta';
 
 import * as S from './styled';
 

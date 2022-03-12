@@ -8,24 +8,24 @@ import { Hydrate } from 'react-query/hydration';
 import { ReactQueryDevtools } from 'react-query/devtools';
 
 import ErrorPage from '@/pages/_error';
-import { configureSentryI18n } from '@/modules/core/sentry/sentry';
+import { configureSentryI18n } from '@/lib/sentry/sentry';
 import isBrowser from '@/lib/isBrowser';
 import { SSGPageProps } from '@/layouts/core/types/SSGPageProps';
 import { SSRPageProps } from '@/layouts/core/types/SSRPageProps';
-import DefaultErrorLayout from '@/modules/core/errorHandling/DefaultErrorLayout';
+import DefaultErrorLayout from '@/lib/errorHandling/DefaultErrorLayout';
 import { GlobalStyles } from '@/common/design/GlobalStyles';
 import { ResetStyles } from '@/common/design/ResetStyles';
 import { theme } from '@/common/design/themes';
-import { createLogger } from '@/modules/core/logging/logger';
-import { REACT_QUERY_STATE_PROP_NAME } from '@/modules/core/rquery/react-query';
-import { NProgressRoot } from '@/modules/core/router/NProgress';
-import { isEmpty } from '@/modules/core/js/assertion';
-import { MediaContextProvider } from '@/modules/core/css-in-js/responsive';
+import { createLogger } from '@/lib/logging/logger';
+import { REACT_QUERY_STATE_PROP_NAME } from '@/lib/rquery/react-query';
+import { NProgressRoot } from '@/lib/router/NProgress';
+import { isEmpty } from '@/lib/js/assertion';
+import { MediaContextProvider } from '@/lib/css-in-js/responsive';
 
 import { MultiversalAppBootstrapProps } from '../types/MultiversalAppBootstrapProps';
 import BrowserPageBootstrap, { BrowserPageBootstrapProps } from './BrowserPageBootstrap';
 import ServerPageBootstrap, { ServerPageBootstrapProps } from './ServerPageBootstrap';
-import { getLinksAlternateHref } from '@/modules/core/meta/meta';
+import { getLinksAlternateHref } from '@/lib/meta/meta';
 
 export type Props = MultiversalAppBootstrapProps<SSGPageProps> | MultiversalAppBootstrapProps<SSRPageProps>;
 

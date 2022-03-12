@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 
 import { spacings } from '@/common/design/tokens/spacings';
-import { getSpace } from '@/modules/core/css-in-js/getters';
+import { getSpace } from '@/lib/css-in-js/getters';
 
 export interface DividerRootProps {
   orientation: 'vertical' | 'horizontal';

@@ -71,7 +71,7 @@
     "jest.config.js",
     "./sentry.client.config.js",
     "./sentry.server.config.js",
-    "./src/modules/core/i18n.config.js",
+    "./src/common/lib/i18n.config.js",
     "./next-i18next.config.js",
     "**/*.ts",
     "**/*.tsx"

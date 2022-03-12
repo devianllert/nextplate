@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import { MultiversalPageProps } from '@/layouts/core/types/MultiversalPageProps';
 import { OnlyServerPageProps } from '@/layouts/core/types/OnlyServerPageProps';
-import userSessionContext from '@/modules/core/userSession/userSessionContext';
+import userSessionContext from '@/lib/userSession/userSessionContext';
 import { MultiversalAppBootstrapPageProps } from '../types/MultiversalAppBootstrapPageProps';
 import { MultiversalAppBootstrapProps } from '../types/MultiversalAppBootstrapProps';
 

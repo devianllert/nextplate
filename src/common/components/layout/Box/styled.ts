@@ -21,10 +21,10 @@ import {
   Theme,
 } from 'styled-system';
 
-import { transform, TransformProps } from '@/modules/core/css-in-js/transform';
-import { shouldForwardProp } from '@/modules/core/css-in-js/shouldForwardProp';
-import { FlattenedColorKeys } from '@/modules/core/theming/types/theme.interface';
-import { LiteralUnion } from '@/modules/core/js/types/LiteralUnion';
+import { transform, TransformProps } from '@/lib/css-in-js/transform';
+import { shouldForwardProp } from '@/lib/css-in-js/shouldForwardProp';
+import { FlattenedColorKeys } from '@/lib/theming/types/theme.interface';
+import { LiteralUnion } from '@/lib/js/types/LiteralUnion';
 
 export type BoxType =
   & SpaceProps

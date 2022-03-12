@@ -3,13 +3,13 @@ import { GetServerSideProps, GetServerSidePropsResult } from 'next';
 import NextCookies from 'next-cookies';
 
 import { CommonServerSideParams } from '@/app/types/CommonServerSideParams';
-import UniversalCookiesManager from '@/modules/core/cookiesManager/UniversalCookiesManager';
-import { UserSemiPersistentSession } from '@/modules/core/userSession/types/UserSemiPersistentSession';
-import { Cookies } from '@/modules/core/cookiesManager/types/Cookies';
+import UniversalCookiesManager from '@/lib/cookiesManager/UniversalCookiesManager';
+import { UserSemiPersistentSession } from '@/lib/userSession/types/UserSemiPersistentSession';
+import { Cookies } from '@/lib/cookiesManager/types/Cookies';
 import { PublicHeaders } from './types/PublicHeaders';
 import { SSRPageProps } from './types/SSRPageProps';
 import { getTranslationsConfig } from './translations';
-import serializeSafe from '@/modules/core/serializeSafe/serializeSafe';
+import serializeSafe from '@/lib/serializeSafe/serializeSafe';
 
 /**
  * getServerSideProps returns only part of the props expected in SSRPageProps

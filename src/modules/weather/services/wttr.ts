@@ -1,4 +1,4 @@
-import { api } from '@/modules/core/api/api';
+import { api } from '@/lib/api/api';
 
 import { Weather, WTTRWeather } from '../types/weather.interface';
 

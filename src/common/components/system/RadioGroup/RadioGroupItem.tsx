@@ -2,7 +2,7 @@ import * as React from 'react';
 import * as RadioGroupPrimitive from '@radix-ui/react-radio-group';
 import styled from '@emotion/styled';
 
-import { scaleIn, scaleOut } from '@/modules/core/css-in-js/animations';
+import { scaleIn, scaleOut } from '@/lib/css-in-js/animations';
 import { duration, easing } from '@/common/design/tokens/transitions';
 
 export type RadioGroupItemProps = RadioGroupPrimitive.RadioGroupItemProps;

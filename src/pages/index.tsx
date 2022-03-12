@@ -12,7 +12,7 @@ import {
 import { OnlyBrowserPageProps } from '@/layouts/core/types/OnlyBrowserPageProps';
 import { SSGPageProps } from '@/layouts/core/types/SSGPageProps';
 import { SSRPageProps } from '@/layouts/core/types/SSRPageProps';
-import { createLogger } from '@/modules/core/logging/logger';
+import { createLogger } from '@/lib/logging/logger';
 import { EnhancedNextPage } from '@/layouts/core/types/EnhancedNextPage';
 import { MainLayout } from '@/layouts/main/components/MainLayout';
 import { Button } from '@/common/components/system/Button';
@@ -24,7 +24,7 @@ import { Stack } from '@/common/components/layout/Stack';
 import { Code } from '@/common/components/system/Code';
 import { AspectRatio } from '@/common/components/system/AspectRatio';
 import { useTheme } from '@/common/design/hooks/useTheme';
-import { PageSEO } from '@/modules/core/meta/page-seo';
+import { PageSEO } from '@/lib/meta/page-seo';
 
 const logger = createLogger('Index');
 

@@ -7,7 +7,7 @@ import { useTranslation } from 'next-i18next';
 import * as timeago from 'timeago.js';
 import ru from 'timeago.js/lib/lang/ru';
 
-import { APP_TITLE } from '@/modules/core/meta/meta';
+import { APP_TITLE } from '@/lib/meta/meta';
 
 import * as Text from '@/common/components/system/Text';
 import { Stack } from '@/common/components/layout/Stack';

@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 
-import { SxProp, sx } from '@/modules/core/css-in-js/sx';
+import { SxProp, sx } from '@/lib/css-in-js/sx';
 import { variants } from '@/common/design/tokens/typography';
 import { createTransition, duration } from '@/common/design/tokens/transitions';
 

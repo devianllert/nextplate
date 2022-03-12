@@ -5,7 +5,7 @@ import { useTranslation } from 'next-i18next';
 import { useRouter } from 'next/router';
 import { RiArrowRightLine } from 'react-icons/ri';
 
-import { createLogger } from '@/modules/core/logging/logger';
+import { createLogger } from '@/lib/logging/logger';
 import { getTranslationsStaticProps } from '@/layouts/core/SSG';
 import { EnhancedNextPage } from '@/layouts/core/types/EnhancedNextPage';
 import { SoftPageProps } from '@/layouts/core/types/SoftPageProps';
@@ -14,7 +14,7 @@ import { NotFound404Layout } from '@/layouts/404/components/NotFound404Layout';
 import * as Text from '@/common/components/system/Text';
 import { Button } from '@/common/components/system/Button';
 import { Stack } from '@/common/components/layout/Stack';
-import { PageSEO } from '@/modules/core/meta/page-seo';
+import { PageSEO } from '@/lib/meta/page-seo';
 
 const fileLabel = 'pages/404';
 const logger = createLogger(fileLabel);

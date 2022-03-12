@@ -1,4 +1,4 @@
-import { createContext } from '@/modules/core/react/createContext';
+import { createContext } from '@/lib/react/createContext';
 
 const ACCORDION_NAME = 'Accordion';
 

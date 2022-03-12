@@ -91,7 +91,7 @@ Their goal is to reduce code duplication and increase maintainability of your ap
 # `modules` folder
 Modules are and advanced way of organizing your code base.
 
-> Modules within `src/modules/core` are built-in modules. You should create your own modules in `src/` or `src/modules`. Either is fine, it’s a matter of taste/opinion. Some people might prefer to add them to `src/` directly and use module paths aliases.
+> Modules within `src/common/lib` are built-in modules. You should create your own modules in `src/` or `src/modules`. Either is fine, it’s a matter of taste/opinion. Some people might prefer to add them to `src/` directly and use module paths aliases.
 
 Modules don’t change how code is compiled or anything like that, they’re purely **a way to organize your code**, so it’s easier to reason/maintain.
 

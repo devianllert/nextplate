@@ -17,6 +17,10 @@ export const SwitchRoot = styled(SwitchPrimitive.Root)<{ size?: 'small' | 'large
   cursor: 'pointer',
   '&:focus': { boxShadow: `0 0 0 2px ${props.theme.colors.radix.gray8}` },
   '&[data-state="checked"]': { backgroundColor: props.theme.colors.radix.primaryA9 },
+  '&[data-disabled]': {
+    backgroundColor: props.theme.colors.radix.grayA8,
+    cursor: 'default',
+  },
 }));
 
 export const SwitchThumb = styled(SwitchPrimitive.Thumb)<{ size?: 'small' | 'large' }>((props) => ({
@@ -30,4 +34,8 @@ export const SwitchThumb = styled(SwitchPrimitive.Thumb)<{ size?: 'small' | 'lar
   transform: 'translateX(0px)',
   willChange: 'transform',
   '&[data-state="checked"]': { transform: props.size === 'small' ? 'translateX(12px)' : 'translateX(20px)' },
+  '&[data-disabled]': {
+    opacity: 0.75,
+    boxShadow: 'none',
+  },
 }));

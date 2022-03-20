@@ -2,10 +2,11 @@ import * as React from 'react';
 import * as DropdownMenuPrimitive from '@radix-ui/react-dropdown-menu';
 import styled from '@emotion/styled';
 import { CSSObject, Theme } from '@emotion/react';
-import { RiCheckLine, RiCheckboxBlankCircleFill, RiArrowRightSLine } from 'react-icons/ri';
+import { RiCheckLine, RiArrowRightSLine } from 'react-icons/ri';
 
 import { Box } from '@/common/components/layout/Box';
 import { Flex } from '@/common/components/layout/Flex';
+import { Switch } from '@/common/components/system/Switch';
 import { paragraphs } from '@/common/design/tokens/typography';
 
 const menuItemCss = (props: { theme: Theme }): CSSObject => ({
@@ -40,10 +41,10 @@ export const DropdownMenuItem = styled(DropdownMenuPrimitive.Item)(menuItemCss);
 
 const StyledDropdownMenuTriggerItem = styled(DropdownMenuPrimitive.TriggerItem)(menuItemCss);
 const StyledDropdownMenuRadioItem = styled(DropdownMenuPrimitive.RadioItem)(menuItemCss, {
-  paddingLeft: 24,
+  paddingRight: 24,
 });
 const StyledDropdownMenuCheckboxItem = styled(DropdownMenuPrimitive.CheckboxItem)(menuItemCss, {
-  paddingLeft: 24,
+  paddingRight: 48,
 });
 
 export const DropdownMenuItemRightAdornment = styled.div((props) => ({
@@ -66,14 +67,15 @@ export const DropdownMenuRadioItem = React.forwardRef((
   ref: React.ForwardedRef<React.ElementRef<typeof StyledDropdownMenuRadioItem>>,
 ) => (
   <StyledDropdownMenuRadioItem {...props} ref={ref}>
-    <Box component="span" position="absolute" left={1}>
+    {children}
+
+    <Box component="span" position="absolute" right={1}>
       <DropdownMenuPrimitive.ItemIndicator>
-        <Flex alignItems="center" justifyContent="center" width={12} height={12}>
-          <RiCheckboxBlankCircleFill size={8} />
+        <Flex alignItems="center" justifyContent="center" width={16} height={16}>
+          <RiCheckLine size={16} />
         </Flex>
       </DropdownMenuPrimitive.ItemIndicator>
     </Box>
-    {children}
   </StyledDropdownMenuRadioItem>
 ));
 
@@ -81,15 +83,19 @@ export const DropdownMenuCheckboxItem = React.forwardRef((
   { children, ...props }: DropdownMenuPrimitive.DropdownMenuCheckboxItemProps,
   ref: React.ForwardedRef<React.ElementRef<typeof StyledDropdownMenuCheckboxItem>>,
 ) => (
-  <StyledDropdownMenuCheckboxItem {...props} ref={ref}>
-    <Box component="span" position="absolute" left={1}>
-      <DropdownMenuPrimitive.ItemIndicator>
-        <Flex alignItems="center" justifyContent="center" width={12} height={12}>
-          <RiCheckLine />
-        </Flex>
-      </DropdownMenuPrimitive.ItemIndicator>
-    </Box>
+  <StyledDropdownMenuCheckboxItem
+    {...props}
+    ref={ref}
+    onSelect={(event) => {
+      event.preventDefault();
+      props.onSelect?.(event);
+    }}
+  >
     {children}
+
+    <Box component="span" position="absolute" right={1}>
+      <Switch size="small" disabled={props.disabled} checked={props.checked} />
+    </Box>
   </StyledDropdownMenuCheckboxItem>
 ));
 
@@ -103,6 +109,7 @@ export const DropdownMenuTriggerItem = React.forwardRef((
         <RiArrowRightSLine />
       </Flex>
     </Box>
+
     {children}
   </StyledDropdownMenuTriggerItem>
 ));

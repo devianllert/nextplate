@@ -2,10 +2,10 @@ import { NextApiRequest } from 'next';
 import * as Sentry from '@sentry/nextjs';
 
 import isBrowser from '@/shared/lib/isBrowser';
+import { convertRequestBodyToJSObject } from '@/shared/api';
 
 import { UserSession } from '../userSession/useUserSession';
 import { GenericObject } from '../data/types/GenericObject';
-import { convertRequestBodyToJSObject } from '../api/convertRequestBodyToJSObject';
 import { createLogger } from '../logging/logger';
 
 const logger = createLogger('modules/sentry/sentry.ts');

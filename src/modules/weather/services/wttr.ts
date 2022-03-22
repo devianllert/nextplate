@@ -1,4 +1,4 @@
-import { api } from '@/shared/lib/api/api';
+import { api } from '@/shared/api';
 
 import { Weather, WTTRWeather } from '../types/weather.interface';
 

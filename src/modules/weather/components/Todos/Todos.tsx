@@ -1,12 +1,12 @@
 import * as React from 'react';
 import { RiCloseFill, RiMenu3Line } from 'react-icons/ri';
 
-import { Box } from '@/common/components/layout/Box';
-import { Button } from '@/common/components/system/Button';
-import { Divider } from '@/common/components/system/Divider';
-import { IconButton } from '@/common/components/system/IconButton';
-import * as Text from '@/common/components/system/Text';
-import * as Modal from '@/common/components/system/Modal';
+import { Box } from '@/shared/components/layout/Box';
+import { Button } from '@/shared/components/system/Button';
+import { Divider } from '@/shared/components/system/Divider';
+import { IconButton } from '@/shared/components/system/IconButton';
+import * as Text from '@/shared/components/system/Text';
+import * as Modal from '@/shared/components/system/Modal';
 
 const initialTodos = [
   {

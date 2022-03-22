@@ -1,10 +1,10 @@
 import * as React from 'react';
 import Link from 'next/link';
 
-import { APP_TITLE } from '@/lib/meta/meta';
+import { APP_TITLE } from '@/shared/lib/meta/meta';
 
-import * as Text from '@/common/components/system/Text';
-import { Container } from '@/common/components/layout/Container';
+import * as Text from '@/shared/components/system/Text';
+import { Container } from '@/shared/components/layout/Container';
 
 import * as S from './styled';
 

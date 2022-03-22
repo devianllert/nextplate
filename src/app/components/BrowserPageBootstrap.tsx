@@ -1,12 +1,12 @@
 import * as React from 'react';
 import { useTranslation } from 'next-i18next';
 
-import { MultiversalPageProps } from '@/layouts/core/types/MultiversalPageProps';
+import UniversalCookiesManager from '@/shared/lib/cookiesManager/UniversalCookiesManager';
+import { createLogger } from '@/shared/lib/logging/logger';
+import { UserSemiPersistentSession } from '@/shared/lib/userSession/types/UserSemiPersistentSession';
+import userSessionContext from '@/shared/lib/userSession/userSessionContext';
 import { OnlyBrowserPageProps } from '@/layouts/core/types/OnlyBrowserPageProps';
-import UniversalCookiesManager from '@/lib/cookiesManager/UniversalCookiesManager';
-import { createLogger } from '@/lib/logging/logger';
-import { UserSemiPersistentSession } from '@/lib/userSession/types/UserSemiPersistentSession';
-import userSessionContext from '@/lib/userSession/userSessionContext';
+import { MultiversalPageProps } from '@/layouts/core/types/MultiversalPageProps';
 import { MultiversalAppBootstrapPageProps } from '../types/MultiversalAppBootstrapPageProps';
 import { MultiversalAppBootstrapProps } from '../types/MultiversalAppBootstrapProps';
 

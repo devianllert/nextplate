@@ -1,6 +1,6 @@
 import { GetStaticProps, GetStaticPropsResult } from 'next';
 
-import { serializeSafe } from '@/lib/serializeSafe/serializeSafe';
+import { serializeSafe } from '@/shared/lib/serializeSafe/serializeSafe';
 
 import { SSGPageProps } from './types/SSGPageProps';
 import { getTranslationsConfig } from './translations';

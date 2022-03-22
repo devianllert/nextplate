@@ -2,19 +2,19 @@ import React from 'react';
 import { useRouter } from 'next/router';
 import { RiMapPinLine, RiSearchLine } from 'react-icons/ri';
 
-import { OnlyBrowserPageProps } from '@/layouts/core/types/OnlyBrowserPageProps';
-import { SSGPageProps } from '@/layouts/core/types/SSGPageProps';
-import { SSRPageProps } from '@/layouts/core/types/SSRPageProps';
-import { createLogger } from '@/lib/logging/logger';
-import { EnhancedNextPage } from '@/layouts/core/types/EnhancedNextPage';
-import { getTranslationsStaticProps } from '@/layouts/core/SSG';
-import * as Text from '@/common/components/system/Text';
-import { Box } from '@/common/components/layout/Box';
-import { Input } from '@/common/components/system/Input';
+import { createLogger } from '@/shared/lib/logging/logger';
+import * as Text from '@/shared/components/system/Text';
+import { Box } from '@/shared/components/layout/Box';
+import { Input } from '@/shared/components/system/Input';
+import { InputAdornment } from '@/shared/components/system/Input/InputAdornment';
+import { IconButton } from '@/shared/components/system/IconButton';
+import { PageSEO } from '@/shared/lib/meta/page-seo';
 import { WeatherLayout } from '@/layouts/weather/components/WeatherLayout';
-import { InputAdornment } from '@/common/components/system/Input/InputAdornment';
-import { IconButton } from '@/common/components/system/IconButton';
-import { PageSEO } from '@/lib/meta/page-seo';
+import { getTranslationsStaticProps } from '@/layouts/core/SSG';
+import { EnhancedNextPage } from '@/layouts/core/types/EnhancedNextPage';
+import { SSRPageProps } from '@/layouts/core/types/SSRPageProps';
+import { SSGPageProps } from '@/layouts/core/types/SSGPageProps';
+import { OnlyBrowserPageProps } from '@/layouts/core/types/OnlyBrowserPageProps';
 
 const logger = createLogger('Weather');
 

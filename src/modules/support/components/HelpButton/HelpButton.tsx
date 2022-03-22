@@ -3,10 +3,10 @@ import Timeago from 'timeago-react';
 import { useTranslation } from 'react-i18next';
 import { RiBook2Line, RiMessage2Line, RiQuestionMark } from 'react-icons/ri';
 
-import * as DropdownMenu from '@/common/components/system/DropdownMenu';
-import * as Text from '@/common/components/system/Text';
-import { Box } from '@/common/components/layout/Box';
-import { APP_TITLE } from '@/lib/meta/meta';
+import * as DropdownMenu from '@/shared/components/system/DropdownMenu';
+import * as Text from '@/shared/components/system/Text';
+import { Box } from '@/shared/components/layout/Box';
+import { APP_TITLE } from '@/shared/lib/meta/meta';
 
 import * as S from './styled';
 

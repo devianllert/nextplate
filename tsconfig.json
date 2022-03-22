@@ -8,14 +8,14 @@
       "@/public/*": [
         "public/*"
       ],
-      "@/common/*": [
-        "src/common/*"
+      "@/shared/*": [
+        "src/shared/*"
       ],
       "@/components/*": [
-        "src/common/components/*"
+        "src/shared/components/*"
       ],
       "@/lib/*": [
-        "src/common/lib/*"
+        "src/shared/lib/*"
       ],
       "@/layouts/*": [
         "src/layouts/*"
@@ -71,7 +71,7 @@
     "jest.config.js",
     "./sentry.client.config.js",
     "./sentry.server.config.js",
-    "./src/common/lib/i18n.config.js",
+    "src/shared/lib/i18n.config.js",
     "./next-i18next.config.js",
     "**/*.ts",
     "**/*.tsx"

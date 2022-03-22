@@ -1,9 +1,9 @@
 import styled from '@emotion/styled';
 
-import { ButtonBase } from '@/common/components/system/ButtonBase';
-import shadows from '@/common/design/tokens/shadows';
-import { zIndex } from '@/common/design/tokens/zIndex';
-import { createTransition, duration } from '@/common/design/tokens/transitions';
+import { ButtonBase } from '@/shared/components/system/ButtonBase';
+import shadows from '@/shared/design/tokens/shadows';
+import { zIndex } from '@/shared/design/tokens/zIndex';
+import { createTransition, duration } from '@/shared/design/tokens/transitions';
 
 export const HelpButtonRoot = styled(ButtonBase)((props) => ({
   position: 'fixed',

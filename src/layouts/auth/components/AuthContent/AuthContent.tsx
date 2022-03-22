@@ -2,10 +2,10 @@ import * as React from 'react';
 import { useRouter } from 'next/router';
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
 
-import { Box } from '@/common/components/layout/Box';
-import { Container } from '@/common/components/layout/Container';
+import { Box } from '@/shared/components/layout/Box';
+import { Container } from '@/shared/components/layout/Container';
 
-import { duration } from '@/common/design/tokens/transitions';
+import { duration } from '@/shared/design/tokens/transitions';
 
 import * as S from './styled';
 

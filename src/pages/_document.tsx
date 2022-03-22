@@ -8,8 +8,8 @@ import Document, {
 } from 'next/document';
 import { InitializeColorMode } from 'theme-ui';
 
-import { mediaStyles } from '@/lib/css-in-js/responsive';
-import { getCommonMetaTags } from '@/lib/meta/meta';
+import { mediaStyles } from '@/shared/lib/css-in-js/responsive';
+import { getCommonMetaTags } from '@/shared/lib/meta/meta';
 
 /**
  * XXX Is only rendered on the server side and not on the client side

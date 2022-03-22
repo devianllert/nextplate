@@ -2,14 +2,14 @@ import { IncomingMessage } from 'http';
 import { GetServerSideProps, GetServerSidePropsResult } from 'next';
 import NextCookies from 'next-cookies';
 
+import UniversalCookiesManager from '@/shared/lib/cookiesManager/UniversalCookiesManager';
+import { UserSemiPersistentSession } from '@/shared/lib/userSession/types/UserSemiPersistentSession';
+import { Cookies } from '@/shared/lib/cookiesManager/types/Cookies';
+import serializeSafe from '@/shared/lib/serializeSafe/serializeSafe';
 import { CommonServerSideParams } from '@/app/types/CommonServerSideParams';
-import UniversalCookiesManager from '@/lib/cookiesManager/UniversalCookiesManager';
-import { UserSemiPersistentSession } from '@/lib/userSession/types/UserSemiPersistentSession';
-import { Cookies } from '@/lib/cookiesManager/types/Cookies';
 import { PublicHeaders } from './types/PublicHeaders';
 import { SSRPageProps } from './types/SSRPageProps';
 import { getTranslationsConfig } from './translations';
-import serializeSafe from '@/lib/serializeSafe/serializeSafe';
 
 /**
  * getServerSideProps returns only part of the props expected in SSRPageProps

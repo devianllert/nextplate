@@ -7,25 +7,25 @@ import { QueryClient, QueryClientProvider } from 'react-query';
 import { Hydrate } from 'react-query/hydration';
 import { ReactQueryDevtools } from 'react-query/devtools';
 
-import ErrorPage from '@/pages/_error';
-import { configureSentryI18n } from '@/lib/sentry/sentry';
-import isBrowser from '@/lib/isBrowser';
-import { SSGPageProps } from '@/layouts/core/types/SSGPageProps';
-import { SSRPageProps } from '@/layouts/core/types/SSRPageProps';
-import DefaultErrorLayout from '@/lib/errorHandling/DefaultErrorLayout';
-import { GlobalStyles } from '@/common/design/GlobalStyles';
-import { ResetStyles } from '@/common/design/ResetStyles';
-import { theme } from '@/common/design/themes';
-import { createLogger } from '@/lib/logging/logger';
-import { REACT_QUERY_STATE_PROP_NAME } from '@/lib/rquery/react-query';
-import { NProgressRoot } from '@/lib/router/NProgress';
-import { isEmpty } from '@/lib/js/assertion';
-import { MediaContextProvider } from '@/lib/css-in-js/responsive';
+import { configureSentryI18n } from '@/shared/lib/sentry/sentry';
+import isBrowser from '@/shared/lib/isBrowser';
+import DefaultErrorLayout from '@/shared/lib/errorHandling/DefaultErrorLayout';
+import { GlobalStyles } from '@/shared/design/GlobalStyles';
+import { ResetStyles } from '@/shared/design/ResetStyles';
+import { theme } from '@/shared/design/themes';
+import { createLogger } from '@/shared/lib/logging/logger';
+import { REACT_QUERY_STATE_PROP_NAME } from '@/shared/lib/rquery/react-query';
+import { NProgressRoot } from '@/shared/lib/router/NProgress';
+import { isEmpty } from '@/shared/lib/js/assertion';
+import { MediaContextProvider } from '@/shared/lib/css-in-js/responsive';
 
+import { getLinksAlternateHref } from '@/shared/lib/meta/meta';
 import { MultiversalAppBootstrapProps } from '../types/MultiversalAppBootstrapProps';
 import BrowserPageBootstrap, { BrowserPageBootstrapProps } from './BrowserPageBootstrap';
 import ServerPageBootstrap, { ServerPageBootstrapProps } from './ServerPageBootstrap';
-import { getLinksAlternateHref } from '@/lib/meta/meta';
+import { SSRPageProps } from '@/layouts/core/types/SSRPageProps';
+import { SSGPageProps } from '@/layouts/core/types/SSGPageProps';
+import ErrorPage from '@/pages/_error';
 
 export type Props = MultiversalAppBootstrapProps<SSGPageProps> | MultiversalAppBootstrapProps<SSRPageProps>;
 

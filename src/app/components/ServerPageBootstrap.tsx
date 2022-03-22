@@ -1,8 +1,8 @@
 import * as React from 'react';
 
+import userSessionContext from '@/shared/lib/userSession/userSessionContext';
 import { MultiversalPageProps } from '@/layouts/core/types/MultiversalPageProps';
 import { OnlyServerPageProps } from '@/layouts/core/types/OnlyServerPageProps';
-import userSessionContext from '@/lib/userSession/userSessionContext';
 import { MultiversalAppBootstrapPageProps } from '../types/MultiversalAppBootstrapPageProps';
 import { MultiversalAppBootstrapProps } from '../types/MultiversalAppBootstrapProps';
 

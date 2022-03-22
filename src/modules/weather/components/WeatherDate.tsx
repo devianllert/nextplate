@@ -1,9 +1,9 @@
 import * as React from 'react';
 import format from 'date-fns/format';
 
-import { Box } from '@/common/components/layout/Box';
-import * as Text from '@/common/components/system/Text';
-import { useInterval } from '@/common/hooks/useInterval';
+import { Box } from '@/shared/components/layout/Box';
+import * as Text from '@/shared/components/system/Text';
+import { useInterval } from '@/shared/hooks/useInterval';
 
 const DATE_UPDATE_TIMEOUT = 30 * 1000;
 

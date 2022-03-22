@@ -8,8 +8,8 @@
       "@/public/*": [
         "../public/*"
       ],
-      "@/common/*": [
-        "../src/common/*"
+      "@/shared/*": [
+        "../src/shared/*"
       ],
       "@/components/*": [
         "../src/common/components/*"

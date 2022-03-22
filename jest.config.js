@@ -19,7 +19,7 @@ module.exports = {
   moduleNameMapper: {
     '^@/app/(.*)$': '<rootDir>/src/app/$1',
     '^@/public/(.*)$': '<rootDir>/public/$1',
-    '^@/common/(.*)$': '<rootDir>/src/common/$1',
+    '^@/shared/(.*)$': '<rootDir>/src/shared/$1',
     '^@/components/(.*)$': '<rootDir>/src/common/components/$1',
     '^@/lib/(.*)$': '<rootDir>/src/common/lib/$1',
     '^@/layouts/(.*)$': '<rootDir>/src/layouts/$1',

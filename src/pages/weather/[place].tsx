@@ -5,16 +5,18 @@ import { useRouter } from 'next/router';
 import { QueryClient, useQuery } from 'react-query';
 import { dehydrate } from 'react-query/hydration';
 
-import { serializeSafe } from '@/lib/serializeSafe/serializeSafe';
+import { serializeSafe } from '@/shared/lib/serializeSafe/serializeSafe';
+import { createLogger } from '@/shared/lib/logging/logger';
+import * as Text from '@/shared/components/system/Text';
+import { Box } from '@/shared/components/layout/Box';
+import { REACT_QUERY_STATE_PROP_NAME } from '@/shared/lib/rquery/react-query';
+import { Container } from '@/shared/components/layout/Container';
+import { PageSEO } from '@/shared/lib/meta/page-seo';
 import { OnlyBrowserPageProps } from '@/layouts/core/types/OnlyBrowserPageProps';
 import { SSGPageProps } from '@/layouts/core/types/SSGPageProps';
 import { SSRPageProps } from '@/layouts/core/types/SSRPageProps';
-import { createLogger } from '@/lib/logging/logger';
 import { EnhancedNextPage } from '@/layouts/core/types/EnhancedNextPage';
-import * as Text from '@/common/components/system/Text';
-import { Box } from '@/common/components/layout/Box';
 import { getCoreServerSideProps } from '@/layouts/core/SSR';
-import { REACT_QUERY_STATE_PROP_NAME } from '@/lib/rquery/react-query';
 import { fetchWeather } from '@/modules/weather/services/wttr';
 import { Weather } from '@/modules/weather/types/weather.interface';
 import { WeatherLayout } from '@/layouts/weather/components/WeatherLayout';
@@ -22,9 +24,7 @@ import { WeatherDate } from '@/modules/weather/components/WeatherDate';
 import { ICONS_MAP } from '@/modules/weather/constants/iconsMap';
 import { filterHourlyWeatherBasedOnCurrentTime } from '@/modules/weather/formatHourlyWeather';
 import { WeatherHourlyList } from '@/modules/weather/components/WeatherHourlyList';
-import { Container } from '@/common/components/layout/Container';
 import { Todos } from '@/modules/weather/components/Todos';
-import { PageSEO } from '@/lib/meta/page-seo';
 
 const logger = createLogger('[place]');
 

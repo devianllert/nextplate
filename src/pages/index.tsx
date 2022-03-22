@@ -9,22 +9,22 @@ import {
   RiSettings4Line,
 } from 'react-icons/ri';
 
-import { OnlyBrowserPageProps } from '@/layouts/core/types/OnlyBrowserPageProps';
-import { SSGPageProps } from '@/layouts/core/types/SSGPageProps';
-import { SSRPageProps } from '@/layouts/core/types/SSRPageProps';
-import { createLogger } from '@/lib/logging/logger';
-import { EnhancedNextPage } from '@/layouts/core/types/EnhancedNextPage';
-import { MainLayout } from '@/layouts/main/components/MainLayout';
-import { Button } from '@/common/components/system/Button';
-import { Box } from '@/common/components/layout/Box';
-import { Container } from '@/common/components/layout/Container';
+import { createLogger } from '@/shared/lib/logging/logger';
+import { Button } from '@/shared/components/system/Button';
+import { Box } from '@/shared/components/layout/Box';
+import { Container } from '@/shared/components/layout/Container';
+import * as Text from '@/shared/components/system/Text';
+import { Stack } from '@/shared/components/layout/Stack';
+import { Code } from '@/shared/components/system/Code';
+import { AspectRatio } from '@/shared/components/system/AspectRatio';
+import { useTheme } from '@/shared/design/hooks/useTheme';
+import { PageSEO } from '@/shared/lib/meta/page-seo';
 import { getTranslationsStaticProps } from '@/layouts/core/SSG';
-import * as Text from '@/common/components/system/Text';
-import { Stack } from '@/common/components/layout/Stack';
-import { Code } from '@/common/components/system/Code';
-import { AspectRatio } from '@/common/components/system/AspectRatio';
-import { useTheme } from '@/common/design/hooks/useTheme';
-import { PageSEO } from '@/lib/meta/page-seo';
+import { MainLayout } from '@/layouts/main/components/MainLayout';
+import { EnhancedNextPage } from '@/layouts/core/types/EnhancedNextPage';
+import { SSRPageProps } from '@/layouts/core/types/SSRPageProps';
+import { SSGPageProps } from '@/layouts/core/types/SSGPageProps';
+import { OnlyBrowserPageProps } from '@/layouts/core/types/OnlyBrowserPageProps';
 
 const logger = createLogger('Index');
 

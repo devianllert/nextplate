@@ -1,8 +1,8 @@
 import React from 'react';
 import { ThemeProvider } from 'theme-ui';
 
-import { makeTheme } from '@/common/design/themes';
-import darkColors from '@/common/design/themes/dark/colors';
+import { makeTheme } from '@/shared/design/themes';
+import darkColors from '@/shared/design/themes/dark/colors';
 
 const weatherNestedTheme = makeTheme({
   colors: darkColors,

@@ -1,15 +1,14 @@
 import * as React from 'react';
 import Link from 'next/link';
 
-import { APP_TITLE } from '@/lib/meta/meta';
+import { APP_TITLE } from '@/shared/lib/meta/meta';
 
+import * as Text from '@/shared/components/system/Text';
+import { Stack } from '@/shared/components/layout/Stack';
+import { Container } from '@/shared/components/layout/Container';
+import { DisplayOnBrowserMount } from '@/shared/components/rehydration/DisplayOnBrowserMount';
+import { LocaleToggler } from '@/shared/components/LocaleToggler';
 import { SettingsButton } from '@/modules/settings-button';
-
-import * as Text from '@/common/components/system/Text';
-import { Stack } from '@/common/components/layout/Stack';
-import { Container } from '@/common/components/layout/Container';
-import { DisplayOnBrowserMount } from '@/common/components/rehydration/DisplayOnBrowserMount';
-import { LocaleToggler } from '@/common/components/LocaleToggler';
 
 import * as S from './styled';
 

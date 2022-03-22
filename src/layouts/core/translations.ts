@@ -4,7 +4,7 @@ import {
 import { SSRConfig } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 
-import { DEFAULT_LOCALE } from '@/lib/i18n/i18n';
+import { DEFAULT_LOCALE } from '@/shared/lib/i18n/i18n';
 
 type MultiversalContext = GetServerSidePropsContext | GetStaticPropsContext;
 

@@ -2,4 +2,4 @@
 // The config you add here will be used whenever a page is visited.
 // https://docs.sentry.io/platforms/javascript/guides/nextjs/
 
-import '@/lib/sentry/setup';
+import '@/shared/lib/sentry/setup';

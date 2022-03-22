@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 const path = require('path');
-const i18nConfig = require('./src/common/lib/i18n/i18n.config');
+const i18nConfig = require('./src/shared/lib/i18n/i18n.config');
 
 module.exports = {
   i18n: {

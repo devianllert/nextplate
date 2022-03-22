@@ -1,4 +1,4 @@
-import '@/lib/wdyr/wdyr';
+import '@/shared/lib/wdyr/wdyr';
 
 import * as React from 'react';
 
@@ -68,7 +68,7 @@ const MultiversalPageEntryPoint = (props: MultiversalPageEntryPointProps): JSX.E
  * @see https://web.dev/vitals/ Essential metrics for a healthy site
  * @see https://nextjs.org/blog/next-9-4#integrated-web-vitals-reporting Initial release notes
  */
-export { reportWebVitals } from '@/lib/webVitals/reportWebVitals';
+export { reportWebVitals } from '@/shared/lib/webVitals/reportWebVitals';
 
 /**
  * XXX We have disabled the use of getInitialProps by default, because it's what's recommended since v9.3,

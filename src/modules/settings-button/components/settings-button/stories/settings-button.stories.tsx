@@ -1,10 +1,10 @@
 import * as React from 'react';
 import { Story, Meta } from '@storybook/react';
 
-import { SettingsButton } from '../SettingsButton';
+import { SettingsButton } from '../settings-button';
 
 export default {
-  title: 'Components/SettingsButton',
+  title: 'Features/SettingsButton',
   component: SettingsButton,
 } as Meta;
 

@@ -1,10 +1,10 @@
 import * as React from 'react';
 import { Story, Meta } from '@storybook/react';
 
-import { HelpButton } from '../HelpButton';
+import { HelpButton } from '../help-button';
 
 export default {
-  title: 'Components/HelpButton',
+  title: 'Features/HelpButton',
   component: HelpButton,
 } as Meta;
 

@@ -1,10 +1,10 @@
 import * as React from 'react';
 import { Story, Meta } from '@storybook/react';
 
-import { LocaleToggler } from '../LocaleToggler';
+import { LocaleToggler } from '../locale-toggler';
 
 export default {
-  title: 'Design System/Atoms/LocaleToggler',
+  title: 'Features/LocaleToggler',
   component: LocaleToggler,
 } as Meta;
 

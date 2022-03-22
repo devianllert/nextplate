@@ -1,1 +1,1 @@
-export { HelpButton } from './components/HelpButton';
+export { HelpButton } from './components/help-button';

@@ -7,7 +7,7 @@ import * as Text from '@/shared/components/system/Text';
 import { Stack } from '@/shared/components/layout/Stack';
 import { Container } from '@/shared/components/layout/Container';
 import { DisplayOnBrowserMount } from '@/shared/components/rehydration/DisplayOnBrowserMount';
-import { LocaleToggler } from '@/shared/components/LocaleToggler';
+import { LocaleToggler } from '@/modules/locale-toggler';
 import { SettingsButton } from '@/modules/settings-button';
 
 import * as S from './styled';

@@ -39,11 +39,18 @@ export interface IconButtonProps extends ButtonBaseProps {
   label?: string;
 
   /**
-   * The variant to use.
+   * The shape to use.
    *
    * @default 'circle'
    */
-  variant?: 'round' | 'circle';
+  shape?: 'round' | 'circle';
+
+  /**
+   * The shape to use.
+   *
+   * @default 'ghost'
+   */
+  variant?: 'ghost' | 'solid';
 }
 
 /**
@@ -55,13 +62,22 @@ export const IconButton: PolymorphicComponent<IconButtonProps, 'button'> = React
     edge = false,
     size = 'medium',
     color = 'gray',
-    variant = 'circle',
+    shape = 'circle',
+    variant = 'ghost',
     label,
     ...other
   } = props;
 
   return (
-    <S.IconButtonRoot edge={edge} size={size} color={color} variant={variant} {...other} ref={ref}>
+    <S.IconButtonRoot
+      edge={edge}
+      size={size}
+      color={color}
+      shape={shape}
+      variant={variant}
+      {...other}
+      ref={ref}
+    >
       {React.cloneElement(children as React.ReactElement, {
         'aria-hidden': true,
         focusable: false,

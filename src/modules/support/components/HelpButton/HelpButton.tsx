@@ -1,7 +1,7 @@
 import * as React from 'react';
 import Timeago from 'timeago-react';
 import { useTranslation } from 'react-i18next';
-import { RiBook2Line, RiMessage2Line } from 'react-icons/ri';
+import { RiBook2Line, RiMessage2Line, RiQuestionMark } from 'react-icons/ri';
 
 import * as DropdownMenu from '@/common/components/system/DropdownMenu';
 import * as Text from '@/common/components/system/Text';
@@ -14,11 +14,21 @@ export const HelpButton = (): JSX.Element => {
   const { t, i18n } = useTranslation();
 
   return (
-    <DropdownMenu.Root
-      modal={false}
-    >
+    <DropdownMenu.Root modal={false}>
       <DropdownMenu.Trigger asChild>
-        <S.HelpButtonRoot>?</S.HelpButtonRoot>
+        {/* <Box
+          position="fixed"
+          bottom={3}
+          right={3}
+          zIndex={1}
+        >
+          <IconButton variant="solid" size="large" color="contrast">
+            <RiQuestionMark fontSize={16} />
+          </IconButton>
+        </Box> */}
+        <S.HelpButtonRoot>
+          <RiQuestionMark />
+        </S.HelpButtonRoot>
       </DropdownMenu.Trigger>
 
       <DropdownMenu.Content

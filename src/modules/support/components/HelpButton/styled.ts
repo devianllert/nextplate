@@ -7,8 +7,8 @@ import { createTransition, duration } from '@/common/design/tokens/transitions';
 
 export const HelpButtonRoot = styled(ButtonBase)((props) => ({
   position: 'fixed',
-  bottom: 24,
-  right: 24,
+  bottom: 16,
+  right: 16,
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
@@ -18,11 +18,17 @@ export const HelpButtonRoot = styled(ButtonBase)((props) => ({
   borderRadius: '50%',
   boxShadow: shadows[2],
   color: props.theme.colors.text.primary,
-  background: props.theme.colors.radix.gray4,
+  backgroundColor: props.theme.colors.background.primary,
+  border: '1px solid',
+  borderColor: props.theme.colors.radix.gray7,
   zIndex: zIndex.tooltip,
   transition: createTransition('background', { duration: duration.short }),
 
   '&:hover': {
-    background: props.theme.colors.radix.gray6,
+    background: props.theme.colors.radix.gray3,
+  },
+
+  '&:active': {
+    background: props.theme.colors.radix.gray4,
   },
 }));

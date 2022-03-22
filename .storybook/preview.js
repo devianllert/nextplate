@@ -9,9 +9,9 @@ import i18n from './i18n';
 
 import '@storybook/addon-console'; // Automatically forwards all logs in the "Actions" panel - See https://github.com/storybookjs/storybook-addon-console
 import '@/app/components/MultiversalGlobalExternalStyles'; // Import the same 3rd party libraries global styles as the pages/_app.tsx (for UI consistency)
-import { GlobalStyles } from '@/common/design/GlobalStyles';
-import { ResetStyles } from '@/common/design/ResetStyles';
-import { theme } from '@/common/design/themes';
+import { GlobalStyles } from '@/shared/design/GlobalStyles';
+import { ResetStyles } from '@/shared/design/ResetStyles';
+import { theme } from '@/shared/design/themes';
 
 /**
  * Story Global parameters for Storybook.

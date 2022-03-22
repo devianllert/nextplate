@@ -166,7 +166,7 @@ module.exports = {
           'emotion-theming': toPath('node_modules/@emotion/react'),
 
           /**
-           * Map our module path aliases, so that Storybook can understand modules loaded using "@/common" and load the proper file.
+           * Map our module path aliases, so that Storybook can understand modules loaded using "@/shared" and load the proper file.
            * Required, or Storybook will fail to import dependencies from Stories.
            *
            * XXX The below list must match `tsconfig.json:compilerOptions.paths`, so the Next.js app and Storybook resolve all aliases the same way.
@@ -176,9 +176,9 @@ module.exports = {
            * @see https://intellij-support.jetbrains.com/hc/en-us/community/posts/360003361399/comments/360002636080
            */
           '@/app': path.resolve(__dirname, '../src/app'),
-          '@/common': path.resolve(__dirname, '../src/common'),
-          '@/components': path.resolve(__dirname, '../src/common/components'),
-          '@/lib': path.resolve(__dirname, '../src/common/lib'),
+          '@/shared': path.resolve(__dirname, '../src/shared'),
+          '@/components': path.resolve(__dirname, '../src/shared/components'),
+          '@/lib': path.resolve(__dirname, '../src/shared/lib'),
           '@/layouts': path.resolve(__dirname, '../src/layouts'),
           '@/modules': path.resolve(__dirname, '../src/modules'),
           '@/pages': path.resolve(__dirname, '../src/pages'),

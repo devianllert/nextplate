@@ -8,7 +8,7 @@ module.exports = {
   },
   testPathIgnorePatterns: ['<rootDir>/node_modules/', '<rootDir>/.next/'],
   /**
-   * Map our module path aliases, so that Jest can understand modules loaded using "@/common" and load the proper file.
+   * Map our module path aliases, so that Jest can understand modules loaded using "@/shared" and load the proper file.
    * Required, or Jest will fail to import dependencies from tests.
    *
    * XXX The below list must match `tsconfig.json:compilerOptions.paths`, so the Next.js app and Jest resolve all aliases the same way.
@@ -20,8 +20,8 @@ module.exports = {
     '^@/app/(.*)$': '<rootDir>/src/app/$1',
     '^@/public/(.*)$': '<rootDir>/public/$1',
     '^@/shared/(.*)$': '<rootDir>/src/shared/$1',
-    '^@/components/(.*)$': '<rootDir>/src/common/components/$1',
-    '^@/lib/(.*)$': '<rootDir>/src/common/lib/$1',
+    '^@/components/(.*)$': '<rootDir>/src/shared/components/$1',
+    '^@/lib/(.*)$': '<rootDir>/src/shared/lib/$1',
     '^@/layouts/(.*)$': '<rootDir>/src/layouts/$1',
     '^@/modules/(.*)$': '<rootDir>/src/modules/$1',
     '^@/pages/(.*)$': '<rootDir>/src/pages/$1',

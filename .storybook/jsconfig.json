@@ -12,10 +12,10 @@
         "../src/shared/*"
       ],
       "@/components/*": [
-        "../src/common/components/*"
+        "../src/shared/components/*"
       ],
       "@/lib/*": [
-        "../src/common/lib/*"
+        "../src/shared/lib/*"
       ],
       "@/layouts/*": [
         "../src/layouts/*"

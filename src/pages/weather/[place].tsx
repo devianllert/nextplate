@@ -19,7 +19,7 @@ import { EnhancedNextPage } from '@/layouts/core/types/EnhancedNextPage';
 import { getCoreServerSideProps } from '@/layouts/core/SSR';
 import { fetchWeather } from '@/modules/weather/services/wttr';
 import { Weather } from '@/modules/weather/types/weather.interface';
-import { WeatherLayout } from '@/layouts/weather/components/WeatherLayout';
+import { WeatherLayout } from '@/layouts/weather';
 import { WeatherDate } from '@/modules/weather/components/WeatherDate';
 import { ICONS_MAP } from '@/modules/weather/constants/iconsMap';
 import { filterHourlyWeatherBasedOnCurrentTime } from '@/modules/weather/formatHourlyWeather';

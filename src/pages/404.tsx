@@ -14,7 +14,7 @@ import { getTranslationsStaticProps } from '@/layouts/core/SSG';
 import { EnhancedNextPage } from '@/layouts/core/types/EnhancedNextPage';
 import { SoftPageProps } from '@/layouts/core/types/SoftPageProps';
 import { SSGPageProps } from '@/layouts/core/types/SSGPageProps';
-import { NotFound404Layout } from '@/layouts/404/components/NotFound404Layout';
+import { NotFoundLayout } from '@/layouts/404';
 
 const fileLabel = 'pages/404';
 const logger = createLogger(fileLabel);
@@ -81,7 +81,7 @@ const NotFound404Page: EnhancedNextPage<Props> = (): JSX.Element => {
   );
 };
 
-NotFound404Page.Layout = NotFound404Layout;
+NotFound404Page.Layout = NotFoundLayout;
 
 export const NotFound404PageName = NotFound404Page.name;
 

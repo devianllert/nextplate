@@ -1,0 +1,20 @@
+/**
+ * @jest-environment jsdom
+ */
+
+import React, { ReactChild } from 'react';
+import { screen } from '@testing-library/react';
+
+import { NotFoundLayout } from '../not-found-layout';
+
+import { renderWithProviders } from '@/shared/lib/testing/renderWithProviders';
+
+describe('<NotFoundLayout />', () => {
+  const children: ReactChild = 'NotFound404Layout';
+
+  it('should render a children', () => {
+    renderWithProviders(<NotFoundLayout>{children}</NotFoundLayout>);
+
+    expect(screen.getByText(children)).toBeDefined();
+  });
+});

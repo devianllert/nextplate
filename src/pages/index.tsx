@@ -20,7 +20,7 @@ import { AspectRatio } from '@/shared/components/system/AspectRatio';
 import { useTheme } from '@/shared/design/hooks/useTheme';
 import { PageSEO } from '@/shared/lib/meta/page-seo';
 import { getTranslationsStaticProps } from '@/layouts/core/SSG';
-import { MainLayout } from '@/layouts/main/components/MainLayout';
+import { MainLayout } from '@/layouts/main';
 import { EnhancedNextPage } from '@/layouts/core/types/EnhancedNextPage';
 import { SSRPageProps } from '@/layouts/core/types/SSRPageProps';
 import { SSGPageProps } from '@/layouts/core/types/SSGPageProps';

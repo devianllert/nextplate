@@ -11,7 +11,7 @@ import { Stack } from '@/shared/components/layout/Stack';
 import { useBoolean } from '@/shared/hooks/useBoolean';
 import { IconButton } from '@/shared/components/system/IconButton';
 import { PageSEO } from '@/shared/lib/meta/page-seo';
-import { AuthLayout } from '@/layouts/auth/components/AuthLayout';
+import { AuthLayout } from '@/layouts/auth';
 import { getTranslationsStaticProps } from '@/layouts/core/SSG';
 import { EnhancedNextPage } from '@/layouts/core/types/EnhancedNextPage';
 import { SSRPageProps } from '@/layouts/core/types/SSRPageProps';

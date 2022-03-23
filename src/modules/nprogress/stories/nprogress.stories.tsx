@@ -2,7 +2,7 @@ import * as React from 'react';
 import NProgress from 'nprogress';
 import { Story, Meta } from '@storybook/react';
 
-import { NProgressRoot, NProgressRootProps } from '../NProgress';
+import { NProgressRoot, NProgressRootProps } from '../nprogress';
 
 export default {
   title: 'Components/Nprogress',

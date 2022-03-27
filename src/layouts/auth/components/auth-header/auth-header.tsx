@@ -3,8 +3,8 @@ import Link from 'next/link';
 
 import { APP_TITLE } from '@/shared/lib/meta/meta';
 
-import * as Text from '@/shared/components/system/Text';
-import { Container } from '@/shared/components/layout/Container';
+import * as Text from '@/shared/components/system/text';
+import { Container } from '@/shared/components/layout/container';
 
 import * as S from './styled';
 

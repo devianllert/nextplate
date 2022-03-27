@@ -3,9 +3,9 @@ import Timeago from 'timeago-react';
 import { useTranslation } from 'react-i18next';
 import { RiBook2Line, RiMessage2Line, RiQuestionMark } from 'react-icons/ri';
 
-import * as DropdownMenu from '@/shared/components/system/DropdownMenu';
-import * as Text from '@/shared/components/system/Text';
-import { Box } from '@/shared/components/layout/Box';
+import * as DropdownMenu from '@/shared/components/system/dropdown-menu';
+import * as Text from '@/shared/components/system/text';
+import { Box } from '@/shared/components/layout/box';
 import { APP_TITLE } from '@/shared/lib/meta/meta';
 
 import * as S from './styled';

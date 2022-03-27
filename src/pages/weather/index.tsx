@@ -3,10 +3,10 @@ import { useRouter } from 'next/router';
 import { RiMapPinLine, RiSearchLine } from 'react-icons/ri';
 
 import { createLogger } from '@/shared/lib/logging/logger';
-import * as Text from '@/shared/components/system/Text';
-import { Box } from '@/shared/components/layout/Box';
-import { Input, InputAdornment } from '@/shared/components/system/Input';
-import { IconButton } from '@/shared/components/system/IconButton';
+import * as Text from '@/shared/components/system/text';
+import { Box } from '@/shared/components/layout/box';
+import { Input, InputAdornment } from '@/shared/components/system/input';
+import { IconButton } from '@/shared/components/system/icon-button';
 import { PageSEO } from '@/shared/lib/meta/page-seo';
 import { WeatherLayout } from '@/layouts/weather';
 import { getTranslationsStaticProps } from '@/layouts/core/SSG';

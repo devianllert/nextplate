@@ -3,10 +3,10 @@ import Link from 'next/link';
 
 import { APP_TITLE } from '@/shared/lib/meta/meta';
 
-import * as Text from '@/shared/components/system/Text';
-import { Stack } from '@/shared/components/layout/Stack';
-import { Container } from '@/shared/components/layout/Container';
-import { DisplayOnBrowserMount } from '@/shared/components/rehydration/DisplayOnBrowserMount';
+import * as Text from '@/shared/components/system/text';
+import { Stack } from '@/shared/components/layout/stack';
+import { Container } from '@/shared/components/layout/container';
+import { DisplayOnBrowserMount } from '@/shared/components/rehydration/display-on-browser-mount';
 import { LocaleToggler } from '@/modules/locale-toggler';
 import { SettingsButton } from '@/modules/settings-button';
 

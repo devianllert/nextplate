@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 
-import { ButtonBase } from '@/shared/components/system/ButtonBase';
+import { ButtonBase } from '@/shared/components/system/button-base';
 import shadows from '@/shared/design/tokens/shadows';
 import { zIndex } from '@/shared/design/tokens/zIndex';
 import { createTransition, duration } from '@/shared/design/tokens/transitions';

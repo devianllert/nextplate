@@ -6,9 +6,9 @@ import { useRouter } from 'next/router';
 import { RiArrowRightLine } from 'react-icons/ri';
 
 import { createLogger } from '@/shared/lib/logging/logger';
-import * as Text from '@/shared/components/system/Text';
-import { Button } from '@/shared/components/system/Button';
-import { Stack } from '@/shared/components/layout/Stack';
+import * as Text from '@/shared/components/system/text';
+import { Button } from '@/shared/components/system/button';
+import { Stack } from '@/shared/components/layout/stack';
 import { PageSEO } from '@/shared/lib/meta/page-seo';
 import { getTranslationsStaticProps } from '@/layouts/core/SSG';
 import { EnhancedNextPage } from '@/layouts/core/types/EnhancedNextPage';

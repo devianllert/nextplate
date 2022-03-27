@@ -10,13 +10,13 @@ import {
 } from 'react-icons/ri';
 
 import { createLogger } from '@/shared/lib/logging/logger';
-import { Button } from '@/shared/components/system/Button';
-import { Box } from '@/shared/components/layout/Box';
-import { Container } from '@/shared/components/layout/Container';
-import * as Text from '@/shared/components/system/Text';
-import { Stack } from '@/shared/components/layout/Stack';
-import { Code } from '@/shared/components/system/Code';
-import { AspectRatio } from '@/shared/components/system/AspectRatio';
+import { Button } from '@/shared/components/system/button';
+import { Box } from '@/shared/components/layout/box';
+import { Container } from '@/shared/components/layout/container';
+import * as Text from '@/shared/components/system/text';
+import { Stack } from '@/shared/components/layout/stack';
+import { Code } from '@/shared/components/system/code';
+import { AspectRatio } from '@/shared/components/system/aspect-ratio';
 import { useTheme } from '@/shared/design/hooks/useTheme';
 import { PageSEO } from '@/shared/lib/meta/page-seo';
 import { getTranslationsStaticProps } from '@/layouts/core/SSG';

@@ -7,10 +7,10 @@ import { dehydrate } from 'react-query/hydration';
 
 import { serializeSafe } from '@/shared/lib/serializeSafe/serializeSafe';
 import { createLogger } from '@/shared/lib/logging/logger';
-import * as Text from '@/shared/components/system/Text';
-import { Box } from '@/shared/components/layout/Box';
+import * as Text from '@/shared/components/system/text';
+import { Box } from '@/shared/components/layout/box';
 import { REACT_QUERY_STATE_PROP_NAME } from '@/shared/lib/rquery/react-query';
-import { Container } from '@/shared/components/layout/Container';
+import { Container } from '@/shared/components/layout/container';
 import { PageSEO } from '@/shared/lib/meta/page-seo';
 import { OnlyBrowserPageProps } from '@/layouts/core/types/OnlyBrowserPageProps';
 import { SSGPageProps } from '@/layouts/core/types/SSGPageProps';

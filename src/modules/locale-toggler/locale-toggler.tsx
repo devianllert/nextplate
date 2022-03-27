@@ -5,8 +5,8 @@ import { RiTranslate2 } from 'react-icons/ri';
 
 import { SUPPORTED_LOCALES } from '@/shared/lib/i18n/i18n';
 
-import * as DropdownMenu from '@/shared/components/system/DropdownMenu';
-import { IconButton } from '@/shared/components/system/IconButton';
+import * as DropdownMenu from '@/shared/components/system/dropdown-menu';
+import { IconButton } from '@/shared/components/system/icon-button';
 
 export const LocaleToggler = (): JSX.Element => {
   const { i18n } = useTranslation();

@@ -6,7 +6,7 @@ import UniversalCookiesManager from '@/shared/lib/cookiesManager/UniversalCookie
 import { UserSemiPersistentSession } from '@/shared/lib/userSession/types/UserSemiPersistentSession';
 import { Cookies } from '@/shared/lib/cookiesManager/types/Cookies';
 import serializeSafe from '@/shared/lib/serializeSafe/serializeSafe';
-import { CommonServerSideParams } from '@/app/types/CommonServerSideParams';
+import { CommonServerSideParams } from '@/app/types/common-server-side-params';
 import { PublicHeaders } from './types/PublicHeaders';
 import { SSRPageProps } from './types/SSRPageProps';
 import { getTranslationsConfig } from './translations';

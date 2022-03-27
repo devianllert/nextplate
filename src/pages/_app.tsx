@@ -2,8 +2,8 @@ import '@/shared/lib/wdyr/wdyr';
 
 import * as React from 'react';
 
-import MultiversalAppBootstrap from '@/app/components/MultiversalAppBootstrap';
-import { MultiversalAppBootstrapProps } from '@/app/types/MultiversalAppBootstrapProps';
+import MultiversalAppBootstrap from '@/app/components/multiversal-app-bootstrap';
+import { MultiversalAppBootstrapProps } from '@/app/types/multiversal-app-bootstrap-props';
 import { SSGPageProps } from '@/layouts/core/types/SSGPageProps';
 import { SSRPageProps } from '@/layouts/core/types/SSRPageProps';
 

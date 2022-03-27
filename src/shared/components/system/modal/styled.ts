@@ -2,7 +2,7 @@ import * as DialogPrimitive from '@radix-ui/react-dialog';
 import styled from '@emotion/styled';
 import { keyframes } from '@emotion/react';
 import { blackA } from '@radix-ui/colors';
-import { zIndex } from '@/shared/design/tokens/zIndex';
+import { zIndex } from '@/shared/design/tokens/z-index';
 
 const overlayShow = keyframes({
   '0%': { opacity: 0 },

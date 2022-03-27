@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { useRouter } from 'next/router';
 
-import { HistoryOptions, Serializers } from './queryTypes';
+import { HistoryOptions, Serializers } from './query-types';
 
 export interface UseQueryParamStateOptions<T> extends Partial<Serializers<T>> {
   /**

@@ -17,7 +17,7 @@ import * as Text from '@/shared/components/system/text';
 import { Stack } from '@/shared/components/layout/stack';
 import { Code } from '@/shared/components/system/code';
 import { AspectRatio } from '@/shared/components/system/aspect-ratio';
-import { useTheme } from '@/shared/design/hooks/useTheme';
+import { useTheme } from '@/shared/design/hooks/use-theme';
 import { PageSEO } from '@/shared/lib/meta/page-seo';
 import { getTranslationsStaticProps } from '@/layouts/core/SSG';
 import { MainLayout } from '@/layouts/main';

@@ -2,7 +2,7 @@
 import * as React from 'react';
 import { RiCheckLine, RiSubtractLine } from 'react-icons/ri';
 
-import { useControllableState } from '@/shared/hooks/useControllableState';
+import { useControllableState } from '@/shared/hooks/use-controllable-state';
 
 import * as S from './styled';
 

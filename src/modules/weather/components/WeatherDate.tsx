@@ -3,7 +3,7 @@ import format from 'date-fns/format';
 
 import { Box } from '@/shared/components/layout/box';
 import * as Text from '@/shared/components/system/text';
-import { useInterval } from '@/shared/hooks/useInterval';
+import { useInterval } from '@/shared/hooks/use-interval';
 
 const DATE_UPDATE_TIMEOUT = 30 * 1000;
 

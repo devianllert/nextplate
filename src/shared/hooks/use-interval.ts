@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { useCallbackRef } from './useCallbackRef';
+import { useCallbackRef } from './use-callback-ref';
 
 /**
  * Hook that allows you to use `setInterval` in functional React component with the same API.

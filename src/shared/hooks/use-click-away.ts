@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { useCallbackRef } from './useCallbackRef';
+import { useCallbackRef } from './use-callback-ref';
 
 /**
  * Hook that triggers a callback when the user clicks outside the target element.

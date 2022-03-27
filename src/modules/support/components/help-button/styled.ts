@@ -2,7 +2,7 @@ import styled from '@emotion/styled';
 
 import { ButtonBase } from '@/shared/components/system/button-base';
 import shadows from '@/shared/design/tokens/shadows';
-import { zIndex } from '@/shared/design/tokens/zIndex';
+import { zIndex } from '@/shared/design/tokens/z-index';
 import { createTransition, duration } from '@/shared/design/tokens/transitions';
 
 export const HelpButtonRoot = styled(ButtonBase)((props) => ({

@@ -1,6 +1,6 @@
 import { Global, css } from '@emotion/react';
 
-import { useTheme } from './hooks/useTheme';
+import { useTheme } from './hooks/use-theme';
 import { createTransition, duration } from './tokens/transitions';
 import { defaultFontFamily } from './tokens/typography';
 

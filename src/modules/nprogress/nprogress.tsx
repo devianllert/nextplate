@@ -2,7 +2,7 @@ import * as React from 'react';
 import Router from 'next/router';
 import NProgress from 'nprogress';
 import { css, Global } from '@emotion/react';
-import { useTheme } from '@/shared/design/hooks/useTheme';
+import { useTheme } from '@/shared/design/hooks/use-theme';
 
 export interface NProgressRootProps {
   /**

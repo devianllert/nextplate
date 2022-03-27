@@ -8,7 +8,7 @@ import * as Text from '@/shared/components/system/text';
 import { Box } from '@/shared/components/layout/box';
 import { Input, InputAdornment } from '@/shared/components/system/input';
 import { Stack } from '@/shared/components/layout/stack';
-import { useBoolean } from '@/shared/hooks/useBoolean';
+import { useBoolean } from '@/shared/hooks/use-boolean';
 import { IconButton } from '@/shared/components/system/icon-button';
 import { PageSEO } from '@/shared/lib/meta/page-seo';
 import { AuthLayout } from '@/layouts/auth';

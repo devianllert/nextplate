@@ -2,7 +2,7 @@ import { Meta } from '@storybook/react';
 import { Grid } from 'theme-ui';
 import styled from '@emotion/styled';
 import * as Text from '@/shared/components/system/text';
-import { useTheme } from '../hooks/useTheme';
+import { useTheme } from '../hooks/use-theme';
 
 export default {
   title: 'Design/Palette',

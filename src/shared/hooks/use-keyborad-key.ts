@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { useCallbackRef } from './useCallbackRef';
+import { useCallbackRef } from './use-callback-ref';
 
 export interface UseKeyboardKeyOptions {
   event?: 'keydown' | 'keypress' | 'keyup';

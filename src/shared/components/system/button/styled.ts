@@ -6,7 +6,7 @@ import { variants } from '@/shared/design/tokens/typography';
 import shape from '@/shared/design/tokens/shape';
 import { createTransition, duration } from '@/shared/design/tokens/transitions';
 import shadows from '@/shared/design/tokens/shadows';
-import { getContrastText } from '@/shared/design/utils/colorManipulator';
+import { getContrastText } from '@/shared/design/utils/color-manipulator';
 
 interface ButtonRootProps {
   /**

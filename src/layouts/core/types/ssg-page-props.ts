@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/indent */
 import { MultiversalAppBootstrapPageProps } from '@/app/types/multiversal-app-bootstrap-page-props';
-import { MultiversalPageProps } from './MultiversalPageProps';
+import { MultiversalPageProps } from './multiversal-page-props';
 
 /**
  * Static properties returned by getStaticProps for static pages (using SSG)

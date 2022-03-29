@@ -5,8 +5,8 @@ import { Box } from '@/shared/components/layout/box';
 import * as Text from '@/shared/components/system/text';
 import { Container } from '@/shared/components/layout/container';
 
-import { ICONS_MAP } from '../constants/iconsMap';
-import { formatHourlyTime } from '../formatHourlyWeather';
+import { ICONS_MAP } from '../constants/icons-map';
+import { formatHourlyTime } from '../format-hourly-weather';
 import { WTTRWeatherHourlyCondition } from '../types/weather.interface';
 
 export interface WeatherHourlyListProps {

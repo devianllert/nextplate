@@ -19,12 +19,12 @@ import { Code } from '@/shared/components/system/code';
 import { AspectRatio } from '@/shared/components/system/aspect-ratio';
 import { useTheme } from '@/shared/design/hooks/use-theme';
 import { PageSEO } from '@/shared/lib/meta/page-seo';
-import { getTranslationsStaticProps } from '@/layouts/core/SSG';
+import { getTranslationsStaticProps } from '@/layouts/core/ssg';
 import { MainLayout } from '@/layouts/main';
-import { EnhancedNextPage } from '@/layouts/core/types/EnhancedNextPage';
-import { SSRPageProps } from '@/layouts/core/types/SSRPageProps';
-import { SSGPageProps } from '@/layouts/core/types/SSGPageProps';
-import { OnlyBrowserPageProps } from '@/layouts/core/types/OnlyBrowserPageProps';
+import { EnhancedNextPage } from '@/layouts/core/types/enhanced-next-page';
+import { SSRPageProps } from '@/layouts/core/types/ssr-page-props';
+import { SSGPageProps } from '@/layouts/core/types/ssg-page-props';
+import { OnlyBrowserPageProps } from '@/layouts/core/types/only-browser-page-props';
 
 const logger = createLogger('Index');
 

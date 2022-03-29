@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/indent */
 import { MultiversalAppBootstrapPageProps } from '@/app/types/multiversal-app-bootstrap-page-props';
-import { MultiversalPageProps } from './MultiversalPageProps';
-import { OnlyServerPageProps } from './OnlyServerPageProps';
+import { MultiversalPageProps } from './multiversal-page-props';
+import { OnlyServerPageProps } from './only-server-page-props';
 
 /**
  * Dynamic (server) properties returned by getInitialProps or getServerProps for server-side rendered pages (using SSR)

@@ -37,4 +37,4 @@ function renameDir(dir) {
     }
 }
 
-renameDir(path.join(__dirname, '/src/shared/lib'));
+renameDir(path.join(__dirname, '/src'));

@@ -10,10 +10,10 @@ import * as Text from '@/shared/components/system/text';
 import { Button } from '@/shared/components/system/button';
 import { Stack } from '@/shared/components/layout/stack';
 import { PageSEO } from '@/shared/lib/meta/page-seo';
-import { getTranslationsStaticProps } from '@/layouts/core/SSG';
-import { EnhancedNextPage } from '@/layouts/core/types/EnhancedNextPage';
-import { SoftPageProps } from '@/layouts/core/types/SoftPageProps';
-import { SSGPageProps } from '@/layouts/core/types/SSGPageProps';
+import { getTranslationsStaticProps } from '@/layouts/core/ssg';
+import { EnhancedNextPage } from '@/layouts/core/types/enhanced-next-page';
+import { SoftPageProps } from '@/layouts/core/types/soft-page-props';
+import { SSGPageProps } from '@/layouts/core/types/ssg-page-props';
 import { NotFoundLayout } from '@/layouts/404';
 
 const fileLabel = 'pages/404';

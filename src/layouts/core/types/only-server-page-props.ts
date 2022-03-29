@@ -1,6 +1,6 @@
 import { Cookies } from '@/shared/lib/cookies-manager/types/cookies';
 import { UserSemiPersistentSession } from '@/shared/lib/user-session/types/user-semi-persistent-session';
-import { PublicHeaders } from './PublicHeaders';
+import { PublicHeaders } from './public-headers';
 
 /**
  * Props only available on the server side, for all pages

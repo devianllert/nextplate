@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Story, Meta } from '@storybook/react';
 
-import { Todos } from '../Todos';
+import { Todos } from '../todos';
 
 export default {
   title: 'Components/Todos',

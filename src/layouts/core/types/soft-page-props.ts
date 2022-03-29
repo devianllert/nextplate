@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/ban-types */
-import { MultiversalPageProps } from './MultiversalPageProps';
-import { OnlyBrowserPageProps } from './OnlyBrowserPageProps';
-import { OnlyServerPageProps } from './OnlyServerPageProps';
+import { MultiversalPageProps } from './multiversal-page-props';
+import { OnlyBrowserPageProps } from './only-browser-page-props';
+import { OnlyServerPageProps } from './only-server-page-props';
 
 /**
  * Generic helper meant to be used in pages, when you don't want to use a strict typing

@@ -1,7 +1,7 @@
 import { Router } from 'next/router';
 
-import { EnhancedNextPage } from '@/layouts/core/types/EnhancedNextPage';
-import { MultiversalPageProps } from '@/layouts/core/types/MultiversalPageProps';
+import { EnhancedNextPage } from '@/layouts/core/types/enhanced-next-page';
+import { MultiversalPageProps } from '@/layouts/core/types/multiversal-page-props';
 
 /**
  * Props that are provided to the render function of the application (in _app)

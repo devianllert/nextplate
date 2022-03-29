@@ -1,7 +1,7 @@
 import * as React from 'react';
 
-import isBrowser from '@/shared/lib/isBrowser';
-import { managedEventListener } from '@/shared/lib/managedEventListener';
+import isBrowser from '@/shared/lib/is-browser';
+import { managedEventListener } from '@/shared/lib/managed-event-listener';
 
 /**
  * Tracks information about the network's availability.

@@ -1,5 +1,5 @@
 import httpMocks from 'node-mocks-http';
-import UniversalCookiesManager from './UniversalCookiesManager';
+import UniversalCookiesManager from './universal-cookies-manager';
 
 // TODO Couldn't mock server correctly in a way that is compatible with how "cookies" works
 //  Needs more tests (browser is properly tested, but not server)

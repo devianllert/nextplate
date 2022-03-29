@@ -1,10 +1,10 @@
 import * as React from 'react';
 
-import { managedEventListener } from '@/shared/lib/managedEventListener';
+import { managedEventListener } from '@/shared/lib/managed-event-listener';
 
-import { getNavigatorConnection, getNetworkInformation } from '../networkInformation';
+import { getNavigatorConnection, getNetworkInformation } from '../network-information';
 
-import { NetworkInformation } from '../types/NetworkInformation.interface';
+import { NetworkInformation } from '../types/network-information.interface';
 
 /**
  * Tracks information about the device's network connection.

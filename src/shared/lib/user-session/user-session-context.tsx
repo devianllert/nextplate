@@ -1,5 +1,5 @@
 import React from 'react';
-import { UserSemiPersistentSession } from './types/UserSemiPersistentSession';
+import { UserSemiPersistentSession } from './types/user-semi-persistent-session';
 
 /**
  * The UserSessionContext contains all UserSemiPersistentSession properties

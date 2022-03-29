@@ -4,7 +4,7 @@
 
 import * as React from 'react';
 import { screen } from '@testing-library/react';
-import { renderWithProviders } from '@/shared/lib/testing/renderWithProviders';
+import { renderWithProviders } from '@/shared/lib/testing/render-with-providers';
 
 import { Divider } from '../divider';
 

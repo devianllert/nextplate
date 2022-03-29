@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { ResponsiveValue } from 'styled-system';
 
-import { PolymorphicComponent } from '@/shared/lib/react/types/Polymorphic';
+import { PolymorphicComponent } from '@/shared/lib/react/types/polymorphic';
 
 import * as S from './styled';
 

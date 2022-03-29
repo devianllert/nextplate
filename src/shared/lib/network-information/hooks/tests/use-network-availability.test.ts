@@ -5,7 +5,7 @@
 import { fireEvent } from '@testing-library/react';
 import { act, renderHook } from '@testing-library/react-hooks';
 
-import { useNetworkAvailability } from '../useNetworkAvailability';
+import { useNetworkAvailability } from '../use-network-availability';
 
 describe('useNetworkAvailability', () => {
   it('should change network availability', () => {

@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import userSessionContext, { UserSessionContext } from './userSessionContext';
+import userSessionContext, { UserSessionContext } from './user-session-context';
 
 export type UserSession = UserSessionContext;
 

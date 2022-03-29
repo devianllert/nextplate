@@ -1,4 +1,4 @@
-import { NextWebVitalsMetrics } from './NextWebVitalsMetrics';
+import { NextWebVitalsMetrics } from './next-web-vitals-metrics';
 
 /**
  * Group all vital metrics together, using their own "name" property as key.

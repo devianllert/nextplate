@@ -7,7 +7,7 @@ import { screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 import { InputBase } from '../input-base';
-import { renderWithProviders } from '@/shared/lib/testing/renderWithProviders';
+import { renderWithProviders } from '@/shared/lib/testing/render-with-providers';
 
 describe('<BaseInput />', () => {
   it('should render an <input /> inside the div', () => {

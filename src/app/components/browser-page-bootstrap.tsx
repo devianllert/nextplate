@@ -1,10 +1,10 @@
 import * as React from 'react';
 import { useTranslation } from 'next-i18next';
 
-import UniversalCookiesManager from '@/shared/lib/cookiesManager/UniversalCookiesManager';
+import UniversalCookiesManager from '@/shared/lib/cookies-manager/universal-cookies-manager';
 import { createLogger } from '@/shared/lib/logging/logger';
-import { UserSemiPersistentSession } from '@/shared/lib/userSession/types/UserSemiPersistentSession';
-import userSessionContext from '@/shared/lib/userSession/userSessionContext';
+import { UserSemiPersistentSession } from '@/shared/lib/user-session/types/user-semi-persistent-session';
+import userSessionContext from '@/shared/lib/user-session/user-session-context';
 import { OnlyBrowserPageProps } from '@/layouts/core/types/OnlyBrowserPageProps';
 import { MultiversalPageProps } from '@/layouts/core/types/MultiversalPageProps';
 import { MultiversalAppBootstrapPageProps } from '../types/multiversal-app-bootstrap-page-props';

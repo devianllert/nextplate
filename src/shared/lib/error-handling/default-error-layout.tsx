@@ -1,6 +1,6 @@
 import * as React from 'react';
-import { GenericObject } from '../data/types/GenericObject';
-import ErrorDebug from './ErrorDebug';
+import { GenericObject } from '../data/types/generic-object';
+import ErrorDebug from './error-debug';
 
 export interface DefaultErrorLayoutProps {
   error: Error;

@@ -1,7 +1,7 @@
 /* eslint-disable prefer-arrow-callback */
 import * as React from 'react';
 
-import { PolymorphicComponent } from '@/shared/lib/react/types/Polymorphic';
+import { PolymorphicComponent } from '@/shared/lib/react/types/polymorphic';
 
 import { ButtonBaseProps } from '../button-base';
 

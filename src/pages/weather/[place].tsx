@@ -5,7 +5,7 @@ import { useRouter } from 'next/router';
 import { QueryClient, useQuery } from 'react-query';
 import { dehydrate } from 'react-query/hydration';
 
-import { serializeSafe } from '@/shared/lib/serializeSafe/serializeSafe';
+import { serializeSafe } from '@/shared/lib/serialize-safe/serialize-safe';
 import { createLogger } from '@/shared/lib/logging/logger';
 import * as Text from '@/shared/components/system/text';
 import { Box } from '@/shared/components/layout/box';

@@ -15,7 +15,7 @@ import {
   overlines,
   captions,
 } from '@/shared/design/tokens/typography';
-import { shouldForwardProp } from '@/shared/lib/css-in-js/shouldForwardProp';
+import { shouldForwardProp } from '@/shared/lib/css-in-js/should-forward-prop';
 import { SxProp, sx } from '@/shared/lib/css-in-js/sx';
 
 export type TypoVariants = keyof typeof variants;

@@ -1,5 +1,5 @@
 import { NextApiRequest } from 'next';
-import { GenericObject } from '../lib/data/types/GenericObject';
+import { GenericObject } from '../lib/data/types/generic-object';
 
 /**
  * Parse the request body if it's a string, or return the body as-it if it's not.

@@ -54,8 +54,6 @@ const SentryWebpackPluginOptions = {
   //  See https://github.com/getsentry/sentry-docs/issues/3721
 
   debug: process.env.NODE_ENV === 'development',
-  // Don't upload source maps during dev (doesn't work anyway)
-  dryRun: process.env.NODE_ENV === 'development',
   silent: true,
 };
 

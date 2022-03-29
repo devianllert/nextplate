@@ -1,7 +1,7 @@
-import isBrowser from '@/shared/lib/isBrowser';
+import isBrowser from '@/shared/lib/is-browser';
 import { ExtendedNavigator } from './types/navigator.interface';
 
-import { NetworkConnectionType, NetworkInformation, NetworkInformationSpeed } from './types/NetworkInformation.interface';
+import { NetworkConnectionType, NetworkInformation, NetworkInformationSpeed } from './types/network-information.interface';
 
 /**
  * Returns information about the device's network connection.

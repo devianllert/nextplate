@@ -2,10 +2,10 @@ import { IncomingMessage } from 'http';
 import { GetServerSideProps, GetServerSidePropsResult } from 'next';
 import NextCookies from 'next-cookies';
 
-import UniversalCookiesManager from '@/shared/lib/cookiesManager/UniversalCookiesManager';
-import { UserSemiPersistentSession } from '@/shared/lib/userSession/types/UserSemiPersistentSession';
-import { Cookies } from '@/shared/lib/cookiesManager/types/Cookies';
-import serializeSafe from '@/shared/lib/serializeSafe/serializeSafe';
+import UniversalCookiesManager from '@/shared/lib/cookies-manager/universal-cookies-manager';
+import { UserSemiPersistentSession } from '@/shared/lib/user-session/types/user-semi-persistent-session';
+import { Cookies } from '@/shared/lib/cookies-manager/types/cookies';
+import serializeSafe from '@/shared/lib/serialize-safe/serialize-safe';
 import { CommonServerSideParams } from '@/app/types/common-server-side-params';
 import { PublicHeaders } from './types/PublicHeaders';
 import { SSRPageProps } from './types/SSRPageProps';

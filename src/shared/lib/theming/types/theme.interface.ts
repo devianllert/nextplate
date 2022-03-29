@@ -17,7 +17,7 @@ import {
   grayA,
 } from '@radix-ui/colors';
 
-import { Flatten } from '@/shared/lib/flattenObject';
+import { Flatten } from '@/shared/lib/flatten-object';
 
 import {
   PaletteBackground,

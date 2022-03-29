@@ -1,4 +1,4 @@
-import { GenericObject } from '@/shared/lib/data/types/GenericObject';
+import { GenericObject } from '@/shared/lib/data/types/generic-object';
 
 /**
  * Gets the value at path of object.

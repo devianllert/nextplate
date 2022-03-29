@@ -68,7 +68,7 @@ const MultiversalPageEntryPoint = (props: MultiversalPageEntryPointProps): JSX.E
  * @see https://web.dev/vitals/ Essential metrics for a healthy site
  * @see https://nextjs.org/blog/next-9-4#integrated-web-vitals-reporting Initial release notes
  */
-export { reportWebVitals } from '@/shared/lib/webVitals/reportWebVitals';
+export { reportWebVitals } from '@/shared/lib/web-vitals/report-web-vitals';
 
 /**
  * XXX We have disabled the use of getInitialProps by default, because it's what's recommended since v9.3,

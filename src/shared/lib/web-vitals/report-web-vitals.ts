@@ -1,7 +1,7 @@
 // XXX Use v1 for uniqueness - See https://www.sohamkamani.com/blog/2016/10/05/uuid1-vs-uuid4/
 import { v1 as uuid } from 'uuid';
-import { NextWebVitalsMetrics } from './types/NextWebVitalsMetrics';
-import { NextWebVitalsMetricsReport } from './types/NextWebVitalsMetricsReport';
+import { NextWebVitalsMetrics } from './types/next-web-vitals-metrics';
+import { NextWebVitalsMetricsReport } from './types/next-web-vitals-metrics-report';
 
 /**
  * Global variable meant to keep all metrics together, until there are enough to send them in batch as a single report

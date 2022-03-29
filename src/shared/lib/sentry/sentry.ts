@@ -1,11 +1,11 @@
 import { NextApiRequest } from 'next';
 import * as Sentry from '@sentry/nextjs';
 
-import isBrowser from '@/shared/lib/isBrowser';
+import isBrowser from '@/shared/lib/is-browser';
 import { convertRequestBodyToJSObject } from '@/shared/api';
 
-import { UserSession } from '../userSession/useUserSession';
-import { GenericObject } from '../data/types/GenericObject';
+import { UserSession } from '../user-session/use-user-session';
+import { GenericObject } from '../data/types/generic-object';
 import { createLogger } from '../logging/logger';
 
 const logger = createLogger('modules/sentry/sentry.ts');

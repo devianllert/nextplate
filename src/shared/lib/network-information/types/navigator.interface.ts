@@ -1,4 +1,4 @@
-import { NetworkInformation } from './NetworkInformation.interface';
+import { NetworkInformation } from './network-information.interface';
 
 export interface ExtendedNavigator extends Omit<Navigator['connection'], 'connection'> {
   connection: NetworkInformation;

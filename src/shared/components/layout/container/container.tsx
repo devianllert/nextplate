@@ -2,7 +2,7 @@
 import * as React from 'react';
 
 import { Breakpoint } from '@/shared/design/media';
-import { PolymorphicComponent } from '@/shared/lib/react/types/Polymorphic';
+import { PolymorphicComponent } from '@/shared/lib/react/types/polymorphic';
 
 import * as S from './styled';
 

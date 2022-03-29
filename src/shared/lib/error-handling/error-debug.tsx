@@ -1,4 +1,4 @@
-import { GenericObject } from '../data/types/GenericObject';
+import { GenericObject } from '../data/types/generic-object';
 
 export interface ErrorDebugProps {
   error?: Error;

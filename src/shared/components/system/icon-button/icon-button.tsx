@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { PolymorphicComponent } from '@/shared/lib/react/types/Polymorphic';
+import { PolymorphicComponent } from '@/shared/lib/react/types/polymorphic';
 import { ButtonBaseProps } from '@/shared/components/system/button-base';
 import { VisuallyHidden } from '@/shared/components/system/visually-hidden';
 

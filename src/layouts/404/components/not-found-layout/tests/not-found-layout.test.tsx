@@ -7,7 +7,7 @@ import { screen } from '@testing-library/react';
 
 import { NotFoundLayout } from '../not-found-layout';
 
-import { renderWithProviders } from '@/shared/lib/testing/renderWithProviders';
+import { renderWithProviders } from '@/shared/lib/testing/render-with-providers';
 
 describe('<NotFoundLayout />', () => {
   const children: ReactChild = 'NotFound404Layout';

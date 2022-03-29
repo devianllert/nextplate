@@ -6,7 +6,7 @@ import * as React from 'react';
 import { screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
-import { renderWithProviders } from '@/shared/lib/testing/renderWithProviders';
+import { renderWithProviders } from '@/shared/lib/testing/render-with-providers';
 
 import { Input } from '../input';
 

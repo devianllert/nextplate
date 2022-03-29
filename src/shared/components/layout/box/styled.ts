@@ -22,9 +22,9 @@ import {
 } from 'styled-system';
 
 import { transform, TransformProps } from '@/shared/lib/css-in-js/transform';
-import { shouldForwardProp } from '@/shared/lib/css-in-js/shouldForwardProp';
+import { shouldForwardProp } from '@/shared/lib/css-in-js/should-forward-prop';
 import { FlattenedColorKeys } from '@/shared/lib/theming/types/theme.interface';
-import { LiteralUnion } from '@/shared/lib/js/types/LiteralUnion';
+import { LiteralUnion } from '@/shared/lib/js/types/literal-union';
 
 export type BoxType =
   & SpaceProps

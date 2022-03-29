@@ -8,8 +8,8 @@ import { Hydrate } from 'react-query/hydration';
 import { ReactQueryDevtools } from 'react-query/devtools';
 
 import { configureSentryI18n } from '@/shared/lib/sentry/sentry';
-import isBrowser from '@/shared/lib/isBrowser';
-import DefaultErrorLayout from '@/shared/lib/errorHandling/DefaultErrorLayout';
+import isBrowser from '@/shared/lib/is-browser';
+import DefaultErrorLayout from '@/shared/lib/error-handling/default-error-layout';
 import { GlobalStyles } from '@/shared/design/global-styles';
 import { ResetStyles } from '@/shared/design/reset-styles';
 import { theme } from '@/shared/design/themes';

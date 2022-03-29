@@ -1,5 +1,5 @@
-import { Cookies } from '@/shared/lib/cookiesManager/types/Cookies';
-import { UserSemiPersistentSession } from '@/shared/lib/userSession/types/UserSemiPersistentSession';
+import { Cookies } from '@/shared/lib/cookies-manager/types/cookies';
+import { UserSemiPersistentSession } from '@/shared/lib/user-session/types/user-semi-persistent-session';
 import { PublicHeaders } from './PublicHeaders';
 
 /**

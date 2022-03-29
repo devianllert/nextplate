@@ -1,4 +1,4 @@
-import { groupBy } from '../groupBy';
+import { groupBy } from '../group-by';
 
 describe('groupBy', () => {
   it('groups by given value', () => {

@@ -4,7 +4,7 @@
 
 import React from 'react';
 
-import { renderWithProviders } from '@/shared/lib/testing/renderWithProviders';
+import { renderWithProviders } from '@/shared/lib/testing/render-with-providers';
 
 import * as Text from '../../../system/text';
 

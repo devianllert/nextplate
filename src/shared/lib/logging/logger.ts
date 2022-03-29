@@ -1,6 +1,6 @@
-import isBrowser from '@/shared/lib/isBrowser';
+import isBrowser from '@/shared/lib/is-browser';
 
-import { createLogger as createConsoleLogger, Logger } from './createLogger';
+import { createLogger as createConsoleLogger, Logger } from './create-logger';
 
 /**
  * Custom logger proxy.

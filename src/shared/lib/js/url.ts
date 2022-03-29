@@ -1,9 +1,9 @@
 import * as Sentry from '@sentry/nextjs';
 import StringifySafe from 'json-stringify-safe';
 
-import isBrowser from '@/shared/lib/isBrowser';
+import isBrowser from '@/shared/lib/is-browser';
 
-import { GenericObject } from '../data/types/GenericObject';
+import { GenericObject } from '../data/types/generic-object';
 
 /**
  * Converts a JSON object into a string that is url-friendly.

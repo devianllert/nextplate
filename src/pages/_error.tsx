@@ -62,7 +62,7 @@ const ErrorPage = (props: ErrorPageProps): JSX.Element => {
 
   // TODO rename to "forceLogTopLevelError" = true and provide false in "DefaultErrorLayout"
   if (!isReadyToRender && err) {
-    // XXX getInitialProps is not called for top-level errors - See https://github.com/vercel/next.js/issues/8592
+    // Note: getInitialProps is not called for top-level errors - See https://github.com/vercel/next.js/issues/8592
     // As a workaround, we pass err via _app and src/app/MultiversalAppBootstrap.tsx so it can be captured
     Sentry.captureException(err);
   }
@@ -113,7 +113,7 @@ ErrorPage.getInitialProps = async (props: NextPageContext): Promise<ErrorProps> 
     // Next.js will pass an err on the server if a page's `getInitialProps`
     // threw or returned a Promise that rejected
 
-    // XXX Opinionated: Record an exception in Sentry for 404, if you don't want this then uncomment the below code
+    // Note: Opinionated: Record an exception in Sentry for 404, if you don't want this then uncomment the below code
     // if (res.statusCode === 404) {
     //   return { statusCode: 404, isReadyToRender: true };
     // }

@@ -1,7 +1,7 @@
 import ServerCookies, { GetOption, SetOption } from 'cookies';
 import { IncomingMessage, ServerResponse } from 'http';
 import BrowserCookies, { CookieAttributes } from 'js-cookie';
-import { v1 as uuid } from 'uuid'; // XXX Use v1 for uniqueness - See https://www.sohamkamani.com/blog/2016/10/05/uuid1-vs-uuid4/
+import { v1 as uuid } from 'uuid'; // Note: Use v1 for uniqueness - See https://www.sohamkamani.com/blog/2016/10/05/uuid1-vs-uuid4/
 import addYears from 'date-fns/addYears';
 import isBrowser from '@/shared/lib/is-browser';
 
@@ -21,7 +21,7 @@ const COOKIE_LOOKUP_KEY_LANG = 'i18next';
  * Switches between BrowserCookies and ServerCookies depending on the runtime engine
  * Those two APIs being different (different projects), it deals with those differences, so that they're hidden away when using the helper
  *
- * XXX Do not try to pass down an instance of UniversalCookiesManager to Next.js "pageProps", or it'll throw a circular dependencies
+ * Note: Do not try to pass down an instance of UniversalCookiesManager to Next.js "pageProps", or it'll throw a circular dependencies
  *  Instead, better instantiate a new UniversalCookiesManager when needed (without req/res if outside of "getInitialProps")
  */
 export default class UniversalCookiesManager {
@@ -69,7 +69,7 @@ export default class UniversalCookiesManager {
   ): void {
     try {
       if (isBrowser()) {
-        // XXX By default, "js-cookies" apply a "percent encoding" when writing data, which isn't compatible with the "cookies" lib
+        // Note: By default, "js-cookies" apply a "percent encoding" when writing data, which isn't compatible with the "cookies" lib
         //  We therefore override this behaviour because we need to write proper JSON
         //  See https://github.com/js-cookie/js-cookie#encoding
         const browserCookies = BrowserCookies.withConverter({
@@ -101,7 +101,7 @@ export default class UniversalCookiesManager {
   initUserData(): UserSemiPersistentSession {
     const deviceId: string = uuid();
     const userData: UserSemiPersistentSession = {
-      id: deviceId, // XXX For now, the device id is used as user id too, because we have no way of uniquely identifying users
+      id: deviceId, // Note: For now, the device id is used as user id too, because we have no way of uniquely identifying users
       deviceId,
     };
 
@@ -130,7 +130,7 @@ export default class UniversalCookiesManager {
 
       // If running on the server side but req or res aren't set, then we should have access to readonlyCookies provided through the _app:getInitialProps
       // Otherwise, it means that's we're trying to read our cookies through SSR but have no way of reading them, which will cause a odd behaviour
-      // XXX To avoid this issue, the easiest way is to provide readonlyCookies through the constructor, so that we can read cookies from server side
+      // Note: To avoid this issue, the easiest way is to provide readonlyCookies through the constructor, so that we can read cookies from server side
       if (this.req && this.res) {
         rawUserData = serverCookies.get(USER_LS_KEY, serverOptions);
       } else if (this.readonlyCookies) {
@@ -229,7 +229,7 @@ export default class UniversalCookiesManager {
 
       // If running on the server side but req or res aren't set, then we should have access to readonlyCookies provided through the _app:getInitialProps
       // Otherwise, it means that's we're trying to read our cookies through SSR but have no way of reading them, which will cause a odd behaviour
-      // XXX To avoid this issue, the easiest way is to provide readonlyCookies through the constructor, so that we can read cookies from server side
+      // Note: To avoid this issue, the easiest way is to provide readonlyCookies through the constructor, so that we can read cookies from server side
       if (this.req && this.res) {
         data = serverCookies.get(name, serverOptions);
       } else if (this.readonlyCookies) {

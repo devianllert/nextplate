@@ -20,7 +20,7 @@ export interface DisplayOnBrowserMountProps {
  *  - If you use SSG, you won't have access to the cookie's value until the browser renders the page, so you want to render "null" and then trigger a re-render to display the actual value
  *
  *
- * XXX Use this helper to avoid rendering small UI (presentational) components that depend on browser-related data (e.g: localStorage, cookie, session-related data, etc.)
+ * Note: Use this helper to avoid rendering small UI (presentational) components that depend on browser-related data (e.g: localStorage, cookie, session-related data, etc.)
  *  Do not use this helper to avoid rendering big react Providers, or components who define big part of your UI layout
  *
  * When a React app rehydrates, it assumes that the DOM structure will match.

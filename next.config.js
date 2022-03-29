@@ -50,7 +50,7 @@ const SentryWebpackPluginOptions = {
   // For all available options, see:
   // https://github.com/getsentry/sentry-webpack-plugin#options.
 
-  // XXX The error "Error: Cannot find module '/.next/server/sentry/initServerSDK.js'" in the console is a false-positive error
+  // Note: The error "Error: Cannot find module '/.next/server/sentry/initServerSDK.js'" in the console is a false-positive error
   //  See https://github.com/getsentry/sentry-docs/issues/3721
 
   debug: process.env.NODE_ENV === 'development',
@@ -63,7 +63,7 @@ const SentryWebpackPluginOptions = {
  * The below config applies to the whole application.
  * next.config.js gets used by the Next.js server and build phases, and it's not included in the browser build.
  *
- * XXX Not all configuration options are listed below, we only kept those of most interest.
+ * Note: Not all configuration options are listed below, we only kept those of most interest.
  *  You'll need to dive into Next.js own documentation to find out about what's not included.
  *  Basically, we focused on options that seemed important for a SSG/SSR app running on serverless mode (Vercel).
  *  Also, we included some options by are not using them, this is mostly to help make you aware of those options, in case you'd need them.
@@ -193,7 +193,7 @@ module.exports = withSentryConfig(
               {
                 key: 'Referrer-Policy',
                 // "no-referrer-when-downgrade" is the default behaviour
-                // XXX You might want to restrict even more the referrer policy
+                // Note: You might want to restrict even more the referrer policy
                 value: 'no-referrer-when-downgrade',
               },
             ],
@@ -351,7 +351,7 @@ module.exports = withSentryConfig(
        * This can cause problems in multi-server deployments when next build is ran on every server.
        * In order to keep a static build id between builds you can provide your own build id.
        *
-       * XXX We documented this function in case you might want to use it, but we aren't using it.
+       * Note: We documented this function in case you might want to use it, but we aren't using it.
        *
        * @see https://nextjs.org/docs/api-reference/next.config.js/configuring-the-build-id
        */
@@ -363,7 +363,7 @@ module.exports = withSentryConfig(
       /**
        * Next.js exposes some options that give you some control over how the server will dispose or keep in memory built pages in development.
        *
-       * XXX We documented this function in case you might want to use it, but we aren't using it.
+       * Note: We documented this function in case you might want to use it, but we aren't using it.
        *
        * @see https://nextjs.org/docs/api-reference/next.config.js/configuring-onDemandEntries
        */

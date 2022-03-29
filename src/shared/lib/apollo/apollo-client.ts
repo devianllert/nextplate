@@ -28,7 +28,7 @@ function createApolloClient(): ApolloClient<NormalizedCacheObject> {
     headers: {
       authorization: `Bearer ${process.env.GRAPHQL_API_KEY}`,
     },
-    credentials: 'same-origin', // XXX See https://www.apollographql.com/docs/react/recipes/authentication#cookie
+    credentials: 'same-origin', // Note: See https://www.apollographql.com/docs/react/recipes/authentication#cookie
   });
 
   return new ApolloClient({

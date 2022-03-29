@@ -11,7 +11,7 @@ module.exports = {
    * Map our module path aliases, so that Jest can understand modules loaded using "@/shared" and load the proper file.
    * Required, or Jest will fail to import dependencies from tests.
    *
-   * XXX The below list must match `tsconfig.json:compilerOptions.paths`, so the Next.js app and Jest resolve all aliases the same way.
+   * Note: The below list must match `tsconfig.json:compilerOptions.paths`, so the Next.js app and Jest resolve all aliases the same way.
    *
    * @see https://nextjs.org/docs/advanced-features/module-path-aliases
    * @see https://github.com/ilearnio/module-alias/issues/46#issuecomment-546154015

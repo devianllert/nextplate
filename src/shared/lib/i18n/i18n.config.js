@@ -1,5 +1,5 @@
 /*
-  XXX This file is loaded by "next.config.js" and cannot contain ES6+ code (import, etc.)
+  Note: This file is loaded by "next.config.js" and cannot contain ES6+ code (import, etc.)
   Note that any change should/must be followed by a server restart, because it's used in "next.config.js"
  */
 

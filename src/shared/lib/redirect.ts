@@ -7,7 +7,7 @@ import { NextApiResponse } from 'next';
  *  - Code: 302
  *  - Typical use case: "The Web page is temporarily unavailable for unforeseen reasons."
  *
- * XXX If you don't want to perform the redirection, use a non 3XX status code (e.g: 200)
+ * Note: If you don't want to perform the redirection, use a non 3XX status code (e.g: 200)
  *  Useful to disable a redirection conditionally.
  *
  * @param res

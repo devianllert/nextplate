@@ -169,7 +169,7 @@ module.exports = {
            * Map our module path aliases, so that Storybook can understand modules loaded using "@/shared" and load the proper file.
            * Required, or Storybook will fail to import dependencies from Stories.
            *
-           * XXX The below list must match `tsconfig.json:compilerOptions.paths`, so the Next.js app and Storybook resolve all aliases the same way.
+           * Note: The below list must match `tsconfig.json:compilerOptions.paths`, so the Next.js app and Storybook resolve all aliases the same way.
            *  The paths mapping must also match the `jsconfig.json:compilerOptions.paths` file, which is necessary for WebStorm to understand them for .js files.
            *
            * @see https://nextjs.org/docs/advanced-features/module-path-aliases

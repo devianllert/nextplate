@@ -18,7 +18,7 @@ export type MultiversalAppBootstrapProps<PP extends MultiversalPageProps = Multi
   pageProps: PP; // Props forwarded to the Page component
   router: Router;
 
-  // XXX Next.js internals (unstable API) - See https://github.com/vercel/next.js/discussions/12558#discussioncomment-9177
+  // Note: Next.js internals (unstable API) - See https://github.com/vercel/next.js/discussions/12558#discussioncomment-9177
   __N_SSG?: boolean; // Stands for "server-side generated" or "static site generation", indicates the page was generated through getStaticProps
   __N_SSR?: boolean; // Stands for "server-side rendering", indicates the page was generated through getServerSideProps
   __N_SSP?: boolean; // Stands for "server-side props"

@@ -1,4 +1,4 @@
-// XXX Use v1 for uniqueness - See https://www.sohamkamani.com/blog/2016/10/05/uuid1-vs-uuid4/
+// Note: Use v1 for uniqueness - See https://www.sohamkamani.com/blog/2016/10/05/uuid1-vs-uuid4/
 import { v1 as uuid } from 'uuid';
 import { NextWebVitalsMetrics } from './types/next-web-vitals-metrics';
 import { NextWebVitalsMetricsReport } from './types/next-web-vitals-metrics-report';

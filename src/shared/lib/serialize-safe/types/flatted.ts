@@ -21,6 +21,6 @@
  * @property ParsedType Useful for documentation purpose, doesn't do anything.
  *  Helps indicate what the type of the data will be, once parsed.
  *
- * XXX Flatted is supposed to provide its own TS typings, but I couldn't figure out how to use them.
+ * Note: Flatted is supposed to provide its own TS typings, but I couldn't figure out how to use them.
  */
 export type Flatted<ParsedType = any> = string;

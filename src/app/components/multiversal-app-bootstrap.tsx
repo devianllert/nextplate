@@ -98,10 +98,10 @@ const MultiversalAppBootstrap = (props: Props): JSX.Element => {
    *
    * So, the BrowserPageBootstrap does browser-related stuff and then call the PageBootstrap which takes care of stuff that is universal (identical between browser and server)
    *
-   * XXX If you're concerned regarding React rehydration, read our talk with Josh, author of https://joshwcomeau.com/react/the-perils-of-rehydration/
+   * Note: If you're concerned regarding React rehydration, read our talk with Josh, author of https://joshwcomeau.com/react/the-perils-of-rehydration/
    *  https://twitter.com/Vadorequest/status/1257658553361408002
    *
-   * XXX There may be more rendering modes - See https://github.com/vercel/next.js/discussions/12558#discussioncomment-12303
+   * Note: There may be more rendering modes - See https://github.com/vercel/next.js/discussions/12558#discussioncomment-12303
    */
   const multiversalPageBootstrapProps: ServerPageBootstrapProps & BrowserPageBootstrapProps = {
     ...props,

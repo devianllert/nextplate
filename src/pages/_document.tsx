@@ -12,7 +12,7 @@ import { mediaStyles } from '@/shared/lib/css-in-js/responsive';
 import { getCommonMetaTags } from '@/shared/lib/meta/meta';
 
 /**
- * XXX Is only rendered on the server side and not on the client side
+ * Note: Is only rendered on the server side and not on the client side
  *
  * Used to inject <html lang=""> tag
  *

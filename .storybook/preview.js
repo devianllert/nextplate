@@ -19,7 +19,7 @@ import { theme } from '@/shared/design/themes';
  * Parameters are a set of static, named metadata about a story, typically used to control the behavior of Storybook features and addons.
  * Parameters are applied at the top-level and act as default values.
  *
- * XXX They can be overridden per component and per story.
+ * Note: They can be overridden per component and per story.
  *  See https://storybook.js.org/docs/react/writing-stories/parameters#rules-of-parameter-inheritance
  *
  * @see https://storybook.js.org/docs/react/writing-stories/parameters Parameters documentation

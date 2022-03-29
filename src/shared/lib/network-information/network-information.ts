@@ -6,7 +6,7 @@ import { NetworkConnectionType, NetworkInformation, NetworkInformationSpeed } fr
 /**
  * Returns information about the device's network connection.
  *
- * XXX You should check JS environment by yourself or use `getNetworkInformation` function.
+ * Note: You should check JS environment by yourself or use `getNetworkInformation` function.
  */
 export const getNavigatorConnection = (): NetworkInformation | undefined => {
   return (navigator as unknown as ExtendedNavigator)?.connection
@@ -41,7 +41,7 @@ export const getNetworkAvailability = (): boolean => {
  *
  * Meant to be used outside of React components.
  *
- * XXX If you want to use this in a React component and react to network changes, you should rather use the `useNetworkInformation`
+ * Note: If you want to use this in a React component and react to network changes, you should rather use the `useNetworkInformation`
  *
  * @see https://developer.mozilla.org/en-US/docs/Web/API/NetworkInformation/effectiveType
  */
@@ -62,7 +62,7 @@ export const getNetworkInformationSpeed = (): NetworkInformationSpeed => {
  *
  * Meant to be used outside of React components.
  *
- * XXX If you want to use this in a React component and react to network changes, you should rather use the `useNetworkInformation`.
+ * Note: If you want to use this in a React component and react to network changes, you should rather use the `useNetworkInformation`.
  *
  * @see https://developer.mozilla.org/en-US/docs/Web/API/NetworkInformation/type
  */

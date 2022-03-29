@@ -35,7 +35,7 @@ type MultiversalPageEntryPointProps = MultiversalAppBootstrapProps<SSGPageProps>
  *  - During a server side request (no access to browser data (localstorage, browser cookies)
  *  - During a client side request (no access to server data (server cookies, HTTP headers)
  *
- * XXX It's easy to get lost. The term of "Multiversal" is used to make it obvious that a particular piece of code runs in any situation.
+ * Note: It's easy to get lost. The term of "Multiversal" is used to make it obvious that a particular piece of code runs in any situation.
  *
  * @see https://nextjs.org/docs/advanced-features/custom-app Custom _app
  * @see https://nextjs.org/docs/basic-features/typescript#custom-app TypeScript for _app
@@ -49,7 +49,7 @@ type MultiversalPageEntryPointProps = MultiversalAppBootstrapProps<SSGPageProps>
  * All props returned by "getInitialProps", "getServerSideProps" or "getStaticProps" are available in "props.pageProps".
  * The "Component" prop within "props.pageProps" contains the page that is being rendered.
  *
- * XXX Multiversal - Executed in any case
+ * Note: Multiversal - Executed in any case
  *  req, res are NOT accessible here
  *
  * @return {JSX.Element}
@@ -71,7 +71,7 @@ const MultiversalPageEntryPoint = (props: MultiversalPageEntryPointProps): JSX.E
 export { reportWebVitals } from '@/shared/lib/web-vitals/report-web-vitals';
 
 /**
- * XXX We have disabled the use of getInitialProps by default, because it's what's recommended since v9.3,
+ * Note: We have disabled the use of getInitialProps by default, because it's what's recommended since v9.3,
  * feel free to use it if needed, but beware you'll opt-out of automated static optimization for all pages by doing so.
  *
  * By default, all pages will be served statically (using automated static optimization)

@@ -4,7 +4,7 @@ import { UserSemiPersistentSession } from './types/user-semi-persistent-session'
 /**
  * The UserSessionContext contains all UserSemiPersistentSession properties
  *
- * XXX "Partial" copies all properties from UserSemiPersistentSession and make them all optional
+ * Note: "Partial" copies all properties from UserSemiPersistentSession and make them all optional
  *
  * @see https://stackoverflow.com/a/40076355/2391795
  * @see https://github.com/Microsoft/TypeScript/blob/ee25cdecbca49b2b5a290ecd65224f425b1d6a9c/lib/lib.es5.d.ts#L1354

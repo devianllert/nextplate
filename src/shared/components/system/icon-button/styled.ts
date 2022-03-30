@@ -3,7 +3,7 @@ import styled from '@emotion/styled';
 import { ButtonBase, ButtonBaseProps } from '@/shared/components/system/button-base';
 import { createTransition, duration } from '@/shared/design/tokens/transitions';
 import shape from '@/shared/design/tokens/shape';
-import { getContrastText } from '@/shared/design/utils/color-manipulator';
+import { getContrastText } from '@/shared/design/lib/color-manipulator';
 
 interface IconButtonRootProps extends ButtonBaseProps {
   edge?: 'end' | 'start' | false;

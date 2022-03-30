@@ -16,7 +16,7 @@ import {
   slateDark,
   whiteA,
 } from '@radix-ui/colors';
-import { transformColorScale } from '../../utils/transform-color-scale';
+import { transformColorScale } from '../../lib/transform-color-scale';
 
 const darkColors = {
   text: {

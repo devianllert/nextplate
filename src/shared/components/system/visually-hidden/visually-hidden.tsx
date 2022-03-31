@@ -1,7 +1,7 @@
 /* eslint-disable prefer-arrow-callback */
 import * as React from 'react';
 
-import { PolymorphicComponent } from '@/shared/lib/react/types/polymorphic';
+import { PolymorphicComponent } from '@/shared/types/polymorphic';
 
 /**
  * The `VisuallyHidden` component is used to provide text for screen readers that is visually hidden.

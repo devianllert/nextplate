@@ -9,7 +9,7 @@ import { serializeSafe } from '@/shared/lib/serialize-safe/serialize-safe';
 import { createLogger } from '@/shared/lib/logging/logger';
 import * as Text from '@/shared/components/system/text';
 import { Box } from '@/shared/components/layout/box';
-import { REACT_QUERY_STATE_PROP_NAME } from '@/shared/lib/rquery/react-query';
+import { REACT_QUERY_STATE_PROP_NAME } from '@/shared/types/react-query';
 import { Container } from '@/shared/components/layout/container';
 import { PageSEO } from '@/shared/lib/meta/page-seo';
 import { OnlyBrowserPageProps } from '@/layouts/core/types/only-browser-page-props';

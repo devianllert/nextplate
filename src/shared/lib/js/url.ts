@@ -3,7 +3,7 @@ import StringifySafe from 'json-stringify-safe';
 
 import isBrowser from '@/shared/lib/is-browser';
 
-import { GenericObject } from '../data/types/generic-object';
+import { GenericObject } from '../../types/generic-object';
 
 /**
  * Converts a JSON object into a string that is url-friendly.

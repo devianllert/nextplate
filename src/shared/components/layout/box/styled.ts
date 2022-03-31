@@ -24,7 +24,7 @@ import {
 import { transform, TransformProps } from '@/shared/lib/css-in-js/transform';
 import { shouldForwardProp } from '@/shared/lib/css-in-js/should-forward-prop';
 import { FlattenedColorKeys } from '@/shared/lib/theming/types/theme.interface';
-import { LiteralUnion } from '@/shared/lib/js/types/literal-union';
+import { LiteralUnion } from '@/shared/types/literal-union';
 
 export type BoxType =
   & SpaceProps

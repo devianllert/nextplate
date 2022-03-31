@@ -14,7 +14,7 @@ import { GlobalStyles } from '@/shared/design/global-styles';
 import { ResetStyles } from '@/shared/design/reset-styles';
 import { theme } from '@/shared/design/themes';
 import { createLogger } from '@/shared/lib/logging/logger';
-import { REACT_QUERY_STATE_PROP_NAME } from '@/shared/lib/rquery/react-query';
+import { REACT_QUERY_STATE_PROP_NAME } from '@/shared/types/react-query';
 import { NProgressRoot } from '@/modules/nprogress';
 import { isEmpty } from '@/shared/lib/js/assertion';
 import { MediaContextProvider } from '@/shared/lib/css-in-js/responsive';

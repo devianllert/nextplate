@@ -1,7 +1,7 @@
 import * as React from 'react';
 import styled from '@emotion/styled';
 
-import { PolymorphicComponent } from '@/shared/lib/react/types/polymorphic';
+import { PolymorphicComponent } from '@/shared/types/polymorphic';
 import { spacings } from '@/shared/design/tokens/spacings';
 
 export const InputAdornmentRoot = styled.div<InputAdornmentProps>((props) => ({

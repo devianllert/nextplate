@@ -8,9 +8,9 @@ import { ThemeProvider, useColorMode } from 'theme-ui';
 import i18n from './i18n';
 
 import '@storybook/addon-console'; // Automatically forwards all logs in the "Actions" panel - See https://github.com/storybookjs/storybook-addon-console
-import '@/app/components/MultiversalGlobalExternalStyles'; // Import the same 3rd party libraries global styles as the pages/_app.tsx (for UI consistency)
-import { GlobalStyles } from '@/shared/design/GlobalStyles';
-import { ResetStyles } from '@/shared/design/ResetStyles';
+import '@/app/components/multiversal-global-external-styles'; // Import the same 3rd party libraries global styles as the pages/_app.tsx (for UI consistency)
+import { GlobalStyles } from '@/shared/design/global-styles';
+import { ResetStyles } from '@/shared/design/reset-styles';
 import { theme } from '@/shared/design/themes';
 
 /**

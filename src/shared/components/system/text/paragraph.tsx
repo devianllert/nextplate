@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { PolymorphicComponent } from '@/shared/lib/react/types/polymorphic';
+import { PolymorphicComponent } from '@/shared/types/polymorphic';
 import { paragraphs } from '@/shared/design/tokens/typography';
 
 import * as S from './styled';

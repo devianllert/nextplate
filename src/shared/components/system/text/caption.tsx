@@ -2,7 +2,7 @@ import * as React from 'react';
 import { ColorProps, TypographyProps } from 'styled-system';
 
 import { SxProp } from '@/shared/lib/css-in-js/sx';
-import { PolymorphicComponent } from '@/shared/lib/react/types/polymorphic';
+import { PolymorphicComponent } from '@/shared/types/polymorphic';
 import { captions } from '@/shared/design/tokens/typography';
 
 import * as S from './styled';

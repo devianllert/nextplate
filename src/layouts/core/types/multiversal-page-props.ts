@@ -1,6 +1,6 @@
 import { SSRConfig } from 'next-i18next';
 
-import { ReactQueryState } from '@/shared/lib/rquery/react-query';
+import { ReactQueryState } from '@/shared/types/react-query';
 
 /**
  * Page properties available on all pages, whether they're rendered statically, dynamically, from the server or the client

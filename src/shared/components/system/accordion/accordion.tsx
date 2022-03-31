@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import { useControllableState } from '@/shared/hooks/use-controllable-state';
-import { PolymorphicComponent } from '@/shared/lib/react/types/polymorphic';
+import { PolymorphicComponent } from '@/shared/types/polymorphic';
 
 import { AccordionProvider, useAccordionContext } from './accordion-context';
 

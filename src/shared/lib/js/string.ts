@@ -1,5 +1,5 @@
 import { isObject } from './assertion';
-import { GenericObject } from '../data/types/generic-object';
+import { GenericObject } from '../../types/generic-object';
 
 /**
  * Replace all occurrences in a string.

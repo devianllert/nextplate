@@ -1,4 +1,4 @@
-import { createLogger } from '../logging/logger';
+import { createLogger } from '@/lib/logging/logger';
 import {
   defaultLocale,
   supportedLanguages,

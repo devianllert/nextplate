@@ -1,9 +1,9 @@
 import { GetStaticProps, GetStaticPropsResult } from 'next';
 
 import { serializeSafe } from '@/shared/lib/serialize-safe/serialize-safe';
+import { getTranslationsConfig } from '@/shared/lib/i18n/translations';
 
 import { SSGPageProps } from './types/ssg-page-props';
-import { getTranslationsConfig } from './translations';
 
 /**
  * Only executed on the server side at build time.

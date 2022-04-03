@@ -4,7 +4,6 @@ import { useRouter } from 'next/router';
 import { RiTranslate2 } from 'react-icons/ri';
 
 import { SUPPORTED_LOCALES } from '@/shared/lib/i18n';
-import { getTranslationsConfig } from '@/shared/lib/i18n/translations';
 
 import * as DropdownMenu from '@/shared/components/system/dropdown-menu';
 import { IconButton } from '@/shared/components/system/icon-button';

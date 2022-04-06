@@ -31,10 +31,10 @@ export const StyledOverlay = styled(DialogPrimitive.Overlay)({
   zIndex: zIndex.modal - 1,
   '@media (prefers-reduced-motion: no-preference)': {
     '&[data-state=open]': {
-      animation: `${overlayShow} 250ms cubic-bezier(0.16, 1, 0.3, 1)`,
+      animation: `${overlayShow} 250ms cubic-bezier(0.16, 1, 0.3, 1) forwards`,
     },
     '&[data-state=closed]': {
-      animation: `${overlayHide} 250ms cubic-bezier(0.16, 1, 0.3, 1)`,
+      animation: `${overlayHide} 250ms cubic-bezier(0.16, 1, 0.3, 1) forwards`,
     },
   },
 });
@@ -55,10 +55,10 @@ export const StyledContent = styled(DialogPrimitive.Content)({
 
   '@media (prefers-reduced-motion: no-preference)': {
     '&[data-state=open]': {
-      animation: `${contentShow} 250ms cubic-bezier(0.16, 1, 0.3, 1)`,
+      animation: `${contentShow} 250ms cubic-bezier(0.16, 1, 0.3, 1) forwards`,
     },
     '&[data-state=closed]': {
-      animation: `${contentHide} 250ms cubic-bezier(0.16, 1, 0.3, 1)`,
+      animation: `${contentHide} 250ms cubic-bezier(0.16, 1, 0.3, 1) forwards`,
     },
   },
 });

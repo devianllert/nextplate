@@ -17,15 +17,18 @@ export interface GraphQLError {
 export type Variables = Record<string, unknown>;
 
 export const graphqlRequest = async <T = any, V = Variables>(url: string, query: string, variables?: V): Promise<T> => {
-  const response = await api.post<T>(url, {
-    query,
-    variables,
-  },
-  {
-    headers: {
-      'Content-Type': 'application/json',
+  const response = await api.post<T>(
+    url,
+    {
+      query,
+      variables,
     },
-  });
+    {
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    },
+  );
 
   return response.data;
 };

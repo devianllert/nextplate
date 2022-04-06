@@ -17,12 +17,12 @@ import { SSGPageProps } from '@/layouts/core/types/ssg-page-props';
 import { SSRPageProps } from '@/layouts/core/types/ssr-page-props';
 import { EnhancedNextPage } from '@/layouts/core/types/enhanced-next-page';
 import { getCoreServerSideProps } from '@/layouts/core/ssr';
-import { fetchWeather } from '@/modules/weather/services/wttr';
+import { fetchWeather } from '@/modules/weather/api/wttr';
 import { Weather } from '@/modules/weather/types/weather.interface';
 import { WeatherLayout } from '@/layouts/weather';
 import { WeatherDate } from '@/modules/weather/components/weather-date';
 import { ICONS_MAP } from '@/modules/weather/constants/icons-map';
-import { filterHourlyWeatherBasedOnCurrentTime } from '@/modules/weather/format-hourly-weather';
+import { filterHourlyWeatherBasedOnCurrentTime } from '@/modules/weather/lib/format-hourly-weather';
 import { WeatherHourlyList } from '@/modules/weather/components/weather-hourly-list';
 import { Todos } from '@/modules/weather/components/todos';
 

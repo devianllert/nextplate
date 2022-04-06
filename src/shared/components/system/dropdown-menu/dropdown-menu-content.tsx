@@ -41,10 +41,10 @@ export const DropdownMenuContent = styled(DropdownMenuPrimitive.Content)((props)
     animationTimingFunction: 'cubic-bezier(0.16, 1, 0.3, 1)',
     willChange: 'transform, opacity',
     '&[data-state="open"]': {
-      '&[data-side="top"]': { animationName: slideDownAndFade },
-      '&[data-side="right"]': { animationName: slideLeftAndFade },
-      '&[data-side="bottom"]': { animationName: slideUpAndFade },
-      '&[data-side="left"]': { animationName: slideRightAndFade },
+      '&[data-side="top"]': { animationName: slideDownAndFade, animationFillMode: 'forwards' },
+      '&[data-side="right"]': { animationName: slideLeftAndFade, animationFillMode: 'forwards' },
+      '&[data-side="bottom"]': { animationName: slideUpAndFade, animationFillMode: 'forwards' },
+      '&[data-side="left"]': { animationName: slideRightAndFade, animationFillMode: 'forwards' },
     },
   },
 }));

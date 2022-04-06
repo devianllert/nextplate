@@ -12,11 +12,11 @@ export const StyledOverlay = styled(DialogPrimitive.Overlay)({
   backgroundColor: 'rgba(0, 0, 0, .15)',
 
   '&[data-state="open"]': {
-    animation: `${fadeIn} 150ms cubic-bezier(0.22, 1, 0.36, 1)`,
+    animation: `${fadeIn} 150ms cubic-bezier(0.22, 1, 0.36, 1) forwards`,
   },
 
   '&[data-state="closed"]': {
-    animation: `${fadeOut} 150ms cubic-bezier(0.22, 1, 0.36, 1)`,
+    animation: `${fadeOut} 150ms cubic-bezier(0.22, 1, 0.36, 1) forwards`,
   },
 });
 

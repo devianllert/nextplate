@@ -68,19 +68,15 @@ const ErrorPage = (props: ErrorPageProps): JSX.Element => {
   }
 
   return (
-    <>
-      {
-        // Render the children if provided, or return the native NextError component from Next
-        children || (
-          <NextError
-            statusCode={statusCode}
-            // Only display title in non-production stages, to avoid leaking debug information to end-users
-            // When "null" is provided, it'll fallback to Next.js default message (based on the statusCode)
-            title={process.env.NEXT_PUBLIC_APP_STAGE !== 'production' ? err?.message : undefined}
-          />
-        )
-      }
-    </>
+    // Render the children if provided, or return the native NextError component from Next
+    children || (
+      <NextError
+        statusCode={statusCode}
+        // Only display title in non-production stages, to avoid leaking debug information to end-users
+        // When "null" is provided, it'll fallback to Next.js default message (based on the statusCode)
+        title={process.env.NEXT_PUBLIC_APP_STAGE !== 'production' ? err?.message : undefined}
+      />
+    )
   );
 };
 

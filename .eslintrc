@@ -45,6 +45,12 @@
     // "next/core-web-vitals"
   ],
   "rules": {
+    "react/function-component-definition": [
+      2,
+      {
+        "namedComponents": "arrow-function"
+      }
+    ],
     // Disable line length checks, because the IDE is already configured to warn about it, and it's a waste of time to check for lines that are too long, especially in comments (like this one!)
     "max-len": "off",
     // Disabled, already handled by @typescript-eslint/no-unused-vars

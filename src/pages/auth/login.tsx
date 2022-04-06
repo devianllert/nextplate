@@ -41,7 +41,7 @@ export const getStaticProps = getTranslationsStaticProps(['auth']);
 type Props = (SSRPageProps & SSGPageProps<OnlyBrowserPageProps>);
 
 const LoginPage: EnhancedNextPage<Props> = (): JSX.Element => {
-  const { t, i18n } = useTranslation('auth');
+  const { t } = useTranslation('auth');
 
   const [show, toggleShow] = useBoolean(false);
 

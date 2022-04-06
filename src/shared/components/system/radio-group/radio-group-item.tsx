@@ -41,10 +41,10 @@ const StyledIndicator = styled(RadioGroupPrimitive.Indicator)((props) => ({
   },
 
   '&[data-state="checked"]': {
-    animation: `${scaleIn} ${duration.shortest}ms ${easing.easeOut}`,
+    animation: `${scaleIn} ${duration.shortest}ms ${easing.easeOut} forwards`,
   },
   '&[data-state="unchecked"]': {
-    animation: `${scaleOut} ${duration.shortest}ms ${easing.easeOut}`,
+    animation: `${scaleOut} ${duration.shortest}ms ${easing.easeOut} forwards`,
   },
 }));
 

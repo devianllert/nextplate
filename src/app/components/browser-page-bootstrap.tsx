@@ -59,7 +59,7 @@ const BrowserPageBootstrap = (props: BrowserPageBootstrapProps): JSX.Element => 
   }
 
   return (
-    <userSessionContext.Provider value={{ ...userSession }}>
+    <userSessionContext.Provider value={userSession}>
       <LayoutComponent>
         <Component
           // eslint-disable-next-line react/jsx-props-no-spreading

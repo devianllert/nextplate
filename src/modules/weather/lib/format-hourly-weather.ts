@@ -1,7 +1,7 @@
 import format from 'date-fns/format';
 import isAfter from 'date-fns/isAfter';
 
-import { WTTRWeatherDailyCondition, WTTRWeatherHourlyCondition } from './types/weather.interface';
+import { WTTRWeatherDailyCondition, WTTRWeatherHourlyCondition } from '../types/weather.interface';
 
 const HOURLY_WEATHER_INTERVAL = 1000 * 60 * 60 * 3;
 

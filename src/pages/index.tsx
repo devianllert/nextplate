@@ -112,7 +112,7 @@ const IndexPage: EnhancedNextPage<Props> = (): JSX.Element => {
             </Box>
 
             <Box maxWidth={[240, null, 480]}>
-              <img src="/static/images/hero-banner.png" alt="" />
+              <img src="/static/images/hero-banner.png" alt="banner" />
             </Box>
           </Box>
         </Container>

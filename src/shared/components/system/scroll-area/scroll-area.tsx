@@ -25,10 +25,10 @@ export const StyledScrollbar = styled(ScrollAreaPrimitive.Scrollbar)((props) => 
     height: SCROLLBAR_SIZE,
   },
   '&[data-state="visible"]': {
-    animation: `${fadeIn} 125ms ease`,
+    animation: `${fadeIn} 125ms ease forwards`,
   },
   '&[data-state="hidden"]': {
-    animation: `${fadeOut} 125ms ease`,
+    animation: `${fadeOut} 125ms ease forwards`,
   },
 }));
 

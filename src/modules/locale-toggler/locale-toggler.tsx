@@ -26,7 +26,7 @@ export const LocaleToggler = (): JSX.Element => {
 
       <DropdownMenu.Content>
         <DropdownMenu.RadioGroup value={i18n.language} onValueChange={changeLocale}>
-          {Object.entries(SUPPORTED_LOCALES).map(([_, key]) => (
+          {Object.values(SUPPORTED_LOCALES).map((key) => (
             <DropdownMenu.RadioItem key={key} value={key}>
               {key.toUpperCase()}
             </DropdownMenu.RadioItem>

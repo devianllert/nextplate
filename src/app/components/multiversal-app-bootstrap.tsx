@@ -8,8 +8,8 @@ import { Hydrate } from 'react-query/hydration';
 import { ReactQueryDevtools } from 'react-query/devtools';
 
 import { configureSentryI18n } from '@/shared/lib/sentry/sentry';
-import isBrowser from '@/shared/lib/is-browser';
-import DefaultErrorLayout from '@/shared/lib/error-handling/default-error-layout';
+import { isBrowser } from '@/shared/lib/is-browser';
+import { DefaultErrorLayout } from '@/shared/components/error-handling';
 import { GlobalStyles } from '@/shared/design/global-styles';
 import { ResetStyles } from '@/shared/design/reset-styles';
 import { theme } from '@/shared/design/themes';
@@ -19,7 +19,7 @@ import { NProgressRoot } from '@/modules/nprogress';
 import { isEmpty } from '@/shared/lib/js/assertion';
 import { MediaContextProvider } from '@/shared/lib/css-in-js/responsive';
 
-import { getLinksAlternateHref } from '@/shared/lib/meta/meta';
+import { getLinksAlternateHref } from '@/shared/lib/meta';
 import { MultiversalAppBootstrapProps } from '../types/multiversal-app-bootstrap-props';
 import BrowserPageBootstrap, { BrowserPageBootstrapProps } from './browser-page-bootstrap';
 import ServerPageBootstrap, { ServerPageBootstrapProps } from './server-page-bootstrap';

@@ -1,6 +1,6 @@
 import * as Sentry from '@sentry/nextjs';
 
-import { configureSentry } from '@/shared/lib/sentry/sentry';
+import { configureSentry } from './sentry';
 
 /**
  * Configure Sentry default scope.

@@ -1,4 +1,4 @@
-import { GenericObject } from '../../types/generic-object';
+import { GenericObject } from '@/shared/types/generic-object';
 
 export interface ErrorDebugProps {
   error?: Error;
@@ -12,7 +12,7 @@ export interface ErrorDebugProps {
  *
  * @param props
  */
-const ErrorDebug = (props: ErrorDebugProps): JSX.Element => {
+export const ErrorDebug = (props: ErrorDebugProps): JSX.Element => {
   const { error, context }: ErrorDebugProps = props;
   const { message, stack } = error || {};
 
@@ -71,5 +71,3 @@ const ErrorDebug = (props: ErrorDebugProps): JSX.Element => {
     </div>
   );
 };
-
-export default ErrorDebug;

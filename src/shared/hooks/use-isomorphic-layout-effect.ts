@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import isBrowser from '@/shared/lib/is-browser';
+import { isBrowser } from '@/shared/lib/is-browser';
 
 /**
  * React currently throws a warning when using useLayoutEffect on the server. To

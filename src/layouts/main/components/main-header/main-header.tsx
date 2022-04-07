@@ -1,7 +1,7 @@
 import * as React from 'react';
 import Link from 'next/link';
 
-import { APP_TITLE } from '@/shared/lib/meta/meta';
+import { APP_TITLE } from '@/shared/lib/meta';
 
 import * as Text from '@/shared/components/system/text';
 import { Stack } from '@/shared/components/layout/stack';

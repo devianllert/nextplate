@@ -18,7 +18,7 @@ import { Stack } from '@/shared/components/layout/stack';
 import { Code } from '@/shared/components/system/code';
 import { AspectRatio } from '@/shared/components/system/aspect-ratio';
 import { useTheme } from '@/shared/design/hooks/use-theme';
-import { PageSEO } from '@/shared/lib/meta/page-seo';
+import { PageSEO } from '@/shared/lib/meta';
 import { getTranslationsStaticProps } from '@/layouts/core/ssg';
 import { MainLayout } from '@/layouts/main';
 import { EnhancedNextPage } from '@/layouts/core/types/enhanced-next-page';

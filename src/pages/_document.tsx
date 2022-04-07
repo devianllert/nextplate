@@ -9,7 +9,7 @@ import Document, {
 import { InitializeColorMode } from 'theme-ui';
 
 import { mediaStyles } from '@/shared/lib/css-in-js/responsive';
-import { getCommonMetaTags } from '@/shared/lib/meta/meta';
+import { getCommonMetaTags } from '@/shared/lib/meta';
 
 /**
  * Note: Is only rendered on the server side and not on the client side

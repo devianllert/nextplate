@@ -11,7 +11,7 @@ import * as Text from '@/shared/components/system/text';
 import { Box } from '@/shared/components/layout/box';
 import { REACT_QUERY_STATE_PROP_NAME } from '@/shared/types/react-query';
 import { Container } from '@/shared/components/layout/container';
-import { PageSEO } from '@/shared/lib/meta/page-seo';
+import { PageSEO } from '@/shared/lib/meta';
 import { OnlyBrowserPageProps } from '@/layouts/core/types/only-browser-page-props';
 import { SSGPageProps } from '@/layouts/core/types/ssg-page-props';
 import { SSRPageProps } from '@/layouts/core/types/ssr-page-props';

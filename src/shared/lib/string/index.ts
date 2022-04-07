@@ -1,4 +1,4 @@
-import { isObject } from './assertion';
+import { isObject } from '@/lib/assertion';
 import { GenericObject } from '../../types/generic-object';
 
 /**

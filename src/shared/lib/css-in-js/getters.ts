@@ -1,8 +1,7 @@
 import { Scale } from 'styled-system';
 
 import { get } from '@/shared/lib/get';
-
-const isNumber = (n: unknown): n is number => typeof n === 'number' && !Number.isNaN(n);
+import { isNumber } from '@/shared/lib/assertion';
 
 export const getSpace = (scale: Scale, n: number | string): number | string => {
   if (!isNumber(n)) {

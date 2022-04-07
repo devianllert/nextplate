@@ -1,10 +1,10 @@
-import { clamp } from './number';
+import { clamp } from '../index';
 
 /**
  * @group unit
- * @group utils
+ * @group lib
  */
-describe(`utils/js/number.ts`, () => {
+describe(`lib/number`, () => {
   describe(`clamp`, () => {
     it(`when the current item is the first one`, async () => {
       expect(clamp(7, 0, 10)).toBe(7);

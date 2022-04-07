@@ -7,7 +7,7 @@ import {
   WidthProps,
 } from 'styled-system';
 
-import { isNumber } from '@/shared/lib/js/assertion';
+import { isNumber } from '@/shared/lib/assertion';
 import { get } from '@/shared/lib/get';
 import { getSpace } from '@/shared/lib/css-in-js/getters';
 

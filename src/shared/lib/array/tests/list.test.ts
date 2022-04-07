@@ -1,10 +1,11 @@
-import { findNextItem, findPreviousItem, range } from './array';
+import { findNextItem, findPreviousItem } from '../list';
+import { range } from '../range';
 
 /**
  * @group unit
- * @group utils
+ * @group lib
  */
-describe(`utils/js/array.ts`, () => {
+describe(`lib/array/list.ts`, () => {
   const item1 = { a: 1 };
   const item2 = { a: 2 };
   const item3 = { a: 3 };

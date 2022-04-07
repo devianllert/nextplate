@@ -1,10 +1,10 @@
-import { replaceAllOccurrences } from './string';
+import { replaceAllOccurrences } from '..';
 
 /**
  * @group unit
- * @group utils
+ * @group lib
  */
-describe(`utils/js/string.ts`, () => {
+describe(`lib/string`, () => {
   describe(`replaceAllOccurrences`, () => {
     describe(`should replace all occurrences`, () => {
       it(`when replacing one variable`, async () => {

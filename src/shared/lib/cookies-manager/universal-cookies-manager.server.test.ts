@@ -6,9 +6,9 @@ import UniversalCookiesManager from './universal-cookies-manager';
 
 /**
  * @group unit
- * @group utils
+ * @group lib
  */
-describe(`utils/cookies/UniversalCookiesManager.ts`, () => {
+describe(`lib/cookies/UniversalCookiesManager.ts`, () => {
   describe(`server`, () => {
     describe(`constructor`, () => {
       it(`should init correctly (req, res)`, async () => {

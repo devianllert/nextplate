@@ -8,7 +8,7 @@ import Document, {
 } from 'next/document';
 import { InitializeColorMode } from 'theme-ui';
 
-import { mediaStyles } from '@/shared/lib/css-in-js/responsive';
+import { mediaStyles } from '@/shared/lib/responsive';
 import { getCommonMetaTags } from '@/shared/lib/meta';
 
 /**

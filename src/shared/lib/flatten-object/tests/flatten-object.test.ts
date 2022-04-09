@@ -1,4 +1,4 @@
-import { flattenObject } from '../flatten-object';
+import { flattenObject } from '../index';
 
 describe('flattenObject', () => {
   it('should flatten a deep object', () => {

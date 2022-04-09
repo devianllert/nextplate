@@ -7,7 +7,7 @@ import { QueryClient, QueryClientProvider } from 'react-query';
 import { Hydrate } from 'react-query/hydration';
 import { ReactQueryDevtools } from 'react-query/devtools';
 
-import { configureSentryI18n } from '@/shared/lib/sentry/sentry';
+import { configureSentryI18n } from '@/shared/lib/sentry';
 import { isBrowser } from '@/shared/lib/is-browser';
 import { DefaultErrorLayout } from '@/shared/components/error-handling';
 import { GlobalStyles } from '@/shared/design/global-styles';
@@ -17,7 +17,7 @@ import { createLogger } from '@/shared/lib/logging/logger';
 import { REACT_QUERY_STATE_PROP_NAME } from '@/shared/types/react-query';
 import { NProgressRoot } from '@/modules/nprogress';
 import { isEmpty } from '@/shared/lib/assertion';
-import { MediaContextProvider } from '@/shared/lib/css-in-js/responsive';
+import { MediaContextProvider } from '@/shared/lib/responsive';
 
 import { getLinksAlternateHref } from '@/shared/lib/meta';
 import { MultiversalAppBootstrapProps } from '../types/multiversal-app-bootstrap-props';

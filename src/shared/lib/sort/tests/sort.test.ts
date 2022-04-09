@@ -1,4 +1,4 @@
-import { compareCombine, compareField, compareNumber, compareReverse } from '../sort';
+import { compareCombine, compareField, compareNumber, compareReverse } from '../index';
 
 describe('sort', () => {
   it('sort array of numbers', () => {

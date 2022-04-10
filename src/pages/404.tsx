@@ -9,7 +9,7 @@ import { createLogger } from '@/shared/lib/logging/logger';
 import * as Text from '@/shared/components/system/text';
 import { Button } from '@/shared/components/system/button';
 import { Stack } from '@/shared/components/layout/stack';
-import { PageSEO } from '@/shared/lib/meta/page-seo';
+import { PageSEO } from '@/shared/lib/meta';
 import { getTranslationsStaticProps } from '@/layouts/core/ssg';
 import { EnhancedNextPage } from '@/layouts/core/types/enhanced-next-page';
 import { SoftPageProps } from '@/layouts/core/types/soft-page-props';

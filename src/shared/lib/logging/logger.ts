@@ -1,4 +1,4 @@
-import isBrowser from '@/shared/lib/is-browser';
+import { isBrowser } from '@/shared/lib/is-browser';
 
 import { createLogger as createConsoleLogger, Logger } from './create-logger';
 

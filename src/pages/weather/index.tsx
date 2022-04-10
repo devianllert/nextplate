@@ -7,7 +7,7 @@ import * as Text from '@/shared/components/system/text';
 import { Box } from '@/shared/components/layout/box';
 import { Input, InputAdornment } from '@/shared/components/system/input';
 import { IconButton } from '@/shared/components/system/icon-button';
-import { PageSEO } from '@/shared/lib/meta/page-seo';
+import { PageSEO } from '@/shared/lib/meta';
 import { WeatherLayout } from '@/layouts/weather';
 import { getTranslationsStaticProps } from '@/layouts/core/ssg';
 import { EnhancedNextPage } from '@/layouts/core/types/enhanced-next-page';

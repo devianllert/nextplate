@@ -8,9 +8,9 @@ import UniversalCookiesManager from './universal-cookies-manager';
 
 /**
  * @group unit
- * @group utils
+ * @group lib
  */
-describe(`utils/cookies/UniversalCookiesManager.ts`, () => {
+describe(`lib/cookies/UniversalCookiesManager.ts`, () => {
   describe(`browser`, () => {
     beforeEach(() => {
       deleteAllCookies(); // Reset cookies between each test to avoid "overflow"

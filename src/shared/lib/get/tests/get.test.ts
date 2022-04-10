@@ -1,4 +1,4 @@
-import { get } from '../get';
+import { get } from '../index';
 
 describe('get', () => {
   it('returns a deeply nested value', () => {

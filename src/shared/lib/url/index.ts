@@ -1,7 +1,7 @@
 import * as Sentry from '@sentry/nextjs';
 import StringifySafe from 'json-stringify-safe';
 
-import isBrowser from '@/shared/lib/is-browser';
+import { isBrowser } from '@/shared/lib/is-browser';
 
 import { GenericObject } from '../../types/generic-object';
 

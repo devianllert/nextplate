@@ -10,7 +10,7 @@ import { Input, InputAdornment } from '@/shared/components/system/input';
 import { Stack } from '@/shared/components/layout/stack';
 import { useBoolean } from '@/shared/hooks/use-boolean';
 import { IconButton } from '@/shared/components/system/icon-button';
-import { PageSEO } from '@/shared/lib/meta/page-seo';
+import { PageSEO } from '@/shared/lib/meta';
 import { AuthLayout } from '@/layouts/auth';
 import { getTranslationsStaticProps } from '@/layouts/core/ssg';
 import { EnhancedNextPage } from '@/layouts/core/types/enhanced-next-page';

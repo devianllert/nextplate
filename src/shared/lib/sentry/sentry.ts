@@ -1,7 +1,7 @@
 import { NextApiRequest } from 'next';
 import * as Sentry from '@sentry/nextjs';
 
-import isBrowser from '@/shared/lib/is-browser';
+import { isBrowser } from '@/shared/lib/is-browser';
 import { convertRequestBodyToJSObject } from '@/shared/api';
 
 import { UserSession } from '../user-session/use-user-session';

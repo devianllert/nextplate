@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-import isBrowser from '@/shared/lib/is-browser';
+import { isBrowser } from '@/shared/lib/is-browser';
 
 const QUERY = '(prefers-reduced-motion: no-preference)';
 

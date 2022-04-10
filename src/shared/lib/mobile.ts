@@ -2,7 +2,7 @@ import * as Sentry from '@sentry/nextjs';
 
 import { createLogger } from '@/shared/lib/logging/logger';
 
-import isBrowser from './is-browser';
+import { isBrowser } from '@/shared/lib/is-browser';
 
 const fileLabel = 'common/lib/mobile';
 const logger = createLogger(fileLabel);

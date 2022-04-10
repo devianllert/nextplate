@@ -8,8 +8,8 @@ import Document, {
 } from 'next/document';
 import { InitializeColorMode } from 'theme-ui';
 
-import { mediaStyles } from '@/shared/lib/css-in-js/responsive';
-import { getCommonMetaTags } from '@/shared/lib/meta/meta';
+import { mediaStyles } from '@/shared/lib/responsive';
+import { getCommonMetaTags } from '@/shared/lib/meta';
 
 /**
  * Note: Is only rendered on the server side and not on the client side
@@ -32,8 +32,7 @@ class AppDocument extends Document {
 
           <link rel="preconnect" href="https://fonts.googleapis.com" />
           <link rel="preconnect" href="https://fonts.gstatic.com" />
-          <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" />
-
+          <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&display=swap" rel="stylesheet" />
           <style
             type="text/css"
             dangerouslySetInnerHTML={{ __html: mediaStyles }}

@@ -1,6 +1,7 @@
 import * as React from 'react';
-import { GenericObject } from '../../types/generic-object';
-import ErrorDebug from './error-debug';
+import { GenericObject } from '@/shared/types/generic-object';
+
+import { ErrorDebug } from './error-debug';
 
 export interface DefaultErrorLayoutProps {
   error: Error;
@@ -15,7 +16,7 @@ export interface DefaultErrorLayoutProps {
  *
  * @param props
  */
-const DefaultErrorLayout = (props: DefaultErrorLayoutProps): JSX.Element => {
+export const DefaultErrorLayout = (props: DefaultErrorLayoutProps): JSX.Element => {
   const { error, context } = props;
 
   return (
@@ -45,5 +46,3 @@ const DefaultErrorLayout = (props: DefaultErrorLayoutProps): JSX.Element => {
     </div>
   );
 };
-
-export default DefaultErrorLayout;

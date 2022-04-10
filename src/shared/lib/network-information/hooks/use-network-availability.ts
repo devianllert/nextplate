@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import isBrowser from '@/shared/lib/is-browser';
+import { isBrowser } from '@/shared/lib/is-browser';
 import { managedEventListener } from '@/shared/lib/managed-event-listener';
 
 /**

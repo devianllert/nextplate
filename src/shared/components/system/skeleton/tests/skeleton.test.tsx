@@ -5,7 +5,7 @@
 import * as React from 'react';
 
 import { renderWithProviders } from '@/shared/lib/testing/render-with-providers';
-``
+
 import { Skeleton } from '../skeleton';
 
 describe('<Skeleton />', () => {

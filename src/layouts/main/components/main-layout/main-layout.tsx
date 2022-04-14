@@ -3,6 +3,7 @@ import * as React from 'react';
 import { HelpButton } from '@/modules/support';
 
 import { MainHeader } from '../main-header';
+import { MainFooter } from '../main-footer';
 
 import * as S from './styled';
 
@@ -25,6 +26,8 @@ export const MainLayout = (props: MainLayoutProps): JSX.Element => {
       <HelpButton />
 
       {children}
+
+      <MainFooter />
     </S.MainLayoutContainer>
   );
 };

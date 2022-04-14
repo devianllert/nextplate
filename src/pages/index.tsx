@@ -60,36 +60,29 @@ const IndexPage: EnhancedNextPage<Props> = (): JSX.Element => {
       />
 
       <Box
-        position="relative"
-        backgroundColor="background.secondary"
+        pt={64}
         backgroundImage={`
-          radial-gradient(circle at 15% 50%, ${theme.colors.radix.primaryA4}, rgba(255, 255, 255, 0) 25%),
-          radial-gradient(circle at 85% 30%, ${theme.colors.radix.secondaryA6}, rgba(255, 255, 255, 0) 25%),
-          radial-gradient(circle at 65% 55%, ${theme.colors.radix.secondaryA4}, rgba(255, 255, 255, 0) 25%)
+          radial-gradient(circle 500px at 40% 300px, ${theme.colors.radix.primary3}, #16161800),
+          radial-gradient(circle 500px at 60% 400px, ${theme.colors.radix.secondary4}, #16161800),
+          radial-gradient(circle 700px at 20% calc(40% - 100px), ${theme.colors.radix.secondary2}, ${theme.colors.radix.secondary1}, #16161800),
+          radial-gradient(circle 700px at 80% calc(40% - 100px), ${theme.colors.radix.primary2}, ${theme.colors.radix.primary1}, #16161800)
         `}
-        backgroundRepeat="no-repeat"
-        backgroundSize="100% 100%"
       >
-        <Container>
-          <Box
-            display="flex"
-            flexDirection={['column-reverse', null, 'row']}
-            justifyContent={['center', null, 'space-between']}
-            alignItems="center"
-            flex="1"
-            minHeight="calc(640px - 64px)"
-            maxHeight="calc(1024px - 64px)"
-            height="100vh"
-            mx="auto"
-          >
+        <Box>
+          <Container>
             <Box
               display="flex"
               flexDirection="column"
-              alignItems={['center', null, 'flex-start']}
-              maxWidth="480px"
+              justifyContent="center"
+              alignItems="center"
+              flex="1"
+              minHeight={['75vh', null, 'calc(500px - 64px)']}
+              maxHeight="calc(1024px - 64px)"
+              maxWidth={570}
+              mx="auto"
             >
-              <Text.Heading variant="h2" textAlign={['center', null, 'left']}>{t('hero.title')}</Text.Heading>
-              <Text.Heading variant="h6" textAlign={['center', null, 'left']}>{t('hero.subtitle')}</Text.Heading>
+              <Text.Heading variant="h2" textAlign="center">{t('hero.title')}</Text.Heading>
+              <Text.Heading variant="h6" color="text.secondary" textAlign="center" sx={{ mt: 4 }}>{t('hero.subtitle')}</Text.Heading>
 
               <Box mt={4}>
                 <Stack direction="row" space={3}>
@@ -110,131 +103,101 @@ const IndexPage: EnhancedNextPage<Props> = (): JSX.Element => {
                 </Stack>
               </Box>
             </Box>
-
-            <Box maxWidth={[240, null, 480]}>
-              <img src="/static/images/hero-banner.png" alt="banner" />
-            </Box>
-          </Box>
-        </Container>
-
-        <Box
-          position="absolute"
-          bottom="0"
-          left="0"
-          width="100%"
-          overflow="hidden"
-          transform="rotate(180deg)"
-        >
-          <Box
-            component="svg"
-            position="relative"
-            display="block"
-            width="100%"
-            height={['48px', null, '150px']}
-            viewBox="0 0 1200 120"
-            preserveAspectRatio="none"
-          >
-            <Box
-              component="path"
-              color="background.primary"
-              fill="currentColor"
-              d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"
-            />
-          </Box>
+          </Container>
         </Box>
-      </Box>
 
-      <Box py={8} id="features">
-        <Container>
-          <Text.Heading variant="h4" textAlign="center" sx={{ mb: 8 }}>
-            {t('features.title')}
-          </Text.Heading>
+        <Box py={8} id="features">
+          <Container>
+            <Text.Heading variant="h4" textAlign="center" sx={{ mb: 8 }}>
+              {t('features.title')}
+            </Text.Heading>
 
-          <Box display="grid" gridTemplateColumns={['repeat(1, minmax(0, 1fr))', 'repeat(2, minmax(0, 1fr))', 'repeat(4, minmax(0, 1fr))']} gridGap={4}>
-            <Box>
-              <Box
-                width={32}
-                height={32}
-                borderRadius="50%"
-                display="flex"
-                alignItems="center"
-                justifyContent="center"
-                backgroundColor="radix.primaryA5"
-                color="radix.primaryA11"
-              >
-                <RiFlashlightFill />
+            <Box display="grid" gridTemplateColumns={['repeat(1, minmax(0, 1fr))', 'repeat(2, minmax(0, 1fr))', 'repeat(4, minmax(0, 1fr))']} gridGap={4}>
+              <Box>
+                <Box
+                  width={32}
+                  height={32}
+                  borderRadius="50%"
+                  display="flex"
+                  alignItems="center"
+                  justifyContent="center"
+                  backgroundColor="radix.primaryA5"
+                  color="radix.primaryA11"
+                >
+                  <RiFlashlightFill />
+                </Box>
+
+                <Text.Heading variant="h6" component="h3" sx={{ my: 2 }}>{t('features.performant.title')}</Text.Heading>
+
+                <Text.Paragraph variant="body2" component="span" color="text.secondary">
+                  {t('features.performant.description')}
+                </Text.Paragraph>
               </Box>
 
-              <Text.Heading variant="h6" component="h3" sx={{ my: 2 }}>{t('features.performant.title')}</Text.Heading>
+              <Box>
+                <Box
+                  width={32}
+                  height={32}
+                  borderRadius="50%"
+                  display="flex"
+                  alignItems="center"
+                  justifyContent="center"
+                  backgroundColor="radix.primaryA5"
+                  color="radix.primaryA11"
+                >
+                  <RiSettings4Line />
+                </Box>
 
-              <Text.Paragraph variant="body2" component="span" color="text.secondary">
-                {t('features.performant.description')}
-              </Text.Paragraph>
-            </Box>
+                <Text.Heading variant="h6" component="h3" sx={{ my: 2 }}>{t('features.rich.title')}</Text.Heading>
 
-            <Box>
-              <Box
-                width={32}
-                height={32}
-                borderRadius="50%"
-                display="flex"
-                alignItems="center"
-                justifyContent="center"
-                backgroundColor="radix.primaryA5"
-                color="radix.primaryA11"
-              >
-                <RiSettings4Line />
+                <Text.Paragraph variant="body2" component="span" color="text.secondary">
+                  <Trans t={t} i18nKey="features.rich.description" components={[<Code />]} />
+                </Text.Paragraph>
               </Box>
 
-              <Text.Heading variant="h6" component="h3" sx={{ my: 2 }}>{t('features.rich.title')}</Text.Heading>
+              <Box>
+                <Box
+                  width={32}
+                  height={32}
+                  borderRadius="50%"
+                  display="flex"
+                  alignItems="center"
+                  justifyContent="center"
+                  backgroundColor="radix.primaryA5"
+                  color="radix.primaryA11"
+                >
+                  <RiGroupLine />
+                </Box>
 
-              <Text.Paragraph variant="body2" component="span" color="text.secondary">
-                <Trans t={t} i18nKey="features.rich.description" components={[<Code />]} />
-              </Text.Paragraph>
-            </Box>
+                <Text.Heading variant="h6" component="h3" sx={{ my: 2 }}>{t('features.dx.title')}</Text.Heading>
 
-            <Box>
-              <Box
-                width={32}
-                height={32}
-                borderRadius="50%"
-                display="flex"
-                alignItems="center"
-                justifyContent="center"
-                backgroundColor="radix.primaryA5"
-                color="radix.primaryA11"
-              >
-                <RiGroupLine />
+                <Text.Paragraph variant="body2" component="span" color="text.secondary">
+                  {t('features.dx.description')}
+                </Text.Paragraph>
               </Box>
 
-              <Text.Heading variant="h6" component="h3" sx={{ my: 2 }}>{t('features.dx.title')}</Text.Heading>
+              <Box>
+                <Box
+                  width={32}
+                  height={32}
+                  borderRadius="50%"
+                  display="flex"
+                  alignItems="center"
+                  justifyContent="center"
+                  backgroundColor="radix.primaryA5"
+                  color="radix.primaryA11"
+                >
+                  <RiAppsLine />
+                </Box>
+                <Text.Heading variant="h6" component="h3" sx={{ my: 2 }}>{t('features.apps.title')}</Text.Heading>
 
-              <Text.Paragraph variant="body2" component="span" color="text.secondary">
-                {t('features.dx.description')}
-              </Text.Paragraph>
-            </Box>
-
-            <Box>
-              <Box
-                width={32}
-                height={32}
-                borderRadius="50%"
-                display="flex"
-                alignItems="center"
-                justifyContent="center"
-                backgroundColor="radix.primaryA5"
-                color="radix.primaryA11"
-              >
-                <RiAppsLine />
+                <Text.Paragraph variant="body2" component="span" color="text.secondary">
+                  {t('features.apps.description')}
+                </Text.Paragraph>
               </Box>
-              <Text.Heading variant="h6" component="h3" sx={{ my: 2 }}>{t('features.apps.title')}</Text.Heading>
-
-              <Text.Paragraph variant="body2" component="span" color="text.secondary">
-                {t('features.apps.description')}
-              </Text.Paragraph>
             </Box>
-          </Box>
-        </Container>
+          </Container>
+        </Box>
       </Box>
 
       <Box py={8}>

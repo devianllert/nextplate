@@ -9,9 +9,11 @@ export const MainHeaderRoot = styled.div({
 });
 
 export const MainHeaderContainer = styled.header({
-  position: 'absolute',
+  position: 'fixed',
   top: 0,
   left: 0,
   right: 0,
   zIndex: 1,
+  backdropFilter: 'blur(20px)',
+  paddingRight: 'var(--removed-body-scroll-bar-size)',
 });

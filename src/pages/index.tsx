@@ -76,9 +76,9 @@ const IndexPage: EnhancedNextPage<Props> = (): JSX.Element => {
               justifyContent="center"
               alignItems="center"
               flex="1"
-              minHeight={['75vh', null, 'calc(500px - 64px)']}
+              minHeight={['75vh', null, '480px']}
               maxHeight="calc(1024px - 64px)"
-              maxWidth={570}
+              maxWidth={620}
               mx="auto"
             >
               <Text.Heading variant="h2" textAlign="center">{t('hero.title')}</Text.Heading>

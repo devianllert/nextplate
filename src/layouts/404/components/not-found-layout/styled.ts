@@ -6,8 +6,11 @@ export const LayoutRoot = styled.div((props) => ({
   alignItems: 'center',
   justifyContent: 'center',
   minHeight: '100vh',
+  width: '100%',
   backgroundImage: `
-    radial-gradient(circle at 45% 60%, ${props.theme.colors.radix.primaryA4}, rgba(255, 255, 255, 0) 35%),
-    radial-gradient(circle at 55% 40%, ${props.theme.colors.radix.secondaryA4}, rgba(255, 255, 255, 0) 35%)
+    radial-gradient(circle 500px at 40% 300px, ${props.theme.colors.radix.primary3}, #16161800),
+    radial-gradient(circle 500px at 60% 400px, ${props.theme.colors.radix.secondary4}, #16161800),
+    radial-gradient(circle 700px at 20% calc(40% - 100px), ${props.theme.colors.radix.secondary2}, ${props.theme.colors.radix.secondary1}, #16161800),
+    radial-gradient(circle 700px at 80% calc(40% - 100px), ${props.theme.colors.radix.primary2}, ${props.theme.colors.radix.primary1}, #16161800)
   `,
 }));

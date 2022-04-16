@@ -33,7 +33,7 @@ export const Todos = (): JSX.Element => {
   return (
     <Box width={['100%', null, 'auto']}>
       <Modal.Root>
-        <Box display="flex" alignItems="center">
+        <Box display="flex" alignItems="center" justifyContent="space-between">
           <Button
             color="primary"
             sx={{ ml: '-12px' }}

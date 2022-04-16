@@ -4,7 +4,7 @@
     "description": "$t(hero.subtitle)"
   },
   "hero": {
-    "title": "Start your app with confidence",
+    "title": "Develop simplified",
     "subtitle": "Meant to help you build production-grade projects using the Next.js framework",
     "documentation": "Documentation"
   },

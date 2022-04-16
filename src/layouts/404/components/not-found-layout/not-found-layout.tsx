@@ -1,6 +1,7 @@
 import * as React from 'react';
 
 import { Container } from '@/shared/components/layout/container';
+import { Box } from '@/shared/components/layout/box';
 
 import * as S from './styled';
 
@@ -17,8 +18,16 @@ export const NotFoundLayout = (props: NotFound404LayoutProps): JSX.Element => {
   } = props;
 
   return (
-    <Container>
-      <S.LayoutRoot>{children}</S.LayoutRoot>
-    </Container>
+    <S.LayoutRoot>
+      <Container>
+        <Box
+          display="flex"
+          alignItems="center"
+          justifyContent="center"
+        >
+          {children}
+        </Box>
+      </Container>
+    </S.LayoutRoot>
   );
 };

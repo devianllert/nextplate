@@ -1,7 +1,7 @@
 import * as React from 'react';
 import format from 'date-fns/format';
 
-import { Box } from '@/shared/components/layout/box';
+import { Box } from '@/shared/components/system/box';
 import * as Text from '@/shared/components/system/text';
 import { useInterval } from '@/shared/hooks/use-interval';
 

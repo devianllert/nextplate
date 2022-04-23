@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Story, Meta } from '@storybook/react';
 
 import { Flex, FlexProps } from '../flex';
-import { Button } from '../../../system/button';
+import { Button } from '../../button';
 
 export default {
   title: 'Design System/Layout/Flex',

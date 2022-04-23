@@ -3,7 +3,7 @@ import { Story, Meta } from '@storybook/react';
 
 import { Divider, DividerProps } from '../divider';
 import * as Text from '../../text';
-import { Box } from '../../../layout/box';
+import { Box } from '../../box';
 
 export default {
   title: 'Design System/Atoms/Divider',

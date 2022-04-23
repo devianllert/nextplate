@@ -7,7 +7,7 @@ import { RiBook2Line, RiMessage2Line, RiQuestionMark } from 'react-icons/ri';
 
 import * as DropdownMenu from '@/shared/components/system/dropdown-menu';
 import * as Text from '@/shared/components/system/text';
-import { Box } from '@/shared/components/layout/box';
+import { Box } from '@/shared/components/system/box';
 import { APP_TITLE } from '@/shared/lib/meta';
 
 import * as S from './styled';

@@ -4,8 +4,8 @@ import styled from '@emotion/styled';
 import { CSSObject, Theme } from '@emotion/react';
 import { RiCheckLine, RiArrowRightSLine } from 'react-icons/ri';
 
-import { Box } from '@/shared/components/layout/box';
-import { Flex } from '@/shared/components/layout/flex';
+import { Box } from '@/shared/components/system/box';
+import { Flex } from '@/shared/components/system/flex';
 import { Switch } from '@/shared/components/system/switch';
 import { paragraphs } from '@/shared/design/tokens/typography';
 

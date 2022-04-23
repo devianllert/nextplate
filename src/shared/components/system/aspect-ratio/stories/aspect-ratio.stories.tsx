@@ -3,7 +3,7 @@ import * as React from 'react';
 import { Story, Meta } from '@storybook/react';
 
 import { AspectRatio, AspectRatioProps } from '../aspect-ratio';
-import { Box } from '../../../layout/box';
+import { Box } from '../../box';
 
 export default {
   title: 'Design System/Atoms/AspectRatio',

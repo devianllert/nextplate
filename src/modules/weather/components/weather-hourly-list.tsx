@@ -1,9 +1,9 @@
 import * as React from 'react';
 import Image from 'next/image';
 
-import { Box } from '@/shared/components/layout/box';
+import { Box } from '@/shared/components/system/box';
 import * as Text from '@/shared/components/system/text';
-import { Container } from '@/shared/components/layout/container';
+import { Container } from '@/shared/components/system/container';
 
 import { ICONS_MAP } from '../constants/icons-map';
 import { formatHourlyTime } from '../lib/format-hourly-weather';

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Container } from '@/shared/components/layout/container';
+import { Container } from '@/shared/components/system/container';
 
 import * as S from './styled';
 import * as Text from '@/shared/components/system/text';

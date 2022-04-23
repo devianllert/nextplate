@@ -3,10 +3,10 @@ import { Story, Meta } from '@storybook/react';
 
 import * as Text from '@/shared/components/system/text';
 import shadows from '@/shared/design/tokens/shadows';
-import { Box } from '../../../layout/box';
+import { Box } from '../../box';
 
 import * as ScrollArea from '../scroll-area';
-import { Stack } from '../../../layout/stack';
+import { Stack } from '../../stack';
 
 export default {
   title: 'Design System/Atoms/ScrollArea',

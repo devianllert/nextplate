@@ -4,7 +4,7 @@ import styled from '@emotion/styled';
 
 import { RiDirectionLine, RiMenuLine, RiSearchLine } from 'react-icons/ri';
 import { InputBase, InputBaseProps } from '../input-base';
-import { Box } from '../../../layout/box';
+import { Box } from '../../box';
 import { IconButton } from '../../icon-button';
 import { Divider } from '../../divider';
 

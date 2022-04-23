@@ -3,9 +3,9 @@ import Link from 'next/link';
 
 import { APP_TITLE } from '@/shared/lib/meta';
 import * as Text from '@/shared/components/system/text';
-import { Container } from '@/shared/components/layout/container';
-import { Flex } from '@/shared/components/layout/flex';
-import { Stack } from '@/shared/components/layout/stack';
+import { Container } from '@/shared/components/system/container';
+import { Flex } from '@/shared/components/system/flex';
+import { Stack } from '@/shared/components/system/stack';
 import { LocaleToggler } from '@/modules/locale-toggler';
 import { SettingsButton } from '@/modules/settings-button';
 

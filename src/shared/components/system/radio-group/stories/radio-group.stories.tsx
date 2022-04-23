@@ -1,10 +1,11 @@
 import * as React from 'react';
 import { Story, Meta } from '@storybook/react';
-import { Flex } from '../../../layout/flex';
+
+import { Flex } from '../../flex';
+import * as Text from '../../text';
+import { Stack } from '../../stack';
 
 import * as RadioGroup from '..';
-import * as Text from '../../text';
-import { Stack } from '../../../layout/stack';
 
 export default {
   title: 'Design System/Atoms/RadioGroup',

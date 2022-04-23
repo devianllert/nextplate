@@ -2,8 +2,8 @@ import * as React from 'react';
 import { useRouter } from 'next/router';
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
 
-import { Box } from '@/shared/components/layout/box';
-import { Container } from '@/shared/components/layout/container';
+import { Box } from '@/shared/components/system/box';
+import { Container } from '@/shared/components/system/container';
 
 import { duration } from '@/shared/design/tokens/transitions';
 

@@ -4,7 +4,7 @@ import { RiMapPinLine, RiSearchLine } from 'react-icons/ri';
 
 import { createLogger } from '@/shared/lib/logging/logger';
 import * as Text from '@/shared/components/system/text';
-import { Box } from '@/shared/components/layout/box';
+import { Box } from '@/shared/components/system/box';
 import { Input, InputAdornment } from '@/shared/components/system/input';
 import { IconButton } from '@/shared/components/system/icon-button';
 import { PageSEO } from '@/shared/lib/meta';

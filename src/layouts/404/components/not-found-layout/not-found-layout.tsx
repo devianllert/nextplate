@@ -1,7 +1,7 @@
 import * as React from 'react';
 
-import { Container } from '@/shared/components/layout/container';
-import { Box } from '@/shared/components/layout/box';
+import { Container } from '@/shared/components/system/container';
+import { Box } from '@/shared/components/system/box';
 
 import * as S from './styled';
 

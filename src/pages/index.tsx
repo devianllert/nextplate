@@ -11,10 +11,10 @@ import {
 
 import { createLogger } from '@/shared/lib/logging/logger';
 import { Button } from '@/shared/components/system/button';
-import { Box } from '@/shared/components/layout/box';
-import { Container } from '@/shared/components/layout/container';
+import { Box } from '@/shared/components/system/box';
+import { Container } from '@/shared/components/system/container';
 import * as Text from '@/shared/components/system/text';
-import { Stack } from '@/shared/components/layout/stack';
+import { Stack } from '@/shared/components/system/stack';
 import { Code } from '@/shared/components/system/code';
 import { AspectRatio } from '@/shared/components/system/aspect-ratio';
 import { useTheme } from '@/shared/design/hooks/use-theme';

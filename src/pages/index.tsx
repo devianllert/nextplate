@@ -21,10 +21,10 @@ import { useTheme } from '@/shared/design/hooks/use-theme';
 import { PageSEO } from '@/shared/lib/meta';
 import { getTranslationsStaticProps } from '@/layouts/core/ssg';
 import { MainLayout } from '@/layouts/main';
-import { EnhancedNextPage } from '@/layouts/core/types/enhanced-next-page';
-import { SSRPageProps } from '@/layouts/core/types/ssr-page-props';
-import { SSGPageProps } from '@/layouts/core/types/ssg-page-props';
-import { OnlyBrowserPageProps } from '@/layouts/core/types/only-browser-page-props';
+import { EnhancedNextPage } from '@/shared/types/enhanced-next-page';
+import { SSRPageProps } from '@/shared/types/ssr-page-props';
+import { SSGPageProps } from '@/shared/types/ssg-page-props';
+import { OnlyBrowserPageProps } from '@/shared/types/only-browser-page-props';
 
 const logger = createLogger('Index');
 

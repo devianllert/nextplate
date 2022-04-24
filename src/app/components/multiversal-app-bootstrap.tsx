@@ -23,8 +23,8 @@ import { getLinksAlternateHref } from '@/shared/lib/meta';
 import { MultiversalAppBootstrapProps } from '../types/multiversal-app-bootstrap-props';
 import BrowserPageBootstrap, { BrowserPageBootstrapProps } from './browser-page-bootstrap';
 import ServerPageBootstrap, { ServerPageBootstrapProps } from './server-page-bootstrap';
-import { SSRPageProps } from '@/layouts/core/types/ssr-page-props';
-import { SSGPageProps } from '@/layouts/core/types/ssg-page-props';
+import { SSRPageProps } from '@/shared/types/ssr-page-props';
+import { SSGPageProps } from '@/shared/types/ssg-page-props';
 import ErrorPage from '@/pages/_error';
 
 export type Props = MultiversalAppBootstrapProps<SSGPageProps> | MultiversalAppBootstrapProps<SSRPageProps>;

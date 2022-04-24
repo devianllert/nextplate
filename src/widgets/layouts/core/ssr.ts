@@ -8,8 +8,8 @@ import { Cookies } from '@/shared/lib/cookies-manager/types/cookies';
 import serializeSafe from '@/shared/lib/serialize-safe/serialize-safe';
 import { getTranslationsConfig } from '@/shared/lib/i18n/translations';
 import { CommonServerSideParams } from '@/app/types/common-server-side-params';
-import { PublicHeaders } from './types/public-headers';
-import { SSRPageProps } from './types/ssr-page-props';
+import { PublicHeaders } from '@/shared/types/public-headers';
+import { SSRPageProps } from '@/shared/types/ssr-page-props';
 
 /**
  * getServerSideProps returns only part of the props expected in SSRPageProps

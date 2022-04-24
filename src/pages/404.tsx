@@ -11,9 +11,9 @@ import { Button } from '@/shared/components/system/button';
 import { Stack } from '@/shared/components/system/stack';
 import { PageSEO } from '@/shared/lib/meta';
 import { getTranslationsStaticProps } from '@/layouts/core/ssg';
-import { EnhancedNextPage } from '@/layouts/core/types/enhanced-next-page';
-import { SoftPageProps } from '@/layouts/core/types/soft-page-props';
-import { SSGPageProps } from '@/layouts/core/types/ssg-page-props';
+import { EnhancedNextPage } from '@/shared/types/enhanced-next-page';
+import { SoftPageProps } from '@/shared/types/soft-page-props';
+import { SSGPageProps } from '@/shared/types/ssg-page-props';
 import { NotFoundLayout } from '@/layouts/404';
 
 const fileLabel = 'pages/404';

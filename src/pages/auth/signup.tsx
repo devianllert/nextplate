@@ -13,10 +13,10 @@ import { IconButton } from '@/shared/components/system/icon-button';
 import { PageSEO } from '@/shared/lib/meta';
 import { AuthLayout } from '@/layouts/auth';
 import { getTranslationsStaticProps } from '@/layouts/core/ssg';
-import { EnhancedNextPage } from '@/layouts/core/types/enhanced-next-page';
-import { SSRPageProps } from '@/layouts/core/types/ssr-page-props';
-import { SSGPageProps } from '@/layouts/core/types/ssg-page-props';
-import { OnlyBrowserPageProps } from '@/layouts/core/types/only-browser-page-props';
+import { EnhancedNextPage } from '@/shared/types/enhanced-next-page';
+import { SSRPageProps } from '@/shared/types/ssr-page-props';
+import { SSGPageProps } from '@/shared/types/ssg-page-props';
+import { OnlyBrowserPageProps } from '@/shared/types/only-browser-page-props';
 
 const logger = createLogger('SignUp');
 

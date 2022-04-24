@@ -18,7 +18,7 @@
         "src/shared/lib/*"
       ],
       "@/layouts/*": [
-        "src/layouts/*"
+        "src/widgets/layouts/*"
       ],
       "@/modules/*": [
         "src/modules/*"

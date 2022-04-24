@@ -5,8 +5,8 @@ import UniversalCookiesManager from '@/shared/lib/cookies-manager/universal-cook
 import { createLogger } from '@/shared/lib/logging/logger';
 import { UserSemiPersistentSession } from '@/shared/lib/user-session/types/user-semi-persistent-session';
 import userSessionContext from '@/shared/lib/user-session/user-session-context';
-import { OnlyBrowserPageProps } from '@/layouts/core/types/only-browser-page-props';
-import { MultiversalPageProps } from '@/layouts/core/types/multiversal-page-props';
+import { OnlyBrowserPageProps } from '@/shared/types/only-browser-page-props';
+import { MultiversalPageProps } from '@/shared/types/multiversal-page-props';
 import { MultiversalAppBootstrapPageProps } from '../types/multiversal-app-bootstrap-page-props';
 import { MultiversalAppBootstrapProps } from '../types/multiversal-app-bootstrap-props';
 

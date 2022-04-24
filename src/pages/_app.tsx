@@ -4,8 +4,8 @@ import * as React from 'react';
 
 import MultiversalAppBootstrap from '@/app/components/multiversal-app-bootstrap';
 import { MultiversalAppBootstrapProps } from '@/app/types/multiversal-app-bootstrap-props';
-import { SSGPageProps } from '@/layouts/core/types/ssg-page-props';
-import { SSRPageProps } from '@/layouts/core/types/ssr-page-props';
+import { SSGPageProps } from '@/shared/types/ssg-page-props';
+import { SSRPageProps } from '@/shared/types/ssr-page-props';
 
 /**
  * "props.pageProps" will depend on whether the page is served by server or client, SSG or SSR

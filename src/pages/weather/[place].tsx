@@ -16,7 +16,7 @@ import { OnlyBrowserPageProps } from '@/shared/types/only-browser-page-props';
 import { SSGPageProps } from '@/shared/types/ssg-page-props';
 import { SSRPageProps } from '@/shared/types/ssr-page-props';
 import { EnhancedNextPage } from '@/shared/types/enhanced-next-page';
-import { getCoreServerSideProps } from '@/layouts/core/ssr';
+import { getCoreServerSideProps } from '@/shared/lib/ssr';
 import { fetchWeather } from '@/modules/weather/api/wttr';
 import { Weather } from '@/modules/weather/types/weather.interface';
 import { WeatherLayout } from '@/layouts/weather';

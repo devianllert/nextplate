@@ -1,5 +1,6 @@
 import format from 'date-fns/format';
 import isAfter from 'date-fns/isAfter';
+import parseISO from 'date-fns/parseISO';
 
 import { WTTRWeatherDailyCondition, WTTRWeatherHourlyCondition } from '../types/weather.interface';
 
@@ -11,7 +12,7 @@ const formatHourlyWeather = (hourlyWeather: WTTRWeatherHourlyCondition[], date: 
   const weather = hourlyWeather.map((item, index) => {
     return {
       ...item,
-      time: new Date(+currentTime + index * HOURLY_WEATHER_INTERVAL),
+      time: new Date(+currentTime + index * HOURLY_WEATHER_INTERVAL).toISOString(),
     };
   });
 
@@ -35,12 +36,11 @@ export const filterHourlyWeatherBasedOnCurrentTime = (dailyWeather: WTTRWeatherD
   const formattedDailyWeather = formatDailyWeather(dailyWeather);
   const hourlyWeather = getFlattenedHourlyWeatherList(formattedDailyWeather);
 
-  return hourlyWeather.filter((item) => isAfter(item.time as Date, Date.now() - HOURLY_WEATHER_INTERVAL));
+  return hourlyWeather.filter((item) => isAfter(typeof item.time === 'string' ? parseISO(item.time) : item.time, Date.now() - HOURLY_WEATHER_INTERVAL));
 };
 
 export const formatHourlyTime = (time: string | Date): string => {
   const parsedDate = new Date(time);
 
-  // return isAfter(new Date().setHours(24), parsedDate) ? format(new Date(time), 'hh:mm aa') : format(new Date(time), 'dd hh:mm aa');
   return format(parsedDate, 'hh:mm aa');
 };

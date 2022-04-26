@@ -1,5 +1,6 @@
 import { api } from '@/shared/api';
 
+import { filterHourlyWeatherBasedOnCurrentTime } from '../lib/format-hourly-weather';
 import { Weather, WTTRWeather } from '../types/weather.interface';
 
 const WEATHER_API_ENDPOINT = 'https://wttr.in';
@@ -22,6 +23,7 @@ export const fetchWeather = async (place = ''): Promise<Weather> => {
       date: data.current_condition[0].localObsDateTime,
     },
     daily: data.weather,
+    hourly: filterHourlyWeatherBasedOnCurrentTime(data.weather ?? []).slice(0, 8),
   };
 
   return weather;

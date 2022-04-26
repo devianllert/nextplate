@@ -60,7 +60,7 @@ interface WTTRWeatherNearestArea {
 export interface WTTRWeatherHourlyCondition {
   tempC: string;
   tempF: string;
-  time: string | Date;
+  time: string;
   weatherCode: string;
 }
 
@@ -90,4 +90,5 @@ export interface Weather {
     date: string;
   };
   daily: WTTRWeatherDailyCondition[];
+  hourly: WTTRWeatherHourlyCondition[];
 }

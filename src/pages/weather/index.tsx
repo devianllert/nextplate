@@ -1,5 +1,4 @@
 import React from 'react';
-import { useRouter } from 'next/router';
 import { RiMapPinLine, RiSearchLine } from 'react-icons/ri';
 
 import { createLogger } from '@/shared/lib/logging/logger';
@@ -14,6 +13,7 @@ import { EnhancedNextPage } from '@/shared/types/enhanced-next-page';
 import { SSRPageProps } from '@/shared/types/ssr-page-props';
 import { SSGPageProps } from '@/shared/types/ssg-page-props';
 import { OnlyBrowserPageProps } from '@/shared/types/only-browser-page-props';
+import { useWeatherSearch } from '@/entities/weather';
 
 const logger = createLogger('Weather');
 
@@ -38,17 +38,7 @@ export const getStaticProps = getTranslationsStaticProps();
 type Props = (SSRPageProps & SSGPageProps<OnlyBrowserPageProps>);
 
 const WeatherSearchPage: EnhancedNextPage<Props> = (): JSX.Element => {
-  const router = useRouter();
-
-  const [text, setText] = React.useState('');
-
-  const onSearch = (event: React.FormEvent<HTMLFormElement> | React.MouseEvent<HTMLButtonElement>) => {
-    event.preventDefault();
-
-    if (!text.trim()) return;
-
-    router.push(`/weather/${text}`) as unknown as void;
-  };
+  const { onSearch } = useWeatherSearch();
 
   return (
     <>
@@ -85,15 +75,14 @@ const WeatherSearchPage: EnhancedNextPage<Props> = (): JSX.Element => {
             )}
             suffix={(
               <InputAdornment position="end">
-                <IconButton onClick={onSearch} size="small" edge="end">
+                <IconButton type="submit" size="small" edge="end">
                   <RiSearchLine />
                 </IconButton>
               </InputAdornment>
             )}
             color="black"
             fullWidth
-            value={text}
-            onChange={(event) => setText(event.currentTarget.value)}
+            name="search"
             placeholder="City, Country"
           />
         </Box>

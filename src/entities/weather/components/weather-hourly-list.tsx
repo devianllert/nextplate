@@ -27,7 +27,7 @@ export const WeatherHourlyList = (props: WeatherHourlyListProps): JSX.Element =>
     >
       {hourlyWeather.map((item, index) => (
         <Box
-          key={item.time.toString()}
+          key={item.time}
           display="flex"
           flexDirection="column"
           alignItems="center"

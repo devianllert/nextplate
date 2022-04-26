@@ -1,8 +1,7 @@
 import * as React from 'react';
 import { GetServerSideProps, GetServerSidePropsResult } from 'next';
 import Image from 'next/image';
-import { useRouter } from 'next/router';
-import { QueryClient, useQuery } from 'react-query';
+import { QueryClient } from 'react-query';
 import { dehydrate } from 'react-query/hydration';
 
 import { serializeSafe } from '@/shared/lib/serialize-safe/serialize-safe';
@@ -17,14 +16,15 @@ import { SSGPageProps } from '@/shared/types/ssg-page-props';
 import { SSRPageProps } from '@/shared/types/ssr-page-props';
 import { EnhancedNextPage } from '@/shared/types/enhanced-next-page';
 import { getCoreServerSideProps } from '@/shared/lib/ssr';
-import { fetchWeather } from '@/modules/weather/api/wttr';
-import { Weather } from '@/modules/weather/types/weather.interface';
 import { WeatherLayout } from '@/layouts/weather';
-import { WeatherDate } from '@/modules/weather/components/weather-date';
-import { ICONS_MAP } from '@/modules/weather/constants/icons-map';
-import { filterHourlyWeatherBasedOnCurrentTime } from '@/modules/weather/lib/format-hourly-weather';
-import { WeatherHourlyList } from '@/modules/weather/components/weather-hourly-list';
-import { Todos } from '@/modules/weather/components/todos';
+import {
+  useWeatherQuery,
+  Todos,
+  WeatherHourlyList,
+  WeatherDate,
+  ICONS_MAP,
+  fetchWeather,
+} from '@/entities/weather';
 
 const logger = createLogger('[place]');
 
@@ -52,18 +52,14 @@ export const getServerSideProps: GetServerSideProps<GetServerSidePageProps> = as
     } = commonServerSideProps;
 
     try {
-      const data = await queryClient.fetchQuery(['weather', place], () => fetchWeather(place));
-
-      const dataset = {
-        data: data ?? {},
-      };
+      await queryClient.fetchQuery(['weather', place], () => fetchWeather(place));
 
       return {
         // Props returned here will be available as page properties (pageProps)
         props: {
           ...pageData,
           [REACT_QUERY_STATE_PROP_NAME]: dehydrate(queryClient),
-          serializedDataset: serializeSafe(dataset),
+          serializedDataset: serializeSafe({}),
         },
       };
     } catch (error) {
@@ -86,17 +82,15 @@ export const getServerSideProps: GetServerSideProps<GetServerSidePageProps> = as
 type Props = (SSRPageProps & SSGPageProps<OnlyBrowserPageProps>);
 
 const WeatherPlacePage: EnhancedNextPage<Props> = (): JSX.Element => {
-  const { query } = useRouter();
-
-  const place = query.place as (string | undefined);
-  const { data: weather, isFetching } = useQuery<Weather>(['weather', place], () => fetchWeather(place));
-
-  const hourlyWeather = filterHourlyWeatherBasedOnCurrentTime(weather?.daily ?? []).slice(0, 8);
+  const {
+    city,
+    weather,
+  } = useWeatherQuery();
 
   return (
     <>
       <PageSEO
-        title={`Weather for ${place ?? weather?.place ?? 'your current location'}`}
+        title={`Weather for ${city ?? weather?.place ?? 'your current location'}`}
         description="The right way to check the weather! This is a demo app intended to demonstrate the capabilities of this boilerplate"
         image="/static/images/apps/weather.png"
       />
@@ -140,12 +134,11 @@ const WeatherPlacePage: EnhancedNextPage<Props> = (): JSX.Element => {
               <Text.Heading variant="h3" component="span" fontWeight="medium" textAlign="center">{weather?.condition.title}</Text.Heading>
               <Text.Heading variant="h6" component="span" sx={{ mt: 2 }} fontWeight="normal" color="text.secondary">{weather?.place}</Text.Heading>
               <Text.Heading variant="h3" component="span" sx={{ mt: 4 }} fontWeight="bold">{weather?.temp.c} °</Text.Heading>
-              {isFetching && 'Updating'}
             </Box>
           </Box>
         </Container>
 
-        <WeatherHourlyList hourlyWeather={hourlyWeather} />
+        <WeatherHourlyList hourlyWeather={weather?.hourly ?? []} />
       </Box>
     </>
   );

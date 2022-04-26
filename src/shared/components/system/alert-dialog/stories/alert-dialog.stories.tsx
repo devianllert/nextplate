@@ -7,7 +7,7 @@ import { Box } from '../../box';
 import { Stack } from '../../stack';
 
 export default {
-  title: 'Design System/Atoms/AlertDialog',
+  title: 'Design System/Components/AlertDialog',
   component: AlertDialog.Root,
 } as Meta;
 

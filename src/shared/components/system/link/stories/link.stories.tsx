@@ -6,7 +6,7 @@ import { Link, LinkProps } from '../link';
 import * as Text from '../../text';
 
 export default {
-  title: 'Design System/Atoms/Link',
+  title: 'Design System/Components/Link',
   component: Link,
 } as Meta;
 

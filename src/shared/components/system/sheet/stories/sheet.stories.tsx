@@ -9,7 +9,7 @@ import { SheetContent, SheetPortal, SheetTrigger } from '..';
 import { Button } from '../../button';
 
 export default {
-  title: 'Design System/Atoms/Sheet',
+  title: 'Design System/Components/Sheet',
   component: Sheet,
 } as Meta;
 

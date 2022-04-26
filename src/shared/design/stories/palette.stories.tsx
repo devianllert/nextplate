@@ -5,7 +5,7 @@ import * as Text from '@/shared/components/system/text';
 import { useTheme } from '../hooks/use-theme';
 
 export default {
-  title: 'Design/Palette',
+  title: 'Design System/Palette',
 } as Meta;
 
 const PaletteColorRoot = styled.div({
@@ -63,10 +63,10 @@ export const Palette = (): JSX.Element => {
       </Grid>
 
       <Grid columns={4}>
-        <PaletteColor title="status.primary" color={theme.rawColors.status.success[11]} />
-        <PaletteColor title="status.info" color={theme.rawColors.status.info[11]} />
-        <PaletteColor title="status.warning" color={theme.rawColors.status.warning[11]} />
-        <PaletteColor title="status.error" color={theme.rawColors.status.error[11]} />
+        <PaletteColor title="status.primary" color={theme.rawColors.radix.green11} />
+        <PaletteColor title="status.info" color={theme.rawColors.radix.blue11} />
+        <PaletteColor title="status.warning" color={theme.rawColors.radix.yellow11} />
+        <PaletteColor title="status.error" color={theme.rawColors.radix.red11} />
       </Grid>
     </Grid>
   );

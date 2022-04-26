@@ -5,7 +5,7 @@ import { Checkbox, CheckboxProps } from '../checkbox';
 import { Box } from '../../box';
 
 export default {
-  title: 'Design System/Atoms/Checkbox',
+  title: 'Design System/Components/Checkbox',
   component: Checkbox,
 } as Meta;
 

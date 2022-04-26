@@ -5,7 +5,7 @@ import { Overline, OverlineProps } from '../overline';
 import { Stack } from '../../stack';
 
 export default {
-  title: 'Design System/Atoms/Text/Overline',
+  title: 'Design System/Components/Text/Overline',
   component: Overline,
 } as Meta;
 

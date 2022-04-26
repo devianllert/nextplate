@@ -4,7 +4,7 @@ import { Meta } from '@storybook/react';
 import { Portal } from '../portal';
 
 export default {
-  title: 'Design System/Atoms/Portal',
+  title: 'Design System/Components/Portal',
   component: Portal,
 } as Meta;
 

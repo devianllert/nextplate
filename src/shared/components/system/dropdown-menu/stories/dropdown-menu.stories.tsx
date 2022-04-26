@@ -8,7 +8,7 @@ import * as DropdownMenu from '..';
 import { Button } from '../../button';
 
 export default {
-  title: 'Design System/Atoms/DropdownMenu',
+  title: 'Design System/Components/DropdownMenu',
   component: DropdownMenu.Root,
 } as Meta;
 

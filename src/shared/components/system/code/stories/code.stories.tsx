@@ -4,7 +4,7 @@ import { Story, Meta } from '@storybook/react';
 import { Code, CodeProps } from '../code';
 
 export default {
-  title: 'Design System/Atoms/Code',
+  title: 'Design System/Components/Code',
   component: Code,
 } as Meta;
 

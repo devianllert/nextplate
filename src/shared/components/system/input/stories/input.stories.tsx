@@ -9,7 +9,7 @@ import { InputAdornment } from '../input-adornment';
 import { IconButton } from '../../icon-button';
 
 export default {
-  title: 'Design System/Atoms/Input',
+  title: 'Design System/Components/Input',
   component: Input,
 } as Meta;
 

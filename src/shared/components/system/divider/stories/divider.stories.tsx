@@ -6,7 +6,7 @@ import * as Text from '../../text';
 import { Box } from '../../box';
 
 export default {
-  title: 'Design System/Atoms/Divider',
+  title: 'Design System/Components/Divider',
   component: Divider,
 } as Meta;
 

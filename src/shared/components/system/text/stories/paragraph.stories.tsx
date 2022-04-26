@@ -5,7 +5,7 @@ import { Paragraph, ParagraphProps } from '../paragraph';
 import { Stack } from '../../stack';
 
 export default {
-  title: 'Design System/Atoms/Text/Paragraph',
+  title: 'Design System/Components/Text/Paragraph',
   component: Paragraph,
 } as Meta;
 

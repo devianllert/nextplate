@@ -9,7 +9,7 @@ import { IconButton } from '../../icon-button';
 import { Divider } from '../../divider';
 
 export default {
-  title: 'Design System/Atoms/InputBase',
+  title: 'Design System/Components/InputBase',
   component: InputBase,
 } as Meta;
 

@@ -8,7 +8,7 @@ import { Stack } from '../../stack';
 import * as RadioGroup from '..';
 
 export default {
-  title: 'Design System/Atoms/RadioGroup',
+  title: 'Design System/Components/RadioGroup',
   component: RadioGroup.Root,
 } as Meta;
 

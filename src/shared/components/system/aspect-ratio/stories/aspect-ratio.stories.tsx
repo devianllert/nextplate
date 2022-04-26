@@ -6,7 +6,7 @@ import { AspectRatio, AspectRatioProps } from '../aspect-ratio';
 import { Box } from '../../box';
 
 export default {
-  title: 'Design System/Atoms/AspectRatio',
+  title: 'Design System/Components/AspectRatio',
   component: AspectRatio,
 } as Meta;
 

@@ -9,7 +9,7 @@ import * as ScrollArea from '../scroll-area';
 import { Stack } from '../../stack';
 
 export default {
-  title: 'Design System/Atoms/ScrollArea',
+  title: 'Design System/Components/ScrollArea',
   component: ScrollArea.Root,
 } as Meta;
 

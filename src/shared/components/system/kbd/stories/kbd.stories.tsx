@@ -6,7 +6,7 @@ import { Box } from '../../box';
 import { Stack } from '../../stack';
 
 export default {
-  title: 'Design System/Atoms/Kbd',
+  title: 'Design System/Components/Kbd',
   component: Kbd,
 } as Meta;
 

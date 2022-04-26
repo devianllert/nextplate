@@ -5,7 +5,7 @@ import { RiMenu3Line } from 'react-icons/ri';
 import { IconButton, IconButtonProps } from '../icon-button';
 
 export default {
-  title: 'Design System/Atoms/IconButton',
+  title: 'Design System/Components/IconButton',
   component: IconButton,
 } as Meta;
 

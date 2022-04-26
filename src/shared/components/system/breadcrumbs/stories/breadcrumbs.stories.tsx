@@ -5,7 +5,7 @@ import { RiArrowRightSLine } from 'react-icons/ri';
 import * as Breadcrumbs from '../breadcrumbs';
 
 export default {
-  title: 'Design System/Atoms/Breadcrumbs',
+  title: 'Design System/Components/Breadcrumbs',
   component: Breadcrumbs.Root,
 } as Meta;
 

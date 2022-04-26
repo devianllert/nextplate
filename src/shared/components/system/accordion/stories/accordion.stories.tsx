@@ -8,7 +8,7 @@ import { RiArrowDownSLine } from 'react-icons/ri';
 import * as Accordion from '..';
 
 export default {
-  title: 'Design System/Atoms/Accordion',
+  title: 'Design System/Components/Accordion',
   component: Accordion.Root,
 } as Meta;
 

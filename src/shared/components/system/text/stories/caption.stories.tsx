@@ -5,7 +5,7 @@ import { Caption, CaptionProps } from '../caption';
 import { Stack } from '../../stack';
 
 export default {
-  title: 'Design System/Atoms/Text/Caption',
+  title: 'Design System/Components/Text/Caption',
   component: Caption,
 } as Meta;
 

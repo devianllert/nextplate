@@ -9,14 +9,14 @@ export const StyledOverlay = styled(DialogPrimitive.Overlay)({
   right: 0,
   bottom: 0,
   left: 0,
-  backgroundColor: 'rgba(0, 0, 0, .15)',
+  backgroundColor: 'rgba(0, 0, 0, .35)',
 
   '&[data-state="open"]': {
-    animation: `${fadeIn} 150ms cubic-bezier(0.22, 1, 0.36, 1) forwards`,
+    animation: `${fadeIn} 250ms ease forwards`,
   },
 
   '&[data-state="closed"]': {
-    animation: `${fadeOut} 150ms cubic-bezier(0.22, 1, 0.36, 1) forwards`,
+    animation: `${fadeOut} 250ms ease forwards`,
   },
 });
 

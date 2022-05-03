@@ -48,11 +48,11 @@ const StyledSheetContent = styled(DialogPrimitive.Content)<{ direction: SheetDir
   willChange: 'transform',
 
   '&[data-state="open"]': {
-    animation: `${slideIn} 150ms cubic-bezier(0.22, 1, 0.36, 1) forwards`,
+    animation: `${slideIn} 250ms ease forwards`,
   },
 
   '&[data-state="closed"]': {
-    animation: `${slideOut} 150ms cubic-bezier(0.22, 1, 0.36, 1) forwards`,
+    animation: `${slideOut} 250ms ease forwards`,
   },
 
   ...slideDirectionTransform[props.direction],

@@ -2,17 +2,17 @@ import * as React from 'react';
 
 export interface UseDelayedLoadingOptions {
   /**
-   * The amount of time in ms before the loading fallback is displayed
+   * The amount of time in `ms` before the loading fallback is displayed.
    */
   delay?: number;
 
   /**
-   * The minimum amount of time in ms the loading fallback will be displayed for
+   * The minimum amount of time in `ms` the loading fallback will be displayed for.
    */
-  fallbackDelay?: number | null;
+  minDuration?: number | null;
 
   /**
-   * state
+   * When this prop is `true` the delay will be started.
    */
   loading?: boolean;
 }
@@ -25,7 +25,7 @@ export const useDelayedLoading = (props: UseDelayedLoadingOptions): boolean => {
   const {
     delay = 200,
     loading = false,
-    fallbackDelay = 500,
+    minDuration = 500,
   } = props;
 
   const [show, setShow] = React.useState(loading);
@@ -42,13 +42,13 @@ export const useDelayedLoading = (props: UseDelayedLoadingOptions): boolean => {
 
   React.useEffect(() => {
     if (show && loading === false) {
-      const timer = setTimeout(() => setShow(false), fallbackDelay ?? 0);
+      const timer = setTimeout(() => setShow(false), minDuration ?? 0);
 
       return () => clearTimeout(timer);
     }
 
     return undefined;
-  }, [fallbackDelay, loading, show]);
+  }, [minDuration, loading, show]);
 
   return show;
 };

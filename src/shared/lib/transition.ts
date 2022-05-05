@@ -1,9 +1,7 @@
-/* eslint-disable */
-
 import { Target, TargetAndTransition, Transition } from 'framer-motion';
 import { isNumber } from './assertion';
 
-type TargetResolver<P = {}> = (
+type TargetResolver<P = unknown> = (
   props: P & {
     transition?: TransitionConfig;
     transitionEnd?: TransitionEndConfig;
@@ -11,9 +9,9 @@ type TargetResolver<P = {}> = (
   },
 ) => TargetAndTransition;
 
-type Variant<P = {}> = TargetAndTransition | TargetResolver<P>;
+type Variant<P = unknown> = TargetAndTransition | TargetResolver<P>;
 
-export type Variants<P = {}> = {
+export type Variants<P = unknown> = {
   enter: Variant<P>;
   exit: Variant<P>;
   initial?: Variant<P>;
@@ -123,18 +121,22 @@ export type WithTransitionConfig<P extends object> = Omit<P, 'transition'> & {
    * If `true`, the element will unmount when `in={false}` and animation is done
    */
   unmountOnExit?: boolean;
+
   /**
    * Show the component; triggers when enter or exit states
    */
   in?: boolean;
+
   /**
    * Custom `transition` definition for `enter` and `exit`
    */
   transition?: TransitionConfig;
+
   /**
    * Custom `transitionEnd` definition for `enter` and `exit`
    */
   transitionEnd?: TransitionEndConfig;
+
   /**
    * Custom `delay` definition for `enter` and `exit`
    */

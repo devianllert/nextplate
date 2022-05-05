@@ -1,23 +1,7 @@
 import * as React from 'react';
-import { DelayedLoadingProvider } from './delayed-loading-context';
-import { useDelayedLoading } from './use-delayed-loading';
+import { useDelayedLoading, UseDelayedLoadingOptions } from './use-delayed-loading';
 
-export interface DelayedLoadingProps {
-  /**
-   * The amount of time in ms before the loading fallback is displayed
-   */
-  delay?: number;
-
-  /**
-   * The minimum amount of time in ms the loading fallback will be displayed for
-   */
-  fallbackDelay?: number | null;
-
-  /**
-   *
-   */
-  loading?: boolean;
-
+export interface DelayedLoadingProps extends UseDelayedLoadingOptions {
   /**
    * The content
    */
@@ -33,18 +17,19 @@ export const DelayedLoading = (props: DelayedLoadingProps) => {
     delay = 200,
     loading = false,
     children,
-    fallbackDelay = 500,
+    minDuration = 500,
   } = props;
 
   const show = useDelayedLoading({
     delay,
     loading,
-    fallbackDelay,
+    minDuration,
   });
 
   return (
-    <DelayedLoadingProvider loading={show}>
+    // eslint-disable-next-line react/jsx-no-useless-fragment
+    <>
       {children?.({ loading: show })}
-    </DelayedLoadingProvider>
+    </>
   );
 };

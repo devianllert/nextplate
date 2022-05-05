@@ -1,4 +1,3 @@
-/* eslint-disable */
 import * as React from 'react';
 import { Story, Meta } from '@storybook/react';
 
@@ -46,6 +45,11 @@ const Template: Story<DelayedLoadingProps> = (args) => {
 
 export const Basic = Template.bind({});
 
+Basic.args = {
+  delay: 200,
+  minDuration: 500,
+};
+
 export const WithAnimations = () => {
   const [state, setState] = React.useState(0);
   const [status, setStatus] = React.useState<string>('idle');
@@ -68,7 +72,7 @@ export const WithAnimations = () => {
             <button type="button" onClick={handleLoad} disabled={status === 'loading' || loading}>load next number</button>
             <Box position="relative">
               <Fade in={loading} unmountOnExit>
-                <LoadingOverlay loader="loading..." />
+                <LoadingOverlay />
               </Fade>
 
               <Box

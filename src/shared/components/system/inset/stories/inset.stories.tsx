@@ -1,7 +1,8 @@
 import * as React from 'react';
 import { Story, Meta } from '@storybook/react';
 
-import { Box } from '../../box';
+import { Box } from '@/shared/components/system/box';
+
 import { Inset, InsetProps } from '../inset';
 
 export default {

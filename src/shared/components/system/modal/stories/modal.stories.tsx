@@ -1,9 +1,10 @@
 import * as React from 'react';
 import { Meta } from '@storybook/react';
 
+import { Button } from '@/shared/components/system/button';
+import { Box } from '@/shared/components/system/box';
+
 import * as Modal from '../modal';
-import { Button } from '../../button';
-import { Box } from '../../box';
 
 export default {
   title: 'Design System/Components/Modal',

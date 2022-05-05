@@ -1,11 +1,11 @@
 import * as React from 'react';
 import { Story, Meta } from '@storybook/react';
 
-import { Flex } from '../../flex';
-import * as Text from '../../text';
-import { Stack } from '../../stack';
+import { Flex } from '@/shared/components/system/flex';
+import * as Text from '@/shared/components/system/text';
+import { Stack } from '@/shared/components/system/stack';
 
-import * as RadioGroup from '..';
+import * as RadioGroup from '../index';
 
 export default {
   title: 'Design System/Components/RadioGroup',

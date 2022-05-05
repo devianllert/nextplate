@@ -2,11 +2,12 @@ import * as React from 'react';
 import { Story, Meta } from '@storybook/react';
 import { RiEyeCloseLine, RiEyeLine, RiUserLine } from 'react-icons/ri';
 
+import { Divider } from '@/shared/components/system/divider';
+import * as Text from '@/shared/components/system/text';
+import { IconButton } from '@/shared/components/system/icon-button';
+
 import { Input, InputProps } from '../input';
-import { Divider } from '../../divider';
-import * as Text from '../../text';
 import { InputAdornment } from '../input-adornment';
-import { IconButton } from '../../icon-button';
 
 export default {
   title: 'Design System/Components/Input',

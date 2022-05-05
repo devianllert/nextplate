@@ -1,9 +1,9 @@
 import * as React from 'react';
-
 import { Story, Meta } from '@storybook/react';
 
+import { Box } from '@/shared/components/system/box';
+
 import { AspectRatio, AspectRatioProps } from '../aspect-ratio';
-import { Box } from '../../box';
 
 export default {
   title: 'Design System/Components/AspectRatio',

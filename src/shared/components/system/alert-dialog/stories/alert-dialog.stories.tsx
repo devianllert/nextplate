@@ -1,10 +1,11 @@
 import * as React from 'react';
 import { Meta } from '@storybook/react';
 
+import { Button } from '@/shared/components/system/button';
+import { Box } from '@/shared/components/system/box';
+import { Stack } from '@/shared/components/system/stack';
+
 import * as AlertDialog from '../alert-dialog';
-import { Button } from '../../button';
-import { Box } from '../../box';
-import { Stack } from '../../stack';
 
 export default {
   title: 'Design System/Components/AlertDialog',

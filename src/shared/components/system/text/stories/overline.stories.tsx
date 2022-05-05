@@ -1,8 +1,9 @@
 import * as React from 'react';
 import { Story, Meta } from '@storybook/react';
 
+import { Stack } from '@/shared/components/system/stack';
+
 import { Overline, OverlineProps } from '../overline';
-import { Stack } from '../../stack';
 
 export default {
   title: 'Design System/Components/Text/Overline',

@@ -1,9 +1,10 @@
 import * as React from 'react';
 import { Story, Meta } from '@storybook/react';
 
+import * as Text from '@/shared/components/system/text';
+import { Box } from '@/shared/components/system/box';
+
 import { Divider, DividerProps } from '../divider';
-import * as Text from '../../text';
-import { Box } from '../../box';
 
 export default {
   title: 'Design System/Components/Divider',

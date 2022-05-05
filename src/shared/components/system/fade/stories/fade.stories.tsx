@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Story, Meta } from '@storybook/react';
 
 import { Fade, FadeProps } from '../fade';
-import { Box } from '../../box';
+import { Box } from '@/shared/components/system/box';
 
 export default {
   title: 'Design System/Components/Fade',

@@ -3,9 +3,9 @@ import { Meta } from '@storybook/react';
 import { RiDeleteBin2Line } from 'react-icons/ri';
 import styled from '@emotion/styled';
 
-import * as DropdownMenu from '..';
+import { Button } from '@/shared/components/system/button';
 
-import { Button } from '../../button';
+import * as DropdownMenu from '..';
 
 export default {
   title: 'Design System/Components/DropdownMenu',

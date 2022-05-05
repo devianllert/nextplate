@@ -2,8 +2,9 @@ import * as React from 'react';
 import { Story, Meta } from '@storybook/react';
 import { RiExternalLinkLine } from 'react-icons/ri';
 
+import * as Text from '@/shared/components/system/text';
+
 import { Link, LinkProps } from '../link';
-import * as Text from '../../text';
 
 export default {
   title: 'Design System/Components/Link',

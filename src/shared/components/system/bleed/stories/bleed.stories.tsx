@@ -1,10 +1,11 @@
 import * as React from 'react';
 import { Story, Meta } from '@storybook/react';
 
+import { Inset } from '@/shared/components/system/inset';
+import { Box } from '@/shared/components/system/box';
+import { Stack } from '@/shared/components/system/stack';
+
 import { Bleed, BleedProps } from '../bleed';
-import { Inset } from '../../inset';
-import { Box } from '../../box';
-import { Stack } from '../../stack';
 
 export default {
   title: 'Design System/Layout/Bleed',

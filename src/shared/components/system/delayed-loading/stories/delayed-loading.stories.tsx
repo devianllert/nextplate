@@ -1,12 +1,13 @@
 import * as React from 'react';
 import { Story, Meta } from '@storybook/react';
 
-import { DelayedLoading, DelayedLoadingProps } from '../delayed-loading';
 import { wait } from '@/shared/lib/wait';
-import { Fade } from '../../fade/fade';
-import { LoadingOverlay } from '../../loading-overlay';
-import { Box } from '../../box';
-import { Heading } from '../../text';
+import { Fade } from '@/shared/components/system/fade';
+import { LoadingOverlay } from '@/shared/components/system/loading-overlay';
+import { Box } from '@/shared/components/system/box';
+import { Heading } from '@/shared/components/system/text';
+
+import { DelayedLoading, DelayedLoadingProps } from '../delayed-loading';
 import { useDelayedLoading } from '../use-delayed-loading';
 
 export default {

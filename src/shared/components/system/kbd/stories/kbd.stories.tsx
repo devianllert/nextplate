@@ -1,9 +1,10 @@
 import * as React from 'react';
 import { Story, Meta } from '@storybook/react';
 
+import { Box } from '@/shared/components/system/box';
+import { Stack } from '@/shared/components/system/stack';
+
 import { Kbd, KbdProps } from '../kbd';
-import { Box } from '../../box';
-import { Stack } from '../../stack';
 
 export default {
   title: 'Design System/Components/Kbd',

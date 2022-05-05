@@ -1,8 +1,9 @@
 import * as React from 'react';
 import { Story, Meta } from '@storybook/react';
 
+import { Stack } from '@/shared/components/system/stack';
+
 import { Caption, CaptionProps } from '../caption';
-import { Stack } from '../../stack';
 
 export default {
   title: 'Design System/Components/Text/Caption',

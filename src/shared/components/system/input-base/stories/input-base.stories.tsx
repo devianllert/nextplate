@@ -1,12 +1,13 @@
 import * as React from 'react';
 import { Story, Meta } from '@storybook/react';
 import styled from '@emotion/styled';
-
 import { RiDirectionLine, RiMenuLine, RiSearchLine } from 'react-icons/ri';
+
+import { Box } from '@/shared/components/system/box';
+import { IconButton } from '@/shared/components/system/icon-button';
+import { Divider } from '@/shared/components/system/divider';
+
 import { InputBase, InputBaseProps } from '../input-base';
-import { Box } from '../../box';
-import { IconButton } from '../../icon-button';
-import { Divider } from '../../divider';
 
 export default {
   title: 'Design System/Components/InputBase',

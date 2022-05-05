@@ -3,10 +3,14 @@ import { Meta } from '@storybook/react';
 import styled from '@emotion/styled';
 
 import shadows from '@/shared/design/tokens/shadows';
+import { Button } from '@/shared/components/system/button';
 
-import { Sheet } from '../sheet';
-import { SheetContent, SheetPortal, SheetTrigger } from '..';
-import { Button } from '../../button';
+import {
+  Sheet,
+  SheetContent,
+  SheetPortal,
+  SheetTrigger,
+} from '../index';
 
 export default {
   title: 'Design System/Components/Sheet',

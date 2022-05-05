@@ -2,8 +2,9 @@ import * as React from 'react';
 import { Story, Meta } from '@storybook/react';
 
 import { shadows } from '@/shared/design/tokens/shadows';
+import { Box } from '@/shared/components/system/box';
+
 import { Stack, StackProps } from '../stack';
-import { Box } from '../../box';
 
 export default {
   title: 'Design System/Layout/Stack',

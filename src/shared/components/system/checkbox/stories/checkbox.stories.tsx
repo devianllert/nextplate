@@ -1,8 +1,9 @@
 import * as React from 'react';
 import { Story, Meta } from '@storybook/react';
 
+import { Box } from '@/shared/components/system/box';
+
 import { Checkbox, CheckboxProps } from '../checkbox';
-import { Box } from '../../box';
 
 export default {
   title: 'Design System/Components/Checkbox',

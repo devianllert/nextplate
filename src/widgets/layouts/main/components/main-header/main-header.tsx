@@ -10,7 +10,7 @@ import { DisplayOnBrowserMount } from '@/shared/components/rehydration/display-o
 import { LocaleToggler } from '@/modules/locale-toggler';
 import { SettingsButton } from '@/modules/settings-button';
 
-import * as S from './styled';
+import * as S from './main-header.styled';
 
 export type MainHeaderProps = unknown;
 

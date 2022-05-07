@@ -4,7 +4,7 @@ import * as React from 'react';
 import { CheckboxBase, CheckboxBaseProps } from '../checkbox-base';
 import * as Text from '../text';
 
-import * as S from './styled';
+import * as S from './checkbox.styled';
 
 export interface CheckboxProps extends CheckboxBaseProps {
   /**

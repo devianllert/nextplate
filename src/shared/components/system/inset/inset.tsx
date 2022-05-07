@@ -3,7 +3,7 @@ import { ResponsiveValue } from 'styled-system';
 
 import { PolymorphicComponent } from '@/shared/types/polymorphic';
 
-import * as S from './styled';
+import * as S from './inset.styled';
 
 export interface InsetProps {
   /**

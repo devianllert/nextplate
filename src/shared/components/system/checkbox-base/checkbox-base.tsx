@@ -4,7 +4,7 @@ import { RiCheckLine, RiSubtractLine } from 'react-icons/ri';
 
 import { useControllableState } from '@/shared/hooks/use-controllable-state';
 
-import * as S from './styled';
+import * as S from './checkbox-base.styled';
 
 export interface CheckboxBaseProps extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'checked' | 'defaultChecked'> {
   /**

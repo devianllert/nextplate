@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import * as S from './styled';
+import * as S from './breadcrumbs.styled';
 
 export type BreadcrumbItemProps = React.HTMLAttributes<HTMLElement>;
 

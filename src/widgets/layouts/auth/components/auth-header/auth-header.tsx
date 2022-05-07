@@ -9,7 +9,7 @@ import { Stack } from '@/shared/components/system/stack';
 import { LocaleToggler } from '@/modules/locale-toggler';
 import { SettingsButton } from '@/modules/settings-button';
 
-import * as S from './styled';
+import * as S from './auth-header.styled';
 
 export type AuthHeaderProps = unknown;
 

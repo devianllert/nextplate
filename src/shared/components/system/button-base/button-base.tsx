@@ -4,7 +4,7 @@ import * as React from 'react';
 import { PolymorphicComponent } from '@/shared/types/polymorphic';
 import { SxProp } from '@/shared/lib/css-in-js/sx';
 
-import * as S from './styled';
+import * as S from './button-base.styled';
 
 export interface ButtonBaseProps extends SxProp {
   /**

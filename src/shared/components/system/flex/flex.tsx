@@ -3,7 +3,7 @@ import { FlexboxProps, LayoutProps } from 'styled-system';
 
 import { PolymorphicComponent } from '@/shared/types/polymorphic';
 
-import * as S from './styled';
+import * as S from './flex.styled';
 
 export interface FlexProps extends React.HTMLAttributes<HTMLDivElement>, FlexboxProps, LayoutProps {
   /**

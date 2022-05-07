@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Container } from '@/shared/components/system/container';
 
-import * as S from './styled';
+import * as S from './main-footer.styled';
 import * as Text from '@/shared/components/system/text';
 
 export const MainFooter = (): JSX.Element => {

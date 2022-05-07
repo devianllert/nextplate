@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import * as S from './styled';
+import * as S from './kbd.styled';
 
 export interface KbdProps extends React.HTMLAttributes<HTMLElement> {
   /**

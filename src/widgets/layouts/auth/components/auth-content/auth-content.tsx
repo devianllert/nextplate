@@ -7,7 +7,7 @@ import { Container } from '@/shared/components/system/container';
 
 import { duration } from '@/shared/design/tokens/transitions';
 
-import * as S from './styled';
+import * as S from './auth-content.styled';
 
 interface AuthContentProps {
   /**

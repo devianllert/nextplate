@@ -4,7 +4,7 @@ import { PolymorphicComponent } from '@/shared/types/polymorphic';
 import { ButtonBaseProps } from '@/shared/components/system/button-base';
 import { VisuallyHidden } from '@/shared/components/system/visually-hidden';
 
-import * as S from './styled';
+import * as S from './icon-button.styled';
 
 export interface IconButtonProps extends ButtonBaseProps {
   /**

@@ -6,7 +6,7 @@ import { InputBaseProps } from '../input-base';
 import { InputLabel } from './input-label';
 import { InputHelperText } from './input-helper-text';
 
-import * as S from './styled';
+import * as S from './input.styled';
 
 export interface InputProps extends InputBaseProps {
   /**

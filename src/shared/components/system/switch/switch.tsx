@@ -1,7 +1,7 @@
 import * as React from 'react';
 import * as SwitchPrimitive from '@radix-ui/react-switch';
 
-import * as S from './styled';
+import * as S from './switch.styled';
 
 export type SwitchProps = SwitchPrimitive.SwitchProps & {
   /**

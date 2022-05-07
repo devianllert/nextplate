@@ -5,7 +5,7 @@ import { SxProp } from '@/shared/lib/css-in-js/sx';
 import { PolymorphicComponent } from '@/shared/types/polymorphic';
 import { captions } from '@/shared/design/tokens/typography';
 
-import * as S from './styled';
+import * as S from './text.styled';
 
 type SystemProps = SxProp & ColorProps & TypographyProps;
 

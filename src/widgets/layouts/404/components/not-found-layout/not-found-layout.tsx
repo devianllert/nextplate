@@ -3,7 +3,7 @@ import * as React from 'react';
 import { Container } from '@/shared/components/system/container';
 import { Box } from '@/shared/components/system/box';
 
-import * as S from './styled';
+import * as S from './not-fount-layout.styled';
 
 export interface NotFound404LayoutProps {
   /**

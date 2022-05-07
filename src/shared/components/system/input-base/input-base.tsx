@@ -4,7 +4,7 @@ import * as React from 'react';
 import { useComposedRefs } from '@/shared/lib/react';
 import { SxProp } from '@/shared/lib/css-in-js/sx';
 
-import * as S from './styled';
+import * as S from './input-base.styled';
 
 export interface InputBaseProps extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'prefix'>, SxProp {
   /**

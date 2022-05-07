@@ -3,7 +3,7 @@ import * as React from 'react';
 import { PolymorphicComponent } from '@/shared/types/polymorphic';
 import { paragraphs } from '@/shared/design/tokens/typography';
 
-import * as S from './styled';
+import * as S from './text.styled';
 
 export interface ParagraphProps extends Omit<React.HTMLAttributes<HTMLParagraphElement>, 'color'>, Omit<S.TextBaseProps, 'variant'> {
   /**

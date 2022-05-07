@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import { PolymorphicComponent } from '@/shared/types/polymorphic';
 
-import * as S from './styled';
+import * as S from './box.styled';
 
 export interface BoxProps extends S.BoxType {
   /**

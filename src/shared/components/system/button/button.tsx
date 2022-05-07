@@ -5,7 +5,7 @@ import { PolymorphicComponent } from '@/shared/types/polymorphic';
 
 import { ButtonBaseProps } from '../button-base';
 
-import * as S from './styled';
+import * as S from './button.styled';
 
 export interface ButtonProps extends ButtonBaseProps {
   /**

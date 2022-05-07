@@ -4,7 +4,7 @@ import * as React from 'react';
 import { Breakpoint } from '@/shared/design/media';
 import { PolymorphicComponent } from '@/shared/types/polymorphic';
 
-import * as S from './styled';
+import * as S from './container.styled';
 
 export interface ContainerProps {
   /**

@@ -10,7 +10,7 @@ import * as Text from '@/shared/components/system/text';
 import { Box } from '@/shared/components/system/box';
 import { APP_TITLE } from '@/shared/lib/meta';
 
-import * as S from './styled';
+import * as S from './help-button.styled';
 
 register('ru', ru);
 

@@ -1,7 +1,7 @@
 /* eslint-disable prefer-arrow-callback */
 import * as React from 'react';
 
-import * as S from './styled';
+import * as S from './aspect-ratio.styled';
 
 export interface AspectRatioProps extends React.HTMLAttributes<HTMLDivElement> {
   /**

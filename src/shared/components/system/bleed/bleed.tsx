@@ -3,7 +3,7 @@ import { ResponsiveValue, WidthProps, PositionProps } from 'styled-system';
 
 import { PolymorphicComponent } from '@/shared/types/polymorphic';
 
-import * as S from './styled';
+import * as S from './bleed.styled';
 
 export interface BleedProps extends WidthProps, PositionProps {
   /**

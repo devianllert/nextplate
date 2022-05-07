@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import * as S from './styled';
+import * as S from './code.styled';
 
 export interface CodeProps extends React.HTMLAttributes<HTMLElement> {
   /**

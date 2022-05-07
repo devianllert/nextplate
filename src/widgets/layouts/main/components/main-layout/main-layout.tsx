@@ -5,7 +5,7 @@ import { HelpButton } from '@/modules/support';
 import { MainHeader } from '../main-header';
 import { MainFooter } from '../main-footer';
 
-import * as S from './styled';
+import * as S from './main-layout.styled';
 
 export interface MainLayoutProps {
   /**

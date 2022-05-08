@@ -2,6 +2,8 @@ import * as React from 'react';
 import { Story, Meta } from '@storybook/react';
 
 import { Stack } from '@/shared/components/system/stack';
+import { Box } from '@/shared/components/system/box';
+import { Status } from '@/shared/components/system/status';
 
 import { Badge } from '../badge';
 
@@ -20,6 +22,12 @@ Basic.args = {
 
 export const Colors = () => (
   <Stack direction="row">
+    <Badge color="red">
+      <Box mr={2}>
+        <Status color="red" size="small" />
+      </Box>
+      Live
+    </Badge>
     <Badge color="gray">Gray</Badge>
     <Badge color="gray" fontWeight="bold">Gray</Badge>
     <Badge color="primary">Primary</Badge>
@@ -34,6 +42,12 @@ export const Colors = () => (
 
 export const Interactive = () => (
   <Stack direction="row">
+    <Badge color="red" interactive>
+      <Box mr={2}>
+        <Status color="red" size="small" />
+      </Box>
+      Live
+    </Badge>
     <Badge interactive color="gray">Gray</Badge>
     <Badge interactive color="primary">Primary</Badge>
     <Badge interactive color="secondary">Secondary</Badge>

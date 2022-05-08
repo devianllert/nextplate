@@ -68,6 +68,8 @@ export const InputBase = React.forwardRef(function InputBase(props: InputBasePro
   const composedRefs = useComposedRefs(inputRef, inputElementRef, ref);
 
   const handleClick = React.useCallback((event: React.MouseEvent<HTMLDivElement>) => {
+    event.preventDefault();
+
     if (inputElementRef.current && event.currentTarget === event.target) {
       inputElementRef.current.focus();
     }

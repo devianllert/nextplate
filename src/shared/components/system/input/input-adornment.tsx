@@ -9,14 +9,10 @@ export const InputAdornmentRoot = styled.div<InputAdornmentProps>((props) => ({
   maxHeight: '2em',
   alignItems: 'center',
   whiteSpace: 'nowrap',
+  marginRight: spacings[1],
+  marginLeft: spacings[1],
 
-  ...(props.position === 'start' && {
-    marginRight: spacings[2],
-  }),
-
-  ...(props.position === 'end' && {
-    marginLeft: spacings[2],
-  }),
+  color: props.theme.colors.text.secondary,
 
   ...(props.disablePointerEvents === true && {
     pointerEvents: 'none',

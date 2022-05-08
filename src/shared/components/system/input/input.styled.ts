@@ -36,10 +36,14 @@ export const InputRoot = styled.div<InputRootProps>((props) => ({
 
 export const InputComponent = styled(InputBase)((props) => ({
   borderRadius: 4,
-  padding: '6px 8px',
   color: props.theme.colors.text.primary,
   background: props.theme.colors.radix.gray3,
   boxShadow: `inset 0px 0px 0px 2px ${props.theme.colors.radix.gray7}`,
+  padding: '0px 4px',
+
+  '& > input': {
+    padding: '6px 4px',
+  },
 
   '&:hover': {
     boxShadow: `inset 0px 0px 0px 2px ${props.theme.colors.radix.gray8}`,

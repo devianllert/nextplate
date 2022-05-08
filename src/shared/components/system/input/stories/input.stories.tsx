@@ -42,7 +42,7 @@ WithPrefixIcon.args = {
   label: 'Name',
   prefix: (
     <InputAdornment position="start" disablePointerEvents>
-      <RiUserLine />
+      <RiUserLine color="inherit" />
     </InputAdornment>
   ),
 };
@@ -67,10 +67,6 @@ const TemplateWithPasswordAdornment: Story<InputProps> = (args) => {
 
   const [show, setShow] = React.useState(false);
 
-  const handleMouseDownPassword = (event: React.MouseEvent<HTMLButtonElement>) => {
-    event.preventDefault();
-  };
-
   return (
     <Input
       label="Password"
@@ -78,7 +74,7 @@ const TemplateWithPasswordAdornment: Story<InputProps> = (args) => {
       {...args}
       suffix={(
         <InputAdornment position="end">
-          <IconButton disabled={disabled} onClick={() => setShow((prevShow) => !prevShow)} onMouseDown={handleMouseDownPassword}>
+          <IconButton size="small" disabled={disabled} onClick={() => setShow((prevShow) => !prevShow)}>
             {show ? <RiEyeLine /> : <RiEyeCloseLine />}
           </IconButton>
         </InputAdornment>

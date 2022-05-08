@@ -38,7 +38,7 @@ console.debug(`Deployment will be tagged automatically, using GIT_COMMIT_TAGS: "
 // Iterate over all tags and extract the first the match "v*"
 const APP_RELEASE_TAG = GIT_COMMIT_TAGS
   ? GIT_COMMIT_TAGS.split(' ').find((tag) => tag.startsWith('v'))
-  : `unknown-${GIT_COMMIT_SHA_SHORT || 'unknown'}`;
+  : packageJson.version;
 console.debug(`Release version resolved from tags: "${APP_RELEASE_TAG}" (matching first tag starting with "v")`);
 
 const SentryWebpackPluginOptions = {

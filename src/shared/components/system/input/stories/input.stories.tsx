@@ -7,7 +7,6 @@ import * as Text from '@/shared/components/system/text';
 import { IconButton } from '@/shared/components/system/icon-button';
 
 import { Input, InputProps } from '../input';
-import { InputAdornment } from '../input-adornment';
 
 export default {
   title: 'Design System/Components/Input',
@@ -41,9 +40,7 @@ export const WithPrefixIcon = Template.bind({});
 WithPrefixIcon.args = {
   label: 'Name',
   prefix: (
-    <InputAdornment position="start" disablePointerEvents>
-      <RiUserLine color="inherit" />
-    </InputAdornment>
+    <RiUserLine color="inherit" />
   ),
 };
 
@@ -52,11 +49,11 @@ export const WithPrefixNumber = Template.bind({});
 WithPrefixNumber.args = {
   label: 'Number',
   prefix: (
-    <InputAdornment disablePointerEvents>
+    <>
       <Text.Paragraph variant="body2" color="text.secondary">+61</Text.Paragraph>
 
       <Divider orientation="vertical" flexItem />
-    </InputAdornment>
+    </>
   ),
 };
 
@@ -73,11 +70,9 @@ const TemplateWithPasswordAdornment: Story<InputProps> = (args) => {
       type={show ? 'text' : 'password'}
       {...args}
       suffix={(
-        <InputAdornment position="end">
-          <IconButton size="small" disabled={disabled} onClick={() => setShow((prevShow) => !prevShow)}>
-            {show ? <RiEyeLine /> : <RiEyeCloseLine />}
-          </IconButton>
-        </InputAdornment>
+        <IconButton size="small" disabled={disabled} onClick={() => setShow((prevShow) => !prevShow)}>
+          {show ? <RiEyeLine /> : <RiEyeCloseLine />}
+        </IconButton>
       )}
     />
   );

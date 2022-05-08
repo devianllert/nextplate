@@ -9,6 +9,7 @@ export const InputAdornmentRoot = styled.div<InputAdornmentProps>((props) => ({
   maxHeight: '2em',
   alignItems: 'center',
   whiteSpace: 'nowrap',
+  flexShrink: 0,
   marginRight: spacings[1],
   marginLeft: spacings[1],
 

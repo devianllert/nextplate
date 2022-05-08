@@ -6,7 +6,7 @@ import { createLogger } from '@/shared/lib/logging/logger';
 import { Button } from '@/shared/components/system/button';
 import * as Text from '@/shared/components/system/text';
 import { Box } from '@/shared/components/system/box';
-import { Input, InputAdornment } from '@/shared/components/system/input';
+import { Input } from '@/shared/components/system/input';
 import { Stack } from '@/shared/components/system/stack';
 import { useBoolean } from '@/shared/hooks/use-boolean';
 import { IconButton } from '@/shared/components/system/icon-button';
@@ -82,11 +82,9 @@ const SignUpPage: EnhancedNextPage<Props> = (): JSX.Element => {
             name="password"
             type={show ? 'text' : 'password'}
             suffix={(
-              <InputAdornment>
-                <IconButton onClick={() => toggleShow()} size="small">
-                  {show ? <RiEyeLine /> : <RiEyeOffLine />}
-                </IconButton>
-              </InputAdornment>
+              <IconButton onClick={() => toggleShow()} size="small">
+                {show ? <RiEyeLine /> : <RiEyeOffLine />}
+              </IconButton>
             )}
             placeholder={t('form.password.placeholder')}
             autoComplete="new-password"
@@ -99,11 +97,9 @@ const SignUpPage: EnhancedNextPage<Props> = (): JSX.Element => {
             autoComplete="new-password"
             placeholder={t('form.confirmPassword.placeholder')}
             suffix={(
-              <InputAdornment>
-                <IconButton onClick={() => toggleShow()} size="small">
-                  {show ? <RiEyeLine /> : <RiEyeOffLine />}
-                </IconButton>
-              </InputAdornment>
+              <IconButton onClick={() => toggleShow()} size="small">
+                {show ? <RiEyeLine /> : <RiEyeOffLine />}
+              </IconButton>
             )}
             name="confirmPassword"
             label={t('form.confirmPassword.label')}

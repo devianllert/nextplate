@@ -4,7 +4,7 @@ import { RiMapPinLine, RiSearchLine } from 'react-icons/ri';
 import { createLogger } from '@/shared/lib/logging/logger';
 import * as Text from '@/shared/components/system/text';
 import { Box } from '@/shared/components/system/box';
-import { Input, InputAdornment } from '@/shared/components/system/input';
+import { Input } from '@/shared/components/system/input';
 import { IconButton } from '@/shared/components/system/icon-button';
 import { PageSEO } from '@/shared/lib/meta';
 import { WeatherLayout } from '@/layouts/weather';
@@ -69,16 +69,12 @@ const WeatherSearchPage: EnhancedNextPage<Props> = (): JSX.Element => {
         >
           <Input
             prefix={(
-              <InputAdornment position="start" disablePointerEvents>
-                <RiMapPinLine />
-              </InputAdornment>
+              <RiMapPinLine />
             )}
             suffix={(
-              <InputAdornment position="end">
-                <IconButton type="submit" size="small" edge="end">
-                  <RiSearchLine />
-                </IconButton>
-              </InputAdornment>
+              <IconButton type="submit" size="small" edge="end">
+                <RiSearchLine />
+              </IconButton>
             )}
             color="black"
             fullWidth

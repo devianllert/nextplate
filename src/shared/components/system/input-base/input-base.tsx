@@ -4,6 +4,8 @@ import * as React from 'react';
 import { useComposedRefs } from '@/shared/lib/react';
 import { SxProp } from '@/shared/lib/css-in-js/sx';
 
+import { InputAdornment } from '../input/input-adornment';
+
 import * as S from './input-base.styled';
 
 export interface InputBaseProps extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'prefix'>, SxProp {
@@ -82,7 +84,11 @@ export const InputBase = React.forwardRef(function InputBase(props: InputBasePro
       onClick={handleClick}
       className={className}
     >
-      {prefix}
+      {prefix && (
+        <InputAdornment disablePointerEvents>
+          {prefix}
+        </InputAdornment>
+      )}
 
       <S.InputBaseComponent
         as={inputComponent}
@@ -94,7 +100,11 @@ export const InputBase = React.forwardRef(function InputBase(props: InputBasePro
         {...other}
       />
 
-      {suffix}
+      {suffix && (
+        <InputAdornment>
+          {suffix}
+        </InputAdornment>
+      )}
     </S.InputBaseRoot>
   );
 });

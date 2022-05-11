@@ -25,6 +25,7 @@ import { EnhancedNextPage } from '@/shared/types/enhanced-next-page';
 import { SSRPageProps } from '@/shared/types/ssr-page-props';
 import { SSGPageProps } from '@/shared/types/ssg-page-props';
 import { OnlyBrowserPageProps } from '@/shared/types/only-browser-page-props';
+import { pagesPath, staticPath } from '@/shared/lib/$path';
 
 const logger = createLogger('Index');
 
@@ -207,7 +208,7 @@ const IndexPage: EnhancedNextPage<Props> = (): JSX.Element => {
           </Text.Heading>
 
           <Box display="grid" gridTemplateColumns={['repeat(1, minmax(0, 1fr))', 'repeat(2, minmax(0, 1fr))', 'repeat(2, minmax(0, 1fr))']} gridGap={4}>
-            <Link href="/weather" passHref>
+            <Link href={pagesPath.weather.$url()} passHref>
               <Box display="block" component="a" boxShadow={4}>
                 <Box borderRadius="4px" overflow="hidden" position="relative">
                   <AspectRatio ratio={16 / 9}>
@@ -215,7 +216,7 @@ const IndexPage: EnhancedNextPage<Props> = (): JSX.Element => {
                       objectFit="cover"
                       objectPosition="top"
                       layout="fill"
-                      src="/static/images/apps/weather.png"
+                      src={staticPath.static.images.apps.weather_png}
                     />
                   </AspectRatio>
 
@@ -245,7 +246,7 @@ const IndexPage: EnhancedNextPage<Props> = (): JSX.Element => {
                       objectFit="cover"
                       objectPosition="center"
                       layout="fill"
-                      src={`/static/images/apps/${i18n.language}/auth.png`}
+                      src={staticPath.static.images.apps[i18n.language].auth_png}
                     />
                   </AspectRatio>
 

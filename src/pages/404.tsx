@@ -15,6 +15,7 @@ import { EnhancedNextPage } from '@/shared/types/enhanced-next-page';
 import { SoftPageProps } from '@/shared/types/soft-page-props';
 import { SSGPageProps } from '@/shared/types/ssg-page-props';
 import { NotFoundLayout } from '@/layouts/404';
+import { staticPath } from '@/shared/lib/$path';
 
 const fileLabel = 'pages/404';
 const logger = createLogger(fileLabel);
@@ -58,7 +59,7 @@ const NotFound404Page: EnhancedNextPage<Props> = (): JSX.Element => {
       <PageSEO
         title={t('seo.title')}
         description={t('seo.description')}
-        image="/static/images/404.png"
+        image={staticPath.static.images.$404_png}
       />
 
       <Stack direction="column" space={3}>

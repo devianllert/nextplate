@@ -1,5 +1,8 @@
+import * as React from 'react';
 import { useRouter } from 'next/router';
 import { useQuery } from 'react-query';
+
+import { pagesPath } from '@/shared/lib/$path';
 
 import { fetchWeather } from '../api/wttr';
 import { Weather } from '../types/weather.interface';
@@ -18,19 +21,19 @@ export const useWeatherQuery = () => {
 };
 
 export const useWeatherSearch = () => {
+  const [text, setText] = React.useState('');
   const router = useRouter();
 
-  const onSearch = (event: React.FormEvent<HTMLFormElement>) => {
+  const onSearch = (event: React.FormEvent<HTMLFormElement> | React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
-
-    const text = (new FormData(event.currentTarget).get('search') as string) ?? '';
 
     if (!text.trim()) return;
 
-    router.push(`/weather/${text}`) as unknown as void;
+    router.push(pagesPath.weather._place(text).$url()) as unknown as void;
   };
 
   return {
     onSearch,
+    onChange: (event: React.ChangeEvent<HTMLInputElement>) => setText(event.target.value),
   };
 };

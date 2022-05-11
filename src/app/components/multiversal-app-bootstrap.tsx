@@ -17,7 +17,6 @@ import { createLogger } from '@/shared/lib/logging/logger';
 import { REACT_QUERY_STATE_PROP_NAME } from '@/shared/types/react-query';
 import { NProgressRoot } from '@/modules/nprogress';
 import { isEmpty } from '@/shared/lib/assertion';
-import { MediaContextProvider } from '@/shared/lib/responsive';
 
 import { getLinksAlternateHref } from '@/shared/lib/meta';
 import { MultiversalAppBootstrapProps } from '../types/multiversal-app-bootstrap-props';
@@ -123,18 +122,16 @@ const MultiversalAppBootstrap = (props: Props): JSX.Element => {
       <QueryClientProvider client={queryClient}>
         <Hydrate state={pageProps[REACT_QUERY_STATE_PROP_NAME]}>
           <ThemeProvider theme={theme}>
-            <MediaContextProvider>
-              <GlobalStyles />
-              <ResetStyles />
+            <GlobalStyles />
+            <ResetStyles />
 
-              <NProgressRoot />
+            <NProgressRoot />
 
-              {isBrowser() ? (
-                <BrowserPageBootstrap {...multiversalPageBootstrapProps} />
-              ) : (
-                <ServerPageBootstrap {...multiversalPageBootstrapProps} />
-              )}
-            </MediaContextProvider>
+            {isBrowser() ? (
+              <BrowserPageBootstrap {...multiversalPageBootstrapProps} />
+            ) : (
+              <ServerPageBootstrap {...multiversalPageBootstrapProps} />
+            )}
           </ThemeProvider>
         </Hydrate>
 

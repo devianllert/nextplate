@@ -25,6 +25,7 @@ import {
   ICONS_MAP,
   fetchWeather,
 } from '@/entities/weather';
+import { staticPath } from '@/shared/lib/$path';
 
 const logger = createLogger('[place]');
 
@@ -92,7 +93,7 @@ const WeatherPlacePage: EnhancedNextPage<Props> = (): JSX.Element => {
       <PageSEO
         title={`Weather for ${city ?? weather?.place ?? 'your current location'}`}
         description="The right way to check the weather! This is a demo app intended to demonstrate the capabilities of this boilerplate"
-        image="/static/images/apps/weather.png"
+        image={staticPath.static.images.apps.weather_png}
       />
 
       <Box
@@ -100,7 +101,7 @@ const WeatherPlacePage: EnhancedNextPage<Props> = (): JSX.Element => {
         display="flex"
         color="text.primary"
         flexDirection="column"
-        backgroundImage="url('/static/images/stars.svg'), linear-gradient(180deg, rgba(13,28,139,1) 0%, rgba(83,36,224,1) 65%)"
+        backgroundImage={`url(${staticPath.static.images.stars_svg}), linear-gradient(180deg, rgba(13,28,139,1) 0%, rgba(83,36,224,1) 65%)`}
         backgroundRepeat="repeat no-repeat"
         backgroundPosition="center top"
         py={[5, null, 8]}

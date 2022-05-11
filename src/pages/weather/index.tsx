@@ -14,6 +14,7 @@ import { SSRPageProps } from '@/shared/types/ssr-page-props';
 import { SSGPageProps } from '@/shared/types/ssg-page-props';
 import { OnlyBrowserPageProps } from '@/shared/types/only-browser-page-props';
 import { useWeatherSearch } from '@/entities/weather';
+import { staticPath } from '@/shared/lib/$path';
 
 const logger = createLogger('Weather');
 
@@ -38,14 +39,14 @@ export const getStaticProps = getTranslationsStaticProps();
 type Props = (SSRPageProps & SSGPageProps<OnlyBrowserPageProps>);
 
 const WeatherSearchPage: EnhancedNextPage<Props> = (): JSX.Element => {
-  const { onSearch } = useWeatherSearch();
+  const { onSearch, onChange } = useWeatherSearch();
 
   return (
     <>
       <PageSEO
         title="Weather"
         description="The right way to check the weather! This is a demo app intended to demonstrate the capabilities of this boilerplate"
-        image="/static/images/apps/weather.png"
+        image={staticPath.static.images.apps.weather_png}
       />
 
       <Box
@@ -68,11 +69,17 @@ const WeatherSearchPage: EnhancedNextPage<Props> = (): JSX.Element => {
           onSubmit={onSearch}
         >
           <Input
+            onChange={onChange}
             prefix={(
               <RiMapPinLine />
             )}
             suffix={(
-              <IconButton type="submit" size="small" edge="end">
+              <IconButton
+                type="submit"
+                size="small"
+                edge="end"
+                onClick={onSearch}
+              >
                 <RiSearchLine />
               </IconButton>
             )}

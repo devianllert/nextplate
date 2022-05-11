@@ -2,6 +2,8 @@ import * as React from 'react';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 
+import { staticPath } from '@/shared/lib/$path';
+
 import { APP_TITLE, getAppTitle } from './meta';
 
 export interface PageSEOProps {
@@ -17,7 +19,7 @@ export const PageSEO = (props: PageSEOProps) => {
   const {
     title,
     url = `${process.env.NEXT_PUBLIC_APP_URL}${router.asPath}`,
-    image = '/static/images/logo-og.png',
+    image = staticPath.static.images.logo_og_png,
     description = APP_TITLE,
   } = props;
 

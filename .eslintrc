@@ -45,6 +45,7 @@
     // "next/core-web-vitals"
   ],
   "rules": {
+    "no-underscore-dangle": "off",
     "@typescript-eslint/no-misused-promises": "off",
     "react/function-component-definition": [
       2,

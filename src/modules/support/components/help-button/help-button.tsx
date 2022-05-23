@@ -15,7 +15,7 @@ import * as S from './help-button.styled';
 register('ru', ru);
 
 export const HelpButton = (): JSX.Element => {
-  const { t, i18n } = useTranslation();
+  const { t, i18n } = useTranslation('common');
 
   return (
     <DropdownMenu.Root modal={false}>

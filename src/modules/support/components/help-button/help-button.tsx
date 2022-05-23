@@ -2,7 +2,7 @@ import * as React from 'react';
 import Timeago from 'timeago-react';
 import { register } from 'timeago.js';
 import ru from 'timeago.js/lib/lang/ru';
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from 'next-i18next';
 import { RiBook2Line, RiMessage2Line, RiQuestionMark } from 'react-icons/ri';
 
 import * as DropdownMenu from '@/shared/components/system/dropdown-menu';

@@ -1,4 +1,8 @@
 {
   "button": "Button",
-  "lastUpdate": "Updated"
+  "lastUpdate": "Updated",
+  "cookie_consent": {
+    "title": "This website uses cookies to ensure you get the best experience on our website. <0>Learn more</0>.",
+    "action": "Got it!"
+  }
 }

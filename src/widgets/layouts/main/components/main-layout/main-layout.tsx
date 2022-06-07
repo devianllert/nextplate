@@ -1,6 +1,7 @@
 import * as React from 'react';
 
 import { HelpButton } from '@/modules/support';
+import { CookieConsent } from '@/modules/cookie-consent';
 
 import { MainHeader } from '../main-header';
 import { MainFooter } from '../main-footer';
@@ -20,14 +21,18 @@ export const MainLayout = (props: MainLayoutProps): JSX.Element => {
   } = props;
 
   return (
-    <S.MainLayoutContainer>
-      <MainHeader />
+    <>
+      <CookieConsent />
 
-      <HelpButton />
+      <S.MainLayoutContainer>
+        <MainHeader />
 
-      {children}
+        <HelpButton />
 
-      <MainFooter />
-    </S.MainLayoutContainer>
+        {children}
+
+        <MainFooter />
+      </S.MainLayoutContainer>
+    </>
   );
 };

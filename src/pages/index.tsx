@@ -246,7 +246,7 @@ const IndexPage: EnhancedNextPage<Props> = (): JSX.Element => {
                       objectFit="cover"
                       objectPosition="center"
                       layout="fill"
-                      src={staticPath.static.images.apps[i18n.language].auth_png}
+                      src={staticPath.static.images.apps[i18n.language === 'cimode' ? 'en' : i18n.language].auth_png}
                     />
                   </AspectRatio>
 

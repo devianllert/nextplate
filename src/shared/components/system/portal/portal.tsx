@@ -2,6 +2,8 @@
 import * as React from 'react';
 import { createPortal } from 'react-dom';
 
+import { useIsomorphicLayoutEffect } from '@/shared/hooks/use-isomorphic-layout-effect';
+
 interface PortalProps {
   /**
    * The children to render into the `container`.
@@ -33,7 +35,7 @@ export const Portal = (props: PortalProps): JSX.Element => {
 
   const [mountNode, setMountNode] = React.useState<Element | null>(null);
 
-  React.useLayoutEffect(() => {
+  useIsomorphicLayoutEffect(() => {
     setMountNode(getContainer(container) || document.body);
   }, [container]);
 

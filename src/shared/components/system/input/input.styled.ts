@@ -1,8 +1,10 @@
 import styled from '@emotion/styled';
 
 import { variants } from '@/shared/design/tokens/typography';
+import shape from '@/shared/design/tokens/shape';
 
 import { InputBase } from '../input-base';
+import { InputBaseComponent } from '../input-base/input-base.styled';
 
 export interface InputRootProps {
   fullWidth?: boolean;
@@ -35,13 +37,13 @@ export const InputRoot = styled.div<InputRootProps>((props) => ({
 }));
 
 export const InputComponent = styled(InputBase)((props) => ({
-  borderRadius: 4,
+  borderRadius: shape.round,
   color: props.theme.colors.text.primary,
   background: props.theme.colors.radix.gray3,
   boxShadow: `inset 0px 0px 0px 2px ${props.theme.colors.radix.gray7}`,
   padding: '0px 4px',
 
-  '& > input': {
+  [`& > ${InputBaseComponent}`]: {
     padding: '6px 4px',
   },
 

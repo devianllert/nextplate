@@ -1999,6 +1999,11 @@
   dependencies:
     "@figspec/components" "^1.0.0"
 
+"@fontsource/inter@^4.5.11":
+  version "4.5.11"
+  resolved "https://registry.yarnpkg.com/@fontsource/inter/-/inter-4.5.11.tgz#3c45014821e8c82b247a291f1944dd2764a2d1ed"
+  integrity sha512-toizzQkfXL8YJcG/f8j3EYXYGQe4OxiDEItThSigvHU+cYNDw8HPp3wLYQX745hddsnHqOGCM4exitFSBOU8+w==
+
 "@formatjs/ecma402-abstract@1.11.4":
   version "1.11.4"
   resolved "https://registry.yarnpkg.com/@formatjs/ecma402-abstract/-/ecma402-abstract-1.11.4.tgz#b962dfc4ae84361f9f08fbce411b4e4340930eda"
@@ -17427,6 +17432,11 @@ use-latest@^1.0.0:
   integrity sha512-d2TEuG6nSLKQLAfW3By8mKr8HurOlTkul0sOpxbClIv4SQ4iOd7BYr7VIzdbktUCnv7dua/60xzd8igMU6jmyw==
   dependencies:
     use-isomorphic-layout-effect "^1.0.0"
+
+use-local-storage-state@^18.1.0:
+  version "18.1.0"
+  resolved "https://registry.yarnpkg.com/use-local-storage-state/-/use-local-storage-state-18.1.0.tgz#65ac069eb9b7aa6fab8f7b4ca4b5b3ce7a0abca2"
+  integrity sha512-UY86uFHeQyh0oVMjKdco+lzDWok+rx2Fz4uBXVvLM1kfjd71tDmiOPtZY48SsAP3UAGndjUAS9tslQCxSQ4L7Q==
 
 use-sidecar@^1.0.1:
   version "1.0.5"

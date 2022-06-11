@@ -6,6 +6,7 @@ import MultiversalAppBootstrap from '@/app/components/multiversal-app-bootstrap'
 import { MultiversalAppBootstrapProps } from '@/app/types/multiversal-app-bootstrap-props';
 import { SSGPageProps } from '@/shared/types/ssg-page-props';
 import { SSRPageProps } from '@/shared/types/ssr-page-props';
+import '@/app/components/multiversal-global-external-styles';
 
 /**
  * "props.pageProps" will depend on whether the page is served by server or client, SSG or SSR

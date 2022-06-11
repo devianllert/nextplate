@@ -1,6 +1,6 @@
 import useLocalStorageState from 'use-local-storage-state';
-
 import { useTranslation, Trans } from 'next-i18next';
+
 import { Box } from '@/shared/components/system/box';
 import * as Text from '@/shared/components/system/text';
 import { Button } from '@/shared/components/system/button';

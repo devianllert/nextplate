@@ -7,4 +7,8 @@
  * so that global 3rd party CSS are included when previewing components, too.
  */
 
+import '@fontsource/inter/300.css';
+import '@fontsource/inter/400.css';
+import '@fontsource/inter/500.css';
+
 export {};

@@ -77,7 +77,7 @@ export const variants = {
   subtitle1: buildVariant(fontWeight.normal, 16, 1.75, 0.15),
   subtitle2: buildVariant(fontWeight.medium, 14, 1.57, 0.1),
   ...paragraphs,
-  button: buildVariant(fontWeight.medium, 14, 1.75, 0.4, caseAllCaps),
+  button: buildVariant(fontWeight.medium, 14, 1, 0.4, caseAllCaps),
   ...captions,
   ...overlines,
 };

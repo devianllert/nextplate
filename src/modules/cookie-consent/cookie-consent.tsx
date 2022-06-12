@@ -41,7 +41,7 @@ export const CookieConsent = () => {
             <Trans t={t} i18nKey="cookie_consent.title" components={[<Link target="_blank" href="https://www.cookiesandyou.com" />]} />
           </Text.Paragraph>
 
-          <Button variant="outlined" onClick={() => setIsAllowed(true)}>{t('cookie_consent.action')}</Button>
+          <Button variant="outlined" size="small" onClick={() => setIsAllowed(true)}>{t('cookie_consent.action')}</Button>
         </Box>
       </Box>
     </Portal>

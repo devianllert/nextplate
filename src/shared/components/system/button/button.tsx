@@ -54,6 +54,13 @@ export interface ButtonProps extends ButtonBaseProps {
   size?: 'small' | 'medium' | 'large';
 
   /**
+   * If `true`, the button will show uppercase text
+   *
+   * @default true
+   */
+  uppercase?: boolean;
+
+  /**
    * Element placed before the children.
    */
   startIcon?: React.ReactNode;
@@ -94,6 +101,7 @@ export const Button: PolymorphicComponent<ButtonProps, 'button'> = React.forward
     startIcon: startIconProp,
     endIcon: endIconProp,
     fullWidth = false,
+    uppercase = true,
     ...other
   } = props;
 
@@ -118,6 +126,7 @@ export const Button: PolymorphicComponent<ButtonProps, 'button'> = React.forward
       color={color}
       disabled={disabled}
       fullWidth={fullWidth}
+      uppercase={uppercase}
       {...other}
     >
       {startIcon}

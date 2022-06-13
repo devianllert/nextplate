@@ -31,6 +31,13 @@ interface ButtonRootProps {
   fullWidth?: boolean;
 
   /**
+   * If `true`, the button will show uppercase text
+   *
+   * @default true
+   */
+  uppercase?: boolean;
+
+  /**
    * The size of the component.
    * `small` is equivalent to the dense button styling.
    *
@@ -61,6 +68,7 @@ const buttonPaddings = {
 export const ButtonRoot = styled(ButtonBase)<ButtonRootProps>(
   ({ theme, ...props }) => ({
     ...variants.button,
+    textTransform: props.uppercase ? 'uppercase' : 'none',
     minWidth: 64,
     minHeight: buttonHeights[props.size ?? 'medium'],
     padding: `6px ${buttonPaddings[props.size ?? 'medium']}px`,
@@ -70,7 +78,6 @@ export const ButtonRoot = styled(ButtonBase)<ButtonRootProps>(
 
     ...(props.variant === 'text' && {
       color: theme.colors.radix[`${props.color}11`],
-      // padding: '6px 8px',
 
       '&:hover': {
         backgroundColor: theme.colors.radix[`${props.color}A4`],

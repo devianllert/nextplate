@@ -147,6 +147,19 @@ export const ButtonRoot = styled(ButtonBase)<ButtonRootProps>(
   }),
 );
 
+export const ButtonLoader = styled.span<{ hasChildren?: boolean }>((props) => ({
+  display: 'flex',
+  alignItems: 'center',
+
+  ...(!props.hasChildren && {
+    position: 'absolute',
+  }),
+}));
+
+export const ButtonContent = styled.span<{ loading?: boolean }>((props) => ({
+  opacity: props.loading ? 0 : 1,
+}));
+
 export const ButtonStartIcon = styled.span({
   display: 'inherit',
   marginRight: 8,

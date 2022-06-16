@@ -2,8 +2,8 @@
 import * as React from 'react';
 
 import { PolymorphicComponent } from '@/shared/types/polymorphic';
-
-import { ButtonBaseProps } from '../button-base';
+import { ButtonBaseProps } from '@/shared/components/system/button-base';
+import { AnimatedSpinner } from '@/shared/components/animations/animated-spinner';
 
 import * as S from './button.styled';
 
@@ -54,7 +54,33 @@ export interface ButtonProps extends ButtonBaseProps {
   size?: 'small' | 'medium' | 'large';
 
   /**
-   * If `true`, the button will show uppercase text
+   * If `true`, the button will show loading spinner.
+   *
+   * @default false
+   */
+  loading?: boolean;
+
+  /**
+   * The loader component.
+   */
+  loader?: React.ReactNode;
+
+  /**
+   * The text that will be shown when button in loading state.
+   *
+   * @default ''
+   */
+  loadingText?: string;
+
+  /**
+   * The placement of the loader.
+   *
+   * @default 'start'
+   */
+  loadingIconPlacement?: 'start' | 'end';
+
+  /**
+   * If `true`, the button will show uppercase text.
    *
    * @default true
    */
@@ -102,6 +128,10 @@ export const Button: PolymorphicComponent<ButtonProps, 'button'> = React.forward
     endIcon: endIconProp,
     fullWidth = false,
     uppercase = true,
+    loading = false,
+    loadingText,
+    loadingIconPlacement = 'start',
+    loader = <AnimatedSpinner fontSize="1.5em" />,
     ...other
   } = props;
 
@@ -129,9 +159,37 @@ export const Button: PolymorphicComponent<ButtonProps, 'button'> = React.forward
       uppercase={uppercase}
       {...other}
     >
-      {startIcon}
-      {children}
-      {endIcon}
+      {loading && (
+        <S.ButtonLoader hasChildren={Boolean(loadingText)}>
+          {loadingIconPlacement === 'start' && (loadingText ? (
+            <S.ButtonStartIcon>
+              {loader}
+            </S.ButtonStartIcon>
+          ) : (
+            loader
+          ))}
+
+          {loadingText}
+
+          {loadingIconPlacement === 'end' && (loadingText ? (
+            <S.ButtonEndIcon>
+              {loader}
+            </S.ButtonEndIcon>
+          ) : (
+            loader
+          ))}
+        </S.ButtonLoader>
+      )}
+
+      {!(loadingText && loading) && (
+        <S.ButtonContent loading={loading}>
+          {startIcon}
+
+          {children}
+
+          {endIcon}
+        </S.ButtonContent>
+      )}
     </S.ButtonRoot>
   );
 });

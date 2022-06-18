@@ -156,8 +156,10 @@ export const ButtonLoader = styled.span<{ hasChildren?: boolean }>((props) => ({
   }),
 }));
 
-export const ButtonContent = styled.span<{ loading?: boolean }>((props) => ({
-  opacity: props.loading ? 0 : 1,
+export const ButtonContent = styled.span<{ $loading?: boolean }>((props) => ({
+  display: 'flex',
+  alignItems: 'center',
+  opacity: props.$loading ? 0 : 1,
 }));
 
 export const ButtonStartIcon = styled.span({

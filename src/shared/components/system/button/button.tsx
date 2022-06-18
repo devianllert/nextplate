@@ -2,8 +2,8 @@
 import * as React from 'react';
 
 import { PolymorphicComponent } from '@/shared/types/polymorphic';
-import { ButtonBaseProps } from '@/shared/components/system/button-base';
 import { AnimatedSpinner } from '@/shared/components/animations/animated-spinner';
+import { ButtonBaseProps } from '@/shared/components/system/button-base';
 
 import * as S from './button.styled';
 
@@ -157,6 +157,7 @@ export const Button: PolymorphicComponent<ButtonProps, 'button'> = React.forward
       disabled={disabled}
       fullWidth={fullWidth}
       uppercase={uppercase}
+      aria-busy={loading}
       {...other}
     >
       {loading && (
@@ -182,7 +183,7 @@ export const Button: PolymorphicComponent<ButtonProps, 'button'> = React.forward
       )}
 
       {!(loadingText && loading) && (
-        <S.ButtonContent loading={loading}>
+        <S.ButtonContent $loading={loading}>
           {startIcon}
 
           {children}

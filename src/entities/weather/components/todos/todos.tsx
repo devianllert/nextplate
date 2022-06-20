@@ -35,7 +35,8 @@ export const Todos = (): JSX.Element => {
       <Modal.Root>
         <Box display="flex" alignItems="center" justifyContent="space-between">
           <Button
-            color="primary"
+            size="small"
+            color="gray"
             sx={{ ml: '-12px' }}
           >
             Next
@@ -43,6 +44,7 @@ export const Todos = (): JSX.Element => {
 
           <Modal.Trigger asChild>
             <IconButton
+              size="small"
               edge="end"
               label="Open Popup"
             >

@@ -2,6 +2,7 @@ import * as React from 'react';
 import { RiCloseLine } from 'react-icons/ri';
 
 import { IconButton } from '@/shared/components/system/icon-button';
+import { Sizes, getPreviousSize } from '@/shared/design/tokens/size';
 
 interface UseInputClearOptions<T extends HTMLTextAreaElement | HTMLInputElement> {
   ref: React.RefObject<T>;
@@ -9,6 +10,7 @@ interface UseInputClearOptions<T extends HTMLTextAreaElement | HTMLInputElement>
   disabled?: boolean;
   value?: string;
   onChange?: React.ChangeEventHandler<T>;
+  size?: Exclude<Sizes, 'xsmall'>;
 }
 
 export function useInputClear<T extends HTMLTextAreaElement | HTMLInputElement>(options: UseInputClearOptions<T>) {
@@ -18,6 +20,7 @@ export function useInputClear<T extends HTMLTextAreaElement | HTMLInputElement>(
     value,
     onChange,
     ref,
+    size = 'medium',
   } = options;
 
   const [hasUncontrolledInputValue, setHasUncontrolledInputValue] = React.useState(false);
@@ -56,7 +59,7 @@ export function useInputClear<T extends HTMLTextAreaElement | HTMLInputElement>(
 
   const clearIcon = showClearIcon ? (
     <IconButton
-      size="small"
+      size={getPreviousSize(size)}
       onMouseDown={setFocusOnInput}
       onClick={onClear}
     >

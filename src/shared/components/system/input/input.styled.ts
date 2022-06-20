@@ -5,11 +5,13 @@ import shape from '@/shared/design/tokens/shape';
 
 import { InputBase } from '../input-base';
 import { InputBaseComponent } from '../input-base/input-base.styled';
+import { getInputHeights, getInputTypography } from './input.tokens';
 
 export interface InputRootProps {
   fullWidth?: boolean;
   disabled?: boolean;
   error?: boolean;
+  size?: string;
 }
 
 export const InputRoot = styled.div<InputRootProps>((props) => ({
@@ -36,7 +38,10 @@ export const InputRoot = styled.div<InputRootProps>((props) => ({
   }),
 }));
 
-export const InputComponent = styled(InputBase)((props) => ({
+export const InputComponent = styled(InputBase)<{ size?: string }>((props) => ({
+  ...getInputTypography(props.size),
+  lineHeight: 1.5,
+  height: getInputHeights(props.size),
   borderRadius: shape.round,
   color: props.theme.colors.text.primary,
   background: props.theme.colors.radix.gray3,

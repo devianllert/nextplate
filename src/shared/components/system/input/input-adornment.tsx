@@ -4,7 +4,14 @@ import styled from '@emotion/styled';
 import { PolymorphicComponent } from '@/shared/types/polymorphic';
 import { spacings } from '@/shared/design/tokens/spacings';
 
+const inputAdornmentTypography = {
+  small: 16,
+  medium: 20,
+  large: 24,
+};
+
 export const InputAdornmentRoot = styled.div<InputAdornmentProps>((props) => ({
+  fontSize: inputAdornmentTypography[props.size ?? 'medium'],
   display: 'flex',
   maxHeight: '2em',
   alignItems: 'center',
@@ -36,6 +43,13 @@ interface InputAdornmentProps {
    * The position this adornment should appear relative to the `Input`.
    */
   position?: 'start' | 'end';
+
+  /**
+   * The size of the component.
+   *
+   * @default 'medium'
+   */
+  size?: 'small' | 'medium' | 'large';
 }
 
 export const InputAdornment: PolymorphicComponent<InputAdornmentProps, 'div'> = React.forwardRef((props, ref) => {
@@ -45,6 +59,7 @@ export const InputAdornment: PolymorphicComponent<InputAdornmentProps, 'div'> = 
     component,
     disablePointerEvents = false,
     position,
+    size,
     ...other
   } = props;
 
@@ -55,6 +70,7 @@ export const InputAdornment: PolymorphicComponent<InputAdornmentProps, 'div'> = 
       className={className}
       as={component}
       ref={ref}
+      size={size}
       {...other}
     >
       {children}

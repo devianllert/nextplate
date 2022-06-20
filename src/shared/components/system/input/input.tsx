@@ -5,6 +5,7 @@ import { useId } from '@radix-ui/react-id';
 import { useComposedRefs } from '@/shared/lib/react';
 import { Divider } from '@/shared/components/system/divider';
 import { Box } from '@/shared/components/system/box';
+import { Sizes } from '@/shared/design/tokens/size';
 
 import { useInputClear } from './useInputClear';
 import { InputLabel } from './input-label';
@@ -12,6 +13,7 @@ import { InputHelperText } from './input-helper-text';
 import { InputBaseProps } from '../input-base';
 
 import * as S from './input.styled';
+import { InputAdornment } from './input-adornment';
 
 export interface InputProps extends InputBaseProps {
   /**
@@ -31,6 +33,14 @@ export interface InputProps extends InputBaseProps {
   allowClear?: boolean;
 
   /**
+   * The size of the component.
+   * `small` is equivalent to the dense button styling.
+   *
+   * @default 'medium'
+   */
+  size?: Exclude<Sizes, 'xsmall'>;
+
+  /**
    * If `true`, the component is disabled.
    *
    * @default false
@@ -41,7 +51,7 @@ export interface InputProps extends InputBaseProps {
 /**
  * The `Input` component is used to get user input in a text field.
  */
-export const Input = React.forwardRef(function Input(props: InputProps, ref: React.ForwardedRef<HTMLInputElement>): JSX.Element {
+export const Input = React.forwardRef<HTMLInputElement, InputProps>(function Input(props, forwardedRef): JSX.Element {
   const {
     label,
     helperText,
@@ -52,6 +62,8 @@ export const Input = React.forwardRef(function Input(props: InputProps, ref: Rea
     allowClear,
     inputRef,
     suffix,
+    size = 'medium',
+    prefix,
     ...other
   } = props;
 
@@ -63,6 +75,7 @@ export const Input = React.forwardRef(function Input(props: InputProps, ref: Rea
   const { showClearIcon, clearIcon, composedOnChange } = useInputClear<HTMLInputElement>({
     allowClear,
     disabled,
+    size,
     // @ts-expect-error conflict with types
     value: other.value,
     onChange: other.onChange,
@@ -71,12 +84,24 @@ export const Input = React.forwardRef(function Input(props: InputProps, ref: Rea
 
   const showSuffix = !!suffix || showClearIcon;
 
+  const prefixElement = prefix && (
+    <InputAdornment size={size} disablePointerEvents>
+      {prefix}
+    </InputAdornment>
+  );
+
+  const suffixElement = suffix && (
+    <InputAdornment size={size}>
+      {suffix}
+    </InputAdornment>
+  );
+
   return (
     <S.InputRoot
       fullWidth={fullWidth}
       disabled={disabled}
       error={error}
-      ref={ref}
+      ref={forwardedRef}
     >
       {label && (
         <InputLabel htmlFor={inputId} title={label}>{label}</InputLabel>
@@ -89,6 +114,8 @@ export const Input = React.forwardRef(function Input(props: InputProps, ref: Rea
         fullWidth={fullWidth}
         {...other}
         inputRef={composedRefs}
+        size={size}
+        prefix={prefixElement}
         suffix={showSuffix && (
           <>
               {clearIcon}
@@ -97,7 +124,7 @@ export const Input = React.forwardRef(function Input(props: InputProps, ref: Rea
                   <Divider orientation="vertical" />
                 </Box>
               )}
-              {suffix}
+              {suffixElement}
           </>
         )}
         onChange={composedOnChange}

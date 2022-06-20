@@ -3,6 +3,7 @@ import * as React from 'react';
 import { PolymorphicComponent } from '@/shared/types/polymorphic';
 import { ButtonBaseProps } from '@/shared/components/system/button-base';
 import { VisuallyHidden } from '@/shared/components/system/visually-hidden';
+import { Sizes } from '@/shared/design/tokens/size';
 
 import * as S from './icon-button.styled';
 
@@ -23,7 +24,7 @@ export interface IconButtonProps extends ButtonBaseProps {
    *
    * @default 'medium'
    */
-  size?: 'small' | 'medium' | 'large';
+  size?: Sizes;
 
   /**
    * The color of the component. It supports those theme colors that make sense for this component.

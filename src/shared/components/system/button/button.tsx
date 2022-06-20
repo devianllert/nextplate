@@ -4,6 +4,7 @@ import * as React from 'react';
 import { PolymorphicComponent } from '@/shared/types/polymorphic';
 import { AnimatedSpinner } from '@/shared/components/animations/animated-spinner';
 import { ButtonBaseProps } from '@/shared/components/system/button-base';
+import { Sizes } from '@/shared/design/tokens/size';
 
 import * as S from './button.styled';
 
@@ -51,7 +52,7 @@ export interface ButtonProps extends ButtonBaseProps {
    *
    * @default 'medium'
    */
-  size?: 'small' | 'medium' | 'large';
+  size?: Exclude<Sizes, 'xsmall'>;
 
   /**
    * If `true`, the button will show loading spinner.

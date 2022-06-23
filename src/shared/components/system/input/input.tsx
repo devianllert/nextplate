@@ -85,13 +85,13 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(function Inp
   const showSuffix = !!suffix || showClearIcon;
 
   const prefixElement = prefix && (
-    <InputAdornment size={size} disablePointerEvents>
+    <InputAdornment size={size} disablePointerEvents position="start">
       {prefix}
     </InputAdornment>
   );
 
   const suffixElement = suffix && (
-    <InputAdornment size={size}>
+    <InputAdornment size={size} position="end">
       {suffix}
     </InputAdornment>
   );

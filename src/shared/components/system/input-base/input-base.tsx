@@ -61,6 +61,7 @@ export const InputBase = React.forwardRef(function InputBase(props: InputBasePro
     className,
     inputRef,
     inputComponent,
+    sx,
     ...other
   } = props;
 
@@ -81,6 +82,7 @@ export const InputBase = React.forwardRef(function InputBase(props: InputBasePro
       disabled={disabled}
       onClick={handleClick}
       className={className}
+      sx={sx}
     >
       {prefix}
 

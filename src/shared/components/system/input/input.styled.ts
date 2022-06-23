@@ -46,7 +46,6 @@ export const InputComponent = styled(InputBase)<{ size?: string }>((props) => ({
   color: props.theme.colors.text.primary,
   background: props.theme.colors.radix.gray3,
   boxShadow: `inset 0px 0px 0px 2px ${props.theme.colors.radix.gray7}`,
-  padding: '0px 4px',
 
   [`& > ${InputBaseComponent}`]: {
     padding: '6px 4px',

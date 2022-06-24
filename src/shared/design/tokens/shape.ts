@@ -1,4 +1,4 @@
-const shape = {
+export const shape = {
   round: 4,
   circle: 9999,
 };

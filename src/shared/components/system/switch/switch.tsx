@@ -1,13 +1,15 @@
 import * as React from 'react';
 import * as SwitchPrimitive from '@radix-ui/react-switch';
 
+import { Sizes } from '@/shared/design/tokens/size';
+
 import * as S from './switch.styled';
 
 export type SwitchProps = SwitchPrimitive.SwitchProps & {
   /**
    * The size of the component
    */
-  size?: 'small' | 'large';
+  size?: Exclude<Sizes, 'xsmall'>;
 };
 
 /**

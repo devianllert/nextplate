@@ -49,7 +49,7 @@ const MultiversalAppBootstrap = (props: Props): JSX.Element => {
   Sentry.addBreadcrumb({
     category: fileLabel,
     message: `Rendering ${fileLabel}`,
-    level: Sentry.Severity.Debug,
+    level: 'debug',
   });
 
   if (isBrowser() && process.env.NEXT_PUBLIC_APP_STAGE !== 'production') {

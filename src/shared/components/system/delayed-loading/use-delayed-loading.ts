@@ -15,6 +15,11 @@ export interface UseDelayedLoadingOptions {
    * When this prop is `true` the delay will be started.
    */
   loading?: boolean;
+
+  /**
+   * The initial loading state.
+   */
+  initialLoading?: boolean;
 }
 
 /**
@@ -26,9 +31,10 @@ export const useDelayedLoading = (props: UseDelayedLoadingOptions): boolean => {
     delay = 200,
     loading = false,
     minDuration = 500,
+    initialLoading = false,
   } = props;
 
-  const [show, setShow] = React.useState(loading);
+  const [show, setShow] = React.useState(initialLoading);
 
   React.useEffect(() => {
     if (!show && loading) {

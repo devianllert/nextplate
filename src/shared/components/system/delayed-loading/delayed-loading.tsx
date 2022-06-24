@@ -3,7 +3,7 @@ import { useDelayedLoading, UseDelayedLoadingOptions } from './use-delayed-loadi
 
 export interface DelayedLoadingProps extends UseDelayedLoadingOptions {
   /**
-   * The content
+   * The content.
    */
   children?: (props: { loading: boolean }) => React.ReactNode;
 }
@@ -18,12 +18,14 @@ export const DelayedLoading = (props: DelayedLoadingProps) => {
     loading = false,
     children,
     minDuration = 500,
+    initialLoading = false,
   } = props;
 
   const show = useDelayedLoading({
     delay,
     loading,
     minDuration,
+    initialLoading,
   });
 
   return (

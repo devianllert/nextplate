@@ -1,6 +1,10 @@
 import * as Sentry from '@sentry/nextjs';
 
+import { createLogger } from '@/shared/lib/logging/logger';
+
 import { configureSentry } from './sentry';
+
+const logger = createLogger('modules/sentry/setup.ts');
 
 /**
  * Configure Sentry default scope.
@@ -15,8 +19,7 @@ import { configureSentry } from './sentry';
  * - API endpoints, for per-API additional metadata.
  * - React components, for per-component additional metadata.
  *
- * Doesn't initialize Sentry if SENTRY_DSN isn't defined.
- * Re-exports the Sentry object to make it simpler to consume by developers (DX).
+ * Doesn't initialize Sentry if NEXT_PUBLIC_SENTRY_DSN isn't defined.
  *
  * Automatically applied on the browser, thanks to @sentry/nextjs.
  * Automatically applied on the server, thanks to @sentry/nextjs, when "withSentry" HOC is used.
@@ -37,8 +40,9 @@ export const setupSentry = () => {
     });
 
     configureSentry();
+
+    logger.log('Sentry initialized');
   } else if (process.env.NODE_ENV !== 'test') {
-    // eslint-disable-next-line no-console
-    console.error('Sentry DSN not defined, events (exceptions, messages, etc.) won\'t be sent to Sentry.');
+    logger.error('Sentry DSN not defined, events (exceptions, messages, etc.) won\'t be sent to Sentry.');
   }
 };

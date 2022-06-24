@@ -1,14 +1,10 @@
 import { NextApiRequest } from 'next';
 import * as Sentry from '@sentry/nextjs';
 
-import { isBrowser } from '@/shared/lib/is-browser';
 import { convertRequestBodyToJSObject } from '@/shared/api';
 
 import { UserSession } from '../user-session/use-user-session';
 import { GenericObject } from '../../types/generic-object';
-import { createLogger } from '../logging/logger';
-
-const logger = createLogger('modules/sentry/sentry.ts');
 
 /**
  * Configure Sentry default scope.
@@ -24,27 +20,17 @@ const logger = createLogger('modules/sentry/sentry.ts');
  * @see https://docs.sentry.io/platforms/javascript/guides/nextjs/usage
  */
 export const configureSentry = (): void => {
-  if (!process.env.NEXT_PUBLIC_SENTRY_DSN && process.env.NODE_ENV !== 'test') {
-    logger.warn('Sentry DSN not defined, Sentry won\'t be configured and there won\'t be any error reporting.');
-  }
-
   if (process.env.NEXT_PUBLIC_SENTRY_DSN) {
-    logger.log('Sentry initialized');
-
     // Scope configured by default, subsequent calls to "configureScope" will add additional data
     Sentry.configureScope((scope) => {
-      scope.setTag('appStage', process.env.NEXT_PUBLIC_APP_STAGE);
-      scope.setTag('appName', process.env.NEXT_PUBLIC_APP_NAME);
-      scope.setTag('appBaseUrl', process.env.NEXT_PUBLIC_APP_URL);
-      scope.setTag('appVersion', process.env.NEXT_PUBLIC_APP_VERSION);
-      scope.setTag('appNameVersion', process.env.NEXT_PUBLIC_APP_NAME_VERSION);
-      scope.setTag('appBuildTime', process.env.NEXT_PUBLIC_APP_BUILD_TIME);
-      scope.setTag('buildTimeISO', (new Date(process.env.NEXT_PUBLIC_APP_BUILD_TIME)).toISOString());
-      scope.setTag('appBuildId', process.env.NEXT_PUBLIC_APP_BUILD_ID);
-      scope.setTag('nodejs', process.version);
-      scope.setTag('nodejsAWS', process.env.AWS_EXECUTION_ENV || null); // Optional - Available on production environment only
-      scope.setTag('memory', process.env.AWS_LAMBDA_FUNCTION_MEMORY_SIZE || null); // Optional - Available on production environment only
-      scope.setTag('runtimeEngine', isBrowser() ? 'browser' : 'server');
+      scope.setTag('app.stage', process.env.NEXT_PUBLIC_APP_STAGE);
+      scope.setTag('app.name', process.env.NEXT_PUBLIC_APP_NAME);
+      scope.setTag('app.url', process.env.NEXT_PUBLIC_APP_URL);
+      scope.setTag('app.version', process.env.NEXT_PUBLIC_APP_VERSION);
+      scope.setTag('app.name-version', process.env.NEXT_PUBLIC_APP_NAME_VERSION);
+      scope.setTag('app.build-time', process.env.NEXT_PUBLIC_APP_BUILD_TIME);
+      scope.setTag('app.build-time.ISO', (new Date(process.env.NEXT_PUBLIC_APP_BUILD_TIME)).toISOString());
+      scope.setTag('app.build-id', process.env.NEXT_PUBLIC_APP_BUILD_ID);
     });
   }
 };

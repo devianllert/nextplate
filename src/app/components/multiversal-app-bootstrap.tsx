@@ -125,7 +125,7 @@ const MultiversalAppBootstrap = (props: Props): JSX.Element => {
             <GlobalStyles />
             <ResetStyles />
 
-            <NProgressRoot />
+            <NProgressRoot showAfterMs={100} />
 
             {isBrowser() ? (
               <BrowserPageBootstrap {...multiversalPageBootstrapProps} />

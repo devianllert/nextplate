@@ -1,12 +1,17 @@
 import styled from '@emotion/styled';
 
-export const CheckboxRoot = styled.label<{ disabled?: boolean }>((props) => ({
+import { Sizes } from '@/shared/design/tokens/size';
+
+import { getCheckboxTypography } from './checkbox.tokens';
+
+export const CheckboxRoot = styled.label<{ disabled?: boolean, $size?: Exclude<Sizes, 'xsmall'> }>((props) => ({
   cursor: props.disabled ? 'default' : 'pointer',
   display: 'inline-flex',
   alignItems: 'center',
   verticalAlign: 'top',
   position: 'relative',
   userSelect: 'none',
+  fontSize: getCheckboxTypography(props.$size),
 }));
 
 export const CheckboxComponent = styled.input({

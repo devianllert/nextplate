@@ -1,8 +1,9 @@
 /* eslint-disable prefer-arrow-callback */
 import * as React from 'react';
 
+import * as Text from '@/shared/components/system/text';
+
 import { CheckboxBase, CheckboxBaseProps } from '../checkbox-base';
-import * as Text from '../text';
 
 import * as S from './checkbox.styled';
 
@@ -27,11 +28,12 @@ export const Checkbox = React.forwardRef(function Checkbox(props: CheckboxProps,
   } = props;
 
   return (
-    <S.CheckboxRoot disabled={disabled} ref={ref}>
+    <S.CheckboxRoot disabled={disabled} ref={ref} $size={props.size}>
       <CheckboxBase checked={checked} disabled={disabled} color={color} inputRef={inputRef} {...other} />
 
       {label && (
         <Text.Paragraph
+          fontSize="inherit"
           color={disabled ? 'text.disabled' : 'text.primary'}
           sx={{
             ml: 2,

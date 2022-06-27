@@ -3,10 +3,11 @@ import * as React from 'react';
 import { RiCheckLine, RiSubtractLine } from 'react-icons/ri';
 
 import { useControllableState } from '@/shared/hooks/use-controllable-state';
+import { Sizes } from '@/shared/design/tokens/size';
 
 import * as S from './checkbox-base.styled';
 
-export interface CheckboxBaseProps extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'checked' | 'defaultChecked'> {
+export interface CheckboxBaseProps extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'checked' | 'defaultChecked' | 'size'> {
   /**
    * If `true`, the component is checked.
    *
@@ -20,6 +21,11 @@ export interface CheckboxBaseProps extends Omit<React.InputHTMLAttributes<HTMLIn
   checked?: boolean | 'indeterminate';
 
   defaultChecked?: boolean | 'indeterminate';
+
+  /**
+   * The size of the component.
+   */
+  size?: Exclude<Sizes, 'xsmall'>;
 
   /**
    * If `true`, the component is disabled.
@@ -58,6 +64,7 @@ export const CheckboxBase = React.forwardRef(function CheckboxBase(props: Checkb
     required,
     className,
     inputRef,
+    size,
     ...other
   } = props;
 
@@ -87,7 +94,7 @@ export const CheckboxBase = React.forwardRef(function CheckboxBase(props: Checkb
         {...other}
       />
 
-      <S.CheckboxVisual color={color} aria-hidden>
+      <S.CheckboxVisual color={color} aria-hidden size={size}>
         {isIndeterminate(checked) ? false : checked && <RiCheckLine />}
         {isIndeterminate(checked) && <RiSubtractLine />}
       </S.CheckboxVisual>

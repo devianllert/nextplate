@@ -1,4 +1,6 @@
 import styled from '@emotion/styled';
+import { Sizes } from '@/shared/design/tokens/size';
+import { getCheckboxSize } from './checkbox-base.tokens';
 
 export const CheckboxBaseRoot = styled.div({
   position: 'relative',
@@ -18,12 +20,12 @@ export const CheckboxComponent = styled.input({
   opacity: 0,
 });
 
-export const CheckboxVisual = styled.span<{ checked?: boolean; disabled?: boolean }>((props) => ({
+export const CheckboxVisual = styled.span<{ checked?: boolean; disabled?: boolean, size?: Sizes }>((props) => ({
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
-  width: 20,
-  height: 20,
+  width: getCheckboxSize(props.size),
+  height: getCheckboxSize(props.size),
   backgroundColor: 'transparent',
   color: 'white',
   border: '2px solid',

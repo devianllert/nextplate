@@ -1,4 +1,4 @@
-import { DehydratedState } from 'react-query';
+import { DehydratedState } from '@tanstack/react-query';
 
 export const REACT_QUERY_STATE_PROP_NAME = '__REACT_QUERY_STATE__';
 

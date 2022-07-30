@@ -71,7 +71,7 @@ export const getTranslationsStaticProps = (namespaces: string[] = []): GetStatic
       props: {
         isStaticRendering: true,
         serializedDataset: serializeSafe({}),
-        ...await getTranslationsConfig(props, namespaces),
+        ...(await getTranslationsConfig(props, namespaces)),
       },
     };
   };

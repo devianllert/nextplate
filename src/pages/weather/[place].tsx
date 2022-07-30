@@ -1,8 +1,7 @@
 import * as React from 'react';
 import { GetServerSideProps, GetServerSidePropsResult } from 'next';
 import Image from 'next/image';
-import { QueryClient } from 'react-query';
-import { dehydrate } from 'react-query/hydration';
+import { QueryClient, dehydrate } from '@tanstack/react-query';
 
 import { serializeSafe } from '@/shared/lib/serialize-safe/serialize-safe';
 import { createLogger } from '@/shared/lib/logging/logger';

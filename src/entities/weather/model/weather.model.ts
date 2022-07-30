@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { useRouter } from 'next/router';
-import { useQuery } from 'react-query';
+import { useQuery } from '@tanstack/react-query';
 
 import { pagesPath } from '@/shared/lib/$path';
 

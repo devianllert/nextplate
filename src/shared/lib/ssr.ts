@@ -64,7 +64,7 @@ export const getCoreServerSideProps = (namespaces: string[] = []): GetServerSide
         isServerRendering: true,
         readonlyCookies,
         headers: publicHeaders,
-        ...await getTranslationsConfig(context, namespaces),
+        ...(await getTranslationsConfig(context, namespaces)),
       },
     };
   };

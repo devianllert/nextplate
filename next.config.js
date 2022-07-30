@@ -99,14 +99,7 @@ module.exports = withSentryConfig(
        */
       // reactStrictMode: true,
 
-      resolve: {
-        fallback: {
-          // Fixes npm packages that depend on `fs` module
-          fs: false,
-        },
-      },
-
-      ...i18nConfig,
+      i18n: i18nConfig.i18n,
 
       images: {
         domains: ['images.unsplash.com'],

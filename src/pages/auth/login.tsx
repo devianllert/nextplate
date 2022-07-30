@@ -1,7 +1,9 @@
+import * as React from 'react';
 import { useTranslation } from 'next-i18next';
 import Link from 'next/link';
 import { RiEyeLine, RiEyeOffLine } from 'react-icons/ri';
 
+import { useRouter } from 'next/router';
 import { createLogger } from '@/shared/lib/logging/logger';
 import { Button } from '@/shared/components/system/button';
 import * as Text from '@/shared/components/system/text';
@@ -42,8 +44,15 @@ type Props = (SSRPageProps & SSGPageProps<OnlyBrowserPageProps>);
 
 const LoginPage: EnhancedNextPage<Props> = (): JSX.Element => {
   const { t } = useTranslation('auth');
-
+  const router = useRouter();
   const [show, toggleShow] = useBoolean(false);
+
+  const [email, setEmail] = React.useState('');
+  const [password, setPassword] = React.useState('');
+
+  const onSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+  };
 
   return (
     <>
@@ -57,6 +66,7 @@ const LoginPage: EnhancedNextPage<Props> = (): JSX.Element => {
         component="form"
         maxWidth="440px"
         width="100%"
+        onSubmit={onSubmit}
       >
         <Text.Heading variant="h4" component="h1" sx={{ mb: 4 }}>{t('login')}</Text.Heading>
 
@@ -66,6 +76,8 @@ const LoginPage: EnhancedNextPage<Props> = (): JSX.Element => {
             name="email"
             type="email"
             autoComplete="email"
+            value={email}
+            onChange={(event) => setEmail(event.currentTarget.value)}
             placeholder={t('form.email.placeholder')}
             label={t('form.email.label')}
             fullWidth
@@ -75,6 +87,8 @@ const LoginPage: EnhancedNextPage<Props> = (): JSX.Element => {
             id="password"
             name="password"
             type={show ? 'text' : 'password'}
+            value={password}
+            onChange={(event) => setPassword(event.currentTarget.value)}
             suffix={(
               <IconButton onClick={() => toggleShow()} size="small">
                 {show ? <RiEyeLine /> : <RiEyeOffLine />}
@@ -86,7 +100,7 @@ const LoginPage: EnhancedNextPage<Props> = (): JSX.Element => {
             fullWidth
           />
 
-          <Button variant="contained" fullWidth disableElevation>{t('login')}</Button>
+          <Button type="submit" variant="contained" fullWidth disableElevation>{t('login')}</Button>
         </Stack>
 
         <Text.Paragraph variant="body2">

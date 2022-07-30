@@ -3,9 +3,8 @@ import * as Sentry from '@sentry/nextjs';
 import Head from 'next/head';
 import { ThemeProvider } from 'theme-ui';
 import { appWithTranslation, useTranslation } from 'next-i18next';
-import { QueryClient, QueryClientProvider } from 'react-query';
-import { Hydrate } from 'react-query/hydration';
-import { ReactQueryDevtools } from 'react-query/devtools';
+import { QueryClient, QueryClientProvider, Hydrate } from '@tanstack/react-query';
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 
 import { configureSentryI18n } from '@/shared/lib/sentry';
 import { isBrowser } from '@/shared/lib/is-browser';

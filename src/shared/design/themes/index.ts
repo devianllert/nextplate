@@ -1,6 +1,6 @@
 import { Theme } from 'theme-ui';
 
-import { breakpoints } from '../media';
+import { breakpointsArray } from '../media';
 import { shadows } from '../tokens/shadows';
 import { spacings } from '../tokens/spacings';
 
@@ -10,7 +10,7 @@ import lightColors from './light/colors';
 export const makeTheme = <T extends Theme>(t: T): T => t;
 
 export const theme = makeTheme({
-  breakpoints: Object.values(breakpoints).map((breakpoint) => `${breakpoint}px`),
+  breakpoints: breakpointsArray.map((breakpoint) => `${breakpoint}px`),
   space: spacings,
   shadows,
   colors: {

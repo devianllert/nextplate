@@ -1,4 +1,4 @@
-export type Breakpoint = 'desktop' | 'tablet' | 'mobile';
+export type Breakpoint = 'desktop' | 'laptop' | 'tablet' | 'mobile';
 
 interface MediaQueryType {
   up: string;
@@ -11,14 +11,18 @@ export const createMediaQuery = (maxWidth: number): MediaQueryType => ({
 });
 
 export const breakpoints: Record<Breakpoint, number> = {
-  mobile: 600,
-  tablet: 960,
+  mobile: 0,
+  tablet: 600,
+  laptop: 1024,
   desktop: 1440,
 };
+
+export const breakpointsArray = Object.values(breakpoints).slice(1);
 
 export const media = {
   mobile: createMediaQuery(breakpoints.mobile),
   tablet: createMediaQuery(breakpoints.tablet),
+  laptop: createMediaQuery(breakpoints.laptop),
   desktop: createMediaQuery(breakpoints.desktop),
 };
 

@@ -51,6 +51,13 @@ export const TextBase = styled('span', { shouldForwardProp })<TextBaseProps<Typo
   }),
 );
 
+export const FontRoot = styled(TextBase)<TextBaseProps>(
+  color,
+  typography,
+  display,
+  sx,
+);
+
 export const HeadingRoot = styled(TextBase)<TextBaseProps<keyof typeof headings>>(
   (props) => ({
     ...headings[props.variant],

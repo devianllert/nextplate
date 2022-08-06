@@ -2,7 +2,7 @@
  * @jest-environment jsdom
  */
 
-import React, { ReactChild } from 'react';
+import React, { PropsWithChildren, ReactChild } from 'react';
 import { render, screen } from '@testing-library/react';
 
 import { ButtonBase } from '../button-base';
@@ -58,7 +58,7 @@ describe('<BaseButton />', () => {
     });
 
     it('should use custom LinkComponent when provided in the theme', () => {
-      const CustomLink = React.forwardRef((props, ref: React.Ref<HTMLAnchorElement>) => (
+      const CustomLink = React.forwardRef<HTMLAnchorElement, PropsWithChildren>((props, ref: React.Ref<HTMLAnchorElement>) => (
         <a data-testid="customLink" ref={ref} {...props}>
           {props.children}
         </a>

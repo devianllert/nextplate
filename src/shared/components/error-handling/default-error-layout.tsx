@@ -5,7 +5,7 @@ import { ErrorDebug } from './error-debug';
 
 export interface DefaultErrorLayoutProps {
   error: Error;
-  context?: GenericObject;
+  context?: GenericObject<any>;
 }
 
 /**

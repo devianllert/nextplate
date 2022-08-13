@@ -1,3 +1,4 @@
+import deepmerge from 'deepmerge';
 import * as React from 'react';
 
 import { responsiveProperty } from '../lib/responise-property';
@@ -36,10 +37,10 @@ export const calculateFluidTypography = (minSize: number, maxSize: number): stri
 };
 
 interface ResponsiveVariantOptions {
-  weight: number | string;
+  weight: number | string | (number | string | null)[];
   size: number | string | (number | string | null)[];
   lineHeight: number | string | (number | string | null)[];
-  letterSpacing: number | string;
+  letterSpacing: number | string | (number | string | null)[];
   casing?: React.CSSProperties;
 }
 
@@ -57,104 +58,124 @@ const buildResponsiveVariant = (options: ResponsiveVariantOptions): React.CSSPro
     values: Array.isArray(size) ? size : [size],
   });
 
+  const responsiveLineHeight = responsiveProperty({
+    property: 'lineHeight',
+    values: Array.isArray(lineHeight) ? lineHeight : [lineHeight],
+  });
+
+  const responsiveWeight = responsiveProperty({
+    property: 'fontWeight',
+    values: Array.isArray(weight) ? weight : [weight],
+  });
+
+  const responsiveLetterSpacing = responsiveProperty({
+    property: 'letterSpacing',
+    values: Array.isArray(letterSpacing) ? letterSpacing : [letterSpacing],
+  });
+
+  const responsiveStyles = deepmerge(
+    deepmerge(
+      responsiveFontSize,
+      responsiveLineHeight,
+    ),
+    deepmerge(
+      responsiveWeight,
+      responsiveLetterSpacing,
+    ),
+  );
+
   return {
     fontFamily: defaultFontFamily,
-    fontWeight: weight,
-    // Unitless following https://meyerweb.com/eric/thoughts/2006/02/08/unitless-line-heights/
-    lineHeight,
-    // The letter spacing was designed for the Roboto font-family. Using the same letter-spacing
-    // across font-families can cause issues with the kerning.
-    letterSpacing,
+    ...responsiveStyles,
     ...casing,
-    ...responsiveFontSize,
   };
 };
 
 export const headings = {
   h1: buildResponsiveVariant({
     weight: fontWeight.light,
-    size: 96,
+    size: '96px',
     lineHeight: 1.167,
-    letterSpacing: -1.5,
+    letterSpacing: '-1.5px',
   }),
   h2: buildResponsiveVariant({
     weight: fontWeight.light,
-    size: 60,
+    size: '60px',
     lineHeight: 1.2,
-    letterSpacing: -0.5,
+    letterSpacing: '-0.5px',
   }),
   h3: buildResponsiveVariant({
     weight: fontWeight.normal,
-    size: 48,
+    size: '48px',
     lineHeight: 1.167,
-    letterSpacing: 0,
+    letterSpacing: '0px',
   }),
   h4: buildResponsiveVariant({
     weight: fontWeight.normal,
-    size: 34,
+    size: '34px',
     lineHeight: 1.235,
-    letterSpacing: 0.25,
+    letterSpacing: '0.25px',
   }),
   h5: buildResponsiveVariant({
     weight: fontWeight.normal,
-    size: 24,
+    size: '24px',
     lineHeight: 1.334,
-    letterSpacing: 0,
+    letterSpacing: '0px',
   }),
   h6: buildResponsiveVariant({
     weight: fontWeight.medium,
-    size: 20,
+    size: '20px',
     lineHeight: 1.6,
-    letterSpacing: 0.15,
+    letterSpacing: '0.15px',
   }),
   subtitle1: buildResponsiveVariant({
     weight: fontWeight.normal,
-    size: 16,
+    size: '16px',
     lineHeight: 1.75,
-    letterSpacing: 0.15,
+    letterSpacing: '0.15px',
   }),
   subtitle2: buildResponsiveVariant({
     weight: fontWeight.medium,
-    size: 14,
+    size: '14px',
     lineHeight: 1.57,
-    letterSpacing: 0.1,
+    letterSpacing: '0.1px',
   }),
 };
 
 export const paragraphs = {
   body1: buildResponsiveVariant({
     weight: fontWeight.normal,
-    size: 20,
+    size: '20px',
     lineHeight: 1.5,
-    letterSpacing: 0.15,
+    letterSpacing: '0.15px',
   }),
   body2: buildResponsiveVariant({
     weight: fontWeight.normal,
-    size: 16,
+    size: '16px',
     lineHeight: 1.43,
-    letterSpacing: 0.15,
+    letterSpacing: '0.15px',
   }),
   body3: buildResponsiveVariant({
     weight: fontWeight.normal,
-    size: 14,
+    size: '14px',
     lineHeight: 1.25,
-    letterSpacing: 0.15,
+    letterSpacing: '0.15px',
   }),
 };
 
 export const overlines = {
   overline1: buildResponsiveVariant({
     weight: fontWeight.medium,
-    size: 12,
+    size: '12px',
     lineHeight: 2.66,
-    letterSpacing: 1,
+    letterSpacing: '1px',
     casing: caseAllCaps,
   }),
   overline2: buildResponsiveVariant({
     weight: fontWeight.medium,
-    size: 10,
+    size: '10px',
     lineHeight: 2.66,
-    letterSpacing: 1,
+    letterSpacing: '1px',
     casing: caseAllCaps,
   }),
 };
@@ -162,36 +183,36 @@ export const overlines = {
 export const captions = {
   caption1: buildResponsiveVariant({
     weight: fontWeight.normal,
-    size: 12,
+    size: '12px',
     lineHeight: 1.2,
-    letterSpacing: 0.4,
+    letterSpacing: '0.4px',
   }),
   caption2: buildResponsiveVariant({
     weight: fontWeight.normal,
-    size: 10,
+    size: '10px',
     lineHeight: 1.2,
-    letterSpacing: 0.4,
+    letterSpacing: '0.4px',
   }),
 };
 
 export const buttons = {
   button1: buildResponsiveVariant({
     weight: fontWeight.medium,
-    size: 14,
+    size: '14px',
     lineHeight: 1,
-    letterSpacing: 0.4,
+    letterSpacing: '0.4px',
   }),
   button2: buildResponsiveVariant({
     weight: fontWeight.medium,
-    size: 16,
+    size: '16px',
     lineHeight: 1,
-    letterSpacing: 0.4,
+    letterSpacing: '0.4px',
   }),
   button3: buildResponsiveVariant({
     weight: fontWeight.medium,
-    size: 18,
+    size: '18px',
     lineHeight: 1,
-    letterSpacing: 0.4,
+    letterSpacing: '0.4px',
   }),
 };
 

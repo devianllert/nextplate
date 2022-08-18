@@ -1,17 +1,7 @@
 import * as React from 'react';
 import { useTranslation } from 'next-i18next';
-import Link from 'next/link';
-import { RiEyeLine, RiEyeOffLine } from 'react-icons/ri';
 
-import { useRouter } from 'next/router';
 import { createLogger } from '@/shared/lib/logging/logger';
-import { Button } from '@/shared/components/system/button';
-import * as Text from '@/shared/components/system/text';
-import { Box } from '@/shared/components/system/box';
-import { Input } from '@/shared/components/system/input';
-import { Stack } from '@/shared/components/system/stack';
-import { useBoolean } from '@/shared/hooks/use-boolean';
-import { IconButton } from '@/shared/components/system/icon-button';
 import { PageSEO } from '@/shared/lib/meta';
 import { AuthLayout } from '@/layouts/auth';
 import { getTranslationsStaticProps } from '@/shared/lib/ssg';
@@ -19,6 +9,7 @@ import { EnhancedNextPage } from '@/shared/types/enhanced-next-page';
 import { SSRPageProps } from '@/shared/types/ssr-page-props';
 import { SSGPageProps } from '@/shared/types/ssg-page-props';
 import { OnlyBrowserPageProps } from '@/shared/types/only-browser-page-props';
+import { LoginForm } from '@/modules/auth/login/login-form';
 
 const logger = createLogger('Login');
 
@@ -44,15 +35,6 @@ type Props = (SSRPageProps & SSGPageProps<OnlyBrowserPageProps>);
 
 const LoginPage: EnhancedNextPage<Props> = (): JSX.Element => {
   const { t } = useTranslation('auth');
-  const router = useRouter();
-  const [show, toggleShow] = useBoolean(false);
-
-  const [email, setEmail] = React.useState('');
-  const [password, setPassword] = React.useState('');
-
-  const onSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-  };
 
   return (
     <>
@@ -62,53 +44,7 @@ const LoginPage: EnhancedNextPage<Props> = (): JSX.Element => {
         image={t('seo.image')}
       />
 
-      <Box
-        component="form"
-        maxWidth="440px"
-        width="100%"
-        onSubmit={onSubmit}
-      >
-        <Text.Heading variant="h4" component="h1" sx={{ mb: 4 }}>{t('login')}</Text.Heading>
-
-        <Stack direction="column">
-          <Input
-            id="email"
-            name="email"
-            type="email"
-            autoComplete="email"
-            value={email}
-            onChange={(event) => setEmail(event.currentTarget.value)}
-            placeholder={t('form.email.placeholder')}
-            label={t('form.email.label')}
-            fullWidth
-          />
-
-          <Input
-            id="password"
-            name="password"
-            type={show ? 'text' : 'password'}
-            value={password}
-            onChange={(event) => setPassword(event.currentTarget.value)}
-            suffix={(
-              <IconButton onClick={() => toggleShow()} size="small">
-                {show ? <RiEyeLine /> : <RiEyeOffLine />}
-              </IconButton>
-            )}
-            placeholder={t('form.password.placeholder')}
-            autoComplete="current-password"
-            label={t('form.password.label')}
-            fullWidth
-          />
-
-          <Button type="submit" variant="contained" fullWidth disableElevation>{t('login')}</Button>
-        </Stack>
-
-        <Text.Paragraph variant="body2">
-          {t('needAccount')}
-          {' '}
-          <Link href="/auth/signup">{t('signup')}</Link>
-        </Text.Paragraph>
-      </Box>
+      <LoginForm />
     </>
   );
 };

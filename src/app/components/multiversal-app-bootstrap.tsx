@@ -5,6 +5,7 @@ import { ThemeProvider } from 'theme-ui';
 import { appWithTranslation, useTranslation } from 'next-i18next';
 import { QueryClient, QueryClientProvider, Hydrate } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
+import { Provider as EffectorProvider } from 'effector-react/scope';
 
 import { configureSentryI18n } from '@/shared/lib/sentry';
 import { isBrowser } from '@/shared/lib/is-browser';
@@ -24,6 +25,7 @@ import ServerPageBootstrap, { ServerPageBootstrapProps } from './server-page-boo
 import { SSRPageProps } from '@/shared/types/ssr-page-props';
 import { SSGPageProps } from '@/shared/types/ssg-page-props';
 import ErrorPage from '@/pages/_error';
+import { EFFECTOR_STATE_KEY, useScope } from '@/shared/lib/effector/scope';
 
 export type Props = MultiversalAppBootstrapProps<SSGPageProps> | MultiversalAppBootstrapProps<SSRPageProps>;
 
@@ -44,6 +46,7 @@ const MultiversalAppBootstrap = (props: Props): JSX.Element => {
   const [isSSGFallbackInitialBuild] = React.useState<boolean>(isEmpty(pageProps) && router?.isFallback === true);
   const [queryClient] = React.useState(() => new QueryClient());
   const { i18n } = useTranslation();
+  const scope = useScope(pageProps[EFFECTOR_STATE_KEY]);
 
   Sentry.addBreadcrumb({
     category: fileLabel,
@@ -118,24 +121,26 @@ const MultiversalAppBootstrap = (props: Props): JSX.Element => {
         {getLinksAlternateHref(router.asPath, router.locales)}
       </Head>
 
-      <QueryClientProvider client={queryClient}>
-        <Hydrate state={pageProps[REACT_QUERY_STATE_PROP_NAME]}>
-          <ThemeProvider theme={theme}>
-            <GlobalStyles />
-            <ResetStyles />
+      <EffectorProvider value={scope}>
+        <QueryClientProvider client={queryClient}>
+          <Hydrate state={pageProps[REACT_QUERY_STATE_PROP_NAME]}>
+            <ThemeProvider theme={theme}>
+              <GlobalStyles />
+              <ResetStyles />
 
-            <NProgressRoot showAfterMs={100} />
+              <NProgressRoot showAfterMs={100} />
 
-            {isBrowser() ? (
-              <BrowserPageBootstrap {...multiversalPageBootstrapProps} />
-            ) : (
-              <ServerPageBootstrap {...multiversalPageBootstrapProps} />
-            )}
-          </ThemeProvider>
-        </Hydrate>
+              {isBrowser() ? (
+                <BrowserPageBootstrap {...multiversalPageBootstrapProps} />
+              ) : (
+                <ServerPageBootstrap {...multiversalPageBootstrapProps} />
+              )}
+            </ThemeProvider>
+          </Hydrate>
 
-        <ReactQueryDevtools initialIsOpen={false} />
-      </QueryClientProvider>
+          <ReactQueryDevtools initialIsOpen={false} />
+        </QueryClientProvider>
+      </EffectorProvider>
     </>
   );
 };

@@ -127,6 +127,10 @@ module.exports = {
 
   features: { emotionAlias: false },
 
+  core: {
+    builder: 'webpack5',
+  },
+
   /**
    * Customize webpack configuration for Storybook.
    *
@@ -144,6 +148,8 @@ module.exports = {
       include: /node_modules/,
       type: 'javascript/auto',
     });
+
+    config.resolve.fallback.fs = false;
 
     return {
       ...config,

@@ -96,7 +96,7 @@ const IndexPage: EnhancedNextPage<Props> = (): JSX.Element => {
                     color="gray"
                     component="a"
                     target="_blank"
-                    href="https://github.com/devianllert/nextplate"
+                    href="https://github.com/devianllert/"
                     endIcon={<RiGithubFill size={16} />}
                   >
                     Github

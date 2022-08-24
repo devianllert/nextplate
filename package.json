@@ -1,7 +1,9 @@
 {
   "name": "nextplate",
+  "description": "Ultimate template for Next.js with a pack of incredible tools",
   "version": "0.1.0",
   "license": "MIT",
+  "author": "devianllert <devianllert@gmail.com>",
   "private": true,
   "scripts": {
     "start": "next start",
@@ -10,7 +12,7 @@
     "start:tunnel": "ngrok http 8888",
     "generate:paths:watch": "pathpida --ignorePath .gitignore --watch",
     "generate:paths": "pathpida --enableStatic --output src/shared/lib --ignorePath .gitignore",
-    "build": "yarn generate:paths && yarn && next build",
+    "build": "yarn generate:paths && yarn lint:fix && next build",
     "typecheck": "tsc -p ./tsconfig.json",
     "analyse:bundle": "yarn analyse:bundle:production",
     "analyse:bundle:development": "cross-env ANALYZE_BUNDLE=true yarn start",

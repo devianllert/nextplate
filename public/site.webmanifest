@@ -1,7 +1,7 @@
 {
-  "name": "Next Boilerplate",
-  "short_name": "Next Boilerplate",
-  "description": "Next Boilerplate -> https://next-boilerplate-two.vercel.app",
+  "name": "nextplate",
+  "short_name": "nextplate",
+  "description": "nextplate -> https://next-boilerplate-two.vercel.app",
   "display": "standalone",
   "start_url": "/",
   "theme_color": "#ffffff",

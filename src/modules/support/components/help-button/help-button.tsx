@@ -60,7 +60,7 @@ export const HelpButton = (): JSX.Element => {
           <DropdownMenu.Item asChild>
             <Box
               component="a"
-              href="https://github.com/devianllert/next-boilerplate"
+              href="https://github.com/devianllert/nextplate"
               target="_blank"
             >
               <Text.Caption color="text.secondary">

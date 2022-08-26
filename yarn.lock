@@ -13220,10 +13220,10 @@ pathpida@^0.18.1:
     ignore "^5.2.0"
     minimist "^1.2.5"
 
-patronum@^1.9.0:
-  version "1.9.0"
-  resolved "https://registry.yarnpkg.com/patronum/-/patronum-1.9.0.tgz#d30ad231b708a675e66237b94bbd117e76cc1803"
-  integrity sha512-+uaVUFiHCkIvCf7CfM2+bUkqfVcYGdQjgRsbj/+fcw0J5QSdJREMqLfr8ALRkS5DMw1F7B2EJStFZ5xx7Ubv3g==
+patronum@1.11.0:
+  version "1.11.0"
+  resolved "https://registry.yarnpkg.com/patronum/-/patronum-1.11.0.tgz#e767d7da5b6c765a909a761071af589db4bb6c3b"
+  integrity sha512-Zt6RE5s6b515Wf9yNKpM0lktxetKs2DnWniTpLbMlPHq6BsVEIaKKYk4CJO3pXC1gUDMyyCD/5VSgw8vd0LHLw==
 
 pbkdf2@^3.0.3:
   version "3.1.2"

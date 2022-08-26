@@ -15,7 +15,7 @@ import { ResetStyles } from '@/shared/design/reset-styles';
 import { theme } from '@/shared/design/themes';
 import { createLogger } from '@/shared/lib/logging/logger';
 import { REACT_QUERY_STATE_PROP_NAME } from '@/shared/types/react-query';
-import { NProgressRoot } from '@/modules/nprogress';
+import { NProgressRoot } from '@/features/nprogress';
 import { isEmpty } from '@/shared/lib/assertion';
 
 import { getLinksAlternateHref } from '@/shared/lib/meta';

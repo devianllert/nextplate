@@ -9,7 +9,7 @@ import { EnhancedNextPage } from '@/shared/types/enhanced-next-page';
 import { SSRPageProps } from '@/shared/types/ssr-page-props';
 import { SSGPageProps } from '@/shared/types/ssg-page-props';
 import { OnlyBrowserPageProps } from '@/shared/types/only-browser-page-props';
-import { LoginForm } from '@/modules/auth/login/login-form';
+import { LoginForm } from '@/features/auth/login/login-form';
 
 const logger = createLogger('Login');
 

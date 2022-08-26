@@ -107,7 +107,7 @@
     "zod": "^3.18.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.18.10",
+    "@babel/core": "7.18.13",
     "@commitlint/cli": "^17.0.3",
     "@commitlint/config-conventional": "^17.0.3",
     "@emotion/babel-plugin": "^11.9.5",

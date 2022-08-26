@@ -48,7 +48,7 @@
   },
   "dependencies": {
     "@apollo/client": "3.6.9",
-    "@artsy/fresnel": "4.0.0",
+    "@artsy/fresnel": "6.1.0",
     "@emotion/is-prop-valid": "1.2.0",
     "@emotion/memoize": "0.8.0",
     "@emotion/react": "11.10.0",

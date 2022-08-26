@@ -234,20 +234,20 @@ module.exports = withSentryConfig(
        * @see https://nextjs.org/docs/api-reference/next.config.js/rewrites
        * @since 9.5 - See https://nextjs.org/blog/next-9-5#rewrites
        */
-      async rewrites() {
-        const rewrites = [
-          // Robots rewrites
-          {
-            source: '/robots.txt',
-            destination:
-              process.env.NEXT_PUBLIC_APP_STAGE === 'production' ? '/robots/production.txt' : '/robots/!production.txt',
-          },
-        ];
+      // async rewrites() {
+      //   const rewrites = [
+      //     // Robots rewrites
+      //     {
+      //       source: '/robots.txt',
+      //       destination:
+      //         process.env.NEXT_PUBLIC_APP_STAGE === 'production' ? '/robots/production.txt' : '/robots/!production.txt',
+      //     },
+      //   ];
 
-        console.info('Using rewrites:', rewrites);
+      //   console.info('Using rewrites:', rewrites);
 
-        return rewrites;
-      },
+      //   return rewrites;
+      // },
 
       /**
        * Redirects allow you to redirect an incoming request path to a different destination path.
@@ -268,12 +268,6 @@ module.exports = withSentryConfig(
       //       // Redirect root link with trailing slash to non-trailing slash, avoids 404 - See https://github.com/vercel/next.js/discussions/10651#discussioncomment-8270
       //       source: '/:locale/',
       //       destination: '/:locale',
-      //       permanent: process.env.NEXT_PUBLIC_APP_STAGE !== 'development', // Do not use permanent redirect locally to avoid browser caching when working on it
-      //     },
-      //     {
-      //       // Redirect link with trailing slash to non-trailing slash (any depth), avoids 404 - See https://github.com/vercel/next.js/discussions/10651#discussioncomment-8270
-      //       source: '/:locale/:path*/',
-      //       destination: '/:locale/:path*',
       //       permanent: process.env.NEXT_PUBLIC_APP_STAGE !== 'development', // Do not use permanent redirect locally to avoid browser caching when working on it
       //     },
       //   ];

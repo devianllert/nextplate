@@ -1,6 +1,34 @@
 {
   "compilerOptions": {
     "baseUrl": ".",
+    "allowJs": true,
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "module": "esnext",
+    "moduleResolution": "node",
+    "noEmit": true,
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
+    "preserveConstEnums": true,
+    "removeComments": false,
+    "resolveJsonModule": true,
+    "skipLibCheck": true,
+    "sourceMap": true,
+    "alwaysStrict": true,
+    "strictNullChecks": true,
+    "strict": true,
+    "noImplicitAny": false,
+    "strictBindCallApply": true,
+    "target": "ES6",
+    "incremental": true,
     "paths": {
       "@/app/*": [
         "src/app/*"
@@ -30,34 +58,6 @@
         "src/pages/*"
       ]
     },
-    "allowJs": true,
-    "allowSyntheticDefaultImports": true,
-    "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": true,
-    "isolatedModules": true,
-    "jsx": "preserve",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
-    "module": "esnext",
-    "moduleResolution": "node",
-    "noEmit": true,
-    "noUnusedLocals": false,
-    "noUnusedParameters": false,
-    "preserveConstEnums": true,
-    "removeComments": false,
-    "resolveJsonModule": true,
-    "skipLibCheck": true,
-    "sourceMap": true,
-    "alwaysStrict": true,
-    "strictNullChecks": true,
-    "strict": true,
-    "noImplicitAny": false,
-    "strictBindCallApply": true,
-    "target": "ES6",
-    "incremental": true
   },
   "exclude": [
     ".github",
@@ -76,6 +76,7 @@
     "./sentry.server.config.js",
     "src/shared/lib/i18n.config.js",
     "./next-i18next.config.js",
+    "./next-sitemap.config.js",
     "**/*.ts",
     "**/*.tsx"
   ]

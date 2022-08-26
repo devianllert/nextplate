@@ -158,3 +158,12 @@ build-storybook.log
 
 # Jest
 .jest-test-results.json
+
+# PWA
+public/*.js
+public/*.map
+
+# Sitemap
+public/robots.txt
+public/sitemap.xml
+public/sitemap-0.xml

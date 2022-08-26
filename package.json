@@ -76,7 +76,7 @@
     "effector": "^22.3.0",
     "effector-react": "^22.1.6",
     "flatted": "^3.2.6",
-    "framer-motion": "7.1.0",
+    "framer-motion": "7.2.1",
     "graphql": "^16.5.0",
     "i18next": "^21.9.0",
     "js-cookie": "^3.0.1",

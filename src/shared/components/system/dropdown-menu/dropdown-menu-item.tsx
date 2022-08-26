@@ -39,7 +39,7 @@ const menuItemCss = (props: { theme: Theme }): CSSObject => ({
 
 export const DropdownMenuItem = styled(DropdownMenuPrimitive.Item)(menuItemCss);
 
-const StyledDropdownMenuTriggerItem = styled(DropdownMenuPrimitive.TriggerItem)(menuItemCss);
+const StyledDropdownMenuTriggerItem = styled(DropdownMenuPrimitive.SubTrigger)(menuItemCss);
 const StyledDropdownMenuRadioItem = styled(DropdownMenuPrimitive.RadioItem)(menuItemCss, {
   paddingRight: 24,
 });
@@ -99,8 +99,8 @@ export const DropdownMenuCheckboxItem = React.forwardRef((
   </StyledDropdownMenuCheckboxItem>
 ));
 
-export const DropdownMenuTriggerItem = React.forwardRef((
-  { children, ...props }: DropdownMenuPrimitive.DropdownMenuTriggerItemProps,
+export const DropdownMenuSubTriggerItem = React.forwardRef((
+  { children, ...props }: DropdownMenuPrimitive.DropdownMenuSubTriggerProps,
   ref: React.ForwardedRef<React.ElementRef<typeof StyledDropdownMenuCheckboxItem>>,
 ) => (
   <StyledDropdownMenuTriggerItem {...props} ref={ref}>
@@ -118,7 +118,7 @@ export {
   DropdownMenuCheckboxItem as CheckboxItem,
   DropdownMenuItem as Item,
   DropdownMenuRadioItem as RadioItem,
-  DropdownMenuTriggerItem as TriggerItem,
+  DropdownMenuSubTriggerItem as SubTriggerItem,
   DropdownMenuItemLeftAdornment as LeftAdornment,
   DropdownMenuItemRightAdornment as RightAdornment,
 };

@@ -186,7 +186,7 @@ module.exports = {
           '@/components': path.resolve(__dirname, '../src/shared/components'),
           '@/lib': path.resolve(__dirname, '../src/shared/lib'),
           '@/layouts': path.resolve(__dirname, '../src/widgets/layouts'),
-          '@/modules': path.resolve(__dirname, '../src/modules'),
+          '@/features': path.resolve(__dirname, '../src/features'),
           '@/entities': path.resolve(__dirname, '../src/entities'),
           '@/pages': path.resolve(__dirname, '../src/pages'),
         },

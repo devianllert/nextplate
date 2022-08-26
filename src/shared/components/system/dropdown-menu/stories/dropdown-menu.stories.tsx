@@ -31,24 +31,26 @@ export const Basic = () => {
 
         </DropdownMenu.Item>
 
-        <DropdownMenu.Root>
-          <DropdownMenu.TriggerItem>
+        <DropdownMenu.Sub>
+          <DropdownMenu.SubTriggerItem>
             Tools
-          </DropdownMenu.TriggerItem>
+          </DropdownMenu.SubTriggerItem>
 
-          <DropdownMenu.Content>
-            <DropdownMenu.Item>
-              Developer tools
-              <DropdownMenu.RightAdornment>⌘+B</DropdownMenu.RightAdornment>
+          <DropdownMenu.Portal>
+            <DropdownMenu.SubContent>
+              <DropdownMenu.Item>
+                Developer tools
+                <DropdownMenu.RightAdornment>⌘+B</DropdownMenu.RightAdornment>
 
-            </DropdownMenu.Item>
-            <DropdownMenu.Item>
-              Create Shortcut
-              <DropdownMenu.RightAdornment>⌘+B</DropdownMenu.RightAdornment>
+              </DropdownMenu.Item>
+              <DropdownMenu.Item>
+                Create Shortcut
+                <DropdownMenu.RightAdornment>⌘+B</DropdownMenu.RightAdornment>
 
-            </DropdownMenu.Item>
-          </DropdownMenu.Content>
-        </DropdownMenu.Root>
+              </DropdownMenu.Item>
+            </DropdownMenu.SubContent>
+          </DropdownMenu.Portal>
+        </DropdownMenu.Sub>
 
         <DropdownMenu.Separator />
 

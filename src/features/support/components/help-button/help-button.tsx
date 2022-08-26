@@ -29,7 +29,6 @@ export const HelpButton = (): JSX.Element => {
         side="top"
         align="start"
         sideOffset={16}
-        allowPinchZoom
         loop
       >
         <DropdownMenu.Group>

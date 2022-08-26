@@ -29,7 +29,7 @@ export const Basic = () => (
           justifyContent="flex-end"
           mt={3}
         >
-          <Stack>
+          <Stack direction="row">
             <AlertDialog.Cancel asChild>
               <Button>Cancel</Button>
             </AlertDialog.Cancel>

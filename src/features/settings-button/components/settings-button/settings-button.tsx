@@ -24,7 +24,6 @@ export const SettingsButton = (): JSX.Element => {
       <DropdownMenu.Content
         side="bottom"
         align="end"
-        allowPinchZoom
         loop
       >
         <DropdownMenu.Group>

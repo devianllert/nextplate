@@ -49,6 +49,31 @@ export const DropdownMenuContent = styled(DropdownMenuPrimitive.Content)((props)
   },
 }));
 
+export const DropdownMenuSubContent = styled(DropdownMenuPrimitive.SubContent)((props) => ({
+  boxSizing: 'border-box',
+  minWidth: 160,
+  maxWidth: 'calc(100vw - 24px)',
+  maxHeight: '70vh',
+  overflowY: 'auto',
+  padding: '8px 4px',
+  backgroundColor: props.theme.colors.background.secondary,
+  borderRadius: 4,
+  boxShadow: shadows[3],
+
+  '@media (prefers-reduced-motion: no-preference)': {
+    animationDuration: `${duration.short}ms`,
+    animationTimingFunction: 'cubic-bezier(0.16, 1, 0.3, 1)',
+    willChange: 'transform, opacity',
+    '&[data-state="open"]': {
+      '&[data-side="top"]': { animationName: slideDownAndFade },
+      '&[data-side="right"]': { animationName: slideLeftAndFade },
+      '&[data-side="bottom"]': { animationName: slideUpAndFade },
+      '&[data-side="left"]': { animationName: slideRightAndFade },
+    },
+  },
+}));
+
 export {
   DropdownMenuContent as Content,
+  DropdownMenuSubContent as SubContent,
 };

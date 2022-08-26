@@ -5,6 +5,8 @@ export const DropdownMenu = DropdownMenuPrimitive.Root;
 export const DropdownMenuTrigger = DropdownMenuPrimitive.Trigger;
 export const DropdownMenuRadioGroup = DropdownMenuPrimitive.RadioGroup;
 export const DropdownMenuGroup = DropdownMenuPrimitive.Group;
+export const DropdownMenuSub = DropdownMenuPrimitive.Sub;
+export const DropdownMenuPortal = DropdownMenuPrimitive.Portal;
 
 export const DropdownMenuSeparator = styled(DropdownMenuPrimitive.Separator)((props) => ({
   height: 1,
@@ -24,4 +26,6 @@ export {
   DropdownMenuGroup as Group,
   DropdownMenuSeparator as Separator,
   DropdownMenuArrow as Arrow,
+  DropdownMenuSub as Sub,
+  DropdownMenuPortal as Portal,
 };

@@ -5,9 +5,8 @@ import NextCookies from 'next-cookies';
 import UniversalCookiesManager from '@/shared/lib/cookies-manager/universal-cookies-manager';
 import { UserSemiPersistentSession } from '@/shared/lib/user-session/types/user-semi-persistent-session';
 import { Cookies } from '@/shared/lib/cookies-manager/types/cookies';
-import serializeSafe from '@/shared/lib/serialize-safe/serialize-safe';
 import { getTranslationsConfig } from '@/shared/lib/i18n/translations';
-import { CommonServerSideParams } from '@/app/types/common-server-side-params';
+import { CommonServerSideParams } from '@/shared/types/common-server-side-params';
 import { PublicHeaders } from '@/shared/types/public-headers';
 import { SSRPageProps } from '@/shared/types/ssr-page-props';
 
@@ -58,8 +57,6 @@ export const getCoreServerSideProps = (namespaces: string[] = []): GetServerSide
 
     return {
       props: {
-        // We don't send the dataset yet (we don't have any because we haven't fetched the database yet), but it must be done by SSR pages in"getServerSideProps"
-        serializedDataset: serializeSafe({}),
         userSession,
         isServerRendering: true,
         readonlyCookies,

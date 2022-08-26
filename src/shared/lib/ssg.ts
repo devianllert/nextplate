@@ -1,6 +1,5 @@
 import { GetStaticProps, GetStaticPropsResult } from 'next';
 
-import { serializeSafe } from '@/shared/lib/serialize-safe/serialize-safe';
 import { getTranslationsConfig } from '@/shared/lib/i18n/translations';
 
 import { SSGPageProps } from '@/shared/types/ssg-page-props';
@@ -70,7 +69,6 @@ export const getTranslationsStaticProps = (namespaces: string[] = []): GetStatic
     return {
       props: {
         isStaticRendering: true,
-        serializedDataset: serializeSafe({}),
         ...(await getTranslationsConfig(props, namespaces)),
       },
     };

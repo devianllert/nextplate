@@ -7,8 +7,8 @@ import { UserSemiPersistentSession } from '@/shared/lib/user-session/types/user-
 import userSessionContext from '@/shared/lib/user-session/user-session-context';
 import { OnlyBrowserPageProps } from '@/shared/types/only-browser-page-props';
 import { MultiversalPageProps } from '@/shared/types/multiversal-page-props';
-import { MultiversalAppBootstrapPageProps } from '../types/multiversal-app-bootstrap-page-props';
-import { MultiversalAppBootstrapProps } from '../types/multiversal-app-bootstrap-props';
+import { MultiversalAppBootstrapPageProps } from '@/shared/types/multiversal-app-bootstrap-page-props';
+import { MultiversalAppBootstrapProps } from '@/shared/types/multiversal-app-bootstrap-props';
 
 const logger = createLogger('BrowserPageBootstrap');
 
@@ -62,10 +62,9 @@ const BrowserPageBootstrap = (props: BrowserPageBootstrapProps): JSX.Element => 
     <userSessionContext.Provider value={userSession}>
       <LayoutComponent>
         <Component
-          // eslint-disable-next-line react/jsx-props-no-spreading
           {...injectedPageProps}
           // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-          // @ts-ignore
+          // @ts-ignore∫
           error={err}
         />
       </LayoutComponent>

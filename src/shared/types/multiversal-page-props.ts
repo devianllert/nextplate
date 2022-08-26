@@ -12,7 +12,6 @@ import { EffectorState } from '../lib/effector/scope';
  */
 // eslint-disable-next-line @typescript-eslint/ban-types
 export type MultiversalPageProps<E extends {} = {}> = {
-  serializedDataset: string; // Transferred from server to browser as JSON (using Flatten.stringify), then parsed on the browser/server within the MultiversalAppBootstrap
   error?: Error; // Only defined if there was an error
   statusCode?: number; // Provided by Next.js framework, sometimes
   _nextI18Next: SSRConfig['_nextI18Next'];

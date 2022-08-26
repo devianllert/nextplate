@@ -3,7 +3,6 @@ import { GetServerSideProps, GetServerSidePropsResult } from 'next';
 import Image from 'next/image';
 import { QueryClient, dehydrate } from '@tanstack/react-query';
 
-import { serializeSafe } from '@/shared/lib/serialize-safe/serialize-safe';
 import { createLogger } from '@/shared/lib/logging/logger';
 import * as Text from '@/shared/components/system/text';
 import { Box } from '@/shared/components/system/box';
@@ -59,7 +58,6 @@ export const getServerSideProps: GetServerSideProps<GetServerSidePageProps> = as
         props: {
           ...pageData,
           [REACT_QUERY_STATE_PROP_NAME]: dehydrate(queryClient),
-          serializedDataset: serializeSafe({}),
         },
       };
     } catch (error) {

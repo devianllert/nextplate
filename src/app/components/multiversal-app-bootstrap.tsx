@@ -19,7 +19,7 @@ import { NProgressRoot } from '@/modules/nprogress';
 import { isEmpty } from '@/shared/lib/assertion';
 
 import { getLinksAlternateHref } from '@/shared/lib/meta';
-import { MultiversalAppBootstrapProps } from '../types/multiversal-app-bootstrap-props';
+import { MultiversalAppBootstrapProps } from '@/shared/types/multiversal-app-bootstrap-props';
 import BrowserPageBootstrap, { BrowserPageBootstrapProps } from './browser-page-bootstrap';
 import ServerPageBootstrap, { ServerPageBootstrapProps } from './server-page-bootstrap';
 import { SSRPageProps } from '@/shared/types/ssr-page-props';
@@ -45,7 +45,7 @@ const MultiversalAppBootstrap = (props: Props): JSX.Element => {
 
   const [isSSGFallbackInitialBuild] = React.useState<boolean>(isEmpty(pageProps) && router?.isFallback === true);
   const [queryClient] = React.useState(() => new QueryClient());
-  const { i18n } = useTranslation();
+  const { i18n } = useTranslation(undefined);
   const scope = useScope(pageProps[EFFECTOR_STATE_KEY]);
 
   Sentry.addBreadcrumb({

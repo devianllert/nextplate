@@ -110,7 +110,7 @@
     "@babel/core": "^7.18.10",
     "@commitlint/cli": "^17.0.3",
     "@commitlint/config-conventional": "^17.0.3",
-    "@emotion/babel-plugin": "^11.9.5",
+    "@emotion/babel-plugin": "11.10.2",
     "@emotion/babel-preset-css-prop": "^11.2.0",
     "@emotion/jest": "^11.9.4",
     "@next/bundle-analyzer": "12.2.4",

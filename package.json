@@ -47,7 +47,7 @@
     "prepare": "husky install"
   },
   "dependencies": {
-    "@apollo/client": "^3.6.9",
+    "@apollo/client": "3.6.9",
     "@artsy/fresnel": "4.0.0",
     "@emotion/is-prop-valid": "1.2.0",
     "@emotion/memoize": "0.8.0",

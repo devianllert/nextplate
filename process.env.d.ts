@@ -12,7 +12,6 @@ declare global {
     interface ProcessEnv {
       NEXT_PUBLIC_APP_URL: string;
       NEXT_PUBLIC_GRAPHQL_API_ENDPOINT: string;
-      IS_SERVER_INITIAL_BUILD: '1' | undefined;
       NODE_ENV: 'development' | 'production';
       NEXT_PUBLIC_APP_BUILD_ID: string;
       NEXT_PUBLIC_APP_NAME: string;

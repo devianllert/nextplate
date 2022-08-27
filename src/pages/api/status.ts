@@ -37,8 +37,6 @@ export const status = (req: NextApiRequest, res: NextApiResponse): void => {
       GIT_COMMIT_REF: process.env.GIT_COMMIT_REF,
       GIT_COMMIT_TAGS: process.env.GIT_COMMIT_TAGS,
       NEXT_PUBLIC_APP_URL: process.env.NEXT_PUBLIC_APP_URL,
-      // Shouldn't be displayed, because should always be undefined in APIs
-      IS_SERVER_INITIAL_BUILD: process.env.IS_SERVER_INITIAL_BUILD,
     });
   } catch (e: unknown) {
     res.json({

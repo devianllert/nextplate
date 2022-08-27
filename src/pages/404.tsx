@@ -5,6 +5,7 @@ import { useTranslation } from 'next-i18next';
 import { useRouter } from 'next/router';
 import { RiArrowRightLine } from 'react-icons/ri';
 
+import React from 'react';
 import { createLogger } from '@/shared/lib/logging/logger';
 import * as Text from '@/shared/components/system/text';
 import { Button } from '@/shared/components/system/button';
@@ -45,14 +46,12 @@ const NotFound404Page: EnhancedNextPage<Props> = (): JSX.Element => {
 
   const { t } = useTranslation('404');
 
-  // Avoids capturing false-positive 404 pages when building the 404 page
-  if (!process.env.IS_SERVER_INITIAL_BUILD) {
-    // Record an exception in Sentry for 404
+  React.useEffect(() => {
     const err = new Error(`Page not found (404) for "${router?.asPath}"`);
 
     logger.warn(err);
     Sentry.captureException(err);
-  }
+  }, []);
 
   return (
     <>
@@ -83,7 +82,5 @@ const NotFound404Page: EnhancedNextPage<Props> = (): JSX.Element => {
 };
 
 NotFound404Page.Layout = NotFoundLayout;
-
-export const NotFound404PageName = NotFound404Page.name;
 
 export default NotFound404Page;

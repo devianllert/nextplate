@@ -68,11 +68,6 @@ const MultiversalAppBootstrap = (props: Props): JSX.Element => {
     );
   }
 
-  // Avoids noise when building the whole app
-  if (!process.env.IS_SERVER_INITIAL_BUILD) {
-    logger.info('App is ready, rendering...');
-  }
-
   configureSentryI18n(i18n.language);
 
   if (err) {

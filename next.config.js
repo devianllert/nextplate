@@ -105,6 +105,10 @@ module.exports = withSentryConfig(
         domains: ['images.unsplash.com'],
       },
 
+      experimental: {
+        scrollRestoration: true,
+      },
+
       /**
        * Environment variables added to JS bundle
        *

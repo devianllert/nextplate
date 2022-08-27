@@ -21,24 +21,26 @@ export const SettingsButton = (): JSX.Element => {
         </IconButton>
       </DropdownMenu.Trigger>
 
-      <DropdownMenu.Content
-        side="bottom"
-        align="end"
-        loop
-      >
-        <DropdownMenu.Group>
-          <DropdownMenu.CheckboxItem
-            onSelect={toggleColorMode}
-            checked={colorMode !== 'default'}
-          >
-            Dark mode
-          </DropdownMenu.CheckboxItem>
+      <DropdownMenu.Portal>
+        <DropdownMenu.Content
+          side="bottom"
+          align="end"
+          loop
+        >
+          <DropdownMenu.Group>
+            <DropdownMenu.CheckboxItem
+              onSelect={toggleColorMode}
+              checked={colorMode !== 'default'}
+            >
+              Dark mode
+            </DropdownMenu.CheckboxItem>
 
-          <DropdownMenu.Item>
-            Settings
-          </DropdownMenu.Item>
-        </DropdownMenu.Group>
-      </DropdownMenu.Content>
+            <DropdownMenu.Item>
+              Settings
+            </DropdownMenu.Item>
+          </DropdownMenu.Group>
+        </DropdownMenu.Content>
+      </DropdownMenu.Portal>
     </DropdownMenu.Root>
   );
 };

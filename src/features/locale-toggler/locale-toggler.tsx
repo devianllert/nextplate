@@ -31,15 +31,17 @@ export const LocaleToggler = (): JSX.Element => {
         </IconButton>
       </DropdownMenu.Trigger>
 
-      <DropdownMenu.Content>
-        <DropdownMenu.RadioGroup value={i18n.language} onValueChange={changeLocale}>
-          {Object.values(SUPPORTED_LOCALES).map((key) => (
-            <DropdownMenu.RadioItem key={key} value={key}>
-              {key.toUpperCase()}
-            </DropdownMenu.RadioItem>
-          ))}
-        </DropdownMenu.RadioGroup>
-      </DropdownMenu.Content>
+      <DropdownMenu.Portal>
+        <DropdownMenu.Content>
+          <DropdownMenu.RadioGroup value={i18n.language} onValueChange={changeLocale}>
+            {Object.values(SUPPORTED_LOCALES).map((key) => (
+              <DropdownMenu.RadioItem key={key} value={key}>
+                {key.toUpperCase()}
+              </DropdownMenu.RadioItem>
+            ))}
+          </DropdownMenu.RadioGroup>
+        </DropdownMenu.Content>
+      </DropdownMenu.Portal>
     </DropdownMenu.Root>
   );
 };

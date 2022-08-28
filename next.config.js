@@ -141,26 +141,29 @@ module.exports = withSentryConfig(
      * @since 9.5 - See https://nextjs.org/blog/next-9-5#headers
      */
     async headers() {
-      const DISABLE_IFRAME_EMBED_FROM_3RD_PARTIES = true;
-
       const ContentSecurityPolicy = `
         child-src 'none';
-        manifest-src 'self';
         prefetch-src 'self';
-        worker-src 'self';
-        connect-src ${process.env.NODE_ENV === 'development' ? 'webpack://*' : "'self'"};
+        base-uri 'none';
+        worker-src 'self' blob:;
+        connect-src 'self' *.sentry.io;
         default-src 'self';
-        script-src ${process.env.NODE_ENV === 'development' ? "'unsafe-eval'" : "'self'"};
-        child-src 'none';
-        style-src ${process.env.NODE_ENV === 'development' ? "'unsafe-inline'" : "'self'"};
+        img-src 'self' blob: data:;
+        script-src 'self' https: strict-dynamic 'unsafe-inline' ${process.env.NODE_ENV === 'development' ? "'unsafe-eval'" : ''};
+        style-src 'self' 'unsafe-inline';
         font-src 'self';
+        form-action 'self';
         frame-ancestors 'self';
+        manifest-src 'self';
+        media-src 'self' blob:;
+        object-src 'none';
+        report-uri https://o530284.ingest.sentry.io/api/5649574/security/?sentry_key=b8626459ddd0442b8bd63deeba233ef1;
       `;
 
       const headers = [
         {
           // Make all fonts immutable and cached for one year
-          source: '/static/fonts/(.*?)',
+          source: '/static/media/(.*?)',
           headers: [
             {
               key: 'Cache-Control',
@@ -183,7 +186,7 @@ module.exports = withSentryConfig(
           ],
         },
         {
-          source: '/(.*?)', // Match all paths, including "/" - See https://github.com/vercel/next.js/discussions/17991#discussioncomment-112028
+          source: '/:path*', // Match all paths, including "/" - See https://github.com/vercel/next.js/discussions/17991#discussioncomment-112028
           headers: [
             // This directive helps protect against some XSS attacks
             // See https://infosec.mozilla.org/guidelines/web_security#x-content-type-options
@@ -222,12 +225,6 @@ module.exports = withSentryConfig(
             {
               key: 'X-XSS-Protection',
               value: '1; mode=block',
-            },
-
-            // This header allows you to control which features and APIs can be used in the browser. It was previously named Feature-Policy. You can view the full list of permission options here.
-            {
-              key: 'Permissions-Policy',
-              value: 'camera=(), microphone=(), geolocation=(), interest-cohort=()',
             },
 
             {

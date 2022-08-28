@@ -37,10 +37,6 @@ export const staticPath = {
       index_json: '/locales/ru/index.json',
     },
   },
-  robots: {
-    _production_txt: '/robots/!production.txt',
-    production_txt: '/robots/production.txt',
-  },
   site_webmanifest: '/site.webmanifest',
   static: {
     images: {

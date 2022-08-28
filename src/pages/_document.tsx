@@ -6,8 +6,8 @@ import Document, {
   DocumentInitialProps,
   DocumentContext,
 } from 'next/document';
-import { InitializeColorMode } from 'theme-ui';
 
+import Script from 'next/script';
 import { getCommonMetaTags } from '@/shared/lib/meta';
 
 /**
@@ -20,7 +20,8 @@ import { getCommonMetaTags } from '@/shared/lib/meta';
 class AppDocument extends Document {
   static async getInitialProps(ctx: DocumentContext): Promise<DocumentInitialProps> {
     const initialProps = await Document.getInitialProps(ctx);
-    return { ...initialProps };
+
+    return initialProps;
   }
 
   render(): JSX.Element {
@@ -30,7 +31,12 @@ class AppDocument extends Document {
           {getCommonMetaTags()}
         </Head>
         <body>
-          <InitializeColorMode />
+          <Script
+            id="theme-mode"
+            strategy="beforeInteractive"
+            src="/static/scripts/initialize-color-mode.js"
+          />
+
           <Main />
           <NextScript />
         </body>

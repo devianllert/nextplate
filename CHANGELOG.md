@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.2](https://github.com/devianllert/next-boilerplate/compare/v0.1.1...v0.1.2) (2022-08-28)
+
+
+### Features
+
+* add cors for api routes ([3793ebf](https://github.com/devianllert/next-boilerplate/commit/3793ebfb580a96feeb0f4e1516170e7a5380cebf))
+* add scroll restoration ([2f9c82c](https://github.com/devianllert/next-boilerplate/commit/2f9c82c24c85fe205d7c682a5f59a311ffd94de7))
+* add security headers ([a9f5b7d](https://github.com/devianllert/next-boilerplate/commit/a9f5b7dc859fcc4321bfd595e5bef653b1fdb015))
+* improve security headers ([0e6a50c](https://github.com/devianllert/next-boilerplate/commit/0e6a50ca7b54538e788b8ba4fa2105aa19754e6b))
+* remove strict-dynamic until we have custom server ([3f32bc8](https://github.com/devianllert/next-boilerplate/commit/3f32bc854a03f3db368aa198c67068099a087a23))
+* remove unsafe-inline from script-src ([cd94ab0](https://github.com/devianllert/next-boilerplate/commit/cd94ab07f47e97aba51ee77416d0f0cf29a85495))
+
+
+### Bug Fixes
+
+* add portal for dropdown menus ([2a0a50a](https://github.com/devianllert/next-boilerplate/commit/2a0a50a89cd97445cd607f719c9135a9131cb3da))
+* make color mode script synchronous and add vercel vitals server to connect-src ([40fb70d](https://github.com/devianllert/next-boilerplate/commit/40fb70d27d7f614bfb4a94a289a428b9382c0f67))
+
 ### 0.1.1 (2022-08-26)
 
 

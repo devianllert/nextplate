@@ -141,12 +141,13 @@ module.exports = withSentryConfig(
      * @since 9.5 - See https://nextjs.org/blog/next-9-5#headers
      */
     async headers() {
+      // TODO: add documentation for nonce usage
       const ContentSecurityPolicy = `
         child-src 'none';
         prefetch-src 'self';
         base-uri 'none';
         worker-src 'self' blob:;
-        connect-src 'self' *.sentry.io;
+        connect-src 'self' *.sentry.io https://vitals.vercel-insights.com;
         default-src 'self';
         img-src 'self' blob: data:;
         script-src 'self' https: strict-dynamic 'unsafe-inline' ${process.env.NODE_ENV === 'development' ? "'unsafe-eval'" : ''};

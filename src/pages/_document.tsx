@@ -31,9 +31,10 @@ class AppDocument extends Document {
           {getCommonMetaTags()}
         </Head>
         <body>
-          <Script
+          {/* this script should be synchronous */}
+          {/* eslint-disable-next-line @next/next/no-sync-scripts */}
+          <script
             id="theme-mode"
-            strategy="beforeInteractive"
             src="/static/scripts/initialize-color-mode.js"
           />
 

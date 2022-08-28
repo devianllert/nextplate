@@ -142,6 +142,7 @@ module.exports = withSentryConfig(
      */
     async headers() {
       // TODO: add documentation for nonce usage
+      // TODO: add strict-dynamic
       const ContentSecurityPolicy = `
         child-src 'none';
         prefetch-src 'self';
@@ -150,7 +151,7 @@ module.exports = withSentryConfig(
         connect-src 'self' *.sentry.io https://vitals.vercel-insights.com;
         default-src 'self';
         img-src 'self' blob: data:;
-        script-src 'self' https: strict-dynamic ${process.env.NODE_ENV === 'development' ? "'unsafe-eval'" : ''};
+        script-src 'self' ${process.env.NODE_ENV === 'development' ? "'unsafe-eval'" : ''};
         style-src 'self' 'unsafe-inline';
         font-src 'self';
         form-action 'self';

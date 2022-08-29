@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.3](https://github.com/devianllert/next-boilerplate/compare/v0.1.2...v0.1.3) (2022-08-29)
+
+
+### Bug Fixes
+
+* **deps:** update dependency next-i18next to v12 ([4a45887](https://github.com/devianllert/next-boilerplate/commit/4a458879e2f5b2d4416d75c904205e7a6137cf1e))
+* fix navigator typings ([52983c6](https://github.com/devianllert/next-boilerplate/commit/52983c62612dbefb7c36f50fb368d91126b1a561))
+
 ### [0.1.2](https://github.com/devianllert/next-boilerplate/compare/v0.1.1...v0.1.2) (2022-08-28)
 
 

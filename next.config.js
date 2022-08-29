@@ -119,7 +119,7 @@ module.exports = withSentryConfig(
       NEXT_PUBLIC_APP_BUILD_TIME: new Date().toString(),
       NEXT_PUBLIC_APP_BUILD_TIMESTAMP: Date.now(),
       NEXT_PUBLIC_APP_NAME: packageJson.name,
-      NEXT_PUBLIC_APP_NAME_VERSION: `${packageJson.name}-${APP_RELEASE_TAG}`,
+      NEXT_PUBLIC_APP_NAME_VERSION: `${packageJson.name}@${APP_RELEASE_TAG}`,
 
       LOGGER_ENV: process.env.NEXT_PUBLIC_APP_STAGE,
 

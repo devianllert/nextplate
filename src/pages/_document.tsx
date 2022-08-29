@@ -7,8 +7,8 @@ import Document, {
   DocumentContext,
 } from 'next/document';
 
-import Script from 'next/script';
 import { getCommonMetaTags } from '@/shared/lib/meta';
+import { staticPath } from '@/shared/lib/$path';
 
 /**
  * Note: Is only rendered on the server side and not on the client side
@@ -35,7 +35,7 @@ class AppDocument extends Document {
           {/* eslint-disable-next-line @next/next/no-sync-scripts */}
           <script
             id="theme-mode"
-            src="/static/scripts/initialize-color-mode.js"
+            src={staticPath.static.scripts.initialize_color_mode_js}
           />
 
           <Main />

@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.4](https://github.com/devianllert/next-boilerplate/compare/v0.1.3...v0.1.4) (2022-08-30)
+
+
+### Features
+
+* generate http client from openapi ([1b98254](https://github.com/devianllert/next-boilerplate/commit/1b98254b0bec7b0854bb28cee349e72e15ba7208))
+
+
+### Bug Fixes
+
+* **deps:** update all non-major dependencies ([4334b75](https://github.com/devianllert/next-boilerplate/commit/4334b7519cc8b55888d56fc4a90144a1f22d5ec4))
+
 ### [0.1.3](https://github.com/devianllert/next-boilerplate/compare/v0.1.2...v0.1.3) (2022-08-29)
 
 

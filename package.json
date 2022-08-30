@@ -45,7 +45,8 @@
     "security:audit": "yarn audit",
     "packages:upgrade": "yarn upgrade-interactive --latest",
     "chromatic": "npx chromatic storybook:export --project-token 7afb3cac6a9e",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "generate:api": "orval --config ./orval.config.js"
   },
   "dependencies": {
     "@apollo/client": "3.6.9",
@@ -176,6 +177,7 @@
     "lint-staged": "13.0.3",
     "ngrok": "4.3.3",
     "node-mocks-http": "1.11.0",
+    "orval": "^6.9.6",
     "standard-version": "9.5.0",
     "storybook-addon-designs": "6.3.1",
     "storybook-addon-next-router": "4.0.0",
@@ -184,6 +186,6 @@
     "stylelint-config-recommended": "9.0.0",
     "stylelint-config-styled-components": "0.1.1",
     "stylelint-processor-styled-components": "1.10.0",
-    "typescript": "4.8.2"
+    "typescript": "4.7.4"
   }
 }

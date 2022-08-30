@@ -11,7 +11,7 @@ declare global {
   namespace NodeJS {
     interface ProcessEnv {
       NEXT_PUBLIC_APP_URL: string;
-      NEXT_PUBLIC_GRAPHQL_API_ENDPOINT: string;
+      NEXT_PUBLIC_API_ENDPOINT: string;
       NODE_ENV: 'development' | 'production';
       NEXT_PUBLIC_APP_BUILD_ID: string;
       NEXT_PUBLIC_APP_NAME: string;

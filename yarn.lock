@@ -14659,7 +14659,7 @@ ora@^5.4.1:
     strip-ansi "^6.0.0"
     wcwidth "^1.0.1"
 
-orval@^6.9.6:
+orval@6.9.6:
   version "6.9.6"
   resolved "https://registry.yarnpkg.com/orval/-/orval-6.9.6.tgz#4deae0aab575a7831f9c863864113cb330d8c414"
   integrity sha512-PbZguPW/4jvIfbkpCGeTxmOjgiMazYYSNNBE568trC9LhCqve4/B8tzEczg4sxJpJNQPBVnpAZyKwkYe3E5/tA==

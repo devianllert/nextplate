@@ -1,22 +1,21 @@
-import axios, { AxiosRequestConfig } from 'axios';
+import axios, { AxiosRequestConfig, AxiosResponse } from 'axios';
 
 export const AXIOS_INSTANCE = axios.create({
   baseURL: process.env.NEXT_PUBLIC_API_ENDPOINT,
   timeout: 1000 * 10,
 });
 
-// add a second `options` argument here if you want to pass extra options to each generated query
-export const customInstance = <T>(
+export const api = <T>(
   config: AxiosRequestConfig,
   options?: AxiosRequestConfig,
-): Promise<T> => {
+): Promise<AxiosResponse<T>> => {
   const controller = new AbortController();
 
   const promise = AXIOS_INSTANCE({
     ...config,
     ...options,
     signal: controller.signal,
-  }).then(({ data }) => data);
+  }).then((response) => response);
 
   // @ts-ignore
   promise.cancel = () => {
@@ -24,8 +23,4 @@ export const customInstance = <T>(
   };
 
   return promise;
-};
-
-export {
-  AXIOS_INSTANCE as api,
 };

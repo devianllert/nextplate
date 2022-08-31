@@ -5,7 +5,11 @@
  * The API description
  * OpenAPI spec version: 1.0
  */
-import { customInstance } from './api';
+import axios from 'axios';
+import type {
+  AxiosRequestConfig,
+  AxiosResponse,
+} from 'axios';
 
 export interface Tokens {
   access: string;
@@ -71,28 +75,15 @@ export interface CreateUserDto {
   username: string;
 }
 
-// eslint-disable-next-line
-  type SecondParameter<T extends (...args: any) => any> = T extends (
-    config: any,
-    args: infer P,
-  ) => any
-    ? P
-    : never;
-
 /**
  * @summary Create new user
  */
-export const createUser = (
-  createUserDto: CreateUserDto,
-  options?: SecondParameter<typeof customInstance>,
-) => {
-  return customInstance<User>(
-    {
-      url: '/api/v1/users',
-      method: 'post',
-      headers: { 'Content-Type': 'application/json' },
-      data: createUserDto,
-    },
+export const createUser = <TData = AxiosResponse<User>>(
+  createUserDto: CreateUserDto, options?: AxiosRequestConfig,
+): Promise<TData> => {
+  return axios.post(
+    '/api/v1/users',
+    createUserDto,
     options,
   );
 };
@@ -100,44 +91,31 @@ export const createUser = (
 /**
  * @summary Find all users
  */
-export const findAllUsers = (
-
-  options?: SecondParameter<typeof customInstance>,
-) => {
-  return customInstance<User[]>(
-    { url: '/api/v1/users', method: 'get' },
-    options,
-  );
+export const findAllUsers = <TData = AxiosResponse<User[]>>(
+  options?: AxiosRequestConfig,
+): Promise<TData> => {
+  return axios.get('/api/v1/users', options);
 };
 
 /**
  * @summary Find user by id
  */
-export const findUserById = (
-  id: string,
-  options?: SecondParameter<typeof customInstance>,
-) => {
-  return customInstance<User>(
-    { url: `/api/v1/users/${id}`, method: 'get' },
-    options,
-  );
+export const findUserById = <TData = AxiosResponse<User>>(
+  id: string, options?: AxiosRequestConfig,
+): Promise<TData> => {
+  return axios.get(`/api/v1/users/${id}`, options);
 };
 
 /**
  * @summary Update user by id
  */
-export const updateUserById = (
+export const updateUserById = <TData = AxiosResponse<unknown>>(
   id: number,
-  updateUserDto: UpdateUserDto,
-  options?: SecondParameter<typeof customInstance>,
-) => {
-  return customInstance<unknown>(
-    {
-      url: `/api/v1/users/${id}`,
-      method: 'patch',
-      headers: { 'Content-Type': 'application/json' },
-      data: updateUserDto,
-    },
+  updateUserDto: UpdateUserDto, options?: AxiosRequestConfig,
+): Promise<TData> => {
+  return axios.patch(
+    `/api/v1/users/${id}`,
+    updateUserDto,
     options,
   );
 };
@@ -145,56 +123,39 @@ export const updateUserById = (
 /**
  * @summary Delete user by id
  */
-export const deleteUserById = (
-  id: number,
-  options?: SecondParameter<typeof customInstance>,
-) => {
-  return customInstance<unknown>(
-    { url: `/api/v1/users/${id}`, method: 'delete' },
-    options,
-  );
+export const deleteUserById = <TData = AxiosResponse<unknown>>(
+  id: number, options?: AxiosRequestConfig,
+): Promise<TData> => {
+  return axios.delete(`/api/v1/users/${id}`, options);
 };
 
 /**
  * @summary Find all user's sessions
  */
-export const findUserSessions = (
-
-  options?: SecondParameter<typeof customInstance>,
-) => {
-  return customInstance<Session[]>(
-    { url: '/api/v1/sessions', method: 'get' },
-    options,
-  );
+export const findUserSessions = <TData = AxiosResponse<Session[]>>(
+  options?: AxiosRequestConfig,
+): Promise<TData> => {
+  return axios.get('/api/v1/sessions', options);
 };
 
 /**
  * @summary Delete user's session by id
  */
-export const deleteUserSessionById = (
-  id: number,
-  options?: SecondParameter<typeof customInstance>,
-) => {
-  return customInstance<unknown>(
-    { url: `/api/v1/sessions/${id}`, method: 'delete' },
-    options,
-  );
+export const deleteUserSessionById = <TData = AxiosResponse<unknown>>(
+  id: number, options?: AxiosRequestConfig,
+): Promise<TData> => {
+  return axios.delete(`/api/v1/sessions/${id}`, options);
 };
 
 /**
  * @summary Create new user
  */
-export const register = (
-  authRegisterLoginDto: AuthRegisterLoginDto,
-  options?: SecondParameter<typeof customInstance>,
-) => {
-  return customInstance<void>(
-    {
-      url: '/api/v1/auth/register',
-      method: 'post',
-      headers: { 'Content-Type': 'application/json' },
-      data: authRegisterLoginDto,
-    },
+export const register = <TData = AxiosResponse<void>>(
+  authRegisterLoginDto: AuthRegisterLoginDto, options?: AxiosRequestConfig,
+): Promise<TData> => {
+  return axios.post(
+    '/api/v1/auth/register',
+    authRegisterLoginDto,
     options,
   );
 };
@@ -202,17 +163,12 @@ export const register = (
 /**
  * @summary Login user
  */
-export const login = (
-  authEmailLoginDto: AuthEmailLoginDto,
-  options?: SecondParameter<typeof customInstance>,
-) => {
-  return customInstance<Tokens>(
-    {
-      url: '/api/v1/auth/login',
-      method: 'post',
-      headers: { 'Content-Type': 'application/json' },
-      data: authEmailLoginDto,
-    },
+export const login = <TData = AxiosResponse<Tokens>>(
+  authEmailLoginDto: AuthEmailLoginDto, options?: AxiosRequestConfig,
+): Promise<TData> => {
+  return axios.post(
+    '/api/v1/auth/login',
+    authEmailLoginDto,
     options,
   );
 };
@@ -220,37 +176,29 @@ export const login = (
 /**
  * @summary Logout user
  */
-export const logout = (
-
-  options?: SecondParameter<typeof customInstance>,
-) => {
-  return customInstance<void>(
-    { url: '/api/v1/auth/logout', method: 'post' },
-    options,
-  );
+export const logout = <TData = AxiosResponse<void>>(
+  options?: AxiosRequestConfig,
+): Promise<TData> => {
+  return axios.post('/api/v1/auth/logout', undefined, options);
 };
 
 /**
  * @summary Refresh user tokens
  */
-export const refresh = (
-
-  options?: SecondParameter<typeof customInstance>,
-) => {
-  return customInstance<Tokens>(
-    { url: '/api/v1/auth/refresh', method: 'post' },
-    options,
-  );
+export const refresh = <TData = AxiosResponse<Tokens>>(
+  options?: AxiosRequestConfig,
+): Promise<TData> => {
+  return axios.post('/api/v1/auth/refresh', undefined, options);
 };
 
-export type CreateUserResult = NonNullable<Awaited<ReturnType<typeof createUser>>>;
-export type FindAllUsersResult = NonNullable<Awaited<ReturnType<typeof findAllUsers>>>;
-export type FindUserByIdResult = NonNullable<Awaited<ReturnType<typeof findUserById>>>;
-export type UpdateUserByIdResult = NonNullable<Awaited<ReturnType<typeof updateUserById>>>;
-export type DeleteUserByIdResult = NonNullable<Awaited<ReturnType<typeof deleteUserById>>>;
-export type FindUserSessionsResult = NonNullable<Awaited<ReturnType<typeof findUserSessions>>>;
-export type DeleteUserSessionByIdResult = NonNullable<Awaited<ReturnType<typeof deleteUserSessionById>>>;
-export type RegisterResult = NonNullable<Awaited<ReturnType<typeof register>>>;
-export type LoginResult = NonNullable<Awaited<ReturnType<typeof login>>>;
-export type LogoutResult = NonNullable<Awaited<ReturnType<typeof logout>>>;
-export type RefreshResult = NonNullable<Awaited<ReturnType<typeof refresh>>>;
+export type CreateUserResult = AxiosResponse<User>;
+export type FindAllUsersResult = AxiosResponse<User[]>;
+export type FindUserByIdResult = AxiosResponse<User>;
+export type UpdateUserByIdResult = AxiosResponse<unknown>;
+export type DeleteUserByIdResult = AxiosResponse<unknown>;
+export type FindUserSessionsResult = AxiosResponse<Session[]>;
+export type DeleteUserSessionByIdResult = AxiosResponse<unknown>;
+export type RegisterResult = AxiosResponse<void>;
+export type LoginResult = AxiosResponse<Tokens>;
+export type LogoutResult = AxiosResponse<void>;
+export type RefreshResult = AxiosResponse<Tokens>;

@@ -6,7 +6,9 @@ import { Weather, WTTRWeather } from '../types/weather.interface';
 const WEATHER_API_ENDPOINT = 'https://wttr.in';
 
 export const fetchWeather = async (place = ''): Promise<Weather> => {
-  const { data } = await api.get<WTTRWeather>(`${WEATHER_API_ENDPOINT}/${encodeURIComponent(place)}?format=j1`);
+  const { data } = await api<WTTRWeather>({
+    url: `${WEATHER_API_ENDPOINT}/${encodeURIComponent(place)}?format=j1`,
+  });
 
   const weather: Weather = {
     place: `${data.nearest_area[0].region[0].value}, ${data.nearest_area[0].country[0].value}`,

@@ -15,13 +15,18 @@ export const loginFx = createEffect(async (values: LoginDto) => {
 });
 
 export const refreshFx = createEffect(async () => {
-  const tokens = await api.post<{ access: string }>('/auth/refresh');
+  const tokens = await api<{ access: string }>({
+    url: '/auth/refresh',
+  });
 
   return tokens;
 });
 
 export const logoutFx = createEffect(async () => {
-  await api.post('/auth/logout');
+  await api({
+    method: 'POST',
+    url: '/auth/logout',
+  });
 });
 
 // $token

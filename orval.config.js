@@ -9,7 +9,7 @@ module.exports = {
       override: {
         mutator: {
           path: './src/shared/api/api.ts',
-          name: 'customInstance',
+          name: 'api',
         },
       },
     },

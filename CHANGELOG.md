@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.5](https://github.com/devianllert/next-boilerplate/compare/v0.1.4...v0.1.5) (2022-09-02)
+
+
+### Features
+
+* add custom axios instance ([cb041af](https://github.com/devianllert/next-boilerplate/commit/cb041aff4e5481f9f7c455b13ef3c4a6d61af8e6))
+
+
+### Bug Fixes
+
+* **deps:** update all non-major dependencies ([68c4b9a](https://github.com/devianllert/next-boilerplate/commit/68c4b9a80ee925accdf55ce18aae9a87a5ec017f))
+* fix connect-src url ([17e530c](https://github.com/devianllert/next-boilerplate/commit/17e530caf893002ca89e74e504e452b2dba8dad0))
+
 ### [0.1.4](https://github.com/devianllert/next-boilerplate/compare/v0.1.3...v0.1.4) (2022-08-30)
 
 

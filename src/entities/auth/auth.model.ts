@@ -7,7 +7,7 @@ import { wait } from '@/shared/lib/wait';
 export const loginFx = createEffect(async (values: LoginDto) => {
   const tokens = await requestInternalFx({
     method: 'POST',
-    url: '/auth/login',
+    url: 'api/v1/auth/login',
     data: values,
   });
 

@@ -1,5 +1,5 @@
-import { createEvent, sample, split } from 'effector';
-import { z, ZodIssue } from 'zod';
+import { createEvent, sample } from 'effector';
+import { z } from 'zod';
 import { loginFx } from '@/entities/auth/auth.model';
 import { createField, createForm } from '@/shared/lib/effector/forms';
 

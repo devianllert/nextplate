@@ -148,7 +148,7 @@ module.exports = withSentryConfig(
         prefetch-src 'self';
         base-uri 'none';
         worker-src 'self' blob:;
-        connect-src 'self' *.sentry.io https://vitals.vercel-insights.com;
+        connect-src 'self' *.sentry.io https://vitals.vercel-insights.com ${process.env.NEXT_PUBLIC_API_ENDPOINT};
         default-src 'self';
         img-src 'self' blob: data:;
         script-src 'self' ${process.env.NODE_ENV === 'development' ? "'unsafe-eval'" : ''};

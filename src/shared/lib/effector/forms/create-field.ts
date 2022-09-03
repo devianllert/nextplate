@@ -18,6 +18,7 @@ export const createField = <T>(options: FieldOptions<T>): Field<T> => {
 
   const changed = createEvent<T>();
   const blurred = createEvent<void>();
+  const addError = createEvent<string>();
 
   const $value = createStore(initialValue);
   $value
@@ -25,6 +26,14 @@ export const createField = <T>(options: FieldOptions<T>): Field<T> => {
     .on(changed, (_, newValue) => newValue);
 
   const $errors = createStore(schema ? validate(initialValue, schema) : []);
+  $errors.on(addError, (errors, newError) => [
+    {
+      message: newError,
+      code: 'custom',
+      path: [],
+    },
+    ...errors,
+  ]);
 
   const meta = createErrors({ errors: $errors });
 
@@ -35,7 +44,8 @@ export const createField = <T>(options: FieldOptions<T>): Field<T> => {
   $isTouched
     .on($value, () => true)
     .on(blurred, () => true)
-    .on(restore, () => false);
+    .on(restore, () => false)
+    .on(addError, () => true);
 
   if (schema) {
     $errors.on($value, (_prev, value) => {
@@ -55,6 +65,7 @@ export const createField = <T>(options: FieldOptions<T>): Field<T> => {
     $isTouched,
     blurred,
     changed,
+    addError,
     reset,
   };
 };

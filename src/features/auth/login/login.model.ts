@@ -28,12 +28,10 @@ sample({
   target: loginFx,
 });
 
-// const setEmailFieldError = createEvent<string>();
-
 // sample({
-//   clock: setEmailFieldError,
-//   fn: (error) => [{ message: error.response.data.errors.email }] as ZodIssue[],
-//   target: loginForm.fields.email.$errors,
+//   clock: loginFx.failData,
+//   fn: (error) => [{ message: (error as AxiosError).response?.data.errors.email }] as ZodIssue[],
+//   target: loginForm.fields.email.addError,
 // });
 
 // loginForm.fields.email.$errors.watch(console.log);

@@ -88,6 +88,8 @@ export interface Form<T extends FieldsObject> {
   submit: Event<void>;
 
   reset: Event<void>;
+
+  addError: Event<string>;
 }
 
 export const createForm = <T extends FieldsObject>(options: FormOptions<T>): Form<T> => {
@@ -101,6 +103,7 @@ export const createForm = <T extends FieldsObject>(options: FormOptions<T>): For
   const submitted = createEvent<ExtractValuesFromFields<T>>();
   const rejected = createEvent<{ errors: ZodIssue[], values: ExtractValuesFromFields<T> }>();
   const reset = createEvent<void>();
+  const addError = createEvent<string>();
 
   const $disabled = other.$disabled || createStore(false);
   const $validating = other.$validating || createStore(false);
@@ -108,6 +111,15 @@ export const createForm = <T extends FieldsObject>(options: FormOptions<T>): For
   const valuesObj = extractValues(fields);
   const $values = combine(valuesObj);
   const $formErrors = createStore<ZodIssue[]>([]);
+
+  $formErrors.on(addError, (errors, newError) => [
+    {
+      message: newError,
+      code: 'custom',
+      path: [],
+    },
+    ...errors,
+  ]);
 
   // const $errorsObj = extractErrors(fields);
   const $errors = combine(combine(fieldsArray.map(([_, field]) => field.$errors)), $formErrors, (fieldErrors, ownErrors) => {
@@ -173,6 +185,7 @@ export const createForm = <T extends FieldsObject>(options: FormOptions<T>): For
     rejected,
     submit,
     reset,
+    addError,
     ...meta,
   };
 };

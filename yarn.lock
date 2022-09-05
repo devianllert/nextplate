@@ -5652,10 +5652,10 @@
     "@babel/runtime" "^7.12.5"
     react-error-boundary "^3.1.0"
 
-"@testing-library/react@13.3.0":
-  version "13.3.0"
-  resolved "https://registry.yarnpkg.com/@testing-library/react/-/react-13.3.0.tgz#bf298bfbc5589326bbcc8052b211f3bb097a97c5"
-  integrity sha512-DB79aA426+deFgGSjnf5grczDPiL4taK3hFaa+M5q7q20Kcve9eQottOG5kZ74KEr55v0tU2CQormSSDK87zYQ==
+"@testing-library/react@13.4.0":
+  version "13.4.0"
+  resolved "https://registry.yarnpkg.com/@testing-library/react/-/react-13.4.0.tgz#6a31e3bf5951615593ad984e96b9e5e2d9380966"
+  integrity sha512-sXOGON+WNTh3MLE9rve97ftaZukN3oNf2KjDy7YTx6hcTO2uuLHuCGynMDhFwGw/jYf4OJ2Qk0i4i79qMNNkyw==
   dependencies:
     "@babel/runtime" "^7.12.5"
     "@testing-library/dom" "^8.5.0"
@@ -15108,10 +15108,10 @@ pathpida@0.18.1:
     ignore "^5.2.0"
     minimist "^1.2.5"
 
-patronum@1.11.1:
-  version "1.11.1"
-  resolved "https://registry.yarnpkg.com/patronum/-/patronum-1.11.1.tgz#5fd274c988dbf409b5be2c3e18dfa961c2d97bcf"
-  integrity sha512-fpwcg2kwCYN3dAM8bmi0JstBqBz6YrEf/LsbCihJoS/5tPKBspMX3eJfXHYFn7I28B4H6uNNe3xXHcHtNGKFuw==
+patronum@1.12.1:
+  version "1.12.1"
+  resolved "https://registry.yarnpkg.com/patronum/-/patronum-1.12.1.tgz#8e159cb2e70a87b23fbf868c2753618be86d82f1"
+  integrity sha512-3neqfLG2ZHxJNTM29IZGhmZNLm0jCx6eIB3EO9SFz9EYTmxZTIagkupNhRO2aVJYl2IQgFTgYJw2thuCnJPleA==
 
 pbkdf2@^3.0.3:
   version "3.1.2"

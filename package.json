@@ -133,7 +133,7 @@
     "@testing-library/react-hooks": "8.0.1",
     "@testing-library/user-event": "14.4.3",
     "@types/cookies": "0.7.7",
-    "@types/jest": "28.1.8",
+    "@types/jest": "29.0.1",
     "@types/jest-axe": "3.5.4",
     "@types/jest-expect-message": "1.0.4",
     "@types/js-cookie": "3.0.2",

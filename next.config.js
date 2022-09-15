@@ -22,7 +22,8 @@ const publicBasePaths = ['robots', 'static', 'favicon.ico'];
 // Will disable url rewrite for those items (should contain all supported languages and all public base paths)
 const noRedirectBasePaths = [...publicBasePaths, ...noRedirectBlacklistedPaths];
 
-const GIT_COMMIT_SHA_SHORT = typeof process.env.GIT_COMMIT_SHA === 'string' && process.env.GIT_COMMIT_SHA.substring(0, 8);
+const GIT_COMMIT_SHA_SHORT =
+  typeof process.env.GIT_COMMIT_SHA === 'string' && process.env.GIT_COMMIT_SHA.substring(0, 8);
 
 console.debug(
   `Building Next with NODE_ENV="${process.env.NODE_ENV}" NEXT_PUBLIC_APP_STAGE="${process.env.NEXT_PUBLIC_APP_STAGE}" using GIT_COMMIT_SHA=${process.env.GIT_COMMIT_SHA} and GIT_COMMIT_REF=${process.env.GIT_COMMIT_REF}`,
@@ -252,7 +253,8 @@ module.exports = withSentryConfig(
             },
             {
               key: 'Access-Control-Allow-Headers',
-              value: 'X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version',
+              value:
+                'X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version',
             },
           ],
         },
@@ -277,20 +279,18 @@ module.exports = withSentryConfig(
      * @see https://nextjs.org/docs/api-reference/next.config.js/rewrites
      * @since 9.5 - See https://nextjs.org/blog/next-9-5#rewrites
      */
-    // async rewrites() {
-    //   const rewrites = [
-    //     // Robots rewrites
-    //     {
-    //       source: '/robots.txt',
-    //       destination:
-    //         process.env.NEXT_PUBLIC_APP_STAGE === 'production' ? '/robots/production.txt' : '/robots/!production.txt',
-    //     },
-    //   ];
+    async rewrites() {
+      const rewrites = [
+        {
+          source: '/api/:path*',
+          destination: `${process.env.NEXT_PUBLIC_API_ENDPOINT}/api/:path*`,
+        },
+      ];
 
-    //   console.info('Using rewrites:', rewrites);
+      console.info('Using rewrites:', rewrites);
 
-    //   return rewrites;
-    // },
+      return rewrites;
+    },
 
     /**
      * Redirects allow you to redirect an incoming request path to a different destination path.

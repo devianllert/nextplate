@@ -1,7 +1,8 @@
 import axios, { AxiosRequestConfig, AxiosResponse } from 'axios';
 
 export const AXIOS_INSTANCE = axios.create({
-  baseURL: process.env.NEXT_PUBLIC_API_ENDPOINT,
+  // baseURL: process.env.NEXT_PUBLIC_API_ENDPOINT,
+  baseURL: 'http://localhost:8888/',
   timeout: 1000 * 10,
 });
 

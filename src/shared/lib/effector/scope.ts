@@ -14,7 +14,7 @@ let clientScope: Scope;
 const initializeScope = (initialData: Record<string, unknown>) => {
   const scope = fork({
     values: {
-      ...(clientScope ? serialize(clientScope) : {}),
+      ...(clientScope && serialize(clientScope)),
       ...initialData,
     },
   });

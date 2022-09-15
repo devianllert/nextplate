@@ -1,15 +1,18 @@
-import { createEvent, sample, split } from 'effector';
+import { createEvent, sample } from 'effector';
 import { z } from 'zod';
-import { spread } from 'patronum';
-import { loginFx } from '@/entities/auth/auth.model';
+import { registerFx } from '@/entities/auth/auth.model';
 import { createField, createForm } from '@/shared/lib/effector/forms';
-import { pushFx } from '@/shared/lib/effector/router/effector-router';
 
-export const loginButtonClicked = createEvent();
+export const registerButtonClicked = createEvent();
 
 const email = createField({
   initialValue: '',
   schema: z.string().email(),
+});
+
+const username = createField({
+  initialValue: '',
+  schema: z.string().min(3),
 });
 
 const password = createField({
@@ -17,37 +20,37 @@ const password = createField({
   schema: z.string().min(1),
 });
 
-export const loginForm = createForm({
+const confirmPassword = createField({
+  initialValue: '',
+  schema: z.string().min(1),
+});
+
+export const registerForm = createForm({
   fields: {
     email,
+    username,
     password,
   },
-  $disabled: loginFx.pending,
+  $disabled: registerFx.pending,
 });
 
 sample({
-  clock: loginForm.submitted,
-  target: loginFx,
+  clock: registerForm.submitted,
+  target: registerFx,
 });
 
 sample({
-  clock: loginFx.failData,
+  clock: registerFx.failData,
   filter: (error) => !!error.response?.data.errors?.email,
   fn: (error) => error.response?.data.errors?.email as string,
-  target: loginForm.fields.email.addError,
+  target: registerForm.fields.email.addError,
 });
 
 sample({
-  clock: loginFx.failData,
+  clock: registerFx.failData,
   filter: (error) => !!error.response?.data.code,
   fn: (error) => error.response?.data.code as string,
-  target: loginForm.addError,
-});
-
-sample({
-  clock: loginFx.done,
-  fn: () => ({ url: '/dashboard' }),
-  target: pushFx,
+  target: registerForm.addError,
 });
 
 // loginForm.fields.email.$errors.watch(console.log);
@@ -75,4 +78,4 @@ sample({
 //   target: loginForm
 // })
 
-loginForm.rejected.watch(console.log);
+registerForm.rejected.watch(console.log);

@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { useTranslation } from 'next-i18next';
-import Link from 'next/link';
+import NextLink from 'next/link';
 import { useUnit } from 'effector-react/scope';
 
 import { Button } from '@/shared/components/system/button';
@@ -8,6 +8,7 @@ import * as Text from '@/shared/components/system/text';
 import { Box } from '@/shared/components/system/box';
 import { Input, InputPassword } from '@/shared/components/system/input';
 import { Stack } from '@/shared/components/system/stack';
+import { Link } from '@/shared/components/system/link';
 import { loginFx } from '@/entities/auth/auth.model';
 import { useForm } from '@/shared/lib/effector/forms';
 
@@ -42,7 +43,7 @@ export const LoginForm = () => {
           type="email"
           autoComplete="email"
           value={form.fields.email.$value}
-          error={form.fields.email.$isTouched && form.fields.email.$hasErrors}
+          error={(form.fields.email.$isTouched && form.fields.email.$hasErrors) || !!form.$formErrors.length}
           helperText={form.fields.email.$isTouched ? form.fields.email.$errors[0]?.message : ''}
           onChange={(event) => form.fields.email.changed(event.target.value)}
           onBlur={() => form.fields.email.blurred()}
@@ -55,7 +56,7 @@ export const LoginForm = () => {
           id="password"
           name="password"
           value={form.fields.password.$value}
-          error={form.fields.password.$isTouched && form.fields.password.$hasErrors}
+          error={(form.fields.password.$isTouched && form.fields.password.$hasErrors) || !!form.$formErrors.length}
           helperText={form.fields.password.$isTouched ? form.fields.password.$errors[0]?.message : ''}
           onChange={(event) => form.fields.password.changed(event.target.value)}
           onBlur={() => form.fields.password.blurred()}
@@ -64,6 +65,12 @@ export const LoginForm = () => {
           label={t('form.password.label')}
           fullWidth
         />
+
+        {form.$formErrors.length > 0 && (
+          <Text.Paragraph variant="body3" color="radix.red11">
+            Incorrect email or password
+          </Text.Paragraph>
+        )}
 
         <Button
           type="submit"
@@ -80,7 +87,9 @@ export const LoginForm = () => {
       <Text.Paragraph variant="body2">
         {t('needAccount')}
         {' '}
-        <Link href="/auth/signup">{t('signup')}</Link>
+        <NextLink href="/auth/signup" passHref>
+          <Link href="/auth/signup">{t('signup')}</Link>
+        </NextLink>
       </Text.Paragraph>
     </Box>
   );

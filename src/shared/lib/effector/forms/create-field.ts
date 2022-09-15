@@ -1,5 +1,5 @@
 import { createEvent, createStore, sample } from 'effector';
-import { ZodSchema } from 'zod';
+import { ZodIssue, ZodSchema } from 'zod';
 import { createErrors } from './create-errors';
 
 import { Field } from './types';
@@ -18,7 +18,7 @@ export const createField = <T>(options: FieldOptions<T>): Field<T> => {
 
   const changed = createEvent<T>();
   const blurred = createEvent<void>();
-  const addError = createEvent<string>();
+  const addError = createEvent<string | string[]>();
 
   const $value = createStore(initialValue);
   $value
@@ -27,11 +27,9 @@ export const createField = <T>(options: FieldOptions<T>): Field<T> => {
 
   const $errors = createStore(schema ? validate(initialValue, schema) : []);
   $errors.on(addError, (errors, newError) => [
-    {
-      message: newError,
-      code: 'custom',
-      path: [],
-    },
+    ...(Array.isArray(newError)
+      ? newError.map((message) => ({ message, code: 'custom', path: [] }) as ZodIssue)
+      : [{ message: newError, code: 'custom', path: [] }] as ZodIssue[]),
     ...errors,
   ]);
 
@@ -44,8 +42,8 @@ export const createField = <T>(options: FieldOptions<T>): Field<T> => {
   $isTouched
     .on($value, () => true)
     .on(blurred, () => true)
-    .on(restore, () => false)
-    .on(addError, () => true);
+    .on(addError, () => true)
+    .on(restore, () => false);
 
   if (schema) {
     $errors.on($value, (_prev, value) => {

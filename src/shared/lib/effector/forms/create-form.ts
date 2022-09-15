@@ -89,7 +89,7 @@ export interface Form<T extends FieldsObject> {
 
   reset: Event<void>;
 
-  addError: Event<string>;
+  addError: Event<string | string[]>;
 }
 
 export const createForm = <T extends FieldsObject>(options: FormOptions<T>): Form<T> => {
@@ -103,7 +103,7 @@ export const createForm = <T extends FieldsObject>(options: FormOptions<T>): For
   const submitted = createEvent<ExtractValuesFromFields<T>>();
   const rejected = createEvent<{ errors: ZodIssue[], values: ExtractValuesFromFields<T> }>();
   const reset = createEvent<void>();
-  const addError = createEvent<string>();
+  const addError = createEvent<string | string[]>();
 
   const $disabled = other.$disabled || createStore(false);
   const $validating = other.$validating || createStore(false);
@@ -112,14 +112,14 @@ export const createForm = <T extends FieldsObject>(options: FormOptions<T>): For
   const $values = combine(valuesObj);
   const $formErrors = createStore<ZodIssue[]>([]);
 
-  $formErrors.on(addError, (errors, newError) => [
-    {
-      message: newError,
-      code: 'custom',
-      path: [],
-    },
-    ...errors,
-  ]);
+  $formErrors
+    .on(addError, (errors, newError) => [
+      ...(Array.isArray(newError)
+        ? newError.map((message) => ({ message, code: 'custom', path: [] }) as ZodIssue)
+        : [{ message: newError, code: 'custom', path: [] }] as ZodIssue[]),
+      ...errors,
+    ])
+    .reset($values);
 
   // const $errorsObj = extractErrors(fields);
   const $errors = combine(combine(fieldsArray.map(([_, field]) => field.$errors)), $formErrors, (fieldErrors, ownErrors) => {

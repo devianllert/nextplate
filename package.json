@@ -65,7 +65,7 @@
     "@radix-ui/react-scroll-area": "1.0.0",
     "@radix-ui/react-slot": "1.0.0",
     "@radix-ui/react-switch": "1.0.0",
-    "@sentry/nextjs": "7.12.1",
+    "@sentry/nextjs": "7.13.0",
     "@styled-system/css": "5.1.5",
     "@styled-system/should-forward-prop": "5.1.5",
     "@tanstack/react-query": "4.3.4",

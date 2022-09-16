@@ -75,7 +75,7 @@
     "date-fns": "2.29.3",
     "deepmerge": "4.2.2",
     "effector": "22.3.0",
-    "effector-react": "22.1.6",
+    "effector-react": "22.2.0",
     "flatted": "3.2.7",
     "framer-motion": "7.3.5",
     "graphql": "16.6.0",

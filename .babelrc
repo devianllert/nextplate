@@ -16,6 +16,8 @@
       {
         "reactSsr": true,
         "factories": [
+          "@farfetched/core",
+          "patronum",
           "src/shared/lib/effector/forms/create-field",
           "@/shared/lib/effector/forms/create-field",
           "src/shared/lib/effector/forms/create-form",

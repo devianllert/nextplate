@@ -5671,10 +5671,10 @@
   dependencies:
     "@types/istanbul-lib-report" "*"
 
-"@types/jest-axe@3.5.4":
-  version "3.5.4"
-  resolved "https://registry.yarnpkg.com/@types/jest-axe/-/jest-axe-3.5.4.tgz#3217668ab114fdfb67da3b3f60caf18dcbc18b2e"
-  integrity sha512-S0M+Etke9v3o0PjjfA4ijoU8G0+eI+lblpGYFYw2t+PPPnPPzJBX7UKLoQjz1SfIp+Hf/bNMFvoBX8zlFVzdrQ==
+"@types/jest-axe@3.5.5":
+  version "3.5.5"
+  resolved "https://registry.yarnpkg.com/@types/jest-axe/-/jest-axe-3.5.5.tgz#21fd8152dc3963bf6e1f72f34a7ce4e827838b7b"
+  integrity sha512-b8WDIdoeKtr/JDJ2+QjFXMuS8UhfdMA6+15Z5KjjIie3jQrSXD9KZWMSQxc0nPtx7L9rIFKdiDpQk+m7s4a/8w==
   dependencies:
     "@types/jest" "*"
     axe-core "^3.5.5"
@@ -5859,10 +5859,19 @@
   dependencies:
     "@types/react" "*"
 
-"@types/react@*", "@types/react@18.0.20":
+"@types/react@*":
   version "18.0.20"
   resolved "https://registry.yarnpkg.com/@types/react/-/react-18.0.20.tgz#e4c36be3a55eb5b456ecf501bd4a00fd4fd0c9ab"
   integrity sha512-MWul1teSPxujEHVwZl4a5HxQ9vVNsjTchVA+xRqv/VYGCuKGAU6UhfrTdF5aBefwD1BHUD8i/zq+O/vyCm/FrA==
+  dependencies:
+    "@types/prop-types" "*"
+    "@types/scheduler" "*"
+    csstype "^3.0.2"
+
+"@types/react@18.0.21":
+  version "18.0.21"
+  resolved "https://registry.yarnpkg.com/@types/react/-/react-18.0.21.tgz#b8209e9626bb00a34c76f55482697edd2b43cc67"
+  integrity sha512-7QUCOxvFgnD5Jk8ZKlUAhVcRj7GuJRjnjjiY/IUBWKgOlnvDvTMLD4RTF7NPyVmbRhNrbomZiOepg7M/2Kj1mA==
   dependencies:
     "@types/prop-types" "*"
     "@types/scheduler" "*"
@@ -14157,10 +14166,10 @@ ora@^5.4.1:
     strip-ansi "^6.0.0"
     wcwidth "^1.0.1"
 
-orval@6.10.0:
-  version "6.10.0"
-  resolved "https://registry.yarnpkg.com/orval/-/orval-6.10.0.tgz#ca451fd137a47ff4f43b37de151a88572833d274"
-  integrity sha512-N+ihf8ug+GWqlKG0FlTe0a7tHnXYoSmV/rI3HsCElCUwVCA0JOf28zwgtwafEHJGk4q9QF8iQhGZKsqvYRED6A==
+orval@6.10.1:
+  version "6.10.1"
+  resolved "https://registry.yarnpkg.com/orval/-/orval-6.10.1.tgz#d4bafb1143c3c56e23d54f12fe64380cc6b9ada5"
+  integrity sha512-Ujn33jEfKzNrqRC2XW0I5mHped1ZJGAmGY5hYUOrJYyyPq8aOiS4prr/7XCZVqraBdZaTYCHd6e9ZfvV3jO7hw==
   dependencies:
     "@apidevtools/swagger-parser" "^10.1.0"
     acorn "^8.8.0"

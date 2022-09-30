@@ -35,7 +35,7 @@ export const AuthContent = (props: AuthContentProps): JSX.Element => {
   return (
     <S.Content>
       <Container>
-        <AnimatePresence exitBeforeEnter initial={false}>
+        <AnimatePresence mode="wait" initial={false}>
           <Box
             display="flex"
             flexDirection="column"

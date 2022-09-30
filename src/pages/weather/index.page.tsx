@@ -1,6 +1,7 @@
 import React from 'react';
 import { RiMapPinLine, RiSearchLine } from 'react-icons/ri';
 
+import { useUnit } from 'effector-react/scope';
 import { createLogger } from '@/shared/lib/logging/logger';
 import * as Text from '@/shared/components/system/text';
 import { Box } from '@/shared/components/system/box';
@@ -13,7 +14,9 @@ import { EnhancedNextPage } from '@/shared/types/enhanced-next-page';
 import { SSRPageProps } from '@/shared/types/ssr-page-props';
 import { SSGPageProps } from '@/shared/types/ssg-page-props';
 import { OnlyBrowserPageProps } from '@/shared/types/only-browser-page-props';
-import { useWeatherSearch } from '@/entities/weather';
+import {
+  $search, inputChanged, searchClicked,
+} from '@/entities/weather';
 import { staticPath } from '@/shared/lib/$path';
 
 const logger = createLogger('Weather');
@@ -39,7 +42,21 @@ export const getStaticProps = getTranslationsStaticProps();
 type Props = (SSRPageProps & SSGPageProps<OnlyBrowserPageProps>);
 
 const WeatherSearchPage: EnhancedNextPage<Props> = (): JSX.Element => {
-  const { onSearch, onChange } = useWeatherSearch();
+  const {
+    search,
+    handleSearch,
+    handleSubmit,
+  } = useUnit({
+    search: $search,
+    handleSearch: inputChanged,
+    handleSubmit: searchClicked,
+  });
+
+  const onSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+
+    handleSubmit();
+  };
 
   return (
     <>
@@ -66,10 +83,10 @@ const WeatherSearchPage: EnhancedNextPage<Props> = (): JSX.Element => {
           maxWidth="440px"
           width="100%"
           mt={8}
-          onSubmit={onSearch}
+          onSubmit={onSubmit}
         >
           <Input
-            onChange={onChange}
+            onChange={(event) => handleSearch(event.target.value)}
             prefix={(
               <RiMapPinLine />
             )}
@@ -78,11 +95,12 @@ const WeatherSearchPage: EnhancedNextPage<Props> = (): JSX.Element => {
                 type="submit"
                 size="small"
                 edge="end"
-                onClick={onSearch}
+                onClick={handleSubmit}
               >
                 <RiSearchLine />
               </IconButton>
             )}
+            value={search}
             color="black"
             fullWidth
             name="search"

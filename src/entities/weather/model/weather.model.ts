@@ -2,10 +2,16 @@ import * as React from 'react';
 import { useRouter } from 'next/router';
 import { useQuery } from '@tanstack/react-query';
 
+import { createEvent, createStore, sample } from 'effector';
+import { createQuery } from '@farfetched/core';
+import { GetServerSidePropsContext, PreviewData } from 'next';
+import { ParsedUrlQuery } from 'querystring';
 import { pagesPath } from '@/shared/lib/$path';
 
 import { fetchWeather } from '../api/wttr';
 import { Weather } from '../types/weather.interface';
+import { pushFx } from '@/shared/lib/effector/router';
+import { isEmpty } from '@/shared/lib/assertion';
 
 export const useWeatherQuery = () => {
   const { query } = useRouter();
@@ -20,20 +26,29 @@ export const useWeatherQuery = () => {
   };
 };
 
-export const useWeatherSearch = () => {
-  const [text, setText] = React.useState('');
-  const router = useRouter();
+export const weatherQuery = createQuery({
+  handler: async (city: string) => fetchWeather(city),
+});
 
-  const onSearch = (event: React.FormEvent<HTMLFormElement> | React.MouseEvent<HTMLButtonElement>) => {
-    event.preventDefault();
+export const inputChanged = createEvent<string>();
+export const searchClicked = createEvent();
 
-    if (!text.trim()) return;
+export const $search = createStore('');
+$search.on(inputChanged, (_, text) => text);
 
-    router.push(pagesPath.weather._place(text).$url()) as unknown as void;
-  };
+export const $currentCity = createStore('');
 
-  return {
-    onSearch,
-    onChange: (event: React.ChangeEvent<HTMLInputElement>) => setText(event.target.value),
-  };
-};
+sample({
+  clock: searchClicked,
+  source: $search,
+  filter: (text) => !isEmpty(text),
+  target: $currentCity,
+});
+
+sample({
+  clock: searchClicked,
+  source: $search,
+  filter: (text) => !isEmpty(text),
+  fn: (text) => ({ url: pagesPath.weather._place(text).$url() }),
+  target: pushFx,
+});

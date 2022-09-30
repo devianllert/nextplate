@@ -1,12 +1,13 @@
 import * as React from 'react';
 import { GetServerSideProps, GetServerSidePropsResult } from 'next';
 import Image from 'next/image';
-import { QueryClient, dehydrate } from '@tanstack/react-query';
+import { allSettled, fork, serialize } from 'effector';
+import { useUnit } from 'effector-react/scope';
+import Link from 'next/link';
 
 import { createLogger } from '@/shared/lib/logging/logger';
 import * as Text from '@/shared/components/system/text';
 import { Box } from '@/shared/components/system/box';
-import { REACT_QUERY_STATE_PROP_NAME } from '@/shared/types/react-query';
 import { Container } from '@/shared/components/system/container';
 import { PageSEO } from '@/shared/lib/meta';
 import { OnlyBrowserPageProps } from '@/shared/types/only-browser-page-props';
@@ -16,14 +17,17 @@ import { EnhancedNextPage } from '@/shared/types/enhanced-next-page';
 import { getCoreServerSideProps } from '@/shared/lib/ssr';
 import { WeatherLayout } from '@/layouts/weather';
 import {
-  useWeatherQuery,
   Todos,
   WeatherHourlyList,
   WeatherDate,
   ICONS_MAP,
-  fetchWeather,
+  weatherQuery,
 } from '@/entities/weather';
 import { staticPath } from '@/shared/lib/$path';
+import { EFFECTOR_STATE_KEY } from '@/shared/lib/effector/scope';
+import { weatherPageStarted } from './model';
+import { normalizeSSRContext } from '@/shared/lib/next/context';
+import { Button } from '@/shared/components/system/button';
 
 const logger = createLogger('[place]');
 
@@ -41,29 +45,22 @@ export const getServerSideProps: GetServerSideProps<GetServerSidePageProps> = as
 
   const commonServerSideProps = await getCoreServerSideProps()(context);
 
-  const place = context.query.place as (string | undefined);
-
-  const queryClient = new QueryClient();
+  const scope = fork();
 
   if ('props' in commonServerSideProps) {
     const {
       props: { ...pageData },
     } = commonServerSideProps;
 
-    try {
-      await queryClient.fetchQuery(['weather', place], () => fetchWeather(place));
+    await allSettled(weatherPageStarted, { scope, params: normalizeSSRContext(context) });
 
-      return {
-        // Props returned here will be available as page properties (pageProps)
-        props: {
-          ...pageData,
-          [REACT_QUERY_STATE_PROP_NAME]: dehydrate(queryClient),
-        },
-      };
-    } catch (error) {
-      logger.error(error);
-      throw new Error('Errors were detected in query.');
-    }
+    return {
+      // Props returned here will be available as page properties (pageProps)
+      props: {
+        ...pageData,
+        [EFFECTOR_STATE_KEY]: serialize(scope),
+      },
+    };
   } else {
     return commonServerSideProps;
   }
@@ -80,15 +77,12 @@ export const getServerSideProps: GetServerSideProps<GetServerSidePageProps> = as
 type Props = (SSRPageProps & SSGPageProps<OnlyBrowserPageProps>);
 
 const WeatherPlacePage: EnhancedNextPage<Props> = (): JSX.Element => {
-  const {
-    city,
-    weather,
-  } = useWeatherQuery();
+  const { data } = useUnit({ data: weatherQuery.$data });
 
   return (
     <>
       <PageSEO
-        title={`Weather for ${city ?? weather?.place ?? 'your current location'}`}
+        title={`Weather for ${data?.place ?? 'unknown location'}`}
         description="The right way to check the weather! This is a demo app intended to demonstrate the capabilities of this boilerplate"
         image={staticPath.static.images.apps.weather_png}
       />
@@ -103,40 +97,59 @@ const WeatherPlacePage: EnhancedNextPage<Props> = (): JSX.Element => {
         backgroundPosition="center top"
         py={[5, null, 8]}
         px={[0, null, 8]}
+        justifyContent={!data ? 'center' : undefined}
       >
         <Container>
-          <Box
-            display="flex"
-            flexDirection={['column-reverse', null, 'row']}
-            justifyContent={[null, null, 'space-between']}
-            mb={[4, null, 0]}
-          >
+          {!data && (
             <Box
               display="flex"
+              alignItems="center"
               flexDirection="column"
             >
-              <WeatherDate />
+              <Text.Heading variant="h4" component="h1">Unknown location</Text.Heading>
 
-              <Box mt={5}>
-                <Todos />
-              </Box>
+              <Link href="/weather" passHref>
+                <Button href="/weather" sx={{ mt: 4 }} color="gray" variant="contained">Back to search</Button>
+              </Link>
             </Box>
+          )}
 
+          {data && (
             <Box
               display="flex"
-              flexDirection="column"
-              alignItems={['center', null, 'flex-end']}
+              flexDirection={['column-reverse', null, 'row']}
+              justifyContent={[null, null, 'space-between']}
               mb={[4, null, 0]}
             >
-              <Image width="112" height="112" src={`/static/images/weather/wi-${ICONS_MAP[weather?.condition.code ?? '113']}.svg`} alt={weather?.condition.title} />
-              <Text.Heading variant="h3" component="span" fontWeight="medium" textAlign="center">{weather?.condition.title}</Text.Heading>
-              <Text.Heading variant="h6" component="span" sx={{ mt: 2 }} fontWeight="normal" color="text.secondary">{weather?.place}</Text.Heading>
-              <Text.Heading variant="h3" component="span" sx={{ mt: 4 }} fontWeight="bold">{weather?.temp.c} °</Text.Heading>
+              <Box
+                display="flex"
+                flexDirection="column"
+              >
+                <WeatherDate />
+
+                <Box mt={5}>
+                  <Todos />
+                </Box>
+              </Box>
+
+              <Box
+                display="flex"
+                flexDirection="column"
+                alignItems={['center', null, 'flex-end']}
+                mb={[4, null, 0]}
+              >
+                <Image width="112" height="112" src={`/static/images/weather/wi-${ICONS_MAP[data?.condition.code ?? '113']}.svg`} alt={data?.condition.title} />
+                <Text.Heading variant="h3" component="span" fontWeight="medium" textAlign="center">{data?.condition.title}</Text.Heading>
+                <Text.Heading variant="h6" component="span" sx={{ mt: 2 }} fontWeight="normal" color="text.secondary">{data?.place}</Text.Heading>
+                <Text.Heading variant="h3" component="span" sx={{ mt: 4 }} fontWeight="bold">{data?.temp.c} °</Text.Heading>
+              </Box>
             </Box>
-          </Box>
+          )}
         </Container>
 
-        <WeatherHourlyList hourlyWeather={weather?.hourly ?? []} />
+        {data && (
+          <WeatherHourlyList hourlyWeather={data?.hourly ?? []} />
+        )}
       </Box>
     </>
   );

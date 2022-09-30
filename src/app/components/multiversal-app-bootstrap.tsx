@@ -24,7 +24,7 @@ import BrowserPageBootstrap, { BrowserPageBootstrapProps } from './browser-page-
 import ServerPageBootstrap, { ServerPageBootstrapProps } from './server-page-bootstrap';
 import { SSRPageProps } from '@/shared/types/ssr-page-props';
 import { SSGPageProps } from '@/shared/types/ssg-page-props';
-import ErrorPage from '@/pages/_error';
+import ErrorPage from '@/pages/_error.page';
 import { EFFECTOR_STATE_KEY, useScope } from '@/shared/lib/effector/scope';
 
 export type Props = MultiversalAppBootstrapProps<SSGPageProps> | MultiversalAppBootstrapProps<SSRPageProps>;

@@ -33,7 +33,6 @@ export const LoginForm = () => {
       width="100%"
       onSubmit={onSubmit}
     >
-      <Button onClick={() => form.reset()}>reset</Button>
       <Text.Heading variant="h4" component="h1" sx={{ mb: 4 }}>{t('login')}</Text.Heading>
 
       <Stack direction="column">

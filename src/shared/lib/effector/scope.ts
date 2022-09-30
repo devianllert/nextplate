@@ -10,7 +10,7 @@ export interface EffectorState {
 }
 
 interface Values {
-  [sid: string]: any
+  [sid: string]: any;
 }
 
 interface State {

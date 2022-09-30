@@ -1,16 +1,11 @@
 import { createEvent, sample, split } from 'effector';
 import { z } from 'zod';
-import { spread } from 'patronum';
 import { loginFx } from '@/entities/auth/auth.model';
 import { createField, createForm } from '@/shared/lib/effector/forms';
 import { pushFx } from '@/shared/lib/effector/router/effector-router';
+import { email } from '../model';
 
 export const loginButtonClicked = createEvent();
-
-const email = createField({
-  initialValue: '',
-  schema: z.string().email(),
-});
 
 const password = createField({
   initialValue: '',
@@ -24,6 +19,8 @@ export const loginForm = createForm({
   },
   $disabled: loginFx.pending,
 });
+
+console.log(email.$value.sid);
 
 sample({
   clock: loginForm.submitted,
@@ -50,6 +47,8 @@ sample({
   target: pushFx,
 });
 
+loginForm.$values.watch(console.log);
+
 // loginForm.fields.email.$errors.watch(console.log);
 
 // sample({
@@ -74,5 +73,3 @@ sample({
 //   clock: loginForm.rejected,
 //   target: loginForm
 // })
-
-loginForm.rejected.watch(console.log);

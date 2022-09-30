@@ -14,16 +14,12 @@
     [
       "effector/babel-plugin",
       {
+        "debugSids": true,
         "reactSsr": true,
         "factories": [
           "@farfetched/core",
           "patronum",
-          "src/shared/lib/effector/forms/create-field",
-          "@/shared/lib/effector/forms/create-field",
-          "src/shared/lib/effector/forms/create-form",
-          "@/shared/lib/effector/forms/create-form",
-          "src/shared/lib/effector/forms/create-errors",
-          "@/shared/lib/effector/forms/create-errors"
+          "@/shared/lib/effector/forms"
         ]
       }
     ]

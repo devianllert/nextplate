@@ -2,13 +2,9 @@ import { createEvent, sample } from 'effector';
 import { z } from 'zod';
 import { registerFx } from '@/entities/auth/auth.model';
 import { createField, createForm } from '@/shared/lib/effector/forms';
+import { email } from '../model';
 
 export const registerButtonClicked = createEvent();
-
-const email = createField({
-  initialValue: '',
-  schema: z.string().email(),
-});
 
 const username = createField({
   initialValue: '',

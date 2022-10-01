@@ -10,12 +10,9 @@ export const api = <T>(
   config: AxiosRequestConfig,
   options?: AxiosRequestConfig,
 ): Promise<AxiosResponse<T>> => {
-  const controller = new AbortController();
-
   const promise = AXIOS_INSTANCE({
     ...config,
     ...options,
-    signal: controller.signal,
   }).then((response) => response)
     .catch((e) => {
       if (e instanceof AxiosError) {
@@ -24,11 +21,6 @@ export const api = <T>(
 
       throw e;
     });
-
-  // @ts-ignore
-  promise.cancel = () => {
-    controller.abort('Query was cancelled');
-  };
 
   return promise;
 };

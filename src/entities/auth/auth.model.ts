@@ -15,7 +15,7 @@ import {
 import { pushFx } from '@/shared/lib/effector/router';
 import { isBrowser } from '@/shared/lib/is-browser';
 
-export const loginFx = createEffect<AuthEmailLoginDto, LoginResult, AxiosError<RequestError>>(async (values) => {
+export const loginFx = createEffect<AuthEmailLoginDto, LoginResult, RequestError>(async (values) => {
   const tokens = await requestFx({
     method: 'POST',
     url: 'api/v1/auth/login',
@@ -25,7 +25,7 @@ export const loginFx = createEffect<AuthEmailLoginDto, LoginResult, AxiosError<R
   return tokens;
 });
 
-export const registerFx = createEffect<AuthRegisterLoginDto, RegisterResult, AxiosError<RequestError>>(async (values) => {
+export const registerFx = createEffect<AuthRegisterLoginDto, RegisterResult, RequestError>(async (values) => {
   const tokens = await requestFx({
     method: 'POST',
     url: 'api/v1/auth/register',
@@ -35,7 +35,7 @@ export const registerFx = createEffect<AuthRegisterLoginDto, RegisterResult, Axi
   return tokens;
 });
 
-export const refreshFx = createEffect<void, RefreshResult, AxiosError<RequestError>>(async () => {
+export const refreshFx = createEffect<void, RefreshResult, RequestError>(async () => {
   const tokens = await requestFx({
     url: 'api/v1/auth/refresh',
     method: 'POST',

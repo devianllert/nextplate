@@ -20,8 +20,6 @@ export const loginForm = createForm({
   $disabled: loginFx.pending,
 });
 
-console.log(email.$value.sid);
-
 sample({
   clock: loginForm.submitted,
   target: loginFx,
@@ -29,15 +27,15 @@ sample({
 
 sample({
   clock: loginFx.failData,
-  filter: (error) => !!error.response?.data.errors?.email,
-  fn: (error) => error.response?.data.errors?.email as string,
+  filter: (error) => !!error.errors?.email,
+  fn: (error) => error.errors?.email,
   target: loginForm.fields.email.addError,
 });
 
 sample({
   clock: loginFx.failData,
-  filter: (error) => !!error.response?.data.code,
-  fn: (error) => error.response?.data.code as string,
+  filter: (error) => !!error.code,
+  fn: (error) => error.code as string,
   target: loginForm.addError,
 });
 
@@ -47,9 +45,7 @@ sample({
   target: pushFx,
 });
 
-loginForm.$values.watch(console.log);
-
-// loginForm.fields.email.$errors.watch(console.log);
+loginForm.$formErrors.watch(console.log);
 
 // sample({
 //   clock: loginFx.failData,

@@ -37,15 +37,15 @@ sample({
 
 sample({
   clock: registerFx.failData,
-  filter: (error) => !!error.response?.data.errors?.email,
-  fn: (error) => error.response?.data.errors?.email as string,
+  filter: (error) => !!error.errors?.email,
+  fn: (error) => error.errors?.email,
   target: registerForm.fields.email.addError,
 });
 
 sample({
   clock: registerFx.failData,
-  filter: (error) => !!error.response?.data.code,
-  fn: (error) => error.response?.data.code as string,
+  filter: (error) => !!error.code,
+  fn: (error) => error.code as string,
   target: registerForm.addError,
 });
 

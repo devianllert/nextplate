@@ -14920,7 +14920,7 @@ pino-abstract-transport@v1.0.0:
     readable-stream "^4.0.0"
     split2 "^4.0.0"
 
-pino-logflare@^0.3.12:
+pino-logflare@0.3.12:
   version "0.3.12"
   resolved "https://registry.yarnpkg.com/pino-logflare/-/pino-logflare-0.3.12.tgz#4004670a67d6447db1e7098beaf33a88bce107e5"
   integrity sha512-+b61yGXEwrT3vDWg3YiX7qwBGEoNswwoNbaaHjiD08nXG1PPug2+Z3HM7E2eEWJ9ZTHksFy7svhul9gy/BTJ0Q==
@@ -14947,20 +14947,7 @@ pino-std-serializers@^6.0.0:
   resolved "https://registry.yarnpkg.com/pino-std-serializers/-/pino-std-serializers-6.0.0.tgz#4c20928a1bafca122fdc2a7a4a171ca1c5f9c526"
   integrity sha512-mMMOwSKrmyl+Y12Ri2xhH1lbzQxwwpuru9VjyJpgFIH4asSj88F2csdMwN6+M5g1Ll4rmsYghHLQJw81tgZ7LQ==
 
-pino@^6.3.2:
-  version "6.14.0"
-  resolved "https://registry.yarnpkg.com/pino/-/pino-6.14.0.tgz#b745ea87a99a6c4c9b374e4f29ca7910d4c69f78"
-  integrity sha512-iuhEDel3Z3hF9Jfe44DPXR8l07bhjuFY3GMHIXbjnY9XcafbyDDwl2sN2vw2GjMPf5Nkoe+OFao7ffn9SXaKDg==
-  dependencies:
-    fast-redact "^3.0.0"
-    fast-safe-stringify "^2.0.8"
-    flatstr "^1.0.12"
-    pino-std-serializers "^3.1.0"
-    process-warning "^1.0.0"
-    quick-format-unescaped "^4.0.3"
-    sonic-boom "^1.0.2"
-
-pino@^8.6.1:
+pino@8.6.1:
   version "8.6.1"
   resolved "https://registry.yarnpkg.com/pino/-/pino-8.6.1.tgz#3fc43acc79bcd3e871670347854f7359e2612f10"
   integrity sha512-fi+V2K98eMZjQ/uEHHSiMALNrz7HaFdKNYuyA3ZUrbH0f1e8sPFDmeRGzg7ZH2q4QDxGnJPOswmqlEaTAZeDPA==
@@ -14976,6 +14963,19 @@ pino@^8.6.1:
     safe-stable-stringify "^2.3.1"
     sonic-boom "^3.1.0"
     thread-stream "^2.0.0"
+
+pino@^6.3.2:
+  version "6.14.0"
+  resolved "https://registry.yarnpkg.com/pino/-/pino-6.14.0.tgz#b745ea87a99a6c4c9b374e4f29ca7910d4c69f78"
+  integrity sha512-iuhEDel3Z3hF9Jfe44DPXR8l07bhjuFY3GMHIXbjnY9XcafbyDDwl2sN2vw2GjMPf5Nkoe+OFao7ffn9SXaKDg==
+  dependencies:
+    fast-redact "^3.0.0"
+    fast-safe-stringify "^2.0.8"
+    flatstr "^1.0.12"
+    pino-std-serializers "^3.1.0"
+    process-warning "^1.0.0"
+    quick-format-unescaped "^4.0.3"
+    sonic-boom "^1.0.2"
 
 pirates@^4.0.1, pirates@^4.0.4, pirates@^4.0.5:
   version "4.0.5"

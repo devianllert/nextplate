@@ -9,7 +9,7 @@ import { Box } from '@/shared/components/system/box';
 import { Input, InputPassword } from '@/shared/components/system/input';
 import { Stack } from '@/shared/components/system/stack';
 import { Link } from '@/shared/components/system/link';
-import { loginFx } from '@/entities/auth/auth.model';
+import { loginFx } from '@/entities/auth';
 import { useForm } from '@/shared/lib/effector/forms';
 
 import { loginForm } from './login.model';

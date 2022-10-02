@@ -1,12 +1,11 @@
 import axios, { AxiosError, AxiosRequestConfig, AxiosResponse } from 'axios';
 
 export const AXIOS_INSTANCE = axios.create({
-  // baseURL: process.env.NEXT_PUBLIC_API_ENDPOINT,
-  baseURL: 'http://localhost:8888/',
+  baseURL: process.env.NEXT_PUBLIC_APP_URL,
   timeout: 1000 * 10,
 });
 
-export const api = <T>(
+export const httpClient = <T>(
   config: AxiosRequestConfig,
   options?: AxiosRequestConfig,
 ): Promise<AxiosResponse<T>> => {

@@ -7,9 +7,9 @@ import {
 import decode from 'jwt-decode';
 
 import { AxiosRequestConfig } from 'axios';
-import { refreshFx } from './auth.model';
+import { refreshFx } from './auth';
 import { $token, requestFx } from '@/shared/api/request/request';
-import { TokenPayload } from './types';
+import { TokenPayload } from '../types';
 
 interface Deferred<T> {
   request: Promise<T>;

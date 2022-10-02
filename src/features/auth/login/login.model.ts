@@ -1,6 +1,7 @@
-import { createEvent, sample, split } from 'effector';
+import { createEvent, sample } from 'effector';
 import { z } from 'zod';
-import { loginFx } from '@/entities/auth/auth.model';
+
+import { loginFx } from '@/entities/auth';
 import { createField, createForm } from '@/shared/lib/effector/forms';
 import { pushFx } from '@/shared/lib/effector/router/effector-router';
 import { email } from '../model';
@@ -44,28 +45,3 @@ sample({
   fn: () => ({ url: '/dashboard' }),
   target: pushFx,
 });
-
-loginForm.$formErrors.watch(console.log);
-
-// sample({
-//   clock: loginFx.failData,
-//   fn: (error) => [{ message: (error as AxiosError).response?.data.errors.email }] as ZodIssue[],
-//   target: loginForm.fields.email.addError,
-// });
-
-// loginForm.fields.email.$errors.watch(console.log);
-
-// split({
-//   source: loginFx.failData,
-//   match: {
-//     email: (data) => data.response.data.errors.email,
-//   },
-//   cases: {
-//     email: setEmailFieldError,
-//   },
-// });
-
-// sample({
-//   clock: loginForm.rejected,
-//   target: loginForm
-// })

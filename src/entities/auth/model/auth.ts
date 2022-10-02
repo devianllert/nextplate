@@ -1,9 +1,10 @@
 import { createEffect, sample } from 'effector';
-import { AxiosError, AxiosResponse } from 'axios';
-import Cookies from 'universal-cookie';
-import { api } from '@/shared/api';
+
 import {
-  $token, RequestError, requestFx, setToken,
+  $token,
+  setToken,
+  requestFx,
+  RequestError,
 } from '@/shared/api/request/request';
 import {
   AuthEmailLoginDto,
@@ -13,7 +14,6 @@ import {
   RegisterResult,
 } from '@/shared/api/api.generated';
 import { pushFx } from '@/shared/lib/effector/router';
-import { isBrowser } from '@/shared/lib/is-browser';
 
 export const loginFx = createEffect<AuthEmailLoginDto, LoginResult, RequestError>(async (values) => {
   const tokens = await requestFx({
@@ -53,21 +53,8 @@ export const logoutFx = createEffect(() => {
   });
 });
 
-const resetSessionFx = createEffect(async () => {
-  const cookieManager = new Cookies();
-
-  cookieManager.set('token', 'null', {
-    path: '/',
-    expires: new Date(0),
-  });
-
-  await pushFx({
-    url: '/auth/login',
-  });
-});
-
 sample({
-  clock: logoutFx.done,
+  clock: [logoutFx.done, refreshFx.failData],
   fn: () => ({
     url: '/auth/login',
   }),
@@ -83,21 +70,7 @@ sample({
 sample({
   clock: refreshFx.failData,
   fn: () => null,
-  target: [setToken, resetSessionFx],
+  target: setToken,
 });
-
-sample({
-  clock: refreshFx.failData,
-  filter: isBrowser,
-  target: resetSessionFx,
-});
-
-// getUserByCookieFx.use(async (req) => {
-//   // const { data: user, token, error } = await supabase.auth.api.getUserByCookie(req);
-
-//   // if (token) supabase.auth.setAuth(token);
-//   // if (error) throwError(error.message);
-//   return user;
-// });
 
 export const $isLoggedIn = $token.map((token) => !!token);

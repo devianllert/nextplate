@@ -4,17 +4,12 @@ import {
   createEffect,
   createEvent,
   createStore,
-  sample,
-  Effect,
-  guard,
-  merge,
   restore,
 } from 'effector';
-import Cookies from 'universal-cookie';
-import { Token } from 'graphql';
-import UniversalCookiesManager from '@/shared/lib/cookies-manager/universal-cookies-manager';
-import { api } from '../api';
+
 import { isBrowser } from '@/shared/lib/is-browser';
+
+import { httpClient } from '../http-client';
 
 export interface RequestError {
   statusCode: number;
@@ -32,7 +27,7 @@ export const $cookiesForRequest = restore(setCookiesForRequest, '');
 
 export const requestInternalFx = createEffect<AxiosRequestConfig, AxiosResponse, AxiosError<RequestError>>();
 
-requestInternalFx.use(api);
+requestInternalFx.use(httpClient);
 
 export const requestFx = attach({
   effect: requestInternalFx,
@@ -65,19 +60,6 @@ export const requestWithAuthFx = attach({
   }),
 });
 
-const saveToken = createEffect((token: string | null) => {
-  const cookieManager = new Cookies();
-
-  cookieManager.set('token', token, {
-    path: '/',
-  });
-});
-
-sample({
-  clock: setToken,
-  target: saveToken,
-});
-
 if (process.env.NEXT_PUBLIC_APP_STAGE === 'development') {
   requestInternalFx.watch(({ url, method }) => {
     console.log(`[requestInternal] ${method} ${url}`);
@@ -91,11 +73,3 @@ if (process.env.NEXT_PUBLIC_APP_STAGE === 'development') {
     console.log(`[requestInternal.fail] ${method} ${url} : ${status}`);
   });
 }
-
-// const pendingApiRequests = createStore([]);
-
-// const authorizedRequestFx = attach({
-//   effect: requestInternalFx,
-//   source: $token,
-//   mapParams: (params, token) => ({ ...params, token }),
-// });

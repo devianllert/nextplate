@@ -10,7 +10,7 @@ import { Link } from '@/shared/components/system/link';
 import { Button } from '@/shared/components/system/button';
 import { useForm } from '@/shared/lib/effector/forms';
 import { registerForm } from './register.model';
-import { registerFx } from '@/entities/auth/auth.model';
+import { registerFx } from '@/entities/auth';
 
 export const RegisterForm = () => {
   const { t } = useTranslation('auth');

@@ -33,6 +33,7 @@ export const requestFx = attach({
   effect: requestInternalFx,
   source: $cookiesForRequest,
   mapParams: (params: AxiosRequestConfig, cookies) => ({
+    method: 'GET',
     ...params,
     headers: {
       ...params.headers,
@@ -61,15 +62,15 @@ export const requestWithAuthFx = attach({
 });
 
 if (process.env.NEXT_PUBLIC_APP_STAGE === 'development') {
-  requestInternalFx.watch(({ url, method }) => {
-    console.log(`[requestInternal] ${method} ${url}`);
+  requestInternalFx.watch((request) => {
+    console.log(`[request]: ${request.method} • ${request.url}`);
   });
 
-  requestInternalFx.done.watch(({ params: { url, method }, result: { status } }) => {
-    console.log(`[requestInternal.done] ${method} ${url} : ${status}`);
+  requestInternalFx.done.watch((response) => {
+    console.log(`[request.done]: ${response.params.method} • ${response.params.url} • ${response.result.status}`);
   });
 
-  requestInternalFx.fail.watch(({ params: { url, method }, error: { status } }) => {
-    console.log(`[requestInternal.fail] ${method} ${url} : ${status}`);
+  requestInternalFx.fail.watch((response) => {
+    console.log(`[request.fail]: ${response.params.method} • ${response.params.url} • ${response.error.status}`);
   });
 }

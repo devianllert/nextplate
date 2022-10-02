@@ -87,8 +87,8 @@ const DashboardPage = () => {
                       <RiComputerLine size={28} />
                     </Box>
                     <Box>
-                      <Text.Paragraph variant="body2">{session.os} - {session.browser}</Text.Paragraph>
-                      <Text.Paragraph variant="body3">{session.ip} - {format(new Date(session.updatedAt), "M MMM 'at' HH:mm")}</Text.Paragraph>
+                      <Text.Paragraph variant="body2">{session.os} {session.browser}</Text.Paragraph>
+                      <Text.Paragraph variant="body3" color="text.secondary">{session.ip} • {format(new Date(session.updatedAt), "M MMM 'at' HH:mm")}</Text.Paragraph>
                     </Box>
                   </Box>
                 ))}

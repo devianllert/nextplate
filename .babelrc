@@ -14,8 +14,6 @@
     [
       "effector/babel-plugin",
       {
-        "debugSids": true,
-        "reactSsr": true,
         "factories": [
           "@farfetched/core",
           "patronum",

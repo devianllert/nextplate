@@ -116,7 +116,8 @@ const MultiversalAppBootstrap = (props: Props): JSX.Element => {
         {getLinksAlternateHref(router.asPath, router.locales)}
       </Head>
 
-      <EffectorProvider value={scope}>
+      {/* @ts-expect-error using internal scope id */}
+      <EffectorProvider key={scope.graphite.id} value={scope}>
         <QueryClientProvider client={queryClient}>
           <Hydrate state={pageProps[REACT_QUERY_STATE_PROP_NAME]}>
             <ThemeProvider theme={theme}>

@@ -3,7 +3,7 @@ import { ZodIssue, ZodSchema } from 'zod';
 import { createErrors } from './create-errors';
 
 import { Field } from './types';
-import { validate } from './validate';
+import { validateWithSchema } from './validate-with-schema';
 
 export interface FieldOptions<T> {
   initialValue: T;
@@ -19,13 +19,14 @@ export const createField = <T>(options: FieldOptions<T>): Field<T> => {
   const changed = createEvent<T>();
   const blurred = createEvent<void>();
   const addError = createEvent<string | string[]>();
+  const validate = createEvent<void>();
 
   const $value = createStore(initialValue);
   $value
     .on(reset, (_, resetValue) => (resetValue === undefined ? initialValue : resetValue))
     .on(changed, (_, newValue) => newValue);
 
-  const $errors = createStore(schema ? validate(initialValue, schema) : []);
+  const $errors = createStore(schema ? validateWithSchema(initialValue, schema) : []);
   $errors.on(addError, (errors, newError) => [
     ...(Array.isArray(newError)
       ? newError.map((message) => ({ message, code: 'custom', path: [] }) as ZodIssue)
@@ -43,11 +44,19 @@ export const createField = <T>(options: FieldOptions<T>): Field<T> => {
     .on($value, () => true)
     .on(blurred, () => true)
     .on(addError, () => true)
+    .on(validate, () => true)
     .on(restore, () => false);
 
   if (schema) {
     $errors.on($value, (_prev, value) => {
-      return validate(value, schema);
+      return validateWithSchema(value, schema);
+    });
+
+    sample({
+      clock: validate,
+      source: $value,
+      fn: (value) => validateWithSchema(value, schema),
+      target: $errors,
     });
   }
 
@@ -65,5 +74,6 @@ export const createField = <T>(options: FieldOptions<T>): Field<T> => {
     changed,
     addError,
     reset,
+    validate,
   };
 };

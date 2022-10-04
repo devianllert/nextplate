@@ -37,6 +37,7 @@ export interface Field<T> {
   blurred: Event<void>;
   reset: Event<T | undefined>;
   addError: Event<string | string[]>;
+  validate: Event<void>;
 
   // [key: string]: Event<any> | Effect<any, any, any> | Store<any>;
 }

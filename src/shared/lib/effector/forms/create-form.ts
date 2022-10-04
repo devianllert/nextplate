@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 import {
   combine,
   Store,
@@ -11,14 +12,16 @@ import {
 import { useUnit } from 'effector-react/scope';
 import { condition } from 'patronum';
 import { ZodIssue, ZodSchema } from 'zod';
+
 import { createErrors } from './create-errors';
-
-import { extractErrors, extractValues } from './extract-values';
+import { extractValues } from './extract-values';
 import { Field } from './types';
-import { validate } from './validate';
+import { validateWithSchema } from './validate-with-schema';
 
-export type ConvertUnit<Shape extends Record<string, Event<any> | Effect<any, any, any> | Store<any>>> = {
-  [Key in keyof Shape]: Shape[Key] extends Event<infer T>
+type ExcludeSymbol<T> = T extends `$${infer Prefix}` ? Prefix : T;
+
+export type ConvertUnit<Shape extends Field<any>> = {
+  [Key in keyof Shape as ExcludeSymbol<Key>]: Shape[Key] extends Event<infer T>
     ? (payload: T) => T
     : Shape[Key] extends Effect<infer P, infer D, any>
       ? (payload: P) => Promise<D>
@@ -81,6 +84,8 @@ export interface Form<T extends FieldsObject> {
 
   $hasDirtyErrors: Store<boolean>;
 
+  $submitCount: Store<number>;
+
   submitted: Event<ExtractValuesFromFields<T>>;
 
   rejected: Event<{ errors: ZodIssue[], values: ExtractValuesFromFields<T> }>;
@@ -136,9 +141,16 @@ export const createForm = <T extends FieldsObject>(options: FormOptions<T>): For
 
   if (schema) {
     $formErrors.on($values, (_prev, values) => {
-      return validate(values, schema);
+      return validateWithSchema(values, schema);
     });
   }
+
+  fieldsArray.forEach(([_, field]) => {
+    sample({
+      clock: submit,
+      target: field.validate,
+    });
+  });
 
   fieldsArray.forEach(([_, field]) => {
     sample({
@@ -169,18 +181,12 @@ export const createForm = <T extends FieldsObject>(options: FormOptions<T>): For
     })),
   });
 
-  // fieldsArray.forEach((field) => {
-  //   sample({
-  //     clock: rejected,
-  //     filter: (data) => data.errors.
-  //   })
-  // })
-
   return {
     fields,
     $values,
     $errors,
     $formErrors,
+    $submitCount,
     submitted,
     rejected,
     submit,
@@ -191,68 +197,51 @@ export const createForm = <T extends FieldsObject>(options: FormOptions<T>): For
 };
 
 export const useForm = <T extends FieldsObject>(form: Form<T>) => {
-  // const fieldsStores = Object.entries(form.fields).reduce((acc, field) => {
-  //   const fieldKey = field[0];
-  //   const fieldValue = field[1];
+  const { fields: formFields, $values: $formValues, ...$meta } = form;
 
-  //   const { stores, events } = Object.entries(fieldValue).reduce(
-  //     (storesAcc, [unitKey, unit]) => {
-  //       if (is.store(unit)) {
-  //         // eslint-disable-next-line no-param-reassign
-  //         storesAcc.stores[unitKey] = unit;
-  //       }
-
-  //       if (is.event(unit)) {
-  //         // eslint-disable-next-line no-param-reassign
-  //         storesAcc.events[unitKey] = unit;
-  //       }
-
-  //       return storesAcc;
-  //     },
-  //     { stores: {}, events: {} } as { stores: Record<string, Store<any>>; events: Record<string, Event<any>> },
-  //   );
-
-  //   acc[fieldKey] = {
-  //     stores: combine(stores),
-  //     events,
-  //   };
-
-  //   return acc;
-  // }, {});
-
-  // const stores = useUnit({
-  //   values: form.$values,
-  //   // ...form.fields,
-  // });
-
-  // const events = useUnit({
-  //   // ...form.fields,
-  // });
-
-  // console.log(fieldsStores);
-
-  const { fields: formFields, $values, ...$meta } = form;
-
-  // @ts-expect-error qwe
+  // @ts-ignore
   const fields: Record<keyof T, ConvertUnit<T[keyof T]>> = {};
   const fieldKeys = Object.keys(formFields);
 
   for (let i = 0; i < fieldKeys.length; i += 1) {
     const key = fieldKeys[i] as keyof T;
 
-    // @ts-expect-error qwe
-    // eslint-disable-next-line react-hooks/rules-of-hooks
+    // @ts-ignore
     fields[key] = useUnit({
-      ...formFields[key],
+      value: formFields[key].$value,
+      errors: formFields[key].$errors,
+      isValid: formFields[key].$isValid,
+      isDirty: formFields[key].$isDirty,
+      hasErrors: formFields[key].$hasErrors,
+      dirtyErrors: formFields[key].$dirtyErrors,
+      isDirtyAndValid: formFields[key].$isDirtyAndValid,
+      hasDirtyErrors: formFields[key].$hasDirtyErrors,
+      isTouched: formFields[key].$isTouched,
+      changed: formFields[key].changed,
+      blurred: formFields[key].blurred,
+      reset: formFields[key].reset,
+      addError: formFields[key].addError,
     });
   }
 
-  // .forEach((fieldKey) => {
-  //   fields[fieldKey] = useUnit();
-  // });
+  const values = useUnit($formValues);
 
-  const values = useUnit($values);
-  const meta = useUnit({ ...$meta });
+  const meta = useUnit({
+    errors: $meta.$errors,
+    dirtyErrors: $meta.$dirtyErrors,
+    formErrors: $meta.$formErrors,
+    hasDirtyErrors: $meta.$hasDirtyErrors,
+    hasErrors: $meta.$hasErrors,
+    isDirty: $meta.$isDirty,
+    isDirtyAndValid: $meta.$isDirtyAndValid,
+    isValid: $meta.$isValid,
+    submitCount: $meta.$submitCount,
+    addError: $meta.addError,
+    submit: $meta.submit,
+    reset: $meta.reset,
+    submitted: $meta.submitted,
+    rejected: $meta.rejected,
+  });
 
   return {
     fields,

@@ -8,6 +8,7 @@ import { isEmpty } from '@/shared/lib/assertion';
 
 export const weatherQuery = createQuery({
   handler: async (city: string) => fetchWeather(city),
+  name: 'weather',
 });
 
 export const inputChanged = createEvent<string>();
@@ -15,15 +16,6 @@ export const searchClicked = createEvent();
 
 export const $search = createStore('');
 $search.on(inputChanged, (_, text) => text);
-
-export const $currentCity = createStore('');
-
-sample({
-  clock: searchClicked,
-  source: $search,
-  filter: (text) => !isEmpty(text),
-  target: $currentCity,
-});
 
 sample({
   clock: searchClicked,

@@ -38,11 +38,10 @@ export const RegisterForm = () => {
           id="email"
           name="email"
           type="email"
-          value={form.fields.email.$value}
           onChange={(event) => form.fields.email.changed(event.target.value)}
           onBlur={() => form.fields.email.blurred()}
-          error={(form.fields.email.$isTouched && form.fields.email.$hasErrors) || !!form.$formErrors.length}
-          helperText={form.fields.email.$isTouched ? form.fields.email.$errors[0]?.message : ''}
+          error={(form.fields.email.isTouched && form.fields.email.hasErrors) || !!form.formErrors.length}
+          helperText={form.fields.email.isTouched ? form.fields.email.errors[0]?.message : ''}
           placeholder={t('form.email.placeholder')}
           label={t('form.email.label')}
           fullWidth
@@ -50,11 +49,11 @@ export const RegisterForm = () => {
         <Input
           id="name"
           name="name"
-          value={form.fields.username.$value}
+          value={form.fields.username.value}
           onChange={(event) => form.fields.username.changed(event.target.value)}
           onBlur={() => form.fields.username.blurred()}
-          error={(form.fields.username.$isTouched && form.fields.username.$hasErrors) || !!form.$formErrors.length}
-          helperText={form.fields.username.$isTouched ? form.fields.username.$errors[0]?.message : ''}
+          error={(form.fields.username.isTouched && form.fields.username.hasErrors) || !!form.formErrors.length}
+          helperText={form.fields.username.isTouched ? form.fields.username.errors[0]?.message : ''}
           placeholder={t('form.name.placeholder')}
           autoComplete="username"
           label={t('form.name.label')}
@@ -63,11 +62,11 @@ export const RegisterForm = () => {
         <InputPassword
           id="password"
           name="password"
-          value={form.fields.password.$value}
+          value={form.fields.password.value}
           onChange={(event) => form.fields.password.changed(event.target.value)}
           onBlur={() => form.fields.password.blurred()}
-          error={(form.fields.password.$isTouched && form.fields.password.$hasErrors) || !!form.$formErrors.length}
-          helperText={form.fields.password.$isTouched ? form.fields.password.$errors[0]?.message : ''}
+          error={(form.fields.password.isTouched && form.fields.password.hasErrors) || !!form.formErrors.length}
+          helperText={form.fields.password.isTouched ? form.fields.password.errors[0]?.message : ''}
           placeholder={t('form.password.placeholder')}
           autoComplete="new-password"
           label={t('form.password.label')}

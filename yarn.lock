@@ -9216,10 +9216,10 @@ ee-first@1.1.1:
   resolved "https://registry.yarnpkg.com/ee-first/-/ee-first-1.1.1.tgz#590c61156b0ae2f4f0255732a158b266bc56b21d"
   integrity sha512-WMwm9LhRUo+WUaRN+vRuETqG89IgZphVSNkdFgeb6sS/E4OrDIN7t48CAewSHXc6C8lefD8KKfr5vY61brQlow==
 
-effector-react@22.3.2:
-  version "22.3.2"
-  resolved "https://registry.yarnpkg.com/effector-react/-/effector-react-22.3.2.tgz#35e1a0cdade41955f62047476a916153decb1c10"
-  integrity sha512-HuFFUWhJ+ex8uqD4YPDJepngRjZadE8ttl0YahNOUforY4/ZrGDpyhwIFN2aiMfmnEfckb7Egn66SaAlEOxjxw==
+effector-react@22.3.3:
+  version "22.3.3"
+  resolved "https://registry.yarnpkg.com/effector-react/-/effector-react-22.3.3.tgz#833f100bef8e21a898480a7a5a732c86a09b9374"
+  integrity sha512-qoxBerx8gJ/PgoDec4jep2IK4U2+AMyu+VTXE9h4qZ5HsdiyjfLlZuErGTXtFPkE8tvlyg37/nop5lwNBiXhMA==
   dependencies:
     use-sync-external-store "^1.0.0"
 
@@ -10455,10 +10455,10 @@ fragment-cache@^0.2.1:
   dependencies:
     map-cache "^0.2.2"
 
-framer-motion@7.5.1:
-  version "7.5.1"
-  resolved "https://registry.yarnpkg.com/framer-motion/-/framer-motion-7.5.1.tgz#a21d9218999f3f271b39ca6f693093b54465c0f5"
-  integrity sha512-shqLAFgYT7QMVomusesPurlq9pQGLO64PTbWdQPkMg2cHmxI0ISG9BajGY3krg56yhBMI7QP/3u54bs/To0mOA==
+framer-motion@7.5.2:
+  version "7.5.2"
+  resolved "https://registry.yarnpkg.com/framer-motion/-/framer-motion-7.5.2.tgz#6808f518fb5bcba3177ea377084b5a06d06f6a21"
+  integrity sha512-HKQetVN92thmbl5ALDkmdr0xcTP6JD80l6rASs2g5e92zFkWYBE7rZLy++sbCq0L6JSviusb5t0txt19K8xSwg==
   dependencies:
     "@motionone/dom" "10.13.1"
     framesync "6.1.2"

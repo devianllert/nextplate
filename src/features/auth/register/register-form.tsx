@@ -38,6 +38,7 @@ export const RegisterForm = () => {
           id="email"
           name="email"
           type="email"
+          value={form.fields.email.value}
           onChange={(event) => form.fields.email.changed(event.target.value)}
           onBlur={() => form.fields.email.blurred()}
           error={(form.fields.email.isTouched && form.fields.email.hasErrors) || !!form.formErrors.length}

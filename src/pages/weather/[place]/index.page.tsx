@@ -41,8 +41,6 @@ type GetServerSidePageProps = CustomPageProps & SSRPageProps;
 export const getServerSideProps: GetServerSideProps<GetServerSidePageProps> = async (
   context,
 ): Promise<GetServerSidePropsResult<GetServerSidePageProps>> => {
-  context.res.setHeader('Cache-Control', 'public, s-maxage=60, stale-while-revalidate=600');
-
   const commonServerSideProps = await getCoreServerSideProps()(context);
 
   const scope = fork();

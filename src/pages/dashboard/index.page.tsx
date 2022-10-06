@@ -19,6 +19,7 @@ import { refreshFx, forceLogout, TokenPayload } from '@/entities/auth';
 import { normalizeSSRContext } from '@/shared/lib/next/context';
 
 import { dashboardPageStarted } from './model';
+import { getTranslationsConfig } from '@/shared/lib/i18n/translations';
 
 const DashboardPage = () => {
   const {
@@ -147,6 +148,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   return {
     props: {
       [EFFECTOR_STATE_KEY]: serialize(scope),
+      ...(await getTranslationsConfig(context)),
     },
   };
 };

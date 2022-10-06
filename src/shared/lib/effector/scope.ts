@@ -6,7 +6,7 @@ import { isBrowser } from '@/shared/lib/is-browser';
 export const EFFECTOR_STATE_KEY = '__EFFECTOR_STATE__';
 
 export interface EffectorState {
-  [EFFECTOR_STATE_KEY]?: Record<string, unknown>;
+  [EFFECTOR_STATE_KEY]?: Values;
 }
 
 interface Values {

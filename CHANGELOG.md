@@ -2,6 +2,63 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.2.0](https://github.com/devianllert/next-boilerplate/compare/v0.1.5...v0.2.0) (2022-10-08)
+
+
+### ⚠ BREAKING CHANGES
+
+* remove react-query in favor of farfetched
+* add page extensions
+
+### Features
+
+* add page extensions ([9d667ad](https://github.com/devianllert/next-boilerplate/commit/9d667ad229454fc692c986988cdd3b238c08f4da))
+* add refresh token rotation ([3724d0b](https://github.com/devianllert/next-boilerplate/commit/3724d0b55da1f23145aa37723acee5a6f7479a18))
+* add user sessions ([94c33f8](https://github.com/devianllert/next-boilerplate/commit/94c33f8861f3f8d8b523a8788551dbf27ed31bb9))
+* **cookie-consent:** rewrite to effector ([721f971](https://github.com/devianllert/next-boilerplate/commit/721f971a2350f5064e939d7f3215dbfd0412bc8f))
+* improve auth pages ([d584535](https://github.com/devianllert/next-boilerplate/commit/d584535c9079aec29f2e990823ee44d1db943859))
+* improve effector forms lib ([1434a33](https://github.com/devianllert/next-boilerplate/commit/1434a331a6e676adde6c1b33b3c099a817102145))
+* imrpove effector forms lib ([49fbc59](https://github.com/devianllert/next-boilerplate/commit/49fbc59db89455065d673f7d5d2b2f8b24c0a4f4))
+* remove react-query in favor of farfetched ([4cb58bf](https://github.com/devianllert/next-boilerplate/commit/4cb58bf63ff703d763a93a5b0900c7ec4c266310))
+
+
+### Bug Fixes
+
+* add framer-motion mode ([de816c6](https://github.com/devianllert/next-boilerplate/commit/de816c6f142379b386b357b8bd0a1c8f02918451))
+* **deps:** pin dependencies ([5812a20](https://github.com/devianllert/next-boilerplate/commit/5812a20c766539dddc903f98b37e14d9feea1cfe))
+* **deps:** pin dependencies ([168293e](https://github.com/devianllert/next-boilerplate/commit/168293ec898946f0af3820052600dd31084f38be))
+* **deps:** pin dependency jwt-decode to 3.1.2 ([aef4ee1](https://github.com/devianllert/next-boilerplate/commit/aef4ee117a91e353cbfc5d9d0ba9a04132b69460))
+* **deps:** update all non-major dependencies ([b5f7fcb](https://github.com/devianllert/next-boilerplate/commit/b5f7fcbdd33e24cb1f1bacbd6f40ed2a11fa251e))
+* **deps:** update all non-major dependencies ([a44dba1](https://github.com/devianllert/next-boilerplate/commit/a44dba1295c65526e1e08b4833ffb893c7bc4c6c))
+* **deps:** update all non-major dependencies ([cfbd925](https://github.com/devianllert/next-boilerplate/commit/cfbd9255f133deb136fc310602787ae320a7dd2d))
+* **deps:** update all non-major dependencies ([a31e21a](https://github.com/devianllert/next-boilerplate/commit/a31e21a24297eae940cfab00f3b4dd801b16745f))
+* **deps:** update all non-major dependencies ([67ff732](https://github.com/devianllert/next-boilerplate/commit/67ff7325a8a9306d5e8bf179ed5f40850305b866))
+* **deps:** update all non-major dependencies ([612c86b](https://github.com/devianllert/next-boilerplate/commit/612c86b848649fcdbccbdc9c6f84aaa59f534ef4))
+* **deps:** update all non-major dependencies ([ec11c55](https://github.com/devianllert/next-boilerplate/commit/ec11c55ff42335935b1363e6b049283687da98fc))
+* **deps:** update all non-major dependencies ([a0b93c9](https://github.com/devianllert/next-boilerplate/commit/a0b93c9f7a103a737911810794654512f8dc34c5))
+* **deps:** update all non-major dependencies ([4e6f346](https://github.com/devianllert/next-boilerplate/commit/4e6f346f122315ae6b05d6f08c20eaf5e9fe2f52))
+* **deps:** update all non-major dependencies ([ad5b402](https://github.com/devianllert/next-boilerplate/commit/ad5b402c9d3d97bd22e2731f8ed7a9e7b6d3faed))
+* **deps:** update all non-major dependencies ([99624b2](https://github.com/devianllert/next-boilerplate/commit/99624b203b64df3fae9181829034a1aa0efa0fac))
+* **deps:** update all non-major dependencies to v4.3.9 ([4f3b010](https://github.com/devianllert/next-boilerplate/commit/4f3b0105aaa49866085712cd51839f8ec2d2311a))
+* **deps:** update all non-major dependencies to v4.9.0 ([8b1887b](https://github.com/devianllert/next-boilerplate/commit/8b1887b734013f50f5b9c7a6580cde28805a5569))
+* **deps:** update dependency @farfetched/core to v0.2.2 ([9108768](https://github.com/devianllert/next-boilerplate/commit/9108768169becf97161a2eaf458ffc4b9bf6f90a))
+* **deps:** update dependency @fontsource/inter to v4.5.13 ([62b0dd2](https://github.com/devianllert/next-boilerplate/commit/62b0dd29874c4644285854b0fa9fbe89717aaeb8))
+* **deps:** update dependency @sentry/nextjs to v7.13.0 ([661295f](https://github.com/devianllert/next-boilerplate/commit/661295f2954e092fe72509546cbf1a3c2c65f153))
+* **deps:** update dependency @sentry/nextjs to v7.14.1 ([812ed05](https://github.com/devianllert/next-boilerplate/commit/812ed05c4161b445289340de2111d8dee3c3e1d9))
+* **deps:** update dependency effector-react to v22.2.0 ([fd8894f](https://github.com/devianllert/next-boilerplate/commit/fd8894fc904d1de73be3dc2b1a6a6f11900d2746))
+* **deps:** update dependency effector-react to v22.3.2 ([334c8b5](https://github.com/devianllert/next-boilerplate/commit/334c8b5b742bc57678a4c53daacff35653764cd0))
+* **deps:** update dependency i18next to v21.10.0 ([f8ae0f3](https://github.com/devianllert/next-boilerplate/commit/f8ae0f3585fc54a1b65fa3c1931176419ed34646))
+* **deps:** update dependency uuid to v9 ([f209dcf](https://github.com/devianllert/next-boilerplate/commit/f209dcf3adbd62f6dfa0ca8bdce3dbe119e12593))
+* fix api errors ([531358f](https://github.com/devianllert/next-boilerplate/commit/531358f18850736e02ea10da2ea8ab80ecc4a1bb))
+* fix factories for forms lib ([61c6e5c](https://github.com/devianllert/next-boilerplate/commit/61c6e5c8d16297d9c2a435bfb98d8c401ce1660f))
+* fix hydration mismatch ([8b34fa0](https://github.com/devianllert/next-boilerplate/commit/8b34fa067587d0117dba36843f78d889c73c9833))
+* fix test queries ([f488001](https://github.com/devianllert/next-boilerplate/commit/f488001ca2c687a00042fbf91504143d4535fda3))
+* improve request logging ([6edf761](https://github.com/devianllert/next-boilerplate/commit/6edf7618a341815085c7c7036a0d6ad7663aebfc))
+* remove AbortController ([14128f1](https://github.com/devianllert/next-boilerplate/commit/14128f18b87b826acd2af08d32c9e4ad35dfc720))
+* remove gssp caching ([fb3a09d](https://github.com/devianllert/next-boilerplate/commit/fb3a09dd2c3dd6ea9d6afcff2f9addb033ce93f4))
+* update effector, fix register input value ([c73fcdb](https://github.com/devianllert/next-boilerplate/commit/c73fcdbc42a967fe3010a980e415a03dfb056dd6))
+* **weather:** fix hydration error ([aa8250f](https://github.com/devianllert/next-boilerplate/commit/aa8250fb55976459994790c65bc535abf940ea91))
+
 ### [0.1.5](https://github.com/devianllert/next-boilerplate/compare/v0.1.4...v0.1.5) (2022-09-02)
 
 

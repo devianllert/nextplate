@@ -78,6 +78,7 @@
     "deepmerge": "4.2.2",
     "effector": "22.3.0",
     "effector-react": "22.3.3",
+    "effector-storage": "^5.0.1",
     "flatted": "3.2.7",
     "framer-motion": "7.5.3",
     "graphql": "16.6.0",
@@ -109,7 +110,6 @@
     "timeago.js": "4.0.2",
     "tinycolor2": "1.4.2",
     "universal-cookie": "4.0.4",
-    "use-local-storage-state": "18.1.1",
     "uuid": "9.0.0",
     "zod": "3.19.1"
   },

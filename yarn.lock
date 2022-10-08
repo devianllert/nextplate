@@ -9182,7 +9182,7 @@ effector-react@22.3.3:
   dependencies:
     use-sync-external-store "^1.0.0"
 
-effector-storage@^5.0.1:
+effector-storage@5.0.1:
   version "5.0.1"
   resolved "https://registry.yarnpkg.com/effector-storage/-/effector-storage-5.0.1.tgz#c5cbaffafd068852ae1105e406e230df2500bd62"
   integrity sha512-XJQTLEKUoO8vZROyxtY1J6SfK5Z0YdDGcwEYjhQNOiMtE6HcdJ9cagiCK2r0unsq8eEIS2GzB8cWPrIWJRepxA==

@@ -4,5 +4,7 @@
   "cookie_consent": {
     "title": "This website uses cookies to ensure you get the best experience on our website. <0>Learn more</0>.",
     "action": "Got it!"
-  }
+  },
+  "ERR_NETWORK": "Unable to access the network",
+  "ERROR_UNEXPECTED": "Something went wrong"
 }

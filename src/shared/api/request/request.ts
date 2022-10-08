@@ -1,10 +1,6 @@
 import { AxiosError, AxiosRequestConfig, AxiosResponse } from 'axios';
 import {
-  attach,
-  createEffect,
-  createEvent,
-  createStore,
-  restore,
+  attach, createEffect, createEvent, createStore, restore,
 } from 'effector';
 
 import { isBrowser } from '@/shared/lib/is-browser';
@@ -16,8 +12,8 @@ export interface RequestError {
   code?: string;
   message?: string;
   errors: {
-    [key: string]: string;
-  }
+    [key: string]: string | string[];
+  };
 }
 
 export const setCookiesForRequest = createEvent<string>();

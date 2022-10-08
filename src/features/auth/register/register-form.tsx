@@ -13,7 +13,7 @@ import { registerForm } from './register.model';
 import { registerFx } from '@/entities/auth';
 
 export const RegisterForm = () => {
-  const { t } = useTranslation('auth');
+  const { t } = useTranslation(['auth', 'common']);
   const isSubmitting = useUnit(registerFx.pending);
 
   const form = useForm(registerForm);
@@ -25,13 +25,10 @@ export const RegisterForm = () => {
   };
 
   return (
-    <Box
-      component="form"
-      maxWidth="440px"
-      width="100%"
-      onSubmit={onSubmit}
-    >
-      <Text.Heading variant="h3" component="h1" sx={{ mb: 4 }}>{t('signup')}</Text.Heading>
+    <Box component="form" maxWidth="440px" width="100%" onSubmit={onSubmit}>
+      <Text.Heading variant="h3" component="h1" sx={{ mb: 4 }}>
+        {t('SIGNUP')}
+      </Text.Heading>
 
       <Stack direction="column">
         <Input
@@ -42,11 +39,13 @@ export const RegisterForm = () => {
           onChange={(event) => form.fields.email.changed(event.target.value)}
           onBlur={() => form.fields.email.blurred()}
           error={(form.fields.email.isTouched && form.fields.email.hasErrors) || !!form.formErrors.length}
-          helperText={form.fields.email.isTouched ? form.fields.email.errors[0]?.message : ''}
-          placeholder={t('form.email.placeholder')}
-          label={t('form.email.label')}
+          helperText={form.fields.email.isTouched ? t(form.fields.email.errors[0]?.message) : ''}
+          placeholder={t('EMAIL_PLACEHOLDER')}
+          label={t('EMAIL_LABEL')}
+          autoComplete="email"
           fullWidth
         />
+
         <Input
           id="name"
           name="name"
@@ -54,12 +53,13 @@ export const RegisterForm = () => {
           onChange={(event) => form.fields.username.changed(event.target.value)}
           onBlur={() => form.fields.username.blurred()}
           error={(form.fields.username.isTouched && form.fields.username.hasErrors) || !!form.formErrors.length}
-          helperText={form.fields.username.isTouched ? form.fields.username.errors[0]?.message : ''}
-          placeholder={t('form.name.placeholder')}
+          helperText={form.fields.username.isTouched ? t(form.fields.username.errors[0]?.message) : ''}
+          placeholder={t('USERNAME_PLACEHOLDER')}
           autoComplete="username"
-          label={t('form.name.label')}
+          label={t('USERNAME_LABEL')}
           fullWidth
         />
+
         <InputPassword
           id="password"
           name="password"
@@ -67,20 +67,27 @@ export const RegisterForm = () => {
           onChange={(event) => form.fields.password.changed(event.target.value)}
           onBlur={() => form.fields.password.blurred()}
           error={(form.fields.password.isTouched && form.fields.password.hasErrors) || !!form.formErrors.length}
-          helperText={form.fields.password.isTouched ? form.fields.password.errors[0]?.message : ''}
-          placeholder={t('form.password.placeholder')}
+          helperText={form.fields.password.isTouched ? t(form.fields.password.errors[0]?.message) : ''}
+          placeholder={t('PASSWORD_PLACEHOLDER')}
           autoComplete="new-password"
-          label={t('form.password.label')}
+          label={t('PASSWORD_LABEL')}
           fullWidth
         />
-        <InputPassword
+
+        {/* <InputPassword
           id="confirmPassword"
           autoComplete="new-password"
           placeholder={t('form.confirmPassword.placeholder')}
           name="confirmPassword"
           label={t('form.confirmPassword.label')}
           fullWidth
-        />
+        /> */}
+
+        {form.formErrors.map((err) => (
+          <Text.Paragraph variant="body3" color="radix.red11" key={err.message}>
+            {t([`auth:${err.message}`, `common:${err.message}`])}
+          </Text.Paragraph>
+        ))}
 
         <Button
           type="submit"
@@ -90,13 +97,13 @@ export const RegisterForm = () => {
           loading={isSubmitting}
           disabled={isSubmitting}
         >
-          {t('signup')}
+          {t('SIGNUP')}
         </Button>
       </Stack>
 
       <Text.Paragraph variant="body2">
         <NextLink href="/auth/login" passHref>
-          <Link href="/auth/login">{t('haveAccount')}</Link>
+          <Link href="/auth/login">{t('HAVE_ACCOUNT')}</Link>
         </NextLink>
       </Text.Paragraph>
     </Box>

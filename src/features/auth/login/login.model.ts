@@ -1,5 +1,6 @@
 import { createEvent, sample } from 'effector';
 import { z } from 'zod';
+import { splitMap, spread } from 'patronum';
 
 import { loginFx } from '@/entities/auth';
 import { createField, createForm } from '@/shared/lib/effector/forms';
@@ -10,7 +11,7 @@ export const loginButtonClicked = createEvent();
 
 const password = createField({
   initialValue: '',
-  schema: z.string().min(1),
+  schema: z.string().min(1, 'ERROR_FIELD_REQUIRED'),
 });
 
 export const loginForm = createForm({
@@ -26,18 +27,34 @@ sample({
   target: loginFx,
 });
 
-sample({
-  clock: loginFx.failData,
-  filter: (error) => !!error.errors?.email,
-  fn: (error) => error.errors?.email,
-  target: loginForm.fields.email.addError,
+const {
+  fieldsError,
+  commonError,
+  __: unexpectedError,
+} = splitMap({
+  source: loginFx.failData,
+  cases: {
+    fieldsError: (error) => error.errors,
+    commonError: (error) => error.code,
+  },
+});
+
+spread({
+  source: fieldsError,
+  targets: {
+    email: loginForm.fields.email.addError,
+    password: loginForm.fields.password.addError,
+  },
 });
 
 sample({
-  clock: loginFx.failData,
-  filter: (error) => !!error.code,
-  fn: (error) => error.code as string,
+  clock: commonError,
   target: loginForm.addError,
+});
+
+sample({
+  clock: unexpectedError,
+  target: loginForm.addError.prepend(() => 'ERROR_UNEXPECTED'),
 });
 
 sample({

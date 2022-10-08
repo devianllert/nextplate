@@ -20,7 +20,7 @@ const logger = createLogger('SignUp');
  * @see https://github.com/vercel/next.js/discussions/10949#discussioncomment-6884
  * @see https://nextjs.org/docs/basic-features/data-fetching#getstaticprops-static-generation
  */
-export const getStaticProps = getTranslationsStaticProps(['auth']);
+export const getStaticProps = getTranslationsStaticProps(['auth', 'common']);
 
 /**
  * SSR pages are first rendered by the server
@@ -38,9 +38,9 @@ const SignUpPage: EnhancedNextPage<Props> = (): JSX.Element => {
   return (
     <>
       <PageSEO
-        title={t('seo.signup.title')}
-        description={t('seo.signup.description')}
-        image={t('seo.image')}
+        title={t('SEO_SIGNUP_TITLE')}
+        description={t('SEO_SIGNUP_DESCRIPTION')}
+        image={t('SEO_IMAGE_URL')}
       />
 
       <RegisterForm />

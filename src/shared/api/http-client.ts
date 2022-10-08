@@ -1,23 +1,21 @@
-import axios, { AxiosError, AxiosRequestConfig, AxiosResponse } from 'axios';
+import axios, { AxiosRequestConfig, AxiosResponse } from 'axios';
 
 export const AXIOS_INSTANCE = axios.create({
   baseURL: process.env.NEXT_PUBLIC_APP_URL,
   timeout: 1000 * 10,
 });
 
-export const httpClient = <T>(
-  config: AxiosRequestConfig,
-  options?: AxiosRequestConfig,
-): Promise<AxiosResponse<T>> => {
+export const httpClient = <T>(config: AxiosRequestConfig, options?: AxiosRequestConfig): Promise<AxiosResponse<T>> => {
   const controller = new AbortController();
 
   const promise = AXIOS_INSTANCE({
     ...config,
     ...options,
     signal: controller.signal,
-  }).then((response) => response)
+  })
+    .then((response) => response)
     .catch((e) => {
-      if (e instanceof AxiosError) {
+      if (e.response.data) {
         throw e.response?.data;
       }
 

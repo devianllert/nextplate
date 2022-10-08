@@ -24,9 +24,9 @@ describe('Login Form', () => {
 
     renderWithProviders(<LoginForm />, scope);
 
-    const emailField = screen.getByPlaceholderText('form.email.placeholder');
-    const passwordField = screen.getByPlaceholderText('form.password.placeholder');
-    const loginButton = screen.getByRole('button', { name: 'login' });
+    const emailField = screen.getByPlaceholderText('EMAIL_PLACEHOLDER');
+    const passwordField = screen.getByPlaceholderText('PASSWORD_PLACEHOLDER');
+    const loginButton = screen.getByRole('button', { name: 'LOGIN' });
 
     await act(async () => {
       await userEvent.type(emailField, 'test@gmail.com');

@@ -21,10 +21,10 @@ describe('Register Form', () => {
 
     renderWithProviders(<RegisterForm />, scope);
 
-    const emailField = screen.getByPlaceholderText('form.email.placeholder');
-    const usernameField = screen.getByPlaceholderText('form.name.placeholder');
-    const passwordField = screen.getByPlaceholderText('form.password.placeholder');
-    const loginButton = screen.getByRole('button', { name: 'signup' });
+    const emailField = screen.getByPlaceholderText('EMAIL_PLACEHOLDER');
+    const usernameField = screen.getByPlaceholderText('USERNAME_PLACEHOLDER');
+    const passwordField = screen.getByPlaceholderText('PASSWORD_PLACEHOLDER');
+    const loginButton = screen.getByRole('button', { name: 'SIGNUP' });
 
     await act(async () => {
       await userEvent.type(emailField, 'test@gmail.com');

@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.2.1](https://github.com/devianllert/next-boilerplate/compare/v0.2.0...v0.2.1) (2022-10-09)
+
+
+### Features
+
+* add eslint plugin for effector ([7b913c3](https://github.com/devianllert/next-boilerplate/commit/7b913c3bf6c2cf7cddb72af0c177619f0f63781f))
+
+
+### Bug Fixes
+
+* **deps:** pin dependency effector-storage to 5.0.1 ([cf3b7de](https://github.com/devianllert/next-boilerplate/commit/cf3b7de113663fc3081c31d6ef70b24ceea5506e))
+* fix typo ([5c62375](https://github.com/devianllert/next-boilerplate/commit/5c623759f9c28ba7dacc732d5c0bca338a80660b))
+
 ## [0.2.0](https://github.com/devianllert/next-boilerplate/compare/v0.1.5...v0.2.0) (2022-10-08)
 
 

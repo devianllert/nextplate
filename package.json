@@ -78,7 +78,7 @@
     "deepmerge": "4.2.2",
     "effector": "22.3.0",
     "effector-react": "22.3.3",
-    "effector-storage": "^5.0.1",
+    "effector-storage": "5.0.1",
     "flatted": "3.2.7",
     "framer-motion": "7.5.3",
     "graphql": "16.6.0",

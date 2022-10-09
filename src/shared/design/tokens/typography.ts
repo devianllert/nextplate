@@ -1,7 +1,7 @@
 import deepmerge from 'deepmerge';
 import * as React from 'react';
 
-import { responsiveProperty } from '../lib/responise-property';
+import { responsiveProperty } from '../lib/responsive-property';
 
 export const defaultFontFamily = 'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", Helvetica, Arial, sans-serif';
 

@@ -9,7 +9,7 @@ Ultimate template for Next.js with a pack of incredible tools
 ![Security Headers](https://img.shields.io/security-headers?style=for-the-badge&url=https%3A%2F%2Fnextplate.dvnllrt.io)
 
 ## Introduction
-This is a **template** with all you need for your next React projects. Aims for developers who really cares about code quality, architecture, security and all the best practices in frontend.
+This is a **template** with all you need for your next web application. Aims for developers who really cares about code quality, architecture, security and all the best practices in frontend.
 
 ---
 

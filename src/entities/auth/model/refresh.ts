@@ -10,39 +10,28 @@ import { AxiosRequestConfig } from 'axios';
 import { refreshFx } from './auth';
 import { $token, requestFx } from '@/shared/api/request/request';
 import { TokenPayload } from '../types';
+import { createDefer, Defer } from '@/shared/lib/defer';
 
-interface Deferred<T> {
-  request: Promise<T>;
-  resolve: (value?: T | Promise<T> | void) => void;
-  reject: (error?: unknown) => void;
-}
-
-function createDefer<T>(): Deferred<T> {
-  const defer: any = {};
-  defer.request = new Promise((resolve, reject) => { Object.assign(defer, { resolve, reject }); });
-  return defer;
-}
-
-const pendingRequests = createStore<Deferred<string | null>[]>([]);
+const $pendingRequests = createStore<Defer<string | null>[]>([]);
 
 const refreshDone = sample({
-  source: pendingRequests,
   clock: refreshFx.doneData,
-  fn: (requests, token): [string, Deferred<string | null>[]] => [token.data.access, requests],
+  source: $pendingRequests,
+  fn: (requests, token): [string, Defer<string | null>[]] => [token.data.access, requests],
 });
 
 const refreshFail = sample({
-  source: pendingRequests,
   clock: refreshFx.failData,
-  fn: (requests): [null, Deferred<string | null>[]] => [null, requests],
+  source: $pendingRequests,
+  fn: (requests): [null, Defer<string | null>[]] => [null, requests],
 });
 
-const checkTokenValidity = createEvent<Deferred<string | null>>();
-const authenticate = createEffect(() => checkTokenValidity(createDefer()).request);
+const checkTokenValidity = createEvent<Defer<string | null>>();
+const authenticateFx = createEffect(() => checkTokenValidity(createDefer()).promise);
 
 const tokenValid = sample({
-  source: $token,
   clock: checkTokenValidity,
+  source: $token,
   filter(token) {
     if (!token) return false;
 
@@ -52,12 +41,12 @@ const tokenValid = sample({
 
     return !isExpired;
   },
-  fn: (token, request): [string | null, Deferred<string | null>] => [token, request],
+  fn: (token, request): [string | null, Defer<string | null>] => [token, request],
 });
 
 const tokenInvalid = sample({
-  source: $token,
   clock: checkTokenValidity,
+  source: $token,
   filter(token) {
     if (!token) return true;
 
@@ -67,10 +56,10 @@ const tokenInvalid = sample({
 
     return isExpired;
   },
-  fn: (token, request): [string | null, Deferred<string | null>] => [token, request],
+  fn: (token, request): [string | null, Defer<string | null>] => [token, request],
 });
 
-pendingRequests.on(tokenInvalid, (queue, [_, request]) => queue.concat(request));
+$pendingRequests.on(tokenInvalid, (queue, [_, request]) => queue.concat(request));
 
 sample({
   source: tokenInvalid,
@@ -83,13 +72,13 @@ refreshDone.watch(([token, requests]) => requests?.forEach((request) => request.
 refreshFail.watch(([token, requests]) => requests?.forEach((request) => request.reject(token)));
 
 export const requestWithAuthFx = createEffect(async (params: AxiosRequestConfig) => {
-  const token = await authenticate();
+  const token = await authenticateFx();
 
   const data = await requestFx({
     ...params,
     headers: {
       ...(params.headers ?? {}),
-      Authorization: `Bearer ${token}`,
+      ...(token && { Authorization: `Bearer ${token}` }),
     },
   });
 

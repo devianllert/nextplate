@@ -5,7 +5,8 @@
     "project": "./tsconfig.json"
   },
   "plugins": [
-    "@typescript-eslint"
+    "@typescript-eslint",
+    "effector"
   ],
   "env": {
     "jest": true,
@@ -40,9 +41,14 @@
     "plugin:@typescript-eslint/recommended",
     "plugin:@typescript-eslint/recommended-requiring-type-checking",
     // Recommended to be added last after all other "recommended" tools - See https://nextjs.org/docs/basic-features/eslint#disabling-rules
-    "plugin:@next/next/recommended"
+    "plugin:@next/next/recommended",
     // Enforce stronger rules for Core Web Vitals - See https://nextjs.org/docs/basic-features/eslint#core-web-vitals
     // "next/core-web-vitals"
+    "plugin:effector/recommended",
+    "plugin:effector/scope",
+    "plugin:effector/react",
+    "plugin:effector/future",
+    "plugin:effector/patronum"
   ],
   "rules": {
     "no-underscore-dangle": "off",

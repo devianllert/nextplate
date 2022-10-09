@@ -1,6 +1,6 @@
 import { IncomingMessage, ServerResponse } from 'http';
 import { Event } from 'effector';
-import { GetStaticPropsContext, NextPageContext, PreviewData } from 'next';
+import { GetStaticPropsContext, PreviewData } from 'next';
 import { ParsedUrlQuery } from 'querystring';
 
 export interface PageContextBase<

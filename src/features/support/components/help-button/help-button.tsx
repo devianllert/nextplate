@@ -79,7 +79,7 @@ export const HelpButton = (): JSX.Element => {
               </Text.Caption>
 
               <Text.Caption lineHeight="120%" color="text.secondary">
-                {t('lastUpdate')}
+                {t('LAST_UPDATE')}
                 {' '}
                 <Timeago
                   datetime={process.env.NEXT_PUBLIC_APP_BUILD_TIME}

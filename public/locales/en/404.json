@@ -1,10 +1,8 @@
 {
-  "seo": {
-    "title": "$t(title)",
-    "description": "$t(description)"
-  },
-  "title": "Page not found",
-  "subtitle": "404 Error",
-  "description": "The page you are looking for could not be found.",
-  "button": "Go Home"
+  "SEO_TITLE": "$t(TITLE)",
+  "SEO_DESCRIPTION": "$t(DESCRIPTION)",
+  "TITLE": "Page not found",
+  "SUBTITLE": "404 Error",
+  "DESCRIPTION": "The page you are looking for could not be found.",
+  "BUTTON": "Go Home"
 }

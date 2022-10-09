@@ -38,10 +38,10 @@ export const CookieConsent = () => {
             boxShadow={shadows[4]}
           >
             <Text.Paragraph variant="body2" sx={{ mb: 2 }}>
-              <Trans t={t} i18nKey="cookie_consent.title" components={[<Link target="_blank" href="https://www.cookiesandyou.com" />]} />
+              <Trans t={t} i18nKey="COOKIE_CONSENT_TITLE" components={[<Link target="_blank" href="https://www.cookiesandyou.com" />]} />
             </Text.Paragraph>
 
-            <Button variant="outlined" size="small" onClick={allowCookies}>{t('cookie_consent.action')}</Button>
+            <Button variant="outlined" size="small" onClick={allowCookies}>{t('COOKIE_CONSENT_ACTION')}</Button>
           </Box>
         </Box>
       </Portal>

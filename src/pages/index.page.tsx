@@ -56,8 +56,8 @@ const IndexPage: EnhancedNextPage<Props> = (): JSX.Element => {
   return (
     <>
       <PageSEO
-        title={t('seo.title')}
-        description={t('seo.description')}
+        title={t('SEO_TITLE')}
+        description={t('SEO_DESCRIPTION')}
       />
 
       <Box
@@ -75,20 +75,20 @@ const IndexPage: EnhancedNextPage<Props> = (): JSX.Element => {
               display="flex"
               flexDirection="column"
               justifyContent="center"
-              alignItems="center"
+              alignItems="flex-start"
               flex="1"
-              minHeight={['75vh', null, '480px']}
+              minHeight={['75vh', null, '720px']}
               maxHeight="calc(1024px - 64px)"
+              py={8}
               maxWidth={620}
-              mx="auto"
             >
-              <Text.Heading variant="h2" textAlign="center">{t('hero.title')}</Text.Heading>
-              <Text.Heading variant="h6" color="text.secondary" textAlign="center" sx={{ mt: 4 }}>{t('hero.subtitle')}</Text.Heading>
+              <Text.Heading variant="h3" textAlign="left">{t('HERO_TITLE')}</Text.Heading>
+              <Text.Heading variant="h6" color="text.secondary" textAlign="left" sx={{ mt: 4 }}>{t('HERO_SUBTITLE')}</Text.Heading>
 
               <Box mt={4}>
                 <Stack direction="row" space={3}>
                   <Button variant="contained" component="a" href="#features">
-                    {t('hero.documentation')}
+                    {t('HERO_DOCUMENTATION')}
                   </Button>
 
                   <Button
@@ -110,7 +110,7 @@ const IndexPage: EnhancedNextPage<Props> = (): JSX.Element => {
         <Box py={8} id="features">
           <Container>
             <Text.Heading variant="h4" textAlign="center" sx={{ mb: 8 }}>
-              {t('features.title')}
+              {t('FEATURES_TITLE')}
             </Text.Heading>
 
             <Box display="grid" gridTemplateColumns={['repeat(1, minmax(0, 1fr))', 'repeat(2, minmax(0, 1fr))', 'repeat(4, minmax(0, 1fr))']} gridGap={4}>
@@ -128,10 +128,10 @@ const IndexPage: EnhancedNextPage<Props> = (): JSX.Element => {
                   <RiFlashlightFill />
                 </Box>
 
-                <Text.Heading variant="h6" component="h3" sx={{ my: 2 }}>{t('features.performant.title')}</Text.Heading>
+                <Text.Heading variant="h6" component="h3" sx={{ my: 2 }}>{t('FEATURES_PERFORMANT_TITLE')}</Text.Heading>
 
                 <Text.Paragraph variant="body2" component="span" color="text.secondary">
-                  {t('features.performant.description')}
+                  {t('FEATURES_PERFORMANT_DESCRIPTION')}
                 </Text.Paragraph>
               </Box>
 
@@ -149,10 +149,10 @@ const IndexPage: EnhancedNextPage<Props> = (): JSX.Element => {
                   <RiSettings4Line />
                 </Box>
 
-                <Text.Heading variant="h6" component="h3" sx={{ my: 2 }}>{t('features.rich.title')}</Text.Heading>
+                <Text.Heading variant="h6" component="h3" sx={{ my: 2 }}>{t('FEATURES_RICH_TITLE')}</Text.Heading>
 
                 <Text.Paragraph variant="body2" component="span" color="text.secondary">
-                  <Trans t={t} i18nKey="features.rich.description" components={[<Code />]} />
+                  <Trans t={t} i18nKey="FEATURES_RICH_DESCRIPTION" components={[<Code />]} />
                 </Text.Paragraph>
               </Box>
 
@@ -170,10 +170,10 @@ const IndexPage: EnhancedNextPage<Props> = (): JSX.Element => {
                   <RiGroupLine />
                 </Box>
 
-                <Text.Heading variant="h6" component="h3" sx={{ my: 2 }}>{t('features.dx.title')}</Text.Heading>
+                <Text.Heading variant="h6" component="h3" sx={{ my: 2 }}>{t('FEATURES_DX_TITLE')}</Text.Heading>
 
                 <Text.Paragraph variant="body2" component="span" color="text.secondary">
-                  {t('features.dx.description')}
+                  {t('FEATURES_DX_DESCRIPTION')}
                 </Text.Paragraph>
               </Box>
 
@@ -190,10 +190,10 @@ const IndexPage: EnhancedNextPage<Props> = (): JSX.Element => {
                 >
                   <RiAppsLine />
                 </Box>
-                <Text.Heading variant="h6" component="h3" sx={{ my: 2 }}>{t('features.apps.title')}</Text.Heading>
+                <Text.Heading variant="h6" component="h3" sx={{ my: 2 }}>{t('FEATURES_APPS_TITLE')}</Text.Heading>
 
                 <Text.Paragraph variant="body2" component="span" color="text.secondary">
-                  {t('features.apps.description')}
+                  {t('FEATURES_APPS_DESCRIPTION')}
                 </Text.Paragraph>
               </Box>
             </Box>
@@ -204,7 +204,7 @@ const IndexPage: EnhancedNextPage<Props> = (): JSX.Element => {
       <Box py={8}>
         <Container>
           <Text.Heading variant="h4" textAlign="center" sx={{ mb: 8 }}>
-            {t('features.apps.title')}
+            {t('FEATURES_APPS_TITLE')}
           </Text.Heading>
 
           <Box display="grid" gridTemplateColumns={['repeat(1, minmax(0, 1fr))', 'repeat(2, minmax(0, 1fr))', 'repeat(2, minmax(0, 1fr))']} gridGap={4}>

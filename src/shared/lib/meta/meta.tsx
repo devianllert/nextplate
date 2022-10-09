@@ -1,7 +1,7 @@
 import darkColors from '@/shared/design/themes/dark/colors';
 import lightColors from '@/shared/design/themes/light/colors';
 
-export const APP_TITLE = 'dvnllrt';
+export const APP_TITLE = 'nextplate';
 
 export const getAppTitle = (title?: string): string => (title ? `${title} | ${APP_TITLE}` : APP_TITLE);
 

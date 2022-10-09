@@ -9659,7 +9659,7 @@ eslint-module-utils@^2.7.3:
   dependencies:
     debug "^3.2.7"
 
-eslint-plugin-effector@^0.10.2:
+eslint-plugin-effector@0.10.2:
   version "0.10.2"
   resolved "https://registry.yarnpkg.com/eslint-plugin-effector/-/eslint-plugin-effector-0.10.2.tgz#257041a680c793b8b5f94211dd1fcfede2a458be"
   integrity sha512-8uWpiaRGu8inLoLb3CMznhhCHJfk9y7ozQCQ6hjt5rkvE5qt2YMf1IaHCPJIf054xA6hVRO3sRDjcEEcTIa9oQ==

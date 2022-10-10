@@ -48,7 +48,7 @@
     "@emotion/memoize": "0.8.0",
     "@emotion/react": "11.10.4",
     "@emotion/styled": "11.10.4",
-    "@farfetched/core": "0.2.3",
+    "@farfetched/core": "0.2.4",
     "@farfetched/react": "0.2.1",
     "@fontsource/inter": "4.5.13",
     "@radix-ui/colors": "0.1.8",

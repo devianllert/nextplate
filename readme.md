@@ -20,7 +20,7 @@ This is a **template** with all you need for your next web application. Aims for
 
 #### Framework
 
-- **[Next.js](https://nextjs.org)** – A complete React framework for hybrid and server rendering
+- **[Next](https://nextjs.org)** – A complete React framework for hybrid and server rendering
 
 #### Localization
 
@@ -28,20 +28,20 @@ This is a **template** with all you need for your next web application. Aims for
 
 #### State Management
 
-- **[Effector](https://effector.dev)** – A lightweight and performant state manager that is UI frameworks agnostic, predictable and easy to use
+- **[effector](https://effector.dev)** – A lightweight and performant state manager that is UI frameworks agnostic, predictable and easy to use
 
 #### Data Fetching
 
-- **[Farfetched](https://farfetched.pages.dev)** – The advanced data fetching tool for web applications
-- **[Axios](https://axios-http.com)** – Promise based HTTP client for the browser and Node.js
+- **[farfetched](https://farfetched.pages.dev)** – The advanced data fetching tool for web applications
+- **[axios](https://axios-http.com)** – Promise based HTTP client for the browser and Node.js
 - **[orval](https://orval.dev)** – Generate, valid, cache and mock in your frontend applications all with your OpenAPI specification.
 
 #### Design System & Styling
 
 - **[Storybook](https://storybook.js.org)** – A frontend workshop for building UI components and pages in isolation.
 - **[Radix](https://www.radix-ui.com)** – An open-source UI component library for building high-quality, accessible design systems and web apps.
-- **[Emotion](https://emotion.sh/docs/introduction)** – a library designed for writing css styles with JavaScript
-- **[Framer-motion](https://www.framer.com/motion/)** – A production-ready motion library for React
+- **[emotion](https://emotion.sh/docs/introduction)** – a library designed for writing css styles with JavaScript
+- **[framer-motion](https://www.framer.com/motion/)** – A production-ready motion library for React
 
 #### Validation
 
@@ -58,7 +58,7 @@ This is a **template** with all you need for your next web application. Aims for
 - **[Prettier](https://prettier.io)** – An opinionated code formatter, supporting multiple languages and code editors
 - **[Husky](https://github.com/typicode/husky)** – Modern native Git hooks made easy
 - **[lint-staged](https://github.com/okonet/lint-staged)** – Run linters against staged git files and don't let 💩 slip into your code base
-- **[commitlint ](https://commitlint.js.org/#/)** – Helps your team adhering to a commit convention
+- **[commitlint](https://commitlint.js.org/#/)** – Helps your team adhering to a commit convention
 - **[Standard Version](https://github.com/conventional-changelog/standard-version)** – A utility for versioning using semver and CHANGELOG generation powered by Conventional Commits
 
 #### Monitoring

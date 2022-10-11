@@ -9,7 +9,7 @@ Ultimate template for Next.js with a pack of incredible tools
 ![Security Headers](https://img.shields.io/security-headers?style=for-the-badge&url=https%3A%2F%2Fnextplate.dvnllrt.io)
 
 ## Introduction
-This is a **template** with all you need for your next web application. Aims for developers who really cares about code quality, architecture, security and all the best practices in frontend.
+This is a **template** with all you need for your next web application. Aims for developers who really care about code quality, architecture, security and all the best practices in frontend.
 
 ---
 
@@ -20,7 +20,7 @@ This is a **template** with all you need for your next web application. Aims for
 
 #### Framework
 
-- **[Next.js](https://nextjs.org)** – A complete React framework for hybrid and server rendering
+- **[Next](https://nextjs.org)** – A complete React framework for hybrid and server rendering
 
 #### Localization
 
@@ -28,20 +28,20 @@ This is a **template** with all you need for your next web application. Aims for
 
 #### State Management
 
-- **[Effector](https://effector.dev)** – A lightweight and performant state manager that is UI frameworks agnostic, predictable and easy to use
+- **[effector](https://effector.dev)** – A lightweight and performant state manager that is UI frameworks agnostic, predictable and easy to use
 
 #### Data Fetching
 
-- **[Farfetched](https://farfetched.pages.dev)** – The advanced data fetching tool for web applications
-- **[Axios](https://axios-http.com)** – Promise based HTTP client for the browser and Node.js
+- **[farfetched](https://farfetched.pages.dev)** – The advanced data fetching tool for web applications
+- **[axios](https://axios-http.com)** – Promise based HTTP client for the browser and Node.js
 - **[orval](https://orval.dev)** – Generate, valid, cache and mock in your frontend applications all with your OpenAPI specification.
 
 #### Design System & Styling
 
 - **[Storybook](https://storybook.js.org)** – A frontend workshop for building UI components and pages in isolation.
 - **[Radix](https://www.radix-ui.com)** – An open-source UI component library for building high-quality, accessible design systems and web apps.
-- **[Emotion](https://emotion.sh/docs/introduction)** – a library designed for writing css styles with JavaScript
-- **[Framer-motion](https://www.framer.com/motion/)** – A production-ready motion library for React
+- **[emotion](https://emotion.sh/docs/introduction)** – a library designed for writing css styles with JavaScript
+- **[framer-motion](https://www.framer.com/motion/)** – A production-ready motion library for React
 
 #### Validation
 
@@ -58,7 +58,7 @@ This is a **template** with all you need for your next web application. Aims for
 - **[Prettier](https://prettier.io)** – An opinionated code formatter, supporting multiple languages and code editors
 - **[Husky](https://github.com/typicode/husky)** – Modern native Git hooks made easy
 - **[lint-staged](https://github.com/okonet/lint-staged)** – Run linters against staged git files and don't let 💩 slip into your code base
-- **[commitlint ](https://commitlint.js.org/#/)** – Helps your team adhering to a commit convention
+- **[commitlint](https://commitlint.js.org/#/)** – Helps your team adhering to a commit convention
 - **[Standard Version](https://github.com/conventional-changelog/standard-version)** – A utility for versioning using semver and CHANGELOG generation powered by Conventional Commits
 
 #### Monitoring
@@ -188,7 +188,7 @@ yarn analyse:deps
 
 Code organized by kind is one of the most popular ways for JavaScript developers to build their applications, structuring files based on what they are, without considering the different relationships between the files. It's a popular practice among developers who use patterns such as MVC. That’s okay when you work on small applications, but as the application grows, it can have a significant impact on the team's velocity.
 
-When you work on a large project, it can be difficult to identify the origin of an issue. As a developer, you might spend a significant amount of time digging through thousands of lines of code until you understand all the relationships. In FSD, a project consists of layers (features, entities, shared, etc), each layer is made up of slices (aka modules) and each slice is made up of segments (model, ui, api, etc.). Slices cannot use other slices on the same layer, and that helps with high cohesion and low coupling. It helps maximize code sharing and reusability in different sections of your application and even in other projects. 
+When you work on a large project, it can be difficult to identify the origin of an issue. As a developer, you might spend a significant amount of time digging through thousands of lines of code until you understand all the relationships. In FSD, a project consists of layers (features, entities, shared, etc), each layer is made up of slices (aka modules) and each slice is made up of segments (model, ui, api, etc.). Slices cannot use other slices on the same layer, and that helps with high cohesion and low coupling. It helps maximize code sharing and reusability in different sections of your application and even in other projects. 
 
 <img title="Feature-Sliced Design layers schema"  src="./docs/fsd-schema.jpg">
 

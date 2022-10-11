@@ -1,4 +1,4 @@
-import axios, { AxiosRequestConfig, AxiosResponse } from 'axios';
+import axios, { AxiosError, AxiosRequestConfig, AxiosResponse } from 'axios';
 
 export const AXIOS_INSTANCE = axios.create({
   baseURL: process.env.NEXT_PUBLIC_APP_URL,
@@ -12,15 +12,13 @@ export const httpClient = <T>(config: AxiosRequestConfig, options?: AxiosRequest
     ...config,
     ...options,
     signal: controller.signal,
-  })
-    .then((response) => response)
-    .catch((e) => {
-      if (e.response.data) {
-        throw e.response?.data;
-      }
+  }).catch((e) => {
+    if (e.response.data) {
+      throw e.response?.data;
+    }
 
-      throw e;
-    });
+    throw e;
+  });
 
   // @ts-ignore
   promise.cancel = () => {
@@ -29,3 +27,12 @@ export const httpClient = <T>(config: AxiosRequestConfig, options?: AxiosRequest
 
   return promise;
 };
+
+export default httpClient;
+
+// In some case with react-query and swr you want to be able to override the return error type so you can also do it here like this
+export type ErrorType<Error> = AxiosError<Error>;
+
+// In case you want to wrap the body type (optional)
+// (if the custom instance is processing data before sending it, like changing the case for example)
+export type BodyType<BodyData> = BodyData;

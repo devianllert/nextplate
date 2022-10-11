@@ -8,12 +8,13 @@ module.exports = {
       mode: 'single',
       override: {
         mutator: {
-          path: './src/shared/api/api.ts',
+          path: './src/shared/api/http-client.ts',
           name: 'httpClient',
         },
       },
     },
     input: {
+      validation: true,
       target: `${process.env.NEXT_PUBLIC_API_ENDPOINT}/api/v1/swagger-json`,
     },
     hooks: {

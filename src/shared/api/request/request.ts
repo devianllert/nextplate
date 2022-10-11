@@ -10,7 +10,7 @@ import { httpClient } from '../http-client';
 export interface RequestError {
   statusCode: number;
   code?: string;
-  message?: string;
+  message: string;
   errors: {
     [key: string]: string | string[];
   };

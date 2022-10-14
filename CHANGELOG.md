@@ -2,6 +2,30 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.3.0](https://github.com/devianllert/next-boilerplate/compare/v0.2.2...v0.3.0) (2022-10-14)
+
+
+### ⚠ BREAKING CHANGES
+
+* remove apollo client
+
+### Features
+
+* remove apollo client ([13dc369](https://github.com/devianllert/next-boilerplate/commit/13dc3695fedefc7677ec26491ad5e88a650c6581))
+* update api ([fe3cf53](https://github.com/devianllert/next-boilerplate/commit/fe3cf5365812997398d47c5632d718d6470b98a0))
+
+
+### Bug Fixes
+
+* **deps:** update all non-major dependencies ([e159b11](https://github.com/devianllert/next-boilerplate/commit/e159b11f5ff7358e74414e62ca8c700002cbc186))
+* **deps:** update dependency @farfetched/core to v0.2.4 ([d425f99](https://github.com/devianllert/next-boilerplate/commit/d425f99f632cae7b3ba671bd60cd8b0251f20b96))
+* **deps:** update dependency @farfetched/core to v0.2.5 ([24b7743](https://github.com/devianllert/next-boilerplate/commit/24b77436e04adb303d225368ffd65ce35d5aafba))
+* **readme:** fix library names ([b1560b0](https://github.com/devianllert/next-boilerplate/commit/b1560b0cb9240fcac41f65b823a1aafa7e8a8647))
+* **readme:** fix licence link ([99a0160](https://github.com/devianllert/next-boilerplate/commit/99a0160c6a7e27fd0960165752c57880322403e1))
+* **readme:** fix typo ([6d25819](https://github.com/devianllert/next-boilerplate/commit/6d2581918f40c76c8aa1e8b7b80913cf09296ff5))
+* **readme:** open links in new tab ([7dad97a](https://github.com/devianllert/next-boilerplate/commit/7dad97ab0e907bc5844234242919f951a7601f14))
+* **readme:** revert 7dad97a ([000ea74](https://github.com/devianllert/next-boilerplate/commit/000ea742e0cc7b9d039d3cf74c7447df42d9c508))
+
 ### [0.2.2](https://github.com/devianllert/next-boilerplate/compare/v0.2.1...v0.2.2) (2022-10-09)
 
 ### [0.2.1](https://github.com/devianllert/next-boilerplate/compare/v0.2.0...v0.2.1) (2022-10-09)

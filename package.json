@@ -42,7 +42,6 @@
     "generate:api": "orval --config ./orval.config.js"
   },
   "dependencies": {
-    "@apollo/client": "3.7.0",
     "@artsy/fresnel": "6.1.0",
     "@emotion/is-prop-valid": "1.2.0",
     "@emotion/memoize": "0.8.0",

@@ -9648,10 +9648,10 @@ eslint-module-utils@^2.7.3:
   dependencies:
     debug "^3.2.7"
 
-eslint-plugin-effector@0.10.2:
-  version "0.10.2"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-effector/-/eslint-plugin-effector-0.10.2.tgz#257041a680c793b8b5f94211dd1fcfede2a458be"
-  integrity sha512-8uWpiaRGu8inLoLb3CMznhhCHJfk9y7ozQCQ6hjt5rkvE5qt2YMf1IaHCPJIf054xA6hVRO3sRDjcEEcTIa9oQ==
+eslint-plugin-effector@0.10.3:
+  version "0.10.3"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-effector/-/eslint-plugin-effector-0.10.3.tgz#d2bf7ba1ae8501b6853817506d5cede75522d6e0"
+  integrity sha512-ELDEwYSERD4eHRWEthlQilNfIrYZwQ2poeGBfX05YVy1vIc9ZhIDa8jP7v9djnvRSSJ4gFu4qQQOoau7O33kaw==
   dependencies:
     prettier "^2.3.2"
 
@@ -13849,10 +13849,10 @@ next-i18next@12.1.0:
     i18next-fs-backend "^1.1.5"
     react-i18next "^11.18.4"
 
-next-sitemap@3.1.24:
-  version "3.1.24"
-  resolved "https://registry.yarnpkg.com/next-sitemap/-/next-sitemap-3.1.24.tgz#4520db61616390d4e5272e471d43218b2c361bc3"
-  integrity sha512-dEFOI6cnNffDcmxis/1IVNK2JI1wtxxGoj2ipP7L8xDVbxjyuuH2V8MEajHPPrIhybfGk6gyZ5HDpXgVcTv9QA==
+next-sitemap@3.1.25:
+  version "3.1.25"
+  resolved "https://registry.yarnpkg.com/next-sitemap/-/next-sitemap-3.1.25.tgz#6c34c5ded502495bce0e8f6ea7d761fb8673a54c"
+  integrity sha512-+unneurDQyhZZqwumlE9LmBDyk2BAzTE4tJeXq0qOWNvfjw+Mp1/ciDrQgaP/CG/JJvKvKUhUsg2CqTQEuAqQA==
   dependencies:
     "@corex/deepmerge" "^4.0.29"
     minimist "^1.2.6"

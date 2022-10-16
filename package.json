@@ -49,7 +49,7 @@
     "@emotion/styled": "11.10.4",
     "@farfetched/core": "0.2.5",
     "@farfetched/react": "0.2.1",
-    "@fontsource/inter": "4.5.13",
+    "@fontsource/inter": "4.5.14",
     "@radix-ui/colors": "0.1.8",
     "@radix-ui/react-alert-dialog": "1.0.0",
     "@radix-ui/react-collapsible": "1.0.0",

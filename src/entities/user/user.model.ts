@@ -7,7 +7,7 @@ import { createQuery } from '@farfetched/core';
 import { AxiosRequestConfig, AxiosResponse } from 'axios';
 
 import { User } from '@/shared/api/api.generated';
-import { requestWithAuthFx } from '../auth/model/refresh';
+import { requestWithAuthFx } from '@/shared/api/request';
 
 export const userUpdated = createEvent();
 

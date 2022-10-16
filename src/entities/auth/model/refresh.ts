@@ -27,7 +27,7 @@ const refreshFail = sample({
 });
 
 const checkTokenValidity = createEvent<Defer<string | null>>();
-const authenticateFx = createEffect(() => checkTokenValidity(createDefer()).promise);
+export const authenticateFx = createEffect(() => checkTokenValidity(createDefer()).promise);
 
 const tokenValid = sample({
   clock: checkTokenValidity,
@@ -70,17 +70,3 @@ sample({
 tokenValid.watch(([token, request]) => request.resolve(token));
 refreshDone.watch(([token, requests]) => requests?.forEach((request) => request.resolve(token)));
 refreshFail.watch(([token, requests]) => requests?.forEach((request) => request.reject(token)));
-
-export const requestWithAuthFx = createEffect(async (params: AxiosRequestConfig) => {
-  const token = await authenticateFx();
-
-  const data = await requestFx({
-    ...params,
-    headers: {
-      ...(params.headers ?? {}),
-      ...(token && { Authorization: `Bearer ${token}` }),
-    },
-  });
-
-  return data;
-});

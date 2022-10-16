@@ -45,18 +45,6 @@ export const $token = createStore<string | null>(null);
 
 $token.on(setToken, (_, newToken) => newToken);
 
-export const requestWithAuthFx = attach({
-  effect: requestFx,
-  source: $token,
-  mapParams: (params: AxiosRequestConfig, token) => ({
-    ...params,
-    headers: {
-      ...params.headers,
-      Authorization: `Bearer ${token}`,
-    },
-  }),
-});
-
 if (process.env.NEXT_PUBLIC_APP_STAGE === 'development') {
   requestInternalFx.watch((request) => {
     console.log(`[request]: ${request.method} • ${request.url}`);

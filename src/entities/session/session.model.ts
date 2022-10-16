@@ -1,9 +1,9 @@
 import { createQuery } from '@farfetched/core';
 import { attach, Effect } from 'effector';
-
 import { AxiosRequestConfig, AxiosResponse } from 'axios';
+
 import { Session } from '@/shared/api/api.generated';
-import { requestWithAuthFx } from '../auth/model/refresh';
+import { requestWithAuthFx } from '@/shared/api/request';
 
 export const fetchUserSessionsFx = attach<void, Effect<AxiosRequestConfig<any>, AxiosResponse<Session[]>>>({
   mapParams: () => ({

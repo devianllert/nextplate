@@ -18,6 +18,7 @@ import { normalizeSSRContext } from '@/shared/lib/next/context';
 import { dashboardPageStarted } from './model';
 import { getTranslationsConfig } from '@/shared/lib/i18n/translations';
 import { withAuthenticatedSSP } from '@/shared/lib/ssr';
+import { Avatar } from '@/shared/components/system/avatar';
 
 const DashboardPage = () => {
   const {
@@ -43,12 +44,14 @@ const DashboardPage = () => {
           <Container>
             <Box display="flex" paddingY={3}>
               <Box
-                width="128px"
-                height="128px"
                 mt="-48px"
-                borderRadius="50%"
-                background="white"
-              />
+              >
+                <Avatar
+                  size="large"
+                  alt="some alt"
+                  fallback="D"
+                />
+              </Box>
 
               <Box ml={4}>
                 <Text.Heading variant="h6">

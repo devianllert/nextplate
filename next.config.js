@@ -153,7 +153,7 @@ module.exports = withSentryConfig(
         worker-src 'self' blob:;
         connect-src 'self' *.dvnllrt.com ${process.env.VERCEL_URL} ${process.env.NEXT_PUBLIC_API_ENDPOINT} *.sentry.io https://vitals.vercel-insights.com https://wttr.in https://api.logflare.app;
         default-src 'self';
-        img-src 'self' blob: data:;
+        img-src 'self' https://images.unsplash.com blob: data:;
         script-src 'self' ${process.env.NODE_ENV === 'development' ? "'unsafe-eval'" : ''};
         style-src 'self' 'unsafe-inline';
         font-src 'self';

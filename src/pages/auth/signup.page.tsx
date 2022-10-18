@@ -3,7 +3,7 @@ import { useTranslation } from 'next-i18next';
 import { createLogger } from '@/shared/lib/logging/logger';
 import { PageSEO } from '@/shared/lib/meta';
 import { AuthLayout } from '@/layouts/auth';
-import { getTranslationsStaticProps } from '@/shared/lib/ssg';
+import { getTranslationsStaticProps } from '@/shared/lib/ssr';
 import { EnhancedNextPage } from '@/shared/types/enhanced-next-page';
 import { SSRPageProps } from '@/shared/types/ssr-page-props';
 import { SSGPageProps } from '@/shared/types/ssg-page-props';

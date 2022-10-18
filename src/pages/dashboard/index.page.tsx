@@ -1,7 +1,5 @@
-import { GetServerSideProps } from 'next';
-import { allSettled, fork, serialize } from 'effector';
+import { allSettled, serialize } from 'effector';
 import { useUnit } from 'effector-react/scope';
-import decode from 'jwt-decode';
 import { RiComputerLine, RiUserShared2Line } from 'react-icons/ri';
 import { format } from 'date-fns';
 
@@ -11,15 +9,15 @@ import { Button } from '@/shared/components/system/button';
 import { Container } from '@/shared/components/system/container';
 import { Stack } from '@/shared/components/system/stack';
 
-import { $token, setCookiesForRequest } from '@/shared/api/request/request';
 import { EFFECTOR_STATE_KEY } from '@/shared/lib/effector/scope';
 import { userQuery } from '@/entities/user';
 import { sessionQuery } from '@/entities/session';
-import { refreshFx, forceLogout, TokenPayload } from '@/entities/auth';
+import { forceLogout } from '@/entities/auth';
 import { normalizeSSRContext } from '@/shared/lib/next/context';
 
 import { dashboardPageStarted } from './model';
 import { getTranslationsConfig } from '@/shared/lib/i18n/translations';
+import { withAuthenticatedSSP } from '@/shared/lib/ssr';
 
 const DashboardPage = () => {
   const {
@@ -102,47 +100,7 @@ const DashboardPage = () => {
   );
 };
 
-export const getServerSideProps: GetServerSideProps = async (context) => {
-  const authToken = context.req.cookies.access_token;
-
-  if (!authToken) {
-    return {
-      redirect: {
-        statusCode: 301,
-        destination: '/auth/login',
-      },
-    };
-  }
-
-  const scope = fork({
-    values: [
-      [$token, authToken],
-    ],
-  });
-
-  await allSettled(setCookiesForRequest, { scope, params: context.req.headers.cookie });
-
-  const decodedToken = decode<TokenPayload>(authToken);
-
-  const isExpired = new Date(decodedToken.exp * 1000) < new Date();
-
-  if (isExpired) {
-    const refreshOp = await allSettled(refreshFx, { scope });
-
-    if (refreshOp.status === 'done') {
-      context.res.setHeader('Set-Cookie', [`token=${refreshOp.value.data.access}; path=/;`, ...(refreshOp.value.headers['set-cookie'] ?? [])]);
-    } else {
-      context.res.setHeader('Set-Cookie', ['token=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT', 'refresh_token=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT']);
-
-      return {
-        redirect: {
-          statusCode: 301,
-          destination: '/auth/login',
-        },
-      };
-    }
-  }
-
+export const getServerSideProps = withAuthenticatedSSP(async (context, scope) => {
   await allSettled(dashboardPageStarted, { scope, params: normalizeSSRContext(context) });
 
   return {
@@ -151,6 +109,6 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
       ...(await getTranslationsConfig(context)),
     },
   };
-};
+});
 
 export default DashboardPage;

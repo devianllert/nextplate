@@ -11,7 +11,7 @@ import * as Text from '@/shared/components/system/text';
 import { Button } from '@/shared/components/system/button';
 import { Stack } from '@/shared/components/system/stack';
 import { PageSEO } from '@/shared/lib/meta';
-import { getTranslationsStaticProps } from '@/shared/lib/ssg';
+import { getTranslationsStaticProps } from '@/shared/lib/ssr';
 import { EnhancedNextPage } from '@/shared/types/enhanced-next-page';
 import { SoftPageProps } from '@/shared/types/soft-page-props';
 import { SSGPageProps } from '@/shared/types/ssg-page-props';

@@ -9,7 +9,7 @@ import { Input } from '@/shared/components/system/input';
 import { IconButton } from '@/shared/components/system/icon-button';
 import { PageSEO } from '@/shared/lib/meta';
 import { WeatherLayout } from '@/layouts/weather';
-import { getTranslationsStaticProps } from '@/shared/lib/ssg';
+import { getTranslationsStaticProps } from '@/shared/lib/ssr';
 import { EnhancedNextPage } from '@/shared/types/enhanced-next-page';
 import { SSRPageProps } from '@/shared/types/ssr-page-props';
 import { SSGPageProps } from '@/shared/types/ssg-page-props';

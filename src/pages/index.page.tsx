@@ -19,7 +19,7 @@ import { Code } from '@/shared/components/system/code';
 import { AspectRatio } from '@/shared/components/system/aspect-ratio';
 import { useTheme } from '@/shared/design/hooks/use-theme';
 import { PageSEO } from '@/shared/lib/meta';
-import { getTranslationsStaticProps } from '@/shared/lib/ssg';
+import { getTranslationsStaticProps } from '@/shared/lib/ssr';
 import { MainLayout } from '@/layouts/main';
 import { EnhancedNextPage } from '@/shared/types/enhanced-next-page';
 import { SSRPageProps } from '@/shared/types/ssr-page-props';

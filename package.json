@@ -1,7 +1,7 @@
 {
   "name": "nextplate",
   "description": "Ultimate template for Next.js with a pack of incredible tools",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "license": "MIT",
   "author": "devianllert <devianllert@gmail.com>",
   "private": true,

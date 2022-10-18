@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.3.2](https://github.com/devianllert/next-boilerplate/compare/v0.3.1...v0.3.2) (2022-10-18)
+
+
+### Features
+
+* add avatar component ([2310454](https://github.com/devianllert/next-boilerplate/commit/23104541004e497423b6274f50697aa003dfcff1))
+* **csp:** add subdomain support and vercel urls ([d5c397b](https://github.com/devianllert/next-boilerplate/commit/d5c397bc26a051bf124f2653e1e21ada4aae5c14))
+
 ### [0.3.1](https://github.com/devianllert/next-boilerplate/compare/v0.3.0...v0.3.1) (2022-10-18)
 
 

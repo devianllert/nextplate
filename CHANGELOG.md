@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.3.1](https://github.com/devianllert/next-boilerplate/compare/v0.3.0...v0.3.1) (2022-10-18)
+
+
+### Features
+
+* add auth hoc for gssp ([9f2be69](https://github.com/devianllert/next-boilerplate/commit/9f2be69df21e57e2946de326b5f9eb576a31dcb2))
+
+
+### Bug Fixes
+
+* **deps:** update all non-major dependencies ([cd6f25f](https://github.com/devianllert/next-boilerplate/commit/cd6f25fb62b4d7fef8d25753a65d709d1d9f11f0))
+* **deps:** update dependency @fontsource/inter to v4.5.14 ([43256e6](https://github.com/devianllert/next-boilerplate/commit/43256e623ae7f68039bb1eb07fafda9b0149cdcd))
+* **deps:** update dependency @radix-ui/react-radio-group to v1.1.0 ([5cafa7e](https://github.com/devianllert/next-boilerplate/commit/5cafa7e168c9efd867bcf2fa6f771d6384e148dd))
+* **deps:** update dependency react-icons to v4.6.0 ([2f870fa](https://github.com/devianllert/next-boilerplate/commit/2f870fa345c9181315d09b0837ac1c6b9125569e))
+
 ## [0.3.0](https://github.com/devianllert/next-boilerplate/compare/v0.2.2...v0.3.0) (2022-10-14)
 
 

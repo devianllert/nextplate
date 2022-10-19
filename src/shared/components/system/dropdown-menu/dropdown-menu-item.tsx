@@ -94,7 +94,7 @@ export const DropdownMenuCheckboxItem = React.forwardRef((
     {children}
 
     <Box component="span" position="absolute" right={1}>
-      <Switch size="small" disabled={props.disabled} checked={props.checked} />
+      <Switch size="small" disabled={props.disabled} checked={!!props.checked} />
     </Box>
   </StyledDropdownMenuCheckboxItem>
 ));

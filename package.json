@@ -74,7 +74,7 @@
     "flatted": "3.2.7",
     "framer-motion": "7.6.1",
     "graphql": "16.6.0",
-    "i18next": "22.0.0",
+    "i18next": "22.0.1",
     "js-cookie": "3.0.1",
     "json-stringify-safe": "5.0.1",
     "jwt-decode": "3.1.2",
@@ -85,7 +85,7 @@
     "next-sitemap": "3.1.29",
     "nprogress": "0.2.0",
     "pathpida": "0.18.1",
-    "patronum": "1.12.2",
+    "patronum": "1.12.3",
     "pino": "8.6.1",
     "pino-logflare": "0.3.12",
     "react": "18.2.0",
@@ -106,7 +106,7 @@
     "zod": "3.19.1"
   },
   "devDependencies": {
-    "@babel/core": "7.19.3",
+    "@babel/core": "7.19.6",
     "@commitlint/cli": "17.1.2",
     "@commitlint/config-conventional": "17.1.0",
     "@emotion/babel-plugin": "11.10.2",

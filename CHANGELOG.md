@@ -2,6 +2,25 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.3.3](https://github.com/devianllert/next-boilerplate/compare/v0.3.2...v0.3.3) (2022-10-25)
+
+
+### Features
+
+* add oauth buttons ([794ab46](https://github.com/devianllert/next-boilerplate/commit/794ab46dfef28a17bd9423292c80e6a05fc8aa17))
+
+
+### Bug Fixes
+
+* **deps:** pin dependency @radix-ui/react-avatar to 1.0.1 ([5c9684e](https://github.com/devianllert/next-boilerplate/commit/5c9684ed68627aeaf43269230b7301c1f27a9484))
+* **deps:** update dependency @radix-ui/react-dropdown-menu to v2 ([cf62637](https://github.com/devianllert/next-boilerplate/commit/cf6263784f9e80651d325466356399538a2eb555))
+* **deps:** update dependency @sentry/nextjs to v7.16.0 ([2ee0ceb](https://github.com/devianllert/next-boilerplate/commit/2ee0ceb216b4d4991f349fe2feeb36e4b55b5ea5))
+* **deps:** update dependency i18next to v22 ([c6fafe2](https://github.com/devianllert/next-boilerplate/commit/c6fafe2cd73740c0da6175e30616c8c58f242ca6))
+* **deps:** update dependency i18next to v22.0.2 ([675475c](https://github.com/devianllert/next-boilerplate/commit/675475c3953cffa759e7bd8cae323205508ef399))
+* **deps:** update dependency pino to v8.7.0 ([4f9feef](https://github.com/devianllert/next-boilerplate/commit/4f9feefa21e781338269785448e6250daeb12414))
+* **deps:** update dependency react-i18next to v12 ([77185d0](https://github.com/devianllert/next-boilerplate/commit/77185d0f959dd65d48b0ddeb65d7120fae1d778f))
+* fix dropdown checkbox types ([5312921](https://github.com/devianllert/next-boilerplate/commit/5312921ae81fe9dbbe7e8bbee231600aa629b6b5))
+
 ### [0.3.2](https://github.com/devianllert/next-boilerplate/compare/v0.3.1...v0.3.2) (2022-10-18)
 
 

@@ -11,9 +11,9 @@ import { requestWithAuthFx } from '@/shared/api/request';
 
 export const userUpdated = createEvent();
 
-export const fetchUserFx = attach<void, Effect<AxiosRequestConfig<any>, AxiosResponse<User>>>({
-  mapParams: () => ({
-    url: '/api/v1/users/1',
+export const fetchUserFx = attach<number, Effect<AxiosRequestConfig<any>, AxiosResponse<User>>>({
+  mapParams: (userId: number) => ({
+    url: `/api/v1/users/${userId}`,
   }),
   effect: requestWithAuthFx,
 });

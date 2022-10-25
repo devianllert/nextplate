@@ -66,7 +66,6 @@ const DashboardPage = () => {
                 <Stack space={3} direction="row">
                   <Button startIcon={<RiUserShared2Line />}>Share</Button>
                   <Button variant="contained">View profile</Button>
-                  <Button variant="contained" onClick={update} loading={loading}>Update profile</Button>
                   <Button color="red" onClick={logout}>logout</Button>
                 </Stack>
               </Box>

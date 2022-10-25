@@ -6,6 +6,7 @@ import Document, {
   DocumentInitialProps,
   DocumentContext,
 } from 'next/document';
+import Script from 'next/script';
 
 import { getCommonMetaTags } from '@/shared/lib/meta';
 import { staticPath } from '@/shared/lib/$path';

@@ -4,6 +4,7 @@ import { useUnit } from 'effector-react/scope';
 
 import { Stack } from '@/shared/components/system/stack';
 import { Box } from '@/shared/components/system/box';
+import { Divider } from '@/shared/components/system/divider';
 import { Text } from '@/shared/components/system/text';
 import { Input, InputPassword } from '@/shared/components/system/input';
 import { Link } from '@/shared/components/system/link';
@@ -11,6 +12,8 @@ import { Button } from '@/shared/components/system/button';
 import { useForm } from '@/shared/lib/effector/forms';
 import { registerForm } from './register.model';
 import { registerFx } from '@/entities/auth';
+import { GithubButton } from '@/shared/components/github-button';
+import { GoogleButton } from '@/shared/components/google-button';
 
 export const RegisterForm = () => {
   const { t } = useTranslation(['auth', 'common']);
@@ -29,6 +32,13 @@ export const RegisterForm = () => {
       <Text.Heading variant="h3" component="h1" sx={{ mb: 4 }}>
         {t('SIGNUP')}
       </Text.Heading>
+
+      <Stack direction="column">
+        <GoogleButton />
+        <GithubButton />
+      </Stack>
+
+      <Divider space={4} />
 
       <Stack direction="column">
         <Input

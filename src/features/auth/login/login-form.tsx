@@ -11,8 +11,11 @@ import { Stack } from '@/shared/components/system/stack';
 import { Link } from '@/shared/components/system/link';
 import { loginFx } from '@/entities/auth';
 import { useForm } from '@/shared/lib/effector/forms';
+import { GoogleButton } from '@/shared/components/google-button';
 
 import { loginForm } from './login.model';
+import { Divider } from '@/shared/components/system/divider';
+import { GithubButton } from '@/shared/components/github-button';
 
 export const LoginForm = () => {
   const { t } = useTranslation(['auth', 'common']);
@@ -34,6 +37,17 @@ export const LoginForm = () => {
       onSubmit={onSubmit}
     >
       <Text.Heading variant="h4" component="h1" sx={{ mb: 4 }}>{t('LOGIN')}</Text.Heading>
+
+      <Stack direction="column">
+        <GoogleButton />
+        <GithubButton />
+      </Stack>
+
+      <Divider space={4} />
+
+      {/* <Box>
+        <Text.Overline display="block" textAlign="center" sx={{ my: 3 }}>Or</Text.Overline>
+      </Box> */}
 
       <Stack direction="column">
         <Input

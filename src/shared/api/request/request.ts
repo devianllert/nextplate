@@ -2,10 +2,12 @@ import { AxiosError, AxiosRequestConfig, AxiosResponse } from 'axios';
 import {
   attach, createEffect, createEvent, createStore, restore,
 } from 'effector';
+import decode from 'jwt-decode';
 
 import { isBrowser } from '@/shared/lib/is-browser';
 
 import { httpClient } from '../http-client';
+import { TokenPayload } from '@/entities/auth';
 
 export interface RequestError {
   statusCode: number;
@@ -42,8 +44,10 @@ export const requestFx = attach({
 
 export const setToken = createEvent<string | null>();
 export const $token = createStore<string | null>(null);
+export const $tokenPayload = createStore<TokenPayload | null>(null);
 
 $token.on(setToken, (_, newToken) => newToken);
+$tokenPayload.on(setToken, (_, newToken) => (newToken ? decode<TokenPayload>(newToken) : null));
 
 if (process.env.NEXT_PUBLIC_APP_STAGE === 'development') {
   requestInternalFx.watch((request) => {

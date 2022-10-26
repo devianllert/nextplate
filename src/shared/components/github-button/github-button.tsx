@@ -19,7 +19,7 @@ export const GithubButton = (props: GithubButtonProps): JSX.Element => {
   const redirectUrl = redirectTo?.startsWith('http') ? redirectTo : `${process.env.NEXT_PUBLIC_APP_URL}/${redirectTo}`;
 
   const handleClick = () => {
-    window.location.assign(`http://localhost:8888/api/v1/auth/github?from=${redirectUrl}`);
+    window.location.assign(`${process.env.NEXT_PUBLIC_APP_URL}/api/v1/auth/github?from=${redirectUrl}`);
   };
 
   return (

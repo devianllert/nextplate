@@ -149,7 +149,7 @@
     "@welldone-software/why-did-you-render": "7.0.1",
     "axe-core": "4.5.0",
     "babel-jest": "29.2.2",
-    "babel-loader": "8.2.5",
+    "babel-loader": "9.0.0",
     "babel-plugin-polyfill-corejs2": "0.3.3",
     "cross-env": "7.0.3",
     "dotenv": "16.0.3",

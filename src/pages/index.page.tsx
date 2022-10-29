@@ -2,11 +2,7 @@ import { useTranslation, Trans } from 'next-i18next';
 import Image from 'next/image';
 import Link from 'next/link';
 import {
-  RiAppsLine,
-  RiFlashlightFill,
-  RiGithubFill,
-  RiGroupLine,
-  RiSettings4Line,
+  RiAppsLine, RiFlashlightFill, RiGithubFill, RiGroupLine, RiSettings4Line,
 } from 'react-icons/ri';
 
 import { createLogger } from '@/shared/lib/logging/logger';
@@ -55,10 +51,7 @@ const IndexPage: EnhancedNextPage<Props> = (): JSX.Element => {
 
   return (
     <>
-      <PageSEO
-        title={t('SEO_TITLE')}
-        description={t('SEO_DESCRIPTION')}
-      />
+      <PageSEO title={t('SEO_TITLE')} description={t('SEO_DESCRIPTION')} />
 
       <Box
         pt={64}
@@ -82,8 +75,12 @@ const IndexPage: EnhancedNextPage<Props> = (): JSX.Element => {
               py={8}
               maxWidth={620}
             >
-              <Text.Heading variant="h3" textAlign="left">{t('HERO_TITLE')}</Text.Heading>
-              <Text.Heading variant="h6" color="text.secondary" textAlign="left" sx={{ mt: 4 }}>{t('HERO_SUBTITLE')}</Text.Heading>
+              <Text.Heading variant="h3" textAlign="left">
+                {t('HERO_TITLE')}
+              </Text.Heading>
+              <Text.Heading variant="h6" color="text.secondary" textAlign="left" sx={{ mt: 4 }}>
+                {t('HERO_SUBTITLE')}
+              </Text.Heading>
 
               <Box mt={4}>
                 <Stack direction="row" space={3}>
@@ -113,7 +110,15 @@ const IndexPage: EnhancedNextPage<Props> = (): JSX.Element => {
               {t('FEATURES_TITLE')}
             </Text.Heading>
 
-            <Box display="grid" gridTemplateColumns={['repeat(1, minmax(0, 1fr))', 'repeat(2, minmax(0, 1fr))', 'repeat(4, minmax(0, 1fr))']} gridGap={4}>
+            <Box
+              display="grid"
+              gridTemplateColumns={[
+                'repeat(1, minmax(0, 1fr))',
+                'repeat(2, minmax(0, 1fr))',
+                'repeat(4, minmax(0, 1fr))',
+              ]}
+              gridGap={4}
+            >
               <Box>
                 <Box
                   width={32}
@@ -128,7 +133,9 @@ const IndexPage: EnhancedNextPage<Props> = (): JSX.Element => {
                   <RiFlashlightFill />
                 </Box>
 
-                <Text.Heading variant="h6" component="h3" sx={{ my: 2 }}>{t('FEATURES_PERFORMANT_TITLE')}</Text.Heading>
+                <Text.Heading variant="h6" component="h3" sx={{ my: 2 }}>
+                  {t('FEATURES_PERFORMANT_TITLE')}
+                </Text.Heading>
 
                 <Text.Paragraph variant="body2" component="span" color="text.secondary">
                   {t('FEATURES_PERFORMANT_DESCRIPTION')}
@@ -149,7 +156,9 @@ const IndexPage: EnhancedNextPage<Props> = (): JSX.Element => {
                   <RiSettings4Line />
                 </Box>
 
-                <Text.Heading variant="h6" component="h3" sx={{ my: 2 }}>{t('FEATURES_RICH_TITLE')}</Text.Heading>
+                <Text.Heading variant="h6" component="h3" sx={{ my: 2 }}>
+                  {t('FEATURES_RICH_TITLE')}
+                </Text.Heading>
 
                 <Text.Paragraph variant="body2" component="span" color="text.secondary">
                   <Trans t={t} i18nKey="FEATURES_RICH_DESCRIPTION" components={[<Code />]} />
@@ -170,7 +179,9 @@ const IndexPage: EnhancedNextPage<Props> = (): JSX.Element => {
                   <RiGroupLine />
                 </Box>
 
-                <Text.Heading variant="h6" component="h3" sx={{ my: 2 }}>{t('FEATURES_DX_TITLE')}</Text.Heading>
+                <Text.Heading variant="h6" component="h3" sx={{ my: 2 }}>
+                  {t('FEATURES_DX_TITLE')}
+                </Text.Heading>
 
                 <Text.Paragraph variant="body2" component="span" color="text.secondary">
                   {t('FEATURES_DX_DESCRIPTION')}
@@ -190,7 +201,9 @@ const IndexPage: EnhancedNextPage<Props> = (): JSX.Element => {
                 >
                   <RiAppsLine />
                 </Box>
-                <Text.Heading variant="h6" component="h3" sx={{ my: 2 }}>{t('FEATURES_APPS_TITLE')}</Text.Heading>
+                <Text.Heading variant="h6" component="h3" sx={{ my: 2 }}>
+                  {t('FEATURES_APPS_TITLE')}
+                </Text.Heading>
 
                 <Text.Paragraph variant="body2" component="span" color="text.secondary">
                   {t('FEATURES_APPS_DESCRIPTION')}
@@ -207,68 +220,65 @@ const IndexPage: EnhancedNextPage<Props> = (): JSX.Element => {
             {t('FEATURES_APPS_TITLE')}
           </Text.Heading>
 
-          <Box display="grid" gridTemplateColumns={['repeat(1, minmax(0, 1fr))', 'repeat(2, minmax(0, 1fr))', 'repeat(2, minmax(0, 1fr))']} gridGap={4}>
-            <Link href={pagesPath.weather.$url()} passHref>
-              <Box display="block" component="a" boxShadow={4}>
-                <Box borderRadius="4px" overflow="hidden" position="relative">
-                  <AspectRatio ratio={16 / 9}>
-                    <Image
-                      objectFit="cover"
-                      objectPosition="top"
-                      layout="fill"
-                      src={staticPath.static.images.apps.weather_png}
-                    />
-                  </AspectRatio>
+          <Box
+            display="grid"
+            gridTemplateColumns={[
+              'repeat(1, minmax(0, 1fr))',
+              'repeat(2, minmax(0, 1fr))',
+              'repeat(2, minmax(0, 1fr))',
+            ]}
+            gridGap={4}
+          >
+            <Box display="block" component={Link} href={pagesPath.weather.$url()} boxShadow={4}>
+              <Box borderRadius="4px" overflow="hidden" position="relative">
+                <AspectRatio ratio={16 / 9}>
+                  <Image fill alt="weather app" src={staticPath.static.images.apps.weather_png} />
+                </AspectRatio>
 
-                  <Box
-                    position="absolute"
-                    bottom="0"
-                    left="0"
-                    right="0"
-                    background="linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%)"
-                    px={2}
-                    pb={2}
-                    pt={4}
-                  >
-                    <Text.Heading variant="h6" color="white">
-                      Weather app
-                    </Text.Heading>
-                  </Box>
+                <Box
+                  position="absolute"
+                  bottom="0"
+                  left="0"
+                  right="0"
+                  background="linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%)"
+                  px={2}
+                  pb={2}
+                  pt={4}
+                >
+                  <Text.Heading variant="h6" color="white">
+                    Weather app
+                  </Text.Heading>
                 </Box>
               </Box>
-            </Link>
+            </Box>
 
-            <Link href="/auth/login" passHref>
-              <Box display="block" component="a" boxShadow={4}>
-                <Box borderRadius="4px" overflow="hidden" position="relative">
-                  <AspectRatio ratio={16 / 9}>
-                    <Image
-                      objectFit="cover"
-                      objectPosition="center"
-                      layout="fill"
-                      src={staticPath.static.images.apps[i18n.language === 'cimode' ? 'en' : i18n.language].auth_png}
-                    />
-                  </AspectRatio>
+            <Box display="block" component={Link} href="/auth/login" boxShadow={4}>
+              <Box borderRadius="4px" overflow="hidden" position="relative">
+                <AspectRatio ratio={16 / 9}>
+                  <Image
+                    fill
+                    alt="auth app"
+                    src={staticPath.static.images.apps[i18n.language === 'cimode' ? 'en' : i18n.language].auth_png}
+                  />
+                </AspectRatio>
 
-                  <Box
-                    position="absolute"
-                    bottom="0"
-                    left="0"
-                    right="0"
-                    background="linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%)"
-                    px={2}
-                    pb={2}
-                    pt={4}
-                  >
-                    <Text.Heading variant="h6" color="white">
-                      Auth app
-                    </Text.Heading>
-                  </Box>
+                <Box
+                  position="absolute"
+                  bottom="0"
+                  left="0"
+                  right="0"
+                  background="linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%)"
+                  px={2}
+                  pb={2}
+                  pt={4}
+                >
+                  <Text.Heading variant="h6" color="white">
+                    Auth app
+                  </Text.Heading>
                 </Box>
               </Box>
-            </Link>
+            </Box>
           </Box>
-
         </Container>
       </Box>
     </>

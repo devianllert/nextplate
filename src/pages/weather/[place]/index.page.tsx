@@ -106,9 +106,7 @@ const WeatherPlacePage: EnhancedNextPage<Props> = (): JSX.Element => {
             >
               <Text.Heading variant="h4" component="h1">Unknown location</Text.Heading>
 
-              <Link href="/weather" passHref>
-                <Button href="/weather" sx={{ mt: 4 }} color="gray" variant="contained">Back to search</Button>
-              </Link>
+              <Button LinkComponent={Link} href="/weather" sx={{ mt: 4 }} color="gray" variant="contained">Back to search</Button>
             </Box>
           )}
 

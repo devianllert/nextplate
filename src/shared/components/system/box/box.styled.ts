@@ -25,6 +25,7 @@ import { transform, TransformProps } from '@/shared/lib/css-in-js/transform';
 import { shouldForwardProp } from '@/shared/lib/css-in-js/should-forward-prop';
 import { FlattenedColorKeys } from '@/shared/lib/theming/types/theme.interface';
 import { LiteralUnion } from '@/shared/types/literal-union';
+import { sx, SxProp } from '@/shared/lib/css-in-js/sx';
 
 export type BoxType =
   & SpaceProps
@@ -36,7 +37,8 @@ export type BoxType =
   & BorderProps
   & ColorProps<Theme, LiteralUnion<FlattenedColorKeys, string>>
   & TransformProps
-  & GridProps;
+  & GridProps
+  & SxProp;
 
 export const BoxRoot = styled('div', { shouldForwardProp })<BoxType>(
   space,
@@ -49,4 +51,5 @@ export const BoxRoot = styled('div', { shouldForwardProp })<BoxType>(
   color,
   grid,
   transform,
+  sx,
 );

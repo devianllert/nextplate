@@ -1,10 +1,7 @@
 import * as React from 'react';
 import Image from 'next/image';
 import {
-  motion,
-  useMotionValue,
-  useTransform,
-  useReducedMotion,
+  motion, useMotionValue, useTransform, useReducedMotion,
 } from 'framer-motion';
 
 import { Box } from '@/shared/components/system/box';
@@ -33,8 +30,8 @@ export const AuthLayout = (props: AuthLayoutProps): JSX.Element => {
   const handleMouse = (event: React.MouseEvent<HTMLDivElement>) => {
     const rect = event.currentTarget.getBoundingClientRect();
 
-    x.set((rect.width / 2) - event.clientX);
-    y.set((rect.height / 2) - event.clientY);
+    x.set(rect.width / 2 - event.clientX);
+    y.set(rect.height / 2 - event.clientY);
   };
 
   return (
@@ -45,24 +42,13 @@ export const AuthLayout = (props: AuthLayoutProps): JSX.Element => {
       minHeight="100vh"
       onMouseMove={handleMouse}
     >
-      <Box
-        display="flex"
-        flexDirection="column"
-        gridColumn={['span 12', null, 'span 5']}
-      >
+      <Box display="flex" flexDirection="column" gridColumn={['span 12', null, 'span 5']}>
         <AuthHeader />
 
-        <AuthContent>
-          {children}
-
-        </AuthContent>
+        <AuthContent>{children}</AuthContent>
       </Box>
 
-      <Box
-        gridColumn="span 7"
-        display={['none', null, 'flex']}
-        overflow="hidden"
-      >
+      <Box gridColumn="span 7" display={['none', null, 'flex']} overflow="hidden">
         <Box
           width="100%"
           component={motion.div}
@@ -73,12 +59,16 @@ export const AuthLayout = (props: AuthLayoutProps): JSX.Element => {
             scale: shouldReduceMotion ? 1 : 1.05,
           }}
         >
-          <Image
+          <Box
             src="https://images.unsplash.com/photo-1604604994333-f1b0e9471186"
             priority
-            layout="fill"
-            objectFit="cover"
-            objectPosition="top"
+            fill
+            alt="123"
+            component={Image}
+            sx={{
+              objectFit: 'cover',
+              objectPosition: 'top',
+            }}
           />
         </Box>
       </Box>

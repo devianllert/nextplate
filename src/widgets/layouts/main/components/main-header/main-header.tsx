@@ -19,9 +19,7 @@ export const MainHeader = (): JSX.Element => {
     <S.MainHeaderContainer>
       <Container>
         <S.MainHeaderRoot>
-          <Link href="/" passHref>
-            <Text.Heading variant="h6" component="a">{APP_TITLE}</Text.Heading>
-          </Link>
+          <Text.Heading variant="h6" href="/" component={Link}>{APP_TITLE}</Text.Heading>
           <DisplayOnBrowserMount>
             <Stack direction="row" alignItems="center" space={3}>
               <LocaleToggler />

@@ -100,9 +100,7 @@ export const LoginForm = () => {
       <Text.Paragraph variant="body2">
         {t('NEED_ACCOUNT')}
         {' '}
-        <NextLink href="/auth/signup" passHref>
-          <Link href="/auth/signup">{t('SIGNUP')}</Link>
-        </NextLink>
+        <Link href="/auth/signup" component={NextLink}>{t('SIGNUP')}</Link>
       </Text.Paragraph>
     </Box>
   );

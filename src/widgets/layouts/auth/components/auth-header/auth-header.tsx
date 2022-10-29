@@ -18,9 +18,7 @@ export const AuthHeader = (): JSX.Element => {
     <S.AuthHeaderRoot>
       <Container>
         <Flex alignItems="center" justifyContent="space-between">
-          <Link href="/" passHref>
-            <Text.Heading color="text.primary" variant="h6" component="a">{APP_TITLE}</Text.Heading>
-          </Link>
+          <Text.Heading color="text.primary" variant="h6" href="/" component={Link}>{APP_TITLE}</Text.Heading>
 
           <Stack direction="row" alignItems="center">
             <LocaleToggler />

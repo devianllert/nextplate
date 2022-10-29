@@ -112,9 +112,7 @@ export const RegisterForm = () => {
       </Stack>
 
       <Text.Paragraph variant="body2">
-        <NextLink href="/auth/login" passHref>
-          <Link href="/auth/login">{t('HAVE_ACCOUNT')}</Link>
-        </NextLink>
+        <Link href="/auth/login" component={NextLink}>{t('HAVE_ACCOUNT')}</Link>
       </Text.Paragraph>
     </Box>
   );

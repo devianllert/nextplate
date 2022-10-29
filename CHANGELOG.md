@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.4.0](https://github.com/devianllert/next-boilerplate/compare/v0.3.3...v0.4.0) (2022-10-29)
+
+
+### ⚠ BREAKING CHANGES
+
+* update to next 13
+
+### Features
+
+* update to next 13 ([b035626](https://github.com/devianllert/next-boilerplate/commit/b03562675b6a3d720199ec80fb5c536a098bf8ff))
+
+
+### Bug Fixes
+
+* **deps:** update dependency @sentry/nextjs to v7.17.1 ([c719b9c](https://github.com/devianllert/next-boilerplate/commit/c719b9cc6324e7a692bdb66030f0b42152843627))
+* fix redirect url for oauth buttons ([d95fc77](https://github.com/devianllert/next-boilerplate/commit/d95fc77d168ce99f6a2732c05919596cf1b78b3e))
+
 ### [0.3.3](https://github.com/devianllert/next-boilerplate/compare/v0.3.2...v0.3.3) (2022-10-25)
 
 

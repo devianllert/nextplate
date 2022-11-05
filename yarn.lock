@@ -1711,10 +1711,10 @@
   resolved "https://registry.yarnpkg.com/@exodus/schemasafe/-/schemasafe-1.0.0-rc.7.tgz#aded6839c2369883dafa46608a135c82b42ed76b"
   integrity sha512-+1mBLsa+vvlV0lwEAP1hwgmOPkjMnoJ8hyCMfCCJga0sVDwDzrPJjnxZwdDaUmOh/vbFHQGBTk+FxsVjoI/CjQ==
 
-"@farfetched/core@0.2.5":
-  version "0.2.5"
-  resolved "https://registry.yarnpkg.com/@farfetched/core/-/core-0.2.5.tgz#6af8a02cc959051056dc29749c38f1de9f46834e"
-  integrity sha512-Y2vyCPif8tO89TtEykQRwx7BDmnMVYarUMUYijAKNQRMduAjLIoOtppOzkiu3cpJI16yJtlH2dOXTIL4djgAwA==
+"@farfetched/core@0.2.6":
+  version "0.2.6"
+  resolved "https://registry.yarnpkg.com/@farfetched/core/-/core-0.2.6.tgz#875934c626bc83137bbb587f1f64c4ef2b646665"
+  integrity sha512-xck+M3PsTmdcKUrqAK5iMXR+I1SNwyXjWr/Fd/PWRIb1bqVtHOb0MS/No8BhoBQWJR44c5yANBAUSeGlrE6aeg==
   dependencies:
     "@farfetched/misc" "0.1.2"
     patronum "^1.10.2"

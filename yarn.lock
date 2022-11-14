@@ -10542,10 +10542,10 @@ fragment-cache@^0.2.1:
   dependencies:
     map-cache "^0.2.2"
 
-framer-motion@7.6.5:
-  version "7.6.5"
-  resolved "https://registry.yarnpkg.com/framer-motion/-/framer-motion-7.6.5.tgz#6bbd85f2b2ad8efea754aad8deb3014abc0b2ce8"
-  integrity sha512-PhS5z9r1OuG6d9xy2B5paYvbWWsOhuPPCawcBwMN3AVzmiXKXZ2Ucizf8SqSE4On5xyCR+A2gmQZhBlYr/Gzjg==
+framer-motion@7.6.6:
+  version "7.6.6"
+  resolved "https://registry.yarnpkg.com/framer-motion/-/framer-motion-7.6.6.tgz#50e0d3bc29b899a79dbafb6085e398fb53a2f04a"
+  integrity sha512-7ti5mEzhTRBFCMlKs8Zxu9dWtVattpj2jPCNc4jaz4d7bDFekClALaBzmi1pGOKzsOWJsKMeV5ckIkD1DLI9lw==
   dependencies:
     "@motionone/dom" "10.13.1"
     framesync "6.1.2"
@@ -11433,10 +11433,10 @@ i18next-fs-backend@^1.1.5:
   resolved "https://registry.yarnpkg.com/i18next-fs-backend/-/i18next-fs-backend-1.1.5.tgz#dcbd8227b1c1e4323b3c40e269d4762e8313d9e5"
   integrity sha512-raTel3EfshiUXxR0gvmIoqp75jhkj8+7R1LjB006VZKPTFBbXyx6TlUVhb8Z9+7ahgpFbcQg1QWVOdf/iNzI5A==
 
-i18next@22.0.4:
-  version "22.0.4"
-  resolved "https://registry.yarnpkg.com/i18next/-/i18next-22.0.4.tgz#77d8871687b0ab072b38991e3887187823667e30"
-  integrity sha512-TOp7BTMKDbUkOHMzDlVsCYWpyaFkKakrrO3HNXfSz4EeJaWwnBScRmgQSTaWHScXVHBUFXTvShrCW8uryBYFcg==
+i18next@22.0.5:
+  version "22.0.5"
+  resolved "https://registry.yarnpkg.com/i18next/-/i18next-22.0.5.tgz#81f29574b19d1c00e76523c3b45b91e3f9223ee3"
+  integrity sha512-N2AXKCLHzv1ClfLqiwbAPJHClovfRv9iplySiZ/S3LfQ7PNjkVEkVpFbhCXDsPhQd6kLp6DKjbzpowniE8Mdiw==
   dependencies:
     "@babel/runtime" "^7.17.2"
 
@@ -13965,10 +13965,10 @@ next-i18next@12.1.0:
     i18next-fs-backend "^1.1.5"
     react-i18next "^11.18.4"
 
-next-sitemap@3.1.30:
-  version "3.1.30"
-  resolved "https://registry.yarnpkg.com/next-sitemap/-/next-sitemap-3.1.30.tgz#6f81699a3d07366bf6df0da6f9f3fe34de4e67e6"
-  integrity sha512-mZqq9xWrTp/tgUM7+Oz/qxT6x2vnJhwQ3AGke2GjypRbUo44QaTb+4Cp1uX9GwXBaiuuuXDoWyS5VxJP3pJljw==
+next-sitemap@3.1.31:
+  version "3.1.31"
+  resolved "https://registry.yarnpkg.com/next-sitemap/-/next-sitemap-3.1.31.tgz#c41a57418985e34a32f47594ee57986f04e01ead"
+  integrity sha512-GGp+EKSNYy3nlfuZtyI2DAsUrTSA6u35glVQVxpiPRnPHINDozsxSbFzHgFNqZ95hBBdkw5anDJYVnRYGIWvNw==
   dependencies:
     "@corex/deepmerge" "^4.0.29"
     minimist "^1.2.6"

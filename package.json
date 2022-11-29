@@ -72,7 +72,7 @@
     "effector-react": "22.3.4",
     "effector-storage": "5.0.1",
     "flatted": "3.2.7",
-    "framer-motion": "7.6.12",
+    "framer-motion": "7.6.15",
     "graphql": "16.6.0",
     "i18next": "22.0.6",
     "js-cookie": "3.0.1",
@@ -106,7 +106,7 @@
     "zod": "3.19.1"
   },
   "devDependencies": {
-    "@babel/core": "7.20.2",
+    "@babel/core": "7.20.5",
     "@commitlint/cli": "17.3.0",
     "@commitlint/config-conventional": "17.3.0",
     "@emotion/babel-plugin": "11.10.5",

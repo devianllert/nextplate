@@ -61,7 +61,7 @@
     "@radix-ui/react-scroll-area": "1.0.2",
     "@radix-ui/react-slot": "1.0.1",
     "@radix-ui/react-switch": "1.0.1",
-    "@sentry/nextjs": "7.21.1",
+    "@sentry/nextjs": "7.22.0",
     "@styled-system/css": "5.1.5",
     "@styled-system/should-forward-prop": "5.1.5",
     "axios": "0.27.2",

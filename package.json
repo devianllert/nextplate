@@ -143,7 +143,7 @@
     "@types/styled-system": "5.1.15",
     "@types/styled-system__css": "5.0.17",
     "@types/tinycolor2": "1.4.3",
-    "@types/uuid": "8.3.4",
+    "@types/uuid": "9.0.0",
     "@typescript-eslint/eslint-plugin": "5.45.0",
     "@typescript-eslint/parser": "5.45.0",
     "@welldone-software/why-did-you-render": "7.0.1",

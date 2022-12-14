@@ -6018,10 +6018,10 @@
   resolved "https://registry.yarnpkg.com/@types/node/-/node-18.7.18.tgz#633184f55c322e4fb08612307c274ee6d5ed3154"
   integrity sha512-m+6nTEOadJZuTPkKR/SYK3A2d7FZrgElol9UP1Kae90VVU4a6mxnPuLiIW1m4Cq4gZ/nWb9GrdVXJCoCazDAbg==
 
-"@types/node@18.11.13":
-  version "18.11.13"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-18.11.13.tgz#dff34f226ec1ac0432ae3b136ec5552bd3b9c0fe"
-  integrity sha512-IASpMGVcWpUsx5xBOrxMj7Bl8lqfuTY7FKAnPmu5cHkfQVWF8GulWS1jbRqA934qZL35xh5xN/+Xe/i26Bod4w==
+"@types/node@18.11.15":
+  version "18.11.15"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-18.11.15.tgz#de0e1fbd2b22b962d45971431e2ae696643d3f5d"
+  integrity sha512-VkhBbVo2+2oozlkdHXLrb3zjsRkpdnaU2bXmX8Wgle3PUi569eLRaHGlgETQHR7lLL1w7GiG3h9SnePhxNDecw==
 
 "@types/node@^14.0.0":
   version "14.18.29"
@@ -9459,10 +9459,10 @@ effector-storage@5.0.1:
   resolved "https://registry.yarnpkg.com/effector-storage/-/effector-storage-5.0.1.tgz#c5cbaffafd068852ae1105e406e230df2500bd62"
   integrity sha512-XJQTLEKUoO8vZROyxtY1J6SfK5Z0YdDGcwEYjhQNOiMtE6HcdJ9cagiCK2r0unsq8eEIS2GzB8cWPrIWJRepxA==
 
-effector@22.4.0:
-  version "22.4.0"
-  resolved "https://registry.yarnpkg.com/effector/-/effector-22.4.0.tgz#6f94352d30268f644321892167ebe52ebc3e70a6"
-  integrity sha512-WQ0rboUp1fvkzo2rPymtWzR9isUl8v9McGvBA4g8zvQaTgZnXQ1iCbNj2S54bADGpSNl1CYv1/61vvdbc5Goyw==
+effector@22.4.1:
+  version "22.4.1"
+  resolved "https://registry.yarnpkg.com/effector/-/effector-22.4.1.tgz#ba3c01622e42cf2784c83d2a4e7321e7caeef601"
+  integrity sha512-/GeCeEnSMaLvuskQMBI6bzd5V3GvRRv8mI/Wed9JEenstYGDhJQTIVkO5K+Fdt3KC3d5T8wdWxMzGVkKdaDAEw==
 
 electron-to-chromium@^1.4.251:
   version "1.4.255"

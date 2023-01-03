@@ -12,27 +12,35 @@ export const MainFooter = (): JSX.Element => {
   return (
     <Box
       display="flex"
-      padding={['32px 102px']}
-      justifyContent="space-between"
       alignItems="center"
+      justifyContent="center"
       width="100%"
       borderTop="1px solid"
       borderColor="rgba(87, 70, 175, 0.15)"
       marginTop="auto"
     >
-      <Text variant="m" color="#20134B" fontSize="16px">
-        Copyright © 2022 devianllert
-      </Text>
-
       <Box
         display="flex"
+        padding={['32px 102px']}
+        justifyContent="space-between"
+        alignItems="center"
+        width="100%"
+        maxWidth="1366px"
       >
-        <LocaleToggler />
+        <Text variant="m" color="#20134B" fontSize="16px">
+          Copyright © 2022 devianllert
+        </Text>
 
         <Box
-          marginLeft={['8x']}
+          display="flex"
         >
-          <ChangeTheme />
+          <LocaleToggler />
+
+          <Box
+            marginLeft={['8x']}
+          >
+            <ChangeTheme />
+          </Box>
         </Box>
       </Box>
     </Box>

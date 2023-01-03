@@ -24,26 +24,25 @@ export const MainLayout = (props: MainLayoutProps): JSX.Element => {
       display="flex"
       width="100%"
       minHeight="100vh"
-      justifyContent="center"
+      flexDirection="column"
     >
+      <MainHeader />
       <Box
         maxWidth="1366px"
         display="flex"
         width="100%"
-        minHeight="100vh"
-        flexDirection="column"
+        alignSelf="center"
       >
-        <MainHeader />
         <Box
           display="flex"
           paddingX={['64px']}
           paddingY={['32px']}
         >
-          123
+          {children}
         </Box>
-
-        <MainFooter />
       </Box>
+
+      <MainFooter />
     </Box>
   );
 };

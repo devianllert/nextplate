@@ -11,19 +11,27 @@ export const MainHeader = (): JSX.Element => {
   return (
     <Box
       display="flex"
-      padding={['26px 32px']}
-      justifyContent="flex-end"
+      justifyContent="center"
       alignItems="center"
       width="100%"
       borderBottom="1px solid"
       borderColor="rgba(87, 70, 175, 0.15)"
     >
-      <LocaleToggler />
-
       <Box
-        marginLeft={['8x']}
+        display="flex"
+        padding={['26px 32px']}
+        justifyContent="flex-end"
+        alignItems="center"
+        width="100%"
+        maxWidth="1366px"
       >
-        <ChangeTheme />
+        <LocaleToggler />
+
+        <Box
+          marginLeft={['8x']}
+        >
+          <ChangeTheme />
+        </Box>
       </Box>
     </Box>
   );

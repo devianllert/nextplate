@@ -4,6 +4,9 @@ import {
   Box,
 } from '@effable/react';
 
+import { MainHeader } from '../main-header';
+import { MainFooter } from '../main-footer';
+
 export interface MainLayoutProps {
   /**
    * The content
@@ -21,14 +24,25 @@ export const MainLayout = (props: MainLayoutProps): JSX.Element => {
       display="flex"
       width="100%"
       minHeight="100vh"
-      flexDirection="column"
+      justifyContent="center"
     >
       <Box
+        maxWidth="1366px"
         display="flex"
-        paddingX={['13x']}
-        paddingY={['8x']}
+        width="100%"
+        minHeight="100vh"
+        flexDirection="column"
       >
-        123
+        <MainHeader />
+        <Box
+          display="flex"
+          paddingX={['64px']}
+          paddingY={['32px']}
+        >
+          123
+        </Box>
+
+        <MainFooter />
       </Box>
     </Box>
   );

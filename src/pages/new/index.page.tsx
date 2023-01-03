@@ -7,6 +7,8 @@ import {
   Stack,
 } from '@effable/react';
 
+import { MainLayout } from '@/layouts/new-main';
+
 import { EnhancedNextPage } from '@/shared/types/enhanced-next-page';
 import { SSRPageProps } from '@/shared/types/ssr-page-props';
 import { SSGPageProps } from '@/shared/types/ssg-page-props';
@@ -21,5 +23,7 @@ const IndexPage: EnhancedNextPage<Props> = (): JSX.Element => {
     </Box>
   );
 };
+
+IndexPage.Layout = MainLayout;
 
 export default IndexPage;

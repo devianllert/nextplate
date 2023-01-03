@@ -3,7 +3,7 @@ import * as React from 'react';
 import { Box, Text } from '@effable/react';
 import { Switch } from '@/shared/components/system/switch';
 
-export const SettingsButton = (): JSX.Element => {
+export const ChangeTheme = (): JSX.Element => {
   return (
     <Box
       display="flex"

@@ -32,6 +32,7 @@ export const LocaleToggler = (): JSX.Element => {
           alignItems="flex-start"
           border="none"
           backgroundColor="transparent"
+          padding="0"
         >
           <Global fontSize="20px" />
 

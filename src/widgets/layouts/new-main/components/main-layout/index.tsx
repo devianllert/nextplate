@@ -32,14 +32,10 @@ export const MainLayout = (props: MainLayoutProps): JSX.Element => {
         display="flex"
         width="100%"
         alignSelf="center"
+        paddingX="32px"
+        paddingY="64px"
       >
-        <Box
-          display="flex"
-          paddingX={['64px']}
-          paddingY={['32px']}
-        >
-          {children}
-        </Box>
+        {children}
       </Box>
 
       <MainFooter />

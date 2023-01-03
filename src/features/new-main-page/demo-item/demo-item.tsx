@@ -55,11 +55,14 @@ export const DemoItem = (props: DemoItemProps): JSX.Element => {
       <Box
         display="flex"
         flexDirection="column"
+        maxWidth="515px"
       >
         <Box
-          marginTop={['11x']}
+          // eslint-disable-next-line react/jsx-curly-brace-presence
+          marginTop={'11x'}
         >
           <Heading
+            fontSize="24px"
             variant="h2"
           >
             {title}
@@ -71,6 +74,7 @@ export const DemoItem = (props: DemoItemProps): JSX.Element => {
         >
           <Text
             variant="m"
+            fontSize="16px"
           >
             {description}
           </Text>
@@ -78,11 +82,15 @@ export const DemoItem = (props: DemoItemProps): JSX.Element => {
       </Box>
 
       <Box
-        marginLeft={['11x']}
+        // eslint-disable-next-line react/jsx-curly-brace-presence
+        marginLeft={'11x'}
+        backgroundColor="black"
+        maxWidth="627px"
+        maxHeight="402px"
+        width="100%"
+        height="100%"
       >
-        <S.Anchor>
-          {status === 'loaded' && <S.DemoImg src={preview} alt={title} />}
-        </S.Anchor>
+        {status === 'loaded' && <S.DemoImg src={preview} alt={title} />}
       </Box>
     </Box>
   );

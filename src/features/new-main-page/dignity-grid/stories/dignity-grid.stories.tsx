@@ -1,0 +1,17 @@
+import * as React from 'react';
+import { Story, Meta } from '@storybook/react';
+
+import { DignityGrid } from '../dignity-grid';
+
+export default {
+  title: 'DignityGrid',
+  component: DignityGrid,
+} as Meta;
+
+const Template: Story = (args) => <DignityGrid {...args} />;
+
+export const Basic = Template.bind({});
+
+Basic.args = {
+  children: 'DignityGrid',
+};

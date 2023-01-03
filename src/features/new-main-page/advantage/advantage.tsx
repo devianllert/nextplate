@@ -27,6 +27,7 @@ export const Advantage = (props: AdvantageProps): JSX.Element => {
       width="100%"
       alignItems="center"
       justifyContent="center"
+      maxWidth="289px"
     >
       <Box
         display="flex"
@@ -35,25 +36,18 @@ export const Advantage = (props: AdvantageProps): JSX.Element => {
         width="62px"
         height="62px"
         backgroundColor="#6E56CF"
+        borderRadius="16px"
       >
         {icon}
       </Box>
 
-      <Box
-        marginTop={['6x']}
-      >
-        <Heading variant="h2">
-          {title}
-        </Heading>
-      </Box>
+      <Heading variant="h2" fontSize="24px" color="#20134B" sx={{ marginTop: '24px' }}>
+        {title}
+      </Heading>
 
-      <Box
-        marginTop={['3x']}
-      >
-        <Text variant="m">
-          {description}
-        </Text>
-      </Box>
+      <Text variant="m" color="#20134B" fontSize="16px" textAlign="center" sx={{ marginTop: '12px' }}>
+        {description}
+      </Text>
     </Box>
   );
 };

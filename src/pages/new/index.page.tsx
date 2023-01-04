@@ -10,7 +10,6 @@ import {
 
 import { MainLayout } from '@/layouts/new-main';
 
-import { Advantage } from '@/features/new-main-page/advantage';
 import { DemoItem } from '@/features/new-main-page/demo-item';
 import { Header } from '@/features/new-main-page/header';
 import { DignityGrid } from '@/features/new-main-page/dignity-grid';
@@ -19,10 +18,7 @@ import { WhyNextplate } from '@/features/new-main-page/why-nextplate';
 
 import { Section } from '@/features/new-main-page/section';
 
-import Performance from '@/shared/icons/performance';
-import Best from '@/shared/icons/best-class';
-import Built from '@/shared/icons/built-In-demo';
-import Feature from '@/shared/icons/feature';
+import { Demos } from '@/features/new-main-page/demos';
 
 import { EnhancedNextPage } from '@/shared/types/enhanced-next-page';
 import { SSRPageProps } from '@/shared/types/ssr-page-props';
@@ -39,13 +35,13 @@ const IndexPage: EnhancedNextPage<Props> = (): JSX.Element => {
         flexDirection="column"
         width="100%"
       >
-        <Section>
-          <DignityGrid />
-        </Section>
+        <Header />
 
         <WhyNextplate />
 
-        <Section>
+        <Demos />
+
+        {/* <Section>
           <Heading>
             Some features demo
           </Heading>
@@ -59,7 +55,7 @@ const IndexPage: EnhancedNextPage<Props> = (): JSX.Element => {
   Also, when changing the page from login to registration and back, there is a clear example of transition animations. Field validation, error handling from the server."
             />
           </Box>
-        </Section>
+        </Section> */}
       </Box>
     </EffableProvider>
 

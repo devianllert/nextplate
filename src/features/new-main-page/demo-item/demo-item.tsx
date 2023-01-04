@@ -1,6 +1,8 @@
 import * as React from 'react';
 
-import { Box, Heading, Text } from '@effable/react';
+import {
+  Box, Heading, Text, AspectRatio,
+} from '@effable/react';
 
 import * as S from './demo-item.styled';
 
@@ -58,8 +60,8 @@ export const DemoItem = (props: DemoItemProps): JSX.Element => {
         maxWidth="515px"
       >
         <Box
-          // eslint-disable-next-line react/jsx-curly-brace-presence
-          marginTop={'11x'}
+          display="flex"
+          marginTop="11x"
         >
           <Heading
             fontSize="24px"
@@ -70,7 +72,8 @@ export const DemoItem = (props: DemoItemProps): JSX.Element => {
         </Box>
 
         <Box
-          marginTop={['6x']}
+          display="flex"
+          marginTop="6x"
         >
           <Text
             variant="m"
@@ -82,15 +85,17 @@ export const DemoItem = (props: DemoItemProps): JSX.Element => {
       </Box>
 
       <Box
-        // eslint-disable-next-line react/jsx-curly-brace-presence
-        marginLeft={'11x'}
-        backgroundColor="black"
-        maxWidth="627px"
-        maxHeight="402px"
-        width="100%"
-        height="100%"
+        display="flex"
+        marginLeft="11x"
+        backgroundColor="#E8E8E8"
+        // maxWidth="627px"
+        // maxHeight="402px"
+        // width="100%"
+        // height="100%"
       >
-        {status === 'loaded' && <S.DemoImg src={preview} alt={title} />}
+        <AspectRatio ratio={16 / 9}>
+          {status === 'loaded' && <S.DemoImg src={preview} alt={title} />}
+        </AspectRatio>
       </Box>
     </Box>
   );

@@ -26,7 +26,8 @@ export const Section = (props: SectionProps): JSX.Element => {
         maxWidth="1366px"
         width="100%"
         display="flex"
-        padding="13x 8x"
+        paddingX="8x"
+        paddingY="13x"
       >
         {children}
       </Box>

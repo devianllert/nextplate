@@ -27,16 +27,8 @@ export const MainLayout = (props: MainLayoutProps): JSX.Element => {
       flexDirection="column"
     >
       <MainHeader />
-      <Box
-        maxWidth="1366px"
-        display="flex"
-        width="100%"
-        alignSelf="center"
-        paddingX="32px"
-        paddingY="64px"
-      >
-        {children}
-      </Box>
+
+      {children}
 
       <MainFooter />
     </Box>

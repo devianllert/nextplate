@@ -15,6 +15,8 @@ import { DemoItem } from '@/features/new-main-page/demo-item';
 import { Header } from '@/features/new-main-page/header';
 import { DignityGrid } from '@/features/new-main-page/dignity-grid';
 
+import { Section } from '@/features/new-main-page/section';
+
 import Performance from '@/shared/icons/performance';
 import Best from '@/shared/icons/best-class';
 import Built from '@/shared/icons/built-In-demo';
@@ -35,14 +37,10 @@ const IndexPage: EnhancedNextPage<Props> = (): JSX.Element => {
         flexDirection="column"
         width="100%"
       >
-        <DignityGrid />
-        <Box
-          display="flex"
-          flexDirection="column"
-          width="100%"
-          alignItems="center"
-          marginTop="192px"
-        >
+        <Section>
+          <DignityGrid />
+        </Section>
+        <Section>
           <Heading>
             Why Nextplate?
           </Heading>
@@ -78,14 +76,9 @@ const IndexPage: EnhancedNextPage<Props> = (): JSX.Element => {
             />
 
           </Box>
-        </Box>
+        </Section>
 
-        <Box
-          display="flex"
-          flexDirection="column"
-          width="100%"
-          marginTop="128px"
-        >
+        <Section>
           <Heading>
             Some features demo
           </Heading>
@@ -99,7 +92,7 @@ const IndexPage: EnhancedNextPage<Props> = (): JSX.Element => {
   Also, when changing the page from login to registration and back, there is a clear example of transition animations. Field validation, error handling from the server."
             />
           </Box>
-        </Box>
+        </Section>
       </Box>
     </EffableProvider>
 

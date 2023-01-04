@@ -22,6 +22,8 @@ export const DemoItem = (props: DemoItemProps): JSX.Element => {
     preview,
   } = props;
 
+  const text = description.split('.');
+
   const [status, setStatus] = React.useState('loading');
 
   React.useEffect(() => {
@@ -66,6 +68,7 @@ export const DemoItem = (props: DemoItemProps): JSX.Element => {
           <Heading
             fontSize="24px"
             variant="h2"
+            color="#20134B"
           >
             {title}
           </Heading>
@@ -74,13 +77,17 @@ export const DemoItem = (props: DemoItemProps): JSX.Element => {
         <Box
           display="flex"
           marginTop="6x"
+          flexDirection="column"
         >
-          <Text
-            variant="m"
-            fontSize="16px"
-          >
-            {description}
-          </Text>
+          {text.map((sentence) => (
+            <Text
+              variant="m"
+              fontSize="16px"
+              color="#20134B"
+            >
+              {sentence}.
+            </Text>
+          ))}
         </Box>
       </Box>
 
@@ -88,10 +95,10 @@ export const DemoItem = (props: DemoItemProps): JSX.Element => {
         display="flex"
         marginLeft="11x"
         backgroundColor="#E8E8E8"
-        // maxWidth="627px"
-        // maxHeight="402px"
-        // width="100%"
-        // height="100%"
+        maxWidth="627px"
+        maxHeight="402px"
+        width="100%"
+        height="100%"
       >
         <AspectRatio ratio={16 / 9}>
           {status === 'loaded' && <S.DemoImg src={preview} alt={title} />}

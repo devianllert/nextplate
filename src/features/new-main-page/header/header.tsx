@@ -4,6 +4,8 @@ import {
   Box,
   Text,
   Heading,
+  Button,
+  Stack,
 } from '@effable/react';
 
 import { DignityGrid } from '@/features/new-main-page/dignity-grid';
@@ -21,6 +23,8 @@ export const Header = (): JSX.Element => {
       >
         <Box
           maxWidth="514px"
+          display="flex"
+          flexDirection="column"
         >
           <Heading variant="h0" fontSize="48px" color="#20134B">
             Nextplate. Template
@@ -37,6 +41,26 @@ export const Header = (): JSX.Element => {
             >
               Aims for developers who really care about code quality, architecture, security and all the best practices in frontend
             </Text>
+          </Box>
+
+          <Box
+            display="flex"
+            mt="68px"
+          >
+            <Stack space="6x">
+              <Button
+                size="large"
+              >
+                Documentation
+              </Button>
+
+              <Button
+                size="large"
+                variant="secondary"
+              >
+                Github
+              </Button>
+            </Stack>
           </Box>
         </Box>
 

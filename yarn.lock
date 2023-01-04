@@ -1516,10 +1516,10 @@
   resolved "https://registry.yarnpkg.com/@effable/misc/-/misc-0.2.0.tgz#bbc1829faeb435ca78f7b0b26cba899f70f96a0a"
   integrity sha512-qOVY39OX7Q6ZklA5yJpqliphEMPX4WpRYEJQPxUcSwW54nhotpwIjwt25P2TXJun0UuwxQ7141X60yhojFk4Vw==
 
-"@effable/react@^0.8.0":
-  version "0.8.0"
-  resolved "https://registry.yarnpkg.com/@effable/react/-/react-0.8.0.tgz#7a1566ddb5aeb774d292e376a52ef355ce76bf92"
-  integrity sha512-RprDuBq4TVefpQVRYc5/1A8cf6PKWhgO8ZLu+TnzkVHqfPnBB5eR7cktS6COUUpmj/mFApct83u8vRh2zljyfQ==
+"@effable/react@ 0.9.2":
+  version "0.9.2"
+  resolved "https://registry.yarnpkg.com/@effable/react/-/react-0.9.2.tgz#3a328bb7ce54f656929e7bd16bc8351f589ff43c"
+  integrity sha512-ciNB9c8bjm7eww0f5pfD1dSY3B8vOh0Xp1GEYK95fWICzkC9/xOFEKHVZAADhZETTe2jl/68aajWAGAK78s6eQ==
   dependencies:
     "@effable/misc" "*"
     "@effable/tokens" "*"

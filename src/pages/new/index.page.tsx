@@ -15,6 +15,8 @@ import { DemoItem } from '@/features/new-main-page/demo-item';
 import { Header } from '@/features/new-main-page/header';
 import { DignityGrid } from '@/features/new-main-page/dignity-grid';
 
+import { WhyNextplate } from '@/features/new-main-page/why-nextplate';
+
 import { Section } from '@/features/new-main-page/section';
 
 import Performance from '@/shared/icons/performance';
@@ -40,43 +42,8 @@ const IndexPage: EnhancedNextPage<Props> = (): JSX.Element => {
         <Section>
           <DignityGrid />
         </Section>
-        <Section>
-          <Heading>
-            Why Nextplate?
-          </Heading>
 
-          <Box
-            display="flex"
-            width="100%"
-            justifyContent="space-between"
-            marginTop="11x"
-          >
-            <Advantage
-              title="Performant"
-              description="Next.js gives you the best developer experience with all the features you need for production: hybrid static & server rendering, TypeScript support, smart bundling, route pre-fetching, and more"
-              icon={<Performance />}
-            />
-
-            <Advantage
-              title="Feature-rich"
-              description="Packed full of useful features like Theming (Theme-ui), CSS-in-JS (Emotion), i18n (next-i18next), Testing (Jest), Logging, Monitoring (Sentry), Storybook and a fully-typed API and much more"
-              icon={<Feature />}
-            />
-
-            <Advantage
-              title="Best-in-class DX"
-              description="This boilerplate is meant for developers with basic skills in React, who are looking for a way of building production-grade web applications"
-              icon={<Best />}
-            />
-
-            <Advantage
-              title="Built-in demo apps"
-              description="This boilerplate has several built-in demo apps that show an example of using the features of this template"
-              icon={<Built />}
-            />
-
-          </Box>
-        </Section>
+        <WhyNextplate />
 
         <Section>
           <Heading>

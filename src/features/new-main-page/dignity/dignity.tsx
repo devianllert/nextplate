@@ -24,18 +24,18 @@ export const Dignity = (props: DignityProps): JSX.Element => {
     <Box
       display="flex"
       flexDirection="column"
-      backgroundColor="#D7CFF9"
+      backgroundColor="accent.accent6"
       borderRadius="16px"
-      padding={['16px']}
+      padding="16px"
       maxWidth="200px"
       justifyContent="center"
     >
-      <Heading color="#5746AF" variant={main ? 'h1' : 'h3'} fontSize={main ? '32px' : '18px'}>
+      <Heading color="accent.accent11" variant={main ? 'h1' : 'h3'}>
         {title}
       </Heading>
 
       {text && (
-      <Text fontSize="14px" color="#5746AF" variant="m" sx={{ marginTop: '2x' }}>
+      <Text color="accent.accent11" variant="m" sx={{ marginTop: '2x' }}>
         {text}
       </Text>
       )}

@@ -21,7 +21,7 @@ export const WhyNextplate = (): JSX.Element => {
         alignItems="center"
         width="100%"
       >
-        <Heading>
+        <Heading color="text.primary">
           Why Nextplate?
         </Heading>
 
@@ -30,6 +30,7 @@ export const WhyNextplate = (): JSX.Element => {
           width="100%"
           justifyContent="space-between"
           marginTop="11x"
+          alignItems="flex-start"
         >
           <Advantage
             title="Performant"

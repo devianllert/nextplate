@@ -34,9 +34,9 @@ export const LocaleToggler = (): JSX.Element => {
           backgroundColor="transparent"
           padding="0"
         >
-          <Global fontSize="20px" />
+          <Global fontSize="20px" color="text.primary" />
 
-          <Text variant="m" sx={{ marginLeft: '10px' }}>{i18n.language}</Text>
+          <Text variant="m" color="text.primary" sx={{ marginLeft: '10px' }}>{i18n.language}</Text>
         </Box>
       </DropdownMenu.Trigger>
 

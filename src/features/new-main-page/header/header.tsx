@@ -15,7 +15,9 @@ import * as S from './header.styled';
 
 export const Header = (): JSX.Element => {
   return (
-    <Section>
+    <Section
+      backgroundColor="accent.accent3"
+    >
       <Box
         display="flex"
         width="100%"
@@ -26,7 +28,7 @@ export const Header = (): JSX.Element => {
           display="flex"
           flexDirection="column"
         >
-          <Heading variant="h0" fontSize="48px" color="#20134B">
+          <Heading variant="h0" color="text.primary">
             Nextplate. Template
             with all you need.
           </Heading>
@@ -36,8 +38,8 @@ export const Header = (): JSX.Element => {
             mt="4x"
           >
             <Text
-              fontSize="16px"
-              color="#20134B"
+              variant="m"
+              color="text.primary"
             >
               Aims for developers who really care about code quality, architecture, security and all the best practices in frontend
             </Text>

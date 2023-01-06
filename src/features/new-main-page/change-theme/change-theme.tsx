@@ -11,7 +11,7 @@ export const ChangeTheme = (): JSX.Element => {
     >
       <Switch size="small" />
 
-      <Text fontSize="16px" sx={{ marginLeft: '10px' }}>
+      <Text variant="m" color="text.primary" sx={{ marginLeft: '10px' }}>
         Dark Mode
       </Text>
     </Box>

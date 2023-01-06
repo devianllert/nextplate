@@ -9,11 +9,13 @@ export interface SectionProps {
    * The content
    */
   children: React.ReactNode;
+  backgroundColor?: string;
 }
 
 export const Section = (props: SectionProps): JSX.Element => {
   const {
     children,
+    backgroundColor,
   } = props;
 
   return (
@@ -21,6 +23,7 @@ export const Section = (props: SectionProps): JSX.Element => {
       display="flex"
       width="100%"
       justifyContent="center"
+      backgroundColor={backgroundColor || 'none'}
     >
       <Box
         maxWidth="1366px"

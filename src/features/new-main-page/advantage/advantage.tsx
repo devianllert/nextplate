@@ -35,17 +35,17 @@ export const Advantage = (props: AdvantageProps): JSX.Element => {
         justifyContent="center"
         width="62px"
         height="62px"
-        backgroundColor="#6E56CF"
+        backgroundColor="accent.accent9"
         borderRadius="16px"
       >
         {icon}
       </Box>
 
-      <Heading variant="h2" fontSize="24px" color="#20134B" sx={{ marginTop: '24px' }}>
+      <Heading variant="h2" color="text.primary" sx={{ marginTop: '24px' }}>
         {title}
       </Heading>
 
-      <Text variant="m" color="#20134B" fontSize="16px" textAlign="center" sx={{ marginTop: '12px' }}>
+      <Text variant="m" color="text.primary" textAlign="center" sx={{ marginTop: '12px' }}>
         {description}
       </Text>
     </Box>

@@ -18,12 +18,12 @@ export const Demos = (): JSX.Element => {
         <Stack
           direction="column"
           space="11x"
+          alignItems="center"
         >
           <Box
             display="flex"
-            alignSelf="center"
           >
-            <Heading>
+            <Heading color="text.primary">
               Some features demo
             </Heading>
           </Box>

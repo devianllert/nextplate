@@ -66,9 +66,8 @@ export const DemoItem = (props: DemoItemProps): JSX.Element => {
           marginTop="11x"
         >
           <Heading
-            fontSize="24px"
             variant="h2"
-            color="#20134B"
+            color="text.primary"
           >
             {title}
           </Heading>
@@ -82,8 +81,8 @@ export const DemoItem = (props: DemoItemProps): JSX.Element => {
           {text.map((sentence) => (
             <Text
               variant="m"
-              fontSize="16px"
-              color="#20134B"
+              color="text.primary"
+              key={sentence}
             >
               {sentence}.
             </Text>
@@ -94,7 +93,7 @@ export const DemoItem = (props: DemoItemProps): JSX.Element => {
       <Box
         display="flex"
         marginLeft="11x"
-        backgroundColor="#E8E8E8"
+        backgroundColor="neutral.neutral3"
         maxWidth="627px"
         maxHeight="402px"
         width="100%"

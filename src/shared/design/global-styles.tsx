@@ -11,7 +11,6 @@ export const GlobalStyles = (): JSX.Element => {
     <Global
       styles={css`
         html {
-          font-size: 62.5%;
         }
 
         body {

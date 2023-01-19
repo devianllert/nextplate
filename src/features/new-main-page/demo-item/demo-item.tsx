@@ -22,7 +22,9 @@ export const DemoItem = (props: DemoItemProps): JSX.Element => {
     preview,
   } = props;
 
-  const text = description.split('.');
+  const text = description.split('.').filter((sentence) => sentence);
+
+  console.log(text);
 
   const [status, setStatus] = React.useState('loading');
 

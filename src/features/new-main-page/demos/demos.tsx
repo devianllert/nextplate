@@ -31,9 +31,8 @@ export const Demos = (): JSX.Element => {
           <DemoItem
             title="Authorization"
             preview="static/images/apps/en/auth.png"
-            description="A full-fledged authorization flow with registration and login, as well as a password recovery function. It is also possible to register / login through third-party services (Google, Twitter, Apple, Github).
-  After Login, you can view your profile, change information about it, change your password, etc.
-  Also, when changing the page from login to registration and back, there is a clear example of transition animations. Field validation, error handling from the server."
+            description="Full-featured dashboard app with authentication, refresh token rotation, password recovery and etc.
+Also shows how to handle form validation, page transitions."
           />
 
           <DemoItem

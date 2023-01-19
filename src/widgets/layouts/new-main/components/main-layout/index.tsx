@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import {
-  Box,
+  Box, EffableProvider,
 } from '@effable/react';
 
 import { MainHeader } from '../main-header';
@@ -20,17 +20,19 @@ export const MainLayout = (props: MainLayoutProps): JSX.Element => {
   } = props;
 
   return (
-    <Box
-      display="flex"
-      width="100%"
-      minHeight="100vh"
-      flexDirection="column"
-    >
-      <MainHeader />
+    <EffableProvider>
+      <Box
+        display="flex"
+        width="100%"
+        minHeight="100vh"
+        flexDirection="column"
+      >
+        <MainHeader />
 
-      {children}
+        {children}
 
-      <MainFooter />
-    </Box>
+        <MainFooter />
+      </Box>
+    </EffableProvider>
   );
 };

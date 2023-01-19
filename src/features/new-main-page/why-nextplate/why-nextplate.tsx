@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { Box, Heading } from '@effable/react';
+import { Box, Heading, Container } from '@effable/react';
 
 import { Section } from '@/features/new-main-page/section';
 import { Advantage } from '@/features/new-main-page/advantage';
@@ -14,7 +14,7 @@ import * as S from './why-nextplate.styled';
 
 export const WhyNextplate = (): JSX.Element => {
   return (
-    <Section>
+    <Container>
       <Box
         display="flex"
         flexDirection="column"
@@ -26,11 +26,19 @@ export const WhyNextplate = (): JSX.Element => {
         </Heading>
 
         <Box
-          display="flex"
+          display="grid"
+          gridTemplateColumns={{
+            base: '1fr',
+            laptop: '1fr 1fr 1fr 1fr',
+            desktop: '1fr 1fr 1fr 1fr',
+          }}
           width="100%"
-          justifyContent="space-between"
-          marginTop="11x"
-          alignItems="flex-start"
+          marginTop="13x"
+          gridGap={{
+            base: '8x',
+            laptop: '0px',
+            desktop: '0px',
+          }}
         >
           <Advantage
             title="Performant"
@@ -58,6 +66,6 @@ export const WhyNextplate = (): JSX.Element => {
 
         </Box>
       </Box>
-    </Section>
+    </Container>
   );
 };

@@ -6,6 +6,7 @@ import {
   Heading,
   Button,
   Stack,
+  Container,
 } from '@effable/react';
 
 import { DignityGrid } from '@/features/new-main-page/dignity-grid';
@@ -19,12 +20,24 @@ export const Header = (): JSX.Element => {
       backgroundColor="accent.accent3"
     >
       <Box
-        display="flex"
-        width="100%"
-        justifyContent="space-evenly"
+        display="grid"
+        gridTemplateColumns={{
+          base: '1fr',
+          laptop: '1fr 1fr',
+        }}
+        gridGap="11x"
+        marginLeft={{
+          base: '0px',
+          tablet: '12x',
+        }}
       >
         <Box
-          maxWidth="514px"
+          maxWidth={{
+            base: '100%',
+            tablet: '534px',
+            laptop: '514px',
+            desktop: '514px',
+          }}
           display="flex"
           flexDirection="column"
         >
@@ -49,7 +62,19 @@ export const Header = (): JSX.Element => {
             display="flex"
             mt="68px"
           >
-            <Stack space="6x">
+            <Stack
+              direction={{
+                base: 'column',
+                desktop: 'row',
+                tablet: 'row',
+              }}
+              space={{
+                base: '4x',
+                desktop: '6x',
+              }}
+              alignItems="stretch"
+              // sx={{ width: '100% ' }}
+            >
               <Button
                 size="large"
               >

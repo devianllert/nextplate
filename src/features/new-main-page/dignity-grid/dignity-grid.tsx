@@ -9,7 +9,11 @@ import * as S from './dignity-grid.styled';
 export const DignityGrid = (): JSX.Element => {
   return (
     <Box
-      display="flex"
+      display={{
+        base: 'none',
+        laptop: 'flex',
+        desktop: 'flex',
+      }}
       maxWidth="500px"
     >
       <Stack direction="column" space="2x">
@@ -17,7 +21,7 @@ export const DignityGrid = (): JSX.Element => {
           display="flex"
           justifyContent="center"
         >
-          <Stack space="2x">
+          <Stack space="2x" alignItems="flex-end">
             <Dignity title="Next.js" main />
 
             <Dignity title="Themization" />

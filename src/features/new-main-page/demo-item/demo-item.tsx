@@ -56,6 +56,21 @@ export const DemoItem = (props: DemoItemProps): JSX.Element => {
       display="flex"
       width="100%"
     >
+
+      <Box
+        display="flex"
+        marginRight="11x"
+        backgroundColor="neutral.neutral3"
+        maxWidth="740px"
+        maxHeight="416px"
+        width="60%"
+        height="100%"
+      >
+        <AspectRatio ratio={16 / 9}>
+          <S.DemoImg src={preview} alt={title} />
+        </AspectRatio>
+      </Box>
+
       <Box
         display="flex"
         flexDirection="column"
@@ -88,20 +103,6 @@ export const DemoItem = (props: DemoItemProps): JSX.Element => {
             </Text>
           ))}
         </Box>
-      </Box>
-
-      <Box
-        display="flex"
-        marginLeft="11x"
-        backgroundColor="neutral.neutral3"
-        maxWidth="627px"
-        maxHeight="402px"
-        width="100%"
-        height="100%"
-      >
-        <AspectRatio ratio={16 / 9}>
-          {status === 'loaded' && <S.DemoImg src={preview} alt={title} />}
-        </AspectRatio>
       </Box>
     </Box>
   );

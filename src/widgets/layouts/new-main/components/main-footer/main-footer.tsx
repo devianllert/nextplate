@@ -21,8 +21,8 @@ export const MainFooter = (): JSX.Element => {
     >
       <Box
         display="flex"
-        padding={['32px 102px']}
-        justifyContent="space-between"
+        padding="32px"
+        justifyContent="flex-start"
         alignItems="center"
         width="100%"
         maxWidth="1366px"
@@ -31,7 +31,7 @@ export const MainFooter = (): JSX.Element => {
           Copyright © 2022 devianllert
         </Text>
 
-        <Box
+        {/* <Box
           display="flex"
         >
           <LocaleToggler />
@@ -41,7 +41,7 @@ export const MainFooter = (): JSX.Element => {
           >
             <ChangeTheme />
           </Box>
-        </Box>
+        </Box> */}
       </Box>
     </Box>
   );

@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import {
-  Box,
+  Box, Text, Container,
 } from '@effable/react';
 
 import { LocaleToggler } from '@/features/new-main-page/change-locale';
@@ -15,24 +15,36 @@ export const MainHeader = (): JSX.Element => {
       alignItems="center"
       width="100%"
       borderBottom="1px solid"
-      borderColor="rgba(87, 70, 175, 0.15)"
+      borderColor="neutral.neutral7"
+      backgroundColor="accent.accent3"
     >
-      <Box
-        display="flex"
-        padding={['26px 32px']}
-        justifyContent="flex-end"
-        alignItems="center"
-        width="100%"
-        maxWidth="1366px"
-      >
-        <LocaleToggler />
-
+      <Container>
         <Box
-          marginLeft={['8x']}
+          display="flex"
+          paddingY="26px"
+          justifyContent="space-between"
+          alignItems="center"
         >
-          <ChangeTheme />
+          <Text
+            variant="l"
+            color="text.primary"
+          >
+            Nextplate
+          </Text>
+
+          <Box
+            display="flex"
+          >
+            <LocaleToggler />
+
+            <Box
+              marginLeft="8x"
+            >
+              {/* <ChangeTheme /> */}
+            </Box>
+          </Box>
         </Box>
-      </Box>
+      </Container>
     </Box>
   );
 };

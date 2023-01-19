@@ -35,7 +35,7 @@ export const Dignity = (props: DignityProps): JSX.Element => {
       </Heading>
 
       {text && (
-      <Text color="accent.accent11" variant="m" sx={{ marginTop: '2x' }}>
+      <Text color="accent.accent11" variant="s" sx={{ marginTop: '2x' }}>
         {text}
       </Text>
       )}

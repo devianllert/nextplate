@@ -30,7 +30,7 @@ export const Demos = (): JSX.Element => {
 
           <DemoItem
             title="Authorization"
-            preview="123"
+            preview="static/images/apps/en/auth.png"
             description="A full-fledged authorization flow with registration and login, as well as a password recovery function. It is also possible to register / login through third-party services (Google, Twitter, Apple, Github).
   After Login, you can view your profile, change information about it, change your password, etc.
   Also, when changing the page from login to registration and back, there is a clear example of transition animations. Field validation, error handling from the server."
@@ -38,7 +38,7 @@ export const Demos = (): JSX.Element => {
 
           <DemoItem
             title="Weather"
-            preview="123"
+            preview="static/images/apps/weather.png"
             description="Shows the basic work with getting data from a third-party api and its further display in pages."
           />
         </Stack>

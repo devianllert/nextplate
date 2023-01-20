@@ -24,8 +24,6 @@ export const DemoItem = (props: DemoItemProps): JSX.Element => {
 
   const text = description.split('.').filter((sentence) => sentence);
 
-  console.log(text);
-
   const [status, setStatus] = React.useState('loading');
 
   React.useEffect(() => {
@@ -57,15 +55,25 @@ export const DemoItem = (props: DemoItemProps): JSX.Element => {
     <Box
       display="flex"
       width="100%"
+      flexDirection={{
+        base: 'column',
+        laptop: 'row',
+      }}
     >
 
       <Box
         display="flex"
-        marginRight="11x"
+        marginRight={{
+          base: '0px',
+          laptop: '11x',
+        }}
         backgroundColor="neutral.neutral3"
         maxWidth="740px"
         maxHeight="416px"
-        width="60%"
+        width={{
+          base: '100%',
+          laptop: '60%',
+        }}
         height="100%"
       >
         <AspectRatio ratio={16 / 9}>
@@ -76,11 +84,17 @@ export const DemoItem = (props: DemoItemProps): JSX.Element => {
       <Box
         display="flex"
         flexDirection="column"
-        maxWidth="515px"
+        maxWidth={{
+          base: '100%',
+          laptop: '515px',
+        }}
       >
         <Box
           display="flex"
-          marginTop="11x"
+          marginTop={{
+            base: '6x',
+            laptop: '11x',
+          }}
         >
           <Heading
             variant="h2"

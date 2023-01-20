@@ -14,6 +14,7 @@ export const Demos = (): JSX.Element => {
         display="flex"
         flexDirection="column"
         width="100%"
+        paddingY="13x"
       >
         <Stack
           direction="column"

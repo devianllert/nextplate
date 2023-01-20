@@ -30,6 +30,7 @@ export const Header = (): JSX.Element => {
           base: '0px',
           tablet: '12x',
         }}
+        paddingY="13x"
       >
         <Box
           maxWidth={{

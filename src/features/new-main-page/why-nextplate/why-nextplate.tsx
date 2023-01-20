@@ -20,6 +20,7 @@ export const WhyNextplate = (): JSX.Element => {
         flexDirection="column"
         alignItems="center"
         width="100%"
+        paddingY="13x"
       >
         <Heading color="text.primary">
           Why Nextplate?

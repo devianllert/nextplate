@@ -1,12 +1,4 @@
 import React from 'react';
-import { ThemeProvider } from 'theme-ui';
-
-import { makeTheme } from '@/shared/design/themes';
-import darkColors from '@/shared/design/themes/dark/colors';
-
-const weatherNestedTheme = makeTheme({
-  colors: darkColors,
-});
 
 export interface WeatherLayoutProps {
   children?: React.ReactNode;
@@ -18,9 +10,6 @@ export interface WeatherLayoutProps {
 export const WeatherLayout = (props: WeatherLayoutProps): JSX.Element => {
   const { children } = props;
 
-  return (
-    <ThemeProvider theme={weatherNestedTheme}>
-      {children}
-    </ThemeProvider>
-  );
+  // eslint-disable-next-line react/jsx-no-useless-fragment
+  return <>{children}</>;
 };

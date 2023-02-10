@@ -1,34 +1,50 @@
 import * as React from 'react';
-import Link from 'next/link';
 
-import { APP_TITLE } from '@/shared/lib/meta';
+import {
+  Box, Text, Container,
+} from '@effable/react';
 
-import * as Text from '@/shared/components/system/text';
-import { Stack } from '@/shared/components/system/stack';
-import { Container } from '@/shared/components/system/container';
-import { DisplayOnBrowserMount } from '@/shared/components/rehydration/display-on-browser-mount';
-import { LocaleToggler } from '@/features/locale-toggler';
-import { SettingsButton } from '@/features/settings-button';
-
-import * as S from './main-header.styled';
-
-export type MainHeaderProps = unknown;
+import { LocaleToggler } from '@/features/new-main-page/change-locale';
+import { ChangeTheme } from '@/features/new-main-page/change-theme';
 
 export const MainHeader = (): JSX.Element => {
   return (
-    <S.MainHeaderContainer>
+    <Box
+      display="flex"
+      justifyContent="center"
+      alignItems="center"
+      width="100%"
+      borderBottom="1px solid"
+      borderColor="neutral.neutral7"
+      backgroundColor="accent.accent3"
+    >
       <Container>
-        <S.MainHeaderRoot>
-          <Text.Heading variant="h6" href="/" component={Link}>{APP_TITLE}</Text.Heading>
-          <DisplayOnBrowserMount>
-            <Stack direction="row" alignItems="center" space={3}>
-              <LocaleToggler />
+        <Box
+          display="flex"
+          paddingY="26px"
+          justifyContent="space-between"
+          alignItems="center"
+        >
+          <Text
+            variant="l"
+            color="text.primary"
+          >
+            Nextplate
+          </Text>
 
-              <SettingsButton />
-            </Stack>
-          </DisplayOnBrowserMount>
-        </S.MainHeaderRoot>
+          <Box
+            display="flex"
+          >
+            <LocaleToggler />
+
+            <Box
+              marginLeft="8x"
+            >
+              {/* <ChangeTheme /> */}
+            </Box>
+          </Box>
+        </Box>
       </Container>
-    </S.MainHeaderContainer>
+    </Box>
   );
 };

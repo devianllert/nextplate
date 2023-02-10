@@ -1,11 +1,9 @@
 import * as React from 'react';
 import { RiCloseFill, RiMenu3Line } from 'react-icons/ri';
+import {
+  Box, Button, Divider, ActionButton, Heading, Text,
+} from '@effable/react';
 
-import { Box } from '@/shared/components/system/box';
-import { Button } from '@/shared/components/system/button';
-import { Divider } from '@/shared/components/system/divider';
-import { IconButton } from '@/shared/components/system/icon-button';
-import * as Text from '@/shared/components/system/text';
 import * as Modal from '@/shared/components/system/modal';
 
 const initialTodos = [
@@ -36,20 +34,17 @@ export const Todos = (): JSX.Element => {
         <Box display="flex" alignItems="center" justifyContent="space-between">
           <Button
             size="small"
-            color="gray"
-            sx={{ ml: '-12px' }}
+            color="neutral"
           >
             Next
           </Button>
 
           <Modal.Trigger asChild>
-            <IconButton
+            <ActionButton
               size="small"
-              edge="end"
-              label="Open Popup"
             >
               <RiMenu3Line />
-            </IconButton>
+            </ActionButton>
           </Modal.Trigger>
 
           <Modal.Portal>
@@ -67,24 +62,24 @@ export const Todos = (): JSX.Element => {
                   padding={4}
                 >
                   <Modal.Title asChild>
-                    <Text.Heading variant="h4" component="span">Edit todos</Text.Heading>
+                    <Heading variant="h4" component="span">Edit todos</Heading>
                   </Modal.Title>
 
                   <Modal.Close asChild>
-                    <IconButton color="gray" label="Close">
+                    <ActionButton color="neutral">
                       <RiCloseFill />
-                    </IconButton>
+                    </ActionButton>
                   </Modal.Close>
                 </Box>
 
-                <Divider space={0} />
+                <Divider />
 
                 <Box padding={4}>
                   {todos.map((item) => (
                     <Box mb={3} key={item.date}>
-                      <Text.Heading variant="subtitle1" component="span" sx={{ mr: 2 }}>16:30h</Text.Heading>
+                      <Heading variant="h6" component="span" sx={{ mr: 2 }}>16:30h</Heading>
 
-                      <Text.Paragraph variant="body1" component="span" fontWeight="bold">Stay at Bohem Art Hotel</Text.Paragraph>
+                      <Text variant="s" component="span" fontWeight="bold">Stay at Bohem Art Hotel</Text>
                     </Box>
                   ))}
                 </Box>
@@ -93,14 +88,14 @@ export const Todos = (): JSX.Element => {
           </Modal.Portal>
         </Box>
 
-        <Divider decorative />
+        <Divider />
 
         <Box>
           {todos.slice(0, 2).map((item) => (
             <Box mb={3} key={item.date}>
-              <Text.Heading variant="subtitle1" component="span" sx={{ mr: 2 }}>16:30h</Text.Heading>
+              <Heading variant="h6" component="span" sx={{ mr: 2 }}>16:30h</Heading>
 
-              <Text.Paragraph variant="body1" component="span" fontWeight="bold">Stay at Bohem Art Hotel</Text.Paragraph>
+              <Text variant="s" component="span" fontWeight="bold">Stay at Bohem Art Hotel</Text>
             </Box>
           ))}
         </Box>

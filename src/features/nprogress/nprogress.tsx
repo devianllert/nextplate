@@ -1,8 +1,8 @@
 import * as React from 'react';
 import Router from 'next/router';
 import NProgress from 'nprogress';
-import { css, Global } from '@emotion/react';
-import { useTheme } from '@/shared/design/hooks/use-theme';
+import { css, Global, useTheme } from '@emotion/react';
+import { EffableTheme } from '@effable/react';
 
 export interface NProgressRootProps {
   /**
@@ -18,12 +18,12 @@ export interface NProgressRootProps {
 
 export const NProgressRoot = (props: NProgressRootProps): JSX.Element => {
   const {
-    color = 'primary',
+    color = 'accent',
     showAfterMs = 0,
     options,
   } = props;
 
-  const { theme } = useTheme();
+  const theme = useTheme() as unknown as EffableTheme;
 
   const timer = React.useRef<number>();
 
@@ -62,7 +62,7 @@ export const NProgressRoot = (props: NProgressRootProps): JSX.Element => {
         }
 
         #nprogress .bar {
-          background: ${theme.colors.radix[`${color}9`]};
+          background: ${theme.colors.accent.accent9};
           position: fixed;
           z-index: 1031;
           top: 0;
@@ -77,7 +77,7 @@ export const NProgressRoot = (props: NProgressRootProps): JSX.Element => {
             right: 0px;
             width: 100px;
             height: 100%;
-            box-shadow: 0 0 10px ${theme.colors.radix[`${color}9`]}, 0 0 5px ${theme.colors.radix[`${color}9`]};
+            box-shadow: 0 0 10px ${theme.colors.accent.accent9}, 0 0 5px ${theme.colors.accent.accent9};
             opacity: 1;
             transform: rotate(3deg) translate(0px, -4px);
           }
@@ -96,8 +96,8 @@ export const NProgressRoot = (props: NProgressRootProps): JSX.Element => {
             box-sizing: border-box;
 
             border: solid 2px transparent;
-            border-top-color: ${theme.colors.radix[`${color}9`]};
-            border-left-color: ${theme.colors.radix[`${color}9`]};
+            border-top-color: ${theme.colors.accent.accent9};
+            border-left-color: ${theme.colors.accent.accent9};
             border-radius: 50%;
 
             animation: nprogress-spinner 400ms linear infinite;

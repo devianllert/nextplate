@@ -2,19 +2,16 @@ import * as React from 'react';
 import { useTranslation } from 'next-i18next';
 import NextLink from 'next/link';
 import { useUnit } from 'effector-react/scope';
+import {
+  Box, Button, Divider, Heading, Link, Stack, Text,
+} from '@effable/react';
 
-import { Button } from '@/shared/components/system/button';
-import * as Text from '@/shared/components/system/text';
-import { Box } from '@/shared/components/system/box';
 import { Input, InputPassword } from '@/shared/components/system/input';
-import { Stack } from '@/shared/components/system/stack';
-import { Link } from '@/shared/components/system/link';
 import { loginFx } from '@/entities/auth';
 import { useForm } from '@/shared/lib/effector/forms';
 import { GoogleButton } from '@/shared/components/google-button';
 
 import { loginForm } from './login.model';
-import { Divider } from '@/shared/components/system/divider';
 import { GithubButton } from '@/shared/components/github-button';
 
 export const LoginForm = () => {
@@ -36,18 +33,14 @@ export const LoginForm = () => {
       width="100%"
       onSubmit={onSubmit}
     >
-      <Text.Heading variant="h4" component="h1" sx={{ mb: 4 }}>{t('LOGIN')}</Text.Heading>
+      <Heading variant="h4" component="h1" sx={{ mb: 4 }}>{t('LOGIN')}</Heading>
 
       <Stack direction="column">
         <GoogleButton />
         <GithubButton />
       </Stack>
 
-      <Divider space={4} />
-
-      {/* <Box>
-        <Text.Overline display="block" textAlign="center" sx={{ my: 3 }}>Or</Text.Overline>
-      </Box> */}
+      <Divider mt="4x" mb="4x" />
 
       <Stack direction="column">
         <Input
@@ -80,16 +73,13 @@ export const LoginForm = () => {
         />
 
         {form.formErrors.map((err) => (
-          <Text.Paragraph variant="body3" color="radix.red11" key={err.message}>
+          <Text variant="xs" color="radix.red11" key={err.message}>
             {t([`auth:${err.message}`, `common:${err.message}`])}
-          </Text.Paragraph>
+          </Text>
         ))}
 
         <Button
           type="submit"
-          variant="contained"
-          fullWidth
-          disableElevation
           loading={isSubmitting}
           disabled={isSubmitting}
         >
@@ -97,11 +87,11 @@ export const LoginForm = () => {
         </Button>
       </Stack>
 
-      <Text.Paragraph variant="body2">
+      <Text variant="s">
         {t('NEED_ACCOUNT')}
         {' '}
         <Link href="/auth/signup" component={NextLink}>{t('SIGNUP')}</Link>
-      </Text.Paragraph>
+      </Text>
     </Box>
   );
 };

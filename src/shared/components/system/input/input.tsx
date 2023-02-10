@@ -1,10 +1,8 @@
 /* eslint-disable prefer-arrow-callback */
 import * as React from 'react';
-import { useId } from '@radix-ui/react-id';
+import { Box, Divider } from '@effable/react';
 
 import { useComposedRefs } from '@/shared/lib/react';
-import { Divider } from '@/shared/components/system/divider';
-import { Box } from '@/shared/components/system/box';
 import { Sizes } from '@/shared/design/tokens/size';
 
 import { useInputClear } from './useInputClear';
@@ -56,7 +54,6 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(function Inp
     label,
     helperText,
     fullWidth,
-    id,
     error,
     disabled,
     allowClear,
@@ -67,7 +64,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(function Inp
     ...other
   } = props;
 
-  const inputId = useId(id);
+  const inputId = React.useId();
 
   const inputElementRef = React.useRef<HTMLInputElement>(null);
   const composedRefs = useComposedRefs(inputElementRef, inputRef);

@@ -1,6 +1,3 @@
-import darkColors from '@/shared/design/themes/dark/colors';
-import lightColors from '@/shared/design/themes/light/colors';
-
 export const APP_TITLE = 'nextplate';
 
 export const getAppTitle = (title?: string): string => (title ? `${title} | ${APP_TITLE}` : APP_TITLE);
@@ -9,8 +6,8 @@ export const getMetaImageUrl = (image: string): string => (image.startsWith('htt
 
 export const getCommonMetaTags = () => (
   <>
-    <meta name="theme-color" content={lightColors.radix.primary9} media="(prefers-color-scheme: light)" />
-    <meta name="theme-color" content={darkColors.radix.primary9} media="(prefers-color-scheme: dark)" />
+    {/* <meta name="theme-color" content={lightColors.radix.primary9} media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content={darkColors.radix.primary9} media="(prefers-color-scheme: dark)" /> */}
     <link key="manifest" rel="manifest" href="/site.webmanifest" />
     <link key="favicon" rel="icon" href="/favicon.ico" />
   </>

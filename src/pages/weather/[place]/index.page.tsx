@@ -5,10 +5,10 @@ import { allSettled, fork, serialize } from 'effector';
 import { useUnit } from 'effector-react/scope';
 import Link from 'next/link';
 
+import {
+  Box, Button, Container, Heading,
+} from '@effable/react';
 import { createLogger } from '@/shared/lib/logging/logger';
-import * as Text from '@/shared/components/system/text';
-import { Box } from '@/shared/components/system/box';
-import { Container } from '@/shared/components/system/container';
 import { PageSEO } from '@/shared/lib/meta';
 import { OnlyBrowserPageProps } from '@/shared/types/only-browser-page-props';
 import { SSGPageProps } from '@/shared/types/ssg-page-props';
@@ -27,7 +27,6 @@ import { staticPath } from '@/shared/lib/$path';
 import { EFFECTOR_STATE_KEY } from '@/shared/lib/effector/scope';
 import { weatherPageStarted } from './model';
 import { normalizeSSRContext } from '@/shared/lib/next/context';
-import { Button } from '@/shared/components/system/button';
 
 const logger = createLogger('[place]');
 
@@ -88,7 +87,7 @@ const WeatherPlacePage: EnhancedNextPage<Props> = (): JSX.Element => {
       <Box
         minHeight="100vh"
         display="flex"
-        color="text.primary"
+        color="primary"
         flexDirection="column"
         backgroundImage={`url(${staticPath.static.images.stars_svg}), linear-gradient(180deg, rgba(13,28,139,1) 0%, rgba(83,36,224,1) 65%)`}
         backgroundRepeat="repeat no-repeat"
@@ -104,9 +103,9 @@ const WeatherPlacePage: EnhancedNextPage<Props> = (): JSX.Element => {
               alignItems="center"
               flexDirection="column"
             >
-              <Text.Heading variant="h4" component="h1">Unknown location</Text.Heading>
+              <Heading variant="h4" component="h1">Unknown location</Heading>
 
-              <Button LinkComponent={Link} href="/weather" sx={{ mt: 4 }} color="gray" variant="contained">Back to search</Button>
+              <Button component="a" href="/weather" color="neutral">Back to search</Button>
             </Box>
           )}
 
@@ -135,9 +134,9 @@ const WeatherPlacePage: EnhancedNextPage<Props> = (): JSX.Element => {
                 mb={[4, null, 0]}
               >
                 <Image width="112" height="112" src={`/static/images/weather/wi-${ICONS_MAP[data?.condition.code ?? '113']}.svg`} alt={data?.condition.title} />
-                <Text.Heading variant="h3" component="span" fontWeight="medium" textAlign="center">{data?.condition.title}</Text.Heading>
-                <Text.Heading variant="h6" component="span" sx={{ mt: 2 }} fontWeight="normal" color="text.secondary">{data?.place}</Text.Heading>
-                <Text.Heading variant="h3" component="span" sx={{ mt: 4 }} fontWeight="bold">{data?.temp.c} °</Text.Heading>
+                <Heading variant="h3" component="span" fontWeight="medium" textAlign="center">{data?.condition.title}</Heading>
+                <Heading variant="h6" component="span" sx={{ mt: 2 }} fontWeight="normal" color="secondary">{data?.place}</Heading>
+                <Heading variant="h3" component="span" sx={{ mt: 4 }} fontWeight="bold">{data?.temp.c} °</Heading>
               </Box>
             </Box>
           )}

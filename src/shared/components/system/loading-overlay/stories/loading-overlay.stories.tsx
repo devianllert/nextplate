@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { Story, Meta } from '@storybook/react';
-
-import { Box } from '@/shared/components/system/box';
+import { Box } from '@effable/react';
 
 import { LoadingOverlay, LoadingOverlayProps } from '../loading-overlay';
 

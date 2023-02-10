@@ -1,10 +1,11 @@
 import { createEvent, createStore, sample } from 'effector';
+import { isEmpty } from '@effable/misc';
 import { createQuery } from '@farfetched/core';
+
 import { pagesPath } from '@/shared/lib/$path';
+import { pushFx } from '@/shared/lib/effector/router';
 
 import { fetchWeather } from '../api/wttr';
-import { pushFx } from '@/shared/lib/effector/router';
-import { isEmpty } from '@/shared/lib/assertion';
 
 export const weatherQuery = createQuery({
   handler: async (city: string) => fetchWeather(city),

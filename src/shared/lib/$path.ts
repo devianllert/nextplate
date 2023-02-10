@@ -280,9 +280,6 @@ export const staticPath = {
         wi_windy_svg: '/static/images/weather/wi-windy.svg',
       },
     },
-    scripts: {
-      initialize_color_mode_js: '/static/scripts/initialize-color-mode.js',
-    },
   },
 } as const;
 

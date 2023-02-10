@@ -1,11 +1,8 @@
 import * as React from 'react';
 import { Story, Meta } from '@storybook/react';
-
-import { AspectRatio } from '@/shared/components/system/aspect-ratio';
-import { Box } from '@/shared/components/system/box';
+import { Box, AspectRatio, Badge } from '@effable/react';
 
 import { Indicator, IndicatorProps } from '../indicator';
-import { Badge } from '../../badge';
 
 export default {
   title: 'Design System/Components/Indicator',
@@ -38,7 +35,7 @@ export const WithCustomElement = Template.bind({});
 
 WithCustomElement.args = {
   label: (
-    <Badge color="blue">New</Badge>
+    <Badge color="info">New</Badge>
   ),
   color: null,
   border: true,

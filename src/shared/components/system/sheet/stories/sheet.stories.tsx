@@ -1,9 +1,9 @@
 import * as React from 'react';
 import { Meta } from '@storybook/react';
 import styled from '@emotion/styled';
+import { Button } from '@effable/react';
 
 import shadows from '@/shared/design/tokens/shadows';
-import { Button } from '@/shared/components/system/button';
 
 import {
   Sheet,

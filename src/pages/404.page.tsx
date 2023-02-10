@@ -4,12 +4,12 @@ import * as Sentry from '@sentry/nextjs';
 import { useTranslation } from 'next-i18next';
 import { useRouter } from 'next/router';
 import { RiArrowRightLine } from 'react-icons/ri';
+import {
+  Stack, Text, Button, Heading,
+} from '@effable/react';
 
 import React from 'react';
 import { createLogger } from '@/shared/lib/logging/logger';
-import * as Text from '@/shared/components/system/text';
-import { Button } from '@/shared/components/system/button';
-import { Stack } from '@/shared/components/system/stack';
 import { PageSEO } from '@/shared/lib/meta';
 import { getTranslationsStaticProps } from '@/shared/lib/ssr';
 import { EnhancedNextPage } from '@/shared/types/enhanced-next-page';
@@ -62,15 +62,14 @@ const NotFound404Page: EnhancedNextPage<Props> = (): JSX.Element => {
       />
 
       <Stack direction="column" space={3}>
-        <Text.Paragraph variant="body1" color="text.secondary">{t('SUBTITLE')}</Text.Paragraph>
+        <Text variant="m" color="secondary">{t('SUBTITLE')}</Text>
 
-        <Text.Heading component="h1" variant="h4">{t('TITLE')}</Text.Heading>
+        <Heading component="h1" variant="h4">{t('TITLE')}</Heading>
 
-        <Text.Paragraph variant="body2" color="text.secondary">{t('DESCRIPTION')}</Text.Paragraph>
+        <Text variant="s" color="secondary">{t('DESCRIPTION')}</Text>
 
         <Link href="/" passHref>
           <Button
-            variant="contained"
             endIcon={<RiArrowRightLine />}
           >
             {t('BUTTON')}

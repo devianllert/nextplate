@@ -1,10 +1,10 @@
 import * as React from 'react';
 import { Story, Meta } from '@storybook/react';
+import {
+  Box, Heading, Stack, Text,
+} from '@effable/react';
 
-import * as Text from '@/shared/components/system/text';
 import shadows from '@/shared/design/tokens/shadows';
-import { Box } from '@/shared/components/system/box';
-import { Stack } from '@/shared/components/system/stack';
 
 import * as ScrollArea from '../scroll-area';
 
@@ -28,12 +28,12 @@ export const Basic = () => (
     >
       <ScrollArea.StyledViewport>
         <Box p={3}>
-          <Text.Heading variant="h6">Tags</Text.Heading>
+          <Heading variant="h6">Tags</Heading>
 
           <Stack>
             {TAGS.map((tag) => (
               <Box px={2} py={1} boxShadow={shadows[3]} backgroundColor="radix.gray6">
-                <Text.Paragraph variant="body2" key={tag}>{tag}</Text.Paragraph>
+                <Text variant="s" key={tag}>{tag}</Text>
               </Box>
             ))}
           </Stack>

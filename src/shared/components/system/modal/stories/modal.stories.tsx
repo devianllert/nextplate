@@ -1,8 +1,6 @@
 import * as React from 'react';
 import { Meta } from '@storybook/react';
-
-import { Button } from '@/shared/components/system/button';
-import { Box } from '@/shared/components/system/box';
+import { Box, Button } from '@effable/react';
 
 import * as Modal from '../modal';
 
@@ -14,7 +12,7 @@ export default {
 export const Styled = () => (
   <Modal.Root>
     <Modal.Trigger asChild>
-      <Button variant="contained">Open</Button>
+      <Button>Open</Button>
     </Modal.Trigger>
 
     <Modal.Portal>
@@ -26,7 +24,7 @@ export const Styled = () => (
           <Modal.Description>Please enter the info for your booking below.</Modal.Description>
 
           <Modal.Close asChild>
-            <Button variant="contained">Close</Button>
+            <Button>Close</Button>
           </Modal.Close>
         </Box>
       </Modal.StyledContent>
@@ -39,7 +37,7 @@ export const NonModal = () => (
     <Modal.Root modal={false}>
 
       <Modal.Trigger asChild>
-        <Button variant="contained">Open</Button>
+        <Button>Open</Button>
       </Modal.Trigger>
 
       <Modal.Portal>
@@ -51,7 +49,7 @@ export const NonModal = () => (
             <Modal.Description>Please enter the info for your booking below.</Modal.Description>
 
             <Modal.Close asChild>
-              <Button variant="contained">Close</Button>
+              <Button>Close</Button>
             </Modal.Close>
           </Box>
         </Modal.StyledContent>
@@ -75,7 +73,7 @@ export const Controlled = () => {
     <Modal.Root open={open} onOpenChange={setOpen}>
 
       <Modal.Trigger asChild>
-        <Button variant="contained">{open ? 'Close' : 'Open'}</Button>
+        <Button>{open ? 'Close' : 'Open'}</Button>
       </Modal.Trigger>
 
       <Modal.Portal>
@@ -87,7 +85,7 @@ export const Controlled = () => {
             <Modal.Description>Please enter the info for your booking below.</Modal.Description>
 
             <Modal.Close asChild>
-              <Button variant="contained">Close</Button>
+              <Button>Close</Button>
             </Modal.Close>
           </Box>
         </Modal.StyledContent>

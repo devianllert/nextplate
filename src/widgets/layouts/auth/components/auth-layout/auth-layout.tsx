@@ -3,8 +3,7 @@ import Image from 'next/image';
 import {
   motion, useMotionValue, useTransform, useReducedMotion,
 } from 'framer-motion';
-
-import { Box } from '@/shared/components/system/box';
+import { Box } from '@effable/react';
 
 import { AuthHeader } from '../auth-header';
 import { AuthContent } from '../auth-content';
@@ -60,12 +59,12 @@ export const AuthLayout = (props: AuthLayoutProps): JSX.Element => {
           }}
         >
           <Box
+            component={Image}
             src="https://images.unsplash.com/photo-1604604994333-f1b0e9471186"
             priority
             fill
             alt="123"
-            component={Image}
-            sx={{
+            style={{
               objectFit: 'cover',
               objectPosition: 'top',
             }}

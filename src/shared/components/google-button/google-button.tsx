@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { useTranslation } from 'next-i18next';
 import { RiGoogleFill } from 'react-icons/ri';
-import { Box } from '../system/box';
+import { Box } from '@effable/react';
 
 import * as S from './google-button.styled';
 

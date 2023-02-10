@@ -3,8 +3,7 @@ import {
   attach, createEffect, createEvent, createStore, restore,
 } from 'effector';
 import decode from 'jwt-decode';
-
-import { isBrowser } from '@/shared/lib/is-browser';
+import { isBrowser } from '@effable/misc';
 
 import { httpClient } from '../http-client';
 import { TokenPayload } from '@/entities/auth';

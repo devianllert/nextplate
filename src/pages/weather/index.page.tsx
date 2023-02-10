@@ -1,12 +1,9 @@
 import React from 'react';
 import { RiMapPinLine, RiSearchLine } from 'react-icons/ri';
-
+import { ActionButton, Box, Heading } from '@effable/react';
 import { useUnit } from 'effector-react/scope';
+
 import { createLogger } from '@/shared/lib/logging/logger';
-import * as Text from '@/shared/components/system/text';
-import { Box } from '@/shared/components/system/box';
-import { Input } from '@/shared/components/system/input';
-import { IconButton } from '@/shared/components/system/icon-button';
 import { PageSEO } from '@/shared/lib/meta';
 import { WeatherLayout } from '@/layouts/weather';
 import { getTranslationsStaticProps } from '@/shared/lib/ssr';
@@ -18,6 +15,7 @@ import {
   $search, inputChanged, searchClicked,
 } from '@/entities/weather';
 import { staticPath } from '@/shared/lib/$path';
+import { Input } from '@/shared/components/system/input';
 
 const logger = createLogger('Weather');
 
@@ -72,11 +70,11 @@ const WeatherSearchPage: EnhancedNextPage<Props> = (): JSX.Element => {
         flexDirection="column"
         alignItems="center"
         justifyContent="center"
-        color="text.primary"
+        color="primary"
         background="linear-gradient(180deg, rgba(13,28,139,1) 0%, rgba(83,36,224,1) 65%)"
         px={2}
       >
-        <Text.Heading variant="h1">Weather</Text.Heading>
+        <Heading variant="h1">Weather</Heading>
 
         <Box
           component="form"
@@ -91,14 +89,13 @@ const WeatherSearchPage: EnhancedNextPage<Props> = (): JSX.Element => {
               <RiMapPinLine />
             )}
             suffix={(
-              <IconButton
+              <ActionButton
                 type="submit"
                 size="small"
-                edge="end"
                 onClick={handleSubmit}
               >
                 <RiSearchLine />
-              </IconButton>
+              </ActionButton>
             )}
             value={search}
             color="black"

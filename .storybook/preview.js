@@ -1,17 +1,14 @@
+import { EffableProvider, useEffableTheme } from '@effable/react';
 import { themes } from '@storybook/theming';
 import { addDecorator } from '@storybook/react';
 import { withTests } from '@storybook/addon-jest';
 import { withPerformance } from 'storybook-addon-performance';
 import { I18nextProvider } from 'react-i18next';
 import { RouterContext } from 'next/dist/shared/lib/router-context';
-import { ThemeProvider, useColorMode } from 'theme-ui';
 import i18n from './i18n';
 
 import '@storybook/addon-console'; // Automatically forwards all logs in the "Actions" panel - See https://github.com/storybookjs/storybook-addon-console
 import '@/shared/design/external-styles'; // Import the same 3rd party libraries global styles as the pages/_app.tsx (for UI consistency)
-import { GlobalStyles } from '@/shared/design/global-styles';
-import { ResetStyles } from '@/shared/design/reset-styles';
-import { theme } from '@/shared/design/themes';
 
 /**
  * Story Global parameters for Storybook.
@@ -139,10 +136,7 @@ export const decorators = [
   (Story, context) => {
     return (
       <I18nextProvider i18n={i18n}>
-        <ThemeProvider theme={theme}>
-          <ResetStyles />
-          <GlobalStyles />
-
+        <EffableProvider>
           <Toggler />
 
           <div
@@ -157,14 +151,14 @@ export const decorators = [
           >
             <Story />
           </div>
-        </ThemeProvider>
+        </EffableProvider>
       </I18nextProvider>
     );
   },
 ];
 
 const Toggler = () => {
-  const [colorMode, setColorMode] = useColorMode();
+  const { mode, setMode } = useEffableTheme();
 
   return (
     <div
@@ -174,7 +168,7 @@ const Toggler = () => {
         right: 16,
       }}
     >
-      <button onClick={() => setColorMode(colorMode === 'dark' ? 'default' : 'dark')}>{colorMode}</button>
+      <button onClick={() => setMode(mode === 'dark' ? 'default' : 'dark')}>{colorMode}</button>
     </div>
   );
 };

@@ -1,8 +1,8 @@
 import * as React from 'react';
 import { RiEyeLine, RiEyeOffLine } from 'react-icons/ri';
+import { ActionButton } from '@effable/react';
 
 import { useBoolean } from '@/shared/hooks/use-boolean';
-import { IconButton } from '@/components/system/icon-button';
 
 import { Input, InputProps } from './input';
 
@@ -16,9 +16,9 @@ export const InputPassword = React.forwardRef<HTMLInputElement, InputProps>((pro
       ref={ref}
       type={show ? 'text' : 'password'}
       suffix={(
-        <IconButton onClick={() => toggleShow()} size="small">
+        <ActionButton onClick={() => toggleShow()} size="small">
           {show ? <RiEyeLine /> : <RiEyeOffLine />}
-        </IconButton>
+        </ActionButton>
       )}
       {...props}
     />

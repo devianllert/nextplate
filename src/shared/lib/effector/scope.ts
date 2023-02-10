@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { fork, serialize, Scope } from 'effector';
-
-import { isBrowser } from '@/shared/lib/is-browser';
+import { isBrowser } from '@effable/misc';
 
 export const EFFECTOR_STATE_KEY = '__EFFECTOR_STATE__';
 

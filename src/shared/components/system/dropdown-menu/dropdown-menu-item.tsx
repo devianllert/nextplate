@@ -3,10 +3,8 @@ import * as DropdownMenuPrimitive from '@radix-ui/react-dropdown-menu';
 import styled from '@emotion/styled';
 import { CSSObject, Theme } from '@emotion/react';
 import { RiCheckLine, RiArrowRightSLine } from 'react-icons/ri';
+import { Box, Switch } from '@effable/react';
 
-import { Box } from '@/shared/components/system/box';
-import { Flex } from '@/shared/components/system/flex';
-import { Switch } from '@/shared/components/system/switch';
 import { paragraphs } from '@/shared/design/tokens/typography';
 
 const menuItemCss = (props: { theme: Theme }): CSSObject => ({
@@ -71,9 +69,9 @@ export const DropdownMenuRadioItem = React.forwardRef((
 
     <Box component="span" position="absolute" right={1}>
       <DropdownMenuPrimitive.ItemIndicator>
-        <Flex alignItems="center" justifyContent="center" width={16} height={16}>
+        <Box display="flex" alignItems="center" justifyContent="center" width={16} height={16}>
           <RiCheckLine size={16} />
-        </Flex>
+        </Box>
       </DropdownMenuPrimitive.ItemIndicator>
     </Box>
   </StyledDropdownMenuRadioItem>
@@ -105,9 +103,9 @@ export const DropdownMenuSubTriggerItem = React.forwardRef((
 ) => (
   <StyledDropdownMenuTriggerItem {...props} ref={ref}>
     <Box component="span" position="absolute" right={1}>
-      <Flex alignItems="center" justifyContent="center" width={16} height={16}>
+      <Box display="flex" alignItems="center" justifyContent="center" width={16} height={16}>
         <RiArrowRightSLine />
-      </Flex>
+      </Box>
     </Box>
 
     {children}

@@ -1,5 +1,5 @@
+import { Flatten } from '@effable/misc';
 import '@emotion/react';
-import { Theme as ThemeUI, ColorModesScale } from 'theme-ui';
 import {
   yellow,
   yellowA,
@@ -16,8 +16,6 @@ import {
   gray,
   grayA,
 } from '@radix-ui/colors';
-
-import { Flatten } from '@/shared/lib/flatten-object';
 
 import {
   PaletteBackground,
@@ -67,9 +65,9 @@ export type Colors = {
 };
 
 export interface ColorOverrides {
-  colors: ColorModesScale & Colors;
+  colors: Colors;
 
-  rawColors: ColorModesScale & Colors;
+  rawColors: Colors;
 }
 
 export type FlattenedColorKeys = keyof Flatten<Colors>;
@@ -77,12 +75,7 @@ export type FlattenedColorKeys = keyof Flatten<Colors>;
 export type ColorKeys = keyof Colors['radix'];
 
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
-type ThemeOverrides = ThemeUI & ColorOverrides;
-
-declare module 'theme-ui' {
-  // eslint-disable-next-line @typescript-eslint/no-empty-interface
-  export interface Theme extends ColorOverrides {}
-}
+type ThemeOverrides = ColorOverrides;
 
 declare module '@emotion/react' {
   // eslint-disable-next-line @typescript-eslint/no-empty-interface

@@ -1,6 +1,7 @@
 import styled from '@emotion/styled';
+import { ButtonBase } from '@effable/react';
+
 import { variants } from '@/shared/design/tokens/typography';
-import { ButtonBase } from '../system/button-base';
 import { createTransition, duration } from '@/shared/design/tokens/transitions';
 
 export const GoogleButtonRoot = styled(ButtonBase)((props) => ({

@@ -1,7 +1,5 @@
 import * as React from 'react';
-
-import { Container } from '@/shared/components/system/container';
-import { Box } from '@/shared/components/system/box';
+import { Box, Container } from '@effable/react';
 
 import * as S from './not-fount-layout.styled';
 

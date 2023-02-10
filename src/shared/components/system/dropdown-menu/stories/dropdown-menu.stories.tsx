@@ -2,8 +2,7 @@ import * as React from 'react';
 import { Meta } from '@storybook/react';
 import { RiDeleteBin2Line } from 'react-icons/ri';
 import styled from '@emotion/styled';
-
-import { Button } from '@/shared/components/system/button';
+import { Button } from '@effable/react';
 
 import * as DropdownMenu from '..';
 
@@ -16,7 +15,7 @@ export const Basic = () => {
   return (
     <DropdownMenu.Root>
       <DropdownMenu.Trigger asChild>
-        <Button variant="contained">Dropdown</Button>
+        <Button>Dropdown</Button>
       </DropdownMenu.Trigger>
 
       <DropdownMenu.Content>
@@ -100,7 +99,7 @@ export const Custom = () => {
   return (
     <DropdownMenu.Root>
       <DropdownMenu.Trigger asChild>
-        <Button variant="contained">Dropdown</Button>
+        <Button>Dropdown</Button>
       </DropdownMenu.Trigger>
 
       <DropdownMenu.Content>

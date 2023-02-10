@@ -1,16 +1,18 @@
+import {
+  DisplayOnBrowserMount,
+  Box,
+  Button,
+  Link,
+  Text,
+} from '@effable/react';
 import { useTranslation, Trans } from 'next-i18next';
 import { useUnit } from 'effector-react/scope';
 
-import { Box } from '@/shared/components/system/box';
-import * as Text from '@/shared/components/system/text';
-import { Button } from '@/shared/components/system/button';
 import { Portal } from '@/shared/components/system/portal';
-import { Link } from '@/shared/components/system/breadcrumbs';
 import shape from '@/shared/design/tokens/shape';
 import shadows from '@/shared/design/tokens/shadows';
 
 import { $isCookieAllowed, cookieAllowed } from './cookie-consent.model';
-import { DisplayOnBrowserMount } from '@/shared/components/rehydration/display-on-browser-mount';
 
 export const CookieConsent = () => {
   const { t } = useTranslation('common');
@@ -37,11 +39,11 @@ export const CookieConsent = () => {
             maxWidth={320}
             boxShadow={shadows[4]}
           >
-            <Text.Paragraph variant="body2" sx={{ mb: 2 }}>
+            <Text variant="s" sx={{ mb: 2 }}>
               <Trans t={t} i18nKey="COOKIE_CONSENT_TITLE" components={[<Link target="_blank" href="https://www.cookiesandyou.com" />]} />
-            </Text.Paragraph>
+            </Text>
 
-            <Button variant="outlined" size="small" onClick={allowCookies}>{t('COOKIE_CONSENT_ACTION')}</Button>
+            <Button variant="secondary" size="small" onClick={allowCookies}>{t('COOKIE_CONSENT_ACTION')}</Button>
           </Box>
         </Box>
       </Portal>

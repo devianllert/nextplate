@@ -1,8 +1,7 @@
 /* eslint-disable prefer-arrow-callback */
+import { useIsomorphicLayoutEffect } from 'framer-motion';
 import * as React from 'react';
 import { createPortal } from 'react-dom';
-
-import { useIsomorphicLayoutEffect } from '@/shared/hooks/use-isomorphic-layout-effect';
 
 interface PortalProps {
   /**

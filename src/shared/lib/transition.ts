@@ -1,5 +1,5 @@
+import { isNumber } from '@effable/misc';
 import { Target, TargetAndTransition, Transition } from 'framer-motion';
-import { isNumber } from './assertion';
 
 type TargetResolver<P = unknown> = (
   props: P & {

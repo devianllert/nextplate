@@ -2,10 +2,7 @@ import * as React from 'react';
 import { Story, Meta } from '@storybook/react';
 import styled from '@emotion/styled';
 import { RiDirectionLine, RiMenuLine, RiSearchLine } from 'react-icons/ri';
-
-import { Box } from '@/shared/components/system/box';
-import { IconButton } from '@/shared/components/system/icon-button';
-import { Divider } from '@/shared/components/system/divider';
+import { ActionButton, Box, Divider } from '@effable/react';
 
 import { InputBase, InputBaseProps } from '../input-base';
 
@@ -32,23 +29,23 @@ export const SearchBox = (): JSX.Element => (
     px="4px"
     boxShadow={1}
   >
-    <IconButton>
+    <ActionButton>
       <RiMenuLine />
-    </IconButton>
+    </ActionButton>
 
     <Box ml={2}>
       <InputBase placeholder="Search Google Maps" />
     </Box>
 
-    <IconButton>
+    <ActionButton>
       <RiSearchLine />
-    </IconButton>
+    </ActionButton>
 
-    <Divider orientation="vertical" flexItem />
+    <Divider orientation="vertical" />
 
-    <IconButton>
+    <ActionButton>
       <RiDirectionLine />
-    </IconButton>
+    </ActionButton>
   </Box>
 );
 
@@ -66,7 +63,7 @@ export const ComposedInputs = (): JSX.Element => (
   <InputContainer>
     <InputBase placeholder="example" />
 
-    <Divider orientation="vertical" space={0} flexItem />
+    <Divider orientation="vertical" />
 
     <Box maxWidth="6ch">
       <InputBase placeholder=".com" />

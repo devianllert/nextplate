@@ -1,9 +1,6 @@
 import * as React from 'react';
 import { Meta } from '@storybook/react';
-
-import { Button } from '@/shared/components/system/button';
-import { Box } from '@/shared/components/system/box';
-import { Stack } from '@/shared/components/system/stack';
+import { Box, Button, Stack } from '@effable/react';
 
 import * as AlertDialog from '../alert-dialog';
 
@@ -17,7 +14,7 @@ export const Basic = () => (
     <AlertDialog.StyledOverlay />
 
     <AlertDialog.Trigger asChild>
-      <Button variant="contained">Open</Button>
+      <Button>Open</Button>
     </AlertDialog.Trigger>
     <AlertDialog.StyledContent asChild>
       <Box backgroundColor="background.secondary" p={3}>
@@ -34,7 +31,7 @@ export const Basic = () => (
               <Button>Cancel</Button>
             </AlertDialog.Cancel>
             <AlertDialog.Action asChild>
-              <Button variant="contained" color="red">Yes, delete the account</Button>
+              <Button color="error">Yes, delete the account</Button>
             </AlertDialog.Action>
           </Stack>
         </Box>

@@ -1,8 +1,8 @@
 import * as React from 'react';
 import { RiCloseLine } from 'react-icons/ri';
+import { ActionButton } from '@effable/react';
 
-import { IconButton } from '@/shared/components/system/icon-button';
-import { Sizes, getPreviousSize } from '@/shared/design/tokens/size';
+import { Sizes } from '@/shared/design/tokens/size';
 
 interface UseInputClearOptions<T extends HTMLTextAreaElement | HTMLInputElement> {
   ref: React.RefObject<T>;
@@ -58,13 +58,13 @@ export function useInputClear<T extends HTMLTextAreaElement | HTMLInputElement>(
   };
 
   const clearIcon = showClearIcon ? (
-    <IconButton
-      size={getPreviousSize(size)}
+    <ActionButton
+      size={size}
       onMouseDown={setFocusOnInput}
       onClick={onClear}
     >
       <RiCloseLine />
-    </IconButton>
+    </ActionButton>
   ) : null;
 
   return { showClearIcon, clearIcon, composedOnChange };

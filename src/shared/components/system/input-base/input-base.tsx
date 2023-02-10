@@ -2,11 +2,10 @@
 import * as React from 'react';
 
 import { useComposedRefs } from '@/shared/lib/react';
-import { SxProp } from '@/shared/lib/css-in-js/sx';
 
 import * as S from './input-base.styled';
 
-export interface InputBaseProps extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'prefix' | 'size'>, SxProp {
+export interface InputBaseProps extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'prefix' | 'size'> {
   /**
    * If `true`, the `input` will indicate an error.
    * The prop defaults to the value (`false`) inherited from the parent FormControl component.
@@ -61,7 +60,6 @@ export const InputBase = React.forwardRef(function InputBase(props: InputBasePro
     className,
     inputRef,
     inputComponent,
-    sx,
     ...other
   } = props;
 
@@ -82,7 +80,6 @@ export const InputBase = React.forwardRef(function InputBase(props: InputBasePro
       disabled={disabled}
       onClick={handleClick}
       className={className}
-      sx={sx}
     >
       {prefix}
 

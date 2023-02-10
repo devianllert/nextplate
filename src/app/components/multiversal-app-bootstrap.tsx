@@ -1,19 +1,15 @@
 import * as React from 'react';
 import * as Sentry from '@sentry/nextjs';
 import Head from 'next/head';
-import { ThemeProvider } from 'theme-ui';
 import { appWithTranslation, useTranslation } from 'next-i18next';
 import { Provider as EffectorProvider } from 'effector-react/scope';
+import { isEmpty, isBrowser } from '@effable/misc';
 
+import { EffableProvider } from '@effable/react';
 import { configureSentryI18n } from '@/shared/lib/sentry';
-import { isBrowser } from '@/shared/lib/is-browser';
 import { DefaultErrorLayout } from '@/shared/components/error-handling';
-import { GlobalStyles } from '@/shared/design/global-styles';
-import { ResetStyles } from '@/shared/design/reset-styles';
-import { theme } from '@/shared/design/themes';
 import { createLogger } from '@/shared/lib/logging/logger';
 import { NProgressRoot } from '@/features/nprogress';
-import { isEmpty } from '@/shared/lib/assertion';
 
 import { getLinksAlternateHref } from '@/shared/lib/meta';
 import { MultiversalAppBootstrapProps } from '@/shared/types/multiversal-app-bootstrap-props';
@@ -113,9 +109,7 @@ const MultiversalAppBootstrap = (props: Props): JSX.Element => {
       </Head>
 
       <EffectorProvider value={scope}>
-        <ThemeProvider theme={theme}>
-          <GlobalStyles />
-          <ResetStyles />
+        <EffableProvider>
 
           <NProgressRoot showAfterMs={100} />
 
@@ -124,8 +118,7 @@ const MultiversalAppBootstrap = (props: Props): JSX.Element => {
           ) : (
             <ServerPageBootstrap {...multiversalPageBootstrapProps} />
           )}
-        </ThemeProvider>
-
+        </EffableProvider>
       </EffectorProvider>
     </>
   );

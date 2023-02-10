@@ -1,14 +1,11 @@
 import { useTranslation } from 'next-i18next';
 import NextLink from 'next/link';
 import { useUnit } from 'effector-react/scope';
+import {
+  Box, Button, Divider, Heading, Link, Stack, Text,
+} from '@effable/react';
 
-import { Stack } from '@/shared/components/system/stack';
-import { Box } from '@/shared/components/system/box';
-import { Divider } from '@/shared/components/system/divider';
-import { Text } from '@/shared/components/system/text';
 import { Input, InputPassword } from '@/shared/components/system/input';
-import { Link } from '@/shared/components/system/link';
-import { Button } from '@/shared/components/system/button';
 import { useForm } from '@/shared/lib/effector/forms';
 import { registerForm } from './register.model';
 import { registerFx } from '@/entities/auth';
@@ -29,16 +26,16 @@ export const RegisterForm = () => {
 
   return (
     <Box component="form" maxWidth="440px" width="100%" onSubmit={onSubmit}>
-      <Text.Heading variant="h3" component="h1" sx={{ mb: 4 }}>
+      <Heading variant="h3" component="h1" sx={{ mb: 4 }}>
         {t('SIGNUP')}
-      </Text.Heading>
+      </Heading>
 
       <Stack direction="column">
         <GoogleButton />
         <GithubButton />
       </Stack>
 
-      <Divider space={4} />
+      <Divider mt="4x" mb="4x" />
 
       <Stack direction="column">
         <Input
@@ -94,16 +91,13 @@ export const RegisterForm = () => {
         /> */}
 
         {form.formErrors.map((err) => (
-          <Text.Paragraph variant="body3" color="radix.red11" key={err.message}>
+          <Text variant="xs" color="radix.red11" key={err.message}>
             {t([`auth:${err.message}`, `common:${err.message}`])}
-          </Text.Paragraph>
+          </Text>
         ))}
 
         <Button
           type="submit"
-          variant="contained"
-          fullWidth
-          disableElevation
           loading={isSubmitting}
           disabled={isSubmitting}
         >
@@ -111,9 +105,9 @@ export const RegisterForm = () => {
         </Button>
       </Stack>
 
-      <Text.Paragraph variant="body2">
+      <Text variant="s">
         <Link href="/auth/login" component={NextLink}>{t('HAVE_ACCOUNT')}</Link>
-      </Text.Paragraph>
+      </Text>
     </Box>
   );
 };

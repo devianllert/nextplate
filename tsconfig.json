@@ -72,6 +72,7 @@
     "next-env.d.ts",
     "next.config.js",
     "jest.config.js",
+    "jest.setup.js",
     "./sentry.client.config.js",
     "./sentry.server.config.js",
     "src/shared/lib/i18n.config.js",

@@ -78,11 +78,11 @@ export const Advantage = (props: AdvantageProps): JSX.Element => {
         <Text
           variant="m"
           color="text.primary"
-          textAlign={{
-            base: 'left',
-            laptop: 'center',
-            desktop: 'center',
-          }}
+          // textAlign={{
+          //   base: 'left',
+          //   laptop: 'center',
+          //   desktop: 'center',
+          // }}
           sx={{ marginTop: '12px' }}
         >
           {description}

@@ -24,7 +24,7 @@ export const Basic = () => (
       height={225}
       borderRadius={4}
       overflow="hidden"
-      backgroundColor="radix.gray4"
+      backgroundColor="neutral.neutral4"
     >
       <ScrollArea.StyledViewport>
         <Box p={3}>
@@ -32,7 +32,7 @@ export const Basic = () => (
 
           <Stack>
             {TAGS.map((tag) => (
-              <Box px={2} py={1} boxShadow={shadows[3]} backgroundColor="radix.gray6">
+              <Box px={2} py={1} boxShadow={shadows[3]} backgroundColor="neutral.neutral6">
                 <Text variant="s" key={tag}>{tag}</Text>
               </Box>
             ))}

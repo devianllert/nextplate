@@ -27,7 +27,7 @@ export const MainFooter = (): JSX.Element => {
         width="100%"
         maxWidth="1366px"
       >
-        <Text variant="m" color="#20134B" fontSize="16px">
+        <Text variant="s" color="text.secondary">
           Copyright © 2022 devianllert
         </Text>
 

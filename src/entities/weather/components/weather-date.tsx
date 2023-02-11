@@ -1,8 +1,8 @@
 import * as React from 'react';
 import format from 'date-fns/format';
-import { Box, DisplayOnBrowserMount, Heading } from '@effable/react';
-
-import { useInterval } from '@/shared/hooks/use-interval';
+import {
+  Box, DisplayOnBrowserMount, Heading, useInterval,
+} from '@effable/react';
 
 const DATE_UPDATE_TIMEOUT = 30 * 1000;
 

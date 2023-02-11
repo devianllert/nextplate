@@ -14,7 +14,7 @@ const Template: Story<LoadingOverlayProps> = (args) => {
     <Box position="relative">
       <LoadingOverlay {...args} />
 
-      <Box width={300} height={400} backgroundColor="radix.secondary9">
+      <Box width={300} height={400} backgroundColor="accent.accent9">
         some content
       </Box>
     </Box>

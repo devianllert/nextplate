@@ -1,6 +1,5 @@
 import * as React from 'react';
-
-import { useCallbackRef } from './use-callback-ref';
+import { useCallbackRef } from '@effable/react';
 
 export interface UseKeyboardKeyOptions {
   event?: 'keydown' | 'keypress' | 'keyup';

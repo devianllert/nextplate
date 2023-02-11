@@ -134,9 +134,9 @@ const WeatherPlacePage: EnhancedNextPage<Props> = (): JSX.Element => {
                 mb={[4, null, 0]}
               >
                 <Image width="112" height="112" src={`/static/images/weather/wi-${ICONS_MAP[data?.condition.code ?? '113']}.svg`} alt={data?.condition.title} />
-                <Heading variant="h3" component="span" fontWeight="medium" textAlign="center">{data?.condition.title}</Heading>
-                <Heading variant="h6" component="span" sx={{ mt: 2 }} fontWeight="normal" color="secondary">{data?.place}</Heading>
-                <Heading variant="h3" component="span" sx={{ mt: 4 }} fontWeight="bold">{data?.temp.c} °</Heading>
+                <Heading variant="h3" component="span">{data?.condition.title}</Heading>
+                <Heading variant="h6" component="span" sx={{ mt: 2 }} color="text.secondary">{data?.place}</Heading>
+                <Heading variant="h3" component="span" sx={{ mt: 4 }}>{data?.temp.c} °</Heading>
               </Box>
             </Box>
           )}

@@ -34,7 +34,7 @@ const DashboardPage = () => {
   return (
     <Box>
       <Box>
-        <Box height="240px" backgroundColor="radix.primaryA6" />
+        <Box height="240px" backgroundColor="accent.accent6" />
 
         <Box>
           <Container>

@@ -12,7 +12,7 @@ export const DropdownMenuSeparator = styled(DropdownMenuPrimitive.Separator)((pr
   height: 1,
   marginTop: 4,
   marginBottom: 4,
-  backgroundColor: props.theme.colors.radix.grayA6,
+  backgroundColor: props.theme.colors.neutral.neutral6,
 }));
 
 export const DropdownMenuArrow = styled(DropdownMenuPrimitive.Arrow)({

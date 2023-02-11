@@ -9,7 +9,6 @@ import { useTranslation, Trans } from 'next-i18next';
 import { useUnit } from 'effector-react/scope';
 
 import { Portal } from '@/shared/components/system/portal';
-import shape from '@/shared/design/tokens/shape';
 import shadows from '@/shared/design/tokens/shadows';
 
 import { $isCookieAllowed, cookieAllowed } from './cookie-consent.model';
@@ -34,7 +33,7 @@ export const CookieConsent = () => {
             display="flex"
             flexDirection="column"
             alignItems="flex-end"
-            borderRadius={shape.round}
+            borderRadius="2x"
             backgroundColor="background.secondary"
             maxWidth={320}
             boxShadow={shadows[4]}

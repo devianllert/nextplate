@@ -26,7 +26,7 @@ const menuItemCss = (props: { theme: Theme }): CSSObject => ({
 
   '&:focus': {
     outline: 'none',
-    backgroundColor: props.theme.colors.radix.gray4,
+    backgroundColor: props.theme.colors.neutral.neutral4,
   },
 
   '&[data-disabled]': {
@@ -48,16 +48,16 @@ const StyledDropdownMenuCheckboxItem = styled(DropdownMenuPrimitive.CheckboxItem
 export const DropdownMenuItemRightAdornment = styled.div((props) => ({
   marginLeft: 'auto',
   paddingLeft: 16,
-  color: props.theme.colors.radix.gray11,
+  color: props.theme.colors.neutral.neutral11,
   // '*:focus > &': { color: 'white' },
-  '[data-disabled] &': { color: props.theme.colors.radix.gray8 },
+  '[data-disabled] &': { color: props.theme.colors.neutral.neutral8 },
 }));
 
 export const DropdownMenuItemLeftAdornment = styled.div((props) => ({
   paddingRight: 8,
-  color: props.theme.colors.radix.gray11,
+  color: props.theme.colors.neutral.neutral11,
   // '*:focus > &': { color: 'white' },
-  '[data-disabled] &': { color: props.theme.colors.radix.gray8 },
+  '[data-disabled] &': { color: props.theme.colors.neutral.neutral8 },
 }));
 
 export const DropdownMenuRadioItem = React.forwardRef((

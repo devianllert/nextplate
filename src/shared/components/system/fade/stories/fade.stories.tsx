@@ -12,7 +12,7 @@ export default {
 const Template: Story<FadeProps> = (args) => {
   return (
     <Fade {...args}>
-      <Box width={300} height={400} backgroundColor="radix.secondary9">
+      <Box width={300} height={400} backgroundColor="accent.accent9">
         some content
       </Box>
     </Fade>

@@ -73,11 +73,11 @@ export const HelpButton = (): JSX.Element => {
 
           <DropdownMenu.Group asChild>
             <Box px={1} pt={2} display="flex" flexDirection="column">
-              <Text variant="xs" lineHeight="120%" color="text.secondary" sx={{ mb: 1 }}>
+              <Text variant="xs" color="text.secondary" sx={{ mb: 1 }}>
                 {APP_TITLE} {process.env.NEXT_PUBLIC_APP_VERSION_RELEASE ?? '0.0.1'}
               </Text>
 
-              <Text variant="xs" lineHeight="120%" color="text.secondary">
+              <Text variant="xs" color="text.secondary">
                 {t('LAST_UPDATE')}
                 {' '}
                 <Timeago

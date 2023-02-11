@@ -1378,15 +1378,20 @@
   resolved "https://registry.yarnpkg.com/@discoveryjs/json-ext/-/json-ext-0.5.7.tgz#1d572bfbbe14b7704e0ba0f39b74815b84870d70"
   integrity sha512-dBVuXR082gk3jsFp7Rd/JI4kytwGHecnCoTtXFb7DB6CNHp4rg5k1bhg0nWdLGLnOV71lmDzGQaLMy8iPLY0pw==
 
-"@effable/misc@*", "@effable/misc@^0.4.0":
+"@effable/misc@*":
   version "0.4.0"
   resolved "https://registry.yarnpkg.com/@effable/misc/-/misc-0.4.0.tgz#5c909370a409400e116c7c0dc1a6094a9fd32539"
   integrity sha512-f7eo7AOgMm9cBFiqBlWCDUzk5c+XwApz89uEHNVkUfFcxTOiZoCxksSb7uRxZNvH9dWN5NTV5zv0NXOfkOPRwQ==
 
-"@effable/react@^0.12.0":
-  version "0.12.0"
-  resolved "https://registry.yarnpkg.com/@effable/react/-/react-0.12.0.tgz#994a68cdf2def4619cf65e8b313666ff87d12678"
-  integrity sha512-v4U95dn4Q+GKaVfu0pPGAfMLWWuvFkh8EG0TwoLe8PlIq5lNntnJL56gU/hW4Nk0pCimysXvVeuxyT8eufEEXQ==
+"@effable/misc@^0.5.2":
+  version "0.5.2"
+  resolved "https://registry.yarnpkg.com/@effable/misc/-/misc-0.5.2.tgz#0048c86772cc78f36ad193b9b9725f08743c9636"
+  integrity sha512-QQdVPvcsr3ckYnd1LYQ1bFI7yrODHr++bF1J+qhH6AXFtkb4DYHhSQEjVBMMygKCA2U7z/YveHKKISc5LII/FA==
+
+"@effable/react@^0.13.3":
+  version "0.13.3"
+  resolved "https://registry.yarnpkg.com/@effable/react/-/react-0.13.3.tgz#a3988543990816fb04716d78b331b0318b4990f6"
+  integrity sha512-p8gq4+OL0UB3PN2GFm+txj5YYMfQdoOM7xmEvXplXusxbwCUZMfbaFvezgfbMsZ/DTwg5mCgVTMqbsmwrIk8gA==
   dependencies:
     "@effable/misc" "*"
     "@effable/tokens" "*"
@@ -1398,8 +1403,10 @@
     "@radix-ui/react-switch" "^1.0.1"
     "@styled-system/css" "^5.1.5"
     "@styled-system/should-forward-prop" "^5.1.5"
+    "@types/styled-system" "^5.1.15"
+    "@types/styled-system__css" "^5.0.17"
+    "@types/styled-system__should-forward-prop" "^5.1.2"
     deepmerge "^4.2.2"
-    react-icons "^4.7.1"
     styled-system "^5.1.5"
 
 "@effable/tokens@*":
@@ -4690,7 +4697,16 @@
   dependencies:
     "@types/react" "*"
 
-"@types/react@*", "@types/react@18.0.27":
+"@types/react@*":
+  version "18.0.28"
+  resolved "https://registry.yarnpkg.com/@types/react/-/react-18.0.28.tgz#accaeb8b86f4908057ad629a26635fe641480065"
+  integrity sha512-RD0ivG1kEztNBdoAK7lekI9M+azSnitIn85h4iOiaLjaTrMjzslhaqCGaI4IyCJ1RljWiLCEu4jyrLLgqxBTew==
+  dependencies:
+    "@types/prop-types" "*"
+    "@types/scheduler" "*"
+    csstype "^3.0.2"
+
+"@types/react@18.0.27":
   version "18.0.27"
   resolved "https://registry.yarnpkg.com/@types/react/-/react-18.0.27.tgz#d9425abe187a00f8a5ec182b010d4fd9da703b71"
   integrity sha512-3vtRKHgVxu3Jp9t718R9BuzoD4NcQ8YJ5XRzsSKxNDiDonD2MXIT1TmSkenxuCycZJoQT5d2vE8LwWJxBC1gmA==
@@ -4733,6 +4749,25 @@
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/@types/stack-utils/-/stack-utils-2.0.1.tgz#20f18294f797f2209b5f65c8e3b5c8e8261d127c"
   integrity sha512-Hl219/BT5fLAaz6NDkSuhzasy49dwQS/DSdu4MdggFB8zcXv7vflBI3xp7FEmkmdDkBUI2bPUNeMttp2knYdxw==
+
+"@types/styled-system@^5.1.15":
+  version "5.1.16"
+  resolved "https://registry.yarnpkg.com/@types/styled-system/-/styled-system-5.1.16.tgz#c6fa6f751f051de3c7c5fe1d5dc7562d95a80a9e"
+  integrity sha512-+dyGs2n2o6QStsexh87NeaRmXYnKOnEe7iOEkcYOwKwI5a1gFL0+Mt/hZKi+4KD1qDMkLkGb0lpDrffb/vSkDQ==
+  dependencies:
+    csstype "^3.0.2"
+
+"@types/styled-system__css@^5.0.17":
+  version "5.0.17"
+  resolved "https://registry.yarnpkg.com/@types/styled-system__css/-/styled-system__css-5.0.17.tgz#ce6778f896f401e15cdbf77091e4eea112a60343"
+  integrity sha512-QF67UqeDdigjurmckNPCwkYjZriX270ghPiA6f3GqJG6jg7E4hcq7eGtdYh/DNivMz8sklBfT8y7r5brkCr7QA==
+  dependencies:
+    csstype "^3.0.2"
+
+"@types/styled-system__should-forward-prop@^5.1.2":
+  version "5.1.2"
+  resolved "https://registry.yarnpkg.com/@types/styled-system__should-forward-prop/-/styled-system__should-forward-prop-5.1.2.tgz#57a71acb9c85bdd6e47cbb7f645037c6858c1ee7"
+  integrity sha512-xHTA+qeTkKw8bJ7O7UxkzgTkVtlcEV0NbVlGkTZqHK/0YIGAPBcvHKs2y3811UeeHbkW9H/qfy7HtqwvAvwCSQ==
 
 "@types/tapable@^1", "@types/tapable@^1.0.5":
   version "1.0.8"
@@ -14494,7 +14529,7 @@ react-i18next@^11.18.4:
     "@babel/runtime" "^7.14.5"
     html-parse-stringify "^3.0.1"
 
-react-icons@4.7.1, react-icons@^4.7.1:
+react-icons@4.7.1:
   version "4.7.1"
   resolved "https://registry.yarnpkg.com/react-icons/-/react-icons-4.7.1.tgz#0f4b25a5694e6972677cb189d2a72eabea7a8345"
   integrity sha512-yHd3oKGMgm7zxo3EA7H2n7vxSoiGmHk5t6Ou4bXsfcgWyhfDKMpyKfhHR6Bjnn63c+YXBLBPUql9H4wPJM6sXw==

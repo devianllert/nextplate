@@ -23,7 +23,7 @@ export const SearchBox = (): JSX.Element => (
     display="flex"
     alignItems="center"
     border="1px solid"
-    borderColor="radix.gray6"
+    borderColor="neutral.neutral6"
     borderRadius={4}
     py="2px"
     px="4px"
@@ -53,9 +53,9 @@ const InputContainer = styled.div((props) => ({
   display: 'flex',
   border: '1px solid',
   borderRadius: 4,
-  borderColor: props.theme.colors.radix.gray6,
+  borderColor: props.theme.colors.neutral.neutral6,
   '&:focus-within': {
-    borderColor: props.theme.colors.radix.gray8,
+    borderColor: props.theme.colors.neutral.neutral8,
   },
 }));
 

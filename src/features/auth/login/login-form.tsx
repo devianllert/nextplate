@@ -73,7 +73,7 @@ export const LoginForm = () => {
         />
 
         {form.formErrors.map((err) => (
-          <Text variant="xs" color="radix.red11" key={err.message}>
+          <Text variant="xs" color="error.error11" key={err.message}>
             {t([`auth:${err.message}`, `common:${err.message}`])}
           </Text>
         ))}

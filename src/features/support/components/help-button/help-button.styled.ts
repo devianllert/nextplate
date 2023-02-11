@@ -15,13 +15,13 @@ export const HelpButtonRoot = styled(ButtonBase)((props) => ({
   color: props.theme.colors.text.primary,
   backgroundColor: props.theme.colors.background.primary,
   border: '1px solid',
-  borderColor: props.theme.colors.radix.gray7,
+  borderColor: props.theme.colors.neutral.neutral7,
 
   '&:hover': {
-    background: props.theme.colors.radix.gray3,
+    background: props.theme.colors.neutral.neutral3,
   },
 
   '&:active': {
-    background: props.theme.colors.radix.gray4,
+    background: props.theme.colors.neutral.neutral4,
   },
 }));

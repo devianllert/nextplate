@@ -3,11 +3,13 @@
  */
 
 import * as React from 'react';
+
 import { screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
-import { InputBase } from '../input-base';
 import { renderWithProviders } from '@/shared/lib/testing/render-with-providers';
+
+import { InputBase } from '../input-base';
 
 describe('<BaseInput />', () => {
   it('should render an <input /> inside the div', () => {
@@ -26,9 +28,7 @@ describe('<BaseInput />', () => {
   });
 
   it('should accept any html component', () => {
-    renderWithProviders(
-      <InputBase inputComponent="span" data-testid="input-component"/>,
-    );
+    renderWithProviders(<InputBase inputComponent="span" data-testid="input-component" />);
 
     expect(screen.getByTestId('input-component')).toHaveProperty('nodeName', 'SPAN');
   });
@@ -41,29 +41,13 @@ describe('<BaseInput />', () => {
   });
 
   it('should render prefix before input', () => {
-    renderWithProviders(
-      <InputBase
-        prefix={
-          <span data-testid="prefix">
-            $
-          </span>
-        }
-      />,
-    );
+    renderWithProviders(<InputBase prefix={<span data-testid="prefix">$</span>} />);
 
     expect(screen.getByTestId('prefix')).not.toEqual(null);
   });
 
   it('should render suffix after input', () => {
-    renderWithProviders(
-      <InputBase
-        suffix={
-          <span data-testid="suffix">
-            $
-          </span>
-        }
-      />,
-    );
+    renderWithProviders(<InputBase suffix={<span data-testid="suffix">$</span>} />);
 
     expect(screen.getByTestId('suffix')).not.toEqual(null);
   });

@@ -1,7 +1,11 @@
 import { isBrowser } from '@effable/misc';
-import { ExtendedNavigator } from './types/navigator.interface';
 
-import { NetworkConnectionType, NetworkInformation, NetworkInformationSpeed } from './types/network-information.interface';
+import { ExtendedNavigator } from './types/navigator.interface';
+import {
+  NetworkConnectionType,
+  NetworkInformation,
+  NetworkInformationSpeed,
+} from './types/network-information.interface';
 
 /**
  * Returns information about the device's network connection.
@@ -9,9 +13,11 @@ import { NetworkConnectionType, NetworkInformation, NetworkInformationSpeed } fr
  * Note: You should check JS environment by yourself or use `getNetworkInformation` function.
  */
 export const getNavigatorConnection = (): NetworkInformation | undefined => {
-  return (navigator as unknown as ExtendedNavigator)?.connection
+  return (
+    (navigator as unknown as ExtendedNavigator)?.connection
     ?? (navigator as unknown as ExtendedNavigator)?.mozConnection
-    ?? (navigator as unknown as ExtendedNavigator)?.webkitConnection;
+    ?? (navigator as unknown as ExtendedNavigator)?.webkitConnection
+  );
 };
 
 /**

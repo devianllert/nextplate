@@ -1,8 +1,9 @@
 import * as React from 'react';
-import { Story, Meta } from '@storybook/react';
-import styled from '@emotion/styled';
-import { RiDirectionLine, RiMenuLine, RiSearchLine } from 'react-icons/ri';
+
 import { ActionButton, Box, Divider } from '@effable/react';
+import styled from '@emotion/styled';
+import { Meta, Story } from '@storybook/react';
+import { RiDirectionLine, RiMenuLine, RiSearchLine } from 'react-icons/ri';
 
 import { InputBase, InputBaseProps } from '../input-base';
 
@@ -15,8 +16,7 @@ const Template: Story<InputBaseProps> = (args) => <InputBase {...args} />;
 
 export const Basic = Template.bind({});
 
-Basic.args = {
-};
+Basic.args = {};
 
 export const SearchBox = (): JSX.Element => (
   <Box

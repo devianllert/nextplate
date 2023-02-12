@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 
-import { variants } from '@/shared/design/tokens/typography';
 import { createTransition, duration } from '@/shared/design/tokens/transitions';
+import { variants } from '@/shared/design/tokens/typography';
 
 export const InputBaseRoot = styled.div<{ disabled?: boolean; fullWidth?: boolean }>((props) => ({
   ...variants.body2,

@@ -1,6 +1,7 @@
 import * as React from 'react';
-import { Story, Meta } from '@storybook/react';
+
 import { Box } from '@effable/react';
+import { Meta, Story } from '@storybook/react';
 
 import { Fade, FadeProps } from '../fade';
 

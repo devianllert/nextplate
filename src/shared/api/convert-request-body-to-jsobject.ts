@@ -1,4 +1,5 @@
 import { NextApiRequest } from 'next';
+
 import { GenericObject } from '../types/generic-object';
 
 /**

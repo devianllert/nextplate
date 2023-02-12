@@ -195,7 +195,7 @@ export const USE_PROXY = 305;
  * the behavior with non-`GET` methods and `302` is then unpredictable on the
  * Web, whereas the behavior with `307` is predictable. For `GET` requests,
  *their behavior is identical.
-  */
+ */
 export const TEMPORARY_REDIRECT = 307;
 
 /**

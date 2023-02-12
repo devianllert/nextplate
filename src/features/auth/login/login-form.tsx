@@ -1,18 +1,21 @@
 import * as React from 'react';
-import { useTranslation } from 'next-i18next';
+
 import NextLink from 'next/link';
-import { useUnit } from 'effector-react/scope';
+
 import {
   Box, Button, Divider, Heading, Link, Stack, Text,
 } from '@effable/react';
+import { useUnit } from 'effector-react/scope';
+import { useTranslation } from 'next-i18next';
 
-import { Input, InputPassword } from '@/shared/components/system/input';
 import { loginFx } from '@/entities/auth';
-import { useForm } from '@/shared/lib/effector/forms';
+
+import { GithubButton } from '@/shared/components/github-button';
 import { GoogleButton } from '@/shared/components/google-button';
+import { Input, InputPassword } from '@/shared/components/system/input';
+import { useForm } from '@/shared/lib/effector/forms';
 
 import { loginForm } from './login.model';
-import { GithubButton } from '@/shared/components/github-button';
 
 export const LoginForm = () => {
   const { t } = useTranslation(['auth', 'common']);
@@ -27,13 +30,10 @@ export const LoginForm = () => {
   };
 
   return (
-    <Box
-      component="form"
-      maxWidth="440px"
-      width="100%"
-      onSubmit={onSubmit}
-    >
-      <Heading variant="h4" component="h1" sx={{ mb: 4 }}>{t('LOGIN')}</Heading>
+    <Box component="form" maxWidth="440px" width="100%" onSubmit={onSubmit}>
+      <Heading variant="h4" component="h1" sx={{ mb: 4 }}>
+        {t('LOGIN')}
+      </Heading>
 
       <Stack direction="column">
         <GoogleButton />
@@ -78,19 +78,16 @@ export const LoginForm = () => {
           </Text>
         ))}
 
-        <Button
-          type="submit"
-          loading={isSubmitting}
-          disabled={isSubmitting}
-        >
+        <Button type="submit" loading={isSubmitting} disabled={isSubmitting}>
           {t('LOGIN')}
         </Button>
       </Stack>
 
       <Text variant="s">
-        {t('NEED_ACCOUNT')}
-        {' '}
-        <Link href="/auth/signup" component={NextLink}>{t('SIGNUP')}</Link>
+        {t('NEED_ACCOUNT')}{' '}
+        <Link href="/auth/signup" component={NextLink}>
+          {t('SIGNUP')}
+        </Link>
       </Text>
     </Box>
   );

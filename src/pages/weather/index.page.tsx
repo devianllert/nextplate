@@ -1,21 +1,22 @@
 import React from 'react';
-import { RiMapPinLine, RiSearchLine } from 'react-icons/ri';
+
 import { ActionButton, Box, Heading } from '@effable/react';
 import { useUnit } from 'effector-react/scope';
+import { RiMapPinLine, RiSearchLine } from 'react-icons/ri';
 
+import { WeatherLayout } from '@/layouts/weather';
+
+import { $search, inputChanged, searchClicked } from '@/entities/weather';
+
+import { Input } from '@/shared/components/system/input';
+import { staticPath } from '@/shared/lib/$path';
 import { createLogger } from '@/shared/lib/logging/logger';
 import { PageSEO } from '@/shared/lib/meta';
-import { WeatherLayout } from '@/layouts/weather';
 import { getTranslationsStaticProps } from '@/shared/lib/ssr';
 import { EnhancedNextPage } from '@/shared/types/enhanced-next-page';
-import { SSRPageProps } from '@/shared/types/ssr-page-props';
-import { SSGPageProps } from '@/shared/types/ssg-page-props';
 import { OnlyBrowserPageProps } from '@/shared/types/only-browser-page-props';
-import {
-  $search, inputChanged, searchClicked,
-} from '@/entities/weather';
-import { staticPath } from '@/shared/lib/$path';
-import { Input } from '@/shared/components/system/input';
+import { SSGPageProps } from '@/shared/types/ssg-page-props';
+import { SSRPageProps } from '@/shared/types/ssr-page-props';
 
 const logger = createLogger('Weather');
 
@@ -37,14 +38,10 @@ export const getStaticProps = getTranslationsStaticProps();
  *
  * Beware props in OnlyBrowserPageProps are not available on the server
  */
-type Props = (SSRPageProps & SSGPageProps<OnlyBrowserPageProps>);
+type Props = SSRPageProps & SSGPageProps<OnlyBrowserPageProps>;
 
 const WeatherSearchPage: EnhancedNextPage<Props> = (): JSX.Element => {
-  const {
-    search,
-    handleSearch,
-    handleSubmit,
-  } = useUnit({
+  const { search, handleSearch, handleSubmit } = useUnit({
     search: $search,
     handleSearch: inputChanged,
     handleSubmit: searchClicked,
@@ -76,24 +73,12 @@ const WeatherSearchPage: EnhancedNextPage<Props> = (): JSX.Element => {
       >
         <Heading variant="h1">Weather</Heading>
 
-        <Box
-          component="form"
-          maxWidth="440px"
-          width="100%"
-          mt={8}
-          onSubmit={onSubmit}
-        >
+        <Box component="form" maxWidth="440px" width="100%" mt={8} onSubmit={onSubmit}>
           <Input
             onChange={(event) => handleSearch(event.target.value)}
-            prefix={(
-              <RiMapPinLine />
-            )}
+            prefix={<RiMapPinLine />}
             suffix={(
-              <ActionButton
-                type="submit"
-                size="small"
-                onClick={handleSubmit}
-              >
+              <ActionButton type="submit" size="small" onClick={handleSubmit}>
                 <RiSearchLine />
               </ActionButton>
             )}

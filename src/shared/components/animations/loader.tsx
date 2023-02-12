@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+
 import { AnimatedTextBubble } from './animated-text-bubble';
 
 const LoaderWrapper = styled.div`

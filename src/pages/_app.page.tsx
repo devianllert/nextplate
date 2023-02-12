@@ -3,16 +3,20 @@ import '@/shared/lib/wdyr/wdyr';
 import * as React from 'react';
 
 import MultiversalAppBootstrap from '@/app/components/multiversal-app-bootstrap';
+
 import { MultiversalAppBootstrapProps } from '@/shared/types/multiversal-app-bootstrap-props';
 import { SSGPageProps } from '@/shared/types/ssg-page-props';
 import { SSRPageProps } from '@/shared/types/ssr-page-props';
+
 import '@/shared/design/external-styles';
 
 /**
  * "props.pageProps" will depend on whether the page is served by server or client, SSG or SSR
  * (MultiversalAppBootstrapProps<SSGPageProps> | MultiversalAppBootstrapProps<SSRPageProps>) is basically a superset of AppProps (from 'next/app')
  */
-type MultiversalPageEntryPointProps = MultiversalAppBootstrapProps<SSGPageProps> | MultiversalAppBootstrapProps<SSRPageProps>;
+type MultiversalPageEntryPointProps =
+  | MultiversalAppBootstrapProps<SSGPageProps>
+  | MultiversalAppBootstrapProps<SSRPageProps>;
 
 /**
  * This file is the entry point for all pages, it initialize all pages.

@@ -1,5 +1,6 @@
 import * as React from 'react';
-import { Story, Meta } from '@storybook/react';
+
+import { Meta, Story } from '@storybook/react';
 
 import { ActiveLink, ActiveLinkProps } from '../active-link';
 
@@ -10,9 +11,7 @@ export default {
 
 const StyledLink = ({ active }: { active?: boolean }) => (
   // eslint-disable-next-line jsx-a11y/anchor-is-valid
-  <a>
-    {active ? 'active link' : 'link'}
-  </a>
+  <a>{active ? 'active link' : 'link'}</a>
 );
 
 const Template: Story<ActiveLinkProps> = (args) => <ActiveLink {...args} />;

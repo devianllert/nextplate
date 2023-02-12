@@ -1,6 +1,7 @@
 import { allSettled, fork } from 'effector';
 
 import { registerFx } from '@/entities/auth';
+
 import { registerForm } from '../register.model';
 
 describe('Register Model', () => {

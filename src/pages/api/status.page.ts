@@ -1,4 +1,5 @@
 import { NextApiRequest, NextApiResponse } from 'next';
+
 import * as Sentry from '@sentry/nextjs';
 
 import { configureReq } from '@/shared/lib/sentry';
@@ -42,11 +43,7 @@ export const status = (req: NextApiRequest, res: NextApiResponse): void => {
     res.json({
       error: true,
       // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-      message:
-        process.env.NEXT_PUBLIC_APP_STAGE === 'production'
-          ? undefined
-          // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
-          : (e as Error).message,
+      message: process.env.NEXT_PUBLIC_APP_STAGE === 'production' ? undefined : (e as Error).message,
     });
   }
 };

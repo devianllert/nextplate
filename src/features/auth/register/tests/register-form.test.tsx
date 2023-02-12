@@ -2,12 +2,13 @@
  * @jest-environment jsdom
  */
 
-import { fork, Scope } from 'effector';
 import { act, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+import { fork, Scope } from 'effector';
+
+import { registerFx } from '@/entities/auth';
 
 import { renderWithProviders } from '@/shared/lib/testing/render-with-providers';
-import { registerFx } from '@/entities/auth';
 
 import { RegisterForm } from '../register-form';
 

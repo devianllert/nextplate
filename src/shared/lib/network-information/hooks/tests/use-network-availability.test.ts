@@ -18,4 +18,4 @@ describe('useNetworkAvailability', () => {
 
     expect(result.current).toBe(false);
   });
-})
+});

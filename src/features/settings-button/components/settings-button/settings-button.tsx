@@ -1,6 +1,7 @@
 import * as React from 'react';
-import { RiSettings2Line } from 'react-icons/ri';
+
 import { ActionButton, useEffableTheme } from '@effable/react';
+import { RiSettings2Line } from 'react-icons/ri';
 
 import * as DropdownMenu from '@/shared/components/system/dropdown-menu';
 
@@ -22,22 +23,13 @@ export const SettingsButton = (): JSX.Element => {
       </DropdownMenu.Trigger>
 
       <DropdownMenu.Portal>
-        <DropdownMenu.Content
-          side="bottom"
-          align="end"
-          loop
-        >
+        <DropdownMenu.Content side="bottom" align="end" loop>
           <DropdownMenu.Group>
-            <DropdownMenu.CheckboxItem
-              onSelect={toggleColorMode}
-              checked={mode === 'dark'}
-            >
+            <DropdownMenu.CheckboxItem onSelect={toggleColorMode} checked={mode === 'dark'}>
               Dark mode
             </DropdownMenu.CheckboxItem>
 
-            <DropdownMenu.Item>
-              Settings
-            </DropdownMenu.Item>
+            <DropdownMenu.Item>Settings</DropdownMenu.Item>
           </DropdownMenu.Group>
         </DropdownMenu.Content>
       </DropdownMenu.Portal>

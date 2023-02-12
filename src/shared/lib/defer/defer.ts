@@ -1,4 +1,4 @@
-export type Defer<Resolve =unknown, Reject =unknown> = {
+export type Defer<Resolve = unknown, Reject = unknown> = {
   resolve(v: Resolve): void;
   reject(v?: Reject): void;
   promise: Promise<Resolve>;

@@ -1,6 +1,6 @@
-import { createEvent, createStore, sample } from 'effector';
 import { isEmpty } from '@effable/misc';
 import { createQuery } from '@farfetched/core';
+import { createEvent, createStore, sample } from 'effector';
 
 import { pagesPath } from '@/shared/lib/$path';
 import { pushFx } from '@/shared/lib/effector/router';

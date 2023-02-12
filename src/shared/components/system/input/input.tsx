@@ -1,17 +1,17 @@
 /* eslint-disable prefer-arrow-callback */
 import * as React from 'react';
+
 import { Box, Divider } from '@effable/react';
 
-import { useComposedRefs } from '@/shared/lib/react';
 import { Sizes } from '@/shared/design/tokens/size';
+import { useComposedRefs } from '@/shared/lib/react';
 
-import { useInputClear } from './useInputClear';
-import { InputLabel } from './input-label';
-import { InputHelperText } from './input-helper-text';
 import { InputBaseProps } from '../input-base';
-
-import * as S from './input.styled';
 import { InputAdornment } from './input-adornment';
+import { InputHelperText } from './input-helper-text';
+import { InputLabel } from './input-label';
+import * as S from './input.styled';
+import { useInputClear } from './useInputClear';
 
 export interface InputProps extends InputBaseProps {
   /**
@@ -94,14 +94,11 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(function Inp
   );
 
   return (
-    <S.InputRoot
-      fullWidth={fullWidth}
-      disabled={disabled}
-      error={error}
-      ref={forwardedRef}
-    >
+    <S.InputRoot fullWidth={fullWidth} disabled={disabled} error={error} ref={forwardedRef}>
       {label && (
-        <InputLabel htmlFor={inputId} title={label}>{label}</InputLabel>
+        <InputLabel htmlFor={inputId} title={label}>
+          {label}
+        </InputLabel>
       )}
 
       <S.InputComponent
@@ -113,8 +110,9 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(function Inp
         inputRef={composedRefs}
         size={size}
         prefix={prefixElement}
-        suffix={showSuffix && (
-          <>
+        suffix={
+          showSuffix && (
+            <>
               {clearIcon}
               {showClearIcon && !!suffix && (
                 <Box my={1} alignSelf="stretch">
@@ -122,14 +120,13 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(function Inp
                 </Box>
               )}
               {suffixElement}
-          </>
-        )}
+            </>
+          )
+        }
         onChange={composedOnChange}
       />
 
-      {helperText && (
-        <InputHelperText>{helperText}</InputHelperText>
-      )}
+      {helperText && <InputHelperText>{helperText}</InputHelperText>}
     </S.InputRoot>
   );
 });

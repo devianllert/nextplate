@@ -30,11 +30,7 @@ interface ScrollbarOptions {
  */
 export const createScrollbarStyles = (options: ScrollbarOptions = {}): SerializedStyles => {
   const {
-    width = 8,
-    border = 0,
-    hideOnBlur = false,
-    trackColor = '#e4e4e4',
-    thumbColor = '#8070d4',
+    width = 8, border = 0, hideOnBlur = false, trackColor = '#e4e4e4', thumbColor = '#8070d4',
   } = options;
 
   return css({

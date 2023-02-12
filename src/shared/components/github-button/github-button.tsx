@@ -1,7 +1,8 @@
 import * as React from 'react';
+
+import { Box } from '@effable/react';
 import { useTranslation } from 'next-i18next';
 import { RiGithubFill } from 'react-icons/ri';
-import { Box } from '@effable/react';
 
 import * as S from './github-button.styled';
 
@@ -10,9 +11,7 @@ export interface GithubButtonProps {
 }
 
 export const GithubButton = (props: GithubButtonProps): JSX.Element => {
-  const {
-    redirectTo = `${process.env.NEXT_PUBLIC_APP_URL}/dashboard`,
-  } = props;
+  const { redirectTo = `${process.env.NEXT_PUBLIC_APP_URL}/dashboard` } = props;
 
   const { t } = useTranslation('auth');
 

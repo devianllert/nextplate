@@ -1,18 +1,21 @@
 import * as React from 'react';
+
 import { useTranslation } from 'next-i18next';
 
 import UniversalCookiesManager from '@/shared/lib/cookies-manager/universal-cookies-manager';
 import { createLogger } from '@/shared/lib/logging/logger';
 import { UserSemiPersistentSession } from '@/shared/lib/user-session/types/user-semi-persistent-session';
 import userSessionContext from '@/shared/lib/user-session/user-session-context';
-import { OnlyBrowserPageProps } from '@/shared/types/only-browser-page-props';
-import { MultiversalPageProps } from '@/shared/types/multiversal-page-props';
 import { MultiversalAppBootstrapPageProps } from '@/shared/types/multiversal-app-bootstrap-page-props';
 import { MultiversalAppBootstrapProps } from '@/shared/types/multiversal-app-bootstrap-props';
+import { MultiversalPageProps } from '@/shared/types/multiversal-page-props';
+import { OnlyBrowserPageProps } from '@/shared/types/only-browser-page-props';
 
 const logger = createLogger('BrowserPageBootstrap');
 
-export type BrowserPageBootstrapProps = MultiversalAppBootstrapProps<MultiversalPageProps & MultiversalAppBootstrapPageProps>;
+export type BrowserPageBootstrapProps = MultiversalAppBootstrapProps<
+MultiversalPageProps & MultiversalAppBootstrapPageProps
+>;
 
 /**
  * Bootstraps the page, only when rendered on the browser
@@ -22,10 +25,7 @@ export type BrowserPageBootstrapProps = MultiversalAppBootstrapProps<Multiversal
 const BrowserPageBootstrap = (props: BrowserPageBootstrapProps): JSX.Element => {
   const { Component, err, router } = props;
 
-  const {
-    t,
-    i18n,
-  } = useTranslation(undefined);
+  const { t, i18n } = useTranslation(undefined);
 
   const LayoutComponent = Component.Layout ?? React.Fragment;
 
@@ -34,7 +34,7 @@ const BrowserPageBootstrap = (props: BrowserPageBootstrapProps): JSX.Element => 
 
   // When the page is served by the browser, some browser-only properties are available
   // eslint-disable-next-line react/destructuring-assignment
-  const pageProps = (props.pageProps as unknown) as MultiversalPageProps<OnlyBrowserPageProps>;
+  const pageProps = props.pageProps as unknown as MultiversalPageProps<OnlyBrowserPageProps>;
 
   const injectedPageProps: MultiversalPageProps<OnlyBrowserPageProps> = {
     ...pageProps,

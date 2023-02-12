@@ -1,16 +1,19 @@
-import { useTranslation } from 'next-i18next';
 import NextLink from 'next/link';
-import { useUnit } from 'effector-react/scope';
+
 import {
   Box, Button, Divider, Heading, Link, Stack, Text,
 } from '@effable/react';
+import { useUnit } from 'effector-react/scope';
+import { useTranslation } from 'next-i18next';
 
-import { Input, InputPassword } from '@/shared/components/system/input';
-import { useForm } from '@/shared/lib/effector/forms';
-import { registerForm } from './register.model';
 import { registerFx } from '@/entities/auth';
+
 import { GithubButton } from '@/shared/components/github-button';
 import { GoogleButton } from '@/shared/components/google-button';
+import { Input, InputPassword } from '@/shared/components/system/input';
+import { useForm } from '@/shared/lib/effector/forms';
+
+import { registerForm } from './register.model';
 
 export const RegisterForm = () => {
   const { t } = useTranslation(['auth', 'common']);
@@ -96,17 +99,15 @@ export const RegisterForm = () => {
           </Text>
         ))}
 
-        <Button
-          type="submit"
-          loading={isSubmitting}
-          disabled={isSubmitting}
-        >
+        <Button type="submit" loading={isSubmitting} disabled={isSubmitting}>
           {t('SIGNUP')}
         </Button>
       </Stack>
 
       <Text variant="s">
-        <Link href="/auth/login" component={NextLink}>{t('HAVE_ACCOUNT')}</Link>
+        <Link href="/auth/login" component={NextLink}>
+          {t('HAVE_ACCOUNT')}
+        </Link>
       </Text>
     </Box>
   );

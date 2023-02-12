@@ -1,15 +1,17 @@
-import ServerCookies, { GetOption, SetOption } from 'cookies';
 import { IncomingMessage, ServerResponse } from 'http';
-import BrowserCookies, { CookieAttributes } from 'js-cookie';
-import { v1 as uuid } from 'uuid'; // Note: Use v1 for uniqueness - See https://www.sohamkamani.com/blog/2016/10/05/uuid1-vs-uuid4/
-import addYears from 'date-fns/addYears';
-import { isBrowser } from '@effable/misc';
 
-import { Cookies } from './types/cookies';
+import { isBrowser } from '@effable/misc';
+import ServerCookies, { GetOption, SetOption } from 'cookies';
+// Note: Use v1 for uniqueness - See https://www.sohamkamani.com/blog/2016/10/05/uuid1-vs-uuid4/
+import addYears from 'date-fns/addYears';
+import BrowserCookies, { CookieAttributes } from 'js-cookie';
+import { v1 as uuid } from 'uuid';
+
 import {
   PatchedUserSemiPersistentSession,
   UserSemiPersistentSession,
 } from '../user-session/types/user-semi-persistent-session';
+import { Cookies } from './types/cookies';
 
 const USER_LS_KEY = 'user';
 

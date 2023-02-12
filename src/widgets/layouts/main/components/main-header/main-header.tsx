@@ -1,8 +1,6 @@
 import * as React from 'react';
 
-import {
-  Box, Text, Container,
-} from '@effable/react';
+import { Box, Container, Text } from '@effable/react';
 
 import { LocaleToggler } from '@/features/new-main-page/change-locale';
 import { ChangeTheme } from '@/features/new-main-page/change-theme';
@@ -19,29 +17,15 @@ export const MainHeader = (): JSX.Element => {
       backgroundColor="accent.accent3"
     >
       <Container>
-        <Box
-          display="flex"
-          paddingY="26px"
-          justifyContent="space-between"
-          alignItems="center"
-        >
-          <Text
-            variant="l"
-            color="text.primary"
-          >
+        <Box display="flex" paddingY="26px" justifyContent="space-between" alignItems="center">
+          <Text variant="l" color="text.primary">
             Nextplate
           </Text>
 
-          <Box
-            display="flex"
-          >
+          <Box display="flex">
             <LocaleToggler />
 
-            <Box
-              marginLeft="8x"
-            >
-              {/* <ChangeTheme /> */}
-            </Box>
+            <Box marginLeft="8x">{/* <ChangeTheme /> */}</Box>
           </Box>
         </Box>
       </Container>

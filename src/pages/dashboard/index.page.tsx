@@ -1,28 +1,25 @@
+import {
+  Avatar, Box, Button, Container, Heading, Stack, Text,
+} from '@effable/react';
+import { format } from 'date-fns';
 import { allSettled, serialize } from 'effector';
 import { useUnit } from 'effector-react/scope';
 import { RiComputerLine, RiUserShared2Line } from 'react-icons/ri';
-import {
-  Box, Button, Container, Stack, Text, Heading, Avatar,
-} from '@effable/react';
 
-import { format } from 'date-fns';
-import { EFFECTOR_STATE_KEY } from '@/shared/lib/effector/scope';
-import { userQuery } from '@/entities/user';
-import { sessionQuery } from '@/entities/session';
 import { forceLogout } from '@/entities/auth';
+import { sessionQuery } from '@/entities/session';
+import { userQuery } from '@/entities/user';
+
+import { EFFECTOR_STATE_KEY } from '@/shared/lib/effector/scope';
+import { getTranslationsConfig } from '@/shared/lib/i18n/translations';
+import { normalizeSSRContext } from '@/shared/lib/next/context';
+import { withAuthenticatedSSP } from '@/shared/lib/ssr';
 
 import { dashboardPageStarted } from './model';
-import { getTranslationsConfig } from '@/shared/lib/i18n/translations';
-import { withAuthenticatedSSP } from '@/shared/lib/ssr';
-import { normalizeSSRContext } from '@/shared/lib/next/context';
 
 const DashboardPage = () => {
   const {
-    user,
-    update,
-    loading,
-    sessions,
-    logout,
+    user, update, loading, sessions, logout,
   } = useUnit({
     user: userQuery.$data,
     update: userQuery.start,
@@ -39,20 +36,12 @@ const DashboardPage = () => {
         <Box>
           <Container>
             <Box display="flex" paddingY={3}>
-              <Box
-                mt="-48px"
-              >
-                <Avatar
-                  size="15x"
-                  alt="some alt"
-                  fallback="D"
-                />
+              <Box mt="-48px">
+                <Avatar size="15x" alt="some alt" fallback="D" />
               </Box>
 
               <Box ml={4}>
-                <Heading variant="h6">
-                  {user?.username}
-                </Heading>
+                <Heading variant="h6">{user?.username}</Heading>
                 <Text variant="m" color="secondary">
                   {user?.email}
                 </Text>
@@ -62,7 +51,9 @@ const DashboardPage = () => {
                 <Stack space={3} direction="row">
                   <Button startIcon={<RiUserShared2Line />}>Share</Button>
                   <Button>View profile</Button>
-                  <Button color="error" onClick={logout}>logout</Button>
+                  <Button color="error" onClick={logout}>
+                    logout
+                  </Button>
                 </Stack>
               </Box>
             </Box>
@@ -74,7 +65,9 @@ const DashboardPage = () => {
         <Container>
           <Box>
             <Heading variant="h6">Where you are logged in</Heading>
-            <Text variant="xs" color="secondary">We’ll alert you via {user?.email} if there is any unusual activity on your account.</Text>
+            <Text variant="xs" color="secondary">
+              We’ll alert you via {user?.email} if there is any unusual activity on your account.
+            </Text>
 
             <Box mt={4}>
               <Stack space={2}>
@@ -84,8 +77,12 @@ const DashboardPage = () => {
                       <RiComputerLine size={28} />
                     </Box>
                     <Box>
-                      <Text variant="s">{session.os} {session.browser}</Text>
-                      <Text variant="xs" color="secondary">{session.ip} • {format(new Date(session.updatedAt), "M MMM 'at' HH:mm")}</Text>
+                      <Text variant="s">
+                        {session.os} {session.browser}
+                      </Text>
+                      <Text variant="xs" color="secondary">
+                        {session.ip} • {format(new Date(session.updatedAt), "M MMM 'at' HH:mm")}
+                      </Text>
                     </Box>
                   </Box>
                 ))}

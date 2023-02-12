@@ -1,6 +1,7 @@
 import * as React from 'react';
-import { Story, Meta } from '@storybook/react';
-import { Box, AspectRatio, Badge } from '@effable/react';
+
+import { AspectRatio, Badge, Box } from '@effable/react';
+import { Meta, Story } from '@storybook/react';
 
 import { Indicator, IndicatorProps } from '../indicator';
 
@@ -34,9 +35,7 @@ Basic.args = {
 export const WithCustomElement = Template.bind({});
 
 WithCustomElement.args = {
-  label: (
-    <Badge color="info">New</Badge>
-  ),
+  label: <Badge color="info">New</Badge>,
   color: null,
   border: true,
   shape: 'circle',

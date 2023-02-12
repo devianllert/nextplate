@@ -1,4 +1,5 @@
 import { GenericObject } from '@/shared/types/generic-object';
+
 import { decodeQueryParameterToJSON, encodeJSONToQueryParameter, filterExternalAbsoluteUrl } from '..';
 
 /**

@@ -1,8 +1,11 @@
 /* eslint-disable no-lonely-if */
-import * as Sentry from '@sentry/nextjs';
+
+import React from 'react';
+
 import { NextPageContext } from 'next';
 import NextError, { ErrorProps as NextErrorProps } from 'next/error';
-import React from 'react';
+
+import * as Sentry from '@sentry/nextjs';
 
 export type ErrorPageProps = {
   err: Error;
@@ -49,10 +52,7 @@ export type ErrorProps = {
  */
 const ErrorPage = (props: ErrorPageProps): JSX.Element => {
   const {
-    statusCode,
-    isReadyToRender,
-    err,
-    children = null,
+    statusCode, isReadyToRender, err, children = null,
   } = props;
 
   if (process.env.NEXT_PUBLIC_APP_STAGE !== 'production') {

@@ -1,12 +1,7 @@
 import * as React from 'react';
 
 import {
-  Box,
-  Text,
-  Heading,
-  Button,
-  Stack,
-  Container,
+  Box, Button, Container, Heading, Stack, Text,
 } from '@effable/react';
 
 import { DignityGrid } from '@/features/new-main-page/dignity-grid';
@@ -16,9 +11,7 @@ import * as S from './header.styled';
 
 export const Header = (): JSX.Element => {
   return (
-    <Section
-      backgroundColor="accent.accent3"
-    >
+    <Section backgroundColor="accent.accent3">
       <Box
         display="grid"
         gridTemplateColumns={{
@@ -43,26 +36,17 @@ export const Header = (): JSX.Element => {
           flexDirection="column"
         >
           <Heading variant="h0" color="text.primary">
-            Nextplate. Template
-            with all you need.
+            Nextplate. Template with all you need.
           </Heading>
 
-          <Box
-            display="flex"
-            mt="4x"
-          >
-            <Text
-              variant="m"
-              color="text.primary"
-            >
-              Aims for developers who really care about code quality, architecture, security and all the best practices in frontend
+          <Box display="flex" mt="4x">
+            <Text variant="m" color="text.primary">
+              Aims for developers who really care about code quality, architecture, security and all the best practices
+              in frontend
             </Text>
           </Box>
 
-          <Box
-            display="flex"
-            mt="68px"
-          >
+          <Box display="flex" mt="68px">
             <Stack
               direction={{
                 base: 'column',
@@ -76,16 +60,9 @@ export const Header = (): JSX.Element => {
               alignItems="stretch"
               // sx={{ width: '100% ' }}
             >
-              <Button
-                size="large"
-              >
-                Documentation
-              </Button>
+              <Button size="large">Documentation</Button>
 
-              <Button
-                size="large"
-                variant="secondary"
-              >
+              <Button size="large" variant="secondary">
                 Github
               </Button>
             </Stack>

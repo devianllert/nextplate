@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import {
-  Box, Heading, Text, AspectRatio,
+  AspectRatio, Box, Heading, Text,
 } from '@effable/react';
 
 import * as S from './demo-item.styled';
@@ -16,11 +16,7 @@ export interface DemoItemProps {
 }
 
 export const DemoItem = (props: DemoItemProps): JSX.Element => {
-  const {
-    title,
-    description,
-    preview,
-  } = props;
+  const { title, description, preview } = props;
 
   const text = description.split('.').filter((sentence) => sentence);
 
@@ -60,7 +56,6 @@ export const DemoItem = (props: DemoItemProps): JSX.Element => {
         laptop: 'row',
       }}
     >
-
       <Box
         display="flex"
         marginRight={{
@@ -96,25 +91,14 @@ export const DemoItem = (props: DemoItemProps): JSX.Element => {
             laptop: '11x',
           }}
         >
-          <Heading
-            variant="h2"
-            color="text.primary"
-          >
+          <Heading variant="h2" color="text.primary">
             {title}
           </Heading>
         </Box>
 
-        <Box
-          display="flex"
-          marginTop="6x"
-          flexDirection="column"
-        >
+        <Box display="flex" marginTop="6x" flexDirection="column">
           {text.map((sentence) => (
-            <Text
-              variant="m"
-              color="text.primary"
-              key={sentence}
-            >
+            <Text variant="m" color="text.primary" key={sentence}>
               {sentence}.
             </Text>
           ))}

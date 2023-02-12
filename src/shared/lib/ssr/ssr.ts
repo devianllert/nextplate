@@ -1,11 +1,13 @@
 import { IncomingMessage } from 'http';
+
 import { GetServerSideProps, GetServerSidePropsResult } from 'next';
+
 import NextCookies from 'next-cookies';
 
-import UniversalCookiesManager from '@/shared/lib/cookies-manager/universal-cookies-manager';
-import { UserSemiPersistentSession } from '@/shared/lib/user-session/types/user-semi-persistent-session';
 import { Cookies } from '@/shared/lib/cookies-manager/types/cookies';
+import UniversalCookiesManager from '@/shared/lib/cookies-manager/universal-cookies-manager';
 import { getTranslationsConfig } from '@/shared/lib/i18n/translations';
+import { UserSemiPersistentSession } from '@/shared/lib/user-session/types/user-semi-persistent-session';
 import { CommonServerSideParams } from '@/shared/types/common-server-side-params';
 import { PublicHeaders } from '@/shared/types/public-headers';
 import { SSRPageProps } from '@/shared/types/ssr-page-props';
@@ -23,7 +25,9 @@ export type GetCoreServerSidePropsResults = Omit<SSRPageProps, '__REACT_QUERY_ST
  *
  * @param namespaces
  */
-export const getCoreServerSideProps = (namespaces: string[] = []): GetServerSideProps<GetCoreServerSidePropsResults, CommonServerSideParams> => {
+export const getCoreServerSideProps = (
+  namespaces: string[] = [],
+): GetServerSideProps<GetCoreServerSidePropsResults, CommonServerSideParams> => {
   /**
    * Only executed on the server side, for every request.
    * Computes some dynamic props that should be available for all SSR pages that use getServerSideProps
@@ -37,11 +41,10 @@ export const getCoreServerSideProps = (namespaces: string[] = []): GetServerSide
    *
    * @see https://nextjs.org/docs/basic-features/data-fetching#getserversideprops-server-side-rendering
    */
-  const getServerSideProps: GetServerSideProps<GetCoreServerSidePropsResults, CommonServerSideParams> = async (context): Promise<GetServerSidePropsResult<GetCoreServerSidePropsResults>> => {
-    const {
-      req,
-      res,
-    } = context;
+  const getServerSideProps: GetServerSideProps<GetCoreServerSidePropsResults, CommonServerSideParams> = async (
+    context,
+  ): Promise<GetServerSidePropsResult<GetCoreServerSidePropsResults>> => {
+    const { req, res } = context;
 
     // Parses Next.js cookies in a universal way (server + client)
     const readonlyCookies: Cookies = NextCookies(context);

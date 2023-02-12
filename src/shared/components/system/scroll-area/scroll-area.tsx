@@ -1,5 +1,6 @@
-import * as ScrollAreaPrimitive from '@radix-ui/react-scroll-area';
 import styled from '@emotion/styled';
+import * as ScrollAreaPrimitive from '@radix-ui/react-scroll-area';
+
 import { fadeIn, fadeOut } from '@/shared/lib/css-in-js/animations';
 
 const SCROLLBAR_SIZE = 12;

@@ -1,8 +1,9 @@
 import * as React from 'react';
-import { RiCloseFill, RiMenu3Line } from 'react-icons/ri';
+
 import {
-  Box, Button, Divider, ActionButton, Heading, Text,
+  ActionButton, Box, Button, Divider, Heading, Text,
 } from '@effable/react';
+import { RiCloseFill, RiMenu3Line } from 'react-icons/ri';
 
 import * as Modal from '@/shared/components/system/modal';
 
@@ -32,17 +33,12 @@ export const Todos = (): JSX.Element => {
     <Box width={['100%', null, 'auto']}>
       <Modal.Root>
         <Box display="flex" alignItems="center" justifyContent="space-between">
-          <Button
-            size="small"
-            color="neutral"
-          >
+          <Button size="small" color="neutral">
             Next
           </Button>
 
           <Modal.Trigger asChild>
-            <ActionButton
-              size="small"
-            >
+            <ActionButton size="small">
               <RiMenu3Line />
             </ActionButton>
           </Modal.Trigger>
@@ -51,18 +47,12 @@ export const Todos = (): JSX.Element => {
             <Modal.StyledOverlay />
 
             <Modal.StyledContent asChild>
-              <Box
-                borderRadius="4px"
-                backgroundColor="background.primary"
-              >
-                <Box
-                  display="flex"
-                  justifyContent="space-between"
-                  alignItems="center"
-                  padding={4}
-                >
+              <Box borderRadius="4px" backgroundColor="background.primary">
+                <Box display="flex" justifyContent="space-between" alignItems="center" padding={4}>
                   <Modal.Title asChild>
-                    <Heading variant="h4" component="span">Edit todos</Heading>
+                    <Heading variant="h4" component="span">
+                      Edit todos
+                    </Heading>
                   </Modal.Title>
 
                   <Modal.Close asChild>
@@ -77,9 +67,13 @@ export const Todos = (): JSX.Element => {
                 <Box padding={4}>
                   {todos.map((item) => (
                     <Box mb={3} key={item.date}>
-                      <Heading variant="h6" component="span" sx={{ mr: 2 }}>16:30h</Heading>
+                      <Heading variant="h6" component="span" sx={{ mr: 2 }}>
+                        16:30h
+                      </Heading>
 
-                      <Text variant="s" component="span" fontWeight="bold">Stay at Bohem Art Hotel</Text>
+                      <Text variant="s" component="span" fontWeight="bold">
+                        Stay at Bohem Art Hotel
+                      </Text>
                     </Box>
                   ))}
                 </Box>
@@ -93,9 +87,13 @@ export const Todos = (): JSX.Element => {
         <Box>
           {todos.slice(0, 2).map((item) => (
             <Box mb={3} key={item.date}>
-              <Heading variant="h6" component="span" sx={{ mr: 2 }}>16:30h</Heading>
+              <Heading variant="h6" component="span" sx={{ mr: 2 }}>
+                16:30h
+              </Heading>
 
-              <Text variant="s" component="span" fontWeight="bold">Stay at Bohem Art Hotel</Text>
+              <Text variant="s" component="span" fontWeight="bold">
+                Stay at Bohem Art Hotel
+              </Text>
             </Box>
           ))}
         </Box>

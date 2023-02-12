@@ -1,4 +1,5 @@
 import * as React from 'react';
+
 import { Meta, Story } from '@storybook/react';
 
 import { NotFoundLayout } from '../not-found-layout';

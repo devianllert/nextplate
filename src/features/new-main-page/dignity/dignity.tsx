@@ -1,10 +1,7 @@
 import * as React from 'react';
 
 import {
-  Box,
-  Heading,
-  Text,
-  Stack,
+  Box, Heading, Stack, Text,
 } from '@effable/react';
 
 import * as S from './dignity.styled';
@@ -15,15 +12,11 @@ export interface DignityProps {
    */
   title: string;
   text?: string;
-  main? : boolean;
+  main?: boolean;
 }
 
 export const Dignity = (props: DignityProps): JSX.Element => {
-  const {
-    title,
-    text,
-    main,
-  } = props;
+  const { title, text, main } = props;
 
   return (
     <Box
@@ -50,9 +43,9 @@ export const Dignity = (props: DignityProps): JSX.Element => {
         </Heading>
 
         {text && (
-        <Text color="accent.accent11" variant="s">
-          {text}
-        </Text>
+          <Text color="accent.accent11" variant="s">
+            {text}
+          </Text>
         )}
       </Stack>
     </Box>

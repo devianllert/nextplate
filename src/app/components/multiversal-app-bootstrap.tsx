@@ -1,24 +1,27 @@
 import * as React from 'react';
-import * as Sentry from '@sentry/nextjs';
-import Head from 'next/head';
-import { appWithTranslation, useTranslation } from 'next-i18next';
-import { Provider as EffectorProvider } from 'effector-react/scope';
-import { isEmpty, isBrowser } from '@effable/misc';
 
+import Head from 'next/head';
+
+import { isBrowser, isEmpty } from '@effable/misc';
 import { EffableProvider } from '@effable/react';
-import { configureSentryI18n } from '@/shared/lib/sentry';
-import { DefaultErrorLayout } from '@/shared/components/error-handling';
-import { createLogger } from '@/shared/lib/logging/logger';
+import * as Sentry from '@sentry/nextjs';
+import { Provider as EffectorProvider } from 'effector-react/scope';
+import { appWithTranslation, useTranslation } from 'next-i18next';
+import ErrorPage from '@/pages/_error.page';
+
 import { NProgressRoot } from '@/features/nprogress';
 
+import { DefaultErrorLayout } from '@/shared/components/error-handling';
+import { EFFECTOR_STATE_KEY, useScope } from '@/shared/lib/effector/scope';
+import { createLogger } from '@/shared/lib/logging/logger';
 import { getLinksAlternateHref } from '@/shared/lib/meta';
+import { configureSentryI18n } from '@/shared/lib/sentry';
 import { MultiversalAppBootstrapProps } from '@/shared/types/multiversal-app-bootstrap-props';
+import { SSGPageProps } from '@/shared/types/ssg-page-props';
+import { SSRPageProps } from '@/shared/types/ssr-page-props';
+
 import BrowserPageBootstrap, { BrowserPageBootstrapProps } from './browser-page-bootstrap';
 import ServerPageBootstrap, { ServerPageBootstrapProps } from './server-page-bootstrap';
-import { SSRPageProps } from '@/shared/types/ssr-page-props';
-import { SSGPageProps } from '@/shared/types/ssg-page-props';
-import ErrorPage from '@/pages/_error.page';
-import { EFFECTOR_STATE_KEY, useScope } from '@/shared/lib/effector/scope';
 
 export type Props = MultiversalAppBootstrapProps<SSGPageProps> | MultiversalAppBootstrapProps<SSRPageProps>;
 
@@ -110,7 +113,6 @@ const MultiversalAppBootstrap = (props: Props): JSX.Element => {
 
       <EffectorProvider value={scope}>
         <EffableProvider>
-
           <NProgressRoot showAfterMs={100} />
 
           {isBrowser() ? (

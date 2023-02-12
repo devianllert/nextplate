@@ -1,9 +1,6 @@
 import { createLogger } from '@/lib/logging/logger';
-import {
-  defaultLocale,
-  supportedLanguages,
-  supportedLocales,
-} from './i18n.config';
+
+import { defaultLocale, supportedLanguages, supportedLocales } from './i18n.config';
 
 const fileLabel = 'lib/i18n/i18n';
 const logger = createLogger(fileLabel);

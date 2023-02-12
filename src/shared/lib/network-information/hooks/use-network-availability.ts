@@ -1,4 +1,5 @@
 import * as React from 'react';
+
 import { isBrowser } from '@effable/misc';
 
 import { managedEventListener } from '@/shared/lib/managed-event-listener';

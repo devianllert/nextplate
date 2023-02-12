@@ -1,6 +1,7 @@
 import * as React from 'react';
-import { fork, serialize, Scope } from 'effector';
+
 import { isBrowser } from '@effable/misc';
+import { fork, Scope, serialize } from 'effector';
 
 export const EFFECTOR_STATE_KEY = '__EFFECTOR_STATE__';
 
@@ -13,7 +14,7 @@ interface Values {
 }
 
 interface State {
-  clientScope: Scope | null
+  clientScope: Scope | null;
 }
 
 export const state: State = {

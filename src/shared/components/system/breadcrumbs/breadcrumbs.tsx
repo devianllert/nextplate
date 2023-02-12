@@ -56,16 +56,11 @@ export const Breadcrumbs = React.forwardRef<HTMLElement, BreadcrumbsProps>((prop
 
   return (
     <S.BreadcrumbsRoot aria-label="breadcrumb" ref={ref} {...other}>
-      <S.BreadcrumbsList>
-        {children}
-      </S.BreadcrumbsList>
+      <S.BreadcrumbsList>{children}</S.BreadcrumbsList>
     </S.BreadcrumbsRoot>
   );
 });
 
 export {
-  Breadcrumbs as Root,
-  BreadcrumbsItem as Item,
-  BreadcrumbsLink as Link,
-  BreadcrumbsSeparator as Separator,
+  Breadcrumbs as Root, BreadcrumbsItem as Item, BreadcrumbsLink as Link, BreadcrumbsSeparator as Separator,
 };

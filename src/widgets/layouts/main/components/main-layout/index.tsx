@@ -1,11 +1,9 @@
 import * as React from 'react';
 
-import {
-  Box,
-} from '@effable/react';
+import { Box } from '@effable/react';
 
-import { MainHeader } from '../main-header';
 import { MainFooter } from '../main-footer';
+import { MainHeader } from '../main-header';
 
 export interface MainLayoutProps {
   /**
@@ -15,17 +13,10 @@ export interface MainLayoutProps {
 }
 
 export const MainLayout = (props: MainLayoutProps): JSX.Element => {
-  const {
-    children,
-  } = props;
+  const { children } = props;
 
   return (
-    <Box
-      display="flex"
-      width="100%"
-      minHeight="100vh"
-      flexDirection="column"
-    >
+    <Box display="flex" width="100%" minHeight="100vh" flexDirection="column">
       <MainHeader />
 
       {children}

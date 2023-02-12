@@ -1,7 +1,8 @@
 import * as React from 'react';
-import { Story, Meta } from '@storybook/react';
-import { Box, Heading } from '@effable/react';
+
 import { wait } from '@effable/misc';
+import { Box, Heading } from '@effable/react';
+import { Meta, Story } from '@storybook/react';
 
 import { Fade } from '@/shared/components/system/fade';
 import { LoadingOverlay } from '@/shared/components/system/loading-overlay';
@@ -30,7 +31,9 @@ const Template: Story<DelayedLoadingProps> = (args) => {
 
   return (
     <>
-      <button type="button" onClick={handleLoad}>load next number</button>
+      <button type="button" onClick={handleLoad}>
+        load next number
+      </button>
       <DelayedLoading {...args} loading={status === 'loading'}>
         {({ loading }) => (
           <>
@@ -69,7 +72,9 @@ export const WithAnimations = () => {
       {({ loading }) => {
         return (
           <>
-            <button type="button" onClick={handleLoad} disabled={status === 'loading' || loading}>load next number</button>
+            <button type="button" onClick={handleLoad} disabled={status === 'loading' || loading}>
+              load next number
+            </button>
             <Box position="relative">
               <Fade in={loading} unmountOnExit>
                 <LoadingOverlay />
@@ -112,20 +117,15 @@ export const UsingHook = () => {
 
   return (
     <>
-      <button type="button" onClick={handleLoad} disabled={status === 'loading' || delayedLoading}>load next number</button>
+      <button type="button" onClick={handleLoad} disabled={status === 'loading' || delayedLoading}>
+        load next number
+      </button>
       <Box position="relative">
         <Fade in={delayedLoading} unmountOnExit>
           <LoadingOverlay loader="loading..." />
         </Fade>
 
-        <Box
-          width={400}
-          height={300}
-          background="cyan"
-          display="flex"
-          alignItems="center"
-          justifyContent="center"
-        >
+        <Box width={400} height={300} background="cyan" display="flex" alignItems="center" justifyContent="center">
           <Heading variant="h2">{state}</Heading>
         </Box>
       </Box>

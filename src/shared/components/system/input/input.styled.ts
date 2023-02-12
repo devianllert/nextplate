@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 
-import { variants } from '@/shared/design/tokens/typography';
 import shape from '@/shared/design/tokens/shape';
+import { variants } from '@/shared/design/tokens/typography';
 
 import { InputBase } from '../input-base';
 import { InputBaseComponent } from '../input-base/input-base.styled';

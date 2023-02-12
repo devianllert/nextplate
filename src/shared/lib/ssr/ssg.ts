@@ -1,7 +1,6 @@
 import { GetStaticProps, GetStaticPropsResult } from 'next';
 
 import { getTranslationsConfig } from '@/shared/lib/i18n/translations';
-
 import { SSGPageProps } from '@/shared/types/ssg-page-props';
 
 /**

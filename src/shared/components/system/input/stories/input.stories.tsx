@@ -1,7 +1,8 @@
 import * as React from 'react';
-import { Story, Meta } from '@storybook/react';
-import { RiEyeCloseLine, RiEyeLine, RiUserLine } from 'react-icons/ri';
+
 import { ActionButton, Divider, Text } from '@effable/react';
+import { Meta, Story } from '@storybook/react';
+import { RiEyeCloseLine, RiEyeLine, RiUserLine } from 'react-icons/ri';
 
 import { Input, InputProps } from '../input';
 
@@ -36,9 +37,7 @@ export const WithPrefixIcon = Template.bind({});
 
 WithPrefixIcon.args = {
   label: 'Name',
-  prefix: (
-    <RiUserLine color="inherit" />
-  ),
+  prefix: <RiUserLine color="inherit" />,
 };
 
 export const WithPrefixNumber = Template.bind({});
@@ -47,7 +46,9 @@ WithPrefixNumber.args = {
   label: 'Number',
   prefix: (
     <>
-      <Text variant="s" color="text.secondary">+61</Text>
+      <Text variant="s" color="text.secondary">
+        +61
+      </Text>
 
       <Divider orientation="vertical" />
     </>
@@ -55,9 +56,7 @@ WithPrefixNumber.args = {
 };
 
 const TemplateWithPasswordAdornment: Story<InputProps> = (args) => {
-  const {
-    disabled,
-  } = args;
+  const { disabled } = args;
 
   const [show, setShow] = React.useState(false);
 

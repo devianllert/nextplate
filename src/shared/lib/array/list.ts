@@ -62,12 +62,7 @@ export const getLastItem = <T>(array: T[]): T | undefined => {
  * @param step the number of steps
  * @param loop whether to circle back once `currentIndex` is at the start/end
  */
-export const getNextIndex = (
-  currentIndex: number,
-  length: number,
-  step = 1,
-  loop = true,
-): number => {
+export const getNextIndex = (currentIndex: number, length: number, step = 1, loop = true): number => {
   const lastIndex = length - 1;
 
   if (currentIndex === -1) {
@@ -96,11 +91,7 @@ export const getNextIndex = (
  * @param loop - whether we should circle back to the
  * first/last once `currentIndex` is at the start/end
  */
-export const getPrevIndex = (
-  index: number,
-  count: number,
-  loop = true,
-): number => getNextIndex(index, count, -1, loop);
+export const getPrevIndex = (index: number, count: number, loop = true): number => getNextIndex(index, count, -1, loop);
 
 export const getPrevItem = <T>(index: number, array: T[], loop = true): T => {
   const prevIndex = getPrevIndex(index, array.length, loop);
@@ -127,9 +118,5 @@ export const removeItem = <T>(array: T[], item: T): T[] => {
 };
 
 export const patchItem = <T>(array: T[], item: T, index: number): T[] => {
-  return [
-    ...array.slice(0, index),
-    item,
-    ...array.slice(index - 1, array.length),
-  ];
+  return [...array.slice(0, index), item, ...array.slice(index - 1, array.length)];
 };

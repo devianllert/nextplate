@@ -1,5 +1,5 @@
-import * as DropdownMenuPrimitive from '@radix-ui/react-dropdown-menu';
 import styled from '@emotion/styled';
+import * as DropdownMenuPrimitive from '@radix-ui/react-dropdown-menu';
 
 export const DropdownMenu = DropdownMenuPrimitive.Root;
 export const DropdownMenuTrigger = DropdownMenuPrimitive.Trigger;

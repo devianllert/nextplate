@@ -1,22 +1,25 @@
+import React from 'react';
+
 import { GetStaticProps } from 'next';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
+
+import {
+  Button, Heading, Stack, Text,
+} from '@effable/react';
 import * as Sentry from '@sentry/nextjs';
 import { useTranslation } from 'next-i18next';
-import { useRouter } from 'next/router';
 import { RiArrowRightLine } from 'react-icons/ri';
-import {
-  Stack, Text, Button, Heading,
-} from '@effable/react';
 
-import React from 'react';
+import { NotFoundLayout } from '@/layouts/404';
+
+import { staticPath } from '@/shared/lib/$path';
 import { createLogger } from '@/shared/lib/logging/logger';
 import { PageSEO } from '@/shared/lib/meta';
 import { getTranslationsStaticProps } from '@/shared/lib/ssr';
 import { EnhancedNextPage } from '@/shared/types/enhanced-next-page';
 import { SoftPageProps } from '@/shared/types/soft-page-props';
 import { SSGPageProps } from '@/shared/types/ssg-page-props';
-import { NotFoundLayout } from '@/layouts/404';
-import { staticPath } from '@/shared/lib/$path';
 
 const fileLabel = 'pages/404';
 const logger = createLogger(fileLabel);
@@ -55,25 +58,23 @@ const NotFound404Page: EnhancedNextPage<Props> = (): JSX.Element => {
 
   return (
     <>
-      <PageSEO
-        title={t('SEO_TITLE')}
-        description={t('SEO_DESCRIPTION')}
-        image={staticPath.static.images.$404_png}
-      />
+      <PageSEO title={t('SEO_TITLE')} description={t('SEO_DESCRIPTION')} image={staticPath.static.images.$404_png} />
 
       <Stack direction="column" space={3}>
-        <Text variant="l" color="secondary">{t('SUBTITLE')}</Text>
+        <Text variant="l" color="secondary">
+          {t('SUBTITLE')}
+        </Text>
 
-        <Heading component="h1" variant="h1">{t('TITLE')}</Heading>
+        <Heading component="h1" variant="h1">
+          {t('TITLE')}
+        </Heading>
 
-        <Text variant="s" color="secondary">{t('DESCRIPTION')}</Text>
+        <Text variant="s" color="secondary">
+          {t('DESCRIPTION')}
+        </Text>
 
         <Link href="/" passHref>
-          <Button
-            endIcon={<RiArrowRightLine />}
-          >
-            {t('BUTTON')}
-          </Button>
+          <Button endIcon={<RiArrowRightLine />}>{t('BUTTON')}</Button>
         </Link>
       </Stack>
     </>

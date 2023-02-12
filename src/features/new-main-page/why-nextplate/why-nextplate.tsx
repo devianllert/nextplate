@@ -1,27 +1,19 @@
 import * as React from 'react';
 
-import { Box, Heading, Container } from '@effable/react';
+import { Box, Container, Heading } from '@effable/react';
 
 import { Advantage } from '@/features/new-main-page/advantage';
 
-import Performance from '@/shared/icons/performance';
 import Best from '@/shared/icons/best-class';
 import Built from '@/shared/icons/built-In-demo';
 import Feature from '@/shared/icons/feature';
+import Performance from '@/shared/icons/performance';
 
 export const WhyNextplate = (): JSX.Element => {
   return (
     <Container>
-      <Box
-        display="flex"
-        flexDirection="column"
-        alignItems="center"
-        width="100%"
-        paddingY="13x"
-      >
-        <Heading color="text.primary">
-          Why Nextplate?
-        </Heading>
+      <Box display="flex" flexDirection="column" alignItems="center" width="100%" paddingY="13x">
+        <Heading color="text.primary">Why Nextplate?</Heading>
 
         <Box
           display="grid"
@@ -61,7 +53,6 @@ export const WhyNextplate = (): JSX.Element => {
             description="This boilerplate has several built-in demo apps that show an example of using the features of this template"
             icon={<Built />}
           />
-
         </Box>
       </Box>
     </Container>

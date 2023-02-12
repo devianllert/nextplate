@@ -1,11 +1,7 @@
 import Document, {
-  Head,
-  Html,
-  Main,
-  NextScript,
-  DocumentInitialProps,
-  DocumentContext,
+  DocumentContext, DocumentInitialProps, Head, Html, Main, NextScript,
 } from 'next/document';
+
 import { InitializeColorMode } from '@effable/react';
 
 import { getCommonMetaTags } from '@/shared/lib/meta';
@@ -27,9 +23,7 @@ class AppDocument extends Document {
   render(): JSX.Element {
     return (
       <Html lang={this.props.locale}>
-        <Head>
-          {getCommonMetaTags()}
-        </Head>
+        <Head>{getCommonMetaTags()}</Head>
         <body>
           <InitializeColorMode />
 

@@ -1,6 +1,7 @@
 import { allSettled, fork } from 'effector';
 
 import { loginFx } from '@/entities/auth';
+
 import { loginForm } from '../login.model';
 
 describe('Login Model', () => {

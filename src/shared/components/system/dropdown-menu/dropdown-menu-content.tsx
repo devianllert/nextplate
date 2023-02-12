@@ -1,5 +1,5 @@
-import styled from '@emotion/styled';
 import { keyframes } from '@emotion/react';
+import styled from '@emotion/styled';
 import * as DropdownMenuPrimitive from '@radix-ui/react-dropdown-menu';
 
 import shadows from '@/shared/design/tokens/shadows';
@@ -73,7 +73,4 @@ export const DropdownMenuSubContent = styled(DropdownMenuPrimitive.SubContent)((
   },
 }));
 
-export {
-  DropdownMenuContent as Content,
-  DropdownMenuSubContent as SubContent,
-};
+export { DropdownMenuContent as Content, DropdownMenuSubContent as SubContent };

@@ -5,8 +5,7 @@
  * The API description
  * OpenAPI spec version: 1.0
  */
-import { httpClient } from './http-client';
-import type { BodyType } from './http-client';
+import { httpClient, type BodyType } from './http-client';
 
 export interface Tokens {
   access: string;
@@ -38,7 +37,7 @@ export interface UpdateUserDto {
   username?: string;
 }
 
-export type AuthProviders = typeof AuthProviders[keyof typeof AuthProviders];
+export type AuthProviders = (typeof AuthProviders)[keyof typeof AuthProviders];
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const AuthProviders = {
@@ -83,21 +82,13 @@ export interface CreateUserDto {
 }
 
 // eslint-disable-next-line
-  type SecondParameter<T extends (...args: any) => any> = T extends (
-    config: any,
-    args: infer P,
-  ) => any
-    ? P
-    : never;
+type SecondParameter<T extends (...args: any) => any> = T extends (config: any, args: infer P) => any ? P : never;
 
 /**
  * Creates new user in database
  * @summary Create new user
  */
-export const createUser = (
-  createUserDto: BodyType<CreateUserDto>,
-  options?: SecondParameter<typeof httpClient>,
-) => {
+export const createUser = (createUserDto: BodyType<CreateUserDto>, options?: SecondParameter<typeof httpClient>) => {
   return httpClient<User>(
     {
       url: '/api/v1/users',
@@ -113,28 +104,16 @@ export const createUser = (
  * Finds all users in database
  * @summary Find all users
  */
-export const findAllUsers = (
-
-  options?: SecondParameter<typeof httpClient>,
-) => {
-  return httpClient<User[]>(
-    { url: '/api/v1/users', method: 'get' },
-    options,
-  );
+export const findAllUsers = (options?: SecondParameter<typeof httpClient>) => {
+  return httpClient<User[]>({ url: '/api/v1/users', method: 'get' }, options);
 };
 
 /**
  * Finds user by id in database
  * @summary Find user by id
  */
-export const findUserById = (
-  id: number,
-  options?: SecondParameter<typeof httpClient>,
-) => {
-  return httpClient<User>(
-    { url: `/api/v1/users/${id}`, method: 'get' },
-    options,
-  );
+export const findUserById = (id: number, options?: SecondParameter<typeof httpClient>) => {
+  return httpClient<User>({ url: `/api/v1/users/${id}`, method: 'get' }, options);
 };
 
 /**
@@ -161,56 +140,32 @@ export const updateUserById = (
  * Deletes user by id in database
  * @summary Delete user by id
  */
-export const deleteUserById = (
-  id: number,
-  options?: SecondParameter<typeof httpClient>,
-) => {
-  return httpClient<unknown>(
-    { url: `/api/v1/users/${id}`, method: 'delete' },
-    options,
-  );
+export const deleteUserById = (id: number, options?: SecondParameter<typeof httpClient>) => {
+  return httpClient<unknown>({ url: `/api/v1/users/${id}`, method: 'delete' }, options);
 };
 
 /**
  * Find all user's sessions
  * @summary Find all user's sessions
  */
-export const findUserSessions = (
-
-  options?: SecondParameter<typeof httpClient>,
-) => {
-  return httpClient<Session[]>(
-    { url: '/api/v1/sessions', method: 'get' },
-    options,
-  );
+export const findUserSessions = (options?: SecondParameter<typeof httpClient>) => {
+  return httpClient<Session[]>({ url: '/api/v1/sessions', method: 'get' }, options);
 };
 
 /**
  * Delete all user's session by id
  * @summary Delete all user's session by id
  */
-export const deleteAllUserSessions = (
-
-  options?: SecondParameter<typeof httpClient>,
-) => {
-  return httpClient<void>(
-    { url: '/api/v1/sessions', method: 'delete' },
-    options,
-  );
+export const deleteAllUserSessions = (options?: SecondParameter<typeof httpClient>) => {
+  return httpClient<void>({ url: '/api/v1/sessions', method: 'delete' }, options);
 };
 
 /**
  * Delete user's session by id
  * @summary Delete user's session by id
  */
-export const deleteUserSessionById = (
-  id: number,
-  options?: SecondParameter<typeof httpClient>,
-) => {
-  return httpClient<void>(
-    { url: `/api/v1/sessions/${id}`, method: 'delete' },
-    options,
-  );
+export const deleteUserSessionById = (id: number, options?: SecondParameter<typeof httpClient>) => {
+  return httpClient<void>({ url: `/api/v1/sessions/${id}`, method: 'delete' }, options);
 };
 
 /**
@@ -236,10 +191,7 @@ export const register = (
  * Creates new user's session in database
  * @summary Login user
  */
-export const login = (
-  authEmailLoginDto: BodyType<AuthEmailLoginDto>,
-  options?: SecondParameter<typeof httpClient>,
-) => {
+export const login = (authEmailLoginDto: BodyType<AuthEmailLoginDto>, options?: SecondParameter<typeof httpClient>) => {
   return httpClient<Tokens>(
     {
       url: '/api/v1/auth/login',
@@ -255,28 +207,16 @@ export const login = (
  * Deletes user's session in database
  * @summary Logout user
  */
-export const logout = (
-
-  options?: SecondParameter<typeof httpClient>,
-) => {
-  return httpClient<void>(
-    { url: '/api/v1/auth/logout', method: 'post' },
-    options,
-  );
+export const logout = (options?: SecondParameter<typeof httpClient>) => {
+  return httpClient<void>({ url: '/api/v1/auth/logout', method: 'post' }, options);
 };
 
 /**
  * Refresh token for user's session in database
  * @summary Refresh user tokens
  */
-export const refresh = (
-
-  options?: SecondParameter<typeof httpClient>,
-) => {
-  return httpClient<Tokens>(
-    { url: '/api/v1/auth/refresh', method: 'post' },
-    options,
-  );
+export const refresh = (options?: SecondParameter<typeof httpClient>) => {
+  return httpClient<Tokens>({ url: '/api/v1/auth/refresh', method: 'post' }, options);
 };
 
 export type CreateUserResult = NonNullable<Awaited<ReturnType<typeof createUser>>>;

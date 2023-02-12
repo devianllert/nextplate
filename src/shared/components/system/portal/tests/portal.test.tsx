@@ -29,7 +29,7 @@ describe('<Portal />', (): void => {
       return <div>{show ? <Child /> : null}</div>;
     }
 
-    function Child(): JSX.Element  {
+    function Child(): JSX.Element {
       const containerRef = React.useRef<HTMLDivElement>(null);
       return (
         <div>
@@ -59,16 +59,11 @@ describe('<Portal />', (): void => {
   });
 
   it('should change container on prop change', () => {
-    const ContainerTest = (props: { containerElement?: boolean }): JSX.Element  => {
-      const {
-        containerElement,
-      } = props;
+    const ContainerTest = (props: { containerElement?: boolean }): JSX.Element => {
+      const { containerElement } = props;
 
       const containerRef = React.useRef<HTMLElement>(null);
-      const container = React.useCallback(
-        () => (containerElement ? containerRef.current : null),
-        [containerElement],
-      );
+      const container = React.useCallback(() => (containerElement ? containerRef.current : null), [containerElement]);
 
       return (
         <span>

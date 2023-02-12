@@ -1,15 +1,18 @@
 import * as React from 'react';
+
 import { useTranslation } from 'next-i18next';
+
+import { AuthLayout } from '@/layouts/auth';
+
+import { LoginForm } from '@/features/auth/login/login-form';
 
 import { createLogger } from '@/shared/lib/logging/logger';
 import { PageSEO } from '@/shared/lib/meta';
-import { AuthLayout } from '@/layouts/auth';
 import { getTranslationsStaticProps } from '@/shared/lib/ssr';
 import { EnhancedNextPage } from '@/shared/types/enhanced-next-page';
-import { SSRPageProps } from '@/shared/types/ssr-page-props';
-import { SSGPageProps } from '@/shared/types/ssg-page-props';
 import { OnlyBrowserPageProps } from '@/shared/types/only-browser-page-props';
-import { LoginForm } from '@/features/auth/login/login-form';
+import { SSGPageProps } from '@/shared/types/ssg-page-props';
+import { SSRPageProps } from '@/shared/types/ssr-page-props';
 
 const logger = createLogger('Login');
 
@@ -31,18 +34,14 @@ export const getStaticProps = getTranslationsStaticProps(['auth', 'common']);
  *
  * Beware props in OnlyBrowserPageProps are not available on the server
  */
-type Props = (SSRPageProps & SSGPageProps<OnlyBrowserPageProps>);
+type Props = SSRPageProps & SSGPageProps<OnlyBrowserPageProps>;
 
 const LoginPage: EnhancedNextPage<Props> = (): JSX.Element => {
   const { t } = useTranslation('auth');
 
   return (
     <>
-      <PageSEO
-        title={t('SEO_LOGIN_TITLE')}
-        description={t('SEO_LOGIN_DESCRIPTION')}
-        image={t('SEO_IMAGE_URL')}
-      />
+      <PageSEO title={t('SEO_LOGIN_TITLE')} description={t('SEO_LOGIN_DESCRIPTION')} image={t('SEO_IMAGE_URL')} />
 
       <LoginForm />
     </>

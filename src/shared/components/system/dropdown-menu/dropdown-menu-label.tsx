@@ -11,6 +11,4 @@ export const DropdownMenuLabel = styled(DropdownMenuPrimitive.Label)((props) => 
   paddingRight: 4,
 }));
 
-export {
-  DropdownMenuLabel as Label,
-};
+export { DropdownMenuLabel as Label };

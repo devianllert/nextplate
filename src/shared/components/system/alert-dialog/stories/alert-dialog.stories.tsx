@@ -1,6 +1,7 @@
 import * as React from 'react';
-import { Meta } from '@storybook/react';
+
 import { Box, Button, Stack } from '@effable/react';
+import { Meta } from '@storybook/react';
 
 import * as AlertDialog from '../alert-dialog';
 
@@ -19,13 +20,11 @@ export const Basic = () => (
     <AlertDialog.StyledContent asChild>
       <Box backgroundColor="background.secondary" p={3}>
         <AlertDialog.Title>Are you absolutely sure?</AlertDialog.Title>
-        <AlertDialog.Description>This action cannot be undone. This will permanently delete your account and remove your data from our servers.</AlertDialog.Description>
+        <AlertDialog.Description>
+          This action cannot be undone. This will permanently delete your account and remove your data from our servers.
+        </AlertDialog.Description>
 
-        <Box
-          display="flex"
-          justifyContent="flex-end"
-          mt={3}
-        >
+        <Box display="flex" justifyContent="flex-end" mt={3}>
           <Stack direction="row">
             <AlertDialog.Cancel asChild>
               <Button>Cancel</Button>

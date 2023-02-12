@@ -1,4 +1,5 @@
 import * as React from 'react';
+
 import { Meta } from '@storybook/react';
 import { RiArrowRightSLine } from 'react-icons/ri';
 
@@ -12,17 +13,13 @@ export default {
 export const Basic = (): JSX.Element => (
   <Breadcrumbs.Root>
     <Breadcrumbs.Item>
-      <Breadcrumbs.Link href="/123">
-        Home
-      </Breadcrumbs.Link>
+      <Breadcrumbs.Link href="/123">Home</Breadcrumbs.Link>
     </Breadcrumbs.Item>
 
     <Breadcrumbs.Separator>/</Breadcrumbs.Separator>
 
     <Breadcrumbs.Item>
-      <Breadcrumbs.Link href="/123">
-        Shop
-      </Breadcrumbs.Link>
+      <Breadcrumbs.Link href="/123">Shop</Breadcrumbs.Link>
     </Breadcrumbs.Item>
 
     <Breadcrumbs.Separator>/</Breadcrumbs.Separator>

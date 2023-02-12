@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { Box, Text, Heading } from '@effable/react';
+import { Box, Heading, Text } from '@effable/react';
 
 import * as S from './advantage.styled';
 
@@ -10,15 +10,11 @@ export interface AdvantageProps {
    */
   icon: React.ReactNode;
   description: string;
-  title,
+  title;
 }
 
 export const Advantage = (props: AdvantageProps): JSX.Element => {
-  const {
-    icon,
-    description,
-    title,
-  } = props;
+  const { icon, description, title } = props;
 
   return (
     <Box
@@ -88,7 +84,6 @@ export const Advantage = (props: AdvantageProps): JSX.Element => {
           {description}
         </Text>
       </Box>
-
     </Box>
   );
 };

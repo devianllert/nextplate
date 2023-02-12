@@ -1,6 +1,7 @@
 import * as React from 'react';
-import { RiCloseLine } from 'react-icons/ri';
+
 import { ActionButton } from '@effable/react';
+import { RiCloseLine } from 'react-icons/ri';
 
 import { Sizes } from '@/shared/design/tokens/size';
 
@@ -15,12 +16,7 @@ interface UseInputClearOptions<T extends HTMLTextAreaElement | HTMLInputElement>
 
 export function useInputClear<T extends HTMLTextAreaElement | HTMLInputElement>(options: UseInputClearOptions<T>) {
   const {
-    allowClear,
-    disabled,
-    value,
-    onChange,
-    ref,
-    size = 'medium',
+    allowClear, disabled, value, onChange, ref, size = 'medium',
   } = options;
 
   const [hasUncontrolledInputValue, setHasUncontrolledInputValue] = React.useState(false);
@@ -51,18 +47,14 @@ export function useInputClear<T extends HTMLTextAreaElement | HTMLInputElement>(
     }
 
     if (!isControlledMode && ref.current) {
-    // eslint-disable-next-line no-param-reassign
+      // eslint-disable-next-line no-param-reassign
       ref.current.value = '';
       setHasUncontrolledInputValue(false);
     }
   };
 
   const clearIcon = showClearIcon ? (
-    <ActionButton
-      size={size}
-      onMouseDown={setFocusOnInput}
-      onClick={onClear}
-    >
+    <ActionButton size={size} onMouseDown={setFocusOnInput} onClick={onClear}>
       <RiCloseLine />
     </ActionButton>
   ) : null;

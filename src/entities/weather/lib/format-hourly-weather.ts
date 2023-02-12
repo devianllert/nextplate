@@ -6,7 +6,10 @@ import { WTTRWeatherDailyCondition, WTTRWeatherHourlyCondition } from '../types/
 
 const HOURLY_WEATHER_INTERVAL = 1000 * 60 * 60 * 3;
 
-const formatHourlyWeather = (hourlyWeather: WTTRWeatherHourlyCondition[], date: string | Date = new Date()): WTTRWeatherHourlyCondition[] => {
+const formatHourlyWeather = (
+  hourlyWeather: WTTRWeatherHourlyCondition[],
+  date: string | Date = new Date(),
+): WTTRWeatherHourlyCondition[] => {
   const currentTime = new Date(date).setHours(0, 0, 0);
 
   const weather = hourlyWeather.map((item, index) => {
@@ -32,7 +35,9 @@ const getFlattenedHourlyWeatherList = (dailyWeather: WTTRWeatherDailyCondition[]
   return hourlyWeather;
 };
 
-export const filterHourlyWeatherBasedOnCurrentTime = (dailyWeather: WTTRWeatherDailyCondition[]): WTTRWeatherHourlyCondition[] => {
+export const filterHourlyWeatherBasedOnCurrentTime = (
+  dailyWeather: WTTRWeatherDailyCondition[],
+): WTTRWeatherHourlyCondition[] => {
   const formattedDailyWeather = formatDailyWeather(dailyWeather);
   const hourlyWeather = getFlattenedHourlyWeatherList(formattedDailyWeather);
 

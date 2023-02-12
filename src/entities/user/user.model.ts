@@ -1,10 +1,6 @@
-import {
-  attach,
-  createEvent,
-  Effect,
-} from 'effector';
 import { createQuery } from '@farfetched/core';
 import { AxiosRequestConfig, AxiosResponse } from 'axios';
+import { attach, createEvent, Effect } from 'effector';
 
 import { User } from '@/shared/api/api.generated';
 import { requestWithAuthFx } from '@/shared/api/request';

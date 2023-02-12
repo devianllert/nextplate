@@ -1,12 +1,8 @@
 import {
-  DisplayOnBrowserMount,
-  Box,
-  Button,
-  Link,
-  Text,
+  Box, Button, DisplayOnBrowserMount, Link, Text,
 } from '@effable/react';
-import { useTranslation, Trans } from 'next-i18next';
 import { useUnit } from 'effector-react/scope';
+import { Trans, useTranslation } from 'next-i18next';
 
 import { Portal } from '@/shared/components/system/portal';
 import shadows from '@/shared/design/tokens/shadows';
@@ -23,11 +19,7 @@ export const CookieConsent = () => {
   return (
     <DisplayOnBrowserMount>
       <Portal>
-        <Box
-          position="fixed"
-          bottom={3}
-          left={3}
-        >
+        <Box position="fixed" bottom={3} left={3}>
           <Box
             padding={3}
             display="flex"
@@ -39,10 +31,16 @@ export const CookieConsent = () => {
             boxShadow={shadows[4]}
           >
             <Text variant="s" sx={{ mb: 2 }}>
-              <Trans t={t} i18nKey="COOKIE_CONSENT_TITLE" components={[<Link target="_blank" href="https://www.cookiesandyou.com" />]} />
+              <Trans
+                t={t}
+                i18nKey="COOKIE_CONSENT_TITLE"
+                components={[<Link target="_blank" href="https://www.cookiesandyou.com" />]}
+              />
             </Text>
 
-            <Button variant="secondary" size="small" onClick={allowCookies}>{t('COOKIE_CONSENT_ACTION')}</Button>
+            <Button variant="secondary" size="small" onClick={allowCookies}>
+              {t('COOKIE_CONSENT_ACTION')}
+            </Button>
           </Box>
         </Box>
       </Portal>

@@ -6,9 +6,7 @@ export interface CreateErrorsOptions {
 }
 
 export const createErrors = (options: CreateErrorsOptions) => {
-  const {
-    errors,
-  } = options;
+  const { errors } = options;
 
   const $isDirty = createStore(false);
 

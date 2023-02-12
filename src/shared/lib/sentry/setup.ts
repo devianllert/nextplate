@@ -42,6 +42,6 @@ export const setupSentry = () => {
 
     logger.log('Sentry initialized');
   } else if (process.env.NODE_ENV !== 'test') {
-    logger.error('Sentry DSN not defined, events (exceptions, messages, etc.) won\'t be sent to Sentry.');
+    logger.error("Sentry DSN not defined, events (exceptions, messages, etc.) won't be sent to Sentry.");
   }
 };

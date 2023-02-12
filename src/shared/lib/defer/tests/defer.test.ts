@@ -28,4 +28,4 @@ describe('defer', () => {
 
     expect(rejected).toBeCalledTimes(0);
   });
-})
+});

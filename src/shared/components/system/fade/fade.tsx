@@ -1,15 +1,11 @@
 import React from 'react';
+
 import {
-  AnimatePresence,
-  HTMLMotionProps,
-  motion,
-  Variants as _Variants,
+  Variants as _Variants, AnimatePresence, HTMLMotionProps, motion,
 } from 'framer-motion';
+
 import {
-  TransitionDefaults,
-  withDelay,
-  WithTransitionConfig,
-  Variants,
+  TransitionDefaults, Variants, withDelay, WithTransitionConfig,
 } from '@/shared/lib/transition';
 
 export type FadeProps = WithTransitionConfig<HTMLMotionProps<'div'>>;
@@ -39,13 +35,7 @@ export const fadeConfig: HTMLMotionProps<'div'> = {
  */
 export const Fade = React.forwardRef<HTMLDivElement, FadeProps>((props, ref) => {
   const {
-    unmountOnExit,
-    in: isOpen,
-    className,
-    transition,
-    transitionEnd,
-    delay,
-    ...rest
+    unmountOnExit, in: isOpen, className, transition, transitionEnd, delay, ...rest
   } = props;
 
   const animate = isOpen || unmountOnExit ? 'enter' : 'exit';
@@ -55,15 +45,7 @@ export const Fade = React.forwardRef<HTMLDivElement, FadeProps>((props, ref) => 
 
   return (
     <AnimatePresence custom={custom}>
-      {show && (
-        <motion.div
-          ref={ref}
-          custom={custom}
-          {...fadeConfig}
-          animate={animate}
-          {...rest}
-        />
-      )}
+      {show && <motion.div ref={ref} custom={custom} {...fadeConfig} animate={animate} {...rest} />}
     </AnimatePresence>
   );
 });

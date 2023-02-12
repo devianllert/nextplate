@@ -1,10 +1,11 @@
 import { NextApiRequest } from 'next';
+
 import * as Sentry from '@sentry/nextjs';
 
 import { convertRequestBodyToJSObject } from '@/shared/api';
 
-import { UserSession } from '../user-session/use-user-session';
 import { GenericObject } from '../../types/generic-object';
+import { UserSession } from '../user-session/use-user-session';
 
 /**
  * Configure Sentry default scope.
@@ -29,7 +30,7 @@ export const configureSentry = (): void => {
       scope.setTag('app.version', process.env.NEXT_PUBLIC_APP_VERSION);
       scope.setTag('app.name-version', process.env.NEXT_PUBLIC_APP_NAME_VERSION);
       scope.setTag('app.build-time', process.env.NEXT_PUBLIC_APP_BUILD_TIME);
-      scope.setTag('app.build-time.ISO', (new Date(process.env.NEXT_PUBLIC_APP_BUILD_TIME)).toISOString());
+      scope.setTag('app.build-time.ISO', new Date(process.env.NEXT_PUBLIC_APP_BUILD_TIME).toISOString());
       scope.setTag('app.build-id', process.env.NEXT_PUBLIC_APP_BUILD_ID);
     });
   }
@@ -76,7 +77,11 @@ export const configureSentryI18n = (lang: string): void => {
  * @param contexts
  * @see https://www.npmjs.com/package/@sentry/nextjs
  */
-export const configureReq = (req: NextApiRequest, tags?: Record<string, string>, contexts?: Record<string, Record<string, unknown>>): void => {
+export const configureReq = (
+  req: NextApiRequest,
+  tags?: Record<string, string>,
+  contexts?: Record<string, Record<string, unknown>>,
+): void => {
   let parsedBody: GenericObject = {};
   try {
     parsedBody = convertRequestBodyToJSObject(req);

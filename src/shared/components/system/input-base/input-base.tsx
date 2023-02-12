@@ -47,7 +47,10 @@ export interface InputBaseProps extends Omit<React.InputHTMLAttributes<HTMLInput
  * InputBase contains as few styles as possible.
  * It aims to be a simple building block for creating an input.
  */
-export const InputBase = React.forwardRef(function InputBase(props: InputBaseProps, ref: React.ForwardedRef<HTMLInputElement>): JSX.Element {
+export const InputBase = React.forwardRef(function InputBase(
+  props: InputBaseProps,
+  ref: React.ForwardedRef<HTMLInputElement>,
+): JSX.Element {
   const {
     type = 'text',
     disabled,
@@ -75,12 +78,7 @@ export const InputBase = React.forwardRef(function InputBase(props: InputBasePro
   }, []);
 
   return (
-    <S.InputBaseRoot
-      fullWidth={fullWidth}
-      disabled={disabled}
-      onClick={handleClick}
-      className={className}
-    >
+    <S.InputBaseRoot fullWidth={fullWidth} disabled={disabled} onClick={handleClick} className={className}>
       {prefix}
 
       <S.InputBaseComponent

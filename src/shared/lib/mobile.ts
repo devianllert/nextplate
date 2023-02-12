@@ -1,5 +1,5 @@
-import * as Sentry from '@sentry/nextjs';
 import { isBrowser } from '@effable/misc';
+import * as Sentry from '@sentry/nextjs';
 
 import { createLogger } from '@/shared/lib/logging/logger';
 

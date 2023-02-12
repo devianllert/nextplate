@@ -1,15 +1,13 @@
 import * as React from 'react';
-import { Meta } from '@storybook/react';
-import styled from '@emotion/styled';
+
 import { Button } from '@effable/react';
+import styled from '@emotion/styled';
+import { Meta } from '@storybook/react';
 
 import shadows from '@/shared/design/tokens/shadows';
 
 import {
-  Sheet,
-  SheetContent,
-  SheetPortal,
-  SheetTrigger,
+  Sheet, SheetContent, SheetPortal, SheetTrigger,
 } from '../index';
 
 export default {
@@ -38,9 +36,7 @@ export const Top = () => {
       </SheetTrigger>
 
       <SheetPortal>
-        <StyledContent direction="top">
-          123
-        </StyledContent>
+        <StyledContent direction="top">123</StyledContent>
       </SheetPortal>
     </Sheet>
   );
@@ -54,9 +50,7 @@ export const Left = () => {
       </SheetTrigger>
 
       <SheetPortal>
-        <StyledContent direction="left">
-          123
-        </StyledContent>
+        <StyledContent direction="left">123</StyledContent>
       </SheetPortal>
     </Sheet>
   );
@@ -70,9 +64,7 @@ export const Right = () => {
       </SheetTrigger>
 
       <SheetPortal>
-        <StyledContent direction="right">
-          123
-        </StyledContent>
+        <StyledContent direction="right">123</StyledContent>
       </SheetPortal>
     </Sheet>
   );
@@ -86,9 +78,7 @@ export const Bottom = () => {
       </SheetTrigger>
 
       <SheetPortal>
-        <StyledContent direction="bottom">
-          123
-        </StyledContent>
+        <StyledContent direction="bottom">123</StyledContent>
       </SheetPortal>
     </Sheet>
   );

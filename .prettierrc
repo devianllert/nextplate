@@ -6,5 +6,28 @@
   "trailingComma": "all",
   "tabWidth": 2,
   "printWidth": 120,
-  "endOfLine": "lf"
+  "endOfLine": "lf",
+  "importOrder": [
+    "^(react/(.*)$)|^(react$)",
+    "^(next/(.*)$)|^(next$)",
+    "<THIRD_PARTY_MODULES>",
+    "",
+    "^@/layouts/(.*)$",
+    "^@/features/(.*)$",
+    "^@/entities/(.*)$",
+    "^@/shared/(.*)$",
+    "^[./]"
+  ],
+  "importOrderBuiltinModulesToTop": true,
+  "importOrderCaseInsensitive": true,
+  "importOrderParserPlugins": [
+    "typescript",
+    "jsx",
+    "decorators-legacy"
+  ],
+  "importOrderMergeDuplicateImports": true,
+  "importOrderCombineTypeAndValueImports": true,
+  "importOrderSeparation": true,
+  "importOrderSortSpecifiers": true,
+  "plugins": ["@ianvs/prettier-plugin-sort-imports"]
 }

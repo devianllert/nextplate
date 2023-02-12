@@ -1,6 +1,6 @@
 import { createQuery } from '@farfetched/core';
-import { attach, Effect } from 'effector';
 import { AxiosRequestConfig, AxiosResponse } from 'axios';
+import { attach, Effect } from 'effector';
 
 import { Session } from '@/shared/api/api.generated';
 import { requestWithAuthFx } from '@/shared/api/request';

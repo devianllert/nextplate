@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { UserSemiPersistentSession } from './types/user-semi-persistent-session';
 
 /**

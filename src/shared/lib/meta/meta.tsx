@@ -14,12 +14,13 @@ export const getCommonMetaTags = () => (
 );
 
 export const getLinksAlternateHref = (asPath: string, locales: string[] = []) => {
-  return process.env.NEXT_PUBLIC_APP_URL && locales.concat('x-default').map((locale: string) => {
-    const localePath = locale === 'x-default' ? '' : `${locale}`;
-    const href = `${process.env.NEXT_PUBLIC_APP_URL}/${localePath}${asPath === '/' ? '' : asPath}`;
+  return (
+    process.env.NEXT_PUBLIC_APP_URL
+    && locales.concat('x-default').map((locale: string) => {
+      const localePath = locale === 'x-default' ? '' : `${locale}`;
+      const href = `${process.env.NEXT_PUBLIC_APP_URL}/${localePath}${asPath === '/' ? '' : asPath}`;
 
-    return locale === 'cimode' ? null : (
-      <link key={locale} rel="alternate" hrefLang={locale} href={href} />
-    );
-  });
+      return locale === 'cimode' ? null : <link key={locale} rel="alternate" hrefLang={locale} href={href} />;
+    })
+  );
 };

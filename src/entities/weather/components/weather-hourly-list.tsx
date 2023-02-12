@@ -1,5 +1,7 @@
 import * as React from 'react';
+
 import Image from 'next/image';
+
 import {
   Box, Container, DisplayOnBrowserMount, Heading,
 } from '@effable/react';

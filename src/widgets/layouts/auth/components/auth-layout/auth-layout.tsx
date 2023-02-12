@@ -1,12 +1,14 @@
 import * as React from 'react';
-import Image from 'next/image';
-import {
-  motion, useMotionValue, useTransform, useReducedMotion,
-} from 'framer-motion';
-import { Box } from '@effable/react';
 
-import { AuthHeader } from '../auth-header';
+import Image from 'next/image';
+
+import { Box } from '@effable/react';
+import {
+  motion, useMotionValue, useReducedMotion, useTransform,
+} from 'framer-motion';
+
 import { AuthContent } from '../auth-content';
+import { AuthHeader } from '../auth-header';
 
 export interface AuthLayoutProps {
   /**

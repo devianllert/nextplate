@@ -3,7 +3,6 @@ import * as React from 'react';
 import { Box, Stack } from '@effable/react';
 
 import { Dignity } from '../dignity';
-
 import * as S from './dignity-grid.styled';
 
 export const DignityGrid = (): JSX.Element => {
@@ -17,10 +16,7 @@ export const DignityGrid = (): JSX.Element => {
       maxWidth="500px"
     >
       <Stack direction="column" space="2x">
-        <Box
-          display="flex"
-          justifyContent="center"
-        >
+        <Box display="flex" justifyContent="center">
           <Stack space="2x" alignItems="flex-end">
             <Dignity title="Next.js" main />
 
@@ -28,10 +24,7 @@ export const DignityGrid = (): JSX.Element => {
           </Stack>
         </Box>
 
-        <Box
-          display="flex"
-          justifyContent="center"
-        >
+        <Box display="flex" justifyContent="center">
           <Stack space="2x">
             <Dignity title="Jest" text="testing" />
 
@@ -41,10 +34,7 @@ export const DignityGrid = (): JSX.Element => {
           </Stack>
         </Box>
 
-        <Box
-          display="flex"
-          justifyContent="center"
-        >
+        <Box display="flex" justifyContent="center">
           <Stack space="2x">
             <Dignity title="Feature-Sliced" text="building a project structure" />
 
@@ -54,15 +44,11 @@ export const DignityGrid = (): JSX.Element => {
           </Stack>
         </Box>
 
-        <Box
-          display="flex"
-          justifyContent="center"
-        >
+        <Box display="flex" justifyContent="center">
           <Stack space="2x">
             <Dignity title="Effector" text="writing business logic and state management" />
 
             <Dignity title="Husky" text="for tracking code quality before commits" />
-
           </Stack>
         </Box>
       </Stack>

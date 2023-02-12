@@ -1,8 +1,9 @@
 import * as React from 'react';
+
+import { Button } from '@effable/react';
+import styled from '@emotion/styled';
 import { Meta } from '@storybook/react';
 import { RiDeleteBin2Line } from 'react-icons/ri';
-import styled from '@emotion/styled';
-import { Button } from '@effable/react';
 
 import * as DropdownMenu from '..';
 
@@ -22,30 +23,24 @@ export const Basic = () => {
         <DropdownMenu.Item>
           New Tab
           <DropdownMenu.RightAdornment>⌘+B</DropdownMenu.RightAdornment>
-
         </DropdownMenu.Item>
         <DropdownMenu.Item>
           New Window
           <DropdownMenu.RightAdornment>⌘+B</DropdownMenu.RightAdornment>
-
         </DropdownMenu.Item>
 
         <DropdownMenu.Sub>
-          <DropdownMenu.SubTriggerItem>
-            Tools
-          </DropdownMenu.SubTriggerItem>
+          <DropdownMenu.SubTriggerItem>Tools</DropdownMenu.SubTriggerItem>
 
           <DropdownMenu.Portal>
             <DropdownMenu.SubContent>
               <DropdownMenu.Item>
                 Developer tools
                 <DropdownMenu.RightAdornment>⌘+B</DropdownMenu.RightAdornment>
-
               </DropdownMenu.Item>
               <DropdownMenu.Item>
                 Create Shortcut
                 <DropdownMenu.RightAdornment>⌘+B</DropdownMenu.RightAdornment>
-
               </DropdownMenu.Item>
             </DropdownMenu.SubContent>
           </DropdownMenu.Portal>
@@ -66,7 +61,9 @@ export const Basic = () => {
         <DropdownMenu.RadioGroup value="1">
           <DropdownMenu.RadioItem value="1">None</DropdownMenu.RadioItem>
           <DropdownMenu.RadioItem value="2">Single</DropdownMenu.RadioItem>
-          <DropdownMenu.RadioItem value="3" disabled>Multiple</DropdownMenu.RadioItem>
+          <DropdownMenu.RadioItem value="3" disabled>
+            Multiple
+          </DropdownMenu.RadioItem>
         </DropdownMenu.RadioGroup>
       </DropdownMenu.Content>
     </DropdownMenu.Root>
@@ -103,9 +100,7 @@ export const Custom = () => {
       </DropdownMenu.Trigger>
 
       <DropdownMenu.Content>
-        <DropdownMenu.Item>
-          New Tab
-        </DropdownMenu.Item>
+        <DropdownMenu.Item>New Tab</DropdownMenu.Item>
         <DropdownMenu.Item>
           New Window
           <DropdownMenu.RightAdornment>⌘+B</DropdownMenu.RightAdornment>
@@ -120,7 +115,6 @@ export const Custom = () => {
           Delete item
           <DropdownMenu.RightAdornment>Del</DropdownMenu.RightAdornment>
         </DeleteItem>
-
       </DropdownMenu.Content>
     </DropdownMenu.Root>
   );

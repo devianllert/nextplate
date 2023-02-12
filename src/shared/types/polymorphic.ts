@@ -29,13 +29,8 @@ export interface PolymorphicComponent<Props, DefaultElement extends React.Elemen
 /**
  * Props of the component if `component={Component}` is used.
  */
-export type OverrideProps<
-  P,
-  C extends React.ElementType,
-> = (
-  & P
-  & DistributiveOmit<React.ComponentPropsWithRef<C>, keyof P>
-);
+export type OverrideProps<P, C extends React.ElementType> = P &
+DistributiveOmit<React.ComponentPropsWithRef<C>, keyof P>;
 
 /**
  * Props if `component={Component}` is NOT used.

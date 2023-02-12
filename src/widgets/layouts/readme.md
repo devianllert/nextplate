@@ -1,9 +1,9 @@
-Page layouts
-===
+# Page layouts
 
 > Check out the [documentation about the folder structure](../README.md#folder-structure)
 
 Summary:
+
 - `core`: Share reusable components between layouts.
 - `demo`: Used by all demo pages. You'll eventually get rid of it, but until then it can be a good inspiration.
 - You can add custom layouts and use them in your pages right away.

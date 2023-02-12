@@ -1,10 +1,12 @@
 import { createEvent, sample } from 'effector';
-import { z } from 'zod';
 import { splitMap, spread } from 'patronum';
+import { z } from 'zod';
 
 import { loginFx } from '@/entities/auth';
+
 import { createField, createForm } from '@/shared/lib/effector/forms';
 import { pushFx } from '@/shared/lib/effector/router/effector-router';
+
 import { email } from '../model';
 
 export const loginButtonClicked = createEvent();

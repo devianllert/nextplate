@@ -1,4 +1,5 @@
 import { isBrowser } from '@effable/misc';
+
 import { createLogger as createConsoleLogger, Logger } from './create-logger';
 
 /**

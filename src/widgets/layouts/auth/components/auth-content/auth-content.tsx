@@ -1,7 +1,9 @@
 import * as React from 'react';
+
 import { useRouter } from 'next/router';
-import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
+
 import { Box, Container } from '@effable/react';
+import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
 
 import { duration } from '@/shared/design/tokens/transitions';
 
@@ -22,9 +24,7 @@ const variants = {
 };
 
 export const AuthContent = (props: AuthContentProps): JSX.Element => {
-  const {
-    children,
-  } = props;
+  const { children } = props;
 
   const router = useRouter();
 

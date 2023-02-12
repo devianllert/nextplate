@@ -1,6 +1,7 @@
 import * as React from 'react';
-import { Meta } from '@storybook/react';
+
 import { Box, Button } from '@effable/react';
+import { Meta } from '@storybook/react';
 
 import * as Modal from '../modal';
 
@@ -35,7 +36,6 @@ export const Styled = () => (
 export const NonModal = () => (
   <>
     <Modal.Root modal={false}>
-
       <Modal.Trigger asChild>
         <Button>Open</Button>
       </Modal.Trigger>
@@ -71,7 +71,6 @@ export const Controlled = () => {
   const [open, setOpen] = React.useState(false);
   return (
     <Modal.Root open={open} onOpenChange={setOpen}>
-
       <Modal.Trigger asChild>
         <Button>{open ? 'Close' : 'Open'}</Button>
       </Modal.Trigger>

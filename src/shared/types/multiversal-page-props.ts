@@ -14,4 +14,5 @@ export type MultiversalPageProps<E extends {} = {}> = {
   error?: Error; // Only defined if there was an error
   statusCode?: number; // Provided by Next.js framework, sometimes
   _nextI18Next: SSRConfig['_nextI18Next'];
-} & EffectorState & E;
+} & EffectorState &
+E;

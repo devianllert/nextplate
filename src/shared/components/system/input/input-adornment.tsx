@@ -1,8 +1,9 @@
 import * as React from 'react';
+
 import styled from '@emotion/styled';
 
-import { PolymorphicComponent } from '@/shared/types/polymorphic';
 import { spacings } from '@/shared/design/tokens/spacings';
+import { PolymorphicComponent } from '@/shared/types/polymorphic';
 
 export const inputAdornmentTypography = {
   small: 16,
@@ -54,13 +55,7 @@ interface InputAdornmentProps {
 
 export const InputAdornment: PolymorphicComponent<InputAdornmentProps, 'div'> = React.forwardRef((props, ref) => {
   const {
-    children,
-    className,
-    component,
-    disablePointerEvents = false,
-    position,
-    size,
-    ...other
+    children, className, component, disablePointerEvents = false, position, size, ...other
   } = props;
 
   return (

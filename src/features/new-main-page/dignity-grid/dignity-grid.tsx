@@ -3,7 +3,6 @@ import * as React from 'react';
 import { Box, Stack } from '@effable/react';
 
 import { Dignity } from '../dignity';
-import * as S from './dignity-grid.styled';
 
 export const DignityGrid = (): JSX.Element => {
   return (

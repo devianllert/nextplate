@@ -20,7 +20,7 @@ export const AuthHeader = (): JSX.Element => {
     <S.AuthHeaderRoot>
       <Container>
         <Box display="flex" alignItems="center" justifyContent="space-between">
-          <Heading color="text.primary" variant="h6" href="/" component={Link}>
+          <Heading color="text.primary" variant="h3" href="/" component={Link}>
             {APP_TITLE}
           </Heading>
 

@@ -1,6 +1,8 @@
 import * as React from 'react';
 
-import { Box, Container, Heading } from '@effable/react';
+import {
+  Box, Container, Heading, SimpleGrid,
+} from '@effable/react';
 
 import { Advantage } from '@/features/new-main-page/advantage';
 
@@ -13,23 +15,11 @@ export const WhyNextplate = (): JSX.Element => {
   return (
     <Container>
       <Box display="flex" flexDirection="column" alignItems="center" width="100%" paddingY="13x">
-        <Heading color="text.primary">Why Nextplate?</Heading>
+        <Heading color="text.primary" sx={{ mb: '11x' }}>
+          Why Nextplate?
+        </Heading>
 
-        <Box
-          display="grid"
-          gridTemplateColumns={{
-            base: '1fr',
-            laptop: '1fr 1fr 1fr 1fr',
-            desktop: '1fr 1fr 1fr 1fr',
-          }}
-          width="100%"
-          marginTop="13x"
-          gridGap={{
-            base: '8x',
-            laptop: '0px',
-            desktop: '0px',
-          }}
-        >
+        <SimpleGrid cols={{ base: 1, laptop: 4 }} space="4x">
           <Advantage
             title="Performant"
             description="Next.js gives you the best developer experience with all the features you need for production: hybrid static & server rendering, TypeScript support, smart bundling, route pre-fetching, and more"
@@ -53,7 +43,7 @@ export const WhyNextplate = (): JSX.Element => {
             description="This boilerplate has several built-in demo apps that show an example of using the features of this template"
             icon={<Built />}
           />
-        </Box>
+        </SimpleGrid>
       </Box>
     </Container>
   );

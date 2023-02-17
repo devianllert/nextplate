@@ -42,13 +42,13 @@ const DashboardPage = () => {
 
               <Box ml={4}>
                 <Heading variant="h6">{user?.username}</Heading>
-                <Text variant="m" color="secondary">
+                <Text variant="m" color="text.secondary">
                   {user?.email}
                 </Text>
               </Box>
 
               <Box ml="auto">
-                <Stack space={3} direction="row">
+                <Stack space="3x" direction="row">
                   <Button startIcon={<RiUserShared2Line />}>Share</Button>
                   <Button>View profile</Button>
                   <Button color="error" onClick={logout}>
@@ -65,12 +65,12 @@ const DashboardPage = () => {
         <Container>
           <Box>
             <Heading variant="h6">Where you are logged in</Heading>
-            <Text variant="xs" color="secondary">
+            <Text variant="xs" color="text.secondary">
               We’ll alert you via {user?.email} if there is any unusual activity on your account.
             </Text>
 
             <Box mt={4}>
-              <Stack space={2}>
+              <Stack space="2x">
                 {sessions?.map((session) => (
                   <Box key={session.id} display="flex" pt={2} pb={3} borderBottom="1px solid">
                     <Box mr={2}>
@@ -80,7 +80,7 @@ const DashboardPage = () => {
                       <Text variant="s">
                         {session.os} {session.browser}
                       </Text>
-                      <Text variant="xs" color="secondary">
+                      <Text variant="xs" color="text.secondary">
                         {session.ip} • {format(new Date(session.updatedAt), "M MMM 'at' HH:mm")}
                       </Text>
                     </Box>

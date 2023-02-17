@@ -34,12 +34,7 @@ export const AuthContent = (props: AuthContentProps): JSX.Element => {
     <S.Content>
       <Container>
         <AnimatePresence mode="wait" initial={false}>
-          <Box
-            display="flex"
-            flexDirection="column"
-            alignItems="center"
-            width="100%"
-            component={motion.div}
+          <motion.div
             key={router.route}
             variants={variants}
             initial={shouldReduceMotion ? 'enter' : 'hidden'}
@@ -47,8 +42,10 @@ export const AuthContent = (props: AuthContentProps): JSX.Element => {
             exit={shouldReduceMotion ? 'enter' : 'exit'}
             transition={shouldReduceMotion ? { duration: 0 } : variants.transition}
           >
-            {children}
-          </Box>
+            <Box display="flex" flexDirection="column" alignItems="center" width="100%">
+              {children}
+            </Box>
+          </motion.div>
         </AnimatePresence>
       </Container>
     </S.Content>

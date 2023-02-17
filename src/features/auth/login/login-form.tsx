@@ -31,7 +31,7 @@ export const LoginForm = () => {
 
   return (
     <Box component="form" maxWidth="440px" width="100%" onSubmit={onSubmit}>
-      <Heading variant="h4" component="h1" sx={{ mb: 4 }}>
+      <Heading variant="h1" component="h1" sx={{ mb: '4x' }}>
         {t('LOGIN')}
       </Heading>
 
@@ -40,7 +40,7 @@ export const LoginForm = () => {
         <GithubButton />
       </Stack>
 
-      <Divider mt="4x" mb="4x" />
+      <Divider mt="4x" mb="4x" label="OR" />
 
       <Stack direction="column">
         <Input

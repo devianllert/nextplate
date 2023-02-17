@@ -3,9 +3,9 @@ import styled from '@emotion/styled';
 import { createTransition, duration } from '@/shared/design/tokens/transitions';
 import { fontWeight } from '@/shared/design/tokens/typography';
 
-export const InputLabel = styled.label({
+export const InputLabel = styled.label((props) => ({
   fontWeight: fontWeight.medium,
-  fontSize: '1.4rem',
+  fontSize: props.theme.fontSizes.s,
   transition: createTransition('color', { duration: duration.short }),
   display: 'inline-block',
   maxWidth: '100%',
@@ -13,4 +13,4 @@ export const InputLabel = styled.label({
   textOverflow: 'ellipsis',
   whiteSpace: 'nowrap',
   wordWrap: 'normal',
-});
+}));

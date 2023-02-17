@@ -23,11 +23,6 @@ export const Advantage = (props: AdvantageProps): JSX.Element => {
         base: 'row',
         laptop: 'column',
       }}
-      maxWidth={{
-        base: '100%',
-        laptop: '216px',
-        desktop: '289px',
-      }}
       width="100%"
       alignItems={{
         base: 'flex-start',
@@ -56,29 +51,24 @@ export const Advantage = (props: AdvantageProps): JSX.Element => {
       <Box
         display="flex"
         flexDirection="column"
-        alignItems={{
-          base: 'flex-start',
-          laptop: 'center',
-          desktop: 'center',
-        }}
         marginLeft={{
           base: '6x',
           laptop: '0px',
           desktop: '0px',
         }}
       >
-        <Heading variant="h2" color="text.primary">
+        <Heading variant="h2" color="text.primary" textAlign={{ base: 'left', laptop: 'center' }}>
           {title}
         </Heading>
 
         <Text
           variant="m"
           color="text.primary"
-          // textAlign={{
-          //   base: 'left',
-          //   laptop: 'center',
-          //   desktop: 'center',
-          // }}
+          textAlign={{
+            base: 'left',
+            laptop: 'center',
+            desktop: 'center',
+          }}
           sx={{ marginTop: '12px' }}
         >
           {description}

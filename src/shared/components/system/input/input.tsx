@@ -1,7 +1,7 @@
 /* eslint-disable prefer-arrow-callback */
 import * as React from 'react';
 
-import { Box, Divider } from '@effable/react';
+import { Box, Divider, useId } from '@effable/react';
 
 import { Sizes } from '@/shared/design/tokens/size';
 import { useComposedRefs } from '@/shared/lib/react';
@@ -61,10 +61,11 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(function Inp
     suffix,
     size = 'medium',
     prefix,
+    id,
     ...other
   } = props;
 
-  const inputId = React.useId();
+  const inputId = useId(id);
 
   const inputElementRef = React.useRef<HTMLInputElement>(null);
   const composedRefs = useComposedRefs(inputElementRef, inputRef);

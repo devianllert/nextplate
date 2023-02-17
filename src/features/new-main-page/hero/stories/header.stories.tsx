@@ -2,14 +2,14 @@ import * as React from 'react';
 
 import { Meta, Story } from '@storybook/react';
 
-import { Header } from '../header';
+import { Hero } from '../hero';
 
 export default {
   title: 'Features/NewMainPage/Header',
-  component: Header,
+  component: Hero,
 } as Meta;
 
-const Template: Story = (args) => <Header {...args} />;
+const Template: Story = (args) => <Hero {...args} />;
 
 export const Basic = Template.bind({});
 

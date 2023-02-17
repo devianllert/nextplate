@@ -18,7 +18,7 @@ export const fontWeight = {
   headings: 'bold',
 };
 
-export const pxToRem = (size: number, htmlFontSize = 16, coef = 0.625): number => size / htmlFontSize / coef;
+export const pxToRem = (size: number, htmlFontSize = 16, coef = 1): number => size / htmlFontSize / coef;
 
 function oneDecimal(x: number) {
   return Math.round(10 * x) / 10;

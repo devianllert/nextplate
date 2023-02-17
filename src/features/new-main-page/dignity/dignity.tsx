@@ -4,12 +4,7 @@ import {
   Box, Heading, Stack, Text,
 } from '@effable/react';
 
-import * as S from './dignity.styled';
-
 export interface DignityProps {
-  /**
-   * The content
-   */
   title: string;
   text?: string;
   main?: boolean;

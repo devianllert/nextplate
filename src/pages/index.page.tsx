@@ -5,7 +5,7 @@ import { Box } from '@effable/react';
 import { MainLayout } from '@/layouts/main';
 
 import { Demos } from '@/features/new-main-page/demos';
-import { Header } from '@/features/new-main-page/header';
+import { Hero } from '@/features/new-main-page/hero';
 import { WhyNextplate } from '@/features/new-main-page/why-nextplate';
 
 import { EnhancedNextPage } from '@/shared/types/enhanced-next-page';
@@ -18,7 +18,7 @@ type Props = SSRPageProps & SSGPageProps<OnlyBrowserPageProps>;
 const IndexPage: EnhancedNextPage<Props> = (): JSX.Element => {
   return (
     <Box display="flex" flexDirection="column" width="100%">
-      <Header />
+      <Hero />
 
       <WhyNextplate />
 

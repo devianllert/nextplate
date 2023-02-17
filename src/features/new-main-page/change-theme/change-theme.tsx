@@ -1,15 +1,16 @@
 import * as React from 'react';
 
-import { Box, Switch, Text } from '@effable/react';
+import { Box, Switch, useEffableTheme } from '@effable/react';
 
 export const ChangeTheme = (): JSX.Element => {
+  // eslint-disable-next-line @typescript-eslint/unbound-method
+  const { mode, setMode } = useEffableTheme('ChangeTheme');
+
   return (
     <Box display="flex" alignItems="center">
-      <Switch size="small" />
-
-      <Text variant="m" color="text.primary" sx={{ marginLeft: '10px' }}>
+      <Switch checked={mode === 'dark'} size="small" onCheckedChange={(checked) => setMode(checked ? 'dark' : 'light')}>
         Dark Mode
-      </Text>
+      </Switch>
     </Box>
   );
 };

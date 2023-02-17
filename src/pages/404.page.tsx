@@ -60,22 +60,22 @@ const NotFound404Page: EnhancedNextPage<Props> = (): JSX.Element => {
     <>
       <PageSEO title={t('SEO_TITLE')} description={t('SEO_DESCRIPTION')} image={staticPath.static.images.$404_png} />
 
-      <Stack direction="column" space={3}>
-        <Text variant="l" color="secondary">
+      <Stack direction="column" space="4x" alignItems="flex-start">
+        <Text variant="xl" color="text.secondary">
           {t('SUBTITLE')}
         </Text>
 
-        <Heading component="h1" variant="h1">
+        <Heading component="h1" variant="h0">
           {t('TITLE')}
         </Heading>
 
-        <Text variant="s" color="secondary">
+        <Text variant="m" color="text.secondary">
           {t('DESCRIPTION')}
         </Text>
 
-        <Link href="/" passHref>
-          <Button endIcon={<RiArrowRightLine />}>{t('BUTTON')}</Button>
-        </Link>
+        <Button endIcon={<RiArrowRightLine />} variant="secondary" component={Link} href="/">
+          {t('BUTTON')}
+        </Button>
       </Stack>
     </>
   );

@@ -12,8 +12,9 @@ export const MainHeader = (): JSX.Element => {
       justifyContent="center"
       alignItems="center"
       width="100%"
+      height={72}
       borderBottom="1px solid"
-      borderColor="neutral.neutral7"
+      borderColor="accent.accent5"
       backgroundColor="accent.accent3"
     >
       <Container>
@@ -25,7 +26,9 @@ export const MainHeader = (): JSX.Element => {
           <Box display="flex">
             <LocaleToggler />
 
-            <Box marginLeft="8x">{/* <ChangeTheme /> */}</Box>
+            <Box marginLeft="8x">
+              <ChangeTheme />
+            </Box>
           </Box>
         </Box>
       </Container>

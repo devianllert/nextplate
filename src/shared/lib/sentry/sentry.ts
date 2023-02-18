@@ -5,7 +5,6 @@ import * as Sentry from '@sentry/nextjs';
 import { convertRequestBodyToJSObject } from '@/shared/api';
 
 import { GenericObject } from '../../types/generic-object';
-import { UserSession } from '../user-session/use-user-session';
 
 /**
  * Configure Sentry default scope.
@@ -32,25 +31,6 @@ export const configureSentry = (): void => {
       scope.setTag('app.build-time', process.env.NEXT_PUBLIC_APP_BUILD_TIME);
       scope.setTag('app.build-time.ISO', new Date(process.env.NEXT_PUBLIC_APP_BUILD_TIME).toISOString());
       scope.setTag('app.build-id', process.env.NEXT_PUBLIC_APP_BUILD_ID);
-    });
-  }
-};
-
-/**
- * Configure Sentry tags for the current user.
- *
- * Allows to track all Sentry events related to a particular user.
- * The tracking remains anonymous, there are no personal information being tracked, only internal ids.
- *
- * @param userSession
- * @see https://www.npmjs.com/package/@sentry/node
- */
-export const configureSentryUser = (userSession: UserSession): void => {
-  if (process.env.NEXT_PUBLIC_SENTRY_DSN) {
-    Sentry.configureScope((scope) => {
-      scope.setTag('userId', userSession?.id);
-      scope.setTag('userDeviceId', userSession?.deviceId);
-      scope.setContext('user', userSession);
     });
   }
 };

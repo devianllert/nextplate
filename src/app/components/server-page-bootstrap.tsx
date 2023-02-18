@@ -1,6 +1,5 @@
 import * as React from 'react';
 
-import userSessionContext from '@/shared/lib/user-session/user-session-context';
 import { MultiversalAppBootstrapPageProps } from '@/shared/types/multiversal-app-bootstrap-page-props';
 import { MultiversalAppBootstrapProps } from '@/shared/types/multiversal-app-bootstrap-props';
 import { MultiversalPageProps } from '@/shared/types/multiversal-page-props';
@@ -28,20 +27,14 @@ const ServerPageBootstrap = (props: ServerPageBootstrapProps): JSX.Element => {
     ...pageProps,
   };
 
-  const { userSession } = pageProps;
-
   return (
-    <userSessionContext.Provider value={userSession}>
-      <LayoutComponent>
-        <Component
-          // eslint-disable-next-line react/jsx-props-no-spreading
-          {...injectedPageProps}
-          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-          // @ts-ignore
-          error={err}
-        />
-      </LayoutComponent>
-    </userSessionContext.Provider>
+    <LayoutComponent>
+      <Component
+        {...injectedPageProps}
+        // @ts-expect-error wrong typings
+        error={err}
+      />
+    </LayoutComponent>
   );
 };
 

@@ -1,7 +1,5 @@
 import * as React from 'react';
 
-import { managedEventListener } from '@/shared/lib/managed-event-listener';
-
 import { getNavigatorConnection, getNetworkInformation } from '../network-information';
 import { NetworkInformation } from '../types/network-information.interface';
 
@@ -14,8 +12,14 @@ export const useNetworkInformation = (): NetworkInformation | undefined => {
   React.useEffect(() => {
     const connection = getNavigatorConnection();
 
+    const updateNetworkInfo = () => setNetworkInformation(getNavigatorConnection());
+
     if (connection) {
-      return managedEventListener(connection, 'change', () => setNetworkInformation(getNavigatorConnection()));
+      connection.addEventListener('change', updateNetworkInfo);
+
+      return () => {
+        connection.removeEventListener('change', updateNetworkInfo);
+      };
     }
 
     return undefined;

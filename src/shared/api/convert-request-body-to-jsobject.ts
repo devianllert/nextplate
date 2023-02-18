@@ -1,7 +1,5 @@
 import { NextApiRequest } from 'next';
 
-import { GenericObject } from '../types/generic-object';
-
 /**
  * Parse the request body if it's a string, or return the body as-it if it's not.
  *
@@ -10,8 +8,8 @@ import { GenericObject } from '../types/generic-object';
  *
  * @param req
  */
-export const convertRequestBodyToJSObject = <T = unknown>(req: NextApiRequest): GenericObject<T> => {
-  let parsedBody: GenericObject<T> = {};
+export const convertRequestBodyToJSObject = <T = unknown>(req: NextApiRequest): Record<string, T> => {
+  let parsedBody: Record<string, T> = {};
 
   if (typeof req?.body === 'string' && req?.body?.length > 0) {
     parsedBody = JSON.parse(req?.body);

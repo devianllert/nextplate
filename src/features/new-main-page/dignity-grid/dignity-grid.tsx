@@ -18,8 +18,6 @@ export const DignityGrid = (): JSX.Element => {
         <Box display="flex" justifyContent="center">
           <Stack space="2x" alignItems="flex-end">
             <Dignity title="Next.js" main />
-
-            <Dignity title="Themization" />
           </Stack>
         </Box>
 

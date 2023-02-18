@@ -65,10 +65,12 @@ export const getTranslationsStaticProps = (namespaces: string[] = []): GetStatic
    * @see https://nextjs.org/docs/basic-features/data-fetching#getstaticprops-static-generation
    */
   const getStaticProps: GetStaticProps<SSGPageProps> = async (props): Promise<GetStaticPropsResult<SSGPageProps>> => {
+    const i18n = await getTranslationsConfig(props, namespaces);
+
     return {
       props: {
         isStaticRendering: true,
-        ...(await getTranslationsConfig(props, namespaces)),
+        _nextI18Next: i18n._nextI18Next,
       },
     };
   };

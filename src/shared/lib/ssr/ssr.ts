@@ -51,11 +51,13 @@ export const getCoreServerSideProps = (
       host: headers?.host,
     };
 
+    const i18n = await getTranslationsConfig(context, namespaces);
+
     return {
       props: {
         isServerRendering: true,
         headers: publicHeaders,
-        ...(await getTranslationsConfig(context, namespaces)),
+        _nextI18Next: i18n._nextI18Next,
       },
     };
   };

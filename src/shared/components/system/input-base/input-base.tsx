@@ -1,7 +1,8 @@
 /* eslint-disable prefer-arrow-callback */
+
 import * as React from 'react';
 
-import { useComposedRefs } from '@/shared/lib/react';
+import { useComposedRefs } from '@effable/react';
 
 import * as S from './input-base.styled';
 

@@ -1,11 +1,10 @@
-import { AxiosRequestConfig } from 'axios';
+import { createDefer, Defer } from '@effable/misc';
 import {
   createEffect, createEvent, createStore, sample,
 } from 'effector';
 import decode from 'jwt-decode';
 
-import { $token, requestFx } from '@/shared/api/request/request';
-import { createDefer, Defer } from '@/shared/lib/defer';
+import { $token } from '@/shared/api/request/request';
 
 import { TokenPayload } from '../types';
 import { refreshFx } from './auth';

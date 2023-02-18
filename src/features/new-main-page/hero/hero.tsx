@@ -60,7 +60,7 @@ export const Hero = (): JSX.Element => {
           </SimpleGrid>
         </Box>
 
-        <Box position="absolute" left={0} bottom={0} width="100%" color="background.primary">
+        <Box position="absolute" left={0} bottom={-1} width="100%" color="background.primary">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 64">
             <path fill="currentColor" fillOpacity="1" d="M0,0L720,64L1440,0L1440,64L720,64L0,64Z" />
           </svg>

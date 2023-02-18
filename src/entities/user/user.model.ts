@@ -16,6 +16,6 @@ export const fetchUserFx = attach<number, Effect<AxiosRequestConfig<any>, AxiosR
 
 export const userQuery = createQuery({
   effect: fetchUserFx,
-  mapData: (response: AxiosResponse<User>) => response.data,
+  mapData: ({ result }) => result.data,
   name: 'user',
 });

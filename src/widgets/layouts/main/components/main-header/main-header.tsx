@@ -1,6 +1,8 @@
 import * as React from 'react';
 
-import { Box, Container, Text } from '@effable/react';
+import {
+  Box, Container, DisplayOnBrowserMount, Text,
+} from '@effable/react';
 
 import { LocaleToggler } from '@/features/new-main-page/change-locale';
 import { ChangeTheme } from '@/features/new-main-page/change-theme';
@@ -23,13 +25,15 @@ export const MainHeader = (): JSX.Element => {
             Nextplate
           </Text>
 
-          <Box display="flex">
-            <LocaleToggler />
+          <DisplayOnBrowserMount>
+            <Box display="flex">
+              <LocaleToggler />
 
-            <Box marginLeft="8x">
-              <ChangeTheme />
+              <Box marginLeft="8x">
+                <ChangeTheme />
+              </Box>
             </Box>
-          </Box>
+          </DisplayOnBrowserMount>
         </Box>
       </Container>
     </Box>

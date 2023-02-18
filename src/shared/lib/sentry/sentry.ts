@@ -4,8 +4,6 @@ import * as Sentry from '@sentry/nextjs';
 
 import { convertRequestBodyToJSObject } from '@/shared/api';
 
-import { GenericObject } from '../../types/generic-object';
-
 /**
  * Configure Sentry default scope.
  *
@@ -62,7 +60,7 @@ export const configureReq = (
   tags?: Record<string, string>,
   contexts?: Record<string, Record<string, unknown>>,
 ): void => {
-  let parsedBody: GenericObject = {};
+  let parsedBody: Record<string, any> = {};
   try {
     parsedBody = convertRequestBodyToJSObject(req);
   } catch (e) {

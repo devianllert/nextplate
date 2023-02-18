@@ -1,9 +1,7 @@
-import { GenericObject } from '@/shared/types/generic-object';
-
 /**
  * Gets the value at path of object.
  */
-export const get = (object: GenericObject | any[], path: string | number): unknown => {
+export const get = (object: Record<string, unknown> | any[], path: string | number): unknown => {
   let value = object;
 
   const pathArray: (string | number)[] = typeof path === 'string' ? path.split('.') : [path];

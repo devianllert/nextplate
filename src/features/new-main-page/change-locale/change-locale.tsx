@@ -29,11 +29,12 @@ export const LocaleToggler = (): JSX.Element => {
           alignItems="flex-start"
           border="none"
           backgroundColor="transparent"
+          color="accent.accent11"
           padding="0"
         >
-          <Global fontSize="20px" color="text.primary" />
+          <Global fontSize="20px" color="currentColor" />
 
-          <Text variant="m" color="text.primary" sx={{ marginLeft: '10px' }}>
+          <Text variant="m" color="accent.accent11" sx={{ marginLeft: '10px' }}>
             {i18n.language}
           </Text>
         </Box>

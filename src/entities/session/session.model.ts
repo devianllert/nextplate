@@ -14,6 +14,6 @@ export const fetchUserSessionsFx = attach<void, Effect<AxiosRequestConfig<any>, 
 
 export const sessionQuery = createQuery({
   effect: fetchUserSessionsFx,
-  mapData: (response: AxiosResponse<Session[]>) => response.data,
+  mapData: ({ result }) => result.data,
   name: 'sessions',
 });

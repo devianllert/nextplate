@@ -14,6 +14,7 @@ try {
 }
 
 module.exports = {
+  staticDirs: ['./public'],
   stories: ['../src/**/*.stories.mdx', '../src/**/*.stories.@(js|jsx|ts|tsx)'],
   addons: [
     /**
@@ -96,15 +97,6 @@ module.exports = {
      * @see https://github.com/storybookjs/storybook/tree/master/addons/jest
      */
     '@storybook/addon-jest',
-
-    /**
-     * A storybook addon to help better understand and debug performance for React components.
-     *
-     * Adds a "Performance" tab.
-     *
-     * @see https://github.com/atlassian-labs/storybook-addon-performance
-     */
-    'storybook-addon-performance/register',
 
     /**
      * Offers suggestions on how you can improve the HTML, CSS and UX of your components to be more mobile-friendly.

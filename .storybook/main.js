@@ -14,7 +14,7 @@ try {
 }
 
 module.exports = {
-  staticDirs: ['./public'],
+  staticDirs: ['../public'],
   stories: ['../src/**/*.stories.mdx', '../src/**/*.stories.@(js|jsx|ts|tsx)'],
   addons: [
     /**

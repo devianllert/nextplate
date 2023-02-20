@@ -26,10 +26,10 @@ export const MainHeader = (): JSX.Element => {
           </Text>
 
           <DisplayOnBrowserMount>
-            <Box display="flex">
+            <Box display="flex" alignItems="center">
               <LocaleToggler />
 
-              <Box marginLeft="8x">
+              <Box marginLeft="4x">
                 <ChangeTheme />
               </Box>
             </Box>

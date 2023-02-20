@@ -19,7 +19,7 @@ export const WhyNextplate = (): JSX.Element => {
           Why Nextplate?
         </Heading>
 
-        <SimpleGrid cols={{ base: 1, laptop: 4 }} space="4x">
+        <SimpleGrid cols={{ base: 1, laptop: 4 }} space="11x">
           <Advantage
             title="Performant"
             description="Next.js gives you the best developer experience with all the features you need for production: hybrid static & server rendering, TypeScript support, smart bundling, route pre-fetching, and more"

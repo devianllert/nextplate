@@ -31,7 +31,7 @@ export const Hero = (): JSX.Element => {
                 </Text>
               </Box>
 
-              <Box display="flex" mt="68px">
+              <Box display="flex" mt="11x">
                 <Stack
                   direction={{
                     base: 'column',
@@ -47,7 +47,13 @@ export const Hero = (): JSX.Element => {
                 >
                   <Button size="large">Documentation</Button>
 
-                  <Button size="large" variant="secondary">
+                  <Button
+                    size="large"
+                    variant="secondary"
+                    href="https://github.com/devianllert/nextplate"
+                    component="a"
+                    target="_blank"
+                  >
                     Github
                   </Button>
                 </Stack>

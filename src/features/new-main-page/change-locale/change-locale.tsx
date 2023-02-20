@@ -30,12 +30,11 @@ export const LocaleToggler = (): JSX.Element => {
           border="none"
           backgroundColor="transparent"
           color="accent.accent11"
-          padding="0"
         >
           <Global fontSize="20px" color="currentColor" />
 
           <Text variant="m" color="accent.accent11" sx={{ marginLeft: '10px' }}>
-            {i18n.language}
+            {i18n.language.toUpperCase()}
           </Text>
         </Box>
       </DropdownMenu.Trigger>

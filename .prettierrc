@@ -12,6 +12,7 @@
     "^(next/(.*)$)|^(next$)",
     "<THIRD_PARTY_MODULES>",
     "",
+    "^@/pages/(.*)$",
     "^@/layouts/(.*)$",
     "^@/features/(.*)$",
     "^@/entities/(.*)$",

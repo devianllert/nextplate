@@ -3,15 +3,13 @@ import * as React from 'react';
 import { ActionButton } from '@effable/react';
 import { RiCloseLine } from 'react-icons/ri';
 
-import { Sizes } from '@/shared/design/tokens/size';
-
 interface UseInputClearOptions<T extends HTMLTextAreaElement | HTMLInputElement> {
   ref: React.RefObject<T>;
   allowClear?: boolean;
   disabled?: boolean;
   value?: string;
   onChange?: React.ChangeEventHandler<T>;
-  size?: Exclude<Sizes, 'xsmall'>;
+  size?: 'large' | 'medium' | 'small';
 }
 
 export function useInputClear<T extends HTMLTextAreaElement | HTMLInputElement>(options: UseInputClearOptions<T>) {

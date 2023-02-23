@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 
-import { useIsomorphicLayoutEffect } from 'framer-motion';
+import { useIsomorphicEffect } from '@effable/react';
 import { createPortal } from 'react-dom';
 
 interface PortalProps {
@@ -31,14 +31,14 @@ function getContainer(container?: Element | (() => Element | null) | null) {
  *
  * React doesn't support the createPortal() API on the server. You have to wait for the client-side hydration to see the children.
  */
-export const Portal = (props: PortalProps): JSX.Element => {
+export const Portal = (props: PortalProps) => {
   const { children, container } = props;
 
   const [mountNode, setMountNode] = React.useState<Element | null>(null);
 
-  useIsomorphicLayoutEffect(() => {
+  useIsomorphicEffect(() => {
     setMountNode(getContainer(container) || document.body);
   }, [container]);
 
-  return mountNode ? createPortal(children, mountNode) : <span />;
+  return mountNode ? createPortal(children, mountNode) : null;
 };

@@ -16,7 +16,7 @@ export const Basic = Template.bind({});
 
 Basic.args = {
   children: (
-    <Box width="300px" borderRadius="4px" overflow="hidden" boxShadow={1}>
+    <Box width="300px" borderRadius="4px" overflow="hidden" boxShadow="1x">
       <AspectRatio ratio={16 / 9}>
         <img
           style={{
@@ -40,7 +40,7 @@ WithCustomElement.args = {
   border: true,
   shape: 'circle',
   children: (
-    <Box width="300px" borderRadius="4px" overflow="hidden" boxShadow={1}>
+    <Box width="300px" borderRadius="4px" overflow="hidden" boxShadow="1x">
       <AspectRatio ratio={16 / 9}>
         <img
           style={{

@@ -2,7 +2,6 @@ import { keyframes } from '@emotion/react';
 import styled from '@emotion/styled';
 import * as DropdownMenuPrimitive from '@radix-ui/react-dropdown-menu';
 
-import shadows from '@/shared/design/tokens/shadows';
 import { duration } from '@/shared/design/tokens/transitions';
 
 const slideUpAndFade = keyframes({
@@ -34,7 +33,7 @@ export const DropdownMenuContent = styled(DropdownMenuPrimitive.Content)((props)
   padding: '8px 4px',
   backgroundColor: props.theme.colors.background.secondary,
   borderRadius: 4,
-  boxShadow: shadows[3],
+  boxShadow: props.theme.shadows['3x'],
 
   '@media (prefers-reduced-motion: no-preference)': {
     animationDuration: `${duration.short}ms`,
@@ -58,7 +57,7 @@ export const DropdownMenuSubContent = styled(DropdownMenuPrimitive.SubContent)((
   padding: '8px 4px',
   backgroundColor: props.theme.colors.background.secondary,
   borderRadius: 4,
-  boxShadow: shadows[3],
+  boxShadow: props.theme.shadows['3x'],
 
   '@media (prefers-reduced-motion: no-preference)': {
     animationDuration: `${duration.short}ms`,

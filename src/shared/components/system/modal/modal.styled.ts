@@ -3,8 +3,6 @@ import styled from '@emotion/styled';
 import { blackA } from '@radix-ui/colors';
 import * as DialogPrimitive from '@radix-ui/react-dialog';
 
-import { zIndex } from '@/shared/design/tokens/z-index';
-
 const overlayShow = keyframes({
   '0%': { opacity: 0 },
   '100%': { opacity: 1 },
@@ -29,7 +27,8 @@ export const StyledOverlay = styled(DialogPrimitive.Overlay)({
   backgroundColor: blackA.blackA9,
   position: 'fixed',
   inset: 0,
-  zIndex: zIndex.modal - 1,
+  // TODO: Use value from library tokens
+  zIndex: 1300 - 1,
   '@media (prefers-reduced-motion: no-preference)': {
     '&[data-state=open]': {
       animation: `${overlayShow} 250ms cubic-bezier(0.16, 1, 0.3, 1) forwards`,
@@ -48,7 +47,8 @@ export const StyledContent = styled(DialogPrimitive.Content)({
   width: '90vw',
   maxWidth: '450px',
   maxHeight: '85vh',
-  zIndex: zIndex.modal,
+  // TODO: Use value from library tokens
+  zIndex: 1300,
 
   '&:focus': {
     outline: 'none',

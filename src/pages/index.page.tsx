@@ -4,6 +4,7 @@ import { Box } from '@effable/react';
 
 import { MainLayout } from '@/layouts/main';
 
+import { CookieConsent } from '@/features/cookie-consent';
 import { Demos } from '@/features/new-main-page/demos';
 import { Hero } from '@/features/new-main-page/hero';
 import { WhyNextplate } from '@/features/new-main-page/why-nextplate';
@@ -16,17 +17,21 @@ import { SSRPageProps } from '@/shared/types/ssr-page-props';
 
 type IndexPageProps = SSRPageProps & SSGPageProps<OnlyBrowserPageProps>;
 
-export const getStaticProps = getTranslationsStaticProps(['index']);
+export const getStaticProps = getTranslationsStaticProps(['index', 'common']);
 
 const IndexPage: EnhancedNextPage<IndexPageProps> = (): JSX.Element => {
   return (
-    <Box display="flex" flexDirection="column" width="100%">
-      <Hero />
+    <>
+      <CookieConsent />
 
-      <WhyNextplate />
+      <Box display="flex" flexDirection="column" width="100%">
+        <Hero />
 
-      <Demos />
-    </Box>
+        <WhyNextplate />
+
+        <Demos />
+      </Box>
+    </>
   );
 };
 

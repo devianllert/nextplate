@@ -5,8 +5,6 @@ import {
 } from '@effable/react';
 import { Meta, Story } from '@storybook/react';
 
-import shadows from '@/shared/design/tokens/shadows';
-
 import * as ScrollArea from '../scroll-area';
 
 export default {
@@ -25,7 +23,7 @@ export const Basic = () => (
 
           <Stack>
             {TAGS.map((tag) => (
-              <Box px={2} py={1} boxShadow={shadows[3]} backgroundColor="neutral.neutral6">
+              <Box px={2} py={1} boxShadow="3x" backgroundColor="neutral.neutral6">
                 <Text variant="s" key={tag}>
                   {tag}
                 </Text>

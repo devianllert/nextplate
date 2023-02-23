@@ -2,7 +2,6 @@ import * as React from 'react';
 
 import styled from '@emotion/styled';
 
-import { spacings } from '@/shared/design/tokens/spacings';
 import { PolymorphicComponent } from '@/shared/types/polymorphic';
 
 export const inputAdornmentTypography = {
@@ -18,8 +17,8 @@ export const InputAdornmentRoot = styled.div<InputAdornmentProps>((props) => ({
   alignItems: 'center',
   whiteSpace: 'nowrap',
   flexShrink: 0,
-  marginRight: props.position === 'start' ? spacings[1] : spacings[2],
-  marginLeft: props.position === 'start' ? spacings[2] : spacings[1],
+  marginRight: props.position === 'start' ? props.theme.space['1x'] : props.theme.space['2x'],
+  marginLeft: props.position === 'start' ? props.theme.space['2x'] : props.theme.space['1x'],
 
   color: props.theme.colors.text.secondary,
 

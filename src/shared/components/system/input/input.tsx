@@ -5,8 +5,6 @@ import {
   Box, Divider, useComposedRefs, useId,
 } from '@effable/react';
 
-import { Sizes } from '@/shared/design/tokens/size';
-
 import { InputBaseProps } from '../input-base';
 import { InputAdornment } from './input-adornment';
 import { InputHelperText } from './input-helper-text';
@@ -37,7 +35,7 @@ export interface InputProps extends InputBaseProps {
    *
    * @default 'medium'
    */
-  size?: Exclude<Sizes, 'xsmall'>;
+  size?: 'large' | 'medium' | 'small';
 
   /**
    * If `true`, the component is disabled.

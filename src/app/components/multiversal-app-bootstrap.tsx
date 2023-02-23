@@ -7,6 +7,7 @@ import { EffableProvider } from '@effable/react';
 import * as Sentry from '@sentry/nextjs';
 import { Provider as EffectorProvider } from 'effector-react/scope';
 import { appWithTranslation, useTranslation } from 'next-i18next';
+
 import ErrorPage from '@/pages/_error.page';
 
 import { NProgressRoot } from '@/features/nprogress';

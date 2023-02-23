@@ -42,8 +42,8 @@
     "generate:api": "orval --config ./orval.config.js"
   },
   "dependencies": {
-    "@effable/misc": "^0.6.0",
-    "@effable/react": "^0.14.0",
+    "@effable/misc": "^0.6.1",
+    "@effable/react": "^0.15.1",
     "@emotion/react": "11.10.6",
     "@emotion/styled": "11.10.6",
     "@farfetched/core": "0.7.2",
@@ -165,5 +165,9 @@
     "stylelint-config-styled-components": "0.1.1",
     "stylelint-processor-styled-components": "1.10.0",
     "typescript": "4.9.5"
-  }
+  },
+  "browserslist": [
+    "defaults",
+    "maintained node versions"
+  ]
 }

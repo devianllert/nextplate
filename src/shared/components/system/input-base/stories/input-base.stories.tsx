@@ -27,7 +27,7 @@ export const SearchBox = (): JSX.Element => (
     borderRadius={4}
     py="2px"
     px="4px"
-    boxShadow={1}
+    boxShadow="1x"
   >
     <ActionButton>
       <RiMenuLine />

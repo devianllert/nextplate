@@ -4,8 +4,6 @@ import { Button } from '@effable/react';
 import styled from '@emotion/styled';
 import { Meta } from '@storybook/react';
 
-import shadows from '@/shared/design/tokens/shadows';
-
 import {
   Sheet, SheetContent, SheetPortal, SheetTrigger,
 } from '../index';
@@ -15,9 +13,9 @@ export default {
   component: Sheet,
 } as Meta;
 
-const StyledContent = styled(SheetContent)({
+const StyledContent = styled(SheetContent)((props) => ({
   background: 'white',
-  boxShadow: shadows[6],
+  boxShadow: props.theme.shadows['6x'],
 
   '&[data-direction=top], &[data-direction=bottom]': {
     height: 300,
@@ -26,7 +24,7 @@ const StyledContent = styled(SheetContent)({
   '&[data-direction=left], &[data-direction=right]': {
     width: 300,
   },
-});
+}));
 
 export const Top = () => {
   return (

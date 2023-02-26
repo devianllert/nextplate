@@ -17,7 +17,7 @@ export const SettingsButton = (): JSX.Element => {
   return (
     <DropdownMenu.Root>
       <DropdownMenu.Trigger asChild>
-        <ActionButton>
+        <ActionButton label="Open menu">
           <RiSettings2Line />
         </ActionButton>
       </DropdownMenu.Trigger>

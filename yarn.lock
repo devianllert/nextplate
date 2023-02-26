@@ -1397,14 +1397,15 @@
   resolved "https://registry.yarnpkg.com/@effable/misc/-/misc-0.6.1.tgz#b0be09040d91c9b478ee11831eb12dad87ded2ca"
   integrity sha512-tU6wVTLQFfPYTwE+ZXCqpHmsq1DX2xpsfxGzCOd8MSlaWCKDwDYdhBPwtR8OwVI2wB9Hr026E9HsdPG4Rtur5g==
 
-"@effable/react@^0.15.1":
-  version "0.15.1"
-  resolved "https://registry.yarnpkg.com/@effable/react/-/react-0.15.1.tgz#1f5bd5627b1688f298d07e3aeed5c0128e50b1cc"
-  integrity sha512-wQI3iPoAD5NRZhSzRVKdl3WqIKlCNAZ8sex13OGjWFm9JKUEsMKDNUt2d6fX99i/1jHPTXSQ7aATJFJt3w5DaQ==
+"@effable/react@^0.16.0":
+  version "0.16.0"
+  resolved "https://registry.yarnpkg.com/@effable/react/-/react-0.16.0.tgz#0ba6d456f2d94550f047e56f778415b4fdc8c566"
+  integrity sha512-ciBJTPt0Xqjg2p6vnDKgaqE1OQuAHTnaI5vKV7Ty2dCqJJPUe3rIAZNy/EW0aja9GQSWLRZpww2Yi/ClTUQOpA==
   dependencies:
     "@effable/misc" "*"
     "@effable/tokens" "*"
     "@radix-ui/react-avatar" "^1.0.1"
+    "@radix-ui/react-label" "^2.0.0"
     "@radix-ui/react-progress" "^1.0.1"
     "@radix-ui/react-radio-group" "^1.1.1"
     "@radix-ui/react-slot" "^1.0.1"
@@ -2540,6 +2541,14 @@
   dependencies:
     "@babel/runtime" "^7.13.10"
     "@radix-ui/react-use-layout-effect" "1.0.0"
+
+"@radix-ui/react-label@^2.0.0":
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/@radix-ui/react-label/-/react-label-2.0.0.tgz#f94c60459cc91a69fe0ae5bb326bc3f3c091d7e1"
+  integrity sha512-7qCcZ3j2VQspWjy+gKR4W+V/z0XueQjeiZnlPOtsyiP9HaS8bfSU7ECoI3bvvdYntQj7NElW7OAYsYRW4MQvCg==
+  dependencies:
+    "@babel/runtime" "^7.13.10"
+    "@radix-ui/react-primitive" "1.0.1"
 
 "@radix-ui/react-menu@2.0.2":
   version "2.0.2"

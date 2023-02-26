@@ -43,7 +43,7 @@
   },
   "dependencies": {
     "@effable/misc": "^0.6.1",
-    "@effable/react": "^0.15.1",
+    "@effable/react": "^0.16.0",
     "@emotion/react": "11.10.6",
     "@emotion/styled": "11.10.6",
     "@farfetched/core": "0.7.2",

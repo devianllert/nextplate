@@ -6,6 +6,7 @@ import { RiCloseLine } from 'react-icons/ri';
 interface UseInputClearOptions<T extends HTMLTextAreaElement | HTMLInputElement> {
   ref: React.RefObject<T>;
   allowClear?: boolean;
+  label: string;
   disabled?: boolean;
   value?: string;
   onChange?: React.ChangeEventHandler<T>;
@@ -14,7 +15,7 @@ interface UseInputClearOptions<T extends HTMLTextAreaElement | HTMLInputElement>
 
 export function useInputClear<T extends HTMLTextAreaElement | HTMLInputElement>(options: UseInputClearOptions<T>) {
   const {
-    allowClear, disabled, value, onChange, ref, size = 'medium',
+    allowClear, disabled, value, onChange, ref, size = 'medium', label,
   } = options;
 
   const [hasUncontrolledInputValue, setHasUncontrolledInputValue] = React.useState(false);
@@ -52,7 +53,7 @@ export function useInputClear<T extends HTMLTextAreaElement | HTMLInputElement>(
   };
 
   const clearIcon = showClearIcon ? (
-    <ActionButton size={size} onMouseDown={setFocusOnInput} onClick={onClear}>
+    <ActionButton size={size} onMouseDown={setFocusOnInput} onClick={onClear} label={label}>
       <RiCloseLine />
     </ActionButton>
   ) : null;

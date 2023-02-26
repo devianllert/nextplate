@@ -29,7 +29,7 @@ export const SearchBox = (): JSX.Element => (
     px="4px"
     boxShadow="1x"
   >
-    <ActionButton>
+    <ActionButton label="menu">
       <RiMenuLine />
     </ActionButton>
 
@@ -37,13 +37,13 @@ export const SearchBox = (): JSX.Element => (
       <InputBase placeholder="Search Google Maps" />
     </Box>
 
-    <ActionButton>
+    <ActionButton label="search">
       <RiSearchLine />
     </ActionButton>
 
     <Divider orientation="vertical" />
 
-    <ActionButton>
+    <ActionButton label="direction">
       <RiDirectionLine />
     </ActionButton>
   </Box>

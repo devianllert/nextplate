@@ -78,7 +78,7 @@ const WeatherSearchPage: EnhancedNextPage<Props> = (): JSX.Element => {
             onChange={(event) => handleSearch(event.target.value)}
             prefix={<RiMapPinLine />}
             suffix={(
-              <ActionButton type="submit" size="small" onClick={handleSubmit}>
+              <ActionButton type="submit" size="small" onClick={handleSubmit} label="Search">
                 <RiSearchLine />
               </ActionButton>
             )}

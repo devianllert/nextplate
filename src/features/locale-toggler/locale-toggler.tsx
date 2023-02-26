@@ -23,7 +23,7 @@ export const LocaleToggler = (): JSX.Element => {
   return (
     <DropdownMenu.Root>
       <DropdownMenu.Trigger asChild>
-        <ActionButton>
+        <ActionButton label="Change locale">
           <RiTranslate2 />
         </ActionButton>
       </DropdownMenu.Trigger>

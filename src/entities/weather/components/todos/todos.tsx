@@ -38,7 +38,7 @@ export const Todos = (): JSX.Element => {
           </Button>
 
           <Modal.Trigger asChild>
-            <ActionButton size="small">
+            <ActionButton size="small" label="Open modal">
               <RiMenu3Line />
             </ActionButton>
           </Modal.Trigger>
@@ -56,7 +56,7 @@ export const Todos = (): JSX.Element => {
                   </Modal.Title>
 
                   <Modal.Close asChild>
-                    <ActionButton color="neutral">
+                    <ActionButton color="neutral" label="Close modal">
                       <RiCloseFill />
                     </ActionButton>
                   </Modal.Close>

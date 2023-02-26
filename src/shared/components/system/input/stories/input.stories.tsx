@@ -66,7 +66,12 @@ const TemplateWithPasswordAdornment: Story<InputProps> = (args) => {
       type={show ? 'text' : 'password'}
       {...args}
       suffix={(
-        <ActionButton size="small" disabled={disabled} onClick={() => setShow((prevShow) => !prevShow)}>
+        <ActionButton
+          size="small"
+          disabled={disabled}
+          onClick={() => setShow((prevShow) => !prevShow)}
+          label={`${show ? 'hide' : 'show'} password`}
+        >
           {show ? <RiEyeLine /> : <RiEyeCloseLine />}
         </ActionButton>
       )}

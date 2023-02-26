@@ -10,6 +10,8 @@ import { Input, InputProps } from './input';
 export type InputPasswordProps = Omit<InputProps, 'type'>;
 
 export const InputPassword = React.forwardRef<HTMLInputElement, InputProps>((props, ref) => {
+  const { label, ...other } = props;
+
   const [show, toggleShow] = useBoolean(false);
 
   return (
@@ -17,11 +19,11 @@ export const InputPassword = React.forwardRef<HTMLInputElement, InputProps>((pro
       ref={ref}
       type={show ? 'text' : 'password'}
       suffix={(
-        <ActionButton onClick={() => toggleShow()} size="small">
+        <ActionButton onClick={() => toggleShow()} size="small" label={label ?? ''}>
           {show ? <RiEyeLine /> : <RiEyeOffLine />}
         </ActionButton>
       )}
-      {...props}
+      {...other}
     />
   );
 });

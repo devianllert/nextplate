@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { Box } from '@effable/react';
+import { Box, SkipNavContent } from '@effable/react';
 
 import { MainFooter } from '../main-footer';
 import { MainHeader } from '../main-header';
@@ -19,6 +19,7 @@ export const MainLayout = (props: MainLayoutProps): JSX.Element => {
     <Box display="flex" width="100%" minHeight="100vh" flexDirection="column">
       <MainHeader />
 
+      <SkipNavContent />
       {children}
 
       <MainFooter />

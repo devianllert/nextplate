@@ -9,6 +9,7 @@ import { Demos } from '@/features/new-main-page/demos';
 import { Hero } from '@/features/new-main-page/hero';
 import { WhyNextplate } from '@/features/new-main-page/why-nextplate';
 
+import { PageSEO } from '@/shared/lib/meta';
 import { getTranslationsStaticProps } from '@/shared/lib/ssr';
 import { EnhancedNextPage } from '@/shared/types/enhanced-next-page';
 import { OnlyBrowserPageProps } from '@/shared/types/only-browser-page-props';
@@ -22,6 +23,8 @@ export const getStaticProps = getTranslationsStaticProps(['index', 'common']);
 const IndexPage: EnhancedNextPage<IndexPageProps> = (): JSX.Element => {
   return (
     <>
+      <PageSEO title="Home" description="Ultimate template for Next.js with a pack of incredible tools" />
+
       <CookieConsent />
 
       <Box display="flex" flexDirection="column" width="100%">

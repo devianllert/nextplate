@@ -29,11 +29,9 @@ export const MainHeader = (): JSX.Element => {
 
             <DisplayOnBrowserMount>
               <Box display="flex" alignItems="center">
-                <LocaleToggler />
+                <ChangeTheme />
 
-                <Box marginLeft="4x">
-                  <ChangeTheme />
-                </Box>
+                <LocaleToggler />
               </Box>
             </DisplayOnBrowserMount>
           </Box>

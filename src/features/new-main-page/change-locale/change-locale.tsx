@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import { useRouter } from 'next/router';
 
-import { Box, Text } from '@effable/react';
+import { Button } from '@effable/react';
 import { useTranslation } from 'next-i18next';
 
 import * as DropdownMenu from '@/shared/components/system/dropdown-menu';
@@ -23,20 +23,9 @@ export const LocaleToggler = (): JSX.Element => {
   return (
     <DropdownMenu.Root>
       <DropdownMenu.Trigger asChild>
-        <Box
-          component="button"
-          display="flex"
-          alignItems="flex-start"
-          border="none"
-          backgroundColor="transparent"
-          color="accent.accent11"
-        >
-          <Global fontSize="20px" color="currentColor" />
-
-          <Text variant="m" color="accent.accent11" sx={{ marginLeft: '10px' }}>
-            {i18n.language.toUpperCase()}
-          </Text>
-        </Box>
+        <Button variant="text" startIcon={<Global />}>
+          {i18n.language.toUpperCase()}
+        </Button>
       </DropdownMenu.Trigger>
 
       <DropdownMenu.Portal>

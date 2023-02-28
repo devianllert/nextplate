@@ -167,7 +167,6 @@
     "typescript": "4.9.5"
   },
   "browserslist": [
-    "defaults",
-    "maintained node versions"
+    "defaults"
   ]
 }

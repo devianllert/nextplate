@@ -1,11 +1,14 @@
 import * as React from 'react';
 
+import { capitalize } from '@effable/misc';
 import {
-  Box, Container, DisplayOnBrowserMount, SkipNavLink, Text,
+  Box, Container, DisplayOnBrowserMount, SkipNavLink, Stack, Text,
 } from '@effable/react';
 
 import { LocaleToggler } from '@/features/new-main-page/change-locale';
 import { ChangeTheme } from '@/features/new-main-page/change-theme';
+
+import { APP_TITLE } from '@/shared/lib/meta';
 
 export const MainHeader = (): JSX.Element => {
   return (
@@ -24,15 +27,15 @@ export const MainHeader = (): JSX.Element => {
         <Container>
           <Box display="flex" paddingY="26px" justifyContent="space-between" alignItems="center">
             <Text variant="l" color="text.primary">
-              Nextplate
+              {capitalize(APP_TITLE)}
             </Text>
 
             <DisplayOnBrowserMount>
-              <Box display="flex" alignItems="center">
+              <Stack direction="row" space="4x">
                 <ChangeTheme />
 
                 <LocaleToggler />
-              </Box>
+              </Stack>
             </DisplayOnBrowserMount>
           </Box>
         </Container>

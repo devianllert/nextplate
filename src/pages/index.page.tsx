@@ -1,6 +1,7 @@
 import * as React from 'react';
 
 import { Box } from '@effable/react';
+import { useTranslation } from 'next-i18next';
 
 import { MainLayout } from '@/layouts/main';
 
@@ -21,9 +22,11 @@ type IndexPageProps = SSRPageProps & SSGPageProps<OnlyBrowserPageProps>;
 export const getStaticProps = getTranslationsStaticProps(['index', 'common']);
 
 const IndexPage: EnhancedNextPage<IndexPageProps> = (): JSX.Element => {
+  const { t } = useTranslation(['index', 'common']);
+
   return (
     <>
-      <PageSEO title="Home" description="Ultimate template for Next.js with a pack of incredible tools" />
+      <PageSEO title={t('SEO_TITLE')} description={t('SEO_DESCRIPTION')} />
 
       <CookieConsent />
 

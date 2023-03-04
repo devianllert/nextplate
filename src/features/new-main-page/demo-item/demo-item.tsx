@@ -6,7 +6,7 @@ import Image from 'next/image';
 import NextLink from 'next/link';
 
 import {
-  AspectRatio, Box, Heading, Text,
+  AspectRatio, Badge, Box, Heading, Text,
 } from '@effable/react';
 
 export interface DemoItemProps {
@@ -14,11 +14,12 @@ export interface DemoItemProps {
   description: string;
   preview: string;
   link: string | UrlObject;
+  available?: boolean;
 }
 
 export const DemoItem = (props: DemoItemProps): JSX.Element => {
   const {
-    title, description, preview, link,
+    title, description, preview, link, available = true,
   } = props;
 
   const text = description.split('.').filter((sentence) => sentence);
@@ -34,8 +35,8 @@ export const DemoItem = (props: DemoItemProps): JSX.Element => {
       }}
     >
       <Box
-        component={NextLink}
-        href={link}
+        component={available ? NextLink : 'div'}
+        href={available ? link : undefined}
         display="flex"
         backgroundColor="neutral.neutral3"
         width={{
@@ -74,9 +75,20 @@ export const DemoItem = (props: DemoItemProps): JSX.Element => {
             laptop: '11x',
           }}
         >
-          <Heading component={NextLink} href={link} variant="h2" color="text.primary">
+          <Heading
+            component={available ? NextLink : 'div'}
+            href={available ? link : undefined}
+            variant="h2"
+            color="text.primary"
+          >
             {title}
           </Heading>
+
+          {!available && (
+            <Box ml="2x">
+              <Badge color="neutral">Soon</Badge>
+            </Box>
+          )}
         </Box>
 
         <Box display="flex" marginTop="3x" flexDirection="column">

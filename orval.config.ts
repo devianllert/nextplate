@@ -1,7 +1,11 @@
-// eslint-disable-next-line import/no-extraneous-dependencies, @typescript-eslint/no-var-requires
-require('dotenv').config();
+/* eslint-disable import/no-extraneous-dependencies */
 
-module.exports = {
+import { defineConfig } from 'orval';
+import { config } from 'dotenv';
+
+config();
+
+export default defineConfig({
   api: {
     output: {
       target: 'src/shared/api/api.generated.ts',
@@ -15,10 +19,11 @@ module.exports = {
     },
     input: {
       validation: true,
-      target: `${process.env.NEXT_PUBLIC_API_ENDPOINT}/api/v1/swagger-json`,
+      // target: `${process.env.NEXT_PUBLIC_API_ENDPOINT}/api/v1/swagger-json`,
+      target: 'http://localhost:3001/api/v1/swagger-json',
     },
     hooks: {
       afterAllFilesWrite: 'yarn lint:fix',
     },
   },
-};
+});

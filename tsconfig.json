@@ -78,7 +78,6 @@
     "src/shared/lib/i18n.config.js",
     "./next-i18next.config.js",
     "./next-sitemap.config.js",
-    "./orval.config.js",
     "**/*.ts",
     "**/*.tsx"
   ]

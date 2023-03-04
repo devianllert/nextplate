@@ -102,7 +102,7 @@ module.exports = withSentryConfig(
     pageExtensions: ['page.mdx', 'page.md', 'page.jsx', 'page.js', 'page.tsx', 'page.ts'],
 
     images: {
-      domains: ['images.unsplash.com'],
+      domains: ['images.unsplash.com', 'placehold.co'],
     },
 
     experimental: {
@@ -151,9 +151,11 @@ module.exports = withSentryConfig(
         prefetch-src 'self';
         base-uri 'none';
         worker-src 'self' blob:;
-        connect-src 'self' *.dvnllrt.com ${process.env.VERCEL_URL} ${process.env.NEXT_PUBLIC_API_ENDPOINT} *.sentry.io https://vitals.vercel-insights.com https://wttr.in https://api.logflare.app;
+        connect-src 'self' *.dvnllrt.com ${process.env.VERCEL_URL} ${
+        process.env.NEXT_PUBLIC_API_ENDPOINT
+      } *.sentry.io https://vitals.vercel-insights.com https://wttr.in https://api.logflare.app;
         default-src 'self';
-        img-src 'self' https://images.unsplash.com blob: data:;
+        img-src 'self' https://images.unsplash.com https://placehold.co blob: data:;
         script-src 'self' 'unsafe-inline' ${process.env.NODE_ENV === 'development' ? "'unsafe-eval'" : ''};
         style-src 'self' 'unsafe-inline';
         font-src 'self';
@@ -395,4 +397,7 @@ module.exports = withSentryConfig(
     poweredByHeader: false,
   }),
   SentryWebpackPluginOptions,
+  {
+    hideSourceMaps: true,
+  },
 );

@@ -11,7 +11,7 @@
     "start:tunnel": "ngrok http 8888",
     "generate:paths:watch": "pathpida --ignorePath .gitignore --watch",
     "generate:paths": "cross-env NODE_ENV=production pathpida --enableStatic --output src/shared/lib --ignorePath .gitignore",
-    "prebuild": "yarn generate:paths && yarn lint:fix",
+    "prebuild": "yarn generate:paths",
     "build": "cross-env NODE_ENV=production next build",
     "postbuild": "next-sitemap",
     "release": "standard-version",

@@ -13,48 +13,36 @@ interface Values {
   [sid: string]: any;
 }
 
-interface State {
-  clientScope: Scope | null;
+let scope: Scope | undefined;
+
+function initScope(initialData?: Values) {
+  return fork({ values: initialData });
 }
 
-export const state: State = {
-  clientScope: null,
-};
+function initializeScope(preloadedData?: Values) {
+  let newScope = scope ?? initScope(preloadedData);
 
-export function useScope(values: Values = {}) {
-  const valuesRef = React.useRef<Values | null>(null);
-
-  if (!isBrowser()) {
-    return fork({ values });
+  // After navigating to a page with an initial scope state, merge that state
+  // with the current state in the scope, and create a new scope
+  if (preloadedData && scope) {
+    newScope = initScope({
+      ...serialize(scope, { onlyChanges: true }),
+      ...preloadedData,
+    });
+    // Reset the current scope
+    scope = undefined;
   }
 
-  /*
-   * Client first render
-   * Create the new Scope and save it globally
-   * We need it to be accessable inside getInitialProps
-   */
-  if (!state.clientScope) {
-    const nextScope = fork({ values });
+  // For SSG and SSR always create a new scope
+  if (!isBrowser()) return newScope;
+  // Create the scope once in the client
+  if (!scope) scope = newScope;
 
-    state.clientScope = nextScope;
-    valuesRef.current = values;
-  }
-
-  /*
-   * Values have changed, most likely it's happened on the user navigation
-   * Create the new Scope from the old one and save it as before
-   */
-  if (values !== valuesRef.current) {
-    const currentValues = serialize(state.clientScope);
-    const nextValues = { ...currentValues, ...values };
-    const nextScope = fork({ values: nextValues });
-
-    state.clientScope = nextScope;
-    valuesRef.current = values;
-  }
-
-  return state.clientScope;
+  return newScope;
 }
-// export const useScope = (initialData: Record<string, unknown> = {}) => React.useMemo(() => initializeScope(initialData), [initialData]);
 
-export const getClientScope = (): Scope | null => state.clientScope;
+export function useScope(initialState?: Values) {
+  return React.useMemo(() => initializeScope(initialState), [initialState]);
+}
+
+export const getClientScope = (): Scope | undefined => scope;

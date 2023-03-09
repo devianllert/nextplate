@@ -1,6 +1,6 @@
 {
   "LAST_UPDATE": "Updated",
-  "COOKIE_CONSENT_TITLE": "This website uses cookies to ensure you get the best experience on our website. <0>Learn more</0>.",
+  "COOKIE_CONSENT_TITLE": "This website uses <0>cookies</0> to ensure you get the best experience on our website.",
   "COOKIE_CONSENT_ACTION": "Got it!",
   "ERR_NETWORK": "Unable to access the network",
   "ERROR_UNEXPECTED": "Something went wrong"

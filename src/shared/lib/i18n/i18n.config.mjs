@@ -1,8 +1,3 @@
-/*
-  Note: This file is loaded by "next.config.js" and cannot contain ES6+ code (import, etc.)
-  Note that any change should/must be followed by a server restart, because it's used in "next.config.js"
- */
-
 /**
  * List of all supported locales by your app.
  *
@@ -37,8 +32,4 @@ const defaultLocale = supportedLocales.ENGLISH;
  */
 const supportedLanguages = Object.values(supportedLocales);
 
-module.exports = {
-  defaultLocale,
-  supportedLocales,
-  supportedLanguages: [...new Set(supportedLanguages)], // Remove duplicates
-};
+export { defaultLocale, supportedLocales, supportedLanguages };

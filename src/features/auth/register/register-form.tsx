@@ -49,7 +49,7 @@ export const RegisterForm = () => {
           onChange={(event) => form.fields.email.changed(event.target.value)}
           onBlur={() => form.fields.email.blurred()}
           error={(form.fields.email.isTouched && form.fields.email.hasErrors) || !!form.formErrors.length}
-          helperText={form.fields.email.isTouched ? t(form.fields.email.errors[0]?.message) : ''}
+          helperText={form.fields.email.isTouched ? t(form.fields.email.errors[0]?.message ?? '') : ''}
           placeholder={t('EMAIL_PLACEHOLDER')}
           label={t('EMAIL_LABEL')}
           autoComplete="email"
@@ -63,7 +63,7 @@ export const RegisterForm = () => {
           onChange={(event) => form.fields.username.changed(event.target.value)}
           onBlur={() => form.fields.username.blurred()}
           error={(form.fields.username.isTouched && form.fields.username.hasErrors) || !!form.formErrors.length}
-          helperText={form.fields.username.isTouched ? t(form.fields.username.errors[0]?.message) : ''}
+          helperText={form.fields.username.isTouched ? t(form.fields.username.errors[0]?.message ?? '') : ''}
           placeholder={t('USERNAME_PLACEHOLDER')}
           autoComplete="username"
           label={t('USERNAME_LABEL')}
@@ -77,7 +77,7 @@ export const RegisterForm = () => {
           onChange={(event) => form.fields.password.changed(event.target.value)}
           onBlur={() => form.fields.password.blurred()}
           error={(form.fields.password.isTouched && form.fields.password.hasErrors) || !!form.formErrors.length}
-          helperText={form.fields.password.isTouched ? t(form.fields.password.errors[0]?.message) : ''}
+          helperText={form.fields.password.isTouched ? t(form.fields.password.errors[0]?.message ?? '') : ''}
           placeholder={t('PASSWORD_PLACEHOLDER')}
           autoComplete="new-password"
           label={t('PASSWORD_LABEL')}

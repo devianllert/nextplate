@@ -25,10 +25,7 @@ export const configureSentry = (): void => {
       scope.setTag('app.name', process.env.NEXT_PUBLIC_APP_NAME);
       scope.setTag('app.url', process.env.NEXT_PUBLIC_APP_URL);
       scope.setTag('app.version', process.env.NEXT_PUBLIC_APP_VERSION);
-      scope.setTag('app.name-version', process.env.NEXT_PUBLIC_APP_NAME_VERSION);
-      scope.setTag('app.build-time', process.env.NEXT_PUBLIC_APP_BUILD_TIME);
-      scope.setTag('app.build-time.ISO', new Date(process.env.NEXT_PUBLIC_APP_BUILD_TIME).toISOString());
-      scope.setTag('app.build-id', process.env.NEXT_PUBLIC_APP_BUILD_ID);
+      scope.setTag('app.build-time', process.env.NEXT_PUBLIC_BUILD_TIME);
     });
   }
 };

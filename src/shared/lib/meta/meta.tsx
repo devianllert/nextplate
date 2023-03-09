@@ -6,10 +6,17 @@ export const getMetaImageUrl = (image: string): string => (image.startsWith('htt
 
 export const getCommonMetaTags = () => (
   <>
+    <meta name="theme-color" content="#000000" />
     {/* <meta name="theme-color" content={lightColors.radix.primary9} media="(prefers-color-scheme: light)" />
     <meta name="theme-color" content={darkColors.radix.primary9} media="(prefers-color-scheme: dark)" /> */}
+    <meta name="mobile-web-app-capable" content="yes" />
+
     <link key="manifest" rel="manifest" href="/site.webmanifest" />
     <link key="favicon" rel="icon" href="/favicon.ico" />
+    <link rel="icon" sizes="16x16" type="image/png" href="favicon-16x16.png" />
+    <link rel="icon" sizes="32x32" type="image/png" href="favicon-32x23.png" />
+    <link rel="icon" sizes="192x192" type="image/png" href="/android-chrome-192x192.png" />
+    <link key="apple-touch-icon" rel="apple-touch-icon" href="/apple-touch-icon.png" />
   </>
 );
 

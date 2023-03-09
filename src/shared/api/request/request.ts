@@ -1,3 +1,4 @@
+/* eslint-disable effector/no-watch */
 import { isBrowser } from '@effable/misc';
 import { AxiosError, AxiosRequestConfig, AxiosResponse } from 'axios';
 import {

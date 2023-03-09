@@ -21,6 +21,7 @@ import { MultiversalAppBootstrapProps } from '@/shared/types/multiversal-app-boo
 import { SSGPageProps } from '@/shared/types/ssg-page-props';
 import { SSRPageProps } from '@/shared/types/ssr-page-props';
 
+import nextI18nConfig from '../../../next-i18next.config.mjs';
 import BrowserPageBootstrap, { BrowserPageBootstrapProps } from './browser-page-bootstrap';
 import ServerPageBootstrap, { ServerPageBootstrapProps } from './server-page-bootstrap';
 
@@ -128,4 +129,4 @@ const MultiversalAppBootstrap = (props: Props): JSX.Element => {
 };
 
 // We should use React memo here because `appWithTranslation` HOC cause too many re-renders
-export default React.memo(appWithTranslation(MultiversalAppBootstrap));
+export default React.memo(appWithTranslation(MultiversalAppBootstrap, nextI18nConfig));

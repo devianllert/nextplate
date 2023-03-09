@@ -50,7 +50,7 @@ export const LoginForm = () => {
           autoComplete="email"
           value={form.fields.email.value}
           error={(form.fields.email.isTouched && form.fields.email.hasErrors) || !!form.formErrors.length}
-          helperText={form.fields.email.isTouched ? t(form.fields.email.errors[0]?.message) : ''}
+          helperText={form.fields.email.isTouched ? t(form.fields.email.errors[0]?.message ?? '') : ''}
           onChange={(event) => form.fields.email.changed(event.target.value)}
           onBlur={() => form.fields.email.blurred()}
           placeholder={t('EMAIL_PLACEHOLDER')}
@@ -63,7 +63,7 @@ export const LoginForm = () => {
           name="password"
           value={form.fields.password.value}
           error={(form.fields.password.isTouched && form.fields.password.hasErrors) || !!form.formErrors.length}
-          helperText={form.fields.password.isTouched ? t(form.fields.password.errors[0]?.message) : ''}
+          helperText={form.fields.password.isTouched ? t(form.fields.password.errors[0]?.message ?? '') : ''}
           onChange={(event) => form.fields.password.changed(event.target.value)}
           onBlur={() => form.fields.password.blurred()}
           placeholder={t('PASSWORD_PLACEHOLDER')}

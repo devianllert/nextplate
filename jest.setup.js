@@ -28,20 +28,6 @@ global.muteConsole = () => {
   };
 };
 
-// Force mute console by returning a mock object that mocks the props we use, except for "log"
-global.muteConsoleButLog = () => {
-  return {
-    debug: jest.fn(),
-    error: jest.fn(),
-    info: jest.fn(),
-    log: _console.log,
-    warn: jest.fn(),
-  };
-};
-
-// Restore previously made "console" object
-global.unmuteConsole = () => _console;
-
 // Mock __non_webpack_require__ to use the standard node.js "require"
 global['__non_webpack_require__'] = require;
 
@@ -60,7 +46,7 @@ jest.mock('react-i18next', () => ({
 
 Object.defineProperty(window, 'matchMedia', {
   writable: true,
-  value: jest.fn().mockImplementation(query => ({
+  value: jest.fn().mockImplementation((query) => ({
     matches: false,
     media: query,
     onchange: null,

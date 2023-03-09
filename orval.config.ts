@@ -19,8 +19,7 @@ export default defineConfig({
     },
     input: {
       validation: true,
-      // target: `${process.env.NEXT_PUBLIC_API_ENDPOINT}/api/v1/swagger-json`,
-      target: 'http://localhost:3001/api/v1/swagger-json',
+      target: `${process.env.NEXT_PUBLIC_API_ENDPOINT}/api/v1/swagger-json`,
     },
     hooks: {
       afterAllFilesWrite: 'yarn lint:fix',

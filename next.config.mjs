@@ -5,7 +5,6 @@ import { readFileSync } from 'node:fs';
 
 import bundleAnalyzer from '@next/bundle-analyzer';
 import { withSentryConfig } from '@sentry/nextjs';
-import nextPWA from 'next-pwa';
 
 import nextI18nConfig from './next-i18next.config.mjs';
 
@@ -18,11 +17,6 @@ const packageJson = JSON.parse(readFileSync(new URL('./package.json', import.met
 
 const withBundleAnalyzer = bundleAnalyzer({
   enabled: process.env.ANALYZE_BUNDLE === 'true',
-});
-
-const withPWA = nextPWA({
-  dest: 'public',
-  disable: process.env.NEXT_PUBLIC_APP_STAGE === 'development',
 });
 
 const trueEnv = ['true', '1', 'yes'];
@@ -261,8 +255,6 @@ if (!NEXT_DISABLE_SENTRY) {
 if (process.env.ANALYZE_BUNDLE === 'true') {
   config = withBundleAnalyzer(config);
 }
-
-config = withPWA(config);
 
 // Make sure adding Sentry options is the last code to run before exporting, to
 // ensure that your source maps include changes from all other Webpack plugins

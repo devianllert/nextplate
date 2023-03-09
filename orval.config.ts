@@ -1,9 +1,9 @@
 /* eslint-disable import/no-extraneous-dependencies */
 
 import { defineConfig } from 'orval';
-import { config } from 'dotenv';
+import { loadEnvConfig } from '@next/env';
 
-config();
+loadEnvConfig(process.cwd());
 
 export default defineConfig({
   api: {

@@ -2,8 +2,6 @@ import { NextApiRequest } from 'next';
 
 import * as Sentry from '@sentry/nextjs';
 
-import { convertRequestBodyToJSObject } from '@/shared/api';
-
 /**
  * Configure Sentry default scope.
  *
@@ -57,14 +55,6 @@ export const configureReq = (
   tags?: Record<string, string>,
   contexts?: Record<string, Record<string, unknown>>,
 ): void => {
-  let parsedBody: Record<string, any> = {};
-  try {
-    parsedBody = convertRequestBodyToJSObject(req);
-  } catch (e) {
-    // eslint-disable-next-line no-console
-    // console.error(e);
-  } // Do nothing, as "body" is not necessarily supposed to contain valid stringified JSON
-
   Sentry.configureScope((scope) => {
     scope.setTag('host', req?.headers?.host);
     scope.setTag('url', req?.url);
@@ -73,7 +63,6 @@ export const configureReq = (
     scope.setExtra('body', req?.body);
     scope.setExtra('cookies', req?.cookies);
     scope.setContext('headers', req?.headers);
-    scope.setContext('parsedBody', parsedBody);
 
     Object.entries(tags ?? {}).forEach(([tag, value]) => {
       scope.setTag(tag, value);

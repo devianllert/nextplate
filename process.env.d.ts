@@ -10,29 +10,20 @@
 declare global {
   namespace NodeJS {
     interface ProcessEnv {
-      NEXT_PUBLIC_APP_URL: string;
-      NEXT_PUBLIC_API_ENDPOINT: string;
-      NODE_ENV: 'development' | 'production';
-      NEXT_PUBLIC_APP_BUILD_ID: string;
-      NEXT_PUBLIC_APP_NAME: string;
-      NEXT_PUBLIC_APP_NAME_VERSION: string;
-      NEXT_PUBLIC_APP_VERSION_RELEASE: string;
-      NEXT_PUBLIC_APP_STAGE: 'test' | 'development' | 'staging' | 'production';
-      NEXT_PUBLIC_APP_BUILD_TIME: string;
-      NEXT_PUBLIC_APP_BUILD_TIMESTAMP: string;
-
-      // Sentry variables
-      NEXT_PUBLIC_SENTRY_DSN: string;
+      // Server variables
+      NODE_ENV: 'test' | 'development' | 'production';
       SENTRY_AUTH_TOKEN: string;
 
-      // Git env variables
-      GIT_COMMIT_SHA_SHORT: string;
-      GIT_COMMIT_SHA: string;
-      GIT_COMMIT_REF: string;
-      GIT_COMMIT_TAGS: string;
-
-      // Other
-      TZ: string; // TimeZone (":UTC")
+      // Public variables
+      NEXT_PUBLIC_APP_STAGE: 'test' | 'development' | 'staging' | 'production';
+      NEXT_PUBLIC_APP_URL: string;
+      NEXT_PUBLIC_APP_NAME: string;
+      NEXT_PUBLIC_APP_VERSION: string;
+      NEXT_PUBLIC_API_ENDPOINT: string;
+      NEXT_PUBLIC_BUILD_TIME: string;
+      NEXT_PUBLIC_SENTRY_DSN?: string;
+      NEXT_PUBLIC_LOGFLARE_KEY: string;
+      NEXT_PUBLIC_LOGFLARE_STREAM: string;
     }
   }
 }

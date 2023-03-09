@@ -7,7 +7,6 @@ import {
 } from '@effable/react';
 
 import { LocaleToggler } from '@/features/locale-toggler';
-import { SettingsButton } from '@/features/settings-button';
 
 import { APP_TITLE } from '@/shared/lib/meta';
 
@@ -26,8 +25,6 @@ export const AuthHeader = (): JSX.Element => {
 
           <Stack direction="row" alignItems="center">
             <LocaleToggler />
-
-            <SettingsButton />
           </Stack>
         </Box>
       </Container>

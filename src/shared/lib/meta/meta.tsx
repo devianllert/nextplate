@@ -1,3 +1,5 @@
+import { defaultTheme } from '@effable/react';
+
 export const APP_TITLE = 'nextplate';
 
 export const getAppTitle = (title?: string): string => (title ? `${title} | ${APP_TITLE}` : APP_TITLE);
@@ -6,10 +8,8 @@ export const getMetaImageUrl = (image: string): string => (image.startsWith('htt
 
 export const getCommonMetaTags = () => (
   <>
-    <meta name="theme-color" content="#000000" />
-    {/* <meta name="theme-color" content={lightColors.radix.primary9} media="(prefers-color-scheme: light)" />
-    <meta name="theme-color" content={darkColors.radix.primary9} media="(prefers-color-scheme: dark)" /> */}
-    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="theme-color" content={defaultTheme.colors.light.accent.accent9} media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content={defaultTheme.colors.dark?.accent.accent9} media="(prefers-color-scheme: dark)" />
 
     <link key="manifest" rel="manifest" href="/site.webmanifest" />
     <link key="favicon" rel="icon" href="/favicon.ico" />

@@ -1,9 +1,7 @@
 import * as React from 'react';
 
-import { ActionButton } from '@effable/react';
+import { ActionButton, useBoolean } from '@effable/react';
 import { RiEyeLine, RiEyeOffLine } from 'react-icons/ri';
-
-import { useBoolean } from '@/shared/hooks/use-boolean';
 
 import { Input, InputProps } from './input';
 

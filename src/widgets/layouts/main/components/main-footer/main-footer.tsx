@@ -1,8 +1,16 @@
 import * as React from 'react';
 
-import { Box, Text } from '@effable/react';
+import { Box, Container, Text } from '@effable/react';
+import { useTranslation } from 'next-i18next';
+import Timeago from 'timeago-react';
+import { register } from 'timeago.js';
+import ru from 'timeago.js/lib/lang/ru';
+
+register('ru', ru);
 
 export const MainFooter = (): JSX.Element => {
+  const { t, i18n } = useTranslation('common');
+
   return (
     <Box
       display="flex"
@@ -13,11 +21,27 @@ export const MainFooter = (): JSX.Element => {
       borderColor="accent.accent5"
       marginTop="auto"
     >
-      <Box display="flex" padding="32px" justifyContent="flex-start" alignItems="center" width="100%" maxWidth="1366px">
-        <Text variant="s" color="text.secondary">
-          Copyright © {new Date().getFullYear()} devianllert
-        </Text>
-      </Box>
+      <Container>
+        <Box
+          display="flex"
+          flexDirection={{ base: 'column', tablet: 'row' }}
+          paddingY="32px"
+          justifyContent="space-between"
+          alignItems={{ base: 'flex-start', tablet: 'center' }}
+          width="100%"
+          gridGap="4x"
+        >
+          <Text variant="s" color="text.secondary">
+            Copyright © {new Date().getFullYear()} devianllert
+          </Text>
+
+          <Text variant="s" color="text.secondary">
+            v{process.env.NEXT_PUBLIC_APP_VERSION}
+            {' • '}
+            {t('LAST_UPDATE')} <Timeago datetime={process.env.NEXT_PUBLIC_BUILD_TIME} locale={i18n.language} />
+          </Text>
+        </Box>
+      </Container>
     </Box>
   );
 };

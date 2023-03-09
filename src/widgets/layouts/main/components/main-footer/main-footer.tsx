@@ -1,6 +1,8 @@
 import * as React from 'react';
 
-import { Box, Container, Text } from '@effable/react';
+import {
+  Box, Container, DisplayOnBrowserMount, Text,
+} from '@effable/react';
 import { useTranslation } from 'next-i18next';
 import Timeago from 'timeago-react';
 import { register } from 'timeago.js';
@@ -35,11 +37,13 @@ export const MainFooter = (): JSX.Element => {
             Copyright © {new Date().getFullYear()} devianllert
           </Text>
 
-          <Text variant="s" color="text.secondary">
-            v{process.env.NEXT_PUBLIC_APP_VERSION}
-            {' • '}
-            {t('LAST_UPDATE')} <Timeago datetime={process.env.NEXT_PUBLIC_BUILD_TIME} locale={i18n.language} />
-          </Text>
+          <DisplayOnBrowserMount>
+            <Text variant="s" color="text.secondary">
+              v{process.env.NEXT_PUBLIC_APP_VERSION}
+              {' • '}
+              {t('LAST_UPDATE')} <Timeago datetime={process.env.NEXT_PUBLIC_BUILD_TIME} locale={i18n.language} />
+            </Text>
+          </DisplayOnBrowserMount>
         </Box>
       </Container>
     </Box>

@@ -47,7 +47,9 @@ export const Hero = (): JSX.Element => {
                   alignItems="stretch"
                   sx={{ width: '100%' }}
                 >
-                  <Button size="large">{t('HERO_DOCUMENTATION')}</Button>
+                  <Button size="large" disabled>
+                    {t('HERO_DOCUMENTATION')}
+                  </Button>
 
                   <Button
                     size="large"

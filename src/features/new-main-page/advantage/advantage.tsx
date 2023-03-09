@@ -9,8 +9,8 @@ export interface AdvantageProps {
    * The content
    */
   icon: React.ReactNode;
-  description: string;
-  title;
+  description: React.ReactNode;
+  title: string;
 }
 
 export const Advantage = (props: AdvantageProps): JSX.Element => {

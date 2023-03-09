@@ -1,9 +1,9 @@
 import * as React from 'react';
 
 import {
-  Box, Container, Heading, SimpleGrid,
+  Box, Code, Container, Heading, SimpleGrid,
 } from '@effable/react';
-import { useTranslation } from 'next-i18next';
+import { Trans, useTranslation } from 'next-i18next';
 
 import { Advantage } from '@/features/new-main-page/advantage';
 
@@ -29,7 +29,11 @@ export const WhyNextplate = (): JSX.Element => {
             icon={<Performance />}
           />
 
-          <Advantage title={t('FEATURES_RICH_TITLE')} description={t('FEATURES_RICH_DESCRIPTION')} icon={<Feature />} />
+          <Advantage
+            title={t('FEATURES_RICH_TITLE')}
+            description={<Trans t={t} i18nKey="FEATURES_RICH_DESCRIPTION" components={[<Code />]} />}
+            icon={<Feature />}
+          />
 
           <Advantage title={t('FEATURES_DX_TITLE')} description={t('FEATURES_DX_DESCRIPTION')} icon={<Best />} />
 

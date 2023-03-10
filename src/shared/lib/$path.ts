@@ -60,7 +60,6 @@ export const staticPath = {
         weather_png: '/static/images/apps/weather.png',
       },
       circle_scatter_svg: '/static/images/circle-scatter.svg',
-      hero_banner_png: '/static/images/hero-banner.png',
       logo_og_png: '/static/images/logo-og.png',
       stars_svg: '/static/images/stars.svg',
       vercel_svg: '/static/images/vercel.svg',

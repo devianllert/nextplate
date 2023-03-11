@@ -2,6 +2,55 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.5.0](https://github.com/devianllert/next-boilerplate/compare/v0.4.0...v0.5.0) (2023-03-11)
+
+
+### Features
+
+* add 404 meta image ([38891bc](https://github.com/devianllert/next-boilerplate/commit/38891bc4b73c967347bb0c733983f30f8c414ce8))
+* add browserlist, adjust design ([5142ed8](https://github.com/devianllert/next-boilerplate/commit/5142ed80063cee9a1350064c66cc2bcabc89b18f))
+* add localization for main page ([ceb6212](https://github.com/devianllert/next-boilerplate/commit/ceb6212aebdf5e742656f1d96de08985410b6967))
+* add meta tags for index page ([45c37a5](https://github.com/devianllert/next-boilerplate/commit/45c37a584376a397e0e3611626d220f065182c05))
+* add middlewares ([b95423b](https://github.com/devianllert/next-boilerplate/commit/b95423b3a2e42cfbe99a65878025ed03b1b3e54e))
+* add prettier plugin for import sorting ([6da6d6c](https://github.com/devianllert/next-boilerplate/commit/6da6d6c523e16541b8f454e1c74208f1180e09c2))
+* complete rewrite of next.js config ([a960a9f](https://github.com/devianllert/next-boilerplate/commit/a960a9f3988bc77025dcfffd023e9b76b92a73cc))
+* improve accessability ([00ad9da](https://github.com/devianllert/next-boilerplate/commit/00ad9da380178f3d15934eb029398f74c7e7d238))
+* improve locale and theme togglers ([af7d58b](https://github.com/devianllert/next-boilerplate/commit/af7d58ba0cc610b6701e8f8d5efa0d83edaeb962))
+* remove prettier from prebuild script ([c701251](https://github.com/devianllert/next-boilerplate/commit/c70125174dc613ad6f7d99a3f228f6ee59d5018c))
+* remove pwa (temporarily) ([0304d6f](https://github.com/devianllert/next-boilerplate/commit/0304d6f41ac907ee90005e7084de06df4351dc2b))
+* remove unused stuff ([a168521](https://github.com/devianllert/next-boilerplate/commit/a1685217ef902db5486bc007071c889c85e98526))
+* update dependencies ([ea25276](https://github.com/devianllert/next-boilerplate/commit/ea2527651d8ab698ae8c2a480ad65778ab7165b5))
+* update envs, remove unused stuff ([4814b90](https://github.com/devianllert/next-boilerplate/commit/4814b90743ce25df5fe4b446a40f37afa27c5f8e))
+* update orval config ([4422911](https://github.com/devianllert/next-boilerplate/commit/44229113fed186fb822868e6ad5cdfb7369267a7))
+* use @next/env instead of dotenv ([476fbb5](https://github.com/devianllert/next-boilerplate/commit/476fbb5e671d07eb527ef563729eb28124134e46))
+
+
+### Bug Fixes
+
+* **deps:** update all non-major dependencies ([3ac28b8](https://github.com/devianllert/next-boilerplate/commit/3ac28b86bb38701782f0792de4d6e2d8c34c8d63))
+* **deps:** update all non-major dependencies ([c4d6f40](https://github.com/devianllert/next-boilerplate/commit/c4d6f40a2c50b58c0b032a4cdd69ca05b2f180a7))
+* **deps:** update all non-major dependencies ([2ca8f0a](https://github.com/devianllert/next-boilerplate/commit/2ca8f0a3275e3ce58d4f5205b5abbc66541145ed))
+* **deps:** update all non-major dependencies ([f00d8a8](https://github.com/devianllert/next-boilerplate/commit/f00d8a8d38a53eedc4f2b3bf94d9debc1533ff23))
+* **deps:** update all non-major dependencies ([e485a04](https://github.com/devianllert/next-boilerplate/commit/e485a0473aa38fed184cfbdfdc3b7c716ff3ac63))
+* **deps:** update all non-major dependencies ([e016f03](https://github.com/devianllert/next-boilerplate/commit/e016f0308a6eab53c5a0fbb75087af7dea7c400f))
+* **deps:** update all non-major dependencies ([435f045](https://github.com/devianllert/next-boilerplate/commit/435f045778c562b92b60f9d280103fd4f9137ef7))
+* **deps:** update all non-major dependencies ([7d40e85](https://github.com/devianllert/next-boilerplate/commit/7d40e852b5d72b5e5658737f4398fbfa6e5d0a6b))
+* **deps:** update all non-major dependencies ([1f188f8](https://github.com/devianllert/next-boilerplate/commit/1f188f84e8a60788e73d5d56de02936ec9bec424))
+* **deps:** update all non-major dependencies ([4ccc69e](https://github.com/devianllert/next-boilerplate/commit/4ccc69e391967c80f73b1543ec502179e3624131))
+* **deps:** update all non-major dependencies ([8059ce7](https://github.com/devianllert/next-boilerplate/commit/8059ce7eca29571390117bcb79cb0fbd1f1424db))
+* **deps:** update dependency @farfetched/core to v0.2.6 ([3b4b10c](https://github.com/devianllert/next-boilerplate/commit/3b4b10c059d86247e5632703169586816fac2eba))
+* **deps:** update dependency @sentry/nextjs to v7.19.0 ([0ebd393](https://github.com/devianllert/next-boilerplate/commit/0ebd39358edd31c4c9d0e45e883c53d7faf2c792))
+* **deps:** update dependency @sentry/nextjs to v7.22.0 ([6a65e37](https://github.com/devianllert/next-boilerplate/commit/6a65e37c504731057d9d2db6e6d90515ce4593c2))
+* **deps:** update dependency framer-motion to v7.6.12 ([7a69d5b](https://github.com/devianllert/next-boilerplate/commit/7a69d5b30461dd3600984674f5c6718ae9faa379))
+* **deps:** update dependency framer-motion to v8 ([fc25b8a](https://github.com/devianllert/next-boilerplate/commit/fc25b8a34d441ded7ff55dc855de8bd3be04e336))
+* **deps:** update dependency pathpida to v0.20.0 ([eec660c](https://github.com/devianllert/next-boilerplate/commit/eec660c29e9c9d9f17fe6ff82a63347893e57ffb))
+* fix browserlist ([eebffc4](https://github.com/devianllert/next-boilerplate/commit/eebffc4354ea31379349953ad3bb0fbc77bb6b14))
+* fix locales ([374784e](https://github.com/devianllert/next-boilerplate/commit/374784e4fcdfbb7606bfcc268f593116c12c3897))
+* fix main page styles ([311f161](https://github.com/devianllert/next-boilerplate/commit/311f161464e9cfd53f706725e7853df9681976a5))
+* fix storybook static dir ([ae3c6f0](https://github.com/devianllert/next-boilerplate/commit/ae3c6f0688b7b85cbe9982d0ad159a9bd566e056))
+* fix wrong theme values ([987c392](https://github.com/devianllert/next-boilerplate/commit/987c3925067e4d74cf71697b4fbabd4cba34d351))
+* **storybook:** remove storybook-addon-performance ([e41673f](https://github.com/devianllert/next-boilerplate/commit/e41673f73430107be8c3c2312f211b119f7fe16c))
+
 ## [0.4.0](https://github.com/devianllert/next-boilerplate/compare/v0.3.3...v0.4.0) (2022-10-29)
 
 

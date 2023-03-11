@@ -1,8 +1,5 @@
 import styled, { CSSObject } from '@emotion/styled';
 
-import { spacings } from '@/shared/design/tokens/spacings';
-import shape from '@/shared/design/tokens/shape';
-
 import { IndicatorPosition } from './indicator.types';
 
 interface IndicatorStyledProps {
@@ -74,14 +71,14 @@ export const Indicator = styled.div<IndicatorStyledProps>((props) => ({
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',
-  paddingLeft: props.withLabel ? spacings[2] / 2 : 0,
-  paddingRight: props.withLabel ? spacings[2] / 2 : 0,
-  borderRadius: props.shape ? shape[props.shape] : 'none',
+  paddingLeft: props.withLabel ? props.theme.space['1x'] : 0,
+  paddingRight: props.withLabel ? props.theme.space['1x'] : 0,
+  borderRadius: props.shape ? props.theme.radii[props.shape] : 'none',
   color: 'white',
   whiteSpace: 'nowrap',
   zIndex: props.zIndex,
-  backgroundColor: props.color ? props.theme.colors.radix[`${props.color}9`] : 'none',
+  backgroundColor: props.color ? props.theme.colors[props.color][`${props.color}9`] : 'none',
   border: props.withBorder
-    ? `2px solid ${props.theme.colors.radix[props.borderColor] ?? props.borderColor}`
+    ? `2px solid ${props.theme.colors[props.color][props.borderColor] ?? props.borderColor}`
     : undefined,
 }));

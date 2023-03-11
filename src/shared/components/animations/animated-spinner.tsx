@@ -1,9 +1,9 @@
+import React from 'react';
+
 import { keyframes } from '@emotion/react';
 import styled from '@emotion/styled';
-import React from 'react';
 import { IconBaseProps } from 'react-icons';
 import { RiLoader4Line } from 'react-icons/ri';
-import { useTheme } from '@/shared/design/hooks/use-theme';
 
 export type AnimatedSpinnerProps = IconBaseProps;
 
@@ -25,7 +25,5 @@ const AnimatedIcon = styled(RiLoader4Line)({
 });
 
 export const AnimatedSpinner = (props: AnimatedSpinnerProps) => {
-  return (
-    <AnimatedIcon fontSize={32} {...props} />
-  );
+  return <AnimatedIcon fontSize={32} {...props} />;
 };

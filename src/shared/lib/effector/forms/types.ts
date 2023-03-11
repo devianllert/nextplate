@@ -1,4 +1,4 @@
-import { Store, Event, Effect } from 'effector';
+import { Effect, Event, Store } from 'effector';
 import { ZodIssue } from 'zod';
 
 export interface Field<T> {

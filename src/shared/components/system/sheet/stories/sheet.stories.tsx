@@ -1,15 +1,11 @@
 import * as React from 'react';
-import { Meta } from '@storybook/react';
-import styled from '@emotion/styled';
 
-import shadows from '@/shared/design/tokens/shadows';
-import { Button } from '@/shared/components/system/button';
+import { Button } from '@effable/react';
+import styled from '@emotion/styled';
+import { Meta } from '@storybook/react';
 
 import {
-  Sheet,
-  SheetContent,
-  SheetPortal,
-  SheetTrigger,
+  Sheet, SheetContent, SheetPortal, SheetTrigger,
 } from '../index';
 
 export default {
@@ -17,9 +13,9 @@ export default {
   component: Sheet,
 } as Meta;
 
-const StyledContent = styled(SheetContent)({
+const StyledContent = styled(SheetContent)((props) => ({
   background: 'white',
-  boxShadow: shadows[6],
+  boxShadow: props.theme.shadows['6x'],
 
   '&[data-direction=top], &[data-direction=bottom]': {
     height: 300,
@@ -28,7 +24,7 @@ const StyledContent = styled(SheetContent)({
   '&[data-direction=left], &[data-direction=right]': {
     width: 300,
   },
-});
+}));
 
 export const Top = () => {
   return (
@@ -38,9 +34,7 @@ export const Top = () => {
       </SheetTrigger>
 
       <SheetPortal>
-        <StyledContent direction="top">
-          123
-        </StyledContent>
+        <StyledContent direction="top">123</StyledContent>
       </SheetPortal>
     </Sheet>
   );
@@ -54,9 +48,7 @@ export const Left = () => {
       </SheetTrigger>
 
       <SheetPortal>
-        <StyledContent direction="left">
-          123
-        </StyledContent>
+        <StyledContent direction="left">123</StyledContent>
       </SheetPortal>
     </Sheet>
   );
@@ -70,9 +62,7 @@ export const Right = () => {
       </SheetTrigger>
 
       <SheetPortal>
-        <StyledContent direction="right">
-          123
-        </StyledContent>
+        <StyledContent direction="right">123</StyledContent>
       </SheetPortal>
     </Sheet>
   );
@@ -86,9 +76,7 @@ export const Bottom = () => {
       </SheetTrigger>
 
       <SheetPortal>
-        <StyledContent direction="bottom">
-          123
-        </StyledContent>
+        <StyledContent direction="bottom">123</StyledContent>
       </SheetPortal>
     </Sheet>
   );

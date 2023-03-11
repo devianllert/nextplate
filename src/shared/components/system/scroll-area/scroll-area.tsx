@@ -1,5 +1,6 @@
-import * as ScrollAreaPrimitive from '@radix-ui/react-scroll-area';
 import styled from '@emotion/styled';
+import * as ScrollAreaPrimitive from '@radix-ui/react-scroll-area';
+
 import { fadeIn, fadeOut } from '@/shared/lib/css-in-js/animations';
 
 const SCROLLBAR_SIZE = 12;
@@ -18,7 +19,7 @@ export const StyledScrollbar = styled(ScrollAreaPrimitive.Scrollbar)((props) => 
   touchAction: 'none',
   padding: 4,
   transition: 'background 160ms ease-out',
-  '&:hover': { background: props.theme.colors.radix.grayA6 },
+  '&:hover': { background: props.theme.colors.neutral.neutral6 },
   '&[data-orientation="vertical"]': { width: SCROLLBAR_SIZE },
   '&[data-orientation="horizontal"]': {
     flexDirection: 'column',
@@ -34,7 +35,7 @@ export const StyledScrollbar = styled(ScrollAreaPrimitive.Scrollbar)((props) => 
 
 export const StyledThumb = styled(ScrollAreaPrimitive.Thumb)((props) => ({
   flex: 1,
-  background: props.theme.colors.radix.gray10,
+  background: props.theme.colors.neutral.neutral10,
   borderRadius: SCROLLBAR_SIZE,
   // increase target size for touch devices https://www.w3.org/WAI/WCAG21/Understanding/target-size.html
   position: 'relative',

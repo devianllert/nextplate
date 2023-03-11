@@ -1,8 +1,8 @@
 import * as React from 'react';
-import * as DialogPrimitive from '@radix-ui/react-dialog';
-import styled from '@emotion/styled';
 
 import { keyframes } from '@emotion/react';
+import styled from '@emotion/styled';
+import * as DialogPrimitive from '@radix-ui/react-dialog';
 
 const slideIn = keyframes({
   from: { transform: 'var(--sheet-transform-value)' },
@@ -66,17 +66,10 @@ export const SheetContent = React.forwardRef<HTMLDivElement, SheetContentProps>(
   const { children, direction = 'left', ...other } = props;
 
   return (
-    <StyledSheetContent
-      data-direction={direction}
-      direction={direction}
-      {...other}
-      ref={forwardedRef}
-    >
+    <StyledSheetContent data-direction={direction} direction={direction} {...other} ref={forwardedRef}>
       {children}
     </StyledSheetContent>
   );
 });
 
-export {
-  SheetContent as Content,
-};
+export { SheetContent as Content };

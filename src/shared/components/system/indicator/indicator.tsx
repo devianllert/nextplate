@@ -2,9 +2,8 @@ import * as React from 'react';
 
 import shape from '@/shared/design/tokens/shape';
 
-import { IndicatorPosition } from './indicator.types';
-
 import * as S from './indicator.styled';
+import { IndicatorPosition } from './indicator.types';
 
 export interface IndicatorProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 'color'> {
   /**
@@ -94,7 +93,7 @@ export const Indicator = React.forwardRef<HTMLDivElement, IndicatorProps>((props
           borderColor={borderColor}
           zIndex={zIndex}
           inline={inline}
-          withLabel={(typeof label === 'string')}
+          withLabel={typeof label === 'string'}
           withBorder={!!border}
           position={position}
           offset={offset}

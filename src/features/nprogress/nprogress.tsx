@@ -1,8 +1,10 @@
 import * as React from 'react';
+
 import Router from 'next/router';
+
+import { EffableTheme } from '@effable/react';
+import { css, Global, useTheme } from '@emotion/react';
 import NProgress from 'nprogress';
-import { css, Global } from '@emotion/react';
-import { useTheme } from '@/shared/design/hooks/use-theme';
 
 export interface NProgressRootProps {
   /**
@@ -17,13 +19,9 @@ export interface NProgressRootProps {
 }
 
 export const NProgressRoot = (props: NProgressRootProps): JSX.Element => {
-  const {
-    color = 'primary',
-    showAfterMs = 0,
-    options,
-  } = props;
+  const { color = 'accent', showAfterMs = 0, options } = props;
 
-  const { theme } = useTheme();
+  const theme = useTheme() as unknown as EffableTheme;
 
   const timer = React.useRef<number>();
 
@@ -52,17 +50,18 @@ export const NProgressRoot = (props: NProgressRootProps): JSX.Element => {
       Router.events.off('routeChangeComplete', routeChangeEnd);
       Router.events.off('routeChangeError', routeChangeEnd);
     };
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [options]);
 
   return (
-    <Global styles={css`
+    <Global
+      styles={css`
         #nprogress {
           pointer-events: none;
         }
 
         #nprogress .bar {
-          background: ${theme.colors.radix[`${color}9`]};
+          background: ${theme.colors.accent.accent9};
           position: fixed;
           z-index: 1031;
           top: 0;
@@ -71,60 +70,60 @@ export const NProgressRoot = (props: NProgressRootProps): JSX.Element => {
           height: 2px;
         }
 
-          #nprogress .peg {
-            display: block;
-            position: absolute;
-            right: 0px;
-            width: 100px;
-            height: 100%;
-            box-shadow: 0 0 10px ${theme.colors.radix[`${color}9`]}, 0 0 5px ${theme.colors.radix[`${color}9`]};
-            opacity: 1;
-            transform: rotate(3deg) translate(0px, -4px);
+        #nprogress .peg {
+          display: block;
+          position: absolute;
+          right: 0px;
+          width: 100px;
+          height: 100%;
+          box-shadow: 0 0 10px ${theme.colors.accent.accent9}, 0 0 5px ${theme.colors.accent.accent9};
+          opacity: 1;
+          transform: rotate(3deg) translate(0px, -4px);
+        }
+
+        #nprogress .spinner {
+          display: none;
+          position: fixed;
+          z-index: 1031;
+          top: 15px;
+          right: 15px;
+        }
+
+        #nprogress .spinner-icon {
+          width: 18px;
+          height: 18px;
+          box-sizing: border-box;
+
+          border: solid 2px transparent;
+          border-top-color: ${theme.colors.accent.accent9};
+          border-left-color: ${theme.colors.accent.accent9};
+          border-radius: 50%;
+
+          animation: nprogress-spinner 400ms linear infinite;
+        }
+
+        .nprogress-custom-parent {
+          overflow: hidden;
+          position: relative;
+        }
+
+        .nprogress-custom-parent #nprogress .spinner {
+          position: absolute;
+        }
+
+        .nprogress-custom-parent #nprogress .bar {
+          position: absolute;
+        }
+
+        @keyframes nprogress-spinner {
+          0% {
+            transform: rotate(0deg);
           }
-
-          #nprogress .spinner {
-            display: none;
-            position: fixed;
-            z-index: 1031;
-            top: 15px;
-            right: 15px;
+          100% {
+            transform: rotate(360deg);
           }
-
-          #nprogress .spinner-icon {
-            width: 18px;
-            height: 18px;
-            box-sizing: border-box;
-
-            border: solid 2px transparent;
-            border-top-color: ${theme.colors.radix[`${color}9`]};
-            border-left-color: ${theme.colors.radix[`${color}9`]};
-            border-radius: 50%;
-
-            animation: nprogress-spinner 400ms linear infinite;
-          }
-
-          .nprogress-custom-parent {
-            overflow: hidden;
-            position: relative;
-          }
-
-          .nprogress-custom-parent #nprogress .spinner {
-            position: absolute;
-          }
-
-          .nprogress-custom-parent #nprogress .bar {
-            position: absolute;
-          }
-
-          @keyframes nprogress-spinner {
-            0% {
-              transform: rotate(0deg);
-            }
-            100% {
-              transform: rotate(360deg);
-            }
-          }
-    `}
+        }
+      `}
     />
   );
 };

@@ -1,3 +1,4 @@
+import { isBrowser } from '@effable/misc';
 import * as Sentry from '@sentry/nextjs';
 
 import { createLogger } from '@/shared/lib/logging/logger';
@@ -32,7 +33,7 @@ export const setupSentry = () => {
   if (process.env.NEXT_PUBLIC_SENTRY_DSN) {
     Sentry.init({
       dsn: process.env.NEXT_PUBLIC_SENTRY_DSN,
-      enabled: process.env.NODE_ENV !== 'test',
+      enabled: !isBrowser() && process.env.NODE_ENV !== 'test',
       environment: process.env.NEXT_PUBLIC_APP_STAGE,
       debug: false,
       tracesSampleRate: 1.0,
@@ -41,7 +42,7 @@ export const setupSentry = () => {
     configureSentry();
 
     logger.log('Sentry initialized');
-  } else if (process.env.NODE_ENV !== 'test') {
-    logger.error('Sentry DSN not defined, events (exceptions, messages, etc.) won\'t be sent to Sentry.');
+  } else if (!isBrowser() && process.env.NODE_ENV !== 'test') {
+    logger.error("Sentry DSN not defined, events (exceptions, messages, etc.) won't be sent to Sentry.");
   }
 };

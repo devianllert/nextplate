@@ -7,10 +7,7 @@ interface ResponsivePropertyOptions {
 }
 
 export function responsiveProperty(options: ResponsivePropertyOptions) {
-  const {
-    property,
-    values,
-  } = options;
+  const { property, values } = options;
 
   const output: Record<string, Record<string, string> | string> = {
     [property]: `${values[0]}`,

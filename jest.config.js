@@ -1,24 +1,12 @@
-// "package.json:jest" config cannot be used alongside this config, all Jest config must be centralised in this file - See https://github.com/facebook/jest/issues/10123#issuecomment-638796267
+/** @type {import('jest').Config} */
 module.exports = {
   verbose: true,
+  testEnvironment: 'jest-environment-jsdom',
+  extensionsToTreatAsEsm: ['.ts', '.tsx'],
   transform: {
     // Use babel-jest to transpile tests with the next/babel preset
     // https://jestjs.io/docs/configuration#transform-objectstring-pathtotransformer--pathtotransformer-object
-    '^.+\\.(js|jsx|ts|tsx)$': [
-      'babel-jest',
-      {
-        presets: ['next/babel'],
-        plugins: [
-          '@emotion/babel-plugin',
-          [
-            'effector/babel-plugin',
-            {
-              factories: ['@farfetched/core', 'patronum', '@/shared/lib/effector/forms'],
-            },
-          ],
-        ],
-      },
-    ],
+    '^.+\\.(js|jsx|ts|tsx)$': ['babel-jest'],
   },
   testPathIgnorePatterns: ['<rootDir>/node_modules/', '<rootDir>/.next/'],
   /**
@@ -42,7 +30,6 @@ module.exports = {
     '^@/pages/(.*)$': '<rootDir>/src/pages/$1',
   },
   modulePathIgnorePatterns: ['.next/', 'cypress'],
-  runner: 'groups', // Allow to use jest-runner-groups - See https://github.com/eugene-manuilov/jest-runner-groups#update-jest-config
   setupFilesAfterEnv: [
     'jest-extended', // Extends native "expect" abilities - See https://github.com/jest-community/jest-extended
     '<rootDir>/jest.setup.js',

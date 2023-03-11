@@ -1,15 +1,10 @@
 import Document, {
-  Head,
-  Html,
-  Main,
-  NextScript,
-  DocumentInitialProps,
-  DocumentContext,
+  DocumentContext, DocumentInitialProps, Head, Html, Main, NextScript,
 } from 'next/document';
-import Script from 'next/script';
+
+import { InitializeColorMode } from '@effable/react';
 
 import { getCommonMetaTags } from '@/shared/lib/meta';
-import { staticPath } from '@/shared/lib/$path';
 
 /**
  * Note: Is only rendered on the server side and not on the client side
@@ -28,16 +23,9 @@ class AppDocument extends Document {
   render(): JSX.Element {
     return (
       <Html lang={this.props.locale}>
-        <Head>
-          {getCommonMetaTags()}
-        </Head>
+        <Head>{getCommonMetaTags()}</Head>
         <body>
-          {/* this script should be synchronous */}
-          {/* eslint-disable-next-line @next/next/no-sync-scripts */}
-          <script
-            id="theme-mode"
-            src={staticPath.static.scripts.initialize_color_mode_js}
-          />
+          <InitializeColorMode />
 
           <Main />
           <NextScript />

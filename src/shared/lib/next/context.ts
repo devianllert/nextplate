@@ -1,6 +1,8 @@
+import { ParsedUrlQuery } from 'querystring';
+
 import { GetServerSidePropsContext, GetStaticPropsContext } from 'next';
 import { NextRouter } from 'next/router';
-import { ParsedUrlQuery } from 'querystring';
+
 import { PageContext, PageContextBase, StaticPageContext } from './types';
 
 function normalizeQuery(query: ParsedUrlQuery, route: string) {

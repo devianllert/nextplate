@@ -1,12 +1,12 @@
 /* eslint-disable prefer-arrow-callback */
+
 import * as React from 'react';
 
-import { useComposedRefs } from '@/shared/lib/react';
-import { SxProp } from '@/shared/lib/css-in-js/sx';
+import { useComposedRefs } from '@effable/react';
 
 import * as S from './input-base.styled';
 
-export interface InputBaseProps extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'prefix' | 'size'>, SxProp {
+export interface InputBaseProps extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'prefix' | 'size'> {
   /**
    * If `true`, the `input` will indicate an error.
    * The prop defaults to the value (`false`) inherited from the parent FormControl component.
@@ -48,7 +48,10 @@ export interface InputBaseProps extends Omit<React.InputHTMLAttributes<HTMLInput
  * InputBase contains as few styles as possible.
  * It aims to be a simple building block for creating an input.
  */
-export const InputBase = React.forwardRef(function InputBase(props: InputBaseProps, ref: React.ForwardedRef<HTMLInputElement>): JSX.Element {
+export const InputBase = React.forwardRef(function InputBase(
+  props: InputBaseProps,
+  ref: React.ForwardedRef<HTMLInputElement>,
+): JSX.Element {
   const {
     type = 'text',
     disabled,
@@ -61,7 +64,6 @@ export const InputBase = React.forwardRef(function InputBase(props: InputBasePro
     className,
     inputRef,
     inputComponent,
-    sx,
     ...other
   } = props;
 
@@ -77,13 +79,7 @@ export const InputBase = React.forwardRef(function InputBase(props: InputBasePro
   }, []);
 
   return (
-    <S.InputBaseRoot
-      fullWidth={fullWidth}
-      disabled={disabled}
-      onClick={handleClick}
-      className={className}
-      sx={sx}
-    >
+    <S.InputBaseRoot fullWidth={fullWidth} disabled={disabled} onClick={handleClick} className={className}>
       {prefix}
 
       <S.InputBaseComponent

@@ -1,6 +1,7 @@
 import * as React from 'react';
+
+import { Meta, Story } from '@storybook/react';
 import NProgress from 'nprogress';
-import { Story, Meta } from '@storybook/react';
 
 import { NProgressRoot, NProgressRootProps } from '../nprogress';
 

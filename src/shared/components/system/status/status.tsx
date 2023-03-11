@@ -20,18 +20,7 @@ export interface StatusProps {
  * The `Status` component is used to highlight an item's status for quick recognition.
  */
 export const Status: PolymorphicComponent<StatusProps, 'div'> = React.forwardRef((props, forwardedRef) => {
-  const {
-    size,
-    color = 'gray',
-    component,
-  } = props;
+  const { size, color = 'gray', component } = props;
 
-  return (
-    <S.StatusRoot
-      size={size}
-      color={color}
-      as={component}
-      ref={forwardedRef}
-    />
-  );
+  return <S.StatusRoot size={size} color={color} as={component} ref={forwardedRef} />;
 });

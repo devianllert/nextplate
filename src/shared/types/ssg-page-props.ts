@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/indent */
 import { MultiversalAppBootstrapPageProps } from '@/shared/types/multiversal-app-bootstrap-page-props';
+
 import { MultiversalPageProps } from './multiversal-page-props';
 
 /**

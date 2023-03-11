@@ -1,10 +1,9 @@
 import { IncomingMessage } from 'http';
+
 import { GetServerSideProps, GetServerSidePropsResult } from 'next';
+
 import NextCookies from 'next-cookies';
 
-import UniversalCookiesManager from '@/shared/lib/cookies-manager/universal-cookies-manager';
-import { UserSemiPersistentSession } from '@/shared/lib/user-session/types/user-semi-persistent-session';
-import { Cookies } from '@/shared/lib/cookies-manager/types/cookies';
 import { getTranslationsConfig } from '@/shared/lib/i18n/translations';
 import { CommonServerSideParams } from '@/shared/types/common-server-side-params';
 import { PublicHeaders } from '@/shared/types/public-headers';
@@ -23,7 +22,9 @@ export type GetCoreServerSidePropsResults = Omit<SSRPageProps, '__REACT_QUERY_ST
  *
  * @param namespaces
  */
-export const getCoreServerSideProps = (namespaces: string[] = []): GetServerSideProps<GetCoreServerSidePropsResults, CommonServerSideParams> => {
+export const getCoreServerSideProps = (
+  namespaces: string[] = [],
+): GetServerSideProps<GetCoreServerSidePropsResults, CommonServerSideParams> => {
   /**
    * Only executed on the server side, for every request.
    * Computes some dynamic props that should be available for all SSR pages that use getServerSideProps
@@ -37,17 +38,12 @@ export const getCoreServerSideProps = (namespaces: string[] = []): GetServerSide
    *
    * @see https://nextjs.org/docs/basic-features/data-fetching#getserversideprops-server-side-rendering
    */
-  const getServerSideProps: GetServerSideProps<GetCoreServerSidePropsResults, CommonServerSideParams> = async (context): Promise<GetServerSidePropsResult<GetCoreServerSidePropsResults>> => {
-    const {
-      req,
-      res,
-    } = context;
+  const getServerSideProps: GetServerSideProps<GetCoreServerSidePropsResults, CommonServerSideParams> = async (
+    context,
+  ): Promise<GetServerSidePropsResult<GetCoreServerSidePropsResults>> => {
+    const { req } = context;
 
-    // Parses Next.js cookies in a universal way (server + client)
-    const readonlyCookies: Cookies = NextCookies(context);
     // Cannot be forwarded as pageProps, because contains circular refs
-    const cookiesManager: UniversalCookiesManager = new UniversalCookiesManager(req, res);
-    const userSession: UserSemiPersistentSession = cookiesManager.getUserData();
     const { headers }: IncomingMessage = req;
     const publicHeaders: PublicHeaders = {
       'accept-language': headers?.['accept-language'],
@@ -55,13 +51,13 @@ export const getCoreServerSideProps = (namespaces: string[] = []): GetServerSide
       host: headers?.host,
     };
 
+    const i18n = await getTranslationsConfig(context, namespaces);
+
     return {
       props: {
-        userSession,
         isServerRendering: true,
-        readonlyCookies,
         headers: publicHeaders,
-        ...(await getTranslationsConfig(context, namespaces)),
+        _nextI18Next: i18n._nextI18Next,
       },
     };
   };

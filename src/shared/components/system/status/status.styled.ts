@@ -2,7 +2,7 @@ import styled from '@emotion/styled';
 
 interface StatusStyledProps {
   size?: 'medium' | 'small';
-  color?: string;
+  color: string;
 }
 
 export const StatusRoot = styled.div<StatusStyledProps>((props) => ({
@@ -17,5 +17,5 @@ export const StatusRoot = styled.div<StatusStyledProps>((props) => ({
     height: 6,
   }),
 
-  backgroundColor: props.theme.colors.radix[`${props.color}9`],
+  backgroundColor: props.theme.colors[props.color][`${props.color}9`],
 }));

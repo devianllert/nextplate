@@ -1,11 +1,9 @@
 import * as React from 'react';
-import { Story, Meta } from '@storybook/react';
-import styled from '@emotion/styled';
-import { RiDirectionLine, RiMenuLine, RiSearchLine } from 'react-icons/ri';
 
-import { Box } from '@/shared/components/system/box';
-import { IconButton } from '@/shared/components/system/icon-button';
-import { Divider } from '@/shared/components/system/divider';
+import { ActionButton, Box, Divider } from '@effable/react';
+import styled from '@emotion/styled';
+import { Meta, Story } from '@storybook/react';
+import { RiDirectionLine, RiMenuLine, RiSearchLine } from 'react-icons/ri';
 
 import { InputBase, InputBaseProps } from '../input-base';
 
@@ -18,37 +16,36 @@ const Template: Story<InputBaseProps> = (args) => <InputBase {...args} />;
 
 export const Basic = Template.bind({});
 
-Basic.args = {
-};
+Basic.args = {};
 
 export const SearchBox = (): JSX.Element => (
   <Box
     display="flex"
     alignItems="center"
     border="1px solid"
-    borderColor="radix.gray6"
+    borderColor="neutral.neutral6"
     borderRadius={4}
     py="2px"
     px="4px"
-    boxShadow={1}
+    boxShadow="1x"
   >
-    <IconButton>
+    <ActionButton label="menu">
       <RiMenuLine />
-    </IconButton>
+    </ActionButton>
 
     <Box ml={2}>
       <InputBase placeholder="Search Google Maps" />
     </Box>
 
-    <IconButton>
+    <ActionButton label="search">
       <RiSearchLine />
-    </IconButton>
+    </ActionButton>
 
-    <Divider orientation="vertical" flexItem />
+    <Divider orientation="vertical" />
 
-    <IconButton>
+    <ActionButton label="direction">
       <RiDirectionLine />
-    </IconButton>
+    </ActionButton>
   </Box>
 );
 
@@ -56,9 +53,9 @@ const InputContainer = styled.div((props) => ({
   display: 'flex',
   border: '1px solid',
   borderRadius: 4,
-  borderColor: props.theme.colors.radix.gray6,
+  borderColor: props.theme.colors.neutral.neutral6,
   '&:focus-within': {
-    borderColor: props.theme.colors.radix.gray8,
+    borderColor: props.theme.colors.neutral.neutral8,
   },
 }));
 
@@ -66,7 +63,7 @@ export const ComposedInputs = (): JSX.Element => (
   <InputContainer>
     <InputBase placeholder="example" />
 
-    <Divider orientation="vertical" space={0} flexItem />
+    <Divider orientation="vertical" />
 
     <Box maxWidth="6ch">
       <InputBase placeholder=".com" />

@@ -1,26 +1,21 @@
 import * as React from 'react';
-import { RiCloseLine } from 'react-icons/ri';
 
-import { IconButton } from '@/shared/components/system/icon-button';
-import { Sizes, getPreviousSize } from '@/shared/design/tokens/size';
+import { ActionButton } from '@effable/react';
+import { RiCloseLine } from 'react-icons/ri';
 
 interface UseInputClearOptions<T extends HTMLTextAreaElement | HTMLInputElement> {
   ref: React.RefObject<T>;
   allowClear?: boolean;
+  label: string;
   disabled?: boolean;
   value?: string;
   onChange?: React.ChangeEventHandler<T>;
-  size?: Exclude<Sizes, 'xsmall'>;
+  size?: 'large' | 'medium' | 'small';
 }
 
 export function useInputClear<T extends HTMLTextAreaElement | HTMLInputElement>(options: UseInputClearOptions<T>) {
   const {
-    allowClear,
-    disabled,
-    value,
-    onChange,
-    ref,
-    size = 'medium',
+    allowClear, disabled, value, onChange, ref, size = 'medium', label,
   } = options;
 
   const [hasUncontrolledInputValue, setHasUncontrolledInputValue] = React.useState(false);
@@ -51,20 +46,16 @@ export function useInputClear<T extends HTMLTextAreaElement | HTMLInputElement>(
     }
 
     if (!isControlledMode && ref.current) {
-    // eslint-disable-next-line no-param-reassign
+      // eslint-disable-next-line no-param-reassign
       ref.current.value = '';
       setHasUncontrolledInputValue(false);
     }
   };
 
   const clearIcon = showClearIcon ? (
-    <IconButton
-      size={getPreviousSize(size)}
-      onMouseDown={setFocusOnInput}
-      onClick={onClear}
-    >
+    <ActionButton size={size} onMouseDown={setFocusOnInput} onClick={onClear} label={label}>
       <RiCloseLine />
-    </IconButton>
+    </ActionButton>
   ) : null;
 
   return { showClearIcon, clearIcon, composedOnChange };

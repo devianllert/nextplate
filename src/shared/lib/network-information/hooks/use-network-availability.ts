@@ -1,7 +1,6 @@
 import * as React from 'react';
 
-import { isBrowser } from '@/shared/lib/is-browser';
-import { managedEventListener } from '@/shared/lib/managed-event-listener';
+import { isBrowser } from '@effable/misc';
 
 /**
  * Tracks information about the network's availability.
@@ -10,12 +9,15 @@ export const useNetworkAvailability = (): boolean => {
   const [online, setOnline] = React.useState(isBrowser() ? navigator.onLine : true);
 
   React.useEffect(() => {
-    const cleanup1 = managedEventListener(window, 'offline', () => setOnline(false));
-    const cleanup2 = managedEventListener(window, 'online', () => setOnline(true));
+    const updateOffile = () => setOnline(false);
+    const updateOnline = () => setOnline(true);
+
+    window.addEventListener('offline', updateOffile);
+    window.addEventListener('online', updateOnline);
 
     return (): void => {
-      cleanup1();
-      cleanup2();
+      window.removeEventListener('offline', updateOffile);
+      window.removeEventListener('online', updateOnline);
     };
   }, []);
 

@@ -1,34 +1,45 @@
 import * as React from 'react';
-import Link from 'next/link';
+
+import { capitalize } from '@effable/misc';
+import {
+  Box, Container, DisplayOnBrowserMount, SkipNavLink, Stack, Text,
+} from '@effable/react';
+
+import { LocaleToggler } from '@/features/locale-toggler';
+import { ChangeTheme } from '@/features/new-main-page/change-theme';
 
 import { APP_TITLE } from '@/shared/lib/meta';
 
-import * as Text from '@/shared/components/system/text';
-import { Stack } from '@/shared/components/system/stack';
-import { Container } from '@/shared/components/system/container';
-import { DisplayOnBrowserMount } from '@/shared/components/rehydration/display-on-browser-mount';
-import { LocaleToggler } from '@/features/locale-toggler';
-import { SettingsButton } from '@/features/settings-button';
-
-import * as S from './main-header.styled';
-
-export type MainHeaderProps = unknown;
-
 export const MainHeader = (): JSX.Element => {
   return (
-    <S.MainHeaderContainer>
-      <Container>
-        <S.MainHeaderRoot>
-          <Text.Heading variant="h6" href="/" component={Link}>{APP_TITLE}</Text.Heading>
-          <DisplayOnBrowserMount>
-            <Stack direction="row" alignItems="center" space={3}>
-              <LocaleToggler />
+    <>
+      <SkipNavLink />
+      <Box
+        display="flex"
+        justifyContent="center"
+        alignItems="center"
+        width="100%"
+        height={72}
+        borderBottom="1px solid"
+        borderColor="accent.accent5"
+        backgroundColor="accent.accent3"
+      >
+        <Container>
+          <Box display="flex" paddingY="26px" justifyContent="space-between" alignItems="center">
+            <Text variant="l" color="text.primary">
+              {capitalize(APP_TITLE)}
+            </Text>
 
-              <SettingsButton />
-            </Stack>
-          </DisplayOnBrowserMount>
-        </S.MainHeaderRoot>
-      </Container>
-    </S.MainHeaderContainer>
+            <DisplayOnBrowserMount>
+              <Stack direction="row" space="4x">
+                <ChangeTheme />
+
+                <LocaleToggler />
+              </Stack>
+            </DisplayOnBrowserMount>
+          </Box>
+        </Container>
+      </Box>
+    </>
   );
 };

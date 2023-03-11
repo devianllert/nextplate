@@ -25,6 +25,11 @@ export const pagesPath = {
 export type PagesPath = typeof pagesPath;
 
 export const staticPath = {
+  android_chrome_192x192_png: '/android-chrome-192x192.png',
+  android_chrome_512x512_png: '/android-chrome-512x512.png',
+  apple_touch_icon_png: '/apple-touch-icon.png',
+  favicon_16x16_png: '/favicon-16x16.png',
+  favicon_32x32_png: '/favicon-32x32.png',
   favicon_ico: '/favicon.ico',
   locales: {
     en: {
@@ -40,6 +45,7 @@ export const staticPath = {
       index_json: '/locales/ru/index.json',
     },
   },
+  maskable_icon_png: '/maskable_icon.png',
   site_webmanifest: '/site.webmanifest',
   static: {
     images: {
@@ -54,7 +60,6 @@ export const staticPath = {
         weather_png: '/static/images/apps/weather.png',
       },
       circle_scatter_svg: '/static/images/circle-scatter.svg',
-      hero_banner_png: '/static/images/hero-banner.png',
       logo_og_png: '/static/images/logo-og.png',
       stars_svg: '/static/images/stars.svg',
       vercel_svg: '/static/images/vercel.svg',
@@ -279,9 +284,6 @@ export const staticPath = {
         wi_wind_deg_svg: '/static/images/weather/wi-wind-deg.svg',
         wi_windy_svg: '/static/images/weather/wi-windy.svg',
       },
-    },
-    scripts: {
-      initialize_color_mode_js: '/static/scripts/initialize-color-mode.js',
     },
   },
 } as const;

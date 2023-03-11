@@ -1,17 +1,19 @@
-import { themes } from '@storybook/theming';
-import { addDecorator } from '@storybook/react';
-import { withTests } from '@storybook/addon-jest';
-import { withPerformance } from 'storybook-addon-performance';
-import { I18nextProvider } from 'react-i18next';
 import { RouterContext } from 'next/dist/shared/lib/router-context';
-import { ThemeProvider, useColorMode } from 'theme-ui';
-import i18n from './i18n';
 
-import '@storybook/addon-console'; // Automatically forwards all logs in the "Actions" panel - See https://github.com/storybookjs/storybook-addon-console
-import '@/shared/design/external-styles'; // Import the same 3rd party libraries global styles as the pages/_app.tsx (for UI consistency)
-import { GlobalStyles } from '@/shared/design/global-styles';
-import { ResetStyles } from '@/shared/design/reset-styles';
-import { theme } from '@/shared/design/themes';
+import { Button, EffableProvider, useEffableTheme } from '@effable/react';
+import { withTests } from '@storybook/addon-jest';
+import { addDecorator } from '@storybook/react';
+import { themes } from '@storybook/theming';
+import { Provider as EffectorProvider } from 'effector-react';
+import { fork } from 'effector';
+import { I18nextProvider } from 'react-i18next';
+
+// Automatically forwards all logs in the "Actions" panel - See https://github.com/storybookjs/storybook-addon-console
+import '@storybook/addon-console';
+// Import the same 3rd party libraries global styles as the pages/_app.tsx (for UI consistency)
+import '@/shared/design/external-styles';
+
+import i18n from './i18n';
 
 /**
  * Story Global parameters for Storybook.
@@ -137,34 +139,35 @@ export const parameters = {
  */
 export const decorators = [
   (Story, context) => {
+    const scope = fork({});
+
     return (
-      <I18nextProvider i18n={i18n}>
-        <ThemeProvider theme={theme}>
-          <ResetStyles />
-          <GlobalStyles />
+      <EffectorProvider value={scope}>
+        <I18nextProvider i18n={i18n}>
+          <EffableProvider>
+            <Toggler />
 
-          <Toggler />
-
-          <div
-            style={{
-              minHeight: '100vh',
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'center',
-              justifyContent: 'center',
-              padding: 24,
-            }}
-          >
-            <Story />
-          </div>
-        </ThemeProvider>
-      </I18nextProvider>
+            <div
+              style={{
+                minHeight: '100vh',
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                justifyContent: 'center',
+                padding: 24,
+              }}
+            >
+              <Story />
+            </div>
+          </EffableProvider>
+        </I18nextProvider>
+      </EffectorProvider>
     );
   },
 ];
 
 const Toggler = () => {
-  const [colorMode, setColorMode] = useColorMode();
+  const { mode, setMode } = useEffableTheme();
 
   return (
     <div
@@ -174,7 +177,15 @@ const Toggler = () => {
         right: 16,
       }}
     >
-      <button onClick={() => setColorMode(colorMode === 'dark' ? 'default' : 'dark')}>{colorMode}</button>
+      <Button variant="secondary" disabled={mode === 'system'} onClick={() => setMode('system')}>
+        system
+      </Button>
+      <Button variant="secondary" disabled={mode === 'light'} onClick={() => setMode('light')}>
+        light
+      </Button>
+      <Button variant="secondary" disabled={mode === 'dark'} onClick={() => setMode('dark')}>
+        dark
+      </Button>
     </div>
   );
 };
@@ -184,7 +195,7 @@ const Toggler = () => {
  *
  * @see https://github.com/atlassian-labs/storybook-addon-performance#installation
  */
-addDecorator(withPerformance);
+// addDecorator(withPerformance);
 
 /**
  * Configure Jest Storybook for all stories.

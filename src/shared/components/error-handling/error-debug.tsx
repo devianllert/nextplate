@@ -1,8 +1,6 @@
-import { GenericObject } from '@/shared/types/generic-object';
-
 export interface ErrorDebugProps {
   error?: Error;
-  context?: GenericObject;
+  context?: Record<string, unknown>;
 }
 
 /**

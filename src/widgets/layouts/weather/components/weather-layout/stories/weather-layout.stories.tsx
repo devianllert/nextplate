@@ -1,5 +1,6 @@
 import * as React from 'react';
-import { Story, Meta } from '@storybook/react';
+
+import { Meta, Story } from '@storybook/react';
 
 import { WeatherLayout, WeatherLayoutProps } from '../weather-layout';
 

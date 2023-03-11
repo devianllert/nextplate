@@ -27,7 +27,9 @@
     "strict": true,
     "noImplicitAny": false,
     "strictBindCallApply": true,
-    "target": "ES6",
+    // TODO: Enable later for more type-safety
+    // "noUncheckedIndexedAccess": true,
+    "target": "ES2017",
     "incremental": true,
     "paths": {
       "@/app/*": [
@@ -70,14 +72,13 @@
   ],
   "include": [
     "next-env.d.ts",
-    "next.config.js",
     "jest.config.js",
+    "jest.setup.js",
     "./sentry.client.config.js",
     "./sentry.server.config.js",
-    "src/shared/lib/i18n.config.js",
-    "./next-i18next.config.js",
-    "./next-sitemap.config.js",
-    "./orval.config.js",
+    "next-sitemap.config.js",
+    "**/*.cjs",
+    "**/*.mjs",
     "**/*.ts",
     "**/*.tsx"
   ]

@@ -69,10 +69,7 @@ export interface UsePaginationValue {
  */
 export const usePagination = (options: UsePaginationOptions): UsePaginationValue => {
   const {
-    itemsPerPage,
-    totalItems,
-    defaultPage = 1,
-    pageRange = 5,
+    itemsPerPage, totalItems, defaultPage = 1, pageRange = 5,
   } = options;
 
   const [currentPage, setCurrentPage] = React.useState(defaultPage);

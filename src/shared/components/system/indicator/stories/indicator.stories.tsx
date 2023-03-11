@@ -1,11 +1,9 @@
 import * as React from 'react';
-import { Story, Meta } from '@storybook/react';
 
-import { AspectRatio } from '@/shared/components/system/aspect-ratio';
-import { Box } from '@/shared/components/system/box';
+import { AspectRatio, Badge, Box } from '@effable/react';
+import { Meta, Story } from '@storybook/react';
 
 import { Indicator, IndicatorProps } from '../indicator';
-import { Badge } from '../../badge';
 
 export default {
   title: 'Design System/Components/Indicator',
@@ -18,7 +16,7 @@ export const Basic = Template.bind({});
 
 Basic.args = {
   children: (
-    <Box width="300px" borderRadius="4px" overflow="hidden" boxShadow={1}>
+    <Box width="300px" borderRadius="4px" overflow="hidden" boxShadow="1x">
       <AspectRatio ratio={16 / 9}>
         <img
           style={{
@@ -37,14 +35,12 @@ Basic.args = {
 export const WithCustomElement = Template.bind({});
 
 WithCustomElement.args = {
-  label: (
-    <Badge color="blue">New</Badge>
-  ),
+  label: <Badge color="info">New</Badge>,
   color: null,
   border: true,
   shape: 'circle',
   children: (
-    <Box width="300px" borderRadius="4px" overflow="hidden" boxShadow={1}>
+    <Box width="300px" borderRadius="4px" overflow="hidden" boxShadow="1x">
       <AspectRatio ratio={16 / 9}>
         <img
           style={{

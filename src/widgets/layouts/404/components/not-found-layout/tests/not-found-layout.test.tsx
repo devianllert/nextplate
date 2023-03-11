@@ -3,11 +3,12 @@
  */
 
 import React, { ReactChild } from 'react';
+
 import { screen } from '@testing-library/react';
 
-import { NotFoundLayout } from '../not-found-layout';
-
 import { renderWithProviders } from '@/shared/lib/testing/render-with-providers';
+
+import { NotFoundLayout } from '../not-found-layout';
 
 describe('<NotFoundLayout />', () => {
   const children: ReactChild = 'NotFound404Layout';

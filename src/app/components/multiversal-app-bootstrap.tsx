@@ -1,28 +1,29 @@
 import * as React from 'react';
-import * as Sentry from '@sentry/nextjs';
+
 import Head from 'next/head';
-import { ThemeProvider } from 'theme-ui';
-import { appWithTranslation, useTranslation } from 'next-i18next';
+
+import { isBrowser, isEmpty } from '@effable/misc';
+import { EffableProvider } from '@effable/react';
+import * as Sentry from '@sentry/nextjs';
 import { Provider as EffectorProvider } from 'effector-react/scope';
+import { appWithTranslation, useTranslation } from 'next-i18next';
 
-import { configureSentryI18n } from '@/shared/lib/sentry';
-import { isBrowser } from '@/shared/lib/is-browser';
-import { DefaultErrorLayout } from '@/shared/components/error-handling';
-import { GlobalStyles } from '@/shared/design/global-styles';
-import { ResetStyles } from '@/shared/design/reset-styles';
-import { theme } from '@/shared/design/themes';
-import { createLogger } from '@/shared/lib/logging/logger';
+import ErrorPage from '@/pages/_error.page';
+
 import { NProgressRoot } from '@/features/nprogress';
-import { isEmpty } from '@/shared/lib/assertion';
 
+import { DefaultErrorLayout } from '@/shared/components/error-handling';
+import { EFFECTOR_STATE_KEY, useScope } from '@/shared/lib/effector/scope';
+import { createLogger } from '@/shared/lib/logging/logger';
 import { getLinksAlternateHref } from '@/shared/lib/meta';
+import { configureSentryI18n } from '@/shared/lib/sentry';
 import { MultiversalAppBootstrapProps } from '@/shared/types/multiversal-app-bootstrap-props';
+import { SSGPageProps } from '@/shared/types/ssg-page-props';
+import { SSRPageProps } from '@/shared/types/ssr-page-props';
+
+import nextI18nConfig from '../../../next-i18next.config.mjs';
 import BrowserPageBootstrap, { BrowserPageBootstrapProps } from './browser-page-bootstrap';
 import ServerPageBootstrap, { ServerPageBootstrapProps } from './server-page-bootstrap';
-import { SSRPageProps } from '@/shared/types/ssr-page-props';
-import { SSGPageProps } from '@/shared/types/ssg-page-props';
-import ErrorPage from '@/pages/_error.page';
-import { EFFECTOR_STATE_KEY, useScope } from '@/shared/lib/effector/scope';
 
 export type Props = MultiversalAppBootstrapProps<SSGPageProps> | MultiversalAppBootstrapProps<SSRPageProps>;
 
@@ -113,10 +114,7 @@ const MultiversalAppBootstrap = (props: Props): JSX.Element => {
       </Head>
 
       <EffectorProvider value={scope}>
-        <ThemeProvider theme={theme}>
-          <GlobalStyles />
-          <ResetStyles />
-
+        <EffableProvider>
           <NProgressRoot showAfterMs={100} />
 
           {isBrowser() ? (
@@ -124,12 +122,11 @@ const MultiversalAppBootstrap = (props: Props): JSX.Element => {
           ) : (
             <ServerPageBootstrap {...multiversalPageBootstrapProps} />
           )}
-        </ThemeProvider>
-
+        </EffableProvider>
       </EffectorProvider>
     </>
   );
 };
 
 // We should use React memo here because `appWithTranslation` HOC cause too many re-renders
-export default React.memo(appWithTranslation(MultiversalAppBootstrap));
+export default React.memo(appWithTranslation(MultiversalAppBootstrap, nextI18nConfig));

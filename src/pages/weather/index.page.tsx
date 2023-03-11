@@ -1,23 +1,22 @@
 import React from 'react';
+
+import { ActionButton, Box, Heading } from '@effable/react';
+import { useUnit } from 'effector-react/scope';
 import { RiMapPinLine, RiSearchLine } from 'react-icons/ri';
 
-import { useUnit } from 'effector-react/scope';
-import { createLogger } from '@/shared/lib/logging/logger';
-import * as Text from '@/shared/components/system/text';
-import { Box } from '@/shared/components/system/box';
-import { Input } from '@/shared/components/system/input';
-import { IconButton } from '@/shared/components/system/icon-button';
-import { PageSEO } from '@/shared/lib/meta';
 import { WeatherLayout } from '@/layouts/weather';
+
+import { $search, inputChanged, searchClicked } from '@/entities/weather';
+
+import { Input } from '@/shared/components/system/input';
+import { staticPath } from '@/shared/lib/$path';
+import { createLogger } from '@/shared/lib/logging/logger';
+import { PageSEO } from '@/shared/lib/meta';
 import { getTranslationsStaticProps } from '@/shared/lib/ssr';
 import { EnhancedNextPage } from '@/shared/types/enhanced-next-page';
-import { SSRPageProps } from '@/shared/types/ssr-page-props';
-import { SSGPageProps } from '@/shared/types/ssg-page-props';
 import { OnlyBrowserPageProps } from '@/shared/types/only-browser-page-props';
-import {
-  $search, inputChanged, searchClicked,
-} from '@/entities/weather';
-import { staticPath } from '@/shared/lib/$path';
+import { SSGPageProps } from '@/shared/types/ssg-page-props';
+import { SSRPageProps } from '@/shared/types/ssr-page-props';
 
 const logger = createLogger('Weather');
 
@@ -39,14 +38,10 @@ export const getStaticProps = getTranslationsStaticProps();
  *
  * Beware props in OnlyBrowserPageProps are not available on the server
  */
-type Props = (SSRPageProps & SSGPageProps<OnlyBrowserPageProps>);
+type Props = SSRPageProps & SSGPageProps<OnlyBrowserPageProps>;
 
 const WeatherSearchPage: EnhancedNextPage<Props> = (): JSX.Element => {
-  const {
-    search,
-    handleSearch,
-    handleSubmit,
-  } = useUnit({
+  const { search, handleSearch, handleSubmit } = useUnit({
     search: $search,
     handleSearch: inputChanged,
     handleSubmit: searchClicked,
@@ -72,33 +67,20 @@ const WeatherSearchPage: EnhancedNextPage<Props> = (): JSX.Element => {
         flexDirection="column"
         alignItems="center"
         justifyContent="center"
-        color="text.primary"
+        color="primary"
         background="linear-gradient(180deg, rgba(13,28,139,1) 0%, rgba(83,36,224,1) 65%)"
         px={2}
       >
-        <Text.Heading variant="h1">Weather</Text.Heading>
+        <Heading variant="h1">Weather</Heading>
 
-        <Box
-          component="form"
-          maxWidth="440px"
-          width="100%"
-          mt={8}
-          onSubmit={onSubmit}
-        >
+        <Box component="form" maxWidth="440px" width="100%" mt={8} onSubmit={onSubmit}>
           <Input
             onChange={(event) => handleSearch(event.target.value)}
-            prefix={(
-              <RiMapPinLine />
-            )}
+            prefix={<RiMapPinLine />}
             suffix={(
-              <IconButton
-                type="submit"
-                size="small"
-                edge="end"
-                onClick={handleSubmit}
-              >
+              <ActionButton type="submit" size="small" onClick={handleSubmit} label="Search">
                 <RiSearchLine />
-              </IconButton>
+              </ActionButton>
             )}
             value={search}
             color="black"

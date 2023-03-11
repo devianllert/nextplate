@@ -1,19 +1,16 @@
-import singletonRouter from 'next/router';
-import type { NextRouter } from 'next/router';
+import singletonRouter, { type NextRouter } from 'next/router';
+
 import { createDomain } from 'effector';
+
 // import { createDomain } from 'effector';
 
 export const routerDomain = createDomain('router');
 
 type NextRouterEventWithError = [any, string];
 
-export const routeChangeStart = routerDomain.createEvent<string>(
-  'routeChangeStarted',
-);
+export const routeChangeStart = routerDomain.createEvent<string>('routeChangeStarted');
 export const routeChangeComplete = routerDomain.createEvent<string>();
-export const routeChangeError = routerDomain.createEvent<
-NextRouterEventWithError
->();
+export const routeChangeError = routerDomain.createEvent<NextRouterEventWithError>();
 export const beforeHistoryChange = routerDomain.createEvent<string>();
 export const hashChangeStart = routerDomain.createEvent<string>();
 export const hashChangeComplete = routerDomain.createEvent<string>();

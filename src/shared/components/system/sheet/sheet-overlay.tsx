@@ -20,6 +20,4 @@ export const StyledOverlay = styled(DialogPrimitive.Overlay)({
   },
 });
 
-export {
-  StyledOverlay as Overlay,
-};
+export { StyledOverlay as Overlay };

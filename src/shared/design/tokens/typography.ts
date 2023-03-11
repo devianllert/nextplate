@@ -1,5 +1,6 @@
-import deepmerge from 'deepmerge';
 import * as React from 'react';
+
+import deepmerge from 'deepmerge';
 
 import { responsiveProperty } from '../lib/responsive-property';
 
@@ -17,7 +18,7 @@ export const fontWeight = {
   headings: 'bold',
 };
 
-export const pxToRem = (size: number, htmlFontSize = 16, coef = 0.625): number => (size / htmlFontSize) / coef;
+export const pxToRem = (size: number, htmlFontSize = 16, coef = 1): number => size / htmlFontSize / coef;
 
 function oneDecimal(x: number) {
   return Math.round(10 * x) / 10;
@@ -28,10 +29,12 @@ const caseAllCaps: React.CSSProperties = {
 };
 
 export const calculateFluidTypography = (minSize: number, maxSize: number): string => {
-  const vwCoefficient = oneDecimal(((1000) * (maxSize - minSize)) / (1440 - 960));
+  const vwCoefficient = oneDecimal((1000 * (maxSize - minSize)) / (1440 - 960));
   const remCoefficient = oneDecimal(minSize - (960 * (maxSize - minSize)) / (1440 - 960));
 
-  const computedClamp = `clamp(${minSize}rem, ${vwCoefficient}vw ${remCoefficient >= 0 ? '+' : '-'} ${Math.abs(remCoefficient)}rem, ${maxSize}rem)`;
+  const computedClamp = `clamp(${minSize}rem, ${vwCoefficient}vw ${remCoefficient >= 0 ? '+' : '-'} ${Math.abs(
+    remCoefficient,
+  )}rem, ${maxSize}rem)`;
 
   return computedClamp;
 };
@@ -46,11 +49,7 @@ interface ResponsiveVariantOptions {
 
 const buildResponsiveVariant = (options: ResponsiveVariantOptions): React.CSSProperties => {
   const {
-    weight,
-    size,
-    letterSpacing,
-    lineHeight,
-    casing,
+    weight, size, letterSpacing, lineHeight, casing,
   } = options;
 
   const responsiveFontSize = responsiveProperty({
@@ -74,14 +73,8 @@ const buildResponsiveVariant = (options: ResponsiveVariantOptions): React.CSSPro
   });
 
   const responsiveStyles = deepmerge(
-    deepmerge(
-      responsiveFontSize,
-      responsiveLineHeight,
-    ),
-    deepmerge(
-      responsiveWeight,
-      responsiveLetterSpacing,
-    ),
+    deepmerge(responsiveFontSize, responsiveLineHeight),
+    deepmerge(responsiveWeight, responsiveLetterSpacing),
   );
 
   return {

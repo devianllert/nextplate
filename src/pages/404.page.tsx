@@ -1,22 +1,25 @@
+import React from 'react';
+
 import { GetStaticProps } from 'next';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
+
+import {
+  Button, Heading, Stack, Text,
+} from '@effable/react';
 import * as Sentry from '@sentry/nextjs';
 import { useTranslation } from 'next-i18next';
-import { useRouter } from 'next/router';
 import { RiArrowRightLine } from 'react-icons/ri';
 
-import React from 'react';
+import { NotFoundLayout } from '@/layouts/404';
+
+import { staticPath } from '@/shared/lib/$path';
 import { createLogger } from '@/shared/lib/logging/logger';
-import * as Text from '@/shared/components/system/text';
-import { Button } from '@/shared/components/system/button';
-import { Stack } from '@/shared/components/system/stack';
 import { PageSEO } from '@/shared/lib/meta';
 import { getTranslationsStaticProps } from '@/shared/lib/ssr';
 import { EnhancedNextPage } from '@/shared/types/enhanced-next-page';
 import { SoftPageProps } from '@/shared/types/soft-page-props';
 import { SSGPageProps } from '@/shared/types/ssg-page-props';
-import { NotFoundLayout } from '@/layouts/404';
-import { staticPath } from '@/shared/lib/$path';
 
 const fileLabel = 'pages/404';
 const logger = createLogger(fileLabel);
@@ -55,27 +58,24 @@ const NotFound404Page: EnhancedNextPage<Props> = (): JSX.Element => {
 
   return (
     <>
-      <PageSEO
-        title={t('SEO_TITLE')}
-        description={t('SEO_DESCRIPTION')}
-        image={staticPath.static.images.$404_png}
-      />
+      <PageSEO title={t('SEO_TITLE')} description={t('SEO_DESCRIPTION')} image={staticPath.static.images.$404_png} />
 
-      <Stack direction="column" space={3}>
-        <Text.Paragraph variant="body1" color="text.secondary">{t('SUBTITLE')}</Text.Paragraph>
+      <Stack direction="column" space="4x" alignItems="flex-start">
+        <Text variant="xl" color="text.secondary">
+          {t('SUBTITLE')}
+        </Text>
 
-        <Text.Heading component="h1" variant="h4">{t('TITLE')}</Text.Heading>
+        <Heading component="h1" variant="h0">
+          {t('TITLE')}
+        </Heading>
 
-        <Text.Paragraph variant="body2" color="text.secondary">{t('DESCRIPTION')}</Text.Paragraph>
+        <Text variant="m" color="text.secondary">
+          {t('DESCRIPTION')}
+        </Text>
 
-        <Link href="/" passHref>
-          <Button
-            variant="contained"
-            endIcon={<RiArrowRightLine />}
-          >
-            {t('BUTTON')}
-          </Button>
-        </Link>
+        <Button endIcon={<RiArrowRightLine />} variant="secondary" component={Link} href="/">
+          {t('BUTTON')}
+        </Button>
       </Stack>
     </>
   );

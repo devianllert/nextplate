@@ -1,8 +1,9 @@
 import * as React from 'react';
-import { Story, Meta } from '@storybook/react';
+
+import { Box } from '@effable/react';
+import { Meta, Story } from '@storybook/react';
 
 import { NativeSelect, NativeSelectProps } from '../native-select';
-import { Box } from '../../box';
 
 export default {
   title: 'Design System/Components/NativeSelect',
@@ -16,23 +17,16 @@ export const Example = () => {
 
   return (
     <>
-      <Box mb={3}>
-        Favorite framework: {state}
+      <Box mb={3}>Favorite framework: {state}</Box>
+      <Box width={90}>
+        <NativeSelect value={state} onChange={(event) => setState(event.target.value)} defaultValue="angular" fullWidth>
+          <option value="react">React</option>
+          <option value="solid">Solid</option>
+          <option value="vue">Vue</option>
+          <option value="angular">Angular</option>
+          <option value="svelte">Svelte</option>
+        </NativeSelect>
       </Box>
-      <NativeSelect
-        value={state}
-        onChange={(event) => setState(event.target.value)}
-        defaultValue="angular"
-        sx={{
-          width: 90,
-        }}
-      >
-        <option value="react">React</option>
-        <option value="solid">Solid</option>
-        <option value="vue">Vue</option>
-        <option value="angular">Angular</option>
-        <option value="svelte">Svelte</option>
-      </NativeSelect>
     </>
   );
 };

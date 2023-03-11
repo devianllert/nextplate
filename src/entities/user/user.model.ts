@@ -1,10 +1,6 @@
-import {
-  attach,
-  createEvent,
-  Effect,
-} from 'effector';
 import { createQuery } from '@farfetched/core';
 import { AxiosRequestConfig, AxiosResponse } from 'axios';
+import { attach, createEvent, Effect } from 'effector';
 
 import { User } from '@/shared/api/api.generated';
 import { requestWithAuthFx } from '@/shared/api/request';
@@ -20,6 +16,6 @@ export const fetchUserFx = attach<number, Effect<AxiosRequestConfig<any>, AxiosR
 
 export const userQuery = createQuery({
   effect: fetchUserFx,
-  mapData: (response: AxiosResponse<User>) => response.data,
+  mapData: ({ result }) => result.data,
   name: 'user',
 });

@@ -1,13 +1,6 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 import {
-  combine,
-  Store,
-  Event,
-  Effect,
-  createEvent,
-  sample,
-  createStore,
-  EventPayload,
+  combine, createEvent, createStore, Effect, Event, EventPayload, sample, Store,
 } from 'effector';
 import { useUnit } from 'effector-react/scope';
 import { condition } from 'patronum';
@@ -35,9 +28,7 @@ export type FieldsObject = {
 };
 
 export type ExtractValuesFromFields<T extends FieldsObject> = {
-  [K in keyof Record<keyof T, T[keyof T]['$value']>]: Record<keyof T, T[keyof T]['$value']>[K] extends Store<
-  infer U
-  >
+  [K in keyof Record<keyof T, T[keyof T]['$value']>]: Record<keyof T, T[keyof T]['$value']>[K] extends Store<infer U>
     ? U
     : Record<keyof T, T[keyof T]['$value']>[K];
 };
@@ -88,7 +79,7 @@ export interface Form<T extends FieldsObject> {
 
   submitted: Event<ExtractValuesFromFields<T>>;
 
-  rejected: Event<{ errors: ZodIssue[], values: ExtractValuesFromFields<T> }>;
+  rejected: Event<{ errors: ZodIssue[]; values: ExtractValuesFromFields<T> }>;
 
   submit: Event<void>;
 
@@ -98,15 +89,11 @@ export interface Form<T extends FieldsObject> {
 }
 
 export const createForm = <T extends FieldsObject>(options: FormOptions<T>): Form<T> => {
-  const {
-    fields,
-    schema,
-    ...other
-  } = options;
+  const { fields, schema, ...other } = options;
 
   const submit = createEvent();
   const submitted = createEvent<ExtractValuesFromFields<T>>();
-  const rejected = createEvent<{ errors: ZodIssue[], values: ExtractValuesFromFields<T> }>();
+  const rejected = createEvent<{ errors: ZodIssue[]; values: ExtractValuesFromFields<T> }>();
   const reset = createEvent<void>();
   const addError = createEvent<string | string[]>();
 
@@ -120,17 +107,21 @@ export const createForm = <T extends FieldsObject>(options: FormOptions<T>): For
   $formErrors
     .on(addError, (errors, newError) => [
       ...(Array.isArray(newError)
-        ? newError.map((message) => ({ message, code: 'custom', path: [] }) as ZodIssue)
-        : [{ message: newError, code: 'custom', path: [] }] as ZodIssue[]),
+        ? newError.map((message) => ({ message, code: 'custom', path: [] } as ZodIssue))
+        : ([{ message: newError, code: 'custom', path: [] }] as ZodIssue[])),
       ...errors,
     ])
     .reset($values);
 
   // const $errorsObj = extractErrors(fields);
-  const $errors = combine(combine(fieldsArray.map(([_, field]) => field.$errors)), $formErrors, (fieldErrors, ownErrors) => {
-    const allErrors = [...fieldErrors.flat(), ...ownErrors];
-    return allErrors.length ? allErrors : [];
-  });
+  const $errors = combine(
+    combine(fieldsArray.map(([_, field]) => field.$errors)),
+    $formErrors,
+    (fieldErrors, ownErrors) => {
+      const allErrors = [...fieldErrors.flat(), ...ownErrors];
+      return allErrors.length ? allErrors : [];
+    },
+  );
 
   const $submitCount = createStore(0);
   $submitCount.on(submit, (state) => state + 1).reset(reset);

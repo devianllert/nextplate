@@ -1,13 +1,14 @@
+/* eslint-disable effector/no-watch */
+import { isBrowser } from '@effable/misc';
 import { AxiosError, AxiosRequestConfig, AxiosResponse } from 'axios';
 import {
   attach, createEffect, createEvent, createStore, restore,
 } from 'effector';
 import decode from 'jwt-decode';
 
-import { isBrowser } from '@/shared/lib/is-browser';
+import { TokenPayload } from '@/entities/auth';
 
 import { httpClient } from '../http-client';
-import { TokenPayload } from '@/entities/auth';
 
 export interface RequestError {
   statusCode: number;

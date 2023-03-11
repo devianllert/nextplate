@@ -1,11 +1,10 @@
 import * as React from 'react';
-import { GenericObject } from '@/shared/types/generic-object';
 
 import { ErrorDebug } from './error-debug';
 
 export interface DefaultErrorLayoutProps {
   error: Error;
-  context?: GenericObject<any>;
+  context?: Record<string, any>;
 }
 
 /**

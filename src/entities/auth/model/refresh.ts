@@ -1,16 +1,13 @@
+import { createDefer, Defer } from '@effable/misc';
 import {
-  createEffect,
-  createEvent,
-  createStore,
-  sample,
+  createEffect, createEvent, createStore, sample,
 } from 'effector';
 import decode from 'jwt-decode';
 
-import { AxiosRequestConfig } from 'axios';
-import { refreshFx } from './auth';
-import { $token, requestFx } from '@/shared/api/request/request';
+import { $token } from '@/shared/api/request/request';
+
 import { TokenPayload } from '../types';
-import { createDefer, Defer } from '@/shared/lib/defer';
+import { refreshFx } from './auth';
 
 const $pendingRequests = createStore<Defer<string | null>[]>([]);
 

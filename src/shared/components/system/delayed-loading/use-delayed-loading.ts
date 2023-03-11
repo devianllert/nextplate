@@ -28,10 +28,7 @@ export interface UseDelayedLoadingOptions {
  */
 export const useDelayedLoading = (props: UseDelayedLoadingOptions): boolean => {
   const {
-    delay = 200,
-    loading = false,
-    minDuration = 500,
-    initialLoading = false,
+    delay = 200, loading = false, minDuration = 500, initialLoading = false,
   } = props;
 
   const [show, setShow] = React.useState(initialLoading);

@@ -1,18 +1,15 @@
 import { createEffect, sample } from 'effector';
 
 import {
-  $token,
-  setToken,
-  requestFx,
-  RequestError,
-} from '@/shared/api/request/request';
-import {
   AuthEmailLoginDto,
   AuthRegisterLoginDto,
   LoginResult,
   RefreshResult,
   RegisterResult,
 } from '@/shared/api/api.generated';
+import {
+  $token, RequestError, requestFx, setToken,
+} from '@/shared/api/request/request';
 import { pushFx } from '@/shared/lib/effector/router';
 
 export const loginFx = createEffect<AuthEmailLoginDto, LoginResult, RequestError>(async (values) => {

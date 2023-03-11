@@ -13,7 +13,9 @@
  */
 import * as React from 'react';
 
-if (typeof window !== 'undefined' && process.env.NODE_ENV === 'development') {
+import { isBrowser } from '@effable/misc';
+
+if (isBrowser() && process.env.NEXT_PUBLIC_APP_STAGE === 'development') {
   // eslint-disable-next-line @typescript-eslint/no-var-requires
   const whyDidYouRender = require('@welldone-software/why-did-you-render');
 

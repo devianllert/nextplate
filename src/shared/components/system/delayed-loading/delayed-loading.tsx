@@ -1,4 +1,5 @@
 import * as React from 'react';
+
 import { useDelayedLoading, UseDelayedLoadingOptions } from './use-delayed-loading';
 
 export interface DelayedLoadingProps extends UseDelayedLoadingOptions {
@@ -14,11 +15,7 @@ export interface DelayedLoadingProps extends UseDelayedLoadingOptions {
  */
 export const DelayedLoading = (props: DelayedLoadingProps) => {
   const {
-    delay = 200,
-    loading = false,
-    children,
-    minDuration = 500,
-    initialLoading = false,
+    delay = 200, loading = false, children, minDuration = 500, initialLoading = false,
   } = props;
 
   const show = useDelayedLoading({
@@ -30,8 +27,6 @@ export const DelayedLoading = (props: DelayedLoadingProps) => {
 
   return (
     // eslint-disable-next-line react/jsx-no-useless-fragment
-    <>
-      {children?.({ loading: show })}
-    </>
+    <>{children?.({ loading: show })}</>
   );
 };

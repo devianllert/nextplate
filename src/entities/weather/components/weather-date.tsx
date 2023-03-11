@@ -1,10 +1,9 @@
 import * as React from 'react';
-import format from 'date-fns/format';
 
-import { Box } from '@/shared/components/system/box';
-import * as Text from '@/shared/components/system/text';
-import { useInterval } from '@/shared/hooks/use-interval';
-import { DisplayOnBrowserMount } from '@/shared/components/rehydration/display-on-browser-mount';
+import {
+  Box, DisplayOnBrowserMount, Heading, useInterval,
+} from '@effable/react';
+import format from 'date-fns/format';
 
 const DATE_UPDATE_TIMEOUT = 30 * 1000;
 
@@ -26,15 +25,18 @@ export const WeatherDate = (): JSX.Element => {
   return (
     <DisplayOnBrowserMount>
       <Box>
-        <Box
-          display="flex"
-          alignItems="flex-end"
-        >
-          <Text.Heading variant="h4" component="span" fontWeight="bold" sx={{ mr: 2 }}>{formattedTime.time}</Text.Heading>
-          <Text.Heading variant="h6" component="span">{formattedTime.ampm}</Text.Heading>
+        <Box display="flex" alignItems="flex-end">
+          <Heading variant="h4" component="span" fontWeight="bold" sx={{ mr: 2 }}>
+            {formattedTime.time}
+          </Heading>
+          <Heading variant="h6" component="span">
+            {formattedTime.ampm}
+          </Heading>
         </Box>
 
-        <Text.Heading variant="h6" component="span" fontWeight="normal">{formattedTime.date}</Text.Heading>
+        <Heading variant="h6" component="span" fontWeight="normal">
+          {formattedTime.date}
+        </Heading>
       </Box>
     </DisplayOnBrowserMount>
   );

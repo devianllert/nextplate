@@ -1,7 +1,7 @@
 import { createEvent, createStore, sample } from 'effector';
 import { ZodIssue, ZodSchema } from 'zod';
-import { createErrors } from './create-errors';
 
+import { createErrors } from './create-errors';
 import { Field } from './types';
 import { validateWithSchema } from './validate-with-schema';
 
@@ -29,8 +29,8 @@ export const createField = <T>(options: FieldOptions<T>): Field<T> => {
   const $errors = createStore(schema ? validateWithSchema(initialValue, schema) : []);
   $errors.on(addError, (errors, newError) => [
     ...(Array.isArray(newError)
-      ? newError.map((message) => ({ message, code: 'custom', path: [] }) as ZodIssue)
-      : [{ message: newError, code: 'custom', path: [] }] as ZodIssue[]),
+      ? newError.map((message) => ({ message, code: 'custom', path: [] } as ZodIssue))
+      : ([{ message: newError, code: 'custom', path: [] }] as ZodIssue[])),
     ...errors,
   ]);
 

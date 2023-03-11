@@ -39,11 +39,7 @@ export interface CreateTransitionOptions {
 }
 
 export const createTransition = (props: string | string[] = ['all'], options: CreateTransitionOptions = {}): string => {
-  const {
-    duration: durationOption = duration.standard,
-    easing: easingOption = easing.easeInOut,
-    delay = 0,
-  } = options;
+  const { duration: durationOption = duration.standard, easing: easingOption = easing.easeInOut, delay = 0 } = options;
 
   return (Array.isArray(props) ? props : [props])
     .map(

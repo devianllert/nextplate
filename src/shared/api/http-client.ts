@@ -1,6 +1,8 @@
-import axios, { AxiosError, AxiosRequestConfig, AxiosResponse } from 'axios';
+import axios, {
+  AxiosError, AxiosRequestConfig, AxiosResponse, isAxiosError,
+} from 'axios';
 
-export const AXIOS_INSTANCE = axios.create({
+const AXIOS_INSTANCE = axios.create({
   baseURL: process.env.NEXT_PUBLIC_APP_URL,
   timeout: 1000 * 10,
 });
@@ -13,7 +15,7 @@ export const httpClient = <T>(config: AxiosRequestConfig, options?: AxiosRequest
     ...options,
     signal: controller.signal,
   }).catch((e) => {
-    if (e.response.data) {
+    if (isAxiosError(e)) {
       throw e.response?.data;
     }
 

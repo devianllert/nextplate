@@ -1,7 +1,8 @@
 import * as React from 'react';
+
+import { Box } from '@effable/react';
 import { useTranslation } from 'next-i18next';
 import { RiGoogleFill } from 'react-icons/ri';
-import { Box } from '../system/box';
 
 import * as S from './google-button.styled';
 
@@ -10,9 +11,7 @@ export interface GoogleButtonProps {
 }
 
 export const GoogleButton = (props: GoogleButtonProps): JSX.Element => {
-  const {
-    redirectTo = `${process.env.NEXT_PUBLIC_APP_URL}/dashboard`,
-  } = props;
+  const { redirectTo = `${process.env.NEXT_PUBLIC_APP_URL}/dashboard` } = props;
 
   const { t } = useTranslation('auth');
 

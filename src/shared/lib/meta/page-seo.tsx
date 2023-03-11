@@ -1,4 +1,5 @@
 import * as React from 'react';
+
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 
@@ -35,9 +36,7 @@ export const PageSEO = (props: PageSEOProps) => {
       <meta name="twitter:site" content="@devianllert" />
       <meta name="twitter:creator" content="@devianllert" />
       <meta name="twitter:card" content={image ? 'summary_large_image' : 'summary'} />
-      {image && (
-        <meta property="og:image" content={imageURL} />
-      )}
+      {image && <meta property="og:image" content={imageURL} />}
     </Head>
   );
 };

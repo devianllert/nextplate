@@ -39,8 +39,8 @@
     "generate:api": "orval --config ./orval.config.ts"
   },
   "dependencies": {
-    "@effable/misc": "0.7.0",
-    "@effable/react": "0.17.0",
+    "@effable/misc": "0.7.2",
+    "@effable/react": "0.17.2",
     "@emotion/react": "11.10.6",
     "@emotion/styled": "11.10.6",
     "@farfetched/core": "0.7.2",

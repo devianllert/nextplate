@@ -56,7 +56,7 @@
     "cookies": "0.8.0",
     "date-fns": "2.29.3",
     "deepmerge": "4.3.0",
-    "effector": "22.5.2",
+    "effector": "22.6.1",
     "effector-react": "22.5.0",
     "effector-storage": "5.0.1",
     "framer-motion": "10.2.4",

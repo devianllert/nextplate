@@ -39,7 +39,7 @@
     "generate:api": "orval --config ./orval.config.ts"
   },
   "dependencies": {
-    "@effable/misc": "0.8.0",
+    "@effable/misc": "0.9.0",
     "@effable/react": "0.17.3",
     "@emotion/react": "11.10.6",
     "@emotion/styled": "11.10.6",
@@ -59,7 +59,7 @@
     "effector": "22.7.0",
     "effector-react": "22.5.1",
     "effector-storage": "5.0.1",
-    "framer-motion": "10.6.1",
+    "framer-motion": "10.8.5",
     "i18next": "22.4.13",
     "js-cookie": "3.0.1",
     "json-stringify-safe": "5.0.1",
@@ -90,7 +90,7 @@
   },
   "devDependencies": {
     "@babel/core": "7.21.3",
-    "@commitlint/cli": "17.4.4",
+    "@commitlint/cli": "17.5.0",
     "@commitlint/config-conventional": "17.4.4",
     "@emotion/babel-plugin": "11.10.6",
     "@emotion/babel-preset-css-prop": "11.10.0",

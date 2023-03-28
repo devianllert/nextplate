@@ -34,11 +34,9 @@ export const Demos = (): JSX.Element => {
           />
 
           <DemoItem
-            link={pagesPath.weather.$url()}
-            title="Password Generator"
+            title="Passkip"
             preview="https://placehold.co/1024x600.png?text=Soon"
             description={t('DEMOS_PASSWORD_DESCRIPTION')}
-            available={false}
           />
         </Stack>
       </Box>

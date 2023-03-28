@@ -13,13 +13,12 @@ export interface DemoItemProps {
   title: string;
   description: string;
   preview: string;
-  link: string | UrlObject;
-  available?: boolean;
+  link?: string | UrlObject;
 }
 
 export const DemoItem = (props: DemoItemProps): JSX.Element => {
   const {
-    title, description, preview, link, available = true,
+    title, description, preview, link,
   } = props;
 
   const text = description.split('.').filter((sentence) => sentence);
@@ -35,8 +34,8 @@ export const DemoItem = (props: DemoItemProps): JSX.Element => {
       }}
     >
       <Box
-        component={available ? NextLink : 'div'}
-        href={available ? link : undefined}
+        component={link ? NextLink : 'div'}
+        href={link || undefined}
         display="flex"
         backgroundColor="neutral.neutral3"
         width={{
@@ -75,16 +74,11 @@ export const DemoItem = (props: DemoItemProps): JSX.Element => {
             laptop: '11x',
           }}
         >
-          <Heading
-            component={available ? NextLink : 'div'}
-            href={available ? link : undefined}
-            variant="h2"
-            color="text.primary"
-          >
+          <Heading component={link ? NextLink : 'div'} href={link || undefined} variant="h2" color="text.primary">
             {title}
           </Heading>
 
-          {!available && (
+          {!link && (
             <Box ml="2x">
               <Badge color="neutral">Soon</Badge>
             </Box>

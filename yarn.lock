@@ -1380,15 +1380,20 @@
   resolved "https://registry.yarnpkg.com/@discoveryjs/json-ext/-/json-ext-0.5.7.tgz#1d572bfbbe14b7704e0ba0f39b74815b84870d70"
   integrity sha512-dBVuXR082gk3jsFp7Rd/JI4kytwGHecnCoTtXFb7DB6CNHp4rg5k1bhg0nWdLGLnOV71lmDzGQaLMy8iPLY0pw==
 
-"@effable/misc@*", "@effable/misc@0.7.0":
+"@effable/misc@*":
   version "0.7.0"
   resolved "https://registry.yarnpkg.com/@effable/misc/-/misc-0.7.0.tgz#86ec8e99c645b2558964041fca68b144c8dfd9e7"
   integrity sha512-tZaIf2nVOwjOW6fPq66EnshDLPkBU6PoYJ7n/iE9HnwOv7aZxmDZnXcKE9OhAxf5f2Jyk8W8N3NPwQFj1VHuHg==
 
-"@effable/react@0.17.0":
-  version "0.17.0"
-  resolved "https://registry.yarnpkg.com/@effable/react/-/react-0.17.0.tgz#9282e8b4c62c30b38af432b6c0b2b984df4d35b0"
-  integrity sha512-Ol5/rwBFajUJx10BmTFeLxNOVGdxRwI1Knq/KBI/22po0y+t/07HYR1+Ui9zXLA3xm+xUjfAe6i5bNXYG6cajw==
+"@effable/misc@0.10.0":
+  version "0.10.0"
+  resolved "https://registry.yarnpkg.com/@effable/misc/-/misc-0.10.0.tgz#789b5baf42ca7660d4277859b08b150e03a724fd"
+  integrity sha512-F0gfQKIrfxGFXX+iX8K9y534vtTcnolneVF+WyW0fFdyne+krAsusPBKz/sm02gbM+kxnKN71BEkr51RkiOssg==
+
+"@effable/react@0.18.0":
+  version "0.18.0"
+  resolved "https://registry.yarnpkg.com/@effable/react/-/react-0.18.0.tgz#d4a7e0da8856c23e10089659635be515cafed0d6"
+  integrity sha512-bo6Bj5QZsJnu13LxGaPO9RB+pseNFBW1h9gqQJpAIKX3Pz4l4gDg9eSZV3CoO80o7lUc5bU6Gibtdnn4Z+sORw==
   dependencies:
     "@effable/misc" "*"
     "@effable/tokens" "*"

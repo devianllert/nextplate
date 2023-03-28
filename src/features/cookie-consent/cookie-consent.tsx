@@ -1,10 +1,8 @@
 import {
-  Box, Button, DisplayOnBrowserMount, Link, Text,
+  Box, Button, Link, Portal, Text,
 } from '@effable/react';
 import { useUnit } from 'effector-react/scope';
 import { Trans, useTranslation } from 'next-i18next';
-
-import { Portal } from '@/shared/components/system/portal';
 
 import { $isCookieAllowed, cookieAllowed } from './cookie-consent.model';
 

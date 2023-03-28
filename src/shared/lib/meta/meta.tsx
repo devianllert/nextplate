@@ -12,11 +12,11 @@ export const getCommonMetaTags = () => (
     <meta name="theme-color" content={defaultTheme.colors.dark?.accent.accent9} media="(prefers-color-scheme: dark)" />
 
     <link key="manifest" rel="manifest" href="/site.webmanifest" />
-    <link key="favicon" rel="icon" href="/favicon.ico" />
-    <link rel="icon" sizes="16x16" type="image/png" href="favicon-16x16.png" />
-    <link rel="icon" sizes="32x32" type="image/png" href="favicon-32x23.png" />
-    <link rel="icon" sizes="192x192" type="image/png" href="/android-chrome-192x192.png" />
-    <link key="apple-touch-icon" rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link key="favicon" rel="icon" href="/static/images/favicon.ico" />
+    <link rel="icon" sizes="16x16" type="image/png" href="/static/images/favicon-16x16.png" />
+    <link rel="icon" sizes="32x32" type="image/png" href="/static/images/favicon-32x23.png" />
+    <link rel="icon" sizes="192x192" type="image/png" href="/static/images/android-chrome-192x192.png" />
+    <link key="apple-touch-icon" rel="apple-touch-icon" href="/static/images/apple-touch-icon.png" />
   </>
 );
 

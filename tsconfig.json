@@ -50,6 +50,9 @@
       "@/layouts/*": [
         "src/widgets/layouts/*"
       ],
+      "@/widgets/*": [
+        "src/widgets/*"
+      ],
       "@/entities/*": [
         "src/entities/*"
       ],

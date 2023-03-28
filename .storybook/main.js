@@ -178,6 +178,7 @@ module.exports = {
           '@/components': path.resolve(__dirname, '../src/shared/components'),
           '@/lib': path.resolve(__dirname, '../src/shared/lib'),
           '@/layouts': path.resolve(__dirname, '../src/widgets/layouts'),
+          '@/widgets': path.resolve(__dirname, '../src/widgets'),
           '@/features': path.resolve(__dirname, '../src/features'),
           '@/entities': path.resolve(__dirname, '../src/entities'),
           '@/pages': path.resolve(__dirname, '../src/pages'),

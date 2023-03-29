@@ -21,7 +21,7 @@ const withBundleAnalyzer = bundleAnalyzer({
 
 const trueEnv = ['true', '1', 'yes'];
 
-const NEXT_DISABLE_SENTRY = trueEnv.includes(process.env?.NEXT_DISABLE_SENTRY ?? 'false');
+const NEXT_DISABLE_SENTRY = !process.env.NEXT_PUBLIC_SENTRY_DSN || trueEnv.includes(process.env?.NEXT_DISABLE_SENTRY ?? 'false');
 const NEXT_SENTRY_DEBUG = trueEnv.includes(process.env?.NEXT_SENTRY_DEBUG ?? 'false');
 const NEXT_SENTRY_TRACING = trueEnv.includes(process.env?.NEXT_SENTRY_TRACING ?? 'false');
 

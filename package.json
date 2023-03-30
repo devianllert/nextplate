@@ -1,43 +1,46 @@
 {
   "name": "nextplate",
-  "description": "Ultimate template for Next.js with a pack of incredible tools",
   "version": "0.5.0",
+  "private": true,
+  "description": "Ultimate template for Next.js with a pack of incredible tools",
   "license": "MIT",
   "author": "devianllert <devianllert@gmail.com>",
-  "private": true,
   "scripts": {
-    "start": "cross-env NODE_ENV=production next start",
-    "start:dev": "next dev --port 8888",
-    "start:tunnel": "ngrok http 8888",
-    "generate:paths:watch": "pathpida --ignorePath .gitignore --watch",
-    "generate:paths": "cross-env NODE_ENV=production pathpida --enableStatic --output src/shared/lib --ignorePath .gitignore",
-    "prebuild": "yarn generate:paths && yarn lint:fix",
-    "build": "cross-env NODE_ENV=production next build",
-    "postbuild": "next-sitemap",
-    "release": "standard-version",
-    "typecheck": "tsc -p ./tsconfig.json",
     "analyse:bundle": "yarn analyse:bundle:production",
     "analyse:bundle:development": "cross-env ANALYZE_BUNDLE=true yarn start",
     "analyse:bundle:production": "cross-env ANALYZE_BUNDLE=true next build",
     "analyse:circular": "npx dpdm src/** --exclude node_modules  --tree false --warning false",
     "analyse:deps": "npx depcheck",
+    "prebuild": "yarn generate:paths && yarn lint:fix",
+    "build": "cross-env NODE_ENV=production next build",
+    "postbuild": "next-sitemap",
+    "generate:api": "orval --config ./orval.config.ts",
+    "generate:paths": "cross-env NODE_ENV=production pathpida --enableStatic --output src/shared/lib --ignorePath .gitignore",
+    "generate:paths:watch": "pathpida --ignorePath .gitignore --watch",
     "lint": "eslint src/ --ext .ts --ext .tsx",
     "lint:fix": "prettier --write src/ && eslint src/ --ext .ts --ext .tsx --fix",
-    "test": "cross-env NODE_ENV=test jest",
-    "test:watch": "cross-env NODE_ENV=test jest --watch",
-    "test:generate-output": "jest --json --outputFile=.jest-test-results.json || true",
-    "test:coverage": "cross-env NODE_ENV=test jest --coverage",
+    "packages:upgrade": "yarn upgrade-interactive --latest",
+    "prepare": "husky install",
+    "release": "standard-version",
     "sb": "yarn storybook",
     "sb:upgrade": "npx sb upgrade",
+    "security:audit": "yarn audit",
+    "start": "cross-env NODE_ENV=production next start",
+    "start:dev": "next dev --port 8888",
+    "start:tunnel": "ngrok http 8888",
+    "prestorybook": "yarn test:generate-output",
     "storybook": "cross-env STORYBOOK=true start-storybook -h localhost -p 6006 --no-manager-cache",
     "storybook:build": "build-storybook",
     "storybook:export": "cross-env STORYBOOK=true yarn test:generate-output && build-storybook",
-    "prestorybook": "yarn test:generate-output",
-    "security:audit": "yarn audit",
-    "packages:upgrade": "yarn upgrade-interactive --latest",
-    "prepare": "husky install",
-    "generate:api": "orval --config ./orval.config.ts"
+    "test": "cross-env NODE_ENV=test jest",
+    "test:coverage": "cross-env NODE_ENV=test jest --coverage",
+    "test:generate-output": "jest --json --outputFile=.jest-test-results.json || true",
+    "test:watch": "cross-env NODE_ENV=test jest --watch",
+    "typecheck": "tsc -p ./tsconfig.json"
   },
+  "browserslist": [
+    "defaults"
+  ],
   "dependencies": {
     "@effable/misc": "0.10.0",
     "@effable/react": "0.18.0",
@@ -165,8 +168,5 @@
     "stylelint-config-styled-components": "0.1.1",
     "stylelint-processor-styled-components": "1.10.0",
     "typescript": "4.9.5"
-  },
-  "browserslist": [
-    "defaults"
-  ]
+  }
 }

@@ -1,38 +1,44 @@
 import * as React from 'react';
 
+import NextImage from 'next/image';
+
 import { Box, Heading, Text } from '@effable/react';
 
 export interface DignityProps {
   title: string;
   text?: string;
-  main?: boolean;
+  icon: string;
 }
 
 export const Dignity = (props: DignityProps): JSX.Element => {
-  const { title, text, main } = props;
+  const { title, text, icon } = props;
 
   return (
     <Box
       display="flex"
-      flexDirection="column"
       backgroundColor="accent.accent6"
-      borderRadius="80px"
+      borderRadius="24px"
       padding={{
         base: '3x',
         desktop: '4x',
       }}
-      maxWidth="200px"
+      maxWidth="218px"
       justifyContent="center"
     >
-      <Heading color="accent.accent11" variant={main ? 'h1' : 'h3'}>
-        {title}
-      </Heading>
+      <Box mr="2x" minWidth={24} minHeight={24}>
+        <NextImage alt="tools" src={icon} width={24} height={24} />
+      </Box>
+      <Box display="flex" flexDirection="column">
+        <Heading variant="h3" sx={{ whiteSpace: 'nowrap' }}>
+          {title}
+        </Heading>
 
-      {text && (
-        <Text color="accent.accent11" variant="xs">
-          {text}
-        </Text>
-      )}
+        {text && (
+          <Text color="text.secondary" variant="xs">
+            {text}
+          </Text>
+        )}
+      </Box>
     </Box>
   );
 };

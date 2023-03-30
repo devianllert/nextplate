@@ -7,7 +7,7 @@ const float = keyframes`
   }
 
   30% {
-    transform: translateY(-10px)
+    transform: translateY(-4px)
   }
 
   50% {
@@ -15,7 +15,7 @@ const float = keyframes`
   }
 
   70% {
-    transform: translateY(-15px)
+    transform: translateY(-4px)
   }
 
   100% {

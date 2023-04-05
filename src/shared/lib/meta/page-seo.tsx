@@ -7,6 +7,7 @@ import { useTranslation } from 'next-i18next';
 
 import { staticPath } from '@/shared/lib/$path';
 
+import { DEFAULT_LOCALE, SUPPORTED_LANGUAGES } from '../i18n';
 import { APP_TITLE, getAlternateHrefLinks, getAppTitle } from './meta';
 
 export interface PageSEOProps {
@@ -17,7 +18,7 @@ export interface PageSEOProps {
 }
 
 export const PageSEO = (props: PageSEOProps) => {
-  const { asPath, locales } = useRouter();
+  const { asPath } = useRouter();
   const { i18n } = useTranslation(undefined);
 
   const {
@@ -62,10 +63,12 @@ export const PageSEO = (props: PageSEOProps) => {
       <meta name="keywords" content="nextplate, react" />
       <meta name="author" content="devianllert" />
 
-      {getAlternateHrefLinks({ asPath, locales })}
+      {getAlternateHrefLinks({ asPath, locales: SUPPORTED_LANGUAGES })}
       <link
         rel="canonical"
-        href={`${process.env.NEXT_PUBLIC_APP_URL}/${i18n.language}${asPath === '/' ? '' : asPath}`}
+        href={`${process.env.NEXT_PUBLIC_APP_URL}/${i18n.language === DEFAULT_LOCALE ? '' : i18n.language}${
+          asPath === '/' ? '' : asPath
+        }`}
       />
     </Head>
   );

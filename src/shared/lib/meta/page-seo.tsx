@@ -3,9 +3,11 @@ import * as React from 'react';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 
+import { useTranslation } from 'next-i18next';
+
 import { staticPath } from '@/shared/lib/$path';
 
-import { APP_TITLE, getAppTitle } from './meta';
+import { APP_TITLE, getAlternateHrefLinks, getAppTitle } from './meta';
 
 export interface PageSEOProps {
   title?: string;
@@ -15,11 +17,12 @@ export interface PageSEOProps {
 }
 
 export const PageSEO = (props: PageSEOProps) => {
-  const router = useRouter();
+  const { asPath, locales } = useRouter();
+  const { i18n } = useTranslation(undefined);
 
   const {
     title,
-    url = `${process.env.NEXT_PUBLIC_APP_URL}${router.asPath}`,
+    url = `${process.env.NEXT_PUBLIC_APP_URL}${asPath}`,
     image = staticPath.static.images.logo_og_png,
     description = APP_TITLE,
   } = props;
@@ -29,14 +32,41 @@ export const PageSEO = (props: PageSEOProps) => {
   return (
     <Head>
       <title>{getAppTitle(title)}</title>
-      <meta name="description" content={description} />
+
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <meta name="robots" content="follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large" />
+
       <meta property="og:title" content={getAppTitle(title)} />
-      <meta property="og:description" content={description} />
+      <meta name="twitter:title" content={getAppTitle(title)} />
+
       <meta property="og:url" content={url} />
+      <meta name="twitter:url" content={url} />
+
+      <meta name="description" content={description} />
+      <meta property="og:description" content={description} />
+      <meta name="twitter:description" content={description} />
+
+      <meta name="twitter:card" content={image ? 'summary_large_image' : 'summary'} />
+      {image && (
+        <>
+          <meta name="twitter:image" content={imageURL} />
+          <meta property="og:image" content={imageURL} />
+        </>
+      )}
+
+      <meta property="og:site_name" content={APP_TITLE} />
+      <meta property="og:locale" content={i18n.language} />
+      <meta property="og:type" content="website" />
       <meta name="twitter:site" content="@devianllert" />
       <meta name="twitter:creator" content="@devianllert" />
-      <meta name="twitter:card" content={image ? 'summary_large_image' : 'summary'} />
-      {image && <meta property="og:image" content={imageURL} />}
+      <meta name="keywords" content="nextplate, react" />
+      <meta name="author" content="devianllert" />
+
+      {getAlternateHrefLinks({ asPath, locales })}
+      <link
+        rel="canonical"
+        href={`${process.env.NEXT_PUBLIC_APP_URL}/${i18n.language}${asPath === '/' ? '' : asPath}`}
+      />
     </Head>
   );
 };

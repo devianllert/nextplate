@@ -36,18 +36,21 @@ const BrowserPageBootstrap = (props: BrowserPageBootstrapProps): JSX.Element => 
 
   // In non-production stages, bind some utilities to the browser's DOM, for ease of quick testing
   if (process.env.NEXT_PUBLIC_APP_STAGE !== 'production') {
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-explicit-any
-    (window as unknown as any).router = router;
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-explicit-any
-    (window as unknown as any).i18n = i18n;
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-explicit-any
-    (window as unknown as any).t = t;
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+    React.useEffect(() => {
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-explicit-any
+      (window as unknown as any).router = router;
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-explicit-any
+      (window as unknown as any).i18n = i18n;
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-explicit-any
+      (window as unknown as any).t = t;
 
-    logger.info(`Utilities have been bound to the DOM for quick testing (only in non-production stages):
+      logger.info(`Utilities have been bound to the DOM for quick testing (only in non-production stages):
         - i18n
         - router
         - t
     `);
+    }, []);
   }
 
   return (

@@ -4,16 +4,16 @@ import Document, {
 
 import { InitializeColorMode } from '@effable/react';
 
-import { getCommonMetaTags } from '@/shared/lib/meta';
+import { CommonMetaTags } from '@/shared/lib/meta';
 
 /**
  * Note: Is only rendered on the server side and not on the client side
  *
- * Used to inject <html lang=""> tag
+ * Used to inject <html lang=""> tag and default meta tags
  *
  * See https://github.com/vercel/next.js/#custom-document
  */
-class AppDocument extends Document {
+class NextplateDocument extends Document {
   static async getInitialProps(ctx: DocumentContext): Promise<DocumentInitialProps> {
     const initialProps = await Document.getInitialProps(ctx);
 
@@ -23,7 +23,9 @@ class AppDocument extends Document {
   render(): JSX.Element {
     return (
       <Html lang={this.props.locale}>
-        <Head>{getCommonMetaTags()}</Head>
+        <Head>
+          <CommonMetaTags />
+        </Head>
         <body>
           <InitializeColorMode />
 
@@ -35,4 +37,4 @@ class AppDocument extends Document {
   }
 }
 
-export default AppDocument;
+export default NextplateDocument;

@@ -1,7 +1,5 @@
 import * as React from 'react';
 
-import Head from 'next/head';
-
 import { isBrowser, isEmpty } from '@effable/misc';
 import { EffableProvider } from '@effable/react';
 import * as Sentry from '@sentry/nextjs';
@@ -15,7 +13,6 @@ import { NProgressRoot } from '@/features/nprogress';
 import { DefaultErrorLayout } from '@/shared/components/error-handling';
 import { EFFECTOR_STATE_KEY, useScope } from '@/shared/lib/effector/scope';
 import { createLogger } from '@/shared/lib/logging/logger';
-import { getLinksAlternateHref } from '@/shared/lib/meta';
 import { configureSentryI18n } from '@/shared/lib/sentry';
 import { MultiversalAppBootstrapProps } from '@/shared/types/multiversal-app-bootstrap-props';
 import { SSGPageProps } from '@/shared/types/ssg-page-props';
@@ -51,6 +48,8 @@ const MultiversalAppBootstrap = (props: Props): JSX.Element => {
     level: 'debug',
   });
 
+  configureSentryI18n(i18n.language);
+
   if (isBrowser() && process.env.NEXT_PUBLIC_APP_STAGE !== 'production') {
     // Avoids log clutter on server
     logger.debug('MultiversalAppBootstrap.props', props);
@@ -64,8 +63,6 @@ const MultiversalAppBootstrap = (props: Props): JSX.Element => {
       <div>...Loading</div>
     );
   }
-
-  configureSentryI18n(i18n.language);
 
   if (err) {
     const error = new Error(`Fatal error - A top-level error was thrown by the application, which caused the Page.props to be lost. \n
@@ -106,25 +103,17 @@ const MultiversalAppBootstrap = (props: Props): JSX.Element => {
   };
 
   return (
-    <>
-      <Head>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <EffectorProvider value={scope}>
+      <EffableProvider>
+        <NProgressRoot showAfterMs={100} />
 
-        {getLinksAlternateHref(router.asPath, router.locales)}
-      </Head>
-
-      <EffectorProvider value={scope}>
-        <EffableProvider>
-          <NProgressRoot showAfterMs={100} />
-
-          {isBrowser() ? (
-            <BrowserPageBootstrap {...multiversalPageBootstrapProps} />
-          ) : (
-            <ServerPageBootstrap {...multiversalPageBootstrapProps} />
-          )}
-        </EffableProvider>
-      </EffectorProvider>
-    </>
+        {isBrowser() ? (
+          <BrowserPageBootstrap {...multiversalPageBootstrapProps} />
+        ) : (
+          <ServerPageBootstrap {...multiversalPageBootstrapProps} />
+        )}
+      </EffableProvider>
+    </EffectorProvider>
   );
 };
 

@@ -16,7 +16,9 @@ export const Demos = (): JSX.Element => {
       <Box display="flex" flexDirection="column" width="100%">
         <Stack direction="column" space="11x" alignItems="center">
           <Box display="flex">
-            <Heading color="text.primary">{t('DEMOS_TITLE')}</Heading>
+            <Heading color="text.primary" variant="h0" component="h2">
+              {t('DEMOS_TITLE')}
+            </Heading>
           </Box>
 
           <DemoItem

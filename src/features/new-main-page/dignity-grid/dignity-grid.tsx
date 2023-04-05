@@ -47,7 +47,7 @@ export const DignityGrid = (): JSX.Element => {
         <Box display="flex" justifyContent="center">
           <Stack space="3x">
             <AnimatedBubble duration="15s">
-              <Dignity icon="/static/images/tools/storybook.png" title="Storybook" text="app localization" />
+              <Dignity icon="/static/images/tools/storybook.png" title="Storybook" text="Building UI in isolation" />
             </AnimatedBubble>
             <AnimatedBubble duration="16s">
               <Dignity icon="/static/images/tools/eslint.png" title="Eslint" text="Code quality" />

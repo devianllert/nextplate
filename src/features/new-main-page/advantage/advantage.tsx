@@ -57,7 +57,7 @@ export const Advantage = (props: AdvantageProps): JSX.Element => {
           desktop: '0px',
         }}
       >
-        <Heading variant="h2" color="text.primary" textAlign={{ base: 'left', laptop: 'center' }}>
+        <Heading variant="h2" component="h3" color="text.primary" textAlign={{ base: 'left', laptop: 'center' }}>
           {title}
         </Heading>
 

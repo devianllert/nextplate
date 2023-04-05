@@ -18,7 +18,7 @@ export const WhyNextplate = (): JSX.Element => {
   return (
     <Container>
       <Box display="flex" flexDirection="column" alignItems="center" width="100%" paddingY="13x">
-        <Heading color="text.primary" sx={{ mb: '11x' }}>
+        <Heading color="text.primary" variant="h0" component="h2" sx={{ mb: '11x' }}>
           {t('FEATURES_TITLE')}
         </Heading>
 

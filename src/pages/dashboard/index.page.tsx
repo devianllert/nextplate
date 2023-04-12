@@ -3,7 +3,7 @@ import {
 } from '@effable/react';
 import { format } from 'date-fns';
 import { allSettled, serialize } from 'effector';
-import { useUnit } from 'effector-react/scope';
+import { useUnit } from 'effector-react';
 import { RiComputerLine, RiUserShared2Line } from 'react-icons/ri';
 
 import { forceLogout } from '@/entities/auth';

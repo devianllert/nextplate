@@ -2,8 +2,8 @@ import * as React from 'react';
 
 import { isBrowser, isEmpty } from '@effable/misc';
 import { EffableProvider } from '@effable/react';
+import { EffectorNext } from '@effector/next';
 import * as Sentry from '@sentry/nextjs';
-import { Provider as EffectorProvider } from 'effector-react/scope';
 import { appWithTranslation, useTranslation } from 'next-i18next';
 
 import ErrorPage from '@/pages/_error.page';
@@ -11,7 +11,7 @@ import ErrorPage from '@/pages/_error.page';
 import { NProgressRoot } from '@/features/nprogress';
 
 import { DefaultErrorLayout } from '@/shared/components/error-handling';
-import { EFFECTOR_STATE_KEY, useScope } from '@/shared/lib/effector/scope';
+import { EFFECTOR_STATE_KEY } from '@/shared/lib/effector/scope';
 import { createLogger } from '@/shared/lib/logging/logger';
 import { configureSentryI18n } from '@/shared/lib/sentry';
 import { MultiversalAppBootstrapProps } from '@/shared/types/multiversal-app-bootstrap-props';
@@ -40,7 +40,6 @@ const MultiversalAppBootstrap = (props: Props): JSX.Element => {
 
   const [isSSGFallbackInitialBuild] = React.useState<boolean>(isEmpty(pageProps) && router?.isFallback === true);
   const { i18n } = useTranslation(undefined);
-  const scope = useScope(pageProps[EFFECTOR_STATE_KEY]);
 
   Sentry.addBreadcrumb({
     category: fileLabel,
@@ -103,7 +102,7 @@ const MultiversalAppBootstrap = (props: Props): JSX.Element => {
   };
 
   return (
-    <EffectorProvider value={scope}>
+    <EffectorNext values={pageProps[EFFECTOR_STATE_KEY]}>
       <EffableProvider>
         <NProgressRoot showAfterMs={100} />
 
@@ -113,7 +112,7 @@ const MultiversalAppBootstrap = (props: Props): JSX.Element => {
           <ServerPageBootstrap {...multiversalPageBootstrapProps} />
         )}
       </EffableProvider>
-    </EffectorProvider>
+    </EffectorNext>
   );
 };
 

@@ -62,6 +62,17 @@ export const staticPath = {
       logo_og_png: '/static/images/logo-og.png',
       maskable_icon_png: '/static/images/maskable_icon.png',
       stars_svg: '/static/images/stars.svg',
+      tools: {
+        effector_png: '/static/images/tools/effector.png',
+        eslint_png: '/static/images/tools/eslint.png',
+        fsd_png: '/static/images/tools/fsd.png',
+        i18n_png: '/static/images/tools/i18n.png',
+        jest_png: '/static/images/tools/jest.png',
+        next_png: '/static/images/tools/next.png',
+        sentry_png: '/static/images/tools/sentry.png',
+        storybook_png: '/static/images/tools/storybook.png',
+        typescript_png: '/static/images/tools/typescript.png',
+      },
       vercel_svg: '/static/images/vercel.svg',
       weather: {
         wi_alien_svg: '/static/images/weather/wi-alien.svg',

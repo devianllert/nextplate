@@ -8,7 +8,7 @@ import {
   Box, Button, Container, Heading,
 } from '@effable/react';
 import { allSettled, fork, serialize } from 'effector';
-import { useUnit } from 'effector-react/scope';
+import { useUnit } from 'effector-react';
 
 import { WeatherLayout } from '@/layouts/weather';
 

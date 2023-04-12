@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { ActionButton, Box, Heading } from '@effable/react';
-import { useUnit } from 'effector-react/scope';
+import { useUnit } from 'effector-react';
 import { RiMapPinLine, RiSearchLine } from 'react-icons/ri';
 
 import { WeatherLayout } from '@/layouts/weather';

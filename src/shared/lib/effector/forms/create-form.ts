@@ -2,7 +2,7 @@
 import {
   combine, createEvent, createStore, Effect, Event, EventPayload, sample, Store,
 } from 'effector';
-import { useUnit } from 'effector-react/scope';
+import { useUnit } from 'effector-react';
 import { condition } from 'patronum';
 import { ZodIssue, ZodSchema } from 'zod';
 

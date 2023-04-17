@@ -7448,10 +7448,10 @@ effector-storage@5.0.1:
   resolved "https://registry.yarnpkg.com/effector-storage/-/effector-storage-5.0.1.tgz#c5cbaffafd068852ae1105e406e230df2500bd62"
   integrity sha512-XJQTLEKUoO8vZROyxtY1J6SfK5Z0YdDGcwEYjhQNOiMtE6HcdJ9cagiCK2r0unsq8eEIS2GzB8cWPrIWJRepxA==
 
-effector@22.8.0:
-  version "22.8.0"
-  resolved "https://registry.yarnpkg.com/effector/-/effector-22.8.0.tgz#e3eb2ee08f5355ee9ae14c136bfd87742e6869a0"
-  integrity sha512-YLECzXGyIpJjefai3noBonQOx7prhs9qg6zLdIxV9VBNXbRO4iYPXOVh2rh34JETroObDiZpQ+XqsxLJtIykKA==
+effector@22.8.1:
+  version "22.8.1"
+  resolved "https://registry.yarnpkg.com/effector/-/effector-22.8.1.tgz#a1bac860262e8d4301d9462d5000973810319def"
+  integrity sha512-368ysZBxxqr0ThVYElhmo8p8rT2wTZ0hF/BIg1FxNPSIdr/wvw4Hbnioy22CbgtU5d53CnadkJnSlKqfOICOwg==
 
 ejs@^3.1.6:
   version "3.1.8"

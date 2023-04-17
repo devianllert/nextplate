@@ -17,7 +17,7 @@ import {
 } from '@/entities/weather';
 
 import { staticPath } from '@/shared/lib/$path';
-import { EFFECTOR_STATE_KEY } from '@/shared/lib/effector/scope';
+import { EFFECTOR_STATE_KEY } from '@/shared/lib/effector';
 import { createLogger } from '@/shared/lib/logging/logger';
 import { PageSEO } from '@/shared/lib/meta';
 import { normalizeSSRContext } from '@/shared/lib/next/context';

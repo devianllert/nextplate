@@ -11,7 +11,7 @@ import ErrorPage from '@/pages/_error.page';
 import { NProgressRoot } from '@/features/nprogress';
 
 import { DefaultErrorLayout } from '@/shared/components/error-handling';
-import { EFFECTOR_STATE_KEY } from '@/shared/lib/effector/scope';
+import { EFFECTOR_STATE_KEY } from '@/shared/lib/effector';
 import { createLogger } from '@/shared/lib/logging/logger';
 import { configureSentryI18n } from '@/shared/lib/sentry';
 import { MultiversalAppBootstrapProps } from '@/shared/types/multiversal-app-bootstrap-props';

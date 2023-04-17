@@ -10,7 +10,7 @@ import { forceLogout } from '@/entities/auth';
 import { sessionQuery } from '@/entities/session';
 import { userQuery } from '@/entities/user';
 
-import { EFFECTOR_STATE_KEY } from '@/shared/lib/effector/scope';
+import { EFFECTOR_STATE_KEY } from '@/shared/lib/effector';
 import { getTranslationsConfig } from '@/shared/lib/i18n/translations';
 import { normalizeSSRContext } from '@/shared/lib/next/context';
 import { withAuthenticatedSSP } from '@/shared/lib/ssr';

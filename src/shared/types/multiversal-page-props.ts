@@ -1,6 +1,6 @@
 import { SSRConfig } from 'next-i18next';
 
-import { EffectorState } from '../lib/effector/scope';
+import { EffectorState } from '../lib/effector';
 
 /**
  * Page properties available on all pages, whether they're rendered statically, dynamically, from the server or the client

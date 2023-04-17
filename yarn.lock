@@ -1535,7 +1535,7 @@
   dependencies:
     "@radix-ui/colors" "^0.1.8"
 
-"@effector/next@^0.1.3":
+"@effector/next@0.1.3":
   version "0.1.3"
   resolved "https://registry.yarnpkg.com/@effector/next/-/next-0.1.3.tgz#953444d91661ad6d1950b32d4ea9baed4f840277"
   integrity sha512-CMGngyrO35Nkgz72vc17H99CI/o5CPjwsvSz+qibU5q5PLsbXVDShI5FuzGXUwhjxiHbhwQu9JyxeJPZEnIkQQ==
@@ -4204,7 +4204,7 @@
   resolved "https://registry.yarnpkg.com/@storybook/react-dom-shim/-/react-dom-shim-7.0.5.tgz#ebfc224a20ae816da54f3f70f62ed301439193b9"
   integrity sha512-iSdP73Af/d8RdNfa4rDHI3JuAakDqPl8Z1LT0cFcfzg29kihdmXIVaLvMcMqTrnqELU6VmzSiE86U+T1XOX95w==
 
-"@storybook/react-webpack5@^7.0.5":
+"@storybook/react-webpack5@7.0.5":
   version "7.0.5"
   resolved "https://registry.yarnpkg.com/@storybook/react-webpack5/-/react-webpack5-7.0.5.tgz#84dfb32f413c9a52a15bbc5dea1d3ba70b16ed0a"
   integrity sha512-tTwUWp0px1tI4e6WRHq5jcIL5L8pPg0kooBsgln94hXEOTzMF33FT08Bs9knzwN76vkBUo37XfHJKR3vaNJtNA==
@@ -13720,7 +13720,7 @@ store2@^2.14.2:
   resolved "https://registry.yarnpkg.com/store2/-/store2-2.14.2.tgz#56138d200f9fe5f582ad63bc2704dbc0e4a45068"
   integrity sha512-siT1RiqlfQnGqgT/YzXVUNsom9S0H1OX+dpdGN1xkyYATo4I6sep5NmsRD/40s3IIOvlCq6akxkqG82urIZW1w==
 
-storybook@^7.0.5:
+storybook@7.0.5:
   version "7.0.5"
   resolved "https://registry.yarnpkg.com/storybook/-/storybook-7.0.5.tgz#079540e985832d1a2bc81fecdfbc11b9f6931caf"
   integrity sha512-wU8PpA2vgZe4Eu4ytilUdHIwl1J2sYlqVT4luGw+O/9dDbkVkB/3f73rAEMMwucWJmqG9HDausdZqEh+1BzJsw==

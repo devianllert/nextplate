@@ -3,6 +3,24 @@ module.exports = {
   verbose: true,
   testEnvironment: 'jest-environment-jsdom',
   extensionsToTreatAsEsm: ['.ts', '.tsx'],
+  coverageDirectory: '/coverage',
+  collectCoverage: true,
+  collectCoverageFrom: [
+    '**/*.{ts,tsx}',
+    '!**/*.test.{ts,tsx}',
+    '!**/*.screenshotTest.{ts,tsx}',
+    '!**/index.ts',
+    '!**/api/**/*.ts',
+    '!**/interfaces/**/*.ts',
+    '!**/loaders/**/*.ts',
+    '!**/__mocks__/**/*.{ts,tsx}',
+    '!**/*.d.ts',
+    '!**/Styled*.{ts,tsx}',
+    '!**/*.styled.{ts,tsx}',
+    '!**/node_modules/**',
+    '!**/dist/**',
+  ],
+  coverageReporters: ['html', 'text-summary'],
   transform: {
     // Use babel-jest to transpile tests with the next/babel preset
     // https://jestjs.io/docs/configuration#transform-objectstring-pathtotransformer--pathtotransformer-object

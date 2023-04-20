@@ -1862,10 +1862,10 @@
   resolved "https://registry.yarnpkg.com/@fal-works/esbuild-plugin-global-externals/-/esbuild-plugin-global-externals-2.1.2.tgz#c05ed35ad82df8e6ac616c68b92c2282bd083ba4"
   integrity sha512-cEee/Z+I12mZcFJshKcCqC8tuX5hG3s+d+9nZ3LabqKF1vKdF41B92pJVCBggjAGORAeOzyyDDKrZwIkLffeOQ==
 
-"@farfetched/core@0.8.9":
-  version "0.8.9"
-  resolved "https://registry.yarnpkg.com/@farfetched/core/-/core-0.8.9.tgz#95beb61308b1cc3c68e1b220e45128f200c6763e"
-  integrity sha512-6viG5kAuU3C1fktHKqJ2sWjO4egc8L/IKCKx1sdKY5ZBUzYGhoO6xL5tfPCgkW1RN2KfeKTg/nCeRdRWDZBGkg==
+"@farfetched/core@0.8.10":
+  version "0.8.10"
+  resolved "https://registry.yarnpkg.com/@farfetched/core/-/core-0.8.10.tgz#5d1a826e80f00e9a1282e66ce40898a57b630e62"
+  integrity sha512-Ffy8yt0yh967zjFqaXVRPV6UtchjyenLYrYhkui7Evymt7Ylx6xDa9B0om78QMHVSYnxn/1HvmXUze4FVxFb6A==
 
 "@farfetched/react@0.5.1":
   version "0.5.1"

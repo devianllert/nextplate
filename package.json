@@ -45,7 +45,7 @@
     "@effector/next": "0.3.0",
     "@emotion/react": "11.10.6",
     "@emotion/styled": "11.10.6",
-    "@farfetched/core": "0.8.9",
+    "@farfetched/core": "0.8.10",
     "@farfetched/react": "0.5.1",
     "@fontsource/inter": "4.5.15",
     "@radix-ui/colors": "0.1.8",

@@ -1,8 +1,7 @@
 import * as React from 'react';
 
+import { PolymorphicComponent } from '@effable/react';
 import styled from '@emotion/styled';
-
-import { PolymorphicComponent } from '@/shared/types/polymorphic';
 
 export const inputAdornmentTypography = {
   small: 16,

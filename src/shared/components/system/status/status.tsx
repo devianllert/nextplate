@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { PolymorphicComponent } from '@/shared/types/polymorphic';
+import { PolymorphicComponent } from '@effable/react';
 
 import * as S from './status.styled';
 

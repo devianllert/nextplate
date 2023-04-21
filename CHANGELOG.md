@@ -2,6 +2,52 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.6.0](https://github.com/devianllert/nextplate/compare/v0.5.0...v0.6.0) (2023-04-21)
+
+
+### Features
+
+* add @effector/next ([9620907](https://github.com/devianllert/nextplate/commit/96209073ba0304ee6e6bb2aa0d3b2bae2ddc9652))
+* add coverage settings ([8f0e7ab](https://github.com/devianllert/nextplate/commit/8f0e7ab03322dfbb7e20a2117c8e9cad57d82a20))
+* add folder for providers ([7f17dc0](https://github.com/devianllert/nextplate/commit/7f17dc0df9aabfa630e621d7dbde1d05154a9349))
+* add tools icons ([43cddaa](https://github.com/devianllert/nextplate/commit/43cddaa7d17609fc711d9576c2270ed6f736802a))
+* improve demo descriptions ([513b7e9](https://github.com/devianllert/nextplate/commit/513b7e98d97844e100ae4a4db2b338081fbea908))
+* improve paths in middleware matcher ([75f2541](https://github.com/devianllert/nextplate/commit/75f2541ad3a86100661003516edbf4da2a62fc31))
+* improve seo component ([8f53bd2](https://github.com/devianllert/nextplate/commit/8f53bd2d939c97bd9d5e9766bbc2d6cb6c274833))
+* restructure effector utils ([7d50e8a](https://github.com/devianllert/nextplate/commit/7d50e8a268b91b42f73b557bb1cf0a86f720292a))
+* update storybook ([65d2c53](https://github.com/devianllert/nextplate/commit/65d2c53a747978f3e483a38d56474c10d91a44eb))
+* use portal component from design system ([d991e70](https://github.com/devianllert/nextplate/commit/d991e70451a8980b2ad36bfdb57853f1b4f36c00))
+
+
+### Bug Fixes
+
+* **deps:** pin dependencies ([b6a3179](https://github.com/devianllert/nextplate/commit/b6a3179ca822db4e910602dbeb4e262e3527f4e4))
+* **deps:** pin dependencies ([cf8115d](https://github.com/devianllert/nextplate/commit/cf8115d79d6771852d81ef4b737f1c637473db62))
+* **deps:** update all non-major dependencies ([a1209ba](https://github.com/devianllert/nextplate/commit/a1209bafca7961523764b408c56fa991ff51b858))
+* **deps:** update all non-major dependencies ([55acb82](https://github.com/devianllert/nextplate/commit/55acb823e8396cd7eb092c68e27a3554801a6b57))
+* **deps:** update all non-major dependencies ([61188d1](https://github.com/devianllert/nextplate/commit/61188d191291862ddb33010586ac7b3af33ac150))
+* **deps:** update all non-major dependencies ([308ff95](https://github.com/devianllert/nextplate/commit/308ff9518f4b98c1bff132d94fcff346c67980d6))
+* **deps:** update all non-major dependencies ([543307b](https://github.com/devianllert/nextplate/commit/543307b9be1ddc160dd0f58b2261bd598bb9a327))
+* **deps:** update all non-major dependencies ([168c3bd](https://github.com/devianllert/nextplate/commit/168c3bd107098d197daf4c7736f636bb2e2ae969))
+* **deps:** update all non-major dependencies ([bc50c4a](https://github.com/devianllert/nextplate/commit/bc50c4a3dd9bf5509bf3a6f8cbdbd91ac5fd60a7))
+* **deps:** update all non-major dependencies ([1b322a7](https://github.com/devianllert/nextplate/commit/1b322a78c2fbfb7f68060c95722e24882ff3e6e4))
+* **deps:** update all non-major dependencies ([f1469b3](https://github.com/devianllert/nextplate/commit/f1469b33735d83f91da9e832e09013445b008299))
+* **deps:** update all non-major dependencies ([81c0762](https://github.com/devianllert/nextplate/commit/81c07626692907df4feabb8a32d0cdce8940326b))
+* **deps:** update all non-major dependencies ([1561ca5](https://github.com/devianllert/nextplate/commit/1561ca5643f779e9f7c0a95281b1e28f028e473d))
+* **deps:** update all non-major dependencies ([a6b2ad7](https://github.com/devianllert/nextplate/commit/a6b2ad727b1693c138747757a905540b9bc4cc88))
+* **deps:** update all non-major dependencies ([2ed809e](https://github.com/devianllert/nextplate/commit/2ed809e0ab75a8e3562e0da3298395e7bdc6e2b6))
+* **deps:** update dependency @farfetched/core to v0.8.10 ([eeee78b](https://github.com/devianllert/nextplate/commit/eeee78b22cfb007d134c65f568cb9d97f3614d60))
+* **deps:** update dependency effector to v22.6.1 ([44b87bb](https://github.com/devianllert/nextplate/commit/44b87bb9868ca012f8c62fd0742856349ed1b0db))
+* **deps:** update dependency effector to v22.8.1 ([00a888b](https://github.com/devianllert/nextplate/commit/00a888b7ef49310562226e3cecab3176a83f8abd))
+* **deps:** update dependency next-sitemap to v4.0.7 ([b15746b](https://github.com/devianllert/nextplate/commit/b15746bed2d031f4a1a2255ea771a97a7d21b9e1))
+* **deps:** update dependency react-error-boundary to v4 ([b4a6b28](https://github.com/devianllert/nextplate/commit/b4a6b28aa7ed4854075b365a3a6e568f97ad02c8))
+* disable sentry if dsn is not provided ([b5653de](https://github.com/devianllert/nextplate/commit/b5653dee5676f76f17f4a1d0adcc435e907048fb))
+* fix alias path for widgets ([fcab781](https://github.com/devianllert/nextplate/commit/fcab781eeee3706f1b1ca58ddd0f2ccfb8c9ad85))
+* fix canonical link ([d483f18](https://github.com/devianllert/nextplate/commit/d483f1802bbc0ea109eedc2224363b908838d1c4))
+* move static files to static directory ([13bcff9](https://github.com/devianllert/nextplate/commit/13bcff945c2a200288e34404e28c03005d819a9a))
+* remove unused files ([cfd3815](https://github.com/devianllert/nextplate/commit/cfd38155e6fab4e5f7c11c543c9a6e65fcbc7faf))
+* **seo:** fix heading order ([3d2c8d2](https://github.com/devianllert/nextplate/commit/3d2c8d26eac5f83a10c9877cdc459716b1f09193))
+
 ## [0.5.0](https://github.com/devianllert/next-boilerplate/compare/v0.4.0...v0.5.0) (2023-03-11)
 
 

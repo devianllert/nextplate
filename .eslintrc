@@ -56,7 +56,8 @@
     "react/function-component-definition": [
       2,
       {
-        "namedComponents": "arrow-function"
+        "namedComponents": "arrow-function",
+        "unnamedComponents": "arrow-function"
       }
     ],
     // Disable line length checks, because the IDE is already configured to warn about it, and it's a waste of time to check for lines that are too long, especially in comments (like this one!)

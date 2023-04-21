@@ -1502,10 +1502,10 @@
   resolved "https://registry.yarnpkg.com/@effable/misc/-/misc-0.7.0.tgz#86ec8e99c645b2558964041fca68b144c8dfd9e7"
   integrity sha512-tZaIf2nVOwjOW6fPq66EnshDLPkBU6PoYJ7n/iE9HnwOv7aZxmDZnXcKE9OhAxf5f2Jyk8W8N3NPwQFj1VHuHg==
 
-"@effable/misc@0.10.1":
-  version "0.10.1"
-  resolved "https://registry.yarnpkg.com/@effable/misc/-/misc-0.10.1.tgz#4cfe30e7e908a45e715949ecdaa0f8207d6330ec"
-  integrity sha512-K9Gsp12lFl6J73NqgvjMSRKENO09lGuGpjFBoFL1zjpvGC/FcM7zqXZPsbzAwkG/jGDSVghvr2sy95ltorx4Rw==
+"@effable/misc@0.11.0":
+  version "0.11.0"
+  resolved "https://registry.yarnpkg.com/@effable/misc/-/misc-0.11.0.tgz#edc5e1c969d8418b2d89dc9cde110036a94a4a30"
+  integrity sha512-vLwEw2/5nFhlSVPVKLEOAcvH1cBnDdOEOud3ZI0VOPvJteCJTcyHdiU1DaJczal0J0r6izTbg+PSeuctbfHp8A==
 
 "@effable/react@0.18.0":
   version "0.18.0"
@@ -2286,7 +2286,7 @@
   resolved "https://registry.yarnpkg.com/@next/env/-/env-13.2.4.tgz#8b763700262b2445140a44a8c8d088cef676dbae"
   integrity sha512-+Mq3TtpkeeKFZanPturjcXt+KHfKYnLlX6jMLyCrmpq6OOs4i1GqBOAauSkii9QeKCMTYzGppar21JU57b/GEA==
 
-"@next/env@13.3.0":
+"@next/env@13.3.0", "@next/env@^13.3.0":
   version "13.3.0"
   resolved "https://registry.yarnpkg.com/@next/env/-/env-13.3.0.tgz#cc2e49f03060a4684ce7ec7fd617a21bc5b9edba"
   integrity sha512-AjppRV4uG3No7L1plinoTQETH+j2F10TEnrMfzbTUYwze5sBUPveeeBAPZPm8OkJZ1epq9OyYKhZrvbD6/9HCQ==
@@ -4585,6 +4585,11 @@
     "@types/node" "*"
     "@types/responselike" "^1.0.0"
 
+"@types/compose-function@^0.0.30":
+  version "0.0.30"
+  resolved "https://registry.yarnpkg.com/@types/compose-function/-/compose-function-0.0.30.tgz#1fbe97dda4caeb7f5e45a553dee8d46d91e48c5b"
+  integrity sha512-TY6zsIzbLU9nsRMVwaq5hYNSoglao3ZOm2I4jAi1EojDZJdF8vtDqBG+f086WJ17pwRH4sQseXp/U6GVxUxHwA==
+
 "@types/connect@*":
   version "3.4.35"
   resolved "https://registry.yarnpkg.com/@types/connect/-/connect-3.4.35.tgz#5fcf6ae445e4021d1fc2219a4873cc73a3bb2ad1"
@@ -5637,6 +5642,11 @@ aria-query@^5.0.0, aria-query@^5.1.3:
   dependencies:
     deep-equal "^2.0.5"
 
+arity-n@^1.0.4:
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/arity-n/-/arity-n-1.0.4.tgz#d9e76b11733e08569c0847ae7b39b2860b30b745"
+  integrity sha512-fExL2kFDC1Q2DUOx3whE/9KoN66IzkY4b4zUHUBFM1ojEYjZZYDcUW3bek/ufGionX9giIKDC5redH2IlGqcQQ==
+
 array-flatten@1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/array-flatten/-/array-flatten-1.1.1.tgz#9a5f699051b1e7073328f2a008968b64ea2955d2"
@@ -6585,6 +6595,13 @@ compare-versions@^4.1.3:
   version "4.1.4"
   resolved "https://registry.yarnpkg.com/compare-versions/-/compare-versions-4.1.4.tgz#3571f4d610924d4414846a4183d386c8f3d51112"
   integrity sha512-FemMreK9xNyL8gQevsdRMrvO4lFCkQP7qbuktn1q8ndcNk1+0mz7lgE7b/sNvbhVgY4w6tMN1FDp6aADjqw2rw==
+
+compose-function@^3.0.3:
+  version "3.0.3"
+  resolved "https://registry.yarnpkg.com/compose-function/-/compose-function-3.0.3.tgz#9ed675f13cc54501d30950a486ff6a7ba3ab185f"
+  integrity sha512-xzhzTJ5eC+gmIzvZq+C3kCJHsp9os6tJkrigDRZclyGtOKINbZtE8n1Tzmeh32jW+BUDPbvZpibwvJHBLGMVwg==
+  dependencies:
+    arity-n "^1.0.4"
 
 compressible@~2.0.16:
   version "2.0.18"
@@ -12313,15 +12330,15 @@ prelude-ls@~1.1.2:
   resolved "https://registry.yarnpkg.com/prelude-ls/-/prelude-ls-1.1.2.tgz#21932a549f5e52ffd9a827f570e04be62a97da54"
   integrity sha512-ESF23V4SKG6lVSGZgYNpbsiaAkdab6ZgOxe52p7+Kid3W3u3bxR4Vfd/o21dmN7jSt0IwgZ4v5MUd26FEtXE9w==
 
-prettier@2.8.7, prettier@^2.8.0:
-  version "2.8.7"
-  resolved "https://registry.yarnpkg.com/prettier/-/prettier-2.8.7.tgz#bb79fc8729308549d28fe3a98fce73d2c0656450"
-  integrity sha512-yPngTo3aXUUmyuTjeTUT75txrf+aMh9FiD7q9ZE/i6r0bPb22g4FsE6Y338PQX1bmfy08i9QQCB7/rcUAVntfw==
-
 prettier@^2.3.2:
   version "2.8.4"
   resolved "https://registry.yarnpkg.com/prettier/-/prettier-2.8.4.tgz#34dd2595629bfbb79d344ac4a91ff948694463c3"
   integrity sha512-vIS4Rlc2FNh0BySk3Wkd6xmwxB0FpOndW5fisM5H8hsZSxU2VWVB5CWIkIjWvrHjIhxk2g3bfMKM87zNTrZddw==
+
+prettier@^2.8.0, prettier@^2.8.7:
+  version "2.8.7"
+  resolved "https://registry.yarnpkg.com/prettier/-/prettier-2.8.7.tgz#bb79fc8729308549d28fe3a98fce73d2c0656450"
+  integrity sha512-yPngTo3aXUUmyuTjeTUT75txrf+aMh9FiD7q9ZE/i6r0bPb22g4FsE6Y338PQX1bmfy08i9QQCB7/rcUAVntfw==
 
 pretty-bytes@^5.3.0, pretty-bytes@^5.4.1:
   version "5.6.0"

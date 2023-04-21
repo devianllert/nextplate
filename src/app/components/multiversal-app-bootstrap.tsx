@@ -1,24 +1,21 @@
 import * as React from 'react';
 
 import { isBrowser, isEmpty } from '@effable/misc';
-import { EffableProvider } from '@effable/react';
-import { EffectorNext } from '@effector/next';
 import * as Sentry from '@sentry/nextjs';
-import { appWithTranslation, useTranslation } from 'next-i18next';
+import { useTranslation } from 'next-i18next';
+import { withProviders } from '@/app/providers';
 
 import ErrorPage from '@/pages/_error.page';
 
 import { NProgressRoot } from '@/features/nprogress';
 
 import { DefaultErrorLayout } from '@/shared/components/error-handling';
-import { EFFECTOR_STATE_KEY } from '@/shared/lib/effector';
 import { createLogger } from '@/shared/lib/logging/logger';
 import { configureSentryI18n } from '@/shared/lib/sentry';
 import { MultiversalAppBootstrapProps } from '@/shared/types/multiversal-app-bootstrap-props';
 import { SSGPageProps } from '@/shared/types/ssg-page-props';
 import { SSRPageProps } from '@/shared/types/ssr-page-props';
 
-import nextI18nConfig from '../../../next-i18next.config.mjs';
 import BrowserPageBootstrap, { BrowserPageBootstrapProps } from './browser-page-bootstrap';
 import ServerPageBootstrap, { ServerPageBootstrapProps } from './server-page-bootstrap';
 
@@ -102,19 +99,16 @@ const MultiversalAppBootstrap = (props: Props): JSX.Element => {
   };
 
   return (
-    <EffectorNext values={pageProps[EFFECTOR_STATE_KEY]}>
-      <EffableProvider>
-        <NProgressRoot showAfterMs={100} />
+    <>
+      <NProgressRoot showAfterMs={100} />
 
-        {isBrowser() ? (
-          <BrowserPageBootstrap {...multiversalPageBootstrapProps} />
-        ) : (
-          <ServerPageBootstrap {...multiversalPageBootstrapProps} />
-        )}
-      </EffableProvider>
-    </EffectorNext>
+      {isBrowser() ? (
+        <BrowserPageBootstrap {...multiversalPageBootstrapProps} />
+      ) : (
+        <ServerPageBootstrap {...multiversalPageBootstrapProps} />
+      )}
+    </>
   );
 };
 
-// We should use React memo here because `appWithTranslation` HOC cause too many re-renders
-export default React.memo(appWithTranslation(MultiversalAppBootstrap, nextI18nConfig));
+export default withProviders(MultiversalAppBootstrap);

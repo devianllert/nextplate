@@ -159,7 +159,7 @@
     "ngrok": "4.3.3",
     "node-mocks-http": "1.12.2",
     "orval": "6.14.4",
-    "prettier": "2.8.7",
+    "prettier": "2.8.8",
     "standard-version": "9.5.0",
     "storybook": "7.0.6",
     "typescript": "5.0.4"

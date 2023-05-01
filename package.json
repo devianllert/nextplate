@@ -57,7 +57,7 @@
     "@sentry/nextjs": "7.50.0",
     "axios": "1.4.0",
     "cookies": "0.8.0",
-    "date-fns": "2.29.3",
+    "date-fns": "2.30.0",
     "deepmerge": "4.3.1",
     "effector": "22.8.2",
     "effector-react": "22.5.1",

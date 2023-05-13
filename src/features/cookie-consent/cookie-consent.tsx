@@ -30,7 +30,7 @@ export const CookieConsent = () => {
             <Trans
               t={t}
               i18nKey="COOKIE_CONSENT_TITLE"
-              components={[<Link target="_blank" href="https://www.cookiesandyou.com" />]}
+              components={[<Link key="cookie" target="_blank" href="https://www.cookiesandyou.com" />]}
             />
           </Text>
 

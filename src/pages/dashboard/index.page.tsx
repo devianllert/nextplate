@@ -37,7 +37,7 @@ const DashboardPage = () => {
           <Container>
             <Box display="flex" paddingY={3}>
               <Box mt="-48px">
-                <Avatar size="15x" alt="some alt" fallback="D" />
+                <Avatar size="15x" alt="some alt" fallback={user?.username.charAt(0)} />
               </Box>
 
               <Box ml={4}>
@@ -70,13 +70,13 @@ const DashboardPage = () => {
             </Text>
 
             <Box mt={4}>
-              <Stack space="2x">
+              <Stack space="2x" direction="column">
                 {sessions?.map((session) => (
                   <Box key={session.id} display="flex" pt={2} pb={3} borderBottom="1px solid">
                     <Box mr={2}>
                       <RiComputerLine size={28} />
                     </Box>
-                    <Box>
+                    <Box display="flex" flexDirection="column">
                       <Text variant="s">
                         {session.os} {session.browser}
                       </Text>

@@ -1535,10 +1535,10 @@
   dependencies:
     "@radix-ui/colors" "^0.1.8"
 
-"@effector/next@0.4.1":
-  version "0.4.1"
-  resolved "https://registry.yarnpkg.com/@effector/next/-/next-0.4.1.tgz#35571f855f7eb71dd0d820015a0b33d07fa67df1"
-  integrity sha512-E4TGRdZm+PzIqBhlvx5R5Yzujl/4y8rDXCPkKvBWGPM7Locb2Y5/LJ2igS1r4kmG4DxMc/gRiKCJChobSLvEkg==
+"@effector/next@0.5.0":
+  version "0.5.0"
+  resolved "https://registry.yarnpkg.com/@effector/next/-/next-0.5.0.tgz#741fbd61ae10b86d6e1fffe20d01929433e5ae21"
+  integrity sha512-S8J07MMfuRUNt9xLZVp45OKjL3twYv/hhRctY8PqT9XGer4KxJSCAbQK/pC8QuZqL8N5yW+ZPKNeT1MlRaz0BA==
 
 "@emotion/babel-plugin-jsx-pragmatic@^0.2.1":
   version "0.2.1"
@@ -12138,10 +12138,10 @@ pathpida@0.20.1:
     ignore "^5.2.0"
     minimist "^1.2.7"
 
-patronum@1.17.0:
-  version "1.17.0"
-  resolved "https://registry.yarnpkg.com/patronum/-/patronum-1.17.0.tgz#ebaa05e863b9715f27a2b5397024f69e5dea55e7"
-  integrity sha512-FCcbjJ52ELV5ikaqURjniCEV4IfrtBP6BSOBpmP7iCvC9seo83YjymSfxaaRBG5vkn/HRKf/5SDpHangJylBKw==
+patronum@1.18.0:
+  version "1.18.0"
+  resolved "https://registry.yarnpkg.com/patronum/-/patronum-1.18.0.tgz#e4ffce785aa718f8ef25e7dc8027f66d716ec4dc"
+  integrity sha512-2SxZTLHXw56dXvns41YksVD030shnewef+4Gak2RSYdgEBGdCKCYYNfegsvoW8MWwjQxUZpp1Mgos8a3pXipCQ==
 
 peek-stream@^1.1.0:
   version "1.1.3"
@@ -12234,10 +12234,10 @@ pino-std-serializers@^6.0.0:
   resolved "https://registry.yarnpkg.com/pino-std-serializers/-/pino-std-serializers-6.1.0.tgz#307490fd426eefc95e06067e85d8558603e8e844"
   integrity sha512-KO0m2f1HkrPe9S0ldjx7za9BJjeHqBku5Ch8JyxETxT8dEFGz1PwgrHaOQupVYitpzbFSYm7nnljxD8dik2c+g==
 
-pino@8.12.1:
-  version "8.12.1"
-  resolved "https://registry.yarnpkg.com/pino/-/pino-8.12.1.tgz#9aca3c733b221a5894ee58b2e070c66dd3e89fcf"
-  integrity sha512-n4F7nrEUDH0u5pjlUPkrvsN6oZOhScZWwpWPniwVkMnO6a2DhpnMNWDUlW0SawVICgrNhOf0yTNgw2lYQBsPYA==
+pino@8.14.1:
+  version "8.14.1"
+  resolved "https://registry.yarnpkg.com/pino/-/pino-8.14.1.tgz#bb38dcda8b500dd90c1193b6c9171eb777a47ac8"
+  integrity sha512-8LYNv7BKWXSfS+k6oEc6occy5La+q2sPwU3q2ljTX5AZk7v+5kND2o5W794FyRaqha6DJajmkNRsWtPpFyMUdw==
   dependencies:
     atomic-sleep "^1.0.0"
     fast-redact "^3.1.1"

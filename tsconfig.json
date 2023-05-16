@@ -32,6 +32,9 @@
     "target": "ES2017",
     "incremental": true,
     "paths": {
+      "@/root/*": [
+        "*"
+      ],
       "@/app/*": [
         "src/app/*"
       ],

@@ -35,6 +35,7 @@ This is a **template** with all you need for your next web application. Aims for
 - **[farfetched](https://farfetched.pages.dev)** – The advanced data fetching tool for web applications
 - **[axios](https://axios-http.com)** – Promise based HTTP client for the browser and Node.js
 - **[orval](https://orval.dev)** – Generate, valid, cache and mock in your frontend applications all with your OpenAPI specification.
+- **[msw](https://mswjs.io)** – Mock by intercepting requests on the network level. Seamlessly reuse the same mock definition for testing, development, and debugging.
 
 #### Design System & Styling
 
@@ -188,7 +189,7 @@ yarn analyse:deps
 
 Code organized by kind is one of the most popular ways for JavaScript developers to build their applications, structuring files based on what they are, without considering the different relationships between the files. It's a popular practice among developers who use patterns such as MVC. That’s okay when you work on small applications, but as the application grows, it can have a significant impact on the team's velocity.
 
-When you work on a large project, it can be difficult to identify the origin of an issue. As a developer, you might spend a significant amount of time digging through thousands of lines of code until you understand all the relationships. In FSD, a project consists of layers (features, entities, shared, etc), each layer is made up of slices (aka modules) and each slice is made up of segments (model, ui, api, etc.). Slices cannot use other slices on the same layer, and that helps with high cohesion and low coupling. It helps maximize code sharing and reusability in different sections of your application and even in other projects. 
+When you work on a large project, it can be difficult to identify the origin of an issue. As a developer, you might spend a significant amount of time digging through thousands of lines of code until you understand all the relationships. In FSD, a project consists of layers (features, entities, shared, etc), each layer is made up of slices (aka modules) and each slice is made up of segments (model, ui, api, etc.). Slices cannot use other slices on the same layer, and that helps with high cohesion and low coupling. It helps maximize code sharing and reusability in different sections of your application and even in other projects.
 
 <img title="Feature-Sliced Design layers schema"  src="./docs/fsd-schema.jpg">
 

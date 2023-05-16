@@ -10,6 +10,11 @@ import { SSRPageProps } from '@/shared/types/ssr-page-props';
 
 import '@/shared/design/external-styles';
 
+if (process.env.NEXT_PUBLIC_API_MOCKING === 'enabled') {
+  // eslint-disable-next-line global-require
+  require('../../mocks');
+}
+
 /**
  * "props.pageProps" will depend on whether the page is served by server or client, SSG or SSR
  * (MultiversalAppBootstrapProps<SSGPageProps> | MultiversalAppBootstrapProps<SSRPageProps>) is basically a superset of AppProps (from 'next/app')

@@ -1,6 +1,5 @@
 import styled from '@emotion/styled';
 
-import shape from '@/shared/design/tokens/shape';
 import { variants } from '@/shared/design/tokens/typography';
 
 import { InputBase } from '../input-base';
@@ -42,7 +41,7 @@ export const InputComponent = styled(InputBase)<{ size?: string }>((props) => ({
   ...getInputTypography(props.size),
   lineHeight: 1.5,
   height: getInputHeights(props.size),
-  borderRadius: shape.round,
+  borderRadius: props.theme.radii['1x'],
   color: props.theme.colors.text.primary,
   background: props.theme.colors.neutral.neutral3,
   boxShadow: `inset 0px 0px 0px 2px ${props.theme.colors.neutral.neutral7}`,

@@ -4,6 +4,7 @@ import { GetServerSidePropsContext, GetServerSidePropsResult, PreviewData } from
 
 import { allSettled, fork, Scope } from 'effector';
 import decode from 'jwt-decode';
+import { accessToken } from '@/root/mocks/auth-mock';
 
 // FIXME: Violates FSD boundaries
 import { refreshFx, TokenPayload } from '@/entities/auth';
@@ -17,7 +18,7 @@ export type GetServerSidePropsWithScope<
 > = (context: GetServerSidePropsContext<Q, D>, scope: Scope) => Promise<GetServerSidePropsResult<P>>;
 
 export const withAuthenticatedSSP = (getServerSidePropsFn: GetServerSidePropsWithScope) => async (context: GetServerSidePropsContext) => {
-  const authToken = context.req.cookies.access_token;
+  const authToken = process.env.NEXT_PUBLIC_API_MOCKING === 'enabled' ? accessToken : context.req.cookies.access_token;
 
   if (!authToken) {
     return {

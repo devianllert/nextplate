@@ -1,7 +1,5 @@
 import * as React from 'react';
 
-import shape from '@/shared/design/tokens/shape';
-
 import * as S from './indicator.styled';
 import { IndicatorPosition } from './indicator.types';
 
@@ -64,7 +62,7 @@ export interface IndicatorProps extends Omit<React.HTMLAttributes<HTMLDivElement
   /**
    * The shape of the component.
    */
-  shape?: keyof typeof shape;
+  shape?: string;
 }
 
 /**

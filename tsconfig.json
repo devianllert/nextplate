@@ -66,6 +66,11 @@
         "src/pages/*"
       ]
     },
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ]
   },
   "exclude": [
     ".github",
@@ -86,6 +91,7 @@
     "**/*.cjs",
     "**/*.mjs",
     "**/*.ts",
-    "**/*.tsx"
+    "**/*.tsx",
+    ".next/types/**/*.ts"
   ]
 }

@@ -7,9 +7,11 @@ import decode from 'jwt-decode';
 import { accessToken } from '@/root/mocks/auth-mock';
 
 // FIXME: Violates FSD boundaries
-import { refreshFx, TokenPayload } from '@/entities/auth';
+import { refreshFx } from '@/entities/auth';
 
 import { $token, setCookiesForRequest, setToken } from '@/shared/api/request';
+
+import { TokenPayload } from '../../api/api.generated';
 
 export type GetServerSidePropsWithScope<
   P extends { [key: string]: any } = { [key: string]: any },

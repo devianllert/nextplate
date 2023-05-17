@@ -2,11 +2,10 @@ import { createDefer, Defer } from '@effable/misc';
 import {
   createEffect, createEvent, createStore, sample,
 } from 'effector';
-import decode from 'jwt-decode';
+import decode, { JwtPayload } from 'jwt-decode';
 
 import { $token } from '@/shared/api/request/request';
 
-import { TokenPayload } from '../types';
 import { refreshFx } from './auth';
 
 const $pendingRequests = createStore<Defer<string | null>[]>([]);
@@ -32,7 +31,7 @@ const tokenValid = sample({
   filter(token) {
     if (!token) return false;
 
-    const decodedToken = decode<TokenPayload>(token);
+    const decodedToken = decode<Required<JwtPayload>>(token);
 
     const isExpired = new Date(decodedToken.exp * 1000) < new Date();
 
@@ -47,7 +46,7 @@ const tokenInvalid = sample({
   filter(token) {
     if (!token) return true;
 
-    const decodedToken = decode<TokenPayload>(token);
+    const decodedToken = decode<Required<JwtPayload>>(token);
 
     const isExpired = new Date(decodedToken.exp * 1000) < new Date();
 

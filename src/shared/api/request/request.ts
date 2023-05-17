@@ -6,8 +6,7 @@ import {
 } from 'effector';
 import decode from 'jwt-decode';
 
-import { TokenPayload } from '@/entities/auth';
-
+import { TokenPayload } from '../api.generated';
 import { httpClient } from '../http-client';
 
 export interface RequestError {

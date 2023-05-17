@@ -1,11 +1,12 @@
 import { createEvent, sample } from 'effector';
 
-import { TokenPayload } from '@/entities/auth';
 import { sessionQuery } from '@/entities/session';
 import { userQuery } from '@/entities/user';
 
 import { $tokenPayload } from '@/shared/api/request';
 import { PageContext } from '@/shared/lib/next/types';
+
+import { TokenPayload } from '../../shared/api/api.generated';
 
 export const dashboardPageStarted = createEvent<PageContext>();
 

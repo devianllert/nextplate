@@ -27,25 +27,3 @@ export const duration = {
   // recommended when something is leaving screen
   leavingScreen: 195,
 } as const;
-
-function formatMs(milliseconds: number): string {
-  return `${Math.round(milliseconds)}ms`;
-}
-
-export interface CreateTransitionOptions {
-  duration?: number | string;
-  easing?: string;
-  delay?: number | string;
-}
-
-export const createTransition = (props: string | string[] = ['all'], options: CreateTransitionOptions = {}): string => {
-  const { duration: durationOption = duration.standard, easing: easingOption = easing.easeInOut, delay = 0 } = options;
-
-  return (Array.isArray(props) ? props : [props])
-    .map(
-      (animatedProp) => `${animatedProp} ${
-        typeof durationOption === 'string' ? durationOption : formatMs(durationOption)
-      } ${easingOption} ${typeof delay === 'string' ? delay : formatMs(delay)}`,
-    )
-    .join(',');
-};

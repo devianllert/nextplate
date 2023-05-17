@@ -12,7 +12,7 @@ import {
 export interface DemoItemProps {
   title: string;
   description: string;
-  preview: string;
+  preview?: string;
   link?: string | UrlObject;
 }
 
@@ -20,8 +20,6 @@ export const DemoItem = (props: DemoItemProps): JSX.Element => {
   const {
     title, description, preview, link,
   } = props;
-
-  const text = description.split('.').filter((sentence) => sentence);
 
   return (
     <Box
@@ -46,7 +44,7 @@ export const DemoItem = (props: DemoItemProps): JSX.Element => {
       >
         <AspectRatio ratio={16 / 9}>
           <Image
-            src={preview}
+            src={preview ?? 'https://placehold.co/1024x600.png?text=Soon'}
             alt={title}
             fill
             sizes={`
@@ -86,11 +84,9 @@ export const DemoItem = (props: DemoItemProps): JSX.Element => {
         </Box>
 
         <Box display="flex" marginTop="3x" flexDirection="column">
-          {text.map((sentence) => (
-            <Text variant="m" color="text.primary" key={sentence}>
-              {sentence}.
-            </Text>
-          ))}
+          <Text variant="m" color="text.primary">
+            {description}
+          </Text>
         </Box>
       </Box>
     </Box>

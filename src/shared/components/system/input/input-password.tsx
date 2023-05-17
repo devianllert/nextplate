@@ -7,7 +7,7 @@ import { Input, InputProps } from './input';
 
 export type InputPasswordProps = Omit<InputProps, 'type'>;
 
-export const InputPassword = React.forwardRef<HTMLInputElement, InputProps>((props, ref) => {
+export const InputPassword = React.forwardRef<HTMLInputElement, InputPasswordProps>((props, ref) => {
   const { label, ...other } = props;
 
   const [show, toggleShow] = useBoolean(false);

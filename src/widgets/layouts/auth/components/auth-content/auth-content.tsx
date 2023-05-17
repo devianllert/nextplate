@@ -38,7 +38,7 @@ export const AuthContent = (props: AuthContentProps): JSX.Element => {
             key={router.route}
             variants={variants}
             initial={shouldReduceMotion ? 'enter' : 'hidden'}
-            animate={shouldReduceMotion ? 'enter' : 'enter'}
+            animate="enter"
             exit={shouldReduceMotion ? 'enter' : 'exit'}
             transition={shouldReduceMotion ? { duration: 0 } : variants.transition}
           >

@@ -2,8 +2,6 @@ import { IncomingMessage } from 'http';
 
 import { GetServerSideProps, GetServerSidePropsResult } from 'next';
 
-import NextCookies from 'next-cookies';
-
 import { getTranslationsConfig } from '@/shared/lib/i18n/translations';
 import { CommonServerSideParams } from '@/shared/types/common-server-side-params';
 import { PublicHeaders } from '@/shared/types/public-headers';

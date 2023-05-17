@@ -7,6 +7,7 @@ import { pagesPath } from '@/shared/lib/$path';
 
 import { DemoItem } from '../demo-item';
 import { Section } from '../section';
+import { demoApps } from './demos.const';
 
 export const Demos = (): JSX.Element => {
   const { t } = useTranslation('index');
@@ -21,25 +22,15 @@ export const Demos = (): JSX.Element => {
             </Heading>
           </Box>
 
-          <DemoItem
-            link={pagesPath.auth.login.$url()}
-            title="Authorization"
-            preview="/static/images/apps/en/auth.png"
-            description={t('DEMOS_AUTH_DESCRIPTION')}
-          />
-
-          <DemoItem
-            link={pagesPath.weather.$url()}
-            title="Weather"
-            preview="/static/images/apps/weather.png"
-            description={t('DEMOS_WEATHER_DESCRIPTION')}
-          />
-
-          <DemoItem
-            title="Passkip"
-            preview="https://placehold.co/1024x600.png?text=Soon"
-            description={t('DEMOS_PASSWORD_DESCRIPTION')}
-          />
+          {demoApps.map((app) => (
+            <DemoItem
+              key={app.title}
+              link={app.link}
+              title={app.title}
+              preview={app.image}
+              description={t(app.description)}
+            />
+          ))}
         </Stack>
       </Box>
     </Section>

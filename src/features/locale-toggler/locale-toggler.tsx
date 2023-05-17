@@ -4,9 +4,9 @@ import { useRouter } from 'next/router';
 
 import { Button } from '@effable/react';
 import { useTranslation } from 'next-i18next';
+import { RiGlobalLine } from 'react-icons/ri';
 
 import * as DropdownMenu from '@/shared/components/system/dropdown-menu';
-import Global from '@/shared/icons/global';
 import { SUPPORTED_LOCALES } from '@/shared/lib/i18n';
 
 export const LocaleToggler = () => {
@@ -23,7 +23,7 @@ export const LocaleToggler = () => {
   return (
     <DropdownMenu.Root>
       <DropdownMenu.Trigger asChild>
-        <Button variant="text" startIcon={<Global />}>
+        <Button variant="text" startIcon={<RiGlobalLine />}>
           {i18n.language.toUpperCase()}
         </Button>
       </DropdownMenu.Trigger>

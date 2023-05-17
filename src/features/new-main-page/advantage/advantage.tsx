@@ -38,6 +38,7 @@ export const Advantage = (props: AdvantageProps): JSX.Element => {
         minWidth="62px"
         minHeight="62px"
         backgroundColor="accent.accent9"
+        color="white"
         borderRadius="16px"
         marginBottom={{
           base: '0px',

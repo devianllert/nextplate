@@ -6,7 +6,7 @@ import { InputBase } from '../input-base';
 import { InputBaseComponent } from '../input-base/input-base.styled';
 import { getInputHeights, getInputTypography } from './input.tokens';
 
-export interface InputRootProps {
+interface InputRootProps {
   fullWidth?: boolean;
   disabled?: boolean;
   error?: boolean;

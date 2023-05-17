@@ -19,7 +19,7 @@ import { SSRPageProps } from '@/shared/types/ssr-page-props';
 import BrowserPageBootstrap, { BrowserPageBootstrapProps } from './browser-page-bootstrap';
 import ServerPageBootstrap, { ServerPageBootstrapProps } from './server-page-bootstrap';
 
-export type Props = MultiversalAppBootstrapProps<SSGPageProps> | MultiversalAppBootstrapProps<SSRPageProps>;
+type Props = MultiversalAppBootstrapProps<SSGPageProps> | MultiversalAppBootstrapProps<SSRPageProps>;
 
 const fileLabel = 'app/components/MultiversalAppBootstrap';
 const logger = createLogger(fileLabel);

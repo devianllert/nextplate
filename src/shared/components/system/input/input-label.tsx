@@ -1,6 +1,7 @@
+import { createTransition } from '@effable/react';
 import styled from '@emotion/styled';
 
-import { createTransition, duration } from '@/shared/design/tokens/transitions';
+import { duration } from '@/shared/design/tokens/transitions';
 import { fontWeight } from '@/shared/design/tokens/typography';
 
 export const InputLabel = styled.label((props) => ({

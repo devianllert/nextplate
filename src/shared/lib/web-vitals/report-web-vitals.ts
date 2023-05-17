@@ -1,7 +1,9 @@
 // Note: Use v1 for uniqueness - See https://www.sohamkamani.com/blog/2016/10/05/uuid1-vs-uuid4/
+
+import type { NextWebVitalsMetric } from 'next/app';
+
 import { v1 as uuid } from 'uuid';
 
-import { NextWebVitalsMetrics } from './types/next-web-vitals-metrics';
 import { NextWebVitalsMetricsReport } from './types/next-web-vitals-metrics-report';
 
 /**
@@ -23,7 +25,7 @@ const globalWebVitalsMetric: NextWebVitalsMetricsReport = {
  * @see https://web.dev/vitals/ Essential metrics for a healthy site
  * @see https://nextjs.org/blog/next-9-4#integrated-web-vitals-reporting Initial release notes
  */
-export function reportWebVitals(metrics: NextWebVitalsMetrics): void {
+export function reportWebVitals(metrics: NextWebVitalsMetric): void {
   if (process.env.NEXT_PUBLIC_APP_STAGE !== 'production') {
     console.debug(metrics);
   }

@@ -10,7 +10,7 @@ import {
 import { AuthContent } from '../auth-content';
 import { AuthHeader } from '../auth-header';
 
-export interface AuthLayoutProps {
+interface AuthLayoutProps {
   /**
    * The content
    */

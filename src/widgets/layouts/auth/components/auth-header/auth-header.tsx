@@ -12,9 +12,7 @@ import { APP_TITLE } from '@/shared/lib/meta';
 
 import * as S from './auth-header.styled';
 
-export type AuthHeaderProps = unknown;
-
-export const AuthHeader = (): JSX.Element => {
+export const AuthHeader = () => {
   return (
     <S.AuthHeaderRoot>
       <Container>

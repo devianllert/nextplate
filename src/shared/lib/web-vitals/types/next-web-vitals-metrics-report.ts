@@ -1,4 +1,4 @@
-import { NextWebVitalsMetrics } from './next-web-vitals-metrics';
+import { NextWebVitalsMetric } from 'next/app';
 
 /**
  * Group all vital metrics together, using their own "name" property as key.
@@ -15,18 +15,18 @@ export type NextWebVitalsMetricsReport = {
   reportId: string;
   metrics: {
     // First contentful paint, triggers on page load
-    FCP?: NextWebVitalsMetrics;
+    FCP?: NextWebVitalsMetric;
     // First input delay, trigger on first end-user interaction (click)
-    FID?: NextWebVitalsMetrics;
+    FID?: NextWebVitalsMetric;
     // Largest contentful paint, triggers on first end-user interaction (sometimes doesn't trigger)
-    LCP?: NextWebVitalsMetrics;
+    LCP?: NextWebVitalsMetric;
     // Triggers on page load
-    'Next.js-hydration'?: NextWebVitalsMetrics;
+    'Next.js-hydration'?: NextWebVitalsMetric;
     // Triggers on client-side redirection (<Link>)
-    'Next.js-render'?: NextWebVitalsMetrics;
+    'Next.js-render'?: NextWebVitalsMetric;
     // Triggers on client-side redirection (<Link>)
-    'Next.js-route-change-to-render'?: NextWebVitalsMetrics;
+    'Next.js-route-change-to-render'?: NextWebVitalsMetric;
     // Time to first byte, triggers on page load
-    TTFB?: NextWebVitalsMetrics;
+    TTFB?: NextWebVitalsMetric;
   };
 };

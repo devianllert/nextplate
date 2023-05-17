@@ -10,7 +10,7 @@ import { staticPath } from '@/shared/lib/$path';
 import { DEFAULT_LOCALE, SUPPORTED_LANGUAGES } from '../i18n';
 import { APP_TITLE, getAlternateHrefLinks, getAppTitle } from './meta';
 
-export interface PageSEOProps {
+interface PageSEOProps {
   title?: string;
   description?: string;
   image?: string;
@@ -19,7 +19,7 @@ export interface PageSEOProps {
 
 export const PageSEO = (props: PageSEOProps) => {
   const { asPath } = useRouter();
-  const { i18n } = useTranslation(undefined);
+  const { i18n } = useTranslation();
 
   const {
     title,

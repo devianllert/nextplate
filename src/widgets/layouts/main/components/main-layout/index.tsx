@@ -5,7 +5,7 @@ import { Box, SkipNavContent } from '@effable/react';
 import { MainFooter } from '../main-footer';
 import { MainHeader } from '../main-header';
 
-export interface MainLayoutProps {
+interface MainLayoutProps {
   /**
    * The content
    */

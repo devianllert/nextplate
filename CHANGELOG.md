@@ -2,6 +2,26 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.7.0](https://github.com/devianllert/nextplate/compare/v0.6.0...v0.7.0) (2023-05-17)
+
+
+### Features
+
+* add msw for mocking ([33b7f52](https://github.com/devianllert/nextplate/commit/33b7f52474fb8d34dbb4c4ba2a00cf4958fbd1bf))
+
+
+### Bug Fixes
+
+* **deps:** pin dependency @next/env to 13.3.1 ([feb7356](https://github.com/devianllert/nextplate/commit/feb7356484b7b9bcb447629c78e4100bdadb8d2f))
+* **deps:** update all non-major dependencies ([5d19a4f](https://github.com/devianllert/nextplate/commit/5d19a4f3c6dade981f53e0908daf1a6aac02e56a))
+* **deps:** update all non-major dependencies ([15db0cb](https://github.com/devianllert/nextplate/commit/15db0cb69b42007d739a7f753806e05a30370725))
+* **deps:** update all non-major dependencies ([0d7a7fd](https://github.com/devianllert/nextplate/commit/0d7a7fddb7d42047afcdcd94e53c5477c6f141d8))
+* **deps:** update dependency axios to v1.4.0 ([b94fd80](https://github.com/devianllert/nextplate/commit/b94fd8037d3a8c84b364eeef4148958b540d0121))
+* **deps:** update dependency date-fns to v2.30.0 ([678baab](https://github.com/devianllert/nextplate/commit/678baab1f02cfb43bd917a92756573a59459ebd1))
+* **deps:** update dependency pino to v8.12.1 ([a6e2a59](https://github.com/devianllert/nextplate/commit/a6e2a597ea265cd1956384a38a5c0f894e11debb))
+* fix dashboard styles ([b9c8644](https://github.com/devianllert/nextplate/commit/b9c864473243bdd0a44fce89b2007e5f6e58a5e4))
+* remove circular dependencies ([479139e](https://github.com/devianllert/nextplate/commit/479139e14a3e70b563cc269d6231a80ebd4548d0))
+
 ## [0.6.0](https://github.com/devianllert/nextplate/compare/v0.5.0...v0.6.0) (2023-04-21)
 
 

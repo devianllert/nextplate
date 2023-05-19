@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.7.1](https://github.com/devianllert/nextplate/compare/v0.7.0...v0.7.1) (2023-05-19)
+
+
+### Bug Fixes
+
+* **deps:** pin dependencies ([4318324](https://github.com/devianllert/nextplate/commit/43183244cef0c23f93e5718806111df35cbc4b82))
+* **deps:** update all non-major dependencies ([25f667d](https://github.com/devianllert/nextplate/commit/25f667d513b568e01708b69369c8761a5366821e))
+
 ## [0.7.0](https://github.com/devianllert/nextplate/compare/v0.6.0...v0.7.0) (2023-05-17)
 
 

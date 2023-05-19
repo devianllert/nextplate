@@ -6,7 +6,6 @@ Ultimate template for Next.js with a pack of incredible tools
 ![GitHub](https://img.shields.io/github/license/devianllert/nextplate?style=for-the-badge)
 ![GitHub issues](https://img.shields.io/github/issues/devianllert/nextplate?style=for-the-badge)
 ![Renovate](https://img.shields.io/badge/Renovate-enabled-blue?style=for-the-badge)
-![Security Headers](https://img.shields.io/security-headers?style=for-the-badge&url=https%3A%2F%2Fnextplate.dvnllrt.io)
 
 ## Introduction
 This is a **template** with all you need for your next web application. Aims for developers who really care about code quality, architecture, security and all the best practices in frontend.

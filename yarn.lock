@@ -11132,7 +11132,7 @@ next-pwa@5.6.0:
     workbox-webpack-plugin "^6.5.4"
     workbox-window "^6.5.4"
 
-next-safe@^3.4.1:
+next-safe@3.4.1:
   version "3.4.1"
   resolved "https://registry.yarnpkg.com/next-safe/-/next-safe-3.4.1.tgz#bd13cc8b3878b8bb61cb781a03c77907f369545c"
   integrity sha512-GOam3DYMHUIKwxHeqVg9pkuYFhvtUeivHexdbL3lg0mjibsnIB3NOD81dKDgaeX+cReWbugdCtWYllzXmmpE+Q==

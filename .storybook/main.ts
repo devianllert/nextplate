@@ -49,6 +49,8 @@ const config: StorybookConfig = {
         fallback: {
           ...config.resolve?.fallback,
           fs: false,
+          stream: false,
+          zlib: false,
         },
         alias: {
           ...config.resolve?.alias,

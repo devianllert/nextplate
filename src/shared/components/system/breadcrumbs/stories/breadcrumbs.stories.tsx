@@ -10,7 +10,7 @@ export default {
   component: Breadcrumbs.Root,
 } as Meta;
 
-export const Basic = (): JSX.Element => (
+export const Basic = () => (
   <Breadcrumbs.Root>
     <Breadcrumbs.Item>
       <Breadcrumbs.Link href="/123">Home</Breadcrumbs.Link>
@@ -28,7 +28,7 @@ export const Basic = (): JSX.Element => (
   </Breadcrumbs.Root>
 );
 
-export const CustomSeparators = (): JSX.Element => (
+export const CustomSeparators = () => (
   <Breadcrumbs.Root>
     <Breadcrumbs.Item>Home</Breadcrumbs.Item>
 

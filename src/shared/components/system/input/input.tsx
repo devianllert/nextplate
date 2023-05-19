@@ -48,7 +48,7 @@ export interface InputProps extends InputBaseProps {
 /**
  * The `Input` component is used to get user input in a text field.
  */
-export const Input = React.forwardRef<HTMLInputElement, InputProps>(function Input(props, forwardedRef): JSX.Element {
+export const Input = React.forwardRef<HTMLInputElement, InputProps>(function Input(props, forwardedRef) {
   const {
     label,
     helperText,

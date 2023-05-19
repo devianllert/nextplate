@@ -10,7 +10,7 @@ export interface GithubButtonProps {
   redirectTo?: string;
 }
 
-export const GithubButton = (props: GithubButtonProps): JSX.Element => {
+export const GithubButton = (props: GithubButtonProps) => {
   const { redirectTo = `${process.env.NEXT_PUBLIC_APP_URL}/dashboard` } = props;
 
   const { t } = useTranslation('auth');

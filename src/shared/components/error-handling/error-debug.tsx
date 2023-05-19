@@ -10,7 +10,7 @@ export interface ErrorDebugProps {
  *
  * @param props
  */
-export const ErrorDebug = (props: ErrorDebugProps): JSX.Element => {
+export const ErrorDebug = (props: ErrorDebugProps) => {
   const { error, context }: ErrorDebugProps = props;
   const { message, stack } = error || {};
 

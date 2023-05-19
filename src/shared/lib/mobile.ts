@@ -3,7 +3,7 @@ import * as Sentry from '@sentry/nextjs';
 
 import { createLogger } from '@/shared/lib/logging/logger';
 
-const fileLabel = 'common/lib/mobile';
+const fileLabel = 'shared/lib/mobile';
 const logger = createLogger(fileLabel);
 
 /**

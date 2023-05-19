@@ -5,7 +5,7 @@ import { Box, Stack } from '@effable/react';
 import { Dignity } from '../dignity';
 import { AnimatedBubble } from './dignity-grid.styled';
 
-export const DignityGrid = (): JSX.Element => {
+export const DignityGrid = () => {
   return (
     <Box
       display={{

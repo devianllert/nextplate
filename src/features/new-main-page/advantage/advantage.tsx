@@ -13,7 +13,7 @@ export interface AdvantageProps {
   title: string;
 }
 
-export const Advantage = (props: AdvantageProps): JSX.Element => {
+export const Advantage = (props: AdvantageProps) => {
   const { icon, description, title } = props;
 
   return (

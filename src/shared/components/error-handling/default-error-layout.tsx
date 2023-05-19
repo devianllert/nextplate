@@ -15,7 +15,7 @@ export interface DefaultErrorLayoutProps {
  *
  * @param props
  */
-export const DefaultErrorLayout = (props: DefaultErrorLayoutProps): JSX.Element => {
+export const DefaultErrorLayout = (props: DefaultErrorLayoutProps) => {
   const { error, context } = props;
 
   return (

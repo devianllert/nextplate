@@ -51,7 +51,7 @@ export interface InputBaseProps extends Omit<React.InputHTMLAttributes<HTMLInput
 export const InputBase = React.forwardRef(function InputBase(
   props: InputBaseProps,
   ref: React.ForwardedRef<HTMLInputElement>,
-): JSX.Element {
+) {
   const {
     type = 'text',
     disabled,

@@ -50,7 +50,7 @@ export type ErrorProps = {
  * @see https://github.com/vercel/next.js/blob/canary/examples/with-sentry-simple/pages/_error.js Inspiration about Sentry implementation
  * @see https://github.com/vercel/next.js/discussions/12913 Discussion about hybrid SSG/SSR apps considerations
  */
-const ErrorPage = (props: ErrorPageProps): JSX.Element => {
+const ErrorPage = (props: ErrorPageProps) => {
   const {
     statusCode, isReadyToRender, err, children = null,
   } = props;

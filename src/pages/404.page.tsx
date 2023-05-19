@@ -18,7 +18,6 @@ import { createLogger } from '@/shared/lib/logging/logger';
 import { PageSEO } from '@/shared/lib/meta';
 import { getTranslationsStaticProps } from '@/shared/lib/ssr';
 import { EnhancedNextPage } from '@/shared/types/enhanced-next-page';
-import { SoftPageProps } from '@/shared/types/soft-page-props';
 import { SSGPageProps } from '@/shared/types/ssg-page-props';
 
 const fileLabel = 'pages/404';
@@ -34,17 +33,9 @@ const logger = createLogger(fileLabel);
  */
 export const getStaticProps: GetStaticProps<SSGPageProps> = getTranslationsStaticProps(['404']);
 
-/**
- * SSG pages are first rendered by the server (during static bundling)
- * Then, they're rendered by the client, and gain additional props (defined in OnlyBrowserPageProps)
- * Because this last case is the most common (server bundle only happens during development stage), we consider it a default
- * To represent this behaviour, we use the native Partial TS keyword to make all OnlyBrowserPageProps optional
- *
- * Beware props in OnlyBrowserPageProps are not available on the server
- */
-type Props = SoftPageProps;
+type NotFound404PageProps = SSGPageProps;
 
-const NotFound404Page: EnhancedNextPage<Props> = (): JSX.Element => {
+const NotFound404Page: EnhancedNextPage<NotFound404PageProps> = () => {
   const router = useRouter();
 
   const { t } = useTranslation('404');

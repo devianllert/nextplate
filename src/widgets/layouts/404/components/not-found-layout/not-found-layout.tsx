@@ -11,7 +11,7 @@ export interface NotFound404LayoutProps {
   children?: React.ReactNode;
 }
 
-export const NotFoundLayout = (props: NotFound404LayoutProps): JSX.Element => {
+export const NotFoundLayout = (props: NotFound404LayoutProps) => {
   const { children } = props;
 
   return (

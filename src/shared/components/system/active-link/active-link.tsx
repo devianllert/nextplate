@@ -14,7 +14,7 @@ export interface ActiveLinkProps extends LinkProps {
  * The `ActiveLink` component is used send the `active` property to its child
  * if the current pathname matches the `href` prop.
  */
-export const ActiveLink = (props: ActiveLinkProps): JSX.Element => {
+export const ActiveLink = (props: ActiveLinkProps) => {
   const { children, href, ...other } = props;
 
   const { asPath } = useRouter();

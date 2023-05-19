@@ -7,4 +7,4 @@ export default {
   component: AuthHeader,
 };
 
-export const Basic = (): JSX.Element => <AuthHeader />;
+export const Basic = () => <AuthHeader />;

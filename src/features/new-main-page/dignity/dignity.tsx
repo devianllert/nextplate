@@ -10,7 +10,7 @@ export interface DignityProps {
   icon: string;
 }
 
-export const Dignity = (props: DignityProps): JSX.Element => {
+export const Dignity = (props: DignityProps) => {
   const { title, text, icon } = props;
 
   return (

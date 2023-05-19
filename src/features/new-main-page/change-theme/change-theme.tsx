@@ -12,7 +12,7 @@ const iconMap = {
   system: RiComputerLine,
 };
 
-export const ChangeTheme = (): JSX.Element => {
+export const ChangeTheme = () => {
   // eslint-disable-next-line @typescript-eslint/unbound-method
   const { mode, setMode } = useEffableTheme('ChangeTheme');
 

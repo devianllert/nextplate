@@ -10,7 +10,7 @@ export interface SectionProps {
   backgroundColor?: string;
 }
 
-export const Section = (props: SectionProps): JSX.Element => {
+export const Section = (props: SectionProps) => {
   const { children, backgroundColor } = props;
 
   return (

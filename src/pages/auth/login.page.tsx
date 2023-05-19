@@ -10,9 +10,7 @@ import { createLogger } from '@/shared/lib/logging/logger';
 import { PageSEO } from '@/shared/lib/meta';
 import { getTranslationsStaticProps } from '@/shared/lib/ssr';
 import { EnhancedNextPage } from '@/shared/types/enhanced-next-page';
-import { OnlyBrowserPageProps } from '@/shared/types/only-browser-page-props';
 import { SSGPageProps } from '@/shared/types/ssg-page-props';
-import { SSRPageProps } from '@/shared/types/ssr-page-props';
 
 const logger = createLogger('Login');
 
@@ -26,17 +24,9 @@ const logger = createLogger('Login');
  */
 export const getStaticProps = getTranslationsStaticProps(['auth', 'common']);
 
-/**
- * SSR pages are first rendered by the server
- * Then, they're rendered by the client, and gain additional props (defined in OnlyBrowserPageProps)
- * Because this last case is the most common (server bundle only happens during development stage), we consider it a default
- * To represent this behaviour, we use the native Partial TS keyword to make all OnlyBrowserPageProps optional
- *
- * Beware props in OnlyBrowserPageProps are not available on the server
- */
-type Props = SSRPageProps & SSGPageProps<OnlyBrowserPageProps>;
+type LoginPageProps = SSGPageProps;
 
-const LoginPage: EnhancedNextPage<Props> = (): JSX.Element => {
+const LoginPage: EnhancedNextPage<LoginPageProps> = () => {
   const { t } = useTranslation('auth');
 
   return (

@@ -18,7 +18,7 @@ export interface NProgressRootProps {
   options?: NProgress.NProgressOptions;
 }
 
-export const NProgressRoot = (props: NProgressRootProps): JSX.Element => {
+export const NProgressRoot = (props: NProgressRootProps) => {
   const { color = 'accent', showAfterMs = 0, options } = props;
 
   const theme = useTheme() as unknown as EffableTheme;

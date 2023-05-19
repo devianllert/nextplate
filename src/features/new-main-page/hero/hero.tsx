@@ -8,7 +8,7 @@ import { useTranslation } from 'next-i18next';
 import { DignityGrid } from '@/features/new-main-page/dignity-grid';
 import { Section } from '@/features/new-main-page/section';
 
-export const Hero = (): JSX.Element => {
+export const Hero = () => {
   const { t } = useTranslation(['index']);
 
   return (

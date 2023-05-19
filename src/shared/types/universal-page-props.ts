@@ -10,7 +10,7 @@ import { EffectorState } from '../lib/effector';
  * Client-side page props are listed in SSGPageProps
  */
 // eslint-disable-next-line @typescript-eslint/ban-types
-export type MultiversalPageProps<E extends {} = {}> = {
+export type UniversalPageProps<E extends {} = {}> = {
   error?: Error; // Only defined if there was an error
   statusCode?: number; // Provided by Next.js framework, sometimes
   _nextI18Next: SSRConfig['_nextI18Next'];

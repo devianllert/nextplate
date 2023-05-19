@@ -10,7 +10,7 @@ import ru from 'timeago.js/lib/lang/ru';
 
 register('ru', ru);
 
-export const MainFooter = (): JSX.Element => {
+export const MainFooter = () => {
   const { t, i18n } = useTranslation('common');
 
   return (

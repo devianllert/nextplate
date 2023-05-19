@@ -20,7 +20,7 @@ class NextplateDocument extends Document {
     return initialProps;
   }
 
-  render(): JSX.Element {
+  render() {
     return (
       <Html lang={this.props.locale}>
         <Head>

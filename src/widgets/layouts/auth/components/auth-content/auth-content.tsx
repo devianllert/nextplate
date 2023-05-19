@@ -23,7 +23,7 @@ const variants = {
   transition: { type: 'spring', bounce: 0, duration: duration.short / 1000 },
 };
 
-export const AuthContent = (props: AuthContentProps): JSX.Element => {
+export const AuthContent = (props: AuthContentProps) => {
   const { children } = props;
 
   const router = useRouter();

@@ -1,6 +1,7 @@
 import * as React from 'react';
 
-import { AnimatedSpinner } from '../../animations/animated-spinner';
+import { Spinner } from '@effable/react';
+
 import * as S from './loading-overlay.styled';
 
 export interface LoadingOverlayProps {
@@ -13,8 +14,8 @@ export interface LoadingOverlayProps {
 /**
  * The `LoadingOverlay` component is used to show overlay over given container with centered Loader.
  */
-export const LoadingOverlay = (props: LoadingOverlayProps): JSX.Element => {
-  const { loader = <AnimatedSpinner /> } = props;
+export const LoadingOverlay = (props: LoadingOverlayProps) => {
+  const { loader = <Spinner size={32} /> } = props;
 
   return <S.LoadingOverlayRoot>{loader}</S.LoadingOverlayRoot>;
 };

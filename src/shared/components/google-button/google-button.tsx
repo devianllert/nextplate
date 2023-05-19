@@ -10,7 +10,7 @@ export interface GoogleButtonProps {
   redirectTo?: string;
 }
 
-export const GoogleButton = (props: GoogleButtonProps): JSX.Element => {
+export const GoogleButton = (props: GoogleButtonProps) => {
   const { redirectTo = `${process.env.NEXT_PUBLIC_APP_URL}/dashboard` } = props;
 
   const { t } = useTranslation('auth');

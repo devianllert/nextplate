@@ -10,7 +10,7 @@ import {
 
 import { Advantage } from '@/features/new-main-page/advantage';
 
-export const WhyNextplate = (): JSX.Element => {
+export const WhyNextplate = () => {
   const { t } = useTranslation(['index', 'common']);
 
   return (

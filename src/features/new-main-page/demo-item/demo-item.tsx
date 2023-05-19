@@ -16,7 +16,7 @@ export interface DemoItemProps {
   link?: string | UrlObject;
 }
 
-export const DemoItem = (props: DemoItemProps): JSX.Element => {
+export const DemoItem = (props: DemoItemProps) => {
   const {
     title, description, preview, link,
   } = props;

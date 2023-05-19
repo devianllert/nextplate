@@ -1,7 +1,6 @@
 /* eslint-disable @typescript-eslint/indent */
-import { MultiversalAppBootstrapPageProps } from '@/shared/types/multiversal-app-bootstrap-page-props';
 
-import { MultiversalPageProps } from './multiversal-page-props';
+import { UniversalPageProps } from './universal-page-props';
 
 /**
  * Static properties returned by getStaticProps for static pages (using SSG)
@@ -17,6 +16,5 @@ import { MultiversalPageProps } from './multiversal-page-props';
 export type SSGPageProps<E extends {} = {}> = {
   // Props that are specific to SSG
   isStaticRendering: boolean;
-} & MultiversalPageProps & // Generic props that are provided immediately, no matter what
-  Partial<MultiversalAppBootstrapPageProps> & // Pages served by SSG eventually benefit from props injected by the MultiversalAppBootstrap component
+} & UniversalPageProps & // Generic props that are provided immediately, no matter what
   E;

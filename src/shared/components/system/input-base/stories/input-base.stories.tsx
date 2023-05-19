@@ -18,7 +18,7 @@ export const Basic = Template.bind({});
 
 Basic.args = {};
 
-export const SearchBox = (): JSX.Element => (
+export const SearchBox = () => (
   <Box
     display="flex"
     alignItems="center"
@@ -59,7 +59,7 @@ const InputContainer = styled.div((props) => ({
   },
 }));
 
-export const ComposedInputs = (): JSX.Element => (
+export const ComposedInputs = () => (
   <InputContainer>
     <InputBase placeholder="example" />
 

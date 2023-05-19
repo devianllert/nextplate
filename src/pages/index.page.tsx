@@ -13,15 +13,13 @@ import { WhyNextplate } from '@/features/new-main-page/why-nextplate';
 import { PageSEO } from '@/shared/lib/meta';
 import { getTranslationsStaticProps } from '@/shared/lib/ssr';
 import { EnhancedNextPage } from '@/shared/types/enhanced-next-page';
-import { OnlyBrowserPageProps } from '@/shared/types/only-browser-page-props';
 import { SSGPageProps } from '@/shared/types/ssg-page-props';
-import { SSRPageProps } from '@/shared/types/ssr-page-props';
 
-type IndexPageProps = SSRPageProps & SSGPageProps<OnlyBrowserPageProps>;
+type IndexPageProps = SSGPageProps;
 
 export const getStaticProps = getTranslationsStaticProps(['index', 'common']);
 
-const IndexPage: EnhancedNextPage<IndexPageProps> = (): JSX.Element => {
+const IndexPage: EnhancedNextPage<IndexPageProps> = () => {
   const { t } = useTranslation(['index', 'common']);
 
   return (

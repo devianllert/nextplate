@@ -7,4 +7,4 @@ export default {
   component: AuthLayout,
 };
 
-export const Basic = (): JSX.Element => <AuthLayout />;
+export const Basic = () => <AuthLayout />;

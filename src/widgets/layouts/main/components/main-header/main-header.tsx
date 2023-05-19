@@ -10,7 +10,7 @@ import { ChangeTheme } from '@/features/new-main-page/change-theme';
 
 import { APP_TITLE } from '@/shared/lib/meta';
 
-export const MainHeader = (): JSX.Element => {
+export const MainHeader = () => {
   return (
     <>
       <SkipNavLink />

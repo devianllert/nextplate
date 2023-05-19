@@ -12,7 +12,7 @@ interface MainLayoutProps {
   children?: React.ReactNode;
 }
 
-export const MainLayout = (props: MainLayoutProps): JSX.Element => {
+export const MainLayout = (props: MainLayoutProps) => {
   const { children } = props;
 
   return (

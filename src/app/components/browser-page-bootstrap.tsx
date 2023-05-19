@@ -1,36 +1,32 @@
 import * as React from 'react';
 
 import { useTranslation } from 'next-i18next';
+import { EnhancedAppProps } from '@/root/src/shared/types/enhanced-app-props';
+import { UniversalPageProps } from '@/root/src/shared/types/universal-page-props';
 
 import { createLogger } from '@/shared/lib/logging/logger';
-import { MultiversalAppBootstrapPageProps } from '@/shared/types/multiversal-app-bootstrap-page-props';
-import { MultiversalAppBootstrapProps } from '@/shared/types/multiversal-app-bootstrap-props';
-import { MultiversalPageProps } from '@/shared/types/multiversal-page-props';
-import { OnlyBrowserPageProps } from '@/shared/types/only-browser-page-props';
 
 const logger = createLogger('BrowserPageBootstrap');
 
-export type BrowserPageBootstrapProps = MultiversalAppBootstrapProps<
-MultiversalPageProps & MultiversalAppBootstrapPageProps
->;
+export type BrowserPageBootstrapProps = EnhancedAppProps<UniversalPageProps>;
 
 /**
  * Bootstraps the page, only when rendered on the browser
  *
  * @param props
  */
-const BrowserPageBootstrap = (props: BrowserPageBootstrapProps): JSX.Element => {
+const BrowserPageBootstrap = (props: BrowserPageBootstrapProps) => {
   const { Component, err, router } = props;
 
-  const { t, i18n } = useTranslation(undefined);
+  const { t, i18n } = useTranslation();
 
   const LayoutComponent = Component.Layout ?? React.Fragment;
 
   // When the page is served by the browser, some browser-only properties are available
   // eslint-disable-next-line react/destructuring-assignment
-  const pageProps = props.pageProps as unknown as MultiversalPageProps<OnlyBrowserPageProps>;
+  const pageProps = props.pageProps as unknown as UniversalPageProps;
 
-  const injectedPageProps: MultiversalPageProps<OnlyBrowserPageProps> = {
+  const injectedPageProps: UniversalPageProps = {
     ...pageProps,
   };
 

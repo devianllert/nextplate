@@ -1,8 +1,9 @@
 import * as React from 'react';
 
-import { isBrowser, isEmpty } from '@effable/misc';
+import { isBrowser } from '@effable/misc';
 import * as Sentry from '@sentry/nextjs';
 import { useTranslation } from 'next-i18next';
+import { EnhancedAppProps } from '@/root/src/shared/types/enhanced-app-props';
 import { withProviders } from '@/app/providers';
 
 import ErrorPage from '@/pages/_error.page';
@@ -12,16 +13,15 @@ import { NProgressRoot } from '@/features/nprogress';
 import { DefaultErrorLayout } from '@/shared/components/error-handling';
 import { createLogger } from '@/shared/lib/logging/logger';
 import { configureSentryI18n } from '@/shared/lib/sentry';
-import { MultiversalAppBootstrapProps } from '@/shared/types/multiversal-app-bootstrap-props';
 import { SSGPageProps } from '@/shared/types/ssg-page-props';
 import { SSRPageProps } from '@/shared/types/ssr-page-props';
 
 import BrowserPageBootstrap, { BrowserPageBootstrapProps } from './browser-page-bootstrap';
 import ServerPageBootstrap, { ServerPageBootstrapProps } from './server-page-bootstrap';
 
-type Props = MultiversalAppBootstrapProps<SSGPageProps> | MultiversalAppBootstrapProps<SSRPageProps>;
+type Props = EnhancedAppProps<SSGPageProps> | EnhancedAppProps<SSRPageProps>;
 
-const fileLabel = 'app/components/MultiversalAppBootstrap';
+const fileLabel = 'app/components/UniversalAppBootstrap';
 const logger = createLogger(fileLabel);
 
 /**
@@ -32,11 +32,10 @@ const logger = createLogger(fileLabel);
  *
  * @param props
  */
-const MultiversalAppBootstrap = (props: Props): JSX.Element => {
+const UniversalAppBootstrap = (props: Props) => {
   const { pageProps, router, err } = props;
 
-  const [isSSGFallbackInitialBuild] = React.useState<boolean>(isEmpty(pageProps) && router?.isFallback === true);
-  const { i18n } = useTranslation(undefined);
+  const { i18n } = useTranslation();
 
   Sentry.addBreadcrumb({
     category: fileLabel,
@@ -48,16 +47,13 @@ const MultiversalAppBootstrap = (props: Props): JSX.Element => {
 
   if (isBrowser() && process.env.NEXT_PUBLIC_APP_STAGE !== 'production') {
     // Avoids log clutter on server
-    logger.debug('MultiversalAppBootstrap.props', props);
+    logger.debug('UniversalAppBootstrap.props', props);
   }
 
   // Display a loader (we could use a skeleton too) when this happens, so that the user doesn't face a white page until the page is generated and displayed
   // When router.isFallback becomes "false", then it'll mean the page has been generated and rendered and we can display it, instead of the loader
-  if (isSSGFallbackInitialBuild && router?.isFallback) {
-    return (
-      // <Loader />
-      <div>...Loading</div>
-    );
+  if (router?.isFallback) {
+    return <div>...Loading</div>;
   }
 
   if (err) {
@@ -89,12 +85,11 @@ const MultiversalAppBootstrap = (props: Props): JSX.Element => {
    *
    * Note: There may be more rendering modes - See https://github.com/vercel/next.js/discussions/12558#discussioncomment-12303
    */
-  const multiversalPageBootstrapProps: ServerPageBootstrapProps & BrowserPageBootstrapProps = {
+  const universalPageBootstrapProps: ServerPageBootstrapProps & BrowserPageBootstrapProps = {
     ...props,
     router,
     pageProps: {
       ...pageProps,
-      isSSGFallbackInitialBuild,
     },
   };
 
@@ -103,12 +98,12 @@ const MultiversalAppBootstrap = (props: Props): JSX.Element => {
       <NProgressRoot showAfterMs={100} />
 
       {isBrowser() ? (
-        <BrowserPageBootstrap {...multiversalPageBootstrapProps} />
+        <BrowserPageBootstrap {...universalPageBootstrapProps} />
       ) : (
-        <ServerPageBootstrap {...multiversalPageBootstrapProps} />
+        <ServerPageBootstrap {...universalPageBootstrapProps} />
       )}
     </>
   );
 };
 
-export default withProviders(MultiversalAppBootstrap);
+export default withProviders(UniversalAppBootstrap);

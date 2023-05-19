@@ -17,7 +17,7 @@ interface AuthLayoutProps {
   children?: React.ReactNode;
 }
 
-export const AuthLayout = (props: AuthLayoutProps): JSX.Element => {
+export const AuthLayout = (props: AuthLayoutProps) => {
   const { children } = props;
 
   const shouldReduceMotion = useReducedMotion() ?? false;

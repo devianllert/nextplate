@@ -9,7 +9,7 @@ import { DemoItem } from '../demo-item';
 import { Section } from '../section';
 import { demoApps } from './demos.const';
 
-export const Demos = (): JSX.Element => {
+export const Demos = () => {
   const { t } = useTranslation('index');
 
   return (

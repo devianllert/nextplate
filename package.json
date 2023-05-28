@@ -45,7 +45,7 @@
     "@effector/next": "0.5.0",
     "@emotion/react": "11.11.0",
     "@emotion/styled": "11.11.0",
-    "@faker-js/faker": "7.6.0",
+    "@faker-js/faker": "8.0.2",
     "@farfetched/core": "0.8.12",
     "@farfetched/react": "0.5.1",
     "@fontsource/inter": "5.0.1",

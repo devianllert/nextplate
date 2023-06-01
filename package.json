@@ -95,7 +95,7 @@
     "@emotion/babel-plugin": "11.11.0",
     "@emotion/babel-preset-css-prop": "11.11.0",
     "@emotion/jest": "11.11.0",
-    "@ianvs/prettier-plugin-sort-imports": "3.7.2",
+    "@ianvs/prettier-plugin-sort-imports": "4.0.2",
     "@next/bundle-analyzer": "13.4.3",
     "@next/eslint-plugin-next": "13.4.3",
     "@storybook/addon-a11y": "7.0.13",

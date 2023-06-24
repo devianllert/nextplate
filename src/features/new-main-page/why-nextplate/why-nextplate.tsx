@@ -1,12 +1,8 @@
 import * as React from 'react';
 
-import {
-  Box, Code, Container, Heading, SimpleGrid,
-} from '@effable/react';
+import { Box, Code, Container, Heading, SimpleGrid } from '@effable/react';
 import { Trans, useTranslation } from 'next-i18next';
-import {
-  RiEyeFill, RiFlashlightFill, RiSettings3Fill, RiStarFill,
-} from 'react-icons/ri';
+import { RiEyeFill, RiFlashlightFill, RiSettings3Fill, RiStarFill } from 'react-icons/ri';
 
 import { Advantage } from '@/features/new-main-page/advantage';
 

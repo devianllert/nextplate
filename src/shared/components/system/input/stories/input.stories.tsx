@@ -65,7 +65,7 @@ const TemplateWithPasswordAdornment: Story<InputProps> = (args) => {
       label="Password"
       type={show ? 'text' : 'password'}
       {...args}
-      suffix={(
+      suffix={
         <ActionButton
           size="small"
           disabled={disabled}
@@ -74,7 +74,7 @@ const TemplateWithPasswordAdornment: Story<InputProps> = (args) => {
         >
           {show ? <RiEyeLine /> : <RiEyeCloseLine />}
         </ActionButton>
-      )}
+      }
     />
   );
 };

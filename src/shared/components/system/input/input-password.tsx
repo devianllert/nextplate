@@ -16,11 +16,11 @@ export const InputPassword = React.forwardRef<HTMLInputElement, InputPasswordPro
     <Input
       ref={ref}
       type={show ? 'text' : 'password'}
-      suffix={(
+      suffix={
         <ActionButton onClick={() => toggleShow()} size="small" label={label ?? ''}>
           {show ? <RiEyeLine /> : <RiEyeOffLine />}
         </ActionButton>
-      )}
+      }
       {...other}
     />
   );

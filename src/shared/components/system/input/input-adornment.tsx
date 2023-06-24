@@ -52,9 +52,7 @@ interface InputAdornmentProps {
 }
 
 export const InputAdornment: PolymorphicComponent<InputAdornmentProps, 'div'> = React.forwardRef((props, ref) => {
-  const {
-    children, className, component, disablePointerEvents = false, position, size, ...other
-  } = props;
+  const { children, className, component, disablePointerEvents = false, position, size, ...other } = props;
 
   return (
     <InputAdornmentRoot

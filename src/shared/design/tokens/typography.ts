@@ -4,7 +4,8 @@ import deepmerge from 'deepmerge';
 
 import { responsiveProperty } from '../lib/responsive-property';
 
-export const defaultFontFamily = 'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", Helvetica, Arial, sans-serif';
+export const defaultFontFamily =
+  'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", Helvetica, Arial, sans-serif';
 
 export const fontWeight = {
   light: 300,
@@ -48,9 +49,7 @@ interface ResponsiveVariantOptions {
 }
 
 const buildResponsiveVariant = (options: ResponsiveVariantOptions): React.CSSProperties => {
-  const {
-    weight, size, letterSpacing, lineHeight, casing,
-  } = options;
+  const { weight, size, letterSpacing, lineHeight, casing } = options;
 
   const responsiveFontSize = responsiveProperty({
     property: 'fontSize',

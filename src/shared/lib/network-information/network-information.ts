@@ -14,9 +14,9 @@ import {
  */
 export const getNavigatorConnection = (): NetworkInformation | undefined => {
   return (
-    (navigator as unknown as ExtendedNavigator)?.connection
-    ?? (navigator as unknown as ExtendedNavigator)?.mozConnection
-    ?? (navigator as unknown as ExtendedNavigator)?.webkitConnection
+    (navigator as unknown as ExtendedNavigator)?.connection ??
+    (navigator as unknown as ExtendedNavigator)?.mozConnection ??
+    (navigator as unknown as ExtendedNavigator)?.webkitConnection
   );
 };
 

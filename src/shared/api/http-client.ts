@@ -1,6 +1,4 @@
-import axios, {
-  AxiosError, AxiosRequestConfig, AxiosResponse, isAxiosError,
-} from 'axios';
+import axios, { AxiosError, AxiosRequestConfig, AxiosResponse, isAxiosError } from 'axios';
 
 const AXIOS_INSTANCE = axios.create({
   baseURL: process.env.NEXT_PUBLIC_APP_URL,

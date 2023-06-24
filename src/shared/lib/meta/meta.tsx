@@ -3,9 +3,11 @@ import { defaultTheme } from '@effable/react';
 
 export const APP_TITLE = 'nextplate';
 
-export const getAppTitle = (title?: string): string => (title ? `${title} - ${capitalize(APP_TITLE)}` : capitalize(APP_TITLE));
+export const getAppTitle = (title?: string): string =>
+  title ? `${title} - ${capitalize(APP_TITLE)}` : capitalize(APP_TITLE);
 
-export const getMetaImageUrl = (image: string): string => (image.startsWith('https://') ? image : `${process.env.NEXT_PUBLIC_APP_URL}${image}`);
+export const getMetaImageUrl = (image: string): string =>
+  image.startsWith('https://') ? image : `${process.env.NEXT_PUBLIC_APP_URL}${image}`;
 
 export const CommonMetaTags = () => (
   <>

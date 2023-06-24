@@ -1,6 +1,4 @@
-import {
-  Avatar, Box, Button, Container, Heading, Stack, Text,
-} from '@effable/react';
+import { Avatar, Box, Button, Container, Heading, Stack, Text } from '@effable/react';
 import { format } from 'date-fns';
 import { allSettled, serialize } from 'effector';
 import { useUnit } from 'effector-react';
@@ -18,9 +16,7 @@ import { withAuthenticatedSSP } from '@/shared/lib/ssr';
 import { dashboardPageStarted } from './model';
 
 const DashboardPage = () => {
-  const {
-    user, update, loading, sessions, logout,
-  } = useUnit({
+  const { user, update, loading, sessions, logout } = useUnit({
     user: userQuery.$data,
     update: userQuery.start,
     loading: userQuery.$pending,

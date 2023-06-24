@@ -12,6 +12,8 @@
     "^(next/(.*)$)|^(next$)",
     "<THIRD_PARTY_MODULES>",
     "",
+    "^@/root/(.*)$",
+    "^@/app/(.*)$",
     "^@/pages/(.*)$",
     "^@/layouts/(.*)$",
     "^@/features/(.*)$",

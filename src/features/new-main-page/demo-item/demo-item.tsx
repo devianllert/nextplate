@@ -5,9 +5,7 @@ import * as React from 'react';
 import Image from 'next/image';
 import NextLink from 'next/link';
 
-import {
-  AspectRatio, Badge, Box, Heading, Text,
-} from '@effable/react';
+import { AspectRatio, Badge, Box, Heading, Text } from '@effable/react';
 
 export interface DemoItemProps {
   title: string;
@@ -17,9 +15,7 @@ export interface DemoItemProps {
 }
 
 export const DemoItem = (props: DemoItemProps) => {
-  const {
-    title, description, preview, link,
-  } = props;
+  const { title, description, preview, link } = props;
 
   return (
     <Box

@@ -1,9 +1,7 @@
 /* eslint-disable prefer-arrow-callback */
 import * as React from 'react';
 
-import {
-  Box, Divider, useComposedRefs, useId,
-} from '@effable/react';
+import { Box, Divider, useComposedRefs, useId } from '@effable/react';
 
 import { InputBaseProps } from '../input-base';
 import { InputAdornment } from './input-adornment';

@@ -15,4 +15,4 @@ export type UniversalPageProps<E extends {} = {}> = {
   statusCode?: number; // Provided by Next.js framework, sometimes
   _nextI18Next: SSRConfig['_nextI18Next'];
 } & EffectorState &
-E;
+  E;

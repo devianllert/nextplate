@@ -9,12 +9,12 @@ import { NativeSelectComponent, NativeSelectRoot } from './native-select.styled'
 type BlacklistProps = 'allowClear' | 'suffix' | 'prefix' | 'inputComponent' | 'inputRef';
 
 type ParentInputProps = Omit<
-InputProps,
-keyof Omit<React.InputHTMLAttributes<HTMLInputElement>, 'prefix' | 'size'> | BlacklistProps
+  InputProps,
+  keyof Omit<React.InputHTMLAttributes<HTMLInputElement>, 'prefix' | 'size'> | BlacklistProps
 >;
 
 export type NativeSelectProps = ParentInputProps &
-Omit<React.SelectHTMLAttributes<HTMLSelectElement>, 'prefix' | 'size'>;
+  Omit<React.SelectHTMLAttributes<HTMLSelectElement>, 'prefix' | 'size'>;
 
 /**
  * The `NativeSelect` component is used for collecting user provided information from a list of options.

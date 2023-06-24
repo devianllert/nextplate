@@ -45,7 +45,7 @@ export type PageContext<Q extends ParsedUrlQuery = ParsedUrlQuery, P extends Par
   | ServerPageContext<Q, P>;
 
 export type PageEvent<Q extends ParsedUrlQuery = ParsedUrlQuery, P extends ParsedUrlQuery = ParsedUrlQuery> = Event<
-PageContext<Q, P>
+  PageContext<Q, P>
 >;
 
 export type EmptyOrPageEvent<Q extends ParsedUrlQuery = ParsedUrlQuery, P extends ParsedUrlQuery = ParsedUrlQuery> =
@@ -58,7 +58,7 @@ export type StaticPageContext<
 > = GetStaticPropsContext<P, D>;
 
 export type StaticPageEvent<P extends ParsedUrlQuery = ParsedUrlQuery, D extends PreviewData = PreviewData> = Event<
-StaticPageContext<P, D>
+  StaticPageContext<P, D>
 >;
 
 export type EmptyOrStaticPageEvent<P extends ParsedUrlQuery = ParsedUrlQuery, D extends PreviewData = PreviewData> =

@@ -1,12 +1,8 @@
 import React from 'react';
 
-import {
-  Variants as _Variants, AnimatePresence, HTMLMotionProps, motion,
-} from 'framer-motion';
+import { Variants as _Variants, AnimatePresence, HTMLMotionProps, motion } from 'framer-motion';
 
-import {
-  TransitionDefaults, Variants, withDelay, WithTransitionConfig,
-} from '@/shared/lib/transition';
+import { TransitionDefaults, Variants, withDelay, WithTransitionConfig } from '@/shared/lib/transition';
 
 export type FadeProps = WithTransitionConfig<HTMLMotionProps<'div'>>;
 
@@ -34,9 +30,7 @@ export const fadeConfig: HTMLMotionProps<'div'> = {
  * The `Fade` component is used to fade in from transparent to opaque.
  */
 export const Fade = React.forwardRef<HTMLDivElement, FadeProps>((props, ref) => {
-  const {
-    unmountOnExit, in: isOpen, className, transition, transitionEnd, delay, ...rest
-  } = props;
+  const { unmountOnExit, in: isOpen, className, transition, transitionEnd, delay, ...rest } = props;
 
   const animate = isOpen || unmountOnExit ? 'enter' : 'exit';
   const show = unmountOnExit ? isOpen && unmountOnExit : true;

@@ -2,9 +2,9 @@ import '@/shared/lib/wdyr/wdyr';
 
 import * as React from 'react';
 
-import UniversalAppBootstrap from '@/root/src/app/components/universal-app-bootstrap';
-import { EnhancedAppProps } from '@/root/src/shared/types/enhanced-app-props';
+import UniversalAppBootstrap from '@/app/components/universal-app-bootstrap';
 
+import { EnhancedAppProps } from '@/shared/types/enhanced-app-props';
 import { SSGPageProps } from '@/shared/types/ssg-page-props';
 import { SSRPageProps } from '@/shared/types/ssr-page-props';
 

@@ -1,8 +1,6 @@
 import * as React from 'react';
 
-import {
-  Box, Heading, Stack, Text,
-} from '@effable/react';
+import { Box, Heading, Stack, Text } from '@effable/react';
 import { Meta, Story } from '@storybook/react';
 
 import * as ScrollArea from '../scroll-area';

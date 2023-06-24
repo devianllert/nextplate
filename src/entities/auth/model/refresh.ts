@@ -1,7 +1,5 @@
 import { createDefer, Defer } from '@effable/misc';
-import {
-  createEffect, createEvent, createStore, sample,
-} from 'effector';
+import { createEffect, createEvent, createStore, sample } from 'effector';
 import decode, { JwtPayload } from 'jwt-decode';
 
 import { $token } from '@/shared/api/request/request';

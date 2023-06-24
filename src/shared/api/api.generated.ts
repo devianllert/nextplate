@@ -325,11 +325,11 @@ export type LoginResult = NonNullable<Awaited<ReturnType<typeof login>>>;
 export type LogoutResult = NonNullable<Awaited<ReturnType<typeof logout>>>;
 export type RefreshResult = NonNullable<Awaited<ReturnType<typeof refresh>>>;
 export type AuthGoogleControllerGoogleAuthResult = NonNullable<
-Awaited<ReturnType<typeof authGoogleControllerGoogleAuth>>
+  Awaited<ReturnType<typeof authGoogleControllerGoogleAuth>>
 >;
 export type LoginGoogleViaCallbackResult = NonNullable<Awaited<ReturnType<typeof loginGoogleViaCallback>>>;
 export type AuthGithubControllerGoogleAuthResult = NonNullable<
-Awaited<ReturnType<typeof authGithubControllerGoogleAuth>>
+  Awaited<ReturnType<typeof authGithubControllerGoogleAuth>>
 >;
 export type LoginGithubViaCallbackResult = NonNullable<Awaited<ReturnType<typeof loginGithubViaCallback>>>;
 export type CreateUserAccountResult = NonNullable<Awaited<ReturnType<typeof createUserAccount>>>;
@@ -343,14 +343,15 @@ export const getCreateUserMock = () => ({
   deletedAt: `${faker.date.past().toISOString().split('.')[0]}Z`,
 });
 
-export const getFindAllUsersMock = () => Array.from({ length: faker.datatype.number({ min: 1, max: 10 }) }, (_, i) => i + 1).map(() => ({
-  id: faker.datatype.number({ min: undefined, max: undefined }),
-  email: faker.helpers.arrayElement([faker.random.word(), undefined]),
-  username: faker.random.word(),
-  createdAt: `${faker.date.past().toISOString().split('.')[0]}Z`,
-  updatedAt: `${faker.date.past().toISOString().split('.')[0]}Z`,
-  deletedAt: `${faker.date.past().toISOString().split('.')[0]}Z`,
-}));
+export const getFindAllUsersMock = () =>
+  Array.from({ length: faker.datatype.number({ min: 1, max: 10 }) }, (_, i) => i + 1).map(() => ({
+    id: faker.datatype.number({ min: undefined, max: undefined }),
+    email: faker.helpers.arrayElement([faker.random.word(), undefined]),
+    username: faker.random.word(),
+    createdAt: `${faker.date.past().toISOString().split('.')[0]}Z`,
+    updatedAt: `${faker.date.past().toISOString().split('.')[0]}Z`,
+    deletedAt: `${faker.date.past().toISOString().split('.')[0]}Z`,
+  }));
 
 export const getFindUserByIdMock = () => ({
   id: faker.datatype.number({ min: undefined, max: undefined }),
@@ -361,28 +362,29 @@ export const getFindUserByIdMock = () => ({
   deletedAt: `${faker.date.past().toISOString().split('.')[0]}Z`,
 });
 
-export const getFindUserSessionsMock = () => Array.from({ length: faker.datatype.number({ min: 1, max: 10 }) }, (_, i) => i + 1).map(() => ({
-  id: faker.datatype.number({ min: undefined, max: undefined }),
-  user: faker.helpers.arrayElement([
-    {
-      id: faker.datatype.number({ min: undefined, max: undefined }),
-      email: faker.helpers.arrayElement([faker.random.word(), undefined]),
-      username: faker.random.word(),
-      createdAt: `${faker.date.past().toISOString().split('.')[0]}Z`,
-      updatedAt: `${faker.date.past().toISOString().split('.')[0]}Z`,
-      deletedAt: `${faker.date.past().toISOString().split('.')[0]}Z`,
-    },
-    undefined,
-  ]),
-  userId: faker.datatype.number({ min: undefined, max: undefined }),
-  ip: faker.random.word(),
-  userAgent: faker.random.word(),
-  os: faker.random.word(),
-  browser: faker.random.word(),
-  expiresIn: faker.datatype.number({ min: undefined, max: undefined }),
-  createdAt: `${faker.date.past().toISOString().split('.')[0]}Z`,
-  updatedAt: `${faker.date.past().toISOString().split('.')[0]}Z`,
-}));
+export const getFindUserSessionsMock = () =>
+  Array.from({ length: faker.datatype.number({ min: 1, max: 10 }) }, (_, i) => i + 1).map(() => ({
+    id: faker.datatype.number({ min: undefined, max: undefined }),
+    user: faker.helpers.arrayElement([
+      {
+        id: faker.datatype.number({ min: undefined, max: undefined }),
+        email: faker.helpers.arrayElement([faker.random.word(), undefined]),
+        username: faker.random.word(),
+        createdAt: `${faker.date.past().toISOString().split('.')[0]}Z`,
+        updatedAt: `${faker.date.past().toISOString().split('.')[0]}Z`,
+        deletedAt: `${faker.date.past().toISOString().split('.')[0]}Z`,
+      },
+      undefined,
+    ]),
+    userId: faker.datatype.number({ min: undefined, max: undefined }),
+    ip: faker.random.word(),
+    userAgent: faker.random.word(),
+    os: faker.random.word(),
+    browser: faker.random.word(),
+    expiresIn: faker.datatype.number({ min: undefined, max: undefined }),
+    createdAt: `${faker.date.past().toISOString().split('.')[0]}Z`,
+    updatedAt: `${faker.date.past().toISOString().split('.')[0]}Z`,
+  }));
 
 export const getLoginMock = () => ({
   access:

@@ -14,9 +14,7 @@ interface UseInputClearOptions<T extends HTMLTextAreaElement | HTMLInputElement>
 }
 
 export function useInputClear<T extends HTMLTextAreaElement | HTMLInputElement>(options: UseInputClearOptions<T>) {
-  const {
-    allowClear, disabled, value, onChange, ref, size = 'medium', label,
-  } = options;
+  const { allowClear, disabled, value, onChange, ref, size = 'medium', label } = options;
 
   const [hasUncontrolledInputValue, setHasUncontrolledInputValue] = React.useState(false);
 

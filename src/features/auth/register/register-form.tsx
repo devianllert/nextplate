@@ -1,8 +1,6 @@
 import NextLink from 'next/link';
 
-import {
-  Box, Button, Divider, Heading, Link, Stack, Text,
-} from '@effable/react';
+import { Box, Button, Divider, Heading, Link, Stack, Text } from '@effable/react';
 import { useUnit } from 'effector-react';
 import { useTranslation } from 'next-i18next';
 

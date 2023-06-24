@@ -1,8 +1,6 @@
 import * as React from 'react';
 
-import {
-  Box, Button, Heading, SimpleGrid, Stack, Text,
-} from '@effable/react';
+import { Box, Button, Heading, SimpleGrid, Stack, Text } from '@effable/react';
 import { useTranslation } from 'next-i18next';
 
 import { DignityGrid } from '@/features/new-main-page/dignity-grid';

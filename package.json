@@ -63,7 +63,7 @@
     "effector-react": "22.5.3",
     "effector-storage": "6.0.0",
     "framer-motion": "10.12.12",
-    "i18next": "22.5.0",
+    "i18next": "23.2.6",
     "jwt-decode": "3.1.2",
     "msw": "1.2.1",
     "next": "13.4.3",

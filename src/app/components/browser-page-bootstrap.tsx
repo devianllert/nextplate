@@ -53,7 +53,7 @@ const BrowserPageBootstrap = (props: BrowserPageBootstrapProps) => {
       <Component
         {...injectedPageProps}
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-        // @ts-ignore∫
+        // @ts-ignore
         error={err}
       />
     </LayoutComponent>

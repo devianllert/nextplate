@@ -1,7 +1,5 @@
 /* eslint-disable react-hooks/rules-of-hooks */
-import {
-  combine, createEvent, createStore, Effect, Event, EventPayload, sample, Store,
-} from 'effector';
+import { combine, createEvent, createStore, Effect, Event, EventPayload, sample, Store } from 'effector';
 import { useUnit } from 'effector-react';
 import { condition } from 'patronum';
 import { ZodIssue, ZodSchema } from 'zod';
@@ -17,10 +15,10 @@ export type ConvertUnit<Shape extends Field<any>> = {
   [Key in keyof Shape as ExcludeSymbol<Key>]: Shape[Key] extends Event<infer T>
     ? (payload: T) => T
     : Shape[Key] extends Effect<infer P, infer D, any>
-      ? (payload: P) => Promise<D>
-      : Shape[Key] extends Store<infer V>
-        ? V
-        : never;
+    ? (payload: P) => Promise<D>
+    : Shape[Key] extends Store<infer V>
+    ? V
+    : never;
 };
 
 export type FieldsObject = {

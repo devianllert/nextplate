@@ -7,9 +7,7 @@ import {
   RefreshResult,
   RegisterResult,
 } from '@/shared/api/api.generated';
-import {
-  $token, RequestError, requestFx, setToken,
-} from '@/shared/api/request/request';
+import { $token, RequestError, requestFx, setToken } from '@/shared/api/request/request';
 import { pushFx } from '@/shared/lib/effector/router';
 
 export const loginFx = createEffect<AuthEmailLoginDto, LoginResult, RequestError>(async (values) => {

@@ -1,7 +1,5 @@
 import * as React from 'react';
-import {
-  ActionButton, Input, InputProps, useBoolean,
-} from '@effable/react';
+import { ActionButton, Input, InputProps, useBoolean } from '@effable/react';
 import { RiEyeLine, RiEyeOffLine } from 'react-icons/ri';
 
 export type InputPasswordProps = Omit<InputProps, 'type'> & {
@@ -17,11 +15,11 @@ export const InputPassword = React.forwardRef<HTMLInputElement, InputPasswordPro
     <Input
       ref={ref}
       type={show ? 'text' : 'password'}
-      suffix={(
+      suffix={
         <ActionButton onClick={() => toggleShow()} size="small" label={passwordIconLabel ?? ''}>
           {show ? <RiEyeLine /> : <RiEyeOffLine />}
         </ActionButton>
-      )}
+      }
       {...other}
     />
   );

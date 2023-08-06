@@ -57,7 +57,8 @@ const UniversalAppBootstrap = (props: Props) => {
   }
 
   if (err) {
-    const error = new Error(`Fatal error - A top-level error was thrown by the application, which caused the Page.props to be lost. \n
+    const error =
+      new Error(`Fatal error - A top-level error was thrown by the application, which caused the Page.props to be lost. \n
     The page cannot be shown to the end-user, an error page will be displayed.`);
     logger.error(error);
 

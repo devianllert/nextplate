@@ -1,8 +1,6 @@
 import * as React from 'react';
 import NextLink from 'next/link';
-import {
-  Box, Button, Divider, Field, Heading, Input, Link, Stack, Text,
-} from '@effable/react';
+import { Box, Button, Divider, Field, Heading, Input, Link, Stack, Text } from '@effable/react';
 import { useUnit } from 'effector-react';
 import { useTranslation } from 'next-i18next';
 

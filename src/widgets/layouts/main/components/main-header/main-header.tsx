@@ -1,8 +1,6 @@
 import * as React from 'react';
 import { capitalize } from '@effable/misc';
-import {
-  Box, Container, DisplayOnBrowserMount, SkipNavLink, Stack, Text,
-} from '@effable/react';
+import { Box, Container, DisplayOnBrowserMount, SkipNavLink, Stack, Text } from '@effable/react';
 
 import { LocaleToggler } from '@/features/locale-toggler';
 import { ChangeTheme } from '@/features/new-main-page/change-theme';

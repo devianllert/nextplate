@@ -2,9 +2,7 @@ import React from 'react';
 import { GetStaticProps } from 'next';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import {
-  Button, Heading, Stack, Text,
-} from '@effable/react';
+import { Button, Heading, Stack, Text } from '@effable/react';
 import * as Sentry from '@sentry/nextjs';
 import { useTranslation } from 'next-i18next';
 import { RiArrowRightLine } from 'react-icons/ri';

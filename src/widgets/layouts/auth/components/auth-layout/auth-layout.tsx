@@ -1,9 +1,7 @@
 import * as React from 'react';
 import Image from 'next/image';
 import { Box } from '@effable/react';
-import {
-  motion, useMotionValue, useReducedMotion, useTransform,
-} from 'framer-motion';
+import { motion, useMotionValue, useReducedMotion, useTransform } from 'framer-motion';
 
 import { AuthContent } from '../auth-content';
 import { AuthHeader } from '../auth-header';

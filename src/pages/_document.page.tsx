@@ -1,6 +1,4 @@
-import Document, {
-  DocumentContext, DocumentInitialProps, Head, Html, Main, NextScript,
-} from 'next/document';
+import Document, { DocumentContext, DocumentInitialProps, Head, Html, Main, NextScript } from 'next/document';
 import { InitializeColorMode } from '@effable/react';
 
 import { CommonMetaTags } from '@/shared/lib/meta';

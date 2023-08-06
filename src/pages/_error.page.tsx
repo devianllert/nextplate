@@ -49,9 +49,7 @@ export type ErrorProps = {
  * @see https://github.com/vercel/next.js/discussions/12913 Discussion about hybrid SSG/SSR apps considerations
  */
 const ErrorPage = (props: ErrorPageProps) => {
-  const {
-    statusCode, isReadyToRender, err, children = null,
-  } = props;
+  const { statusCode, isReadyToRender, err, children = null } = props;
 
   if (process.env.NEXT_PUBLIC_APP_STAGE !== 'production') {
     console.debug('ErrorPage - Unexpected error caught, it was captured and sent to Sentry. Error details:'); // eslint-disable-line no-console

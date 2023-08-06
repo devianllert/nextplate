@@ -1,8 +1,6 @@
 import * as React from 'react';
 import Link from 'next/link';
-import {
-  Box, Container, Heading, Stack,
-} from '@effable/react';
+import { Box, Container, Heading, Stack } from '@effable/react';
 
 import { LocaleToggler } from '@/features/locale-toggler';
 

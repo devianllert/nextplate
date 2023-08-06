@@ -61,6 +61,4 @@ export const Breadcrumbs = React.forwardRef<HTMLElement, BreadcrumbsProps>((prop
   );
 });
 
-export {
-  Breadcrumbs as Root, BreadcrumbsItem as Item, BreadcrumbsLink as Link, BreadcrumbsSeparator as Separator,
-};
+export { Breadcrumbs as Root, BreadcrumbsItem as Item, BreadcrumbsLink as Link, BreadcrumbsSeparator as Separator };

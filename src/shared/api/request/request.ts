@@ -1,9 +1,7 @@
 /* eslint-disable effector/no-watch */
 import { isBrowser } from '@effable/misc';
 import { AxiosError, AxiosRequestConfig, AxiosResponse } from 'axios';
-import {
-  attach, createEffect, createEvent, createStore, restore,
-} from 'effector';
+import { attach, createEffect, createEvent, createStore, restore } from 'effector';
 import decode from 'jwt-decode';
 
 import { TokenPayload } from '../api.generated';

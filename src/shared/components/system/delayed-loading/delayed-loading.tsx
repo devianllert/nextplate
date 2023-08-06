@@ -14,9 +14,7 @@ export interface DelayedLoadingProps extends UseDelayedLoadingOptions {
  * until a certain amount of time has passed.
  */
 export const DelayedLoading = (props: DelayedLoadingProps) => {
-  const {
-    delay = 200, loading = false, children, minDuration = 500, initialLoading = false,
-  } = props;
+  const { delay = 200, loading = false, children, minDuration = 500, initialLoading = false } = props;
 
   const show = useDelayedLoading({
     delay,

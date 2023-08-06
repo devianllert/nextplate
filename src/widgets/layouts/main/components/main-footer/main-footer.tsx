@@ -1,7 +1,5 @@
 import * as React from 'react';
-import {
-  Box, Container, DisplayOnBrowserMount, Text,
-} from '@effable/react';
+import { Box, Container, DisplayOnBrowserMount, Text } from '@effable/react';
 import { useTranslation } from 'next-i18next';
 import Timeago from 'timeago-react';
 import { register } from 'timeago.js';

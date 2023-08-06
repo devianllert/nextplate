@@ -3,9 +3,7 @@ import { Button } from '@effable/react';
 import styled from '@emotion/styled';
 import { Meta } from '@storybook/react';
 
-import {
-  Sheet, SheetContent, SheetPortal, SheetTrigger,
-} from '../index';
+import { Sheet, SheetContent, SheetPortal, SheetTrigger } from '../index';
 
 export default {
   title: 'Design System/Components/Sheet',

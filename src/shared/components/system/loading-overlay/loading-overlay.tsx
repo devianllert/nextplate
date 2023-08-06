@@ -1,5 +1,4 @@
 import * as React from 'react';
-
 import { Spinner } from '@effable/react';
 
 import * as S from './loading-overlay.styled';

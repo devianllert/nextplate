@@ -1,5 +1,4 @@
 import * as React from 'react';
-
 import { capitalize } from '@effable/misc';
 import {
   Box, Container, DisplayOnBrowserMount, SkipNavLink, Stack, Text,

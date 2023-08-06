@@ -1,5 +1,4 @@
 import * as React from 'react';
-
 import deepmerge from 'deepmerge';
 
 import { responsiveProperty } from '../lib/responsive-property';

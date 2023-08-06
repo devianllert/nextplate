@@ -1,5 +1,4 @@
 import * as React from 'react';
-
 import {
   Box, Button, Heading, SimpleGrid, Stack, Text,
 } from '@effable/react';

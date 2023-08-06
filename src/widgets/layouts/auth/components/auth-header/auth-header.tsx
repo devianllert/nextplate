@@ -1,7 +1,5 @@
 import * as React from 'react';
-
 import Link from 'next/link';
-
 import {
   Box, Container, Heading, Stack,
 } from '@effable/react';

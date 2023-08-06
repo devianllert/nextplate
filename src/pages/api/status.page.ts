@@ -1,5 +1,4 @@
 import { NextApiRequest, NextApiResponse } from 'next';
-
 import * as Sentry from '@sentry/nextjs';
 
 import { configureReq } from '@/shared/lib/sentry';

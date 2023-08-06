@@ -1,5 +1,4 @@
 import * as React from 'react';
-
 import { Box, Stack } from '@effable/react';
 
 import { Dignity } from '../dignity';

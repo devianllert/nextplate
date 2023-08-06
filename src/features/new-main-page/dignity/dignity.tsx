@@ -1,7 +1,5 @@
 import * as React from 'react';
-
 import NextImage from 'next/image';
-
 import { Box, Heading, Text } from '@effable/react';
 
 export interface DignityProps {

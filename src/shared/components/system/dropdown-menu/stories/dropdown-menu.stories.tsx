@@ -1,5 +1,4 @@
 import * as React from 'react';
-
 import { Button } from '@effable/react';
 import styled from '@emotion/styled';
 import { Meta } from '@storybook/react';

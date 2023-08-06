@@ -1,5 +1,4 @@
 import * as React from 'react';
-
 import {
   Box, Code, Container, Heading, SimpleGrid,
 } from '@effable/react';

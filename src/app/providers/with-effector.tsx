@@ -1,5 +1,4 @@
 import { AppProps } from 'next/app';
-
 import { EffectorNext } from '@effector/next';
 
 import { EFFECTOR_STATE_KEY, EffectorState } from '@/shared/lib/effector';

@@ -1,5 +1,4 @@
 import { NextFetchEvent, NextRequest } from 'next/server';
-
 import pico from 'picocolors';
 
 import { MiddlewareFactory } from './types';

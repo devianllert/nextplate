@@ -1,6 +1,5 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import * as React from 'react';
-
 import { render, RenderOptions } from '@testing-library/react';
 import { RunOptions } from 'axe-core';
 import { axe, toHaveNoViolations } from 'jest-axe';

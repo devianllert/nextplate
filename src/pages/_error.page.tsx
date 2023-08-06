@@ -1,10 +1,8 @@
 /* eslint-disable no-lonely-if */
 
 import React from 'react';
-
 import { NextPageContext } from 'next';
 import NextError, { ErrorProps as NextErrorProps } from 'next/error';
-
 import * as Sentry from '@sentry/nextjs';
 
 export type ErrorPageProps = {

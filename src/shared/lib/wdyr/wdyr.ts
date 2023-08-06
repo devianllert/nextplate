@@ -12,7 +12,6 @@
  * @see https://github.com/vercel/next.js/tree/canary/examples/with-why-did-you-render
  */
 import * as React from 'react';
-
 import { isBrowser } from '@effable/misc';
 
 if (isBrowser() && process.env.NEXT_PUBLIC_APP_STAGE === 'development') {

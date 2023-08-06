@@ -1,5 +1,4 @@
 import * as React from 'react';
-
 import { wait } from '@effable/misc';
 import { Box, Heading } from '@effable/react';
 import { Meta, Story } from '@storybook/react';

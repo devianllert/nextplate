@@ -1,7 +1,5 @@
 import * as React from 'react';
-
 import Router from 'next/router';
-
 import { EffableTheme } from '@effable/react';
 import { css, Global, useTheme } from '@emotion/react';
 import NProgress from 'nprogress';

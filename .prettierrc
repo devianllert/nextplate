@@ -8,27 +8,32 @@
   "printWidth": 120,
   "endOfLine": "lf",
   "importOrder": [
+    "<BUILTIN_MODULES>",
     "^(react/(.*)$)|^(react$)",
     "^(next/(.*)$)|^(next$)",
     "<THIRD_PARTY_MODULES>",
     "",
+    "^@/app/(.*)$",
+    "",
     "^@/pages/(.*)$",
+    "",
     "^@/layouts/(.*)$",
+    "",
     "^@/features/(.*)$",
+    "",
     "^@/entities/(.*)$",
+    "",
     "^@/shared/(.*)$",
+    "",
     "^[./]"
   ],
-  "importOrderBuiltinModulesToTop": true,
-  "importOrderCaseInsensitive": true,
+  "importOrderTypeScriptVersion": "5.0.0",
   "importOrderParserPlugins": [
     "typescript",
     "jsx",
     "decorators-legacy"
   ],
-  "importOrderMergeDuplicateImports": true,
-  "importOrderCombineTypeAndValueImports": true,
-  "importOrderSeparation": true,
-  "importOrderSortSpecifiers": true,
-  "plugins": ["@ianvs/prettier-plugin-sort-imports"]
+  "plugins": [
+    "@ianvs/prettier-plugin-sort-imports"
+  ]
 }

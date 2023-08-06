@@ -1,5 +1,4 @@
 import * as React from 'react';
-
 import { capitalize } from '@effable/misc';
 import { Button, useEffableTheme } from '@effable/react';
 import { RiComputerLine, RiMoonLine, RiSunLine } from 'react-icons/ri';

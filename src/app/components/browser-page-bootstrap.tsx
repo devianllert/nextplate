@@ -1,10 +1,9 @@
 import * as React from 'react';
-
 import { useTranslation } from 'next-i18next';
-import { EnhancedAppProps } from '@/root/src/shared/types/enhanced-app-props';
-import { UniversalPageProps } from '@/root/src/shared/types/universal-page-props';
 
 import { createLogger } from '@/shared/lib/logging/logger';
+import { EnhancedAppProps } from '@/shared/types/enhanced-app-props';
+import { UniversalPageProps } from '@/shared/types/universal-page-props';
 
 const logger = createLogger('BrowserPageBootstrap');
 

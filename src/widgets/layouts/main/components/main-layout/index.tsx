@@ -1,5 +1,4 @@
 import * as React from 'react';
-
 import { Box, SkipNavContent } from '@effable/react';
 
 import { MainFooter } from '../main-footer';

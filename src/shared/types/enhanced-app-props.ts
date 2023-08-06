@@ -1,8 +1,7 @@
 import { AppProps } from 'next/app';
 
-import { UniversalPageProps } from '@/root/src/shared/types/universal-page-props';
-
 import { EnhancedNextPage } from '@/shared/types/enhanced-next-page';
+import { UniversalPageProps } from '@/shared/types/universal-page-props';
 
 /**
  * Props that are provided to the render function of the application (in _app)

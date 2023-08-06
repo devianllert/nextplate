@@ -1,10 +1,7 @@
 import { UrlObject } from 'url';
-
 import * as React from 'react';
-
 import Image from 'next/image';
 import NextLink from 'next/link';
-
 import {
   AspectRatio, Badge, Box, Heading, Text,
 } from '@effable/react';

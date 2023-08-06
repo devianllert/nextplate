@@ -1,7 +1,5 @@
 import { ParsedUrlQuery } from 'querystring';
-
 import { GetServerSidePropsContext, GetServerSidePropsResult, PreviewData } from 'next';
-
 import { allSettled, fork, Scope } from 'effector';
 import decode from 'jwt-decode';
 import { accessToken } from '@/root/mocks/auth-mock';

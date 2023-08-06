@@ -1,5 +1,4 @@
 import singletonRouter, { type NextRouter } from 'next/router';
-
 import { createDomain } from 'effector';
 
 export const routerDomain = createDomain('router');

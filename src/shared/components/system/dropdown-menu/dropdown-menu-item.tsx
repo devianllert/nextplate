@@ -1,15 +1,12 @@
 import * as React from 'react';
-
 import { Box, Switch } from '@effable/react';
 import { CSSObject, Theme } from '@emotion/react';
 import styled from '@emotion/styled';
 import * as DropdownMenuPrimitive from '@radix-ui/react-dropdown-menu';
 import { RiArrowRightSLine, RiCheckLine } from 'react-icons/ri';
 
-import { paragraphs } from '@/shared/design/tokens/typography';
-
 const menuItemCss = (props: { theme: Theme }): CSSObject => ({
-  ...paragraphs.body3,
+  fontSize: 18,
   fontWeight: 400,
   display: 'flex',
   alignItems: 'center',

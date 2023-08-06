@@ -1,5 +1,4 @@
 import * as React from 'react';
-
 import { PolymorphicComponent } from '@effable/react';
 
 import * as S from './status.styled';

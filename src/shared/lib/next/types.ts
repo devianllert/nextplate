@@ -1,8 +1,6 @@
 import { IncomingMessage, ServerResponse } from 'http';
 import { ParsedUrlQuery } from 'querystring';
-
 import { GetStaticPropsContext, PreviewData } from 'next';
-
 import { Event } from 'effector';
 
 export interface PageContextBase<Q extends ParsedUrlQuery = ParsedUrlQuery, P extends ParsedUrlQuery = ParsedUrlQuery> {

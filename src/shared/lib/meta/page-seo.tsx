@@ -1,8 +1,6 @@
 import * as React from 'react';
-
 import Head from 'next/head';
 import { useRouter } from 'next/router';
-
 import { useTranslation } from 'next-i18next';
 
 import { staticPath } from '@/shared/lib/$path';

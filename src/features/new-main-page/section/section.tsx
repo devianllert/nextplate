@@ -1,5 +1,4 @@
 import * as React from 'react';
-
 import { Box, Container } from '@effable/react';
 
 export interface SectionProps {

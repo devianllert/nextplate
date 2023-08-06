@@ -1,5 +1,4 @@
 import * as React from 'react';
-
 import { Box, Heading, Stack } from '@effable/react';
 import { useTranslation } from 'next-i18next';
 

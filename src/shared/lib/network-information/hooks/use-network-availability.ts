@@ -1,5 +1,4 @@
 import * as React from 'react';
-
 import { isBrowser } from '@effable/misc';
 
 /**

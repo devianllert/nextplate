@@ -1,5 +1,4 @@
 import * as React from 'react';
-
 import { Box } from '@effable/react';
 import { Meta, Story } from '@storybook/react';
 

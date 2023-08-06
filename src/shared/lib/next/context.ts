@@ -1,5 +1,4 @@
 import { ParsedUrlQuery } from 'querystring';
-
 import { GetServerSidePropsContext, GetStaticPropsContext } from 'next';
 import { NextRouter } from 'next/router';
 

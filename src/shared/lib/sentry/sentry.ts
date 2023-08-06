@@ -1,5 +1,4 @@
 import { NextApiRequest } from 'next';
-
 import * as Sentry from '@sentry/nextjs';
 
 /**

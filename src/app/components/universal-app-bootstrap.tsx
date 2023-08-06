@@ -1,9 +1,8 @@
 import * as React from 'react';
-
 import { isBrowser } from '@effable/misc';
 import * as Sentry from '@sentry/nextjs';
 import { useTranslation } from 'next-i18next';
-import { EnhancedAppProps } from '@/root/src/shared/types/enhanced-app-props';
+
 import { withProviders } from '@/app/providers';
 
 import ErrorPage from '@/pages/_error.page';
@@ -13,6 +12,7 @@ import { NProgressRoot } from '@/features/nprogress';
 import { DefaultErrorLayout } from '@/shared/components/error-handling';
 import { createLogger } from '@/shared/lib/logging/logger';
 import { configureSentryI18n } from '@/shared/lib/sentry';
+import { EnhancedAppProps } from '@/shared/types/enhanced-app-props';
 import { SSGPageProps } from '@/shared/types/ssg-page-props';
 import { SSRPageProps } from '@/shared/types/ssr-page-props';
 

@@ -1,7 +1,5 @@
 import * as React from 'react';
-
 import { useRouter } from 'next/router';
-
 import { Box, Container } from '@effable/react';
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
 

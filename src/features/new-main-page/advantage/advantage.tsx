@@ -1,5 +1,4 @@
 import * as React from 'react';
-
 import { Box, Heading, Text } from '@effable/react';
 
 import * as S from './advantage.styled';

@@ -1,5 +1,4 @@
 import * as React from 'react';
-
 import { Box } from '@effable/react';
 import { useTranslation } from 'next-i18next';
 import { RiGithubFill } from 'react-icons/ri';

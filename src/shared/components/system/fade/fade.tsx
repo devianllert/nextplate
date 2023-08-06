@@ -1,5 +1,4 @@
 import React from 'react';
-
 import {
   Variants as _Variants, AnimatePresence, HTMLMotionProps, motion,
 } from 'framer-motion';

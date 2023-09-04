@@ -5085,10 +5085,10 @@
   resolved "https://registry.yarnpkg.com/@types/node/-/node-20.4.7.tgz#74d323a93f1391a63477b27b9aec56669c98b2ab"
   integrity sha512-bUBrPjEry2QUTsnuEjzjbS7voGWCc30W0qzgMf90GPeDGFRakvrz47ju+oqDAKCXLUCe39u57/ORMl/O/04/9g==
 
-"@types/node@20.5.7":
-  version "20.5.7"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-20.5.7.tgz#4b8ecac87fbefbc92f431d09c30e176fc0a7c377"
-  integrity sha512-dP7f3LdZIysZnmvP3ANJYTSwg+wLLl8p7RqniVlV7j+oXSXAbt9h0WIBFmJy5inWZoX9wZN6eXx+YXd9Rh3RBA==
+"@types/node@20.5.9":
+  version "20.5.9"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-20.5.9.tgz#a70ec9d8fa0180a314c3ede0e20ea56ff71aed9a"
+  integrity sha512-PcGNd//40kHAS3sTlzKB9C9XL4K0sTup8nbG5lC14kzEteTNuAFh9u5nA0o5TWnSG2r/JNPRXFVcHJIIeRlmqQ==
 
 "@types/node@^16.0.0":
   version "16.18.39"
@@ -5259,10 +5259,10 @@
   resolved "https://registry.yarnpkg.com/@types/urijs/-/urijs-1.19.19.tgz#2789369799907fc11e2bc6e3a00f6478c2281b95"
   integrity sha512-FDJNkyhmKLw7uEvTxx5tSXfPeQpO0iy73Ry+PmYZJvQy0QIWX8a7kJ4kLWRf+EbTPJEPDSgPXHaM7pzr5lmvCg==
 
-"@types/uuid@9.0.2":
-  version "9.0.2"
-  resolved "https://registry.yarnpkg.com/@types/uuid/-/uuid-9.0.2.tgz#ede1d1b1e451548d44919dc226253e32a6952c4b"
-  integrity sha512-kNnC1GFBLuhImSnV7w4njQkUiJi0ZXUycu1rUaouPqiKlXkh77JKgdRnTAp1x5eBwcIwbtI+3otwzuIDEuDoxQ==
+"@types/uuid@9.0.3":
+  version "9.0.3"
+  resolved "https://registry.yarnpkg.com/@types/uuid/-/uuid-9.0.3.tgz#6cdd939b4316b4f81625de9f06028d848c4a1533"
+  integrity sha512-taHQQH/3ZyI3zP8M/puluDEIEvtQHVYcC6y3N8ijFtAd28+Ey/G4sg1u2gB01S8MwybLOKAp9/yCMu/uR5l3Ug==
 
 "@types/yargs-parser@*":
   version "21.0.0"
@@ -9121,10 +9121,10 @@ forwarded@0.2.0:
   resolved "https://registry.yarnpkg.com/forwarded/-/forwarded-0.2.0.tgz#2269936428aad4c15c7ebe9779a84bf0b2a81811"
   integrity sha512-buRG0fpBtRHSTCOASe6hD258tEubFoRLb4ZNA6NxMVHNw2gOcwHo9wyablzMzOA5z9xA9L1KNjk/Nt6MT9aYow==
 
-framer-motion@10.16.1:
-  version "10.16.1"
-  resolved "https://registry.yarnpkg.com/framer-motion/-/framer-motion-10.16.1.tgz#0ff5de554bbb35ee6605357d80f92b27d0271a94"
-  integrity sha512-K6TXr5mZtitC/dxQCBdg7xzdN0d5IAIrlaqCPKtIQVdzVPGC0qBuJKXggHX1vjnP5gPOFwB1KbCCTWcnFc3kWg==
+framer-motion@10.16.2:
+  version "10.16.2"
+  resolved "https://registry.yarnpkg.com/framer-motion/-/framer-motion-10.16.2.tgz#b737f628f69a883824024124dab452273f73cbba"
+  integrity sha512-aY6L9YMvqMWtfOQptaUvvr8dp97jskXY5UYLQM0vOPxKeERrG/Z034EIQZ/52u7MeCT0HlCQy3/l0HdUZCB9Tw==
   dependencies:
     tslib "^2.4.0"
   optionalDependencies:

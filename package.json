@@ -88,7 +88,7 @@
     "timeago-react": "3.0.6",
     "timeago.js": "4.0.2",
     "uuid": "9.0.1",
-    "zod": "3.22.2"
+    "zod": "3.22.3"
   },
   "devDependencies": {
     "@commitlint/cli": "17.7.2",

@@ -2576,24 +2576,24 @@
   resolved "https://registry.yarnpkg.com/@open-draft/until/-/until-1.0.3.tgz#db9cc719191a62e7d9200f6e7bab21c5b848adca"
   integrity sha512-Aq58f5HiWdyDlFffbbSjAlv596h/cOnt2DO1w3DOC7OJ5EHs0hd/nycJfiu9RJbT6Yk6F1knnRRXNSpxoIVZ9Q==
 
-"@orval/angular@6.19.0":
-  version "6.19.0"
-  resolved "https://registry.yarnpkg.com/@orval/angular/-/angular-6.19.0.tgz#a4ab8a3d39e78915cdff0a9e3ce8de36a94399aa"
-  integrity sha512-xdPtrZo+vhMIpK5GWhmQJb/Ws+Lc4vM/rkOE3YXw8U869gwxxCwbI4l9+hKYIz2S4ZIzCSIb2lGeIzlPZb297Q==
+"@orval/angular@6.19.1":
+  version "6.19.1"
+  resolved "https://registry.yarnpkg.com/@orval/angular/-/angular-6.19.1.tgz#85529eee70816eeb650ac6f6576cbf83b64dc2c5"
+  integrity sha512-8yd1Z75r8VBFFfednXz3eEIrVeEZX+HF6urH0t9EfifJBmO62kSwtJop3UoR3WXq6J4m+ck3nZ4lR9oJ7LeL9g==
   dependencies:
-    "@orval/core" "6.19.0"
+    "@orval/core" "6.19.1"
 
-"@orval/axios@6.19.0":
-  version "6.19.0"
-  resolved "https://registry.yarnpkg.com/@orval/axios/-/axios-6.19.0.tgz#1e6f16d661086f716b7e7496f0a353f00b1b09cd"
-  integrity sha512-vsX9oDhhOODgQnY9v4smN9HsM+TgQvjvMMZutsRM9ssyI7IrmCcYp0EkE0F/WThVtc+XxQOyH5RQ3C5zaXe1Tw==
+"@orval/axios@6.19.1":
+  version "6.19.1"
+  resolved "https://registry.yarnpkg.com/@orval/axios/-/axios-6.19.1.tgz#3605e6a217e05fe4531035dee7a9fe81737d933b"
+  integrity sha512-yV8da4UYoR3OnyqIkj8+b4SSO29e+zLSksKtcHST5DNxwx+wV23DLY9/kdQ286WjSkkQp16hK2XGXMg0cJMtBg==
   dependencies:
-    "@orval/core" "6.19.0"
+    "@orval/core" "6.19.1"
 
-"@orval/core@6.19.0":
-  version "6.19.0"
-  resolved "https://registry.yarnpkg.com/@orval/core/-/core-6.19.0.tgz#34b77b25ad9db79c6487723f014e4b1c17134837"
-  integrity sha512-CtwPyDinvelYEZ7eQ4zVKsRiIWrnO11AWgZdZ4YKO2Y3zovpBlhfPRMuaXcfDNdwVj2G37qlfu1g19H7zG5rpA==
+"@orval/core@6.19.1":
+  version "6.19.1"
+  resolved "https://registry.yarnpkg.com/@orval/core/-/core-6.19.1.tgz#775c1243a7024a451ecb63bd6a3017b43e2fe52d"
+  integrity sha512-EoHT+MkFL4+sKxi9bKxL0rEWplE3Nls+fp+dhySnCHyRqkV4OXxdBxQd6SawHJqRue1+RvFyEaKGCc2zwe6CPA==
   dependencies:
     "@apidevtools/swagger-parser" "^10.1.0"
     acorn "^8.8.0"
@@ -2617,38 +2617,38 @@
     swagger2openapi "^7.0.8"
     validator "^13.7.0"
 
-"@orval/msw@6.19.0":
-  version "6.19.0"
-  resolved "https://registry.yarnpkg.com/@orval/msw/-/msw-6.19.0.tgz#57ab831a803aad59d17380826038ebff4139caf1"
-  integrity sha512-B9fQ4FYZIUs582QNHzKWrbQvee96YdP4DGT0y26NimNVqLtYP2CFXTGnZNoXXOUnacRM5X/nEe5ttmT/jRXBIQ==
+"@orval/msw@6.19.1":
+  version "6.19.1"
+  resolved "https://registry.yarnpkg.com/@orval/msw/-/msw-6.19.1.tgz#1fc35a7feac8c87710ca35da6074a29f6e37727d"
+  integrity sha512-cE9Ix6W7a4brzytGuKH0IpcWljmznMbnEQf5+M7zfi6T7dQnc0cSmiNJW2kKgfO2hQqDJMoeXo3BA2eaKODpyQ==
   dependencies:
-    "@orval/core" "6.19.0"
+    "@orval/core" "6.19.1"
     cuid "^2.1.8"
     lodash.get "^4.4.2"
     lodash.omit "^4.5.0"
     openapi3-ts "^3.0.0"
 
-"@orval/query@6.19.0":
-  version "6.19.0"
-  resolved "https://registry.yarnpkg.com/@orval/query/-/query-6.19.0.tgz#42c4e32f78571799da4fae2f12cdbb2f41f648f6"
-  integrity sha512-qFWn4QdJuBYfh8+1A/+esywRXtV4FcmQfsgDcNwk/qb+TG9+KWqH5bOtFsC4C/8Y96NuGal9yr2tsAFhw+wAhg==
+"@orval/query@6.19.1":
+  version "6.19.1"
+  resolved "https://registry.yarnpkg.com/@orval/query/-/query-6.19.1.tgz#0c315586ca6dd1141c9af2e8ea4f85952a7abe2a"
+  integrity sha512-v2CSqLkPZePwytkQOazIvSPm8VZcZfSCt8zt2J1EiieJGSRZP2G9wA6nZdr3IVpiXUhq3R8xDg9Y8xO/VhoNlQ==
   dependencies:
-    "@orval/core" "6.19.0"
+    "@orval/core" "6.19.1"
     lodash.omitby "^4.6.0"
 
-"@orval/swr@6.19.0":
-  version "6.19.0"
-  resolved "https://registry.yarnpkg.com/@orval/swr/-/swr-6.19.0.tgz#a8459776964d5602d9526b29c9b41817620654b5"
-  integrity sha512-djpnwJt/8KYmUyVtPVb/8cnkUU9B/W41l8Kcs+HtGA/onz11H3tv6gU4HLVJZS4IQjrnps0axbo48IqPKKOdDQ==
+"@orval/swr@6.19.1":
+  version "6.19.1"
+  resolved "https://registry.yarnpkg.com/@orval/swr/-/swr-6.19.1.tgz#eb99e7d22e91453c9c207f9fbb82c83b24d22794"
+  integrity sha512-CSkg/H6rpbX0JZ9QDOJLAyqf5//BA+ycdqAFGnL4TOAgN8z2AGeu1EqWyQc4Ls1YJIcLlzdrYE2poCT9KH1Weg==
   dependencies:
-    "@orval/core" "6.19.0"
+    "@orval/core" "6.19.1"
 
-"@orval/zod@6.19.0":
-  version "6.19.0"
-  resolved "https://registry.yarnpkg.com/@orval/zod/-/zod-6.19.0.tgz#55e4e0caa2769afbfd8041bbe945a00117dbfa9c"
-  integrity sha512-cnt/CZNLlSg3BYLFDq9xWeDe2Dx/+XVrpuYSYJGr6uEDjtjFNFxUTpN44F2GiW2zirXQQrPNs6IxwLbNU3rnMQ==
+"@orval/zod@6.19.1":
+  version "6.19.1"
+  resolved "https://registry.yarnpkg.com/@orval/zod/-/zod-6.19.1.tgz#3bea726ea23b3f9fc728fe89868013b0bedd3123"
+  integrity sha512-A2LqEEM1eHusITeFXsQFNhVjXR5mg2oIwjQRmjJdCZ98HlZpMoO6opEURUTF2qNtREI8HrjEyN7mUNIcLxrDyA==
   dependencies:
-    "@orval/core" "6.19.0"
+    "@orval/core" "6.19.1"
     lodash.uniq "^4.5.0"
 
 "@pkgjs/parseargs@^0.11.0":
@@ -5296,12 +5296,12 @@
   resolved "https://registry.yarnpkg.com/@types/node/-/node-20.5.1.tgz#178d58ee7e4834152b0e8b4d30cbfab578b9bb30"
   integrity sha512-4tT2UrL5LBqDwoed9wZ6N3umC4Yhz3W3FloMmiiG4JwmUJWpie0c7lcnUNd4gtMKuDEO4wRVS8B6Xa0uMRsMKg==
 
-"@types/node@20.8.7":
-  version "20.8.7"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-20.8.7.tgz#ad23827850843de973096edfc5abc9e922492a25"
-  integrity sha512-21TKHHh3eUHIi2MloeptJWALuCu5H7HQTdTrWIFReA8ad+aggoX+lRes3ex7/FtpC+sVUpFMQ+QTfYr74mruiQ==
+"@types/node@20.8.9":
+  version "20.8.9"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-20.8.9.tgz#646390b4fab269abce59c308fc286dcd818a2b08"
+  integrity sha512-UzykFsT3FhHb1h7yD4CA4YhBHq545JC0YnEz41xkipN88eKQtL6rSgocL5tbAP6Ola9Izm/Aw4Ora8He4x0BHg==
   dependencies:
-    undici-types "~5.25.1"
+    undici-types "~5.26.4"
 
 "@types/node@^18.0.0":
   version "18.18.6"
@@ -5371,10 +5371,10 @@
     "@types/scheduler" "*"
     csstype "^3.0.2"
 
-"@types/react@18.2.31":
-  version "18.2.31"
-  resolved "https://registry.yarnpkg.com/@types/react/-/react-18.2.31.tgz#74ae2630e4aa9af599584157abd3b95d96fb9b40"
-  integrity sha512-c2UnPv548q+5DFh03y8lEDeMfDwBn9G3dRwfkrxQMo/dOtRHUUO57k6pHvBIfH/VF4Nh+98mZ5aaSe+2echD5g==
+"@types/react@18.2.33":
+  version "18.2.33"
+  resolved "https://registry.yarnpkg.com/@types/react/-/react-18.2.33.tgz#055356243dc4350a9ee6c6a2c07c5cae12e38877"
+  integrity sha512-v+I7S+hu3PIBoVkKGpSYYpiBT1ijqEzWpzQD62/jm4K74hPpSP7FF9BnKG6+fg2+62weJYkkBWDJlZt5JO/9hg==
   dependencies:
     "@types/prop-types" "*"
     "@types/scheduler" "*"
@@ -12911,19 +12911,19 @@ ora@^5.4.1:
     strip-ansi "^6.0.0"
     wcwidth "^1.0.1"
 
-orval@6.19.0:
-  version "6.19.0"
-  resolved "https://registry.yarnpkg.com/orval/-/orval-6.19.0.tgz#6db3bc6d17efb4526c5bdea9711e7591450467f4"
-  integrity sha512-7KlwLUuU3y8tikuDx36tL6rP+pdik32TnN71ftjKVvZK4J+K2jNPUL5CuyUXlVgRRhIgvrvhQ/hjDvke89DWog==
+orval@6.19.1:
+  version "6.19.1"
+  resolved "https://registry.yarnpkg.com/orval/-/orval-6.19.1.tgz#a7cac7536f0bba44fd71bdfbee89eba8b63acc1b"
+  integrity sha512-V7z+mn8X4JcgC0uaGs6rwNNOJH4wk+LUidxiPoXVaLtHt8g7qUfKQseozbXx8rk+Qgx8WT7EY2+AjDNYNSTjGA==
   dependencies:
     "@apidevtools/swagger-parser" "^10.1.0"
-    "@orval/angular" "6.19.0"
-    "@orval/axios" "6.19.0"
-    "@orval/core" "6.19.0"
-    "@orval/msw" "6.19.0"
-    "@orval/query" "6.19.0"
-    "@orval/swr" "6.19.0"
-    "@orval/zod" "6.19.0"
+    "@orval/angular" "6.19.1"
+    "@orval/axios" "6.19.1"
+    "@orval/core" "6.19.1"
+    "@orval/msw" "6.19.1"
+    "@orval/query" "6.19.1"
+    "@orval/swr" "6.19.1"
+    "@orval/zod" "6.19.1"
     ajv "^8.11.0"
     cac "^6.7.12"
     chalk "^4.1.2"
@@ -13316,10 +13316,10 @@ pino-std-serializers@^6.0.0:
   resolved "https://registry.yarnpkg.com/pino-std-serializers/-/pino-std-serializers-6.2.2.tgz#d9a9b5f2b9a402486a5fc4db0a737570a860aab3"
   integrity sha512-cHjPPsE+vhj/tnhCy/wiMh3M3z3h/j15zHQX+S9GkTBgqJuTuJzYJ4gUyACLhDaJ7kk9ba9iRDmbH2tJU03OiA==
 
-pino@8.16.0:
-  version "8.16.0"
-  resolved "https://registry.yarnpkg.com/pino/-/pino-8.16.0.tgz#2465012a1d11fa2e7a0545032f636e203990ae26"
-  integrity sha512-UUmvQ/7KTZt/vHjhRrnyS7h+J7qPBQnpG80V56xmIC+o9IqYmQOw/UIny9S9zYDfRBR0ClouCr464EkBMIT7Fw==
+pino@8.16.1:
+  version "8.16.1"
+  resolved "https://registry.yarnpkg.com/pino/-/pino-8.16.1.tgz#dcaf82764b1a27f24101317cdd6453e96290f1d9"
+  integrity sha512-3bKsVhBmgPjGV9pyn4fO/8RtoVDR8ssW1ev819FsRXlRNgW8gR/9Kx+gCK4UPWd4JjrRDLWpzd/pb1AyWm3MGA==
   dependencies:
     atomic-sleep "^1.0.0"
     fast-redact "^3.1.1"
@@ -15802,10 +15802,10 @@ unbox-primitive@^1.0.2:
     has-symbols "^1.0.3"
     which-boxed-primitive "^1.0.2"
 
-undici-types@~5.25.1:
-  version "5.25.3"
-  resolved "https://registry.yarnpkg.com/undici-types/-/undici-types-5.25.3.tgz#e044115914c85f0bcbb229f346ab739f064998c3"
-  integrity sha512-Ga1jfYwRn7+cP9v8auvEXN1rX3sWqlayd4HP7OKk4mZWylEmu3KzXDUGrQUN6Ol7qo1gPvB2e5gX6udnyEPgdA==
+undici-types@~5.26.4:
+  version "5.26.5"
+  resolved "https://registry.yarnpkg.com/undici-types/-/undici-types-5.26.5.tgz#bcd539893d00b56e964fd2657a4866b221a65617"
+  integrity sha512-JlCMO+ehdEIKqlFxk6IfVoAUVmgz7cU7zD/h9XZ0qzeosSHmUJVOzSQvvYSYWXkFXC+IfLKSIffhv0sVZup6pA==
 
 unicode-canonical-property-names-ecmascript@^2.0.0:
   version "2.0.0"

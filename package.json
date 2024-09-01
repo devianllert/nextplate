@@ -152,7 +152,7 @@
     "jest-runner-groups": "2.2.0",
     "jest-styled-components": "7.2.0",
     "jest-to-match-shape-of": "1.3.2",
-    "lint-staged": "14.0.1",
+    "lint-staged": "15.2.10",
     "ngrok": "4.3.3",
     "orval": "6.20.0",
     "prettier": "2.8.8",

@@ -155,7 +155,7 @@
     "lint-staged": "14.0.1",
     "ngrok": "4.3.3",
     "orval": "6.20.0",
-    "prettier": "2.8.8",
+    "prettier": "3.4.2",
     "standard-version": "9.5.0",
     "storybook": "7.5.3",
     "typescript": "5.3.3"

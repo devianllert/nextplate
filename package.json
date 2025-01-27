@@ -129,7 +129,7 @@
     "@types/uuid": "9.0.8",
     "@typescript-eslint/eslint-plugin": "5.62.0",
     "@typescript-eslint/parser": "5.62.0",
-    "@welldone-software/why-did-you-render": "8.0.3",
+    "@welldone-software/why-did-you-render": "10.0.1",
     "axe-core": "4.8.4",
     "babel-jest": "29.7.0",
     "cross-env": "7.0.3",

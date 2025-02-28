@@ -141,7 +141,7 @@
     "eslint-plugin-effector": "0.12.0",
     "eslint-plugin-import": "2.29.1",
     "eslint-plugin-jsx-a11y": "6.8.0",
-    "eslint-plugin-prettier": "4.2.1",
+    "eslint-plugin-prettier": "5.2.3",
     "eslint-plugin-react": "7.33.2",
     "eslint-plugin-react-hooks": "5.2.0",
     "husky": "8.0.3",

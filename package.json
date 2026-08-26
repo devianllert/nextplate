@@ -87,7 +87,7 @@
     "sharp": "0.32.6",
     "timeago-react": "3.0.6",
     "timeago.js": "4.0.2",
-    "uuid": "9.0.1",
+    "uuid": "11.1.1",
     "zod": "3.22.5"
   },
   "devDependencies": {

@@ -1,6 +1,6 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-	"enabled": true,
+	"enabled": false,
 	"schedule": ["before 3am on Monday"],
 	"extends": [
 		"config:base",

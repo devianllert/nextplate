@@ -157,7 +157,7 @@
     "orval": "6.20.0",
     "prettier": "2.8.8",
     "standard-version": "9.5.0",
-    "storybook": "7.5.3",
+    "storybook": "7.6.21",
     "typescript": "5.3.3"
   },
   "msw": {
